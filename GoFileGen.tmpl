@@ -1,0 +1,27 @@
+{{$class := .}}
+// Automatic generation for {{.Name}}
+// generated file {{.GetNameNoNamespace}}.go
+package generated
+{{/* class generation */}}
+{{range .GetDescriptionLines}}
+// {{. -}}
+{{- end}}
+type {{.GetNameNoNamespace}} struct {
+}
+
+{{range .Members -}}
+{{if not .IsPrivate}}
+{{- range .GetDescriptionLines}}
+// {{. -}}
+{{- end}}
+func (self *{{$class.GetNameNoNamespace}}) Get{{.Name}}() {{.GetGoType}} {
+{{if .IsGoAnyType}}
+    return self.Get("{{.Name}}")
+{{else if .IsGoNativeType}}
+    return self.Get("{{.Name}}").{{.GetGopherjsCallName}}()
+{{else}}
+    return &{{.GetGoType}}{self.Get("{{.Name}}")}
+{{end -}}
+}
+{{end}}
+{{- end}}
