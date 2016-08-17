@@ -40,9 +40,12 @@ func (t *MemberType) UnmarshalJSON(buf []byte) error {
 	return nil
 }
 
+func (m *Member) GetNameUpperInitial() string {
+	return UpperInitial(m.Name)
+}
+
 func (m *Member) GetDescriptionLines() []string {
-	lines := strings.Replace(m.Description, "\r", "\n", -1)
-	return strings.Split(lines, "\n")
+	return SplitMultilines(m.Description)
 }
 
 func (m *Member) IsPrivate() bool {
@@ -51,19 +54,7 @@ func (m *Member) IsPrivate() bool {
 
 func (m *Member) GetGoType() string {
 	if len(m.Type.Names) == 1 {
-		if m.IsGoNativeType() {
-			return m.GetGoNativeType()
-		}
-
-		goType := m.Type.Names[0]
-		switch goType {
-		case "any":
-			return "interface{}"
-		case "object":
-			return "interface{}"
-		default:
-			return goType
-		}
+		return GoType(m.Type.Names[0])
 	}
 	return "interface{}"
 }
@@ -74,32 +65,32 @@ func (m *Member) IsGoAnyType() bool {
 
 func (m *Member) GetGoNativeType() string {
 	if len(m.Type.Names) == 1 {
-		switch m.Type.Names[0] {
-		case "boolean":
-			return "bool"
-		case "Boolean":
-			return "bool"
-		case "integer":
-			return "int"
-		case "Integer":
-			return "int"
-		case "number":
-			return "float64"
-		case "Number":
-			return "float64"
-		case "string":
-			return "string"
-		case "String":
-			return "string"
-		default:
-			return ""
-		}
+		return GoNativeType(m.Type.Names[0])
 	}
 	return ""
 }
 
 func (m *Member) IsGoNativeType() bool {
 	return m.GetGoNativeType() != ""
+}
+
+func (m *Member) IsCallback() bool {
+	return m.GetGoType() == "func(...interface{})"
+}
+
+func (m *Member) IsGenericArray() bool {
+	return m.GetGoType() == "[]interface{}"
+}
+
+func (m *Member) IsArray() bool {
+	return strings.HasPrefix(m.GetGoType(), "[]")
+}
+
+func (m *Member) GetGoTypeInArray() string {
+	if len(m.Type.Names) == 1 {
+		return GoTypeInArray(m.Type.Names[0])
+	}
+	return "interface{}"
 }
 
 func (m *Member) GetGopherjsCallName() string {

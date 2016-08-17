@@ -11,11 +11,12 @@ type Class struct {
 }
 
 func (c *Class) GetNamespace() string {
-	lastPoint := strings.LastIndex(c.Name, ".")
+	/*lastPoint := strings.LastIndex(c.Name, ".")
 	if lastPoint != -1 {
 		return c.Name[0:lastPoint]
 	}
-	return ""
+	return ""*/
+	return "phaser"
 }
 
 func (c *Class) GetPackage() string {
@@ -23,14 +24,9 @@ func (c *Class) GetPackage() string {
 }
 
 func (c *Class) GetNameNoNamespace() string {
-	lastPoint := strings.LastIndex(c.Name, ".")
-	if lastPoint != -1 {
-		return c.Name[lastPoint+1 : len(c.Name)]
-	}
-	return c.Name
+	return TypeNoNamespace(c.Name)
 }
 
 func (c *Class) GetDescriptionLines() []string {
-	lines := strings.Replace(c.Description, "\r", "\n", -1)
-	return strings.Split(lines, "\n")
+	return SplitMultilines(c.Description)
 }

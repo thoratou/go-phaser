@@ -1,27 +1,57 @@
-{{$class := .}}
 // Automatic generation for {{.Name}}
 // generated file {{.GetNameNoNamespace}}.go
-package generated
-{{/* class generation */}}
-{{range .GetDescriptionLines}}
-// {{. -}}
-{{- end}}
-type {{.GetNameNoNamespace}} struct {
-}
+package {{.GetNamespace}}
 
-{{range .Members -}}
-{{if not .IsPrivate}}
+import (
+	"github.com/gopherjs/gopherjs/js"
+)
+{{$class := . -}}
+{{/* class generation */}}
 {{- range .GetDescriptionLines}}
 // {{. -}}
 {{- end}}
-func (self *{{$class.GetNameNoNamespace}}) Get{{.Name}}() {{.GetGoType}} {
+type {{.GetNameNoNamespace}} struct {
+    *js.Object
+}
+
+{{range .Members -}}
+{{if not .IsPrivate}}{{if not .IsCallback}}
+{{- range .GetDescriptionLines}}
+// {{. -}}
+{{- end}}
+func (self *{{$class.GetNameNoNamespace}}) Get{{.GetNameUpperInitial}}() {{.GetGoType}} {
 {{if .IsGoAnyType}}
     return self.Get("{{.Name}}")
 {{else if .IsGoNativeType}}
     return self.Get("{{.Name}}").{{.GetGopherjsCallName}}()
+{{else if .IsGenericArray}}
+	array := l.Get("{{.Name}}")
+	length := array.Length()
+	out := make([]interface{}, length, length)
+	for i := 0; i < length; i++ {
+		out[i] = array.Index(i).Interface()
+	}
+	return out
+{{else if .IsArray}}
+	array := l.Get("{{.Name}}")
+	length := array.Length()
+	out := make({{.GetGoType}}, length, length)
+	for i := 0; i < length; i++ {
+		out[i] = {{.GetGoTypeInArray}}{array.Index(i)}
+	}
+	return out
 {{else}}
     return &{{.GetGoType}}{self.Get("{{.Name}}")}
 {{end -}}
+}
+{{end}}{{end -}}
+
+{{if not .IsPrivate}}
+{{- range .GetDescriptionLines}}
+// {{. -}}
+{{- end}}
+func (self *{{$class.GetNameNoNamespace}}) Set{{.GetNameUpperInitial}}(member {{.GetGoType}}) {
+    return self.Set("{{.Name}}", member)
 }
 {{end}}
 {{- end}}
