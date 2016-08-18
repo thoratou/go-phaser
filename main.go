@@ -41,7 +41,14 @@ func main() {
 	//debug
 	//fmt.Println(root)
 
-	//todo adapt data
+	//adapt data
+	classes := []Class{}
+	for _, class := range root.Classes {
+		class.Members = RemoveDuplicateMembers(class.Members, class.Name)
+		class.Functions = RemoveDuplicateFunctions(class.Functions, class.Name)
+		classes = append(classes, class)
+	}
+	root.Classes = classes
 
 	//write Go files
 	t := template.New("GoFileGen.tmpl")
