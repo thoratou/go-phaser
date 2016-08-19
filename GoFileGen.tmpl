@@ -4,6 +4,9 @@ package {{.GetNamespace}}
 
 import (
 	"github.com/gopherjs/gopherjs/js"
+{{ range $key, $value := .Imports }}
+	{{ $key }} "{{ $value }}"
+{{ end }}
 )
 {{$class := . -}}
 {{/* class generation */}}
@@ -25,7 +28,7 @@ func (self *{{$class.GetNameNoNamespace}}) Get{{.GetNameUpperInitial}}() {{.GetG
 {{else if .IsGoNativeType}}
     return self.Get("{{.Name}}").{{.GetGopherjsCallName}}()
 {{else if .IsGenericArray}}
-	array := l.Get("{{.Name}}")
+	array := self.Get("{{.Name}}")
 	length := array.Length()
 	out := make([]interface{}, length, length)
 	for i := 0; i < length; i++ {
@@ -33,7 +36,7 @@ func (self *{{$class.GetNameNoNamespace}}) Get{{.GetNameUpperInitial}}() {{.GetG
 	}
 	return out
 {{else if .IsArray}}
-	array := l.Get("{{.Name}}")
+	array := self.Get("{{.Name}}")
 	length := array.Length()
 	out := make({{.GetGoType}}, length, length)
 	for i := 0; i < length; i++ {
@@ -41,7 +44,7 @@ func (self *{{$class.GetNameNoNamespace}}) Get{{.GetNameUpperInitial}}() {{.GetG
 	}
 	return out
 {{else}}
-    return &{{.GetGoType}}{self.Get("{{.Name}}")}
+    return {{.GetGoType}}{self.Get("{{.Name}}")}
 {{end -}}
 }
 {{end}}{{end -}}
@@ -51,7 +54,7 @@ func (self *{{$class.GetNameNoNamespace}}) Get{{.GetNameUpperInitial}}() {{.GetG
 // {{. -}}
 {{- end}}
 func (self *{{$class.GetNameNoNamespace}}) Set{{.GetNameUpperInitial}}(member {{.GetGoType}}) {
-    return self.Set("{{.Name}}", member)
+    self.Set("{{.Name}}", member)
 }
 {{end}}
 {{- end}}
@@ -68,7 +71,7 @@ func (self *{{$class.GetNameNoNamespace}}) {{.GetNameUpperInitial}}I(args ...int
 {{else if .IsGoReturnNativeType}}
     return self.Call("{{.Name}}", args).{{.GetReturnGopherjsCallName}}()
 {{else if .IsReturnGenericArray}}
-	array := l.Call("{{.Name}}", args)
+	array := self.Call("{{.Name}}", args)
 	length := array.Length()
 	out := make([]interface{}, length, length)
 	for i := 0; i < length; i++ {
@@ -76,7 +79,7 @@ func (self *{{$class.GetNameNoNamespace}}) {{.GetNameUpperInitial}}I(args ...int
 	}
 	return out
 {{else if .IsReturnArray}}
-	array := l.Call("{{.Name}}", args)
+	array := self.Call("{{.Name}}", args)
 	length := array.Length()
 	out := make({{.GetGoReturnType}}, length, length)
 	for i := 0; i < length; i++ {
@@ -88,7 +91,7 @@ func (self *{{$class.GetNameNoNamespace}}) {{.GetNameUpperInitial}}I(args ...int
 	}
 	return out
 {{else}}
-    return &{{.GetGoReturnType}}{self.Call("{{.Name}}", args)}
+    return {{.GetGoReturnType}}{self.Call("{{.Name}}", args)}
 {{end -}}
 }
 {{end}}

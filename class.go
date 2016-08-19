@@ -3,11 +3,12 @@ package main
 import "strings"
 
 type Class struct {
-	Name        string      `json:"name"`
-	Description string      `json:"description"`
-	Constructor Constructor `json:"constructor"`
-	Functions   []Function  `json:"functions"`
-	Members     []Member    `json:"members"`
+	Name        string            `json:"name"`
+	Description string            `json:"description"`
+	Constructor Constructor       `json:"constructor"`
+	Functions   []Function        `json:"functions"`
+	Members     []Member          `json:"members"`
+	Imports     map[string]string `json:"-"`
 }
 
 func (c *Class) GetNamespace() string {

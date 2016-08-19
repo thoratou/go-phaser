@@ -23,6 +23,7 @@ func UpperInitial(str string) string {
 func TypeNoNamespace(str string) string {
 	str = strings.TrimPrefix(str, "Phaser.")
 	str = strings.TrimPrefix(str, "PIXI.")
+	str = strings.TrimPrefix(str, "PIXI.") //yes twice :)
 	/*lastPoint := strings.LastIndex(str, ".")
 	if lastPoint != -1 {
 		return str[lastPoint+1 : len(str)]
@@ -47,6 +48,8 @@ func GoNativeType(str string) string {
 		return "bool"
 	case "integer":
 		return "int"
+	case "integers":
+		return "int"
 	case "Integer":
 		return "int"
 	case "int":
@@ -56,6 +59,8 @@ func GoNativeType(str string) string {
 	case "Number":
 		return "float64"
 	case "float64":
+		return "float64"
+	case "float":
 		return "float64"
 	case "Bounds-like":
 		return "float64"
@@ -68,7 +73,7 @@ func GoNativeType(str string) string {
 	}
 }
 
-func GoType(str string) string {
+func GoType(str string, typePackage string) string {
 	if native := GoNativeType(str); native != "" {
 		return native
 	}
@@ -76,6 +81,8 @@ func GoType(str string) string {
 	case "any":
 		return "interface{}"
 	case "object":
+		return "interface{}"
+	case "Object":
 		return "interface{}"
 	case "*":
 		return "interface{}"
@@ -96,7 +103,7 @@ func GoType(str string) string {
 			if native := GoNativeType(typeInArray); native != "" {
 				return "[]" + native
 			}
-			return "[]" + TypeNoNamespace(typeInArray)
+			return "[]" + AppendPackage(typePackage) + TypeNoNamespace(typeInArray)
 		}
 		if strings.HasPrefix(str, "array.<") {
 			typeInArray := strings.TrimPrefix(str, "array.<")
@@ -104,23 +111,30 @@ func GoType(str string) string {
 			if native := GoNativeType(typeInArray); native != "" {
 				return "[]" + native
 			}
-			return "[]" + TypeNoNamespace(typeInArray)
+			return "[]" + AppendPackage(typePackage) + TypeNoNamespace(typeInArray)
 		}
-		return TypeNoNamespace(str)
+		return AppendPackage(typePackage) + TypeNoNamespace(str)
 	}
 }
 
-func GoTypeInArray(str string) string {
-	if fullType := GoType(str); strings.HasPrefix(fullType, "[]") {
+func GoTypeInArray(str string, typePackage string) string {
+	if fullType := GoType(str, typePackage); strings.HasPrefix(fullType, "[]") {
 		return strings.TrimPrefix(fullType, "[]")
 	}
 	return ""
 }
 
-func GoTypeNativeInArray(str string) string {
-	if fullType := GoType(str); strings.HasPrefix(fullType, "[]") {
+func GoTypeNativeInArray(str string, typePackage string) string {
+	if fullType := GoType(str, typePackage); strings.HasPrefix(fullType, "[]") {
 		typeInArray := strings.TrimPrefix(fullType, "[]")
 		return GoNativeType(typeInArray)
+	}
+	return ""
+}
+
+func AppendPackage(typePackage string) string {
+	if typePackage != "" {
+		return typePackage + "."
 	}
 	return ""
 }
@@ -162,5 +176,41 @@ func RemoveDuplicateFunctions(elements []Function, className string) []Function 
 		}
 	}
 	// Return the new slice.
+	return result
+}
+
+func AddMemberImports(class *Class, elements []Member, additionalPackages map[string]string, additionalImports map[string]string) []Member {
+	result := []Member{}
+	for _, v := range elements {
+		//return type
+		if addPackage, exists := additionalPackages[v.GetGoType()]; exists {
+			fmt.Println("note: add package: " + addPackage + " to type: " + v.GetGoType())
+			if addImport, exists := additionalImports[addPackage]; exists {
+				class.Imports[addPackage] = addImport
+				v.Type.Package = addPackage
+			} else {
+				fmt.Println("warning: missing import for package: " + addPackage)
+			}
+		}
+		result = append(result, v)
+	}
+	return result
+}
+
+func AddFunctionImports(class *Class, elements []Function, additionalPackages map[string]string, additionalImports map[string]string) []Function {
+	result := []Function{}
+	for _, v := range elements {
+		//return type
+		if addPackage, exists := additionalPackages[v.GetGoReturnType()]; exists {
+			fmt.Println("note: add package: " + addPackage + " to type: " + v.GetGoReturnType())
+			if addImport, exists := additionalImports[addPackage]; exists {
+				class.Imports[addPackage] = addImport
+				v.Return.Package = addPackage
+			} else {
+				fmt.Println("warning: missing import for package: " + addPackage)
+			}
+		}
+		result = append(result, v)
+	}
 	return result
 }

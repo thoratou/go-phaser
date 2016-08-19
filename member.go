@@ -7,7 +7,8 @@ import (
 )
 
 type MemberType struct {
-	Names []string
+	Names   []string
+	Package string
 }
 
 type Member struct {
@@ -54,7 +55,7 @@ func (m *Member) IsPrivate() bool {
 
 func (m *Member) GetGoType() string {
 	if len(m.Type.Names) == 1 {
-		return GoType(m.Type.Names[0])
+		return GoType(m.Type.Names[0], m.Type.Package)
 	}
 	return "interface{}"
 }
@@ -88,14 +89,18 @@ func (m *Member) IsArray() bool {
 
 func (m *Member) GetGoTypeInArray() string {
 	if len(m.Type.Names) == 1 {
-		return GoTypeInArray(m.Type.Names[0])
+		return GoTypeInArray(m.Type.Names[0], m.Type.Package)
 	}
 	return "interface{}"
 }
 
 func (m *Member) GetGopherjsCallName() string {
 	if m.IsGoNativeType() {
-		return UpperInitial(m.GetGoNativeType())
+		native := m.GetGoNativeType()
+		if native == "float64" {
+			return "Float"
+		}
+		return UpperInitial(native)
 	}
 	return ""
 }

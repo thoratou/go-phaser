@@ -9,6 +9,7 @@ import (
 type Return struct {
 	Type        []string `json:"-"`
 	Description string   `json:"-"`
+	Package     string   `json:"-"`
 }
 
 type Function struct {
@@ -71,7 +72,7 @@ func (f *Function) GetDescriptionLines() []string {
 
 func (f *Function) GetGoReturnType() string {
 	if len(f.Return.Type) == 1 {
-		return GoType(f.Return.Type[0])
+		return GoType(f.Return.Type[0], f.Return.Package)
 	}
 	return "interface{}"
 }
@@ -105,14 +106,14 @@ func (f *Function) IsReturnArray() bool {
 
 func (f *Function) GetGoReturnTypeInArray() string {
 	if len(f.Return.Type) == 1 {
-		return GoTypeInArray(f.Return.Type[0])
+		return GoTypeInArray(f.Return.Type[0], f.Return.Package)
 	}
 	return "interface{}"
 }
 
 func (f *Function) GetGoReturnNativeTypeInArray() string {
 	if len(f.Return.Type) == 1 {
-		return GoTypeNativeInArray(f.Return.Type[0])
+		return GoTypeNativeInArray(f.Return.Type[0], f.Return.Package)
 	}
 	return ""
 }
@@ -123,14 +124,22 @@ func (f *Function) IsGoReturnNativeTypeInArray() bool {
 
 func (f *Function) GetReturnGopherjsCallName() string {
 	if f.IsGoReturnNativeType() {
-		return UpperInitial(f.GetGoReturnNativeType())
+		native := f.GetGoReturnNativeType()
+		if native == "float64" {
+			return "Float"
+		}
+		return UpperInitial(native)
 	}
 	return ""
 }
 
 func (f *Function) GetReturnGopherjsCallNameInArray() string {
 	if f.IsGoReturnNativeTypeInArray() {
-		return UpperInitial(f.GetGoReturnNativeTypeInArray())
+		native := f.GetGoReturnNativeTypeInArray()
+		if native == "float64" {
+			return "Float"
+		}
+		return UpperInitial(native)
 	}
 	return ""
 }

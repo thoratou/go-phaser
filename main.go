@@ -42,10 +42,28 @@ func main() {
 	//fmt.Println(root)
 
 	//adapt data
+	//additional import
+	additionalImports := map[string]string{
+		"dom": "honnef.co/go/js/dom",
+	}
+
+	additionalPackages := map[string]string{
+		"HTMLCanvasElement":        "dom",
+		"CanvasRenderingContext2D": "dom",
+		"HTMLVideoElement":         "dom",
+	}
+
 	classes := []Class{}
 	for _, class := range root.Classes {
+		//duplicates
 		class.Members = RemoveDuplicateMembers(class.Members, class.Name)
 		class.Functions = RemoveDuplicateFunctions(class.Functions, class.Name)
+
+		//additional imports
+		class.Imports = map[string]string{}
+		class.Members = AddMemberImports(&class, class.Members, additionalPackages, additionalImports)
+		class.Functions = AddFunctionImports(&class, class.Functions, additionalPackages, additionalImports)
+
 		classes = append(classes, class)
 	}
 	root.Classes = classes
@@ -59,7 +77,22 @@ func main() {
 	}
 
 	repositoryPath := os.Getenv("GOPATH") + "/src/" + parsedArgs.Repository + "/generated/"
-	fmt.Println("Output path:" + repositoryPath)
+	fmt.Println("Output path: " + repositoryPath)
+
+	e = os.RemoveAll(repositoryPath)
+	if e != nil {
+		fmt.Printf("Remove directory error: %v\n", e)
+		os.Exit(1)
+	}
+	fmt.Println("Cleaned-up ouput path: " + repositoryPath)
+
+	workaroundPath := os.Getenv("GOPATH") + "/src/" + parsedArgs.Repository + "/workaround/"
+	e = CopyDir(workaroundPath, repositoryPath)
+	if e != nil {
+		fmt.Printf("Copy directory error: %v\n", e)
+		os.Exit(1)
+	}
+	fmt.Println("Workaround files copied: " + workaroundPath)
 
 	for _, class := range root.Classes {
 		path := repositoryPath + strings.Replace(class.GetNamespace(), ".", "/", -1)
@@ -88,4 +121,5 @@ func main() {
 			os.Exit(1)
 		}
 	}
+	fmt.Println("All files generated")
 }
