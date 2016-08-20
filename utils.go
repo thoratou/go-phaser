@@ -210,6 +210,26 @@ func AddFunctionImports(class *Class, elements []Function, additionalPackages ma
 				fmt.Println("warning: missing import for package: " + addPackage)
 			}
 		}
+		//parameters
+		v.Parameters = AddParamaterImports(class, v.Parameters, additionalPackages, additionalImports)
+		result = append(result, v)
+	}
+	return result
+}
+
+func AddParamaterImports(class *Class, elements []Parameter, additionalPackages map[string]string, additionalImports map[string]string) []Parameter {
+	result := []Parameter{}
+	for _, v := range elements {
+		//return type
+		if addPackage, exists := additionalPackages[v.Type.GetType()]; exists {
+			fmt.Println("note: add package: " + addPackage + " to parameter type: " + v.Type.GetType())
+			if _, exists := additionalImports[addPackage]; exists {
+				//class.Imports[addPackage] = addImport
+				v.Type.Package = addPackage
+			} else {
+				fmt.Println("warning: missing import for package: " + addPackage)
+			}
+		}
 		result = append(result, v)
 	}
 	return result
