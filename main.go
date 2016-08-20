@@ -53,9 +53,17 @@ func main() {
 		"HTMLVideoElement":         "dom",
 	}
 
+	wrappers := map[string]string{
+		"WebGLContext":                 "WrapWebGLContext",
+		"DOMElement":                   "WrapDOMElement",
+		"dom.HTMLCanvasElement":        "WrapHTMLCanvasElement",
+		"dom.HTMLVideoElement":         "WrapHTMLVideoElement",
+		"dom.CanvasRenderingContext2D": "WrapCanvasRenderingContext2D",
+	}
+
 	classes := []Class{}
 	for _, class := range root.Classes {
-		//duplicates
+		//remove duplicates
 		class.Members = RemoveDuplicateMembers(class.Members, class.Name)
 		class.Functions = RemoveDuplicateFunctions(class.Functions, class.Name)
 
@@ -63,6 +71,10 @@ func main() {
 		class.Imports = map[string]string{}
 		class.Members = AddMemberImports(&class, class.Members, additionalPackages, additionalImports)
 		class.Functions = AddFunctionImports(&class, class.Functions, additionalPackages, additionalImports)
+
+		//add type wrappers
+		class.Members = AddMemberWrappers(class.Members, wrappers)
+		class.Functions = AddFunctionWrappers(class.Functions, wrappers)
 
 		classes = append(classes, class)
 	}

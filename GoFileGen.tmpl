@@ -23,7 +23,9 @@ type {{.GetNameNoNamespace}} struct {
 // {{. -}}
 {{- end}}
 func (self *{{$class.GetNameNoNamespace}}) Get{{.GetNameUpperInitial}}() {{.Type.GetType -}} {
-{{- if .Type.IsAnyType}}
+{{- if .Type.HasWrapper}}
+    return {{.Type.Wrapper}}(self.Get("{{.Name}}"))
+{{else if .Type.IsAnyType}}
     return self.Get("{{.Name}}")
 {{else if .Type.IsNativeType}}
     return self.Get("{{.Name}}").{{.Type.GetGopherjsCallName}}()
@@ -66,6 +68,8 @@ func (self *{{$class.GetNameNoNamespace}}) Set{{.GetNameUpperInitial}}(member {{
 func (self *{{$class.GetNameNoNamespace}}) {{.GetNameUpperInitial}}I(args ...interface{}) {{if not .Return.IsVoid -}}{{.Return.GetType}} {{- end}}{
 {{- if .Return.IsVoid}}
     self.Call("{{.Name}}", args)
+{{else if .Return.HasWrapper}}
+    return {{.Return.Wrapper}}(self.Call("{{.Name}}", args))
 {{else if .Return.IsAnyType}}
     return self.Call("{{.Name}}", args)
 {{else if .Return.IsNativeType}}

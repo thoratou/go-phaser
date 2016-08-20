@@ -183,8 +183,8 @@ func AddMemberImports(class *Class, elements []Member, additionalPackages map[st
 	result := []Member{}
 	for _, v := range elements {
 		//return type
-		if addPackage, exists := additionalPackages[v.GetGoType()]; exists {
-			fmt.Println("note: add package: " + addPackage + " to type: " + v.GetGoType())
+		if addPackage, exists := additionalPackages[v.Type.GetType()]; exists {
+			fmt.Println("note: add package: " + addPackage + " to type: " + v.Type.GetType())
 			if addImport, exists := additionalImports[addPackage]; exists {
 				class.Imports[addPackage] = addImport
 				v.Type.Package = addPackage
@@ -209,6 +209,32 @@ func AddFunctionImports(class *Class, elements []Function, additionalPackages ma
 			} else {
 				fmt.Println("warning: missing import for package: " + addPackage)
 			}
+		}
+		result = append(result, v)
+	}
+	return result
+}
+
+func AddMemberWrappers(elements []Member, wrappers map[string]string) []Member {
+	result := []Member{}
+	for _, v := range elements {
+		//return type
+		if wrapper, exists := wrappers[v.Type.GetType()]; exists {
+			fmt.Println("note: add wrapper: " + wrapper + " to type: " + v.Type.GetType())
+			v.Type.Wrapper = wrapper
+		}
+		result = append(result, v)
+	}
+	return result
+}
+
+func AddFunctionWrappers(elements []Function, wrappers map[string]string) []Function {
+	result := []Function{}
+	for _, v := range elements {
+		//return type
+		if wrapper, exists := wrappers[v.Return.GetType()]; exists {
+			fmt.Println("note: add wrapper: " + wrapper + " to type: " + v.Return.GetType())
+			v.Return.Wrapper = wrapper
 		}
 		result = append(result, v)
 	}

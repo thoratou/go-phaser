@@ -7,9 +7,10 @@ import (
 )
 
 type Type struct {
-	Names       []string `json:"-"`
-	Description string   `json:"-"`
-	Package     string   `json:"-"`
+	Names       []string
+	Description string
+	Package     string
+	Wrapper     string
 }
 
 func (t *Type) UnmarshalJSON(buf []byte) error {
@@ -124,4 +125,8 @@ func (t *Type) GetGopherjsCallNameInArray() string {
 		return UpperInitial(native)
 	}
 	return ""
+}
+
+func (t *Type) HasWrapper() bool {
+	return t.Wrapper != ""
 }
