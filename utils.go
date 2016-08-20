@@ -201,8 +201,8 @@ func AddFunctionImports(class *Class, elements []Function, additionalPackages ma
 	result := []Function{}
 	for _, v := range elements {
 		//return type
-		if addPackage, exists := additionalPackages[v.GetGoReturnType()]; exists {
-			fmt.Println("note: add package: " + addPackage + " to type: " + v.GetGoReturnType())
+		if addPackage, exists := additionalPackages[v.Return.GetType()]; exists {
+			fmt.Println("note: add package: " + addPackage + " to type: " + v.Return.GetType())
 			if addImport, exists := additionalImports[addPackage]; exists {
 				class.Imports[addPackage] = addImport
 				v.Return.Package = addPackage

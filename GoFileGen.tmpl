@@ -22,12 +22,12 @@ type {{.GetNameNoNamespace}} struct {
 {{- range .GetDescriptionLines}}
 // {{. -}}
 {{- end}}
-func (self *{{$class.GetNameNoNamespace}}) Get{{.GetNameUpperInitial}}() {{.GetGoType -}} {
-{{- if .IsGoAnyType}}
+func (self *{{$class.GetNameNoNamespace}}) Get{{.GetNameUpperInitial}}() {{.Type.GetType -}} {
+{{- if .Type.IsAnyType}}
     return self.Get("{{.Name}}")
-{{else if .IsGoNativeType}}
-    return self.Get("{{.Name}}").{{.GetGopherjsCallName}}()
-{{else if .IsGenericArray}}
+{{else if .Type.IsNativeType}}
+    return self.Get("{{.Name}}").{{.Type.GetGopherjsCallName}}()
+{{else if .Type.IsGenericArray}}
 	array := self.Get("{{.Name}}")
 	length := array.Length()
 	out := make([]interface{}, length, length)
@@ -35,16 +35,16 @@ func (self *{{$class.GetNameNoNamespace}}) Get{{.GetNameUpperInitial}}() {{.GetG
 		out[i] = array.Index(i).Interface()
 	}
 	return out
-{{else if .IsArray}}
+{{else if .Type.IsArray}}
 	array := self.Get("{{.Name}}")
 	length := array.Length()
-	out := make({{.GetGoType}}, length, length)
+	out := make({{.Type.GetType}}, length, length)
 	for i := 0; i < length; i++ {
-		out[i] = {{.GetGoTypeInArray}}{array.Index(i)}
+		out[i] = {{.Type.GetTypeInArray}}{array.Index(i)}
 	}
 	return out
 {{else}}
-    return {{.GetGoType}}{self.Get("{{.Name}}")}
+    return {{.Type.GetType}}{self.Get("{{.Name}}")}
 {{end -}}
 }
 {{end}}{{end -}}
@@ -53,7 +53,7 @@ func (self *{{$class.GetNameNoNamespace}}) Get{{.GetNameUpperInitial}}() {{.GetG
 {{- range .GetDescriptionLines}}
 // {{. -}}
 {{- end}}
-func (self *{{$class.GetNameNoNamespace}}) Set{{.GetNameUpperInitial}}(member {{.GetGoType}}) {
+func (self *{{$class.GetNameNoNamespace}}) Set{{.GetNameUpperInitial}}(member {{.Type.GetType}}) {
     self.Set("{{.Name}}", member)
 }
 {{end}}
@@ -63,14 +63,14 @@ func (self *{{$class.GetNameNoNamespace}}) Set{{.GetNameUpperInitial}}(member {{
 {{- range .GetDescriptionLines}}
 // {{. -}}
 {{- end}}
-func (self *{{$class.GetNameNoNamespace}}) {{.GetNameUpperInitial}}I(args ...interface{}) {{if not .IsReturnVoid -}}{{.GetGoReturnType}} {{- end}}{
-{{- if .IsReturnVoid}}
+func (self *{{$class.GetNameNoNamespace}}) {{.GetNameUpperInitial}}I(args ...interface{}) {{if not .Return.IsVoid -}}{{.Return.GetType}} {{- end}}{
+{{- if .Return.IsVoid}}
     self.Call("{{.Name}}", args)
-{{else if .IsGoReturnAnyType}}
+{{else if .Return.IsAnyType}}
     return self.Call("{{.Name}}", args)
-{{else if .IsGoReturnNativeType}}
-    return self.Call("{{.Name}}", args).{{.GetReturnGopherjsCallName}}()
-{{else if .IsReturnGenericArray}}
+{{else if .Return.IsNativeType}}
+    return self.Call("{{.Name}}", args).{{.Return.GetGopherjsCallName}}()
+{{else if .Return.IsGenericArray}}
 	array := self.Call("{{.Name}}", args)
 	length := array.Length()
 	out := make([]interface{}, length, length)
@@ -78,20 +78,20 @@ func (self *{{$class.GetNameNoNamespace}}) {{.GetNameUpperInitial}}I(args ...int
 		out[i] = array.Index(i).Interface()
 	}
 	return out
-{{else if .IsReturnArray}}
+{{else if .Return.IsArray}}
 	array := self.Call("{{.Name}}", args)
 	length := array.Length()
-	out := make({{.GetGoReturnType}}, length, length)
+	out := make({{.Return.GetType}}, length, length)
 	for i := 0; i < length; i++ {
-		{{if .IsGoReturnNativeTypeInArray -}}
-			out[i] = array.Index(i).{{.GetReturnGopherjsCallNameInArray}}()
+		{{if .Return.IsNativeTypeInArray -}}
+			out[i] = array.Index(i).{{.Return.GetGopherjsCallNameInArray}}()
 		{{else}}
-			out[i] = {{.GetGoReturnTypeInArray}}{array.Index(i)}
+			out[i] = {{.Return.GetTypeInArray}}{array.Index(i)}
 		{{- end}}
 	}
 	return out
 {{else}}
-    return {{.GetGoReturnType}}{self.Call("{{.Name}}", args)}
+    return {{.Return.GetType}}{self.Call("{{.Name}}", args)}
 {{end -}}
 }
 {{end}}

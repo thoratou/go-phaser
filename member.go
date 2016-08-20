@@ -1,44 +1,13 @@
 package main
 
-import (
-	"encoding/json"
-	"fmt"
-	"strings"
-)
-
-type MemberType struct {
-	Names   []string
-	Package string
-}
+import "strings"
 
 type Member struct {
-	Name        string     `json:"name"`
-	Access      string     `json:"access"`
-	Virtual     bool       `json:"virtual"`
-	Type        MemberType `json:"type,omitempty"`
-	Description string     `json:"description"`
-}
-
-func (t *MemberType) UnmarshalJSON(buf []byte) error {
-	//strange Json output issue, 1 empty type
-	if string(buf) != "\"\"" {
-		tmp := map[string][]string{}
-		if err := json.Unmarshal(buf, &tmp); err != nil {
-			return err
-		}
-		if len(tmp) != 1 {
-			return fmt.Errorf("wrong number of fields in MemberType: %d != 1", len(tmp))
-		}
-
-		names, exists := tmp["names"]
-		if !exists {
-			return fmt.Errorf("missing names field in map")
-		}
-
-		//fmt.Println(names)
-		t.Names = names
-	}
-	return nil
+	Name        string `json:"name"`
+	Access      string `json:"access"`
+	Virtual     bool   `json:"virtual"`
+	Type        Type   `json:"type"`
+	Description string `json:"description"`
 }
 
 func (m *Member) GetNameUpperInitial() string {
