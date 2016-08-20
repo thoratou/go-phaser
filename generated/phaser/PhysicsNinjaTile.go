@@ -29,12 +29,12 @@ func (self *PhysicsNinjaTile) SetBody(member interface{}) {
 }
 
 // A reference to the physics system.
-func (self *PhysicsNinjaTile) GetSystem() PhysicsNinja{
-    return PhysicsNinja{self.Get("system")}
+func (self *PhysicsNinjaTile) GetSystem() *PhysicsNinja{
+    return &PhysicsNinja{self.Get("system")}
 }
 
 // A reference to the physics system.
-func (self *PhysicsNinjaTile) SetSystem(member PhysicsNinja) {
+func (self *PhysicsNinjaTile) SetSystem(member *PhysicsNinja) {
     self.Set("system", member)
 }
 
@@ -59,22 +59,22 @@ func (self *PhysicsNinjaTile) SetType(member float64) {
 }
 
 // The position of this object.
-func (self *PhysicsNinjaTile) GetPos() Point{
-    return Point{self.Get("pos")}
+func (self *PhysicsNinjaTile) GetPos() *Point{
+    return &Point{self.Get("pos")}
 }
 
 // The position of this object.
-func (self *PhysicsNinjaTile) SetPos(member Point) {
+func (self *PhysicsNinjaTile) SetPos(member *Point) {
     self.Set("pos", member)
 }
 
 // The position of this object in the previous update.
-func (self *PhysicsNinjaTile) GetOldpos() Point{
-    return Point{self.Get("oldpos")}
+func (self *PhysicsNinjaTile) GetOldpos() *Point{
+    return &Point{self.Get("oldpos")}
 }
 
 // The position of this object in the previous update.
-func (self *PhysicsNinjaTile) SetOldpos(member Point) {
+func (self *PhysicsNinjaTile) SetOldpos(member *Point) {
     self.Set("oldpos", member)
 }
 
@@ -119,12 +119,12 @@ func (self *PhysicsNinjaTile) SetHeight(member float64) {
 }
 
 // The velocity of this object.
-func (self *PhysicsNinjaTile) GetVelocity() Point{
-    return Point{self.Get("velocity")}
+func (self *PhysicsNinjaTile) GetVelocity() *Point{
+    return &Point{self.Get("velocity")}
 }
 
 // The velocity of this object.
-func (self *PhysicsNinjaTile) SetVelocity(member Point) {
+func (self *PhysicsNinjaTile) SetVelocity(member *Point) {
     self.Set("velocity", member)
 }
 

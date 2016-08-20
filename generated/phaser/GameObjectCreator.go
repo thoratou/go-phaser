@@ -15,22 +15,22 @@ type GameObjectCreator struct {
 
 
 // A reference to the currently running Game.
-func (self *GameObjectCreator) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *GameObjectCreator) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // A reference to the currently running Game.
-func (self *GameObjectCreator) SetGame(member Game) {
+func (self *GameObjectCreator) SetGame(member *Game) {
     self.Set("game", member)
 }
 
 // A reference to the game world.
-func (self *GameObjectCreator) GetWorld() World{
-    return World{self.Get("world")}
+func (self *GameObjectCreator) GetWorld() *World{
+    return &World{self.Get("world")}
 }
 
 // A reference to the game world.
-func (self *GameObjectCreator) SetWorld(member World) {
+func (self *GameObjectCreator) SetWorld(member *World) {
     self.Set("world", member)
 }
 
@@ -40,70 +40,70 @@ func (self *GameObjectCreator) SetWorld(member World) {
 // 
 // An Image is a light-weight object you can use to display anything that doesn't need physics or animation.
 // It can still rotate, scale, crop and receive input events. This makes it perfect for logos, backgrounds, simple buttons and other non-Sprite graphics.
-func (self *GameObjectCreator) ImageI(args ...interface{}) Image{
-    return Image{self.Call("image", args)}
+func (self *GameObjectCreator) ImageI(args ...interface{}) *Image{
+    return &Image{self.Call("image", args)}
 }
 
 // Create a new Sprite with specific position and sprite sheet key.
-func (self *GameObjectCreator) SpriteI(args ...interface{}) Sprite{
-    return Sprite{self.Call("sprite", args)}
+func (self *GameObjectCreator) SpriteI(args ...interface{}) *Sprite{
+    return &Sprite{self.Call("sprite", args)}
 }
 
 // Create a tween object for a specific object.
 // 
 // The object can be any JavaScript object or Phaser object such as Sprite.
-func (self *GameObjectCreator) TweenI(args ...interface{}) Tween{
-    return Tween{self.Call("tween", args)}
+func (self *GameObjectCreator) TweenI(args ...interface{}) *Tween{
+    return &Tween{self.Call("tween", args)}
 }
 
 // A Group is a container for display objects that allows for fast pooling, recycling and collision checks.
-func (self *GameObjectCreator) GroupI(args ...interface{}) Group{
-    return Group{self.Call("group", args)}
+func (self *GameObjectCreator) GroupI(args ...interface{}) *Group{
+    return &Group{self.Call("group", args)}
 }
 
 // Create a new SpriteBatch.
-func (self *GameObjectCreator) SpriteBatchI(args ...interface{}) SpriteBatch{
-    return SpriteBatch{self.Call("spriteBatch", args)}
+func (self *GameObjectCreator) SpriteBatchI(args ...interface{}) *SpriteBatch{
+    return &SpriteBatch{self.Call("spriteBatch", args)}
 }
 
 // Creates a new Sound object.
-func (self *GameObjectCreator) AudioI(args ...interface{}) Sound{
-    return Sound{self.Call("audio", args)}
+func (self *GameObjectCreator) AudioI(args ...interface{}) *Sound{
+    return &Sound{self.Call("audio", args)}
 }
 
 // Creates a new AudioSprite object.
-func (self *GameObjectCreator) AudioSpriteI(args ...interface{}) AudioSprite{
-    return AudioSprite{self.Call("audioSprite", args)}
+func (self *GameObjectCreator) AudioSpriteI(args ...interface{}) *AudioSprite{
+    return &AudioSprite{self.Call("audioSprite", args)}
 }
 
 // Creates a new Sound object.
-func (self *GameObjectCreator) SoundI(args ...interface{}) Sound{
-    return Sound{self.Call("sound", args)}
+func (self *GameObjectCreator) SoundI(args ...interface{}) *Sound{
+    return &Sound{self.Call("sound", args)}
 }
 
 // Creates a new TileSprite object.
-func (self *GameObjectCreator) TileSpriteI(args ...interface{}) TileSprite{
-    return TileSprite{self.Call("tileSprite", args)}
+func (self *GameObjectCreator) TileSpriteI(args ...interface{}) *TileSprite{
+    return &TileSprite{self.Call("tileSprite", args)}
 }
 
 // Creates a new Rope object.
-func (self *GameObjectCreator) RopeI(args ...interface{}) Rope{
-    return Rope{self.Call("rope", args)}
+func (self *GameObjectCreator) RopeI(args ...interface{}) *Rope{
+    return &Rope{self.Call("rope", args)}
 }
 
 // Creates a new Text object.
-func (self *GameObjectCreator) TextI(args ...interface{}) Text{
-    return Text{self.Call("text", args)}
+func (self *GameObjectCreator) TextI(args ...interface{}) *Text{
+    return &Text{self.Call("text", args)}
 }
 
 // Creates a new Button object.
-func (self *GameObjectCreator) ButtonI(args ...interface{}) Button{
-    return Button{self.Call("button", args)}
+func (self *GameObjectCreator) ButtonI(args ...interface{}) *Button{
+    return &Button{self.Call("button", args)}
 }
 
 // Creates a new Graphics object.
-func (self *GameObjectCreator) GraphicsI(args ...interface{}) Graphics{
-    return Graphics{self.Call("graphics", args)}
+func (self *GameObjectCreator) GraphicsI(args ...interface{}) *Graphics{
+    return &Graphics{self.Call("graphics", args)}
 }
 
 // Creat a new Emitter.
@@ -111,8 +111,8 @@ func (self *GameObjectCreator) GraphicsI(args ...interface{}) Graphics{
 // An Emitter is a lightweight particle emitter. It can be used for one-time explosions or for
 // continuous effects like rain and fire. All it really does is launch Particle objects out
 // at set intervals, and fixes their positions and velocities accorindgly.
-func (self *GameObjectCreator) EmitterI(args ...interface{}) Emitter{
-    return Emitter{self.Call("emitter", args)}
+func (self *GameObjectCreator) EmitterI(args ...interface{}) *Emitter{
+    return &Emitter{self.Call("emitter", args)}
 }
 
 // Create a new RetroFont object.
@@ -123,8 +123,8 @@ func (self *GameObjectCreator) EmitterI(args ...interface{}) Emitter{
 // is that a RetroFont creates a single texture that you can apply to a game object, where-as a BitmapText creates one Sprite object per letter of text.
 // The texture can be asssigned or one or multiple images/sprites, but note that the text the RetroFont uses will be shared across them all,
 // i.e. if you need each Image to have different text in it, then you need to create multiple RetroFont objects.
-func (self *GameObjectCreator) RetroFontI(args ...interface{}) RetroFont{
-    return RetroFont{self.Call("retroFont", args)}
+func (self *GameObjectCreator) RetroFontI(args ...interface{}) *RetroFont{
+    return &RetroFont{self.Call("retroFont", args)}
 }
 
 // Create a new BitmapText object.
@@ -144,8 +144,8 @@ func (self *GameObjectCreator) RetroFontI(args ...interface{}) RetroFont{
 // BMFont (Windows, free): http://www.angelcode.com/products/bmfont/
 // Glyph Designer (OS X, commercial): http://www.71squared.com/en/glyphdesigner
 // Littera (Web-based, free): http://kvazars.com/littera/
-func (self *GameObjectCreator) BitmapTextI(args ...interface{}) BitmapText{
-    return BitmapText{self.Call("bitmapText", args)}
+func (self *GameObjectCreator) BitmapTextI(args ...interface{}) *BitmapText{
+    return &BitmapText{self.Call("bitmapText", args)}
 }
 
 // Creates a new Phaser.Tilemap object.
@@ -160,18 +160,18 @@ func (self *GameObjectCreator) TilemapI(args ...interface{}) {
 }
 
 // A dynamic initially blank canvas to which images can be drawn.
-func (self *GameObjectCreator) RenderTextureI(args ...interface{}) RenderTexture{
-    return RenderTexture{self.Call("renderTexture", args)}
+func (self *GameObjectCreator) RenderTextureI(args ...interface{}) *RenderTexture{
+    return &RenderTexture{self.Call("renderTexture", args)}
 }
 
 // Create a BitmpaData object.
 // 
 // A BitmapData object can be manipulated and drawn to like a traditional Canvas object and used to texture Sprites.
-func (self *GameObjectCreator) BitmapDataI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("bitmapData", args)}
+func (self *GameObjectCreator) BitmapDataI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("bitmapData", args)}
 }
 
 // A WebGL shader/filter that can be applied to Sprites.
-func (self *GameObjectCreator) FilterI(args ...interface{}) Filter{
-    return Filter{self.Call("filter", args)}
+func (self *GameObjectCreator) FilterI(args ...interface{}) *Filter{
+    return &Filter{self.Call("filter", args)}
 }

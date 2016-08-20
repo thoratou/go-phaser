@@ -17,12 +17,12 @@ type Input struct {
 
 
 // A reference to the currently running game.
-func (self *Input) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *Input) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // A reference to the currently running game.
-func (self *Input) SetGame(member Game) {
+func (self *Input) SetGame(member *Game) {
     self.Set("game", member)
 }
 
@@ -99,44 +99,44 @@ func (self *Input) SetMultiInputOverride(member float64) {
 }
 
 // A point object representing the current position of the Pointer.
-func (self *Input) GetPosition() Point{
-    return Point{self.Get("position")}
+func (self *Input) GetPosition() *Point{
+    return &Point{self.Get("position")}
 }
 
 // A point object representing the current position of the Pointer.
-func (self *Input) SetPosition(member Point) {
+func (self *Input) SetPosition(member *Point) {
     self.Set("position", member)
 }
 
 // A point object representing the speed of the Pointer. Only really useful in single Pointer games; otherwise see the Pointer objects directly.
-func (self *Input) GetSpeed() Point{
-    return Point{self.Get("speed")}
+func (self *Input) GetSpeed() *Point{
+    return &Point{self.Get("speed")}
 }
 
 // A point object representing the speed of the Pointer. Only really useful in single Pointer games; otherwise see the Pointer objects directly.
-func (self *Input) SetSpeed(member Point) {
+func (self *Input) SetSpeed(member *Point) {
     self.Set("speed", member)
 }
 
 // A Circle object centered on the x/y screen coordinates of the Input.
 // Default size of 44px (Apples recommended "finger tip" size) but can be changed to anything.
-func (self *Input) GetCircle() Circle{
-    return Circle{self.Get("circle")}
+func (self *Input) GetCircle() *Circle{
+    return &Circle{self.Get("circle")}
 }
 
 // A Circle object centered on the x/y screen coordinates of the Input.
 // Default size of 44px (Apples recommended "finger tip" size) but can be changed to anything.
-func (self *Input) SetCircle(member Circle) {
+func (self *Input) SetCircle(member *Circle) {
     self.Set("circle", member)
 }
 
 // The scale by which all input coordinates are multiplied; calculated by the ScaleManager. In an un-scaled game the values will be x = 1 and y = 1.
-func (self *Input) GetScale() Point{
-    return Point{self.Get("scale")}
+func (self *Input) GetScale() *Point{
+    return &Point{self.Get("scale")}
 }
 
 // The scale by which all input coordinates are multiplied; calculated by the ScaleManager. In an un-scaled game the values will be x = 1 and y = 1.
-func (self *Input) SetScale(member Point) {
+func (self *Input) SetScale(member *Point) {
     self.Set("scale", member)
 }
 
@@ -237,102 +237,102 @@ func (self *Input) SetRecordLimit(member float64) {
 }
 
 // A Pointer object.
-func (self *Input) GetPointer1() Pointer{
-    return Pointer{self.Get("pointer1")}
+func (self *Input) GetPointer1() *Pointer{
+    return &Pointer{self.Get("pointer1")}
 }
 
 // A Pointer object.
-func (self *Input) SetPointer1(member Pointer) {
+func (self *Input) SetPointer1(member *Pointer) {
     self.Set("pointer1", member)
 }
 
 // A Pointer object.
-func (self *Input) GetPointer2() Pointer{
-    return Pointer{self.Get("pointer2")}
+func (self *Input) GetPointer2() *Pointer{
+    return &Pointer{self.Get("pointer2")}
 }
 
 // A Pointer object.
-func (self *Input) SetPointer2(member Pointer) {
+func (self *Input) SetPointer2(member *Pointer) {
     self.Set("pointer2", member)
 }
 
 // A Pointer object.
-func (self *Input) GetPointer3() Pointer{
-    return Pointer{self.Get("pointer3")}
+func (self *Input) GetPointer3() *Pointer{
+    return &Pointer{self.Get("pointer3")}
 }
 
 // A Pointer object.
-func (self *Input) SetPointer3(member Pointer) {
+func (self *Input) SetPointer3(member *Pointer) {
     self.Set("pointer3", member)
 }
 
 // A Pointer object.
-func (self *Input) GetPointer4() Pointer{
-    return Pointer{self.Get("pointer4")}
+func (self *Input) GetPointer4() *Pointer{
+    return &Pointer{self.Get("pointer4")}
 }
 
 // A Pointer object.
-func (self *Input) SetPointer4(member Pointer) {
+func (self *Input) SetPointer4(member *Pointer) {
     self.Set("pointer4", member)
 }
 
 // A Pointer object.
-func (self *Input) GetPointer5() Pointer{
-    return Pointer{self.Get("pointer5")}
+func (self *Input) GetPointer5() *Pointer{
+    return &Pointer{self.Get("pointer5")}
 }
 
 // A Pointer object.
-func (self *Input) SetPointer5(member Pointer) {
+func (self *Input) SetPointer5(member *Pointer) {
     self.Set("pointer5", member)
 }
 
 // A Pointer object.
-func (self *Input) GetPointer6() Pointer{
-    return Pointer{self.Get("pointer6")}
+func (self *Input) GetPointer6() *Pointer{
+    return &Pointer{self.Get("pointer6")}
 }
 
 // A Pointer object.
-func (self *Input) SetPointer6(member Pointer) {
+func (self *Input) SetPointer6(member *Pointer) {
     self.Set("pointer6", member)
 }
 
 // A Pointer object.
-func (self *Input) GetPointer7() Pointer{
-    return Pointer{self.Get("pointer7")}
+func (self *Input) GetPointer7() *Pointer{
+    return &Pointer{self.Get("pointer7")}
 }
 
 // A Pointer object.
-func (self *Input) SetPointer7(member Pointer) {
+func (self *Input) SetPointer7(member *Pointer) {
     self.Set("pointer7", member)
 }
 
 // A Pointer object.
-func (self *Input) GetPointer8() Pointer{
-    return Pointer{self.Get("pointer8")}
+func (self *Input) GetPointer8() *Pointer{
+    return &Pointer{self.Get("pointer8")}
 }
 
 // A Pointer object.
-func (self *Input) SetPointer8(member Pointer) {
+func (self *Input) SetPointer8(member *Pointer) {
     self.Set("pointer8", member)
 }
 
 // A Pointer object.
-func (self *Input) GetPointer9() Pointer{
-    return Pointer{self.Get("pointer9")}
+func (self *Input) GetPointer9() *Pointer{
+    return &Pointer{self.Get("pointer9")}
 }
 
 // A Pointer object.
-func (self *Input) SetPointer9(member Pointer) {
+func (self *Input) SetPointer9(member *Pointer) {
     self.Set("pointer9", member)
 }
 
 // A Pointer object.
-func (self *Input) GetPointer10() Pointer{
-    return Pointer{self.Get("pointer10")}
+func (self *Input) GetPointer10() *Pointer{
+    return &Pointer{self.Get("pointer10")}
 }
 
 // A Pointer object.
-func (self *Input) SetPointer10(member Pointer) {
+func (self *Input) SetPointer10(member *Pointer) {
     self.Set("pointer10", member)
 }
 
@@ -357,24 +357,24 @@ func (self *Input) SetPointers(member []Pointer) {
 // The most recently active Pointer object.
 // 
 // When you've limited max pointers to 1 this will accurately be either the first finger touched or mouse.
-func (self *Input) GetActivePointer() Pointer{
-    return Pointer{self.Get("activePointer")}
+func (self *Input) GetActivePointer() *Pointer{
+    return &Pointer{self.Get("activePointer")}
 }
 
 // The most recently active Pointer object.
 // 
 // When you've limited max pointers to 1 this will accurately be either the first finger touched or mouse.
-func (self *Input) SetActivePointer(member Pointer) {
+func (self *Input) SetActivePointer(member *Pointer) {
     self.Set("activePointer", member)
 }
 
 // The mouse has its own unique Phaser.Pointer object which you can use if making a desktop specific game.
-func (self *Input) GetMousePointer() Pointer{
-    return Pointer{self.Get("mousePointer")}
+func (self *Input) GetMousePointer() *Pointer{
+    return &Pointer{self.Get("mousePointer")}
 }
 
 // The mouse has its own unique Phaser.Pointer object which you can use if making a desktop specific game.
-func (self *Input) SetMousePointer(member Pointer) {
+func (self *Input) SetMousePointer(member *Pointer) {
     self.Set("mousePointer", member)
 }
 
@@ -382,25 +382,25 @@ func (self *Input) SetMousePointer(member Pointer) {
 // 
 // You should not usually access this manager directly, but instead use Input.mousePointer or Input.activePointer 
 // which normalizes all the input values for you, regardless of browser.
-func (self *Input) GetMouse() Mouse{
-    return Mouse{self.Get("mouse")}
+func (self *Input) GetMouse() *Mouse{
+    return &Mouse{self.Get("mouse")}
 }
 
 // The Mouse Input manager.
 // 
 // You should not usually access this manager directly, but instead use Input.mousePointer or Input.activePointer 
 // which normalizes all the input values for you, regardless of browser.
-func (self *Input) SetMouse(member Mouse) {
+func (self *Input) SetMouse(member *Mouse) {
     self.Set("mouse", member)
 }
 
 // The Keyboard Input manager.
-func (self *Input) GetKeyboard() Keyboard{
-    return Keyboard{self.Get("keyboard")}
+func (self *Input) GetKeyboard() *Keyboard{
+    return &Keyboard{self.Get("keyboard")}
 }
 
 // The Keyboard Input manager.
-func (self *Input) SetKeyboard(member Keyboard) {
+func (self *Input) SetKeyboard(member *Keyboard) {
     self.Set("keyboard", member)
 }
 
@@ -408,15 +408,15 @@ func (self *Input) SetKeyboard(member Keyboard) {
 // 
 // You should not usually access this manager directly, but instead use Input.activePointer 
 // which normalizes all the input values for you, regardless of browser.
-func (self *Input) GetTouch() Touch{
-    return Touch{self.Get("touch")}
+func (self *Input) GetTouch() *Touch{
+    return &Touch{self.Get("touch")}
 }
 
 // The Touch Input manager.
 // 
 // You should not usually access this manager directly, but instead use Input.activePointer 
 // which normalizes all the input values for you, regardless of browser.
-func (self *Input) SetTouch(member Touch) {
+func (self *Input) SetTouch(member *Touch) {
     self.Set("touch", member)
 }
 
@@ -424,25 +424,25 @@ func (self *Input) SetTouch(member Touch) {
 // 
 // You should not usually access this manager directly, but instead use Input.activePointer 
 // which normalizes all the input values for you, regardless of browser.
-func (self *Input) GetMspointer() MSPointer{
-    return MSPointer{self.Get("mspointer")}
+func (self *Input) GetMspointer() *MSPointer{
+    return &MSPointer{self.Get("mspointer")}
 }
 
 // The MSPointer Input manager.
 // 
 // You should not usually access this manager directly, but instead use Input.activePointer 
 // which normalizes all the input values for you, regardless of browser.
-func (self *Input) SetMspointer(member MSPointer) {
+func (self *Input) SetMspointer(member *MSPointer) {
     self.Set("mspointer", member)
 }
 
 // The Gamepad Input manager.
-func (self *Input) GetGamepad() Gamepad{
-    return Gamepad{self.Get("gamepad")}
+func (self *Input) GetGamepad() *Gamepad{
+    return &Gamepad{self.Get("gamepad")}
 }
 
 // The Gamepad Input manager.
-func (self *Input) SetGamepad(member Gamepad) {
+func (self *Input) SetGamepad(member *Gamepad) {
     self.Set("gamepad", member)
 }
 
@@ -459,42 +459,42 @@ func (self *Input) SetResetLocked(member bool) {
 }
 
 // A Signal that is dispatched each time a pointer is pressed down.
-func (self *Input) GetOnDown() Signal{
-    return Signal{self.Get("onDown")}
+func (self *Input) GetOnDown() *Signal{
+    return &Signal{self.Get("onDown")}
 }
 
 // A Signal that is dispatched each time a pointer is pressed down.
-func (self *Input) SetOnDown(member Signal) {
+func (self *Input) SetOnDown(member *Signal) {
     self.Set("onDown", member)
 }
 
 // A Signal that is dispatched each time a pointer is released.
-func (self *Input) GetOnUp() Signal{
-    return Signal{self.Get("onUp")}
+func (self *Input) GetOnUp() *Signal{
+    return &Signal{self.Get("onUp")}
 }
 
 // A Signal that is dispatched each time a pointer is released.
-func (self *Input) SetOnUp(member Signal) {
+func (self *Input) SetOnUp(member *Signal) {
     self.Set("onUp", member)
 }
 
 // A Signal that is dispatched each time a pointer is tapped.
-func (self *Input) GetOnTap() Signal{
-    return Signal{self.Get("onTap")}
+func (self *Input) GetOnTap() *Signal{
+    return &Signal{self.Get("onTap")}
 }
 
 // A Signal that is dispatched each time a pointer is tapped.
-func (self *Input) SetOnTap(member Signal) {
+func (self *Input) SetOnTap(member *Signal) {
     self.Set("onTap", member)
 }
 
 // A Signal that is dispatched each time a pointer is held down.
-func (self *Input) GetOnHold() Signal{
-    return Signal{self.Get("onHold")}
+func (self *Input) GetOnHold() *Signal{
+    return &Signal{self.Get("onHold")}
 }
 
 // A Signal that is dispatched each time a pointer is held down.
-func (self *Input) SetOnHold(member Signal) {
+func (self *Input) SetOnHold(member *Signal) {
     self.Set("onHold", member)
 }
 
@@ -511,12 +511,12 @@ func (self *Input) SetMinPriorityID(member float64) {
 }
 
 // A list of interactive objects. The InputHandler components add and remove themselves from this list.
-func (self *Input) GetInteractiveItems() ArraySet{
-    return ArraySet{self.Get("interactiveItems")}
+func (self *Input) GetInteractiveItems() *ArraySet{
+    return &ArraySet{self.Get("interactiveItems")}
 }
 
 // A list of interactive objects. The InputHandler components add and remove themselves from this list.
-func (self *Input) SetInteractiveItems(member ArraySet) {
+func (self *Input) SetInteractiveItems(member *ArraySet) {
     self.Set("interactiveItems", member)
 }
 
@@ -716,24 +716,24 @@ func (self *Input) ResetSpeedI(args ...interface{}) {
 
 // Find the first free Pointer object and start it, passing in the event data.
 // This is called automatically by Phaser.Touch and Phaser.MSPointer.
-func (self *Input) StartPointerI(args ...interface{}) Pointer{
-    return Pointer{self.Call("startPointer", args)}
+func (self *Input) StartPointerI(args ...interface{}) *Pointer{
+    return &Pointer{self.Call("startPointer", args)}
 }
 
 // Updates the matching Pointer object, passing in the event data.
 // This is called automatically and should not normally need to be invoked.
-func (self *Input) UpdatePointerI(args ...interface{}) Pointer{
-    return Pointer{self.Call("updatePointer", args)}
+func (self *Input) UpdatePointerI(args ...interface{}) *Pointer{
+    return &Pointer{self.Call("updatePointer", args)}
 }
 
 // Stops the matching Pointer object, passing in the event data.
-func (self *Input) StopPointerI(args ...interface{}) Pointer{
-    return Pointer{self.Call("stopPointer", args)}
+func (self *Input) StopPointerI(args ...interface{}) *Pointer{
+    return &Pointer{self.Call("stopPointer", args)}
 }
 
 // Get the first Pointer with the given active state.
-func (self *Input) GetPointerI(args ...interface{}) Pointer{
-    return Pointer{self.Call("getPointer", args)}
+func (self *Input) GetPointerI(args ...interface{}) *Pointer{
+    return &Pointer{self.Call("getPointer", args)}
 }
 
 // Get the Pointer object whos `identifier` property matches the given identifier value.
@@ -741,21 +741,21 @@ func (self *Input) GetPointerI(args ...interface{}) Pointer{
 // The identifier property is not set until the Pointer has been used at least once, as its populated by the DOM event.
 // Also it can change every time you press the pointer down, and is not fixed once set.
 // Note: Not all browsers set the identifier property and it's not part of the W3C spec, so you may need getPointerFromId instead.
-func (self *Input) GetPointerFromIdentifierI(args ...interface{}) Pointer{
-    return Pointer{self.Call("getPointerFromIdentifier", args)}
+func (self *Input) GetPointerFromIdentifierI(args ...interface{}) *Pointer{
+    return &Pointer{self.Call("getPointerFromIdentifier", args)}
 }
 
 // Get the Pointer object whos `pointerId` property matches the given value.
 // 
 // The pointerId property is not set until the Pointer has been used at least once, as its populated by the DOM event.
 // Also it can change every time you press the pointer down if the browser recycles it.
-func (self *Input) GetPointerFromIdI(args ...interface{}) Pointer{
-    return Pointer{self.Call("getPointerFromId", args)}
+func (self *Input) GetPointerFromIdI(args ...interface{}) *Pointer{
+    return &Pointer{self.Call("getPointerFromId", args)}
 }
 
 // This will return the local coordinates of the specified displayObject based on the given Pointer.
-func (self *Input) GetLocalPositionI(args ...interface{}) Point{
-    return Point{self.Call("getLocalPosition", args)}
+func (self *Input) GetLocalPositionI(args ...interface{}) *Point{
+    return &Point{self.Call("getLocalPosition", args)}
 }
 
 // Tests if the pointer hits the given object.

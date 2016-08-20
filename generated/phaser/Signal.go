@@ -97,8 +97,8 @@ func (self *Signal) ValidateListenerI(args ...interface{}) {
 }
 
 // 
-func (self *Signal) _registerListenerI(args ...interface{}) SignalBinding{
-    return SignalBinding{self.Call("_registerListener", args)}
+func (self *Signal) _registerListenerI(args ...interface{}) *SignalBinding{
+    return &SignalBinding{self.Call("_registerListener", args)}
 }
 
 // 
@@ -131,16 +131,16 @@ func (self *Signal) HasI(args ...interface{}) bool{
 // 
 // Where the first parameter is the one that Key.onDown dispatches internally and 'lazer', 
 // and the value 100 were the custom arguments given in the call to 'add'.
-func (self *Signal) AddI(args ...interface{}) SignalBinding{
-    return SignalBinding{self.Call("add", args)}
+func (self *Signal) AddI(args ...interface{}) *SignalBinding{
+    return &SignalBinding{self.Call("add", args)}
 }
 
 // Add a one-time listener - the listener is automatically removed after the first execution.
 // 
 // If there is as {@link Phaser.Signal#memorize memorized} event then it will be dispatched and
 // the listener will be removed immediately.
-func (self *Signal) AddOnceI(args ...interface{}) SignalBinding{
-    return SignalBinding{self.Call("addOnce", args)}
+func (self *Signal) AddOnceI(args ...interface{}) *SignalBinding{
+    return &SignalBinding{self.Call("addOnce", args)}
 }
 
 // Remove a single event listener.

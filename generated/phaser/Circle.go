@@ -134,23 +134,23 @@ func (self *Circle) CircumferenceI(args ...interface{}) float64{
 }
 
 // Returns a uniformly distributed random point from anywhere within this Circle.
-func (self *Circle) RandomI(args ...interface{}) Point{
-    return Point{self.Call("random", args)}
+func (self *Circle) RandomI(args ...interface{}) *Point{
+    return &Point{self.Call("random", args)}
 }
 
 // Returns the framing rectangle of the circle as a Phaser.Rectangle object.
-func (self *Circle) GetBoundsI(args ...interface{}) Rectangle{
-    return Rectangle{self.Call("getBounds", args)}
+func (self *Circle) GetBoundsI(args ...interface{}) *Rectangle{
+    return &Rectangle{self.Call("getBounds", args)}
 }
 
 // Sets the members of Circle to the specified values.
-func (self *Circle) SetToI(args ...interface{}) Circle{
-    return Circle{self.Call("setTo", args)}
+func (self *Circle) SetToI(args ...interface{}) *Circle{
+    return &Circle{self.Call("setTo", args)}
 }
 
 // Copies the x, y and diameter properties from any given object to this Circle.
-func (self *Circle) CopyFromI(args ...interface{}) Circle{
-    return Circle{self.Call("copyFrom", args)}
+func (self *Circle) CopyFromI(args ...interface{}) *Circle{
+    return &Circle{self.Call("copyFrom", args)}
 }
 
 // Copies the x, y and diameter properties from this Circle to any given object.
@@ -165,8 +165,8 @@ func (self *Circle) DistanceI(args ...interface{}) float64{
 }
 
 // Returns a new Circle object with the same values for the x, y, width, and height properties as this Circle object.
-func (self *Circle) CloneI(args ...interface{}) Circle{
-    return Circle{self.Call("clone", args)}
+func (self *Circle) CloneI(args ...interface{}) *Circle{
+    return &Circle{self.Call("clone", args)}
 }
 
 // Return true if the given x/y coordinates are within this Circle object.
@@ -175,18 +175,18 @@ func (self *Circle) ContainsI(args ...interface{}) bool{
 }
 
 // Returns a Point object containing the coordinates of a point on the circumference of the Circle based on the given angle.
-func (self *Circle) CircumferencePointI(args ...interface{}) Point{
-    return Point{self.Call("circumferencePoint", args)}
+func (self *Circle) CircumferencePointI(args ...interface{}) *Point{
+    return &Point{self.Call("circumferencePoint", args)}
 }
 
 // Adjusts the location of the Circle object, as determined by its center coordinate, by the specified amounts.
-func (self *Circle) OffsetI(args ...interface{}) Circle{
-    return Circle{self.Call("offset", args)}
+func (self *Circle) OffsetI(args ...interface{}) *Circle{
+    return &Circle{self.Call("offset", args)}
 }
 
 // Adjusts the location of the Circle object using a Point object as a parameter. This method is similar to the Circle.offset() method, except that it takes a Point object as a parameter.
-func (self *Circle) OffsetPointI(args ...interface{}) Circle{
-    return Circle{self.Call("offsetPoint", args)}
+func (self *Circle) OffsetPointI(args ...interface{}) *Circle{
+    return &Circle{self.Call("offsetPoint", args)}
 }
 
 // Returns a string representation of this object.

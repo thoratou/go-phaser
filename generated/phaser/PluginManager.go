@@ -14,12 +14,12 @@ type PluginManager struct {
 
 
 // A reference to the currently running game.
-func (self *PluginManager) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *PluginManager) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // A reference to the currently running game.
-func (self *PluginManager) SetGame(member Game) {
+func (self *PluginManager) SetGame(member *Game) {
     self.Set("game", member)
 }
 
@@ -43,8 +43,8 @@ func (self *PluginManager) SetPlugins(member []Plugin) {
 
 // Add a new Plugin into the PluginManager.
 // The Plugin must have 2 properties: game and parent. Plugin.game is set to the game reference the PluginManager uses, and parent is set to the PluginManager.
-func (self *PluginManager) AddI(args ...interface{}) Plugin{
-    return Plugin{self.Call("add", args)}
+func (self *PluginManager) AddI(args ...interface{}) *Plugin{
+    return &Plugin{self.Call("add", args)}
 }
 
 // Remove a Plugin from the PluginManager. It calls Plugin.destroy on the plugin before removing it from the manager.

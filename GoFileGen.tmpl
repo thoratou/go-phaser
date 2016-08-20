@@ -18,11 +18,11 @@ type {{.GetNameNoNamespace}} struct {
 }
 
 {{range .Members -}}
-{{if not .IsPrivate}}{{if not .IsCallback}}
+{{if not .IsPrivate}}{{if not .Type.IsCallback}}
 {{- range .GetDescriptionLines}}
 // {{. -}}
 {{- end}}
-func (self *{{$class.GetNameNoNamespace}}) Get{{.GetNameUpperInitial}}() {{.Type.GetType -}} {
+func (self *{{$class.GetNameNoNamespace}}) Get{{.GetNameUpperInitial}}() {{.Type.GetTypeOptionalPointer -}} {
 {{- if .Type.HasWrapper}}
     return {{.Type.Wrapper}}(self.Get("{{.Name}}"))
 {{else if .Type.IsAnyType}}
@@ -46,7 +46,7 @@ func (self *{{$class.GetNameNoNamespace}}) Get{{.GetNameUpperInitial}}() {{.Type
 	}
 	return out
 {{else}}
-    return {{.Type.GetType}}{self.Get("{{.Name}}")}
+    return &{{.Type.GetType}}{self.Get("{{.Name}}")}
 {{end -}}
 }
 {{end}}{{end -}}
@@ -55,7 +55,7 @@ func (self *{{$class.GetNameNoNamespace}}) Get{{.GetNameUpperInitial}}() {{.Type
 {{- range .GetDescriptionLines}}
 // {{. -}}
 {{- end}}
-func (self *{{$class.GetNameNoNamespace}}) Set{{.GetNameUpperInitial}}(member {{.Type.GetType}}) {
+func (self *{{$class.GetNameNoNamespace}}) Set{{.GetNameUpperInitial}}(member {{.Type.GetTypeOptionalPointer}}) {
     self.Set("{{.Name}}", member)
 }
 {{end}}
@@ -65,7 +65,7 @@ func (self *{{$class.GetNameNoNamespace}}) Set{{.GetNameUpperInitial}}(member {{
 {{- range .GetDescriptionLines}}
 // {{. -}}
 {{- end}}
-func (self *{{$class.GetNameNoNamespace}}) {{.GetNameUpperInitial}}I(args ...interface{}) {{if not .Return.IsVoid -}}{{.Return.GetType}} {{- end}}{
+func (self *{{$class.GetNameNoNamespace}}) {{.GetNameUpperInitial}}I(args ...interface{}) {{if not .Return.IsVoid -}}{{.Return.GetTypeOptionalPointer}} {{- end}}{
 {{- if .Return.IsVoid}}
     self.Call("{{.Name}}", args)
 {{else if .Return.HasWrapper}}
@@ -94,8 +94,10 @@ func (self *{{$class.GetNameNoNamespace}}) {{.GetNameUpperInitial}}I(args ...int
 		{{- end}}
 	}
 	return out
-{{else}}
+{{else if .Return.IsCallback}}
     return {{.Return.GetType}}{self.Call("{{.Name}}", args)}
+{{else}}
+    return &{{.Return.GetType}}{self.Call("{{.Name}}", args)}
 {{end -}}
 }
 {{end}}

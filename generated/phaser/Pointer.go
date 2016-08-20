@@ -14,12 +14,12 @@ type Pointer struct {
 
 
 // A reference to the currently running game.
-func (self *Pointer) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *Pointer) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // A reference to the currently running game.
-func (self *Pointer) SetGame(member Game) {
+func (self *Pointer) SetGame(member *Game) {
     self.Set("game", member)
 }
 
@@ -74,12 +74,12 @@ func (self *Pointer) SetPointerId(member float64) {
 }
 
 // The operational mode of this pointer.
-func (self *Pointer) GetPointerMode() PointerMode{
-    return PointerMode{self.Get("pointerMode")}
+func (self *Pointer) GetPointerMode() *PointerMode{
+    return &PointerMode{self.Get("pointerMode")}
 }
 
 // The operational mode of this pointer.
-func (self *Pointer) SetPointerMode(member PointerMode) {
+func (self *Pointer) SetPointerMode(member *PointerMode) {
     self.Set("pointerMode", member)
 }
 
@@ -111,15 +111,15 @@ func (self *Pointer) SetButton(member interface{}) {
 // 
 // The DeviceButton has its own properties such as `isDown`, `duration` and methods like `justReleased` for more fine-grained
 // button control.
-func (self *Pointer) GetLeftButton() DeviceButton{
-    return DeviceButton{self.Get("leftButton")}
+func (self *Pointer) GetLeftButton() *DeviceButton{
+    return &DeviceButton{self.Get("leftButton")}
 }
 
 // If this Pointer is a Mouse or Pen / Stylus then you can access its left button directly through this property.
 // 
 // The DeviceButton has its own properties such as `isDown`, `duration` and methods like `justReleased` for more fine-grained
 // button control.
-func (self *Pointer) SetLeftButton(member DeviceButton) {
+func (self *Pointer) SetLeftButton(member *DeviceButton) {
     self.Set("leftButton", member)
 }
 
@@ -129,8 +129,8 @@ func (self *Pointer) SetLeftButton(member DeviceButton) {
 // button control.
 // 
 // Please see the DeviceButton docs for details on browser button limitations.
-func (self *Pointer) GetMiddleButton() DeviceButton{
-    return DeviceButton{self.Get("middleButton")}
+func (self *Pointer) GetMiddleButton() *DeviceButton{
+    return &DeviceButton{self.Get("middleButton")}
 }
 
 // If this Pointer is a Mouse or Pen / Stylus then you can access its middle button directly through this property.
@@ -139,7 +139,7 @@ func (self *Pointer) GetMiddleButton() DeviceButton{
 // button control.
 // 
 // Please see the DeviceButton docs for details on browser button limitations.
-func (self *Pointer) SetMiddleButton(member DeviceButton) {
+func (self *Pointer) SetMiddleButton(member *DeviceButton) {
     self.Set("middleButton", member)
 }
 
@@ -149,8 +149,8 @@ func (self *Pointer) SetMiddleButton(member DeviceButton) {
 // button control.
 // 
 // Please see the DeviceButton docs for details on browser button limitations.
-func (self *Pointer) GetRightButton() DeviceButton{
-    return DeviceButton{self.Get("rightButton")}
+func (self *Pointer) GetRightButton() *DeviceButton{
+    return &DeviceButton{self.Get("rightButton")}
 }
 
 // If this Pointer is a Mouse or Pen / Stylus then you can access its right button directly through this property.
@@ -159,7 +159,7 @@ func (self *Pointer) GetRightButton() DeviceButton{
 // button control.
 // 
 // Please see the DeviceButton docs for details on browser button limitations.
-func (self *Pointer) SetRightButton(member DeviceButton) {
+func (self *Pointer) SetRightButton(member *DeviceButton) {
     self.Set("rightButton", member)
 }
 
@@ -169,8 +169,8 @@ func (self *Pointer) SetRightButton(member DeviceButton) {
 // button control.
 // 
 // Please see the DeviceButton docs for details on browser button limitations.
-func (self *Pointer) GetBackButton() DeviceButton{
-    return DeviceButton{self.Get("backButton")}
+func (self *Pointer) GetBackButton() *DeviceButton{
+    return &DeviceButton{self.Get("backButton")}
 }
 
 // If this Pointer is a Mouse or Pen / Stylus then you can access its X1 (back) button directly through this property.
@@ -179,7 +179,7 @@ func (self *Pointer) GetBackButton() DeviceButton{
 // button control.
 // 
 // Please see the DeviceButton docs for details on browser button limitations.
-func (self *Pointer) SetBackButton(member DeviceButton) {
+func (self *Pointer) SetBackButton(member *DeviceButton) {
     self.Set("backButton", member)
 }
 
@@ -189,8 +189,8 @@ func (self *Pointer) SetBackButton(member DeviceButton) {
 // button control.
 // 
 // Please see the DeviceButton docs for details on browser button limitations.
-func (self *Pointer) GetForwardButton() DeviceButton{
-    return DeviceButton{self.Get("forwardButton")}
+func (self *Pointer) GetForwardButton() *DeviceButton{
+    return &DeviceButton{self.Get("forwardButton")}
 }
 
 // If this Pointer is a Mouse or Pen / Stylus then you can access its X2 (forward) button directly through this property.
@@ -199,7 +199,7 @@ func (self *Pointer) GetForwardButton() DeviceButton{
 // button control.
 // 
 // Please see the DeviceButton docs for details on browser button limitations.
-func (self *Pointer) SetForwardButton(member DeviceButton) {
+func (self *Pointer) SetForwardButton(member *DeviceButton) {
     self.Set("forwardButton", member)
 }
 
@@ -209,8 +209,8 @@ func (self *Pointer) SetForwardButton(member DeviceButton) {
 // button control.
 // 
 // Please see the DeviceButton docs for details on browser button limitations.
-func (self *Pointer) GetEraserButton() DeviceButton{
-    return DeviceButton{self.Get("eraserButton")}
+func (self *Pointer) GetEraserButton() *DeviceButton{
+    return &DeviceButton{self.Get("eraserButton")}
 }
 
 // If this Pointer is a Pen / Stylus then you can access its eraser button directly through this property.
@@ -219,7 +219,7 @@ func (self *Pointer) GetEraserButton() DeviceButton{
 // button control.
 // 
 // Please see the DeviceButton docs for details on browser button limitations.
-func (self *Pointer) SetEraserButton(member DeviceButton) {
+func (self *Pointer) SetEraserButton(member *DeviceButton) {
     self.Set("eraserButton", member)
 }
 
@@ -492,44 +492,44 @@ func (self *Pointer) SetDirty(member bool) {
 }
 
 // A Phaser.Point object containing the current x/y values of the pointer on the display.
-func (self *Pointer) GetPosition() Point{
-    return Point{self.Get("position")}
+func (self *Pointer) GetPosition() *Point{
+    return &Point{self.Get("position")}
 }
 
 // A Phaser.Point object containing the current x/y values of the pointer on the display.
-func (self *Pointer) SetPosition(member Point) {
+func (self *Pointer) SetPosition(member *Point) {
     self.Set("position", member)
 }
 
 // A Phaser.Point object containing the x/y values of the pointer when it was last in a down state on the display.
-func (self *Pointer) GetPositionDown() Point{
-    return Point{self.Get("positionDown")}
+func (self *Pointer) GetPositionDown() *Point{
+    return &Point{self.Get("positionDown")}
 }
 
 // A Phaser.Point object containing the x/y values of the pointer when it was last in a down state on the display.
-func (self *Pointer) SetPositionDown(member Point) {
+func (self *Pointer) SetPositionDown(member *Point) {
     self.Set("positionDown", member)
 }
 
 // A Phaser.Point object containing the x/y values of the pointer when it was last released.
-func (self *Pointer) GetPositionUp() Point{
-    return Point{self.Get("positionUp")}
+func (self *Pointer) GetPositionUp() *Point{
+    return &Point{self.Get("positionUp")}
 }
 
 // A Phaser.Point object containing the x/y values of the pointer when it was last released.
-func (self *Pointer) SetPositionUp(member Point) {
+func (self *Pointer) SetPositionUp(member *Point) {
     self.Set("positionUp", member)
 }
 
 // A Phaser.Circle that is centered on the x/y coordinates of this pointer, useful for hit detection.
 // The Circle size is 44px (Apples recommended "finger tip" size).
-func (self *Pointer) GetCircle() Circle{
-    return Circle{self.Get("circle")}
+func (self *Pointer) GetCircle() *Circle{
+    return &Circle{self.Get("circle")}
 }
 
 // A Phaser.Circle that is centered on the x/y coordinates of this pointer, useful for hit detection.
 // The Circle size is 44px (Apples recommended "finger tip" size).
-func (self *Pointer) SetCircle(member Circle) {
+func (self *Pointer) SetCircle(member *Circle) {
     self.Set("circle", member)
 }
 

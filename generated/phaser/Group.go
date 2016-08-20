@@ -21,12 +21,12 @@ type Group struct {
 
 
 // A reference to the currently running Game.
-func (self *Group) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *Group) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // A reference to the currently running Game.
-func (self *Group) SetGame(member Game) {
+func (self *Group) SetGame(member *Game) {
     self.Set("game", member)
 }
 
@@ -141,14 +141,14 @@ func (self *Group) SetClassType(member interface{}) {
 // The current display object that the group cursor is pointing to, if any. (Can be set manually.)
 // 
 // The cursor is a way to iterate through the children in a Group using {@link Phaser.Group#next next} and {@link Phaser.Group#previous previous}.
-func (self *Group) GetCursor() DisplayObject{
-    return DisplayObject{self.Get("cursor")}
+func (self *Group) GetCursor() *DisplayObject{
+    return &DisplayObject{self.Get("cursor")}
 }
 
 // The current display object that the group cursor is pointing to, if any. (Can be set manually.)
 // 
 // The cursor is a way to iterate through the children in a Group using {@link Phaser.Group#next next} and {@link Phaser.Group#previous previous}.
-func (self *Group) SetCursor(member DisplayObject) {
+func (self *Group) SetCursor(member *DisplayObject) {
     self.Set("cursor", member)
 }
 
@@ -174,8 +174,8 @@ func (self *Group) SetInputEnableChildren(member bool) {
 // 
 // This Signal is sent 2 arguments: A reference to the Sprite that triggered the signal, and
 // a reference to the Pointer that caused it.
-func (self *Group) GetOnChildInputDown() Signal{
-    return Signal{self.Get("onChildInputDown")}
+func (self *Group) GetOnChildInputDown() *Signal{
+    return &Signal{self.Get("onChildInputDown")}
 }
 
 // This Signal is dispatched whenever a child of this Group emits an onInputDown signal as a result
@@ -184,7 +184,7 @@ func (self *Group) GetOnChildInputDown() Signal{
 // 
 // This Signal is sent 2 arguments: A reference to the Sprite that triggered the signal, and
 // a reference to the Pointer that caused it.
-func (self *Group) SetOnChildInputDown(member Signal) {
+func (self *Group) SetOnChildInputDown(member *Signal) {
     self.Set("onChildInputDown", member)
 }
 
@@ -195,8 +195,8 @@ func (self *Group) SetOnChildInputDown(member Signal) {
 // This Signal is sent 3 arguments: A reference to the Sprite that triggered the signal, 
 // a reference to the Pointer that caused it, and a boolean value `isOver` that tells you if the Pointer
 // is still over the Sprite or not.
-func (self *Group) GetOnChildInputUp() Signal{
-    return Signal{self.Get("onChildInputUp")}
+func (self *Group) GetOnChildInputUp() *Signal{
+    return &Signal{self.Get("onChildInputUp")}
 }
 
 // This Signal is dispatched whenever a child of this Group emits an onInputUp signal as a result
@@ -206,7 +206,7 @@ func (self *Group) GetOnChildInputUp() Signal{
 // This Signal is sent 3 arguments: A reference to the Sprite that triggered the signal, 
 // a reference to the Pointer that caused it, and a boolean value `isOver` that tells you if the Pointer
 // is still over the Sprite or not.
-func (self *Group) SetOnChildInputUp(member Signal) {
+func (self *Group) SetOnChildInputUp(member *Signal) {
     self.Set("onChildInputUp", member)
 }
 
@@ -216,8 +216,8 @@ func (self *Group) SetOnChildInputUp(member Signal) {
 // 
 // This Signal is sent 2 arguments: A reference to the Sprite that triggered the signal, and
 // a reference to the Pointer that caused it.
-func (self *Group) GetOnChildInputOver() Signal{
-    return Signal{self.Get("onChildInputOver")}
+func (self *Group) GetOnChildInputOver() *Signal{
+    return &Signal{self.Get("onChildInputOver")}
 }
 
 // This Signal is dispatched whenever a child of this Group emits an onInputOver signal as a result
@@ -226,7 +226,7 @@ func (self *Group) GetOnChildInputOver() Signal{
 // 
 // This Signal is sent 2 arguments: A reference to the Sprite that triggered the signal, and
 // a reference to the Pointer that caused it.
-func (self *Group) SetOnChildInputOver(member Signal) {
+func (self *Group) SetOnChildInputOver(member *Signal) {
     self.Set("onChildInputOver", member)
 }
 
@@ -236,8 +236,8 @@ func (self *Group) SetOnChildInputOver(member Signal) {
 // 
 // This Signal is sent 2 arguments: A reference to the Sprite that triggered the signal, and
 // a reference to the Pointer that caused it.
-func (self *Group) GetOnChildInputOut() Signal{
-    return Signal{self.Get("onChildInputOut")}
+func (self *Group) GetOnChildInputOut() *Signal{
+    return &Signal{self.Get("onChildInputOut")}
 }
 
 // This Signal is dispatched whenever a child of this Group emits an onInputOut signal as a result
@@ -246,7 +246,7 @@ func (self *Group) GetOnChildInputOut() Signal{
 // 
 // This Signal is sent 2 arguments: A reference to the Sprite that triggered the signal, and
 // a reference to the Pointer that caused it.
-func (self *Group) SetOnChildInputOut(member Signal) {
+func (self *Group) SetOnChildInputOut(member *Signal) {
     self.Set("onChildInputOut", member)
 }
 
@@ -327,12 +327,12 @@ func (self *Group) SetPhysicsSortDirection(member int) {
 }
 
 // This signal is dispatched when the group is destroyed.
-func (self *Group) GetOnDestroy() Signal{
-    return Signal{self.Get("onDestroy")}
+func (self *Group) GetOnDestroy() *Signal{
+    return &Signal{self.Get("onDestroy")}
 }
 
 // This signal is dispatched when the group is destroyed.
-func (self *Group) SetOnDestroy(member Signal) {
+func (self *Group) SetOnDestroy(member *Signal) {
     self.Set("onDestroy", member)
 }
 
@@ -364,13 +364,13 @@ func (self *Group) SetFixedToCamera(member bool) {
 
 // If this object is {@link Phaser.Group#fixedToCamera fixedToCamera} then this stores the x/y position offset relative to the top-left of the camera view.
 // If the parent of this Group is also `fixedToCamera` then the offset here is in addition to that and should typically be disabled.
-func (self *Group) GetCameraOffset() Point{
-    return Point{self.Get("cameraOffset")}
+func (self *Group) GetCameraOffset() *Point{
+    return &Point{self.Get("cameraOffset")}
 }
 
 // If this object is {@link Phaser.Group#fixedToCamera fixedToCamera} then this stores the x/y position offset relative to the top-left of the camera view.
 // If the parent of this Group is also `fixedToCamera` then the offset here is in addition to that and should typically be disabled.
-func (self *Group) SetCameraOffset(member Point) {
+func (self *Group) SetCameraOffset(member *Point) {
     self.Set("cameraOffset", member)
 }
 
@@ -786,8 +786,8 @@ func (self *Group) SetHeight(member float64) {
 // If `Group.inputEnableChildren` is set, then an Input Handler will be created on the object, so long as one does not already exist.
 // 
 // Use {@link Phaser.Group#addAt addAt} to control where a child is added. Use {@link Phaser.Group#create create} to create and add a new child.
-func (self *Group) AddI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("add", args)}
+func (self *Group) AddI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("add", args)}
 }
 
 // Adds an existing object to this group.
@@ -797,8 +797,8 @@ func (self *Group) AddI(args ...interface{}) DisplayObject{
 // If `Group.enableBody` is set, then a physics body will be created on the object, so long as one does not already exist.
 // 
 // If `Group.inputEnableChildren` is set, then an Input Handler will be created on the object, so long as one does not already exist.
-func (self *Group) AddAtI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("addAt", args)}
+func (self *Group) AddAtI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("addAt", args)}
 }
 
 // Adds a child of this Group into the hash array.
@@ -844,8 +844,8 @@ func (self *Group) GetAtI(args ...interface{}) interface{}{
 // If `Group.enableBody` is set, then a physics body will be created on the object, so long as one does not already exist.
 // 
 // If `Group.inputEnableChildren` is set, then an Input Handler will be created on the object, so long as one does not already exist.
-func (self *Group) CreateI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("create", args)}
+func (self *Group) CreateI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("create", args)}
 }
 
 // Creates multiple Phaser.Sprite objects and adds them to the top of this Group.
@@ -1160,8 +1160,8 @@ func (self *Group) PostUpdateI(args ...interface{}) {
 //     healthyList.callAll('attack');
 // 
 // Note: Currently this will skip any children which are Groups themselves.
-func (self *Group) FilterI(args ...interface{}) ArraySet{
-    return ArraySet{self.Call("filter", args)}
+func (self *Group) FilterI(args ...interface{}) *ArraySet{
+    return &ArraySet{self.Call("filter", args)}
 }
 
 // Call a function on each child in this group.
@@ -1257,8 +1257,8 @@ func (self *Group) IterateI(args ...interface{}) interface{}{
 // 
 // If a child *was* found , `createIfNull` is `false` and you provided the additional arguments then the child
 // will be reset and/or have a new texture loaded on it. This is handled by `Group.resetChild`.
-func (self *Group) GetFirstExistsI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("getFirstExists", args)}
+func (self *Group) GetFirstExistsI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("getFirstExists", args)}
 }
 
 // Get the first child that is alive (`child.alive === true`).
@@ -1271,8 +1271,8 @@ func (self *Group) GetFirstExistsI(args ...interface{}) DisplayObject{
 // 
 // If a child *was* found , `createIfNull` is `false` and you provided the additional arguments then the child
 // will be reset and/or have a new texture loaded on it. This is handled by `Group.resetChild`.
-func (self *Group) GetFirstAliveI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("getFirstAlive", args)}
+func (self *Group) GetFirstAliveI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("getFirstAlive", args)}
 }
 
 // Get the first child that is dead (`child.alive === false`).
@@ -1285,8 +1285,8 @@ func (self *Group) GetFirstAliveI(args ...interface{}) DisplayObject{
 // 
 // If a child *was* found , `createIfNull` is `false` and you provided the additional arguments then the child
 // will be reset and/or have a new texture loaded on it. This is handled by `Group.resetChild`.
-func (self *Group) GetFirstDeadI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("getFirstDead", args)}
+func (self *Group) GetFirstDeadI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("getFirstDead", args)}
 }
 
 // Takes a child and if the `x` and `y` arguments are given it calls `child.reset(x, y)` on it.
@@ -1294,8 +1294,8 @@ func (self *Group) GetFirstDeadI(args ...interface{}) DisplayObject{
 // If the `key` and optionally the `frame` arguments are given, it calls `child.loadTexture(key, frame)` on it.
 // 
 // The two operations are separate. For example if you just wish to load a new texture then pass `null` as the x and y values.
-func (self *Group) ResetChildI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("resetChild", args)}
+func (self *Group) ResetChildI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("resetChild", args)}
 }
 
 // Return the child at the top of this group.
@@ -1365,8 +1365,8 @@ func (self *Group) RemoveI(args ...interface{}) bool{
 }
 
 // Moves all children from this Group to the Group given.
-func (self *Group) MoveAllI(args ...interface{}) Group{
-    return Group{self.Call("moveAll", args)}
+func (self *Group) MoveAllI(args ...interface{}) *Group{
+    return &Group{self.Call("moveAll", args)}
 }
 
 // Removes all children from this Group, but does not remove the group from its parent.
@@ -1421,8 +1421,8 @@ func (self *Group) DestroyI(args ...interface{}) {
 // Think of the offsets as applying an adjustment to the containers bounds before the alignment takes place.
 // So providing a negative offset will 'shrink' the container bounds by that amount, and providing a positive
 // one expands it.
-func (self *Group) AlignInI(args ...interface{}) Group{
-    return Group{self.Call("alignIn", args)}
+func (self *Group) AlignInI(args ...interface{}) *Group{
+    return &Group{self.Call("alignIn", args)}
 }
 
 // Aligns this Group to the side of another Game Object, or Rectangle, known as the
@@ -1456,18 +1456,18 @@ func (self *Group) AlignInI(args ...interface{}) Group{
 // Think of the offsets as applying an adjustment to the parents bounds before the alignment takes place.
 // So providing a negative offset will 'shrink' the parent bounds by that amount, and providing a positive
 // one expands it.
-func (self *Group) AlignToI(args ...interface{}) Group{
-    return Group{self.Call("alignTo", args)}
+func (self *Group) AlignToI(args ...interface{}) *Group{
+    return &Group{self.Call("alignTo", args)}
 }
 
 // Adds a child to the container.
-func (self *Group) AddChildI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("addChild", args)}
+func (self *Group) AddChildI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("addChild", args)}
 }
 
 // Adds a child to the container at a specified index. If the index is out of bounds an error will be thrown
-func (self *Group) AddChildAtI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("addChildAt", args)}
+func (self *Group) AddChildAtI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("addChildAt", args)}
 }
 
 // Swaps the position of 2 Display Objects within this container.
@@ -1486,18 +1486,18 @@ func (self *Group) SetChildIndexI(args ...interface{}) {
 }
 
 // Returns the child at the specified index
-func (self *Group) GetChildAtI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("getChildAt", args)}
+func (self *Group) GetChildAtI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("getChildAt", args)}
 }
 
 // Removes a child from the container.
-func (self *Group) RemoveChildI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("removeChild", args)}
+func (self *Group) RemoveChildI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("removeChild", args)}
 }
 
 // Removes a child from the specified index position.
-func (self *Group) RemoveChildAtI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("removeChildAt", args)}
+func (self *Group) RemoveChildAtI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("removeChildAt", args)}
 }
 
 // Removes all children from this container that are within the begin and end indexes.
@@ -1506,13 +1506,13 @@ func (self *Group) RemoveChildrenI(args ...interface{}) {
 }
 
 // Retrieves the bounds of the displayObjectContainer as a rectangle. The bounds calculation takes all visible children into consideration.
-func (self *Group) GetBoundsI(args ...interface{}) Rectangle{
-    return Rectangle{self.Call("getBounds", args)}
+func (self *Group) GetBoundsI(args ...interface{}) *Rectangle{
+    return &Rectangle{self.Call("getBounds", args)}
 }
 
 // Retrieves the non-global local bounds of the displayObjectContainer as a rectangle. The calculation takes all visible children into consideration.
-func (self *Group) GetLocalBoundsI(args ...interface{}) Rectangle{
-    return Rectangle{self.Call("getLocalBounds", args)}
+func (self *Group) GetLocalBoundsI(args ...interface{}) *Rectangle{
+    return &Rectangle{self.Call("getLocalBounds", args)}
 }
 
 // Sets the containers Stage reference. This is the Stage that this object, and all of its children, is connected to.

@@ -71,13 +71,13 @@ func (self *DisplayObjectContainer) SetHeight(member float64) {
 
 
 // Adds a child to the container.
-func (self *DisplayObjectContainer) AddChildI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("addChild", args)}
+func (self *DisplayObjectContainer) AddChildI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("addChild", args)}
 }
 
 // Adds a child to the container at a specified index. If the index is out of bounds an error will be thrown
-func (self *DisplayObjectContainer) AddChildAtI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("addChildAt", args)}
+func (self *DisplayObjectContainer) AddChildAtI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("addChildAt", args)}
 }
 
 // Swaps the position of 2 Display Objects within this container.
@@ -96,18 +96,18 @@ func (self *DisplayObjectContainer) SetChildIndexI(args ...interface{}) {
 }
 
 // Returns the child at the specified index
-func (self *DisplayObjectContainer) GetChildAtI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("getChildAt", args)}
+func (self *DisplayObjectContainer) GetChildAtI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("getChildAt", args)}
 }
 
 // Removes a child from the container.
-func (self *DisplayObjectContainer) RemoveChildI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("removeChild", args)}
+func (self *DisplayObjectContainer) RemoveChildI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("removeChild", args)}
 }
 
 // Removes a child from the specified index position.
-func (self *DisplayObjectContainer) RemoveChildAtI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("removeChildAt", args)}
+func (self *DisplayObjectContainer) RemoveChildAtI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("removeChildAt", args)}
 }
 
 // Removes all children from this container that are within the begin and end indexes.
@@ -116,13 +116,13 @@ func (self *DisplayObjectContainer) RemoveChildrenI(args ...interface{}) {
 }
 
 // Retrieves the bounds of the displayObjectContainer as a rectangle. The bounds calculation takes all visible children into consideration.
-func (self *DisplayObjectContainer) GetBoundsI(args ...interface{}) Rectangle{
-    return Rectangle{self.Call("getBounds", args)}
+func (self *DisplayObjectContainer) GetBoundsI(args ...interface{}) *Rectangle{
+    return &Rectangle{self.Call("getBounds", args)}
 }
 
 // Retrieves the non-global local bounds of the displayObjectContainer as a rectangle. The calculation takes all visible children into consideration.
-func (self *DisplayObjectContainer) GetLocalBoundsI(args ...interface{}) Rectangle{
-    return Rectangle{self.Call("getLocalBounds", args)}
+func (self *DisplayObjectContainer) GetLocalBoundsI(args ...interface{}) *Rectangle{
+    return &Rectangle{self.Call("getLocalBounds", args)}
 }
 
 // Sets the containers Stage reference. This is the Stage that this object, and all of its children, is connected to.

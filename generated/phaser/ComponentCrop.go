@@ -17,14 +17,14 @@ type ComponentCrop struct {
 // The Rectangle used to crop the texture this Game Object uses.
 // Set this property via `crop`. 
 // If you modify this property directly you must call `updateCrop` in order to have the change take effect.
-func (self *ComponentCrop) GetCropRect() Rectangle{
-    return Rectangle{self.Get("cropRect")}
+func (self *ComponentCrop) GetCropRect() *Rectangle{
+    return &Rectangle{self.Get("cropRect")}
 }
 
 // The Rectangle used to crop the texture this Game Object uses.
 // Set this property via `crop`. 
 // If you modify this property directly you must call `updateCrop` in order to have the change take effect.
-func (self *ComponentCrop) SetCropRect(member Rectangle) {
+func (self *ComponentCrop) SetCropRect(member *Rectangle) {
     self.Set("cropRect", member)
 }
 

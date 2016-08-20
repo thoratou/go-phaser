@@ -19,12 +19,12 @@ type WebGLRenderer struct {
 
 
 // 
-func (self *WebGLRenderer) GetGame() PhaserGame{
-    return PhaserGame{self.Get("game")}
+func (self *WebGLRenderer) GetGame() *PhaserGame{
+    return &PhaserGame{self.Get("game")}
 }
 
 // 
-func (self *WebGLRenderer) SetGame(member PhaserGame) {
+func (self *WebGLRenderer) SetGame(member *PhaserGame) {
     self.Set("game", member)
 }
 
@@ -125,82 +125,82 @@ func (self *WebGLRenderer) SetView(member dom.HTMLCanvasElement) {
 }
 
 // 
-func (self *WebGLRenderer) GetProjection() Point{
-    return Point{self.Get("projection")}
+func (self *WebGLRenderer) GetProjection() *Point{
+    return &Point{self.Get("projection")}
 }
 
 // 
-func (self *WebGLRenderer) SetProjection(member Point) {
+func (self *WebGLRenderer) SetProjection(member *Point) {
     self.Set("projection", member)
 }
 
 // 
-func (self *WebGLRenderer) GetOffset() Point{
-    return Point{self.Get("offset")}
+func (self *WebGLRenderer) GetOffset() *Point{
+    return &Point{self.Get("offset")}
 }
 
 // 
-func (self *WebGLRenderer) SetOffset(member Point) {
+func (self *WebGLRenderer) SetOffset(member *Point) {
     self.Set("offset", member)
 }
 
 // Deals with managing the shader programs and their attribs
-func (self *WebGLRenderer) GetShaderManager() WebGLShaderManager{
-    return WebGLShaderManager{self.Get("shaderManager")}
+func (self *WebGLRenderer) GetShaderManager() *WebGLShaderManager{
+    return &WebGLShaderManager{self.Get("shaderManager")}
 }
 
 // Deals with managing the shader programs and their attribs
-func (self *WebGLRenderer) SetShaderManager(member WebGLShaderManager) {
+func (self *WebGLRenderer) SetShaderManager(member *WebGLShaderManager) {
     self.Set("shaderManager", member)
 }
 
 // Manages the rendering of sprites
-func (self *WebGLRenderer) GetSpriteBatch() WebGLSpriteBatch{
-    return WebGLSpriteBatch{self.Get("spriteBatch")}
+func (self *WebGLRenderer) GetSpriteBatch() *WebGLSpriteBatch{
+    return &WebGLSpriteBatch{self.Get("spriteBatch")}
 }
 
 // Manages the rendering of sprites
-func (self *WebGLRenderer) SetSpriteBatch(member WebGLSpriteBatch) {
+func (self *WebGLRenderer) SetSpriteBatch(member *WebGLSpriteBatch) {
     self.Set("spriteBatch", member)
 }
 
 // Manages the masks using the stencil buffer
-func (self *WebGLRenderer) GetMaskManager() WebGLMaskManager{
-    return WebGLMaskManager{self.Get("maskManager")}
+func (self *WebGLRenderer) GetMaskManager() *WebGLMaskManager{
+    return &WebGLMaskManager{self.Get("maskManager")}
 }
 
 // Manages the masks using the stencil buffer
-func (self *WebGLRenderer) SetMaskManager(member WebGLMaskManager) {
+func (self *WebGLRenderer) SetMaskManager(member *WebGLMaskManager) {
     self.Set("maskManager", member)
 }
 
 // Manages the filters
-func (self *WebGLRenderer) GetFilterManager() WebGLFilterManager{
-    return WebGLFilterManager{self.Get("filterManager")}
+func (self *WebGLRenderer) GetFilterManager() *WebGLFilterManager{
+    return &WebGLFilterManager{self.Get("filterManager")}
 }
 
 // Manages the filters
-func (self *WebGLRenderer) SetFilterManager(member WebGLFilterManager) {
+func (self *WebGLRenderer) SetFilterManager(member *WebGLFilterManager) {
     self.Set("filterManager", member)
 }
 
 // Manages the stencil buffer
-func (self *WebGLRenderer) GetStencilManager() WebGLStencilManager{
-    return WebGLStencilManager{self.Get("stencilManager")}
+func (self *WebGLRenderer) GetStencilManager() *WebGLStencilManager{
+    return &WebGLStencilManager{self.Get("stencilManager")}
 }
 
 // Manages the stencil buffer
-func (self *WebGLRenderer) SetStencilManager(member WebGLStencilManager) {
+func (self *WebGLRenderer) SetStencilManager(member *WebGLStencilManager) {
     self.Set("stencilManager", member)
 }
 
 // Manages the blendModes
-func (self *WebGLRenderer) GetBlendModeManager() WebGLBlendModeManager{
-    return WebGLBlendModeManager{self.Get("blendModeManager")}
+func (self *WebGLRenderer) GetBlendModeManager() *WebGLBlendModeManager{
+    return &WebGLBlendModeManager{self.Get("blendModeManager")}
 }
 
 // Manages the blendModes
-func (self *WebGLRenderer) SetBlendModeManager(member WebGLBlendModeManager) {
+func (self *WebGLRenderer) SetBlendModeManager(member *WebGLBlendModeManager) {
     self.Set("blendModeManager", member)
 }
 

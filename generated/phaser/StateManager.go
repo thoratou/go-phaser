@@ -14,12 +14,12 @@ type StateManager struct {
 
 
 // A reference to the currently running game.
-func (self *StateManager) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *StateManager) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // A reference to the currently running game.
-func (self *StateManager) SetGame(member Game) {
+func (self *StateManager) SetGame(member *Game) {
     self.Set("game", member)
 }
 
@@ -51,8 +51,8 @@ func (self *StateManager) SetCurrent(member string) {
 // 
 // The callback you specify is sent two parameters: the string based key of the new state, 
 // and the second parameter is the string based key of the old / previous state.
-func (self *StateManager) GetOnStateChange() Signal{
-    return Signal{self.Get("onStateChange")}
+func (self *StateManager) GetOnStateChange() *Signal{
+    return &Signal{self.Get("onStateChange")}
 }
 
 // onStateChange is a Phaser.Signal that is dispatched whenever the game changes state.
@@ -63,7 +63,7 @@ func (self *StateManager) GetOnStateChange() Signal{
 // 
 // The callback you specify is sent two parameters: the string based key of the new state, 
 // and the second parameter is the string based key of the old / previous state.
-func (self *StateManager) SetOnStateChange(member Signal) {
+func (self *StateManager) SetOnStateChange(member *Signal) {
     self.Set("onStateChange", member)
 }
 
@@ -208,8 +208,8 @@ func (self *StateManager) SetCurrentStateI(args ...interface{}) {
 }
 
 // Gets the current State.
-func (self *StateManager) GetCurrentStateI(args ...interface{}) State{
-    return State{self.Call("getCurrentState", args)}
+func (self *StateManager) GetCurrentStateI(args ...interface{}) *State{
+    return &State{self.Call("getCurrentState", args)}
 }
 
 // 

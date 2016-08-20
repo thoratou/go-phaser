@@ -22,12 +22,12 @@ type BitmapData struct {
 
 
 // A reference to the currently running game.
-func (self *BitmapData) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *BitmapData) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // A reference to the currently running game.
-func (self *BitmapData) SetGame(member Game) {
+func (self *BitmapData) SetGame(member *Game) {
     self.Set("game", member)
 }
 
@@ -104,76 +104,76 @@ func (self *BitmapData) SetSmoothProperty(member string) {
 // The context image data.
 // Please note that a call to BitmapData.draw() or BitmapData.copy() does not update immediately this property for performance reason. Use BitmapData.update() to do so.
 // This property is updated automatically after the first game loop, according to the dirty flag property.
-func (self *BitmapData) GetImageData() ImageData{
-    return ImageData{self.Get("imageData")}
+func (self *BitmapData) GetImageData() *ImageData{
+    return &ImageData{self.Get("imageData")}
 }
 
 // The context image data.
 // Please note that a call to BitmapData.draw() or BitmapData.copy() does not update immediately this property for performance reason. Use BitmapData.update() to do so.
 // This property is updated automatically after the first game loop, according to the dirty flag property.
-func (self *BitmapData) SetImageData(member ImageData) {
+func (self *BitmapData) SetImageData(member *ImageData) {
     self.Set("imageData", member)
 }
 
 // A Uint8ClampedArray view into BitmapData.buffer.
 // Note that this is unavailable in some browsers (such as Epic Browser due to its security restrictions)
-func (self *BitmapData) GetData() Uint8ClampedArray{
-    return Uint8ClampedArray{self.Get("data")}
+func (self *BitmapData) GetData() *Uint8ClampedArray{
+    return &Uint8ClampedArray{self.Get("data")}
 }
 
 // A Uint8ClampedArray view into BitmapData.buffer.
 // Note that this is unavailable in some browsers (such as Epic Browser due to its security restrictions)
-func (self *BitmapData) SetData(member Uint8ClampedArray) {
+func (self *BitmapData) SetData(member *Uint8ClampedArray) {
     self.Set("data", member)
 }
 
 // An Uint32Array view into BitmapData.buffer.
-func (self *BitmapData) GetPixels() Uint32Array{
-    return Uint32Array{self.Get("pixels")}
+func (self *BitmapData) GetPixels() *Uint32Array{
+    return &Uint32Array{self.Get("pixels")}
 }
 
 // An Uint32Array view into BitmapData.buffer.
-func (self *BitmapData) SetPixels(member Uint32Array) {
+func (self *BitmapData) SetPixels(member *Uint32Array) {
     self.Set("pixels", member)
 }
 
 // The PIXI.BaseTexture.
-func (self *BitmapData) GetBaseTexture() BaseTexture{
-    return BaseTexture{self.Get("baseTexture")}
+func (self *BitmapData) GetBaseTexture() *BaseTexture{
+    return &BaseTexture{self.Get("baseTexture")}
 }
 
 // The PIXI.BaseTexture.
-func (self *BitmapData) SetBaseTexture(member BaseTexture) {
+func (self *BitmapData) SetBaseTexture(member *BaseTexture) {
     self.Set("baseTexture", member)
 }
 
 // The PIXI.Texture.
-func (self *BitmapData) GetTexture() Texture{
-    return Texture{self.Get("texture")}
+func (self *BitmapData) GetTexture() *Texture{
+    return &Texture{self.Get("texture")}
 }
 
 // The PIXI.Texture.
-func (self *BitmapData) SetTexture(member Texture) {
+func (self *BitmapData) SetTexture(member *Texture) {
     self.Set("texture", member)
 }
 
 // The FrameData container this BitmapData uses for rendering.
-func (self *BitmapData) GetFrameData() FrameData{
-    return FrameData{self.Get("frameData")}
+func (self *BitmapData) GetFrameData() *FrameData{
+    return &FrameData{self.Get("frameData")}
 }
 
 // The FrameData container this BitmapData uses for rendering.
-func (self *BitmapData) SetFrameData(member FrameData) {
+func (self *BitmapData) SetFrameData(member *FrameData) {
     self.Set("frameData", member)
 }
 
 // The Frame this BitmapData uses for rendering.
-func (self *BitmapData) GetTextureFrame() Frame{
-    return Frame{self.Get("textureFrame")}
+func (self *BitmapData) GetTextureFrame() *Frame{
+    return &Frame{self.Get("textureFrame")}
 }
 
 // The Frame this BitmapData uses for rendering.
-func (self *BitmapData) SetTextureFrame(member Frame) {
+func (self *BitmapData) SetTextureFrame(member *Frame) {
     self.Set("textureFrame", member)
 }
 
@@ -212,36 +212,36 @@ func (self *BitmapData) SetDirty(member bool) {
 // Shifts the contents of this BitmapData by the distances given.
 // 
 // The image will wrap-around the edges on all sides if the wrap argument is true (the default).
-func (self *BitmapData) MoveI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("move", args)}
+func (self *BitmapData) MoveI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("move", args)}
 }
 
 // Shifts the contents of this BitmapData horizontally.
 // 
 // The image will wrap-around the sides if the wrap argument is true (the default).
-func (self *BitmapData) MoveHI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("moveH", args)}
+func (self *BitmapData) MoveHI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("moveH", args)}
 }
 
 // Shifts the contents of this BitmapData vertically.
 // 
 // The image will wrap-around the sides if the wrap argument is true (the default).
-func (self *BitmapData) MoveVI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("moveV", args)}
+func (self *BitmapData) MoveVI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("moveV", args)}
 }
 
 // Updates the given objects so that they use this BitmapData as their texture.
 // This will replace any texture they will currently have set.
-func (self *BitmapData) AddI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("add", args)}
+func (self *BitmapData) AddI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("add", args)}
 }
 
 // Takes the given Game Object, resizes this BitmapData to match it and then draws it into this BitmapDatas canvas, ready for further processing.
 // The source game object is not modified by this operation.
 // If the source object uses a texture as part of a Texture Atlas or Sprite Sheet, only the current frame will be used for sizing.
 // If a string is given it will assume it's a cache key and look in Phaser.Cache for an image key matching the string.
-func (self *BitmapData) LoadI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("load", args)}
+func (self *BitmapData) LoadI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("load", args)}
 }
 
 // Clears the BitmapData context using a clearRect.
@@ -251,8 +251,8 @@ func (self *BitmapData) LoadI(args ...interface{}) BitmapData{
 // 
 // You may need to call BitmapData.update after this in order to clear out the pixel data, 
 // but Phaser will not do this automatically for you.
-func (self *BitmapData) ClearI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("clear", args)}
+func (self *BitmapData) ClearI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("clear", args)}
 }
 
 // Clears the BitmapData context using a clearRect.
@@ -261,8 +261,8 @@ func (self *BitmapData) ClsI(args ...interface{}) {
 }
 
 // Fills the BitmapData with the given color.
-func (self *BitmapData) FillI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("fill", args)}
+func (self *BitmapData) FillI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("fill", args)}
 }
 
 // Creates a new Image element by converting this BitmapDatas canvas into a dataURL.
@@ -283,13 +283,13 @@ func (self *BitmapData) FillI(args ...interface{}) BitmapData{
 // or by using the string based key:
 // 
 // `game.add.sprite(0, 0, 'ball');`
-func (self *BitmapData) GenerateTextureI(args ...interface{}) Texture{
-    return Texture{self.Call("generateTexture", args)}
+func (self *BitmapData) GenerateTextureI(args ...interface{}) *Texture{
+    return &Texture{self.Call("generateTexture", args)}
 }
 
 // Resizes the BitmapData. This changes the size of the underlying canvas and refreshes the buffer.
-func (self *BitmapData) ResizeI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("resize", args)}
+func (self *BitmapData) ResizeI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("resize", args)}
 }
 
 // This re-creates the BitmapData.imageData from the current context.
@@ -297,8 +297,8 @@ func (self *BitmapData) ResizeI(args ...interface{}) BitmapData{
 // If not given the dimensions defaults to the full size of the context.
 // 
 // Warning: This is a very expensive operation, so use it sparingly.
-func (self *BitmapData) UpdateI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("update", args)}
+func (self *BitmapData) UpdateI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("update", args)}
 }
 
 // Scans through the area specified in this BitmapData and sends a color object for every pixel to the given callback.
@@ -309,8 +309,8 @@ func (self *BitmapData) UpdateI(args ...interface{}) BitmapData{
 // The callback will also be sent the pixels x and y coordinates respectively.
 // The callback must return either `false`, in which case no change will be made to the pixel, or a new color object.
 // If a new color object is returned the pixel will be set to the r, g, b and a color values given within it.
-func (self *BitmapData) ProcessPixelRGBI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("processPixelRGB", args)}
+func (self *BitmapData) ProcessPixelRGBI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("processPixelRGB", args)}
 }
 
 // Scans through the area specified in this BitmapData and sends the color for every pixel to the given callback along with its x and y coordinates.
@@ -318,36 +318,36 @@ func (self *BitmapData) ProcessPixelRGBI(args ...interface{}) BitmapData{
 // Note that the format of the color received will be different depending on if the system is big or little endian.
 // It is expected that your callback will deal with endianess. If you'd rather Phaser did it then use processPixelRGB instead.
 // The callback will also be sent the pixels x and y coordinates respectively.
-func (self *BitmapData) ProcessPixelI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("processPixel", args)}
+func (self *BitmapData) ProcessPixelI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("processPixel", args)}
 }
 
 // Replaces all pixels matching one color with another. The color values are given as two sets of RGBA values.
 // An optional region parameter controls if the replacement happens in just a specific area of the BitmapData or the entire thing.
-func (self *BitmapData) ReplaceRGBI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("replaceRGB", args)}
+func (self *BitmapData) ReplaceRGBI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("replaceRGB", args)}
 }
 
 // Sets the hue, saturation and lightness values on every pixel in the given region, or the whole BitmapData if no region was specified.
-func (self *BitmapData) SetHSLI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("setHSL", args)}
+func (self *BitmapData) SetHSLI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("setHSL", args)}
 }
 
 // Shifts any or all of the hue, saturation and lightness values on every pixel in the given region, or the whole BitmapData if no region was specified.
 // Shifting will add the given value onto the current h, s and l values, not replace them.
 // The hue is wrapped to keep it within the range 0 to 1. Saturation and lightness are clamped to not exceed 1.
-func (self *BitmapData) ShiftHSLI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("shiftHSL", args)}
+func (self *BitmapData) ShiftHSLI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("shiftHSL", args)}
 }
 
 // Sets the color of the given pixel to the specified red, green, blue and alpha values.
-func (self *BitmapData) SetPixel32I(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("setPixel32", args)}
+func (self *BitmapData) SetPixel32I(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("setPixel32", args)}
 }
 
 // Sets the color of the given pixel to the specified red, green and blue values.
-func (self *BitmapData) SetPixelI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("setPixel", args)}
+func (self *BitmapData) SetPixelI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("setPixel", args)}
 }
 
 // Get the color of a specific pixel in the context into a color object.
@@ -373,8 +373,8 @@ func (self *BitmapData) GetPixelRGBI(args ...interface{}) interface{}{
 }
 
 // Gets all the pixels from the region specified by the given Rectangle object.
-func (self *BitmapData) GetPixelsI(args ...interface{}) ImageData{
-    return ImageData{self.Call("getPixels", args)}
+func (self *BitmapData) GetPixelsI(args ...interface{}) *ImageData{
+    return &ImageData{self.Call("getPixels", args)}
 }
 
 // Scans the BitmapData, pixel by pixel, until it encounters a pixel that isn't transparent (i.e. has an alpha value > 0).
@@ -392,13 +392,13 @@ func (self *BitmapData) GetFirstPixelI(args ...interface{}) interface{}{
 
 // Scans the BitmapData and calculates the bounds. This is a rectangle that defines the extent of all non-transparent pixels.
 // The rectangle returned will extend from the top-left of the image to the bottom-right, excluding transparent pixels.
-func (self *BitmapData) GetBoundsI(args ...interface{}) Rectangle{
-    return Rectangle{self.Call("getBounds", args)}
+func (self *BitmapData) GetBoundsI(args ...interface{}) *Rectangle{
+    return &Rectangle{self.Call("getBounds", args)}
 }
 
 // Creates a new Phaser.Image object, assigns this BitmapData to be its texture, adds it to the world then returns it.
-func (self *BitmapData) AddToWorldI(args ...interface{}) Image{
-    return Image{self.Call("addToWorld", args)}
+func (self *BitmapData) AddToWorldI(args ...interface{}) *Image{
+    return &Image{self.Call("addToWorld", args)}
 }
 
 // Copies a rectangular area from the source object to this BitmapData. If you give `null` as the source it will copy from itself.
@@ -414,8 +414,8 @@ func (self *BitmapData) AddToWorldI(args ...interface{}) Image{
 // 
 // You may prefer to use `copyTransform` if you're simply trying to draw a Sprite to this BitmapData,
 // and don't wish to translate, scale or rotate it from its original values.
-func (self *BitmapData) CopyI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("copy", args)}
+func (self *BitmapData) CopyI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("copy", args)}
 }
 
 // Draws the given `source` Game Object to this BitmapData, using its `worldTransform` property to set the
@@ -423,13 +423,13 @@ func (self *BitmapData) CopyI(args ...interface{}) BitmapData{
 // It takes the objects tint and scale mode into consideration before drawing.
 // 
 // You can optionally specify Blend Mode and Round Pixels arguments.
-func (self *BitmapData) CopyTransformI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("copyTransform", args)}
+func (self *BitmapData) CopyTransformI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("copyTransform", args)}
 }
 
 // Copies the area defined by the Rectangle parameter from the source image to this BitmapData at the given location.
-func (self *BitmapData) CopyRectI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("copyRect", args)}
+func (self *BitmapData) CopyRectI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("copyRect", args)}
 }
 
 // Draws the given Phaser.Sprite, Phaser.Image or Phaser.Text to this BitmapData at the coordinates specified.
@@ -441,8 +441,8 @@ func (self *BitmapData) CopyRectI(args ...interface{}) BitmapData{
 // Note: You should ensure that at least 1 full update has taken place before calling this, 
 // otherwise the objects are likely to render incorrectly, if at all.
 // You can trigger an update yourself by calling `stage.updateTransform()` before calling `draw`.
-func (self *BitmapData) DrawI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("draw", args)}
+func (self *BitmapData) DrawI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("draw", args)}
 }
 
 // Draws the immediate children of a Phaser.Group to this BitmapData.
@@ -457,8 +457,8 @@ func (self *BitmapData) DrawI(args ...interface{}) BitmapData{
 // Note: You should ensure that at least 1 full update has taken place before calling this, 
 // otherwise the objects are likely to render incorrectly, if at all.
 // You can trigger an update yourself by calling `stage.updateTransform()` before calling `drawGroup`.
-func (self *BitmapData) DrawGroupI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("drawGroup", args)}
+func (self *BitmapData) DrawGroupI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("drawGroup", args)}
 }
 
 // A proxy for drawGroup that handles child iteration for more complex Game Objects.
@@ -481,20 +481,20 @@ func (self *BitmapData) DrawGroupProxyI(args ...interface{}) {
 // Note: If you are trying to grab your entire game at the start of a State then you should ensure that at least 1 full update
 // has taken place before doing so, otherwise all of the objects will render with incorrect positions and scales. You can 
 // trigger an update yourself by calling `stage.updateTransform()` before calling `drawFull`.
-func (self *BitmapData) DrawFullI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("drawFull", args)}
+func (self *BitmapData) DrawFullI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("drawFull", args)}
 }
 
 // Sets the shadow properties of this BitmapDatas context which will affect all draw operations made to it.
 // You can cancel an existing shadow by calling this method and passing no parameters.
 // Note: At the time of writing (October 2014) Chrome still doesn't support shadowBlur used with drawImage.
-func (self *BitmapData) ShadowI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("shadow", args)}
+func (self *BitmapData) ShadowI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("shadow", args)}
 }
 
 // Draws the image onto this BitmapData using an image as an alpha mask.
-func (self *BitmapData) AlphaMaskI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("alphaMask", args)}
+func (self *BitmapData) AlphaMaskI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("alphaMask", args)}
 }
 
 // Scans this BitmapData for all pixels matching the given r,g,b values and then draws them into the given destination BitmapData.
@@ -505,42 +505,42 @@ func (self *BitmapData) AlphaMaskI(args ...interface{}) BitmapData{
 // You can specify optional r2, g2, b2 color values. If given the pixel written to the destination bitmap will be of the r2, g2, b2 color.
 // If not given it will be written as the same color it was extracted. You can provide one or more alternative colors, allowing you to tint
 // the color during extraction.
-func (self *BitmapData) ExtractI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("extract", args)}
+func (self *BitmapData) ExtractI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("extract", args)}
 }
 
 // Draws a filled Rectangle to the BitmapData at the given x, y coordinates and width / height in size.
-func (self *BitmapData) RectI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("rect", args)}
+func (self *BitmapData) RectI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("rect", args)}
 }
 
 // Draws text to the BitmapData in the given font and color.
 // The default font is 14px Courier, so useful for quickly drawing debug text.
 // If you need to do a lot of font work to this BitmapData we'd recommend implementing your own text draw method.
-func (self *BitmapData) TextI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("text", args)}
+func (self *BitmapData) TextI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("text", args)}
 }
 
 // Draws a filled Circle to the BitmapData at the given x, y coordinates and radius in size.
-func (self *BitmapData) CircleI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("circle", args)}
+func (self *BitmapData) CircleI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("circle", args)}
 }
 
 // Draws a line between the coordinates given in the color and thickness specified.
-func (self *BitmapData) LineI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("line", args)}
+func (self *BitmapData) LineI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("line", args)}
 }
 
 // Takes the given Line object and image and renders it to this BitmapData as a repeating texture line.
-func (self *BitmapData) TextureLineI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("textureLine", args)}
+func (self *BitmapData) TextureLineI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("textureLine", args)}
 }
 
 // If the game is running in WebGL this will push the texture up to the GPU if it's dirty.
 // This is called automatically if the BitmapData is being used by a Sprite, otherwise you need to remember to call it in your render function.
 // If you wish to suppress this functionality set BitmapData.disableTextureUpload to `true`.
-func (self *BitmapData) RenderI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("render", args)}
+func (self *BitmapData) RenderI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("render", args)}
 }
 
 // Destroys this BitmapData and puts the canvas it was using back into the canvas pool for re-use.
@@ -549,133 +549,133 @@ func (self *BitmapData) DestroyI(args ...interface{}) {
 }
 
 // Resets the blend mode (effectively sets it to 'source-over')
-func (self *BitmapData) BlendResetI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("blendReset", args)}
+func (self *BitmapData) BlendResetI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("blendReset", args)}
 }
 
 // Sets the blend mode to 'source-over'
-func (self *BitmapData) BlendSourceOverI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("blendSourceOver", args)}
+func (self *BitmapData) BlendSourceOverI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("blendSourceOver", args)}
 }
 
 // Sets the blend mode to 'source-in'
-func (self *BitmapData) BlendSourceInI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("blendSourceIn", args)}
+func (self *BitmapData) BlendSourceInI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("blendSourceIn", args)}
 }
 
 // Sets the blend mode to 'source-out'
-func (self *BitmapData) BlendSourceOutI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("blendSourceOut", args)}
+func (self *BitmapData) BlendSourceOutI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("blendSourceOut", args)}
 }
 
 // Sets the blend mode to 'source-atop'
-func (self *BitmapData) BlendSourceAtopI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("blendSourceAtop", args)}
+func (self *BitmapData) BlendSourceAtopI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("blendSourceAtop", args)}
 }
 
 // Sets the blend mode to 'destination-over'
-func (self *BitmapData) BlendDestinationOverI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("blendDestinationOver", args)}
+func (self *BitmapData) BlendDestinationOverI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("blendDestinationOver", args)}
 }
 
 // Sets the blend mode to 'destination-in'
-func (self *BitmapData) BlendDestinationInI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("blendDestinationIn", args)}
+func (self *BitmapData) BlendDestinationInI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("blendDestinationIn", args)}
 }
 
 // Sets the blend mode to 'destination-out'
-func (self *BitmapData) BlendDestinationOutI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("blendDestinationOut", args)}
+func (self *BitmapData) BlendDestinationOutI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("blendDestinationOut", args)}
 }
 
 // Sets the blend mode to 'destination-atop'
-func (self *BitmapData) BlendDestinationAtopI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("blendDestinationAtop", args)}
+func (self *BitmapData) BlendDestinationAtopI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("blendDestinationAtop", args)}
 }
 
 // Sets the blend mode to 'xor'
-func (self *BitmapData) BlendXorI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("blendXor", args)}
+func (self *BitmapData) BlendXorI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("blendXor", args)}
 }
 
 // Sets the blend mode to 'lighter'
-func (self *BitmapData) BlendAddI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("blendAdd", args)}
+func (self *BitmapData) BlendAddI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("blendAdd", args)}
 }
 
 // Sets the blend mode to 'multiply'
-func (self *BitmapData) BlendMultiplyI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("blendMultiply", args)}
+func (self *BitmapData) BlendMultiplyI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("blendMultiply", args)}
 }
 
 // Sets the blend mode to 'screen'
-func (self *BitmapData) BlendScreenI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("blendScreen", args)}
+func (self *BitmapData) BlendScreenI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("blendScreen", args)}
 }
 
 // Sets the blend mode to 'overlay'
-func (self *BitmapData) BlendOverlayI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("blendOverlay", args)}
+func (self *BitmapData) BlendOverlayI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("blendOverlay", args)}
 }
 
 // Sets the blend mode to 'darken'
-func (self *BitmapData) BlendDarkenI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("blendDarken", args)}
+func (self *BitmapData) BlendDarkenI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("blendDarken", args)}
 }
 
 // Sets the blend mode to 'lighten'
-func (self *BitmapData) BlendLightenI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("blendLighten", args)}
+func (self *BitmapData) BlendLightenI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("blendLighten", args)}
 }
 
 // Sets the blend mode to 'color-dodge'
-func (self *BitmapData) BlendColorDodgeI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("blendColorDodge", args)}
+func (self *BitmapData) BlendColorDodgeI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("blendColorDodge", args)}
 }
 
 // Sets the blend mode to 'color-burn'
-func (self *BitmapData) BlendColorBurnI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("blendColorBurn", args)}
+func (self *BitmapData) BlendColorBurnI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("blendColorBurn", args)}
 }
 
 // Sets the blend mode to 'hard-light'
-func (self *BitmapData) BlendHardLightI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("blendHardLight", args)}
+func (self *BitmapData) BlendHardLightI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("blendHardLight", args)}
 }
 
 // Sets the blend mode to 'soft-light'
-func (self *BitmapData) BlendSoftLightI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("blendSoftLight", args)}
+func (self *BitmapData) BlendSoftLightI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("blendSoftLight", args)}
 }
 
 // Sets the blend mode to 'difference'
-func (self *BitmapData) BlendDifferenceI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("blendDifference", args)}
+func (self *BitmapData) BlendDifferenceI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("blendDifference", args)}
 }
 
 // Sets the blend mode to 'exclusion'
-func (self *BitmapData) BlendExclusionI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("blendExclusion", args)}
+func (self *BitmapData) BlendExclusionI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("blendExclusion", args)}
 }
 
 // Sets the blend mode to 'hue'
-func (self *BitmapData) BlendHueI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("blendHue", args)}
+func (self *BitmapData) BlendHueI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("blendHue", args)}
 }
 
 // Sets the blend mode to 'saturation'
-func (self *BitmapData) BlendSaturationI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("blendSaturation", args)}
+func (self *BitmapData) BlendSaturationI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("blendSaturation", args)}
 }
 
 // Sets the blend mode to 'color'
-func (self *BitmapData) BlendColorI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("blendColor", args)}
+func (self *BitmapData) BlendColorI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("blendColor", args)}
 }
 
 // Sets the blend mode to 'luminosity'
-func (self *BitmapData) BlendLuminosityI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("blendLuminosity", args)}
+func (self *BitmapData) BlendLuminosityI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("blendLuminosity", args)}
 }
 
 // Gets a JavaScript object that has 6 properties set that are used by BitmapData in a transform.

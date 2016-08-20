@@ -33,8 +33,8 @@ func (self *ComponentScaleMinMax) SetTransformCallbackContext(member interface{}
 // It allows you to prevent a parent from scaling this Game Object lower than the given value.
 // 
 // Set it to `null` to remove the limit.
-func (self *ComponentScaleMinMax) GetScaleMin() Point{
-    return Point{self.Get("scaleMin")}
+func (self *ComponentScaleMinMax) GetScaleMin() *Point{
+    return &Point{self.Get("scaleMin")}
 }
 
 // The minimum scale this Game Object will scale down to.
@@ -42,7 +42,7 @@ func (self *ComponentScaleMinMax) GetScaleMin() Point{
 // It allows you to prevent a parent from scaling this Game Object lower than the given value.
 // 
 // Set it to `null` to remove the limit.
-func (self *ComponentScaleMinMax) SetScaleMin(member Point) {
+func (self *ComponentScaleMinMax) SetScaleMin(member *Point) {
     self.Set("scaleMin", member)
 }
 
@@ -51,8 +51,8 @@ func (self *ComponentScaleMinMax) SetScaleMin(member Point) {
 // It allows you to prevent a parent from scaling this Game Object higher than the given value.
 // 
 // Set it to `null` to remove the limit.
-func (self *ComponentScaleMinMax) GetScaleMax() Point{
-    return Point{self.Get("scaleMax")}
+func (self *ComponentScaleMinMax) GetScaleMax() *Point{
+    return &Point{self.Get("scaleMax")}
 }
 
 // The maximum scale this Game Object will scale up to. 
@@ -60,7 +60,7 @@ func (self *ComponentScaleMinMax) GetScaleMax() Point{
 // It allows you to prevent a parent from scaling this Game Object higher than the given value.
 // 
 // Set it to `null` to remove the limit.
-func (self *ComponentScaleMinMax) SetScaleMax(member Point) {
+func (self *ComponentScaleMinMax) SetScaleMax(member *Point) {
     self.Set("scaleMax", member)
 }
 

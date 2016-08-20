@@ -14,22 +14,22 @@ type PhysicsP2LockConstraint struct {
 
 
 // Local reference to game.
-func (self *PhysicsP2LockConstraint) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *PhysicsP2LockConstraint) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // Local reference to game.
-func (self *PhysicsP2LockConstraint) SetGame(member Game) {
+func (self *PhysicsP2LockConstraint) SetGame(member *Game) {
     self.Set("game", member)
 }
 
 // Local reference to P2 World.
-func (self *PhysicsP2LockConstraint) GetWorld() PhysicsP2{
-    return PhysicsP2{self.Get("world")}
+func (self *PhysicsP2LockConstraint) GetWorld() *PhysicsP2{
+    return &PhysicsP2{self.Get("world")}
 }
 
 // Local reference to P2 World.
-func (self *PhysicsP2LockConstraint) SetWorld(member PhysicsP2) {
+func (self *PhysicsP2LockConstraint) SetWorld(member *PhysicsP2) {
     self.Set("world", member)
 }
 

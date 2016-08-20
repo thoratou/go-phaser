@@ -43,12 +43,12 @@ func (self *Rope) SetSegments(member interface{}) {
 }
 
 // The texture of the strip
-func (self *Rope) GetTexture() Texture{
-    return Texture{self.Get("texture")}
+func (self *Rope) GetTexture() *Texture{
+    return &Texture{self.Get("texture")}
 }
 
 // The texture of the strip
-func (self *Rope) SetTexture(member Texture) {
+func (self *Rope) SetTexture(member *Texture) {
     self.Set("texture", member)
 }
 
@@ -137,12 +137,12 @@ func (self *Rope) SetHeight(member float64) {
 }
 
 // A reference to the currently running Game.
-func (self *Rope) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *Rope) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // A reference to the currently running Game.
-func (self *Rope) SetGame(member Game) {
+func (self *Rope) SetGame(member *Game) {
     self.Set("game", member)
 }
 
@@ -202,25 +202,25 @@ func (self *Rope) SetZ(member float64) {
 
 // All Phaser Game Objects have an Events class which contains all of the events that are dispatched when certain things happen to this
 // Game Object, or any of its components.
-func (self *Rope) GetEvents() Events{
-    return Events{self.Get("events")}
+func (self *Rope) GetEvents() *Events{
+    return &Events{self.Get("events")}
 }
 
 // All Phaser Game Objects have an Events class which contains all of the events that are dispatched when certain things happen to this
 // Game Object, or any of its components.
-func (self *Rope) SetEvents(member Events) {
+func (self *Rope) SetEvents(member *Events) {
     self.Set("events", member)
 }
 
 // If the Game Object is enabled for animation (such as a Phaser.Sprite) this is a reference to its AnimationManager instance.
 // Through it you can create, play, pause and stop animations.
-func (self *Rope) GetAnimations() AnimationManager{
-    return AnimationManager{self.Get("animations")}
+func (self *Rope) GetAnimations() *AnimationManager{
+    return &AnimationManager{self.Get("animations")}
 }
 
 // If the Game Object is enabled for animation (such as a Phaser.Sprite) this is a reference to its AnimationManager instance.
 // Through it you can create, play, pause and stop animations.
-func (self *Rope) SetAnimations(member AnimationManager) {
+func (self *Rope) SetAnimations(member *AnimationManager) {
     self.Set("animations", member)
 }
 
@@ -245,14 +245,14 @@ func (self *Rope) SetKey(member interface{}) {
 // The world coordinates of this Game Object in pixels.
 // Depending on where in the display list this Game Object is placed this value can differ from `position`, 
 // which contains the x/y coordinates relative to the Game Objects parent.
-func (self *Rope) GetWorld() Point{
-    return Point{self.Get("world")}
+func (self *Rope) GetWorld() *Point{
+    return &Point{self.Get("world")}
 }
 
 // The world coordinates of this Game Object in pixels.
 // Depending on where in the display list this Game Object is placed this value can differ from `position`, 
 // which contains the x/y coordinates relative to the Game Objects parent.
-func (self *Rope) SetWorld(member Point) {
+func (self *Rope) SetWorld(member *Point) {
     self.Set("world", member)
 }
 
@@ -267,12 +267,12 @@ func (self *Rope) SetDebug(member bool) {
 }
 
 // The position the Game Object was located in the previous frame.
-func (self *Rope) GetPreviousPosition() Point{
-    return Point{self.Get("previousPosition")}
+func (self *Rope) GetPreviousPosition() *Point{
+    return &Point{self.Get("previousPosition")}
 }
 
 // The position the Game Object was located in the previous frame.
-func (self *Rope) SetPreviousPosition(member Point) {
+func (self *Rope) SetPreviousPosition(member *Point) {
     self.Set("previousPosition", member)
 }
 
@@ -511,14 +511,14 @@ func (self *Rope) SetBottom(member float64) {
 // The Rectangle used to crop the texture this Game Object uses.
 // Set this property via `crop`. 
 // If you modify this property directly you must call `updateCrop` in order to have the change take effect.
-func (self *Rope) GetCropRect() Rectangle{
-    return Rectangle{self.Get("cropRect")}
+func (self *Rope) GetCropRect() *Rectangle{
+    return &Rectangle{self.Get("cropRect")}
 }
 
 // The Rectangle used to crop the texture this Game Object uses.
 // Set this property via `crop`. 
 // If you modify this property directly you must call `updateCrop` in order to have the change take effect.
-func (self *Rope) SetCropRect(member Rectangle) {
+func (self *Rope) SetCropRect(member *Rectangle) {
     self.Set("cropRect", member)
 }
 
@@ -609,14 +609,14 @@ func (self *Rope) SetFixedToCamera(member bool) {
 // The x/y coordinate offset applied to the top-left of the camera that this Game Object will be drawn at if `fixedToCamera` is true.
 // 
 // The values are relative to the top-left of the camera view and in addition to any parent of the Game Object on the display list.
-func (self *Rope) GetCameraOffset() Point{
-    return Point{self.Get("cameraOffset")}
+func (self *Rope) GetCameraOffset() *Point{
+    return &Point{self.Get("cameraOffset")}
 }
 
 // The x/y coordinate offset applied to the top-left of the camera that this Game Object will be drawn at if `fixedToCamera` is true.
 // 
 // The values are relative to the top-left of the camera view and in addition to any parent of the Game Object on the display list.
-func (self *Rope) SetCameraOffset(member Point) {
+func (self *Rope) SetCameraOffset(member *Point) {
     self.Set("cameraOffset", member)
 }
 
@@ -862,8 +862,8 @@ func (self *Rope) SetTransformCallbackContext(member interface{}) {
 // It allows you to prevent a parent from scaling this Game Object lower than the given value.
 // 
 // Set it to `null` to remove the limit.
-func (self *Rope) GetScaleMin() Point{
-    return Point{self.Get("scaleMin")}
+func (self *Rope) GetScaleMin() *Point{
+    return &Point{self.Get("scaleMin")}
 }
 
 // The minimum scale this Game Object will scale down to.
@@ -871,7 +871,7 @@ func (self *Rope) GetScaleMin() Point{
 // It allows you to prevent a parent from scaling this Game Object lower than the given value.
 // 
 // Set it to `null` to remove the limit.
-func (self *Rope) SetScaleMin(member Point) {
+func (self *Rope) SetScaleMin(member *Point) {
     self.Set("scaleMin", member)
 }
 
@@ -880,8 +880,8 @@ func (self *Rope) SetScaleMin(member Point) {
 // It allows you to prevent a parent from scaling this Game Object higher than the given value.
 // 
 // Set it to `null` to remove the limit.
-func (self *Rope) GetScaleMax() Point{
-    return Point{self.Get("scaleMax")}
+func (self *Rope) GetScaleMax() *Point{
+    return &Point{self.Get("scaleMax")}
 }
 
 // The maximum scale this Game Object will scale up to. 
@@ -889,7 +889,7 @@ func (self *Rope) GetScaleMax() Point{
 // It allows you to prevent a parent from scaling this Game Object higher than the given value.
 // 
 // Set it to `null` to remove the limit.
-func (self *Rope) SetScaleMax(member Point) {
+func (self *Rope) SetScaleMax(member *Point) {
     self.Set("scaleMax", member)
 }
 
@@ -926,8 +926,8 @@ func (self *Rope) UpdateI(args ...interface{}) {
 // Resets the Rope. This places the Rope at the given x/y world coordinates and then
 // sets alive, exists, visible and renderable all to true. Also resets the outOfBounds state.
 // If the Rope has a physics body that too is reset.
-func (self *Rope) ResetI(args ...interface{}) Rope{
-    return Rope{self.Call("reset", args)}
+func (self *Rope) ResetI(args ...interface{}) *Rope{
+    return &Rope{self.Call("reset", args)}
 }
 
 // Renders a flat strip
@@ -941,18 +941,18 @@ func (self *Rope) OnTextureUpdateI(args ...interface{}) {
 }
 
 // Returns the bounds of the mesh as a rectangle. The bounds calculation takes the worldTransform into account.
-func (self *Rope) GetBoundsI(args ...interface{}) Rectangle{
-    return Rectangle{self.Call("getBounds", args)}
+func (self *Rope) GetBoundsI(args ...interface{}) *Rectangle{
+    return &Rectangle{self.Call("getBounds", args)}
 }
 
 // Adds a child to the container.
-func (self *Rope) AddChildI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("addChild", args)}
+func (self *Rope) AddChildI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("addChild", args)}
 }
 
 // Adds a child to the container at a specified index. If the index is out of bounds an error will be thrown
-func (self *Rope) AddChildAtI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("addChildAt", args)}
+func (self *Rope) AddChildAtI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("addChildAt", args)}
 }
 
 // Swaps the position of 2 Display Objects within this container.
@@ -971,18 +971,18 @@ func (self *Rope) SetChildIndexI(args ...interface{}) {
 }
 
 // Returns the child at the specified index
-func (self *Rope) GetChildAtI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("getChildAt", args)}
+func (self *Rope) GetChildAtI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("getChildAt", args)}
 }
 
 // Removes a child from the container.
-func (self *Rope) RemoveChildI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("removeChild", args)}
+func (self *Rope) RemoveChildI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("removeChild", args)}
 }
 
 // Removes a child from the specified index position.
-func (self *Rope) RemoveChildAtI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("removeChildAt", args)}
+func (self *Rope) RemoveChildAtI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("removeChildAt", args)}
 }
 
 // Removes all children from this container that are within the begin and end indexes.
@@ -991,8 +991,8 @@ func (self *Rope) RemoveChildrenI(args ...interface{}) {
 }
 
 // Retrieves the non-global local bounds of the displayObjectContainer as a rectangle. The calculation takes all visible children into consideration.
-func (self *Rope) GetLocalBoundsI(args ...interface{}) Rectangle{
-    return Rectangle{self.Call("getLocalBounds", args)}
+func (self *Rope) GetLocalBoundsI(args ...interface{}) *Rectangle{
+    return &Rectangle{self.Call("getLocalBounds", args)}
 }
 
 // Sets the containers Stage reference. This is the Stage that this object, and all of its children, is connected to.
@@ -1026,8 +1026,8 @@ func (self *Rope) PostUpdateI(args ...interface{}) {
 // 
 // If the animation is already playing calling this again won't do anything.
 // If you need to reset an already running animation do so directly on the Animation object itself or via `AnimationManager.stop`.
-func (self *Rope) PlayI(args ...interface{}) Animation{
-    return Animation{self.Call("play", args)}
+func (self *Rope) PlayI(args ...interface{}) *Animation{
+    return &Animation{self.Call("play", args)}
 }
 
 // Aligns this Game Object within another Game Object, or Rectangle, known as the
@@ -1104,8 +1104,8 @@ func (self *Rope) AlignToI(args ...interface{}) interface{}{
 // 
 // If this Game Object hasn't been added to a custom Group then this method will bring it to the top of the Game World, 
 // because the World is the root Group from which all Game Objects descend.
-func (self *Rope) BringToTopI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("bringToTop", args)}
+func (self *Rope) BringToTopI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("bringToTop", args)}
 }
 
 // Sends this Game Object to the bottom of its parents display list.
@@ -1113,8 +1113,8 @@ func (self *Rope) BringToTopI(args ...interface{}) DisplayObject{
 // 
 // If this Game Object hasn't been added to a custom Group then this method will send it to the bottom of the Game World, 
 // because the World is the root Group from which all Game Objects descend.
-func (self *Rope) SendToBackI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("sendToBack", args)}
+func (self *Rope) SendToBackI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("sendToBack", args)}
 }
 
 // Moves this Game Object up one place in its parents display list.
@@ -1122,8 +1122,8 @@ func (self *Rope) SendToBackI(args ...interface{}) DisplayObject{
 // 
 // If this Game Object hasn't been added to a custom Group then this method will move it one object up within the Game World, 
 // because the World is the root Group from which all Game Objects descend.
-func (self *Rope) MoveUpI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("moveUp", args)}
+func (self *Rope) MoveUpI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("moveUp", args)}
 }
 
 // Moves this Game Object down one place in its parents display list.
@@ -1131,8 +1131,8 @@ func (self *Rope) MoveUpI(args ...interface{}) DisplayObject{
 // 
 // If this Game Object hasn't been added to a custom Group then this method will move it one object down within the Game World, 
 // because the World is the root Group from which all Game Objects descend.
-func (self *Rope) MoveDownI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("moveDown", args)}
+func (self *Rope) MoveDownI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("moveDown", args)}
 }
 
 // Crop allows you to crop the texture being used to display this Game Object.
@@ -1172,8 +1172,8 @@ func (self *Rope) DestroyI(args ...interface{}) {
 // A resurrected Game Object has its `alive`, `exists` and `visible` properties all set to true.
 // 
 // It will dispatch the `onRevived` event. Listen to `events.onRevived` for the signal.
-func (self *Rope) ReviveI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("revive", args)}
+func (self *Rope) ReviveI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("revive", args)}
 }
 
 // Kills a Game Object. A killed Game Object has its `alive`, `exists` and `visible` properties all set to false.
@@ -1184,8 +1184,8 @@ func (self *Rope) ReviveI(args ...interface{}) DisplayObject{
 // it doesn't destroy the object or free it up from memory.
 // 
 // If you don't need this Game Object any more you should call `destroy` instead.
-func (self *Rope) KillI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("kill", args)}
+func (self *Rope) KillI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("kill", args)}
 }
 
 // Changes the base texture the Game Object is using. The old texture is removed and the new one is referenced or fetched from the Cache.

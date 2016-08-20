@@ -15,12 +15,12 @@ type PhysicsP2 struct {
 
 
 // Local reference to game.
-func (self *PhysicsP2) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *PhysicsP2) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // Local reference to game.
-func (self *PhysicsP2) SetGame(member Game) {
+func (self *PhysicsP2) SetGame(member *Game) {
     self.Set("game", member)
 }
 
@@ -35,12 +35,12 @@ func (self *PhysicsP2) SetConfig(member interface{}) {
 }
 
 // The p2 World in which the simulation is run.
-func (self *PhysicsP2) GetWorld() P2World{
-    return P2World{self.Get("world")}
+func (self *PhysicsP2) GetWorld() *P2World{
+    return &P2World{self.Get("world")}
 }
 
 // The p2 World in which the simulation is run.
-func (self *PhysicsP2) SetWorld(member P2World) {
+func (self *PhysicsP2) SetWorld(member *P2World) {
     self.Set("world", member)
 }
 
@@ -91,12 +91,12 @@ func (self *PhysicsP2) SetMaterials(member []PhysicsP2Material) {
 }
 
 // The gravity applied to all bodies each step.
-func (self *PhysicsP2) GetGravity() PhysicsP2InversePointProxy{
-    return PhysicsP2InversePointProxy{self.Get("gravity")}
+func (self *PhysicsP2) GetGravity() *PhysicsP2InversePointProxy{
+    return &PhysicsP2InversePointProxy{self.Get("gravity")}
 }
 
 // The gravity applied to all bodies each step.
-func (self *PhysicsP2) SetGravity(member PhysicsP2InversePointProxy) {
+func (self *PhysicsP2) SetGravity(member *PhysicsP2InversePointProxy) {
     self.Set("gravity", member)
 }
 
@@ -113,112 +113,112 @@ func (self *PhysicsP2) SetWalls(member interface{}) {
 // This signal is dispatched when a new Body is added to the World.
 // 
 // It sends 1 argument: `body` which is the `Phaser.Physics.P2.Body` that was added to the world.
-func (self *PhysicsP2) GetOnBodyAdded() Signal{
-    return Signal{self.Get("onBodyAdded")}
+func (self *PhysicsP2) GetOnBodyAdded() *Signal{
+    return &Signal{self.Get("onBodyAdded")}
 }
 
 // This signal is dispatched when a new Body is added to the World.
 // 
 // It sends 1 argument: `body` which is the `Phaser.Physics.P2.Body` that was added to the world.
-func (self *PhysicsP2) SetOnBodyAdded(member Signal) {
+func (self *PhysicsP2) SetOnBodyAdded(member *Signal) {
     self.Set("onBodyAdded", member)
 }
 
 // This signal is dispatched when a Body is removed to the World.
 // 
 // It sends 1 argument: `body` which is the `Phaser.Physics.P2.Body` that was removed from the world.
-func (self *PhysicsP2) GetOnBodyRemoved() Signal{
-    return Signal{self.Get("onBodyRemoved")}
+func (self *PhysicsP2) GetOnBodyRemoved() *Signal{
+    return &Signal{self.Get("onBodyRemoved")}
 }
 
 // This signal is dispatched when a Body is removed to the World.
 // 
 // It sends 1 argument: `body` which is the `Phaser.Physics.P2.Body` that was removed from the world.
-func (self *PhysicsP2) SetOnBodyRemoved(member Signal) {
+func (self *PhysicsP2) SetOnBodyRemoved(member *Signal) {
     self.Set("onBodyRemoved", member)
 }
 
 // This signal is dispatched when a Spring is added to the World.
 // 
 // It sends 1 argument: `spring` which is either a `Phaser.Physics.P2.Spring`, `p2.LinearSpring` or `p2.RotationalSpring` that was added to the world.
-func (self *PhysicsP2) GetOnSpringAdded() Signal{
-    return Signal{self.Get("onSpringAdded")}
+func (self *PhysicsP2) GetOnSpringAdded() *Signal{
+    return &Signal{self.Get("onSpringAdded")}
 }
 
 // This signal is dispatched when a Spring is added to the World.
 // 
 // It sends 1 argument: `spring` which is either a `Phaser.Physics.P2.Spring`, `p2.LinearSpring` or `p2.RotationalSpring` that was added to the world.
-func (self *PhysicsP2) SetOnSpringAdded(member Signal) {
+func (self *PhysicsP2) SetOnSpringAdded(member *Signal) {
     self.Set("onSpringAdded", member)
 }
 
 // This signal is dispatched when a Spring is removed from the World.
 // 
 // It sends 1 argument: `spring` which is either a `Phaser.Physics.P2.Spring`, `p2.LinearSpring` or `p2.RotationalSpring` that was removed from the world.
-func (self *PhysicsP2) GetOnSpringRemoved() Signal{
-    return Signal{self.Get("onSpringRemoved")}
+func (self *PhysicsP2) GetOnSpringRemoved() *Signal{
+    return &Signal{self.Get("onSpringRemoved")}
 }
 
 // This signal is dispatched when a Spring is removed from the World.
 // 
 // It sends 1 argument: `spring` which is either a `Phaser.Physics.P2.Spring`, `p2.LinearSpring` or `p2.RotationalSpring` that was removed from the world.
-func (self *PhysicsP2) SetOnSpringRemoved(member Signal) {
+func (self *PhysicsP2) SetOnSpringRemoved(member *Signal) {
     self.Set("onSpringRemoved", member)
 }
 
 // This signal is dispatched when a Constraint is added to the World.
 // 
 // It sends 1 argument: `constraint` which is the `Phaser.Physics.P2.Constraint` that was added to the world.
-func (self *PhysicsP2) GetOnConstraintAdded() Signal{
-    return Signal{self.Get("onConstraintAdded")}
+func (self *PhysicsP2) GetOnConstraintAdded() *Signal{
+    return &Signal{self.Get("onConstraintAdded")}
 }
 
 // This signal is dispatched when a Constraint is added to the World.
 // 
 // It sends 1 argument: `constraint` which is the `Phaser.Physics.P2.Constraint` that was added to the world.
-func (self *PhysicsP2) SetOnConstraintAdded(member Signal) {
+func (self *PhysicsP2) SetOnConstraintAdded(member *Signal) {
     self.Set("onConstraintAdded", member)
 }
 
 // This signal is dispatched when a Constraint is removed from the World.
 // 
 // It sends 1 argument: `constraint` which is the `Phaser.Physics.P2.Constraint` that was removed from the world.
-func (self *PhysicsP2) GetOnConstraintRemoved() Signal{
-    return Signal{self.Get("onConstraintRemoved")}
+func (self *PhysicsP2) GetOnConstraintRemoved() *Signal{
+    return &Signal{self.Get("onConstraintRemoved")}
 }
 
 // This signal is dispatched when a Constraint is removed from the World.
 // 
 // It sends 1 argument: `constraint` which is the `Phaser.Physics.P2.Constraint` that was removed from the world.
-func (self *PhysicsP2) SetOnConstraintRemoved(member Signal) {
+func (self *PhysicsP2) SetOnConstraintRemoved(member *Signal) {
     self.Set("onConstraintRemoved", member)
 }
 
 // This signal is dispatched when a Contact Material is added to the World.
 // 
 // It sends 1 argument: `material` which is the `Phaser.Physics.P2.ContactMaterial` that was added to the world.
-func (self *PhysicsP2) GetOnContactMaterialAdded() Signal{
-    return Signal{self.Get("onContactMaterialAdded")}
+func (self *PhysicsP2) GetOnContactMaterialAdded() *Signal{
+    return &Signal{self.Get("onContactMaterialAdded")}
 }
 
 // This signal is dispatched when a Contact Material is added to the World.
 // 
 // It sends 1 argument: `material` which is the `Phaser.Physics.P2.ContactMaterial` that was added to the world.
-func (self *PhysicsP2) SetOnContactMaterialAdded(member Signal) {
+func (self *PhysicsP2) SetOnContactMaterialAdded(member *Signal) {
     self.Set("onContactMaterialAdded", member)
 }
 
 // This signal is dispatched when a Contact Material is removed from the World.
 // 
 // It sends 1 argument: `material` which is the `Phaser.Physics.P2.ContactMaterial` that was removed from the world.
-func (self *PhysicsP2) GetOnContactMaterialRemoved() Signal{
-    return Signal{self.Get("onContactMaterialRemoved")}
+func (self *PhysicsP2) GetOnContactMaterialRemoved() *Signal{
+    return &Signal{self.Get("onContactMaterialRemoved")}
 }
 
 // This signal is dispatched when a Contact Material is removed from the World.
 // 
 // It sends 1 argument: `material` which is the `Phaser.Physics.P2.ContactMaterial` that was removed from the world.
-func (self *PhysicsP2) SetOnContactMaterialRemoved(member Signal) {
+func (self *PhysicsP2) SetOnContactMaterialRemoved(member *Signal) {
     self.Set("onContactMaterialRemoved", member)
 }
 
@@ -243,8 +243,8 @@ func (self *PhysicsP2) SetCallbackContext(member interface{}) {
 // 
 // It is possible that in certain situations the `bodyA` or `bodyB` values are `null`. You should check for this
 // in your own code to avoid processing potentially null physics bodies.
-func (self *PhysicsP2) GetOnBeginContact() Signal{
-    return Signal{self.Get("onBeginContact")}
+func (self *PhysicsP2) GetOnBeginContact() *Signal{
+    return &Signal{self.Get("onBeginContact")}
 }
 
 // This Signal is dispatched when a first contact is created between two bodies. This happens *before* the step has been done.
@@ -253,7 +253,7 @@ func (self *PhysicsP2) GetOnBeginContact() Signal{
 // 
 // It is possible that in certain situations the `bodyA` or `bodyB` values are `null`. You should check for this
 // in your own code to avoid processing potentially null physics bodies.
-func (self *PhysicsP2) SetOnBeginContact(member Signal) {
+func (self *PhysicsP2) SetOnBeginContact(member *Signal) {
     self.Set("onBeginContact", member)
 }
 
@@ -263,8 +263,8 @@ func (self *PhysicsP2) SetOnBeginContact(member Signal) {
 // 
 // It is possible that in certain situations the `bodyA` or `bodyB` values are `null`. You should check for this
 // in your own code to avoid processing potentially null physics bodies.
-func (self *PhysicsP2) GetOnEndContact() Signal{
-    return Signal{self.Get("onEndContact")}
+func (self *PhysicsP2) GetOnEndContact() *Signal{
+    return &Signal{self.Get("onEndContact")}
 }
 
 // This Signal is dispatched when final contact occurs between two bodies. This happens *before* the step has been done.
@@ -273,7 +273,7 @@ func (self *PhysicsP2) GetOnEndContact() Signal{
 // 
 // It is possible that in certain situations the `bodyA` or `bodyB` values are `null`. You should check for this
 // in your own code to avoid processing potentially null physics bodies.
-func (self *PhysicsP2) SetOnEndContact(member Signal) {
+func (self *PhysicsP2) SetOnEndContact(member *Signal) {
     self.Set("onEndContact", member)
 }
 
@@ -294,32 +294,32 @@ func (self *PhysicsP2) SetCollisionGroups(member []interface{}) {
 }
 
 // A default collision group.
-func (self *PhysicsP2) GetNothingCollisionGroup() PhysicsP2CollisionGroup{
-    return PhysicsP2CollisionGroup{self.Get("nothingCollisionGroup")}
+func (self *PhysicsP2) GetNothingCollisionGroup() *PhysicsP2CollisionGroup{
+    return &PhysicsP2CollisionGroup{self.Get("nothingCollisionGroup")}
 }
 
 // A default collision group.
-func (self *PhysicsP2) SetNothingCollisionGroup(member PhysicsP2CollisionGroup) {
+func (self *PhysicsP2) SetNothingCollisionGroup(member *PhysicsP2CollisionGroup) {
     self.Set("nothingCollisionGroup", member)
 }
 
 // A default collision group.
-func (self *PhysicsP2) GetBoundsCollisionGroup() PhysicsP2CollisionGroup{
-    return PhysicsP2CollisionGroup{self.Get("boundsCollisionGroup")}
+func (self *PhysicsP2) GetBoundsCollisionGroup() *PhysicsP2CollisionGroup{
+    return &PhysicsP2CollisionGroup{self.Get("boundsCollisionGroup")}
 }
 
 // A default collision group.
-func (self *PhysicsP2) SetBoundsCollisionGroup(member PhysicsP2CollisionGroup) {
+func (self *PhysicsP2) SetBoundsCollisionGroup(member *PhysicsP2CollisionGroup) {
     self.Set("boundsCollisionGroup", member)
 }
 
 // A default collision group.
-func (self *PhysicsP2) GetEverythingCollisionGroup() PhysicsP2CollisionGroup{
-    return PhysicsP2CollisionGroup{self.Get("everythingCollisionGroup")}
+func (self *PhysicsP2) GetEverythingCollisionGroup() *PhysicsP2CollisionGroup{
+    return &PhysicsP2CollisionGroup{self.Get("everythingCollisionGroup")}
 }
 
 // A default collision group.
-func (self *PhysicsP2) SetEverythingCollisionGroup(member PhysicsP2CollisionGroup) {
+func (self *PhysicsP2) SetEverythingCollisionGroup(member *PhysicsP2CollisionGroup) {
     self.Set("everythingCollisionGroup", member)
 }
 
@@ -360,12 +360,12 @@ func (self *PhysicsP2) SetRestitution(member float64) {
 }
 
 // The default Contact Material being used by the World.
-func (self *PhysicsP2) GetContactMaterial() P2ContactMaterial{
-    return P2ContactMaterial{self.Get("contactMaterial")}
+func (self *PhysicsP2) GetContactMaterial() *P2ContactMaterial{
+    return &P2ContactMaterial{self.Get("contactMaterial")}
 }
 
 // The default Contact Material being used by the World.
-func (self *PhysicsP2) SetContactMaterial(member P2ContactMaterial) {
+func (self *PhysicsP2) SetContactMaterial(member *P2ContactMaterial) {
     self.Set("contactMaterial", member)
 }
 
@@ -580,65 +580,65 @@ func (self *PhysicsP2) AddBodyI(args ...interface{}) bool{
 }
 
 // Removes a body from the world. This will silently fail if the body wasn't part of the world to begin with.
-func (self *PhysicsP2) RemoveBodyI(args ...interface{}) PhysicsP2Body{
-    return PhysicsP2Body{self.Call("removeBody", args)}
+func (self *PhysicsP2) RemoveBodyI(args ...interface{}) *PhysicsP2Body{
+    return &PhysicsP2Body{self.Call("removeBody", args)}
 }
 
 // Adds a Spring to the world.
-func (self *PhysicsP2) AddSpringI(args ...interface{}) PhysicsP2Spring{
-    return PhysicsP2Spring{self.Call("addSpring", args)}
+func (self *PhysicsP2) AddSpringI(args ...interface{}) *PhysicsP2Spring{
+    return &PhysicsP2Spring{self.Call("addSpring", args)}
 }
 
 // Removes a Spring from the world.
-func (self *PhysicsP2) RemoveSpringI(args ...interface{}) PhysicsP2Spring{
-    return PhysicsP2Spring{self.Call("removeSpring", args)}
+func (self *PhysicsP2) RemoveSpringI(args ...interface{}) *PhysicsP2Spring{
+    return &PhysicsP2Spring{self.Call("removeSpring", args)}
 }
 
 // Creates a constraint that tries to keep the distance between two bodies constant.
-func (self *PhysicsP2) CreateDistanceConstraintI(args ...interface{}) PhysicsP2DistanceConstraint{
-    return PhysicsP2DistanceConstraint{self.Call("createDistanceConstraint", args)}
+func (self *PhysicsP2) CreateDistanceConstraintI(args ...interface{}) *PhysicsP2DistanceConstraint{
+    return &PhysicsP2DistanceConstraint{self.Call("createDistanceConstraint", args)}
 }
 
 // Creates a constraint that tries to keep the distance between two bodies constant.
-func (self *PhysicsP2) CreateGearConstraintI(args ...interface{}) PhysicsP2GearConstraint{
-    return PhysicsP2GearConstraint{self.Call("createGearConstraint", args)}
+func (self *PhysicsP2) CreateGearConstraintI(args ...interface{}) *PhysicsP2GearConstraint{
+    return &PhysicsP2GearConstraint{self.Call("createGearConstraint", args)}
 }
 
 // Connects two bodies at given offset points, letting them rotate relative to each other around this point.
 // The pivot points are given in world (pixel) coordinates.
-func (self *PhysicsP2) CreateRevoluteConstraintI(args ...interface{}) PhysicsP2RevoluteConstraint{
-    return PhysicsP2RevoluteConstraint{self.Call("createRevoluteConstraint", args)}
+func (self *PhysicsP2) CreateRevoluteConstraintI(args ...interface{}) *PhysicsP2RevoluteConstraint{
+    return &PhysicsP2RevoluteConstraint{self.Call("createRevoluteConstraint", args)}
 }
 
 // Locks the relative position between two bodies.
-func (self *PhysicsP2) CreateLockConstraintI(args ...interface{}) PhysicsP2LockConstraint{
-    return PhysicsP2LockConstraint{self.Call("createLockConstraint", args)}
+func (self *PhysicsP2) CreateLockConstraintI(args ...interface{}) *PhysicsP2LockConstraint{
+    return &PhysicsP2LockConstraint{self.Call("createLockConstraint", args)}
 }
 
 // Constraint that only allows bodies to move along a line, relative to each other.
 // See http://www.iforce2d.net/b2dtut/joints-prismatic
-func (self *PhysicsP2) CreatePrismaticConstraintI(args ...interface{}) PhysicsP2PrismaticConstraint{
-    return PhysicsP2PrismaticConstraint{self.Call("createPrismaticConstraint", args)}
+func (self *PhysicsP2) CreatePrismaticConstraintI(args ...interface{}) *PhysicsP2PrismaticConstraint{
+    return &PhysicsP2PrismaticConstraint{self.Call("createPrismaticConstraint", args)}
 }
 
 // Adds a Constraint to the world.
-func (self *PhysicsP2) AddConstraintI(args ...interface{}) PhysicsP2Constraint{
-    return PhysicsP2Constraint{self.Call("addConstraint", args)}
+func (self *PhysicsP2) AddConstraintI(args ...interface{}) *PhysicsP2Constraint{
+    return &PhysicsP2Constraint{self.Call("addConstraint", args)}
 }
 
 // Removes a Constraint from the world.
-func (self *PhysicsP2) RemoveConstraintI(args ...interface{}) PhysicsP2Constraint{
-    return PhysicsP2Constraint{self.Call("removeConstraint", args)}
+func (self *PhysicsP2) RemoveConstraintI(args ...interface{}) *PhysicsP2Constraint{
+    return &PhysicsP2Constraint{self.Call("removeConstraint", args)}
 }
 
 // Adds a Contact Material to the world.
-func (self *PhysicsP2) AddContactMaterialI(args ...interface{}) PhysicsP2ContactMaterial{
-    return PhysicsP2ContactMaterial{self.Call("addContactMaterial", args)}
+func (self *PhysicsP2) AddContactMaterialI(args ...interface{}) *PhysicsP2ContactMaterial{
+    return &PhysicsP2ContactMaterial{self.Call("addContactMaterial", args)}
 }
 
 // Removes a Contact Material from the world.
-func (self *PhysicsP2) RemoveContactMaterialI(args ...interface{}) PhysicsP2ContactMaterial{
-    return PhysicsP2ContactMaterial{self.Call("removeContactMaterial", args)}
+func (self *PhysicsP2) RemoveContactMaterialI(args ...interface{}) *PhysicsP2ContactMaterial{
+    return &PhysicsP2ContactMaterial{self.Call("removeContactMaterial", args)}
 }
 
 // Gets a Contact Material based on the two given Materials.
@@ -654,13 +654,13 @@ func (self *PhysicsP2) SetMaterialI(args ...interface{}) {
 // Creates a Material. Materials are applied to Shapes owned by a Body and can be set with Body.setMaterial().
 // Materials are a way to control what happens when Shapes collide. Combine unique Materials together to create Contact Materials.
 // Contact Materials have properties such as friction and restitution that allow for fine-grained collision control between different Materials.
-func (self *PhysicsP2) CreateMaterialI(args ...interface{}) PhysicsP2Material{
-    return PhysicsP2Material{self.Call("createMaterial", args)}
+func (self *PhysicsP2) CreateMaterialI(args ...interface{}) *PhysicsP2Material{
+    return &PhysicsP2Material{self.Call("createMaterial", args)}
 }
 
 // Creates a Contact Material from the two given Materials. You can then edit the properties of the Contact Material directly.
-func (self *PhysicsP2) CreateContactMaterialI(args ...interface{}) PhysicsP2ContactMaterial{
-    return PhysicsP2ContactMaterial{self.Call("createContactMaterial", args)}
+func (self *PhysicsP2) CreateContactMaterialI(args ...interface{}) *PhysicsP2ContactMaterial{
+    return &PhysicsP2ContactMaterial{self.Call("createContactMaterial", args)}
 }
 
 // Populates and returns an array with references to of all current Bodies in the world.
@@ -676,8 +676,8 @@ func (self *PhysicsP2) GetBodiesI(args ...interface{}) []PhysicsP2Body{
 }
 
 // Checks the given object to see if it has a p2.Body and if so returns it.
-func (self *PhysicsP2) GetBodyI(args ...interface{}) P2Body{
-    return P2Body{self.Call("getBody", args)}
+func (self *PhysicsP2) GetBodyI(args ...interface{}) *P2Body{
+    return &P2Body{self.Call("getBody", args)}
 }
 
 // Populates and returns an array of all current Springs in the world.
@@ -730,18 +730,18 @@ func (self *PhysicsP2) CreateCollisionGroupI(args ...interface{}) {
 }
 
 // Creates a linear spring, connecting two bodies. A spring can have a resting length, a stiffness and damping.
-func (self *PhysicsP2) CreateSpringI(args ...interface{}) PhysicsP2Spring{
-    return PhysicsP2Spring{self.Call("createSpring", args)}
+func (self *PhysicsP2) CreateSpringI(args ...interface{}) *PhysicsP2Spring{
+    return &PhysicsP2Spring{self.Call("createSpring", args)}
 }
 
 // Creates a rotational spring, connecting two bodies. A spring can have a resting length, a stiffness and damping.
-func (self *PhysicsP2) CreateRotationalSpringI(args ...interface{}) PhysicsP2RotationalSpring{
-    return PhysicsP2RotationalSpring{self.Call("createRotationalSpring", args)}
+func (self *PhysicsP2) CreateRotationalSpringI(args ...interface{}) *PhysicsP2RotationalSpring{
+    return &PhysicsP2RotationalSpring{self.Call("createRotationalSpring", args)}
 }
 
 // Creates a new Body and adds it to the World.
-func (self *PhysicsP2) CreateBodyI(args ...interface{}) PhysicsP2Body{
-    return PhysicsP2Body{self.Call("createBody", args)}
+func (self *PhysicsP2) CreateBodyI(args ...interface{}) *PhysicsP2Body{
+    return &PhysicsP2Body{self.Call("createBody", args)}
 }
 
 // Creates a new Particle and adds it to the World.

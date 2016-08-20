@@ -149,32 +149,32 @@ func (self *RetroFont) SetFixedWidth(member float64) {
 }
 
 // A reference to the image stored in the Game.Cache that contains the font.
-func (self *RetroFont) GetFontSet() Image{
-    return Image{self.Get("fontSet")}
+func (self *RetroFont) GetFontSet() *Image{
+    return &Image{self.Get("fontSet")}
 }
 
 // A reference to the image stored in the Game.Cache that contains the font.
-func (self *RetroFont) SetFontSet(member Image) {
+func (self *RetroFont) SetFontSet(member *Image) {
     self.Set("fontSet", member)
 }
 
 // The FrameData representing this Retro Font.
-func (self *RetroFont) GetFrameData() FrameData{
-    return FrameData{self.Get("frameData")}
+func (self *RetroFont) GetFrameData() *FrameData{
+    return &FrameData{self.Get("frameData")}
 }
 
 // The FrameData representing this Retro Font.
-func (self *RetroFont) SetFrameData(member FrameData) {
+func (self *RetroFont) SetFrameData(member *FrameData) {
     self.Set("frameData", member)
 }
 
 // The image that is stamped to the RenderTexture for each character in the font.
-func (self *RetroFont) GetStamp() Image{
-    return Image{self.Get("stamp")}
+func (self *RetroFont) GetStamp() *Image{
+    return &Image{self.Get("stamp")}
 }
 
 // The image that is stamped to the RenderTexture for each character in the font.
-func (self *RetroFont) SetStamp(member Image) {
+func (self *RetroFont) SetStamp(member *Image) {
     self.Set("stamp", member)
 }
 
@@ -349,12 +349,12 @@ func (self *RetroFont) SetSmoothed(member bool) {
 }
 
 // A reference to the currently running game.
-func (self *RetroFont) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *RetroFont) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // A reference to the currently running game.
-func (self *RetroFont) SetGame(member Game) {
+func (self *RetroFont) SetGame(member *Game) {
     self.Set("game", member)
 }
 
@@ -399,34 +399,34 @@ func (self *RetroFont) SetResolution(member float64) {
 }
 
 // The framing rectangle of the render texture
-func (self *RetroFont) GetFrame() Rectangle{
-    return Rectangle{self.Get("frame")}
+func (self *RetroFont) GetFrame() *Rectangle{
+    return &Rectangle{self.Get("frame")}
 }
 
 // The framing rectangle of the render texture
-func (self *RetroFont) SetFrame(member Rectangle) {
+func (self *RetroFont) SetFrame(member *Rectangle) {
     self.Set("frame", member)
 }
 
 // This is the area of the BaseTexture image to actually copy to the Canvas / WebGL when rendering,
 // irrespective of the actual frame size or placement (which can be influenced by trimmed texture atlases)
-func (self *RetroFont) GetCrop() Rectangle{
-    return Rectangle{self.Get("crop")}
+func (self *RetroFont) GetCrop() *Rectangle{
+    return &Rectangle{self.Get("crop")}
 }
 
 // This is the area of the BaseTexture image to actually copy to the Canvas / WebGL when rendering,
 // irrespective of the actual frame size or placement (which can be influenced by trimmed texture atlases)
-func (self *RetroFont) SetCrop(member Rectangle) {
+func (self *RetroFont) SetCrop(member *Rectangle) {
     self.Set("crop", member)
 }
 
 // The base texture object that this texture uses
-func (self *RetroFont) GetBaseTexture() BaseTexture{
-    return BaseTexture{self.Get("baseTexture")}
+func (self *RetroFont) GetBaseTexture() *BaseTexture{
+    return &BaseTexture{self.Get("baseTexture")}
 }
 
 // The base texture object that this texture uses
-func (self *RetroFont) SetBaseTexture(member BaseTexture) {
+func (self *RetroFont) SetBaseTexture(member *BaseTexture) {
     self.Set("baseTexture", member)
 }
 
@@ -461,12 +461,12 @@ func (self *RetroFont) SetNoFrame(member bool) {
 }
 
 // The texture trim data.
-func (self *RetroFont) GetTrim() Rectangle{
-    return Rectangle{self.Get("trim")}
+func (self *RetroFont) GetTrim() *Rectangle{
+    return &Rectangle{self.Get("trim")}
 }
 
 // The texture trim data.
-func (self *RetroFont) SetTrim(member Rectangle) {
+func (self *RetroFont) SetTrim(member *Rectangle) {
     self.Set("trim", member)
 }
 
@@ -592,8 +592,8 @@ func (self *RetroFont) RenderCanvasI(args ...interface{}) {
 }
 
 // Will return a HTML Image of the texture
-func (self *RetroFont) GetImageI(args ...interface{}) Image{
-    return Image{self.Call("getImage", args)}
+func (self *RetroFont) GetImageI(args ...interface{}) *Image{
+    return &Image{self.Call("getImage", args)}
 }
 
 // Will return a base64 encoded string of this texture. It works by calling RenderTexture.getCanvas and then running toDataURL on that.

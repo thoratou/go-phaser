@@ -37,22 +37,22 @@ func (self *Creature) SetType(member float64) {
 }
 
 // The CreatureAnimation instance.
-func (self *Creature) GetAnimation() CreatureAnimation{
-    return CreatureAnimation{self.Get("animation")}
+func (self *Creature) GetAnimation() *CreatureAnimation{
+    return &CreatureAnimation{self.Get("animation")}
 }
 
 // The CreatureAnimation instance.
-func (self *Creature) SetAnimation(member CreatureAnimation) {
+func (self *Creature) SetAnimation(member *CreatureAnimation) {
     self.Set("animation", member)
 }
 
 // The CreatureManager instance for this object.
-func (self *Creature) GetManager() CreatureManager{
-    return CreatureManager{self.Get("manager")}
+func (self *Creature) GetManager() *CreatureManager{
+    return &CreatureManager{self.Get("manager")}
 }
 
 // The CreatureManager instance for this object.
-func (self *Creature) SetManager(member CreatureManager) {
+func (self *Creature) SetManager(member *CreatureManager) {
     self.Set("manager", member)
 }
 
@@ -67,72 +67,72 @@ func (self *Creature) SetTimeDelta(member float64) {
 }
 
 // The texture the animation is using.
-func (self *Creature) GetTexture() Texture{
-    return Texture{self.Get("texture")}
+func (self *Creature) GetTexture() *Texture{
+    return &Texture{self.Get("texture")}
 }
 
 // The texture the animation is using.
-func (self *Creature) SetTexture(member Texture) {
+func (self *Creature) SetTexture(member *Texture) {
     self.Set("texture", member)
 }
 
 // The minimum bounds point.
-func (self *Creature) GetCreatureBoundsMin() Point{
-    return Point{self.Get("creatureBoundsMin")}
+func (self *Creature) GetCreatureBoundsMin() *Point{
+    return &Point{self.Get("creatureBoundsMin")}
 }
 
 // The minimum bounds point.
-func (self *Creature) SetCreatureBoundsMin(member Point) {
+func (self *Creature) SetCreatureBoundsMin(member *Point) {
     self.Set("creatureBoundsMin", member)
 }
 
 // The maximum bounds point.
-func (self *Creature) GetCreatureBoundsMax() Point{
-    return Point{self.Get("creatureBoundsMax")}
+func (self *Creature) GetCreatureBoundsMax() *Point{
+    return &Point{self.Get("creatureBoundsMax")}
 }
 
 // The maximum bounds point.
-func (self *Creature) SetCreatureBoundsMax(member Point) {
+func (self *Creature) SetCreatureBoundsMax(member *Point) {
     self.Set("creatureBoundsMax", member)
 }
 
 // The vertices data.
-func (self *Creature) GetVertices() Float32Array{
-    return Float32Array{self.Get("vertices")}
+func (self *Creature) GetVertices() *Float32Array{
+    return &Float32Array{self.Get("vertices")}
 }
 
 // The vertices data.
-func (self *Creature) SetVertices(member Float32Array) {
+func (self *Creature) SetVertices(member *Float32Array) {
     self.Set("vertices", member)
 }
 
 // The UV data.
-func (self *Creature) GetUvs() Float32Array{
-    return Float32Array{self.Get("uvs")}
+func (self *Creature) GetUvs() *Float32Array{
+    return &Float32Array{self.Get("uvs")}
 }
 
 // The UV data.
-func (self *Creature) SetUvs(member Float32Array) {
+func (self *Creature) SetUvs(member *Float32Array) {
     self.Set("uvs", member)
 }
 
 // 
-func (self *Creature) GetIndices() Uint16Array{
-    return Uint16Array{self.Get("indices")}
+func (self *Creature) GetIndices() *Uint16Array{
+    return &Uint16Array{self.Get("indices")}
 }
 
 // 
-func (self *Creature) SetIndices(member Uint16Array) {
+func (self *Creature) SetIndices(member *Uint16Array) {
     self.Set("indices", member)
 }
 
 // The vertices colors
-func (self *Creature) GetColors() Uint16Array{
-    return Uint16Array{self.Get("colors")}
+func (self *Creature) GetColors() *Uint16Array{
+    return &Uint16Array{self.Get("colors")}
 }
 
 // The vertices colors
-func (self *Creature) SetColors(member Uint16Array) {
+func (self *Creature) SetColors(member *Uint16Array) {
     self.Set("colors", member)
 }
 
@@ -211,12 +211,12 @@ func (self *Creature) SetHeight(member float64) {
 }
 
 // A reference to the currently running Game.
-func (self *Creature) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *Creature) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // A reference to the currently running Game.
-func (self *Creature) SetGame(member Game) {
+func (self *Creature) SetGame(member *Game) {
     self.Set("game", member)
 }
 
@@ -276,25 +276,25 @@ func (self *Creature) SetZ(member float64) {
 
 // All Phaser Game Objects have an Events class which contains all of the events that are dispatched when certain things happen to this
 // Game Object, or any of its components.
-func (self *Creature) GetEvents() Events{
-    return Events{self.Get("events")}
+func (self *Creature) GetEvents() *Events{
+    return &Events{self.Get("events")}
 }
 
 // All Phaser Game Objects have an Events class which contains all of the events that are dispatched when certain things happen to this
 // Game Object, or any of its components.
-func (self *Creature) SetEvents(member Events) {
+func (self *Creature) SetEvents(member *Events) {
     self.Set("events", member)
 }
 
 // If the Game Object is enabled for animation (such as a Phaser.Sprite) this is a reference to its AnimationManager instance.
 // Through it you can create, play, pause and stop animations.
-func (self *Creature) GetAnimations() AnimationManager{
-    return AnimationManager{self.Get("animations")}
+func (self *Creature) GetAnimations() *AnimationManager{
+    return &AnimationManager{self.Get("animations")}
 }
 
 // If the Game Object is enabled for animation (such as a Phaser.Sprite) this is a reference to its AnimationManager instance.
 // Through it you can create, play, pause and stop animations.
-func (self *Creature) SetAnimations(member AnimationManager) {
+func (self *Creature) SetAnimations(member *AnimationManager) {
     self.Set("animations", member)
 }
 
@@ -319,14 +319,14 @@ func (self *Creature) SetKey(member interface{}) {
 // The world coordinates of this Game Object in pixels.
 // Depending on where in the display list this Game Object is placed this value can differ from `position`, 
 // which contains the x/y coordinates relative to the Game Objects parent.
-func (self *Creature) GetWorld() Point{
-    return Point{self.Get("world")}
+func (self *Creature) GetWorld() *Point{
+    return &Point{self.Get("world")}
 }
 
 // The world coordinates of this Game Object in pixels.
 // Depending on where in the display list this Game Object is placed this value can differ from `position`, 
 // which contains the x/y coordinates relative to the Game Objects parent.
-func (self *Creature) SetWorld(member Point) {
+func (self *Creature) SetWorld(member *Point) {
     self.Set("world", member)
 }
 
@@ -341,12 +341,12 @@ func (self *Creature) SetDebug(member bool) {
 }
 
 // The position the Game Object was located in the previous frame.
-func (self *Creature) GetPreviousPosition() Point{
-    return Point{self.Get("previousPosition")}
+func (self *Creature) GetPreviousPosition() *Point{
+    return &Point{self.Get("previousPosition")}
 }
 
 // The position the Game Object was located in the previous frame.
-func (self *Creature) SetPreviousPosition(member Point) {
+func (self *Creature) SetPreviousPosition(member *Point) {
     self.Set("previousPosition", member)
 }
 
@@ -531,14 +531,14 @@ func (self *Creature) SetFixedToCamera(member bool) {
 // The x/y coordinate offset applied to the top-left of the camera that this Game Object will be drawn at if `fixedToCamera` is true.
 // 
 // The values are relative to the top-left of the camera view and in addition to any parent of the Game Object on the display list.
-func (self *Creature) GetCameraOffset() Point{
-    return Point{self.Get("cameraOffset")}
+func (self *Creature) GetCameraOffset() *Point{
+    return &Point{self.Get("cameraOffset")}
 }
 
 // The x/y coordinate offset applied to the top-left of the camera that this Game Object will be drawn at if `fixedToCamera` is true.
 // 
 // The values are relative to the top-left of the camera view and in addition to any parent of the Game Object on the display list.
-func (self *Creature) SetCameraOffset(member Point) {
+func (self *Creature) SetCameraOffset(member *Point) {
     self.Set("cameraOffset", member)
 }
 
@@ -641,13 +641,13 @@ func (self *Creature) StopI(args ...interface{}) {
 }
 
 // Adds a child to the container.
-func (self *Creature) AddChildI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("addChild", args)}
+func (self *Creature) AddChildI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("addChild", args)}
 }
 
 // Adds a child to the container at a specified index. If the index is out of bounds an error will be thrown
-func (self *Creature) AddChildAtI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("addChildAt", args)}
+func (self *Creature) AddChildAtI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("addChildAt", args)}
 }
 
 // Swaps the position of 2 Display Objects within this container.
@@ -666,18 +666,18 @@ func (self *Creature) SetChildIndexI(args ...interface{}) {
 }
 
 // Returns the child at the specified index
-func (self *Creature) GetChildAtI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("getChildAt", args)}
+func (self *Creature) GetChildAtI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("getChildAt", args)}
 }
 
 // Removes a child from the container.
-func (self *Creature) RemoveChildI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("removeChild", args)}
+func (self *Creature) RemoveChildI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("removeChild", args)}
 }
 
 // Removes a child from the specified index position.
-func (self *Creature) RemoveChildAtI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("removeChildAt", args)}
+func (self *Creature) RemoveChildAtI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("removeChildAt", args)}
 }
 
 // Removes all children from this container that are within the begin and end indexes.
@@ -686,13 +686,13 @@ func (self *Creature) RemoveChildrenI(args ...interface{}) {
 }
 
 // Retrieves the bounds of the displayObjectContainer as a rectangle. The bounds calculation takes all visible children into consideration.
-func (self *Creature) GetBoundsI(args ...interface{}) Rectangle{
-    return Rectangle{self.Call("getBounds", args)}
+func (self *Creature) GetBoundsI(args ...interface{}) *Rectangle{
+    return &Rectangle{self.Call("getBounds", args)}
 }
 
 // Retrieves the non-global local bounds of the displayObjectContainer as a rectangle. The calculation takes all visible children into consideration.
-func (self *Creature) GetLocalBoundsI(args ...interface{}) Rectangle{
-    return Rectangle{self.Call("getLocalBounds", args)}
+func (self *Creature) GetLocalBoundsI(args ...interface{}) *Rectangle{
+    return &Rectangle{self.Call("getLocalBounds", args)}
 }
 
 // Sets the containers Stage reference. This is the Stage that this object, and all of its children, is connected to.
@@ -727,8 +727,8 @@ func (self *Creature) PostUpdateI(args ...interface{}) {
 // 
 // If this Game Object hasn't been added to a custom Group then this method will bring it to the top of the Game World, 
 // because the World is the root Group from which all Game Objects descend.
-func (self *Creature) BringToTopI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("bringToTop", args)}
+func (self *Creature) BringToTopI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("bringToTop", args)}
 }
 
 // Sends this Game Object to the bottom of its parents display list.
@@ -736,8 +736,8 @@ func (self *Creature) BringToTopI(args ...interface{}) DisplayObject{
 // 
 // If this Game Object hasn't been added to a custom Group then this method will send it to the bottom of the Game World, 
 // because the World is the root Group from which all Game Objects descend.
-func (self *Creature) SendToBackI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("sendToBack", args)}
+func (self *Creature) SendToBackI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("sendToBack", args)}
 }
 
 // Moves this Game Object up one place in its parents display list.
@@ -745,8 +745,8 @@ func (self *Creature) SendToBackI(args ...interface{}) DisplayObject{
 // 
 // If this Game Object hasn't been added to a custom Group then this method will move it one object up within the Game World, 
 // because the World is the root Group from which all Game Objects descend.
-func (self *Creature) MoveUpI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("moveUp", args)}
+func (self *Creature) MoveUpI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("moveUp", args)}
 }
 
 // Moves this Game Object down one place in its parents display list.
@@ -754,8 +754,8 @@ func (self *Creature) MoveUpI(args ...interface{}) DisplayObject{
 // 
 // If this Game Object hasn't been added to a custom Group then this method will move it one object down within the Game World, 
 // because the World is the root Group from which all Game Objects descend.
-func (self *Creature) MoveDownI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("moveDown", args)}
+func (self *Creature) MoveDownI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("moveDown", args)}
 }
 
 // Destroys the Game Object. This removes it from its parent group, destroys the input, event and animation handlers if present
@@ -774,8 +774,8 @@ func (self *Creature) DestroyI(args ...interface{}) {
 // A resurrected Game Object has its `alive`, `exists` and `visible` properties all set to true.
 // 
 // It will dispatch the `onRevived` event. Listen to `events.onRevived` for the signal.
-func (self *Creature) ReviveI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("revive", args)}
+func (self *Creature) ReviveI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("revive", args)}
 }
 
 // Kills a Game Object. A killed Game Object has its `alive`, `exists` and `visible` properties all set to false.
@@ -786,8 +786,8 @@ func (self *Creature) ReviveI(args ...interface{}) DisplayObject{
 // it doesn't destroy the object or free it up from memory.
 // 
 // If you don't need this Game Object any more you should call `destroy` instead.
-func (self *Creature) KillI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("kill", args)}
+func (self *Creature) KillI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("kill", args)}
 }
 
 // Resets the Game Object.
@@ -798,6 +798,6 @@ func (self *Creature) KillI(args ...interface{}) DisplayObject{
 // If this Game Object has the LifeSpan component it will also set `alive` to true and `health` to the given value.
 // 
 // If this Game Object has a Physics Body it will reset the Body.
-func (self *Creature) ResetI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("reset", args)}
+func (self *Creature) ResetI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("reset", args)}
 }

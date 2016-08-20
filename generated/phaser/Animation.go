@@ -16,12 +16,12 @@ type Animation struct {
 
 
 // A reference to the currently running Game.
-func (self *Animation) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *Animation) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // A reference to the currently running Game.
-func (self *Animation) SetGame(member Game) {
+func (self *Animation) SetGame(member *Game) {
     self.Set("game", member)
 }
 
@@ -106,22 +106,22 @@ func (self *Animation) SetIsPaused(member bool) {
 }
 
 // The currently displayed frame of the Animation.
-func (self *Animation) GetCurrentFrame() Frame{
-    return Frame{self.Get("currentFrame")}
+func (self *Animation) GetCurrentFrame() *Frame{
+    return &Frame{self.Get("currentFrame")}
 }
 
 // The currently displayed frame of the Animation.
-func (self *Animation) SetCurrentFrame(member Frame) {
+func (self *Animation) SetCurrentFrame(member *Frame) {
     self.Set("currentFrame", member)
 }
 
 // This event is dispatched when this Animation starts playback.
-func (self *Animation) GetOnStart() Signal{
-    return Signal{self.Get("onStart")}
+func (self *Animation) GetOnStart() *Signal{
+    return &Signal{self.Get("onStart")}
 }
 
 // This event is dispatched when this Animation starts playback.
-func (self *Animation) SetOnStart(member Signal) {
+func (self *Animation) SetOnStart(member *Signal) {
     self.Set("onStart", member)
 }
 
@@ -144,22 +144,22 @@ func (self *Animation) SetOnUpdate(member interface{}) {
 }
 
 // This event is dispatched when this Animation completes playback. If the animation is set to loop this is never fired, listen for onLoop instead.
-func (self *Animation) GetOnComplete() Signal{
-    return Signal{self.Get("onComplete")}
+func (self *Animation) GetOnComplete() *Signal{
+    return &Signal{self.Get("onComplete")}
 }
 
 // This event is dispatched when this Animation completes playback. If the animation is set to loop this is never fired, listen for onLoop instead.
-func (self *Animation) SetOnComplete(member Signal) {
+func (self *Animation) SetOnComplete(member *Signal) {
     self.Set("onComplete", member)
 }
 
 // This event is dispatched when this Animation loops.
-func (self *Animation) GetOnLoop() Signal{
-    return Signal{self.Get("onLoop")}
+func (self *Animation) GetOnLoop() *Signal{
+    return &Signal{self.Get("onLoop")}
 }
 
 // This event is dispatched when this Animation loops.
-func (self *Animation) SetOnLoop(member Signal) {
+func (self *Animation) SetOnLoop(member *Signal) {
     self.Set("onLoop", member)
 }
 
@@ -236,8 +236,8 @@ func (self *Animation) SetEnableUpdate(member bool) {
 
 
 // Plays this animation.
-func (self *Animation) PlayI(args ...interface{}) Animation{
-    return Animation{self.Call("play", args)}
+func (self *Animation) PlayI(args ...interface{}) *Animation{
+    return &Animation{self.Call("play", args)}
 }
 
 // Sets this animation back to the first frame and restarts the animation.
@@ -246,15 +246,15 @@ func (self *Animation) RestartI(args ...interface{}) {
 }
 
 // Reverses the animation direction
-func (self *Animation) ReverseI(args ...interface{}) Animation{
-    return Animation{self.Call("reverse", args)}
+func (self *Animation) ReverseI(args ...interface{}) *Animation{
+    return &Animation{self.Call("reverse", args)}
 }
 
 // Reverses the animation direction for the current/next animation only
 // Once the onComplete event is called this method will be called again and revert
 // the reversed state.
-func (self *Animation) ReverseOnceI(args ...interface{}) Animation{
-    return Animation{self.Call("reverseOnce", args)}
+func (self *Animation) ReverseOnceI(args ...interface{}) *Animation{
+    return &Animation{self.Call("reverseOnce", args)}
 }
 
 // Sets this animations playback to a given frame with the given ID.

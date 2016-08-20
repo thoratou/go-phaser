@@ -227,11 +227,11 @@ func (self *Frame) SetTrimI(args ...interface{}) {
 
 // Clones this Frame into a new Phaser.Frame object and returns it.
 // Note that all properties are cloned, including the name, index and UUID.
-func (self *Frame) CloneI(args ...interface{}) Frame{
-    return Frame{self.Call("clone", args)}
+func (self *Frame) CloneI(args ...interface{}) *Frame{
+    return &Frame{self.Call("clone", args)}
 }
 
 // Returns a Rectangle set to the dimensions of this Frame.
-func (self *Frame) GetRectI(args ...interface{}) Rectangle{
-    return Rectangle{self.Call("getRect", args)}
+func (self *Frame) GetRectI(args ...interface{}) *Rectangle{
+    return &Rectangle{self.Call("getRect", args)}
 }

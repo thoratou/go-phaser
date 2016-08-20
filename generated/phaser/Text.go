@@ -42,25 +42,25 @@ func (self *Text) SetPhysicsType(member float64) {
 
 // Specify a padding value which is added to the line width and height when calculating the Text size.
 // ALlows you to add extra spacing if Phaser is unable to accurately determine the true font dimensions.
-func (self *Text) GetPadding() Point{
-    return Point{self.Get("padding")}
+func (self *Text) GetPadding() *Point{
+    return &Point{self.Get("padding")}
 }
 
 // Specify a padding value which is added to the line width and height when calculating the Text size.
 // ALlows you to add extra spacing if Phaser is unable to accurately determine the true font dimensions.
-func (self *Text) SetPadding(member Point) {
+func (self *Text) SetPadding(member *Point) {
     self.Set("padding", member)
 }
 
 // The textBounds property allows you to specify a rectangular region upon which text alignment is based.
 // See `Text.setTextBounds` for more details.
-func (self *Text) GetTextBounds() Rectangle{
-    return Rectangle{self.Get("textBounds")}
+func (self *Text) GetTextBounds() *Rectangle{
+    return &Rectangle{self.Get("textBounds")}
 }
 
 // The textBounds property allows you to specify a rectangular region upon which text alignment is based.
 // See `Text.setTextBounds` for more details.
-func (self *Text) SetTextBounds(member Rectangle) {
+func (self *Text) SetTextBounds(member *Rectangle) {
     self.Set("textBounds", member)
 }
 
@@ -488,25 +488,25 @@ func (self *Text) SetHeight(member float64) {
 // The default is 0,0 this means the texture's origin is the top left
 // Setting than anchor to 0.5,0.5 means the textures origin is centered
 // Setting the anchor to 1,1 would mean the textures origin points will be the bottom right corner
-func (self *Text) GetAnchor() Point{
-    return Point{self.Get("anchor")}
+func (self *Text) GetAnchor() *Point{
+    return &Point{self.Get("anchor")}
 }
 
 // The anchor sets the origin point of the texture.
 // The default is 0,0 this means the texture's origin is the top left
 // Setting than anchor to 0.5,0.5 means the textures origin is centered
 // Setting the anchor to 1,1 would mean the textures origin points will be the bottom right corner
-func (self *Text) SetAnchor(member Point) {
+func (self *Text) SetAnchor(member *Point) {
     self.Set("anchor", member)
 }
 
 // The texture that the sprite is using
-func (self *Text) GetTexture() Texture{
-    return Texture{self.Get("texture")}
+func (self *Text) GetTexture() *Texture{
+    return &Texture{self.Get("texture")}
 }
 
 // The texture that the sprite is using
-func (self *Text) SetTexture(member Texture) {
+func (self *Text) SetTexture(member *Texture) {
     self.Set("texture", member)
 }
 
@@ -521,12 +521,12 @@ func (self *Text) SetTint(member float64) {
 }
 
 // A canvas that contains the tinted version of the Sprite (in Canvas mode, WebGL doesn't populate this)
-func (self *Text) GetTintedTexture() Canvas{
-    return Canvas{self.Get("tintedTexture")}
+func (self *Text) GetTintedTexture() *Canvas{
+    return &Canvas{self.Get("tintedTexture")}
 }
 
 // A canvas that contains the tinted version of the Sprite (in Canvas mode, WebGL doesn't populate this)
-func (self *Text) SetTintedTexture(member Canvas) {
+func (self *Text) SetTintedTexture(member *Canvas) {
     self.Set("tintedTexture", member)
 }
 
@@ -545,12 +545,12 @@ func (self *Text) SetBlendMode(member float64) {
 }
 
 // The shader that will be used to render the texture to the stage. Set to null to remove a current shader.
-func (self *Text) GetShader() AbstractFilter{
-    return AbstractFilter{self.Get("shader")}
+func (self *Text) GetShader() *AbstractFilter{
+    return &AbstractFilter{self.Get("shader")}
 }
 
 // The shader that will be used to render the texture to the stage. Set to null to remove a current shader.
-func (self *Text) SetShader(member AbstractFilter) {
+func (self *Text) SetShader(member *AbstractFilter) {
     self.Set("shader", member)
 }
 
@@ -599,12 +599,12 @@ func (self *Text) SetIgnoreChildInput(member bool) {
 }
 
 // A reference to the currently running Game.
-func (self *Text) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *Text) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // A reference to the currently running Game.
-func (self *Text) SetGame(member Game) {
+func (self *Text) SetGame(member *Game) {
     self.Set("game", member)
 }
 
@@ -664,25 +664,25 @@ func (self *Text) SetZ(member float64) {
 
 // All Phaser Game Objects have an Events class which contains all of the events that are dispatched when certain things happen to this
 // Game Object, or any of its components.
-func (self *Text) GetEvents() Events{
-    return Events{self.Get("events")}
+func (self *Text) GetEvents() *Events{
+    return &Events{self.Get("events")}
 }
 
 // All Phaser Game Objects have an Events class which contains all of the events that are dispatched when certain things happen to this
 // Game Object, or any of its components.
-func (self *Text) SetEvents(member Events) {
+func (self *Text) SetEvents(member *Events) {
     self.Set("events", member)
 }
 
 // If the Game Object is enabled for animation (such as a Phaser.Sprite) this is a reference to its AnimationManager instance.
 // Through it you can create, play, pause and stop animations.
-func (self *Text) GetAnimations() AnimationManager{
-    return AnimationManager{self.Get("animations")}
+func (self *Text) GetAnimations() *AnimationManager{
+    return &AnimationManager{self.Get("animations")}
 }
 
 // If the Game Object is enabled for animation (such as a Phaser.Sprite) this is a reference to its AnimationManager instance.
 // Through it you can create, play, pause and stop animations.
-func (self *Text) SetAnimations(member AnimationManager) {
+func (self *Text) SetAnimations(member *AnimationManager) {
     self.Set("animations", member)
 }
 
@@ -707,14 +707,14 @@ func (self *Text) SetKey(member interface{}) {
 // The world coordinates of this Game Object in pixels.
 // Depending on where in the display list this Game Object is placed this value can differ from `position`, 
 // which contains the x/y coordinates relative to the Game Objects parent.
-func (self *Text) GetWorld() Point{
-    return Point{self.Get("world")}
+func (self *Text) GetWorld() *Point{
+    return &Point{self.Get("world")}
 }
 
 // The world coordinates of this Game Object in pixels.
 // Depending on where in the display list this Game Object is placed this value can differ from `position`, 
 // which contains the x/y coordinates relative to the Game Objects parent.
-func (self *Text) SetWorld(member Point) {
+func (self *Text) SetWorld(member *Point) {
     self.Set("world", member)
 }
 
@@ -729,12 +729,12 @@ func (self *Text) SetDebug(member bool) {
 }
 
 // The position the Game Object was located in the previous frame.
-func (self *Text) GetPreviousPosition() Point{
-    return Point{self.Get("previousPosition")}
+func (self *Text) GetPreviousPosition() *Point{
+    return &Point{self.Get("previousPosition")}
 }
 
 // The position the Game Object was located in the previous frame.
-func (self *Text) SetPreviousPosition(member Point) {
+func (self *Text) SetPreviousPosition(member *Point) {
     self.Set("previousPosition", member)
 }
 
@@ -951,14 +951,14 @@ func (self *Text) SetBottom(member float64) {
 // The Rectangle used to crop the texture this Game Object uses.
 // Set this property via `crop`. 
 // If you modify this property directly you must call `updateCrop` in order to have the change take effect.
-func (self *Text) GetCropRect() Rectangle{
-    return Rectangle{self.Get("cropRect")}
+func (self *Text) GetCropRect() *Rectangle{
+    return &Rectangle{self.Get("cropRect")}
 }
 
 // The Rectangle used to crop the texture this Game Object uses.
 // Set this property via `crop`. 
 // If you modify this property directly you must call `updateCrop` in order to have the change take effect.
-func (self *Text) SetCropRect(member Rectangle) {
+func (self *Text) SetCropRect(member *Rectangle) {
     self.Set("cropRect", member)
 }
 
@@ -1049,14 +1049,14 @@ func (self *Text) SetFixedToCamera(member bool) {
 // The x/y coordinate offset applied to the top-left of the camera that this Game Object will be drawn at if `fixedToCamera` is true.
 // 
 // The values are relative to the top-left of the camera view and in addition to any parent of the Game Object on the display list.
-func (self *Text) GetCameraOffset() Point{
-    return Point{self.Get("cameraOffset")}
+func (self *Text) GetCameraOffset() *Point{
+    return &Point{self.Get("cameraOffset")}
 }
 
 // The x/y coordinate offset applied to the top-left of the camera that this Game Object will be drawn at if `fixedToCamera` is true.
 // 
 // The values are relative to the top-left of the camera view and in addition to any parent of the Game Object on the display list.
-func (self *Text) SetCameraOffset(member Point) {
+func (self *Text) SetCameraOffset(member *Point) {
     self.Set("cameraOffset", member)
 }
 
@@ -1414,8 +1414,8 @@ func (self *Text) SetTransformCallbackContext(member interface{}) {
 // It allows you to prevent a parent from scaling this Game Object lower than the given value.
 // 
 // Set it to `null` to remove the limit.
-func (self *Text) GetScaleMin() Point{
-    return Point{self.Get("scaleMin")}
+func (self *Text) GetScaleMin() *Point{
+    return &Point{self.Get("scaleMin")}
 }
 
 // The minimum scale this Game Object will scale down to.
@@ -1423,7 +1423,7 @@ func (self *Text) GetScaleMin() Point{
 // It allows you to prevent a parent from scaling this Game Object lower than the given value.
 // 
 // Set it to `null` to remove the limit.
-func (self *Text) SetScaleMin(member Point) {
+func (self *Text) SetScaleMin(member *Point) {
     self.Set("scaleMin", member)
 }
 
@@ -1432,8 +1432,8 @@ func (self *Text) SetScaleMin(member Point) {
 // It allows you to prevent a parent from scaling this Game Object higher than the given value.
 // 
 // Set it to `null` to remove the limit.
-func (self *Text) GetScaleMax() Point{
-    return Point{self.Get("scaleMax")}
+func (self *Text) GetScaleMax() *Point{
+    return &Point{self.Get("scaleMax")}
 }
 
 // The maximum scale this Game Object will scale up to. 
@@ -1441,7 +1441,7 @@ func (self *Text) GetScaleMax() Point{
 // It allows you to prevent a parent from scaling this Game Object higher than the given value.
 // 
 // Set it to `null` to remove the limit.
-func (self *Text) SetScaleMax(member Point) {
+func (self *Text) SetScaleMax(member *Point) {
     self.Set("scaleMax", member)
 }
 
@@ -1484,13 +1484,13 @@ func (self *Text) DestroyI(args ...interface{}) {
 // The color controls the shade of the shadow (default is black) and can be either an `rgba` or `hex` value.
 // The blur is the strength of the shadow. A value of zero means a hard shadow, a value of 10 means a very soft shadow.
 // To remove a shadow already in place you can call this method with no parameters set.
-func (self *Text) SetShadowI(args ...interface{}) Text{
-    return Text{self.Call("setShadow", args)}
+func (self *Text) SetShadowI(args ...interface{}) *Text{
+    return &Text{self.Call("setShadow", args)}
 }
 
 // Set the style of the text by passing a single style object to it.
-func (self *Text) SetStyleI(args ...interface{}) Text{
-    return Text{self.Call("setStyle", args)}
+func (self *Text) SetStyleI(args ...interface{}) *Text{
+    return &Text{self.Call("setStyle", args)}
 }
 
 // Renders text. This replaces the Pixi.Text.updateText function as we need a few extra bits in here.
@@ -1521,13 +1521,13 @@ func (self *Text) UpdateLineI(args ...interface{}) {
 }
 
 // Clears any text fill or stroke colors that were set by `addColor` or `addStrokeColor`.
-func (self *Text) ClearColorsI(args ...interface{}) Text{
-    return Text{self.Call("clearColors", args)}
+func (self *Text) ClearColorsI(args ...interface{}) *Text{
+    return &Text{self.Call("clearColors", args)}
 }
 
 // Clears any text styles or weights font that were set by `addFontStyle` or `addFontWeight`.
-func (self *Text) ClearFontValuesI(args ...interface{}) Text{
-    return Text{self.Call("clearFontValues", args)}
+func (self *Text) ClearFontValuesI(args ...interface{}) *Text{
+    return &Text{self.Call("clearFontValues", args)}
 }
 
 // Set specific colors for certain characters within the Text.
@@ -1538,8 +1538,8 @@ func (self *Text) ClearFontValuesI(args ...interface{}) Text{
 // For example if the Text was `Photon Storm` and you did `Text.addColor('#ffff00', 6)` it would color in the word `Storm` in yellow.
 // 
 // If you wish to change the stroke color see addStrokeColor instead.
-func (self *Text) AddColorI(args ...interface{}) Text{
-    return Text{self.Call("addColor", args)}
+func (self *Text) AddColorI(args ...interface{}) *Text{
+    return &Text{self.Call("addColor", args)}
 }
 
 // Set specific stroke colors for certain characters within the Text.
@@ -1552,8 +1552,8 @@ func (self *Text) AddColorI(args ...interface{}) Text{
 // This has no effect if stroke is disabled or has a thickness of 0.
 // 
 // If you wish to change the text fill color see addColor instead.
-func (self *Text) AddStrokeColorI(args ...interface{}) Text{
-    return Text{self.Call("addStrokeColor", args)}
+func (self *Text) AddStrokeColorI(args ...interface{}) *Text{
+    return &Text{self.Call("addStrokeColor", args)}
 }
 
 // Set specific font styles for certain characters within the Text.
@@ -1564,8 +1564,8 @@ func (self *Text) AddStrokeColorI(args ...interface{}) Text{
 // For example if the Text was `Photon Storm` and you did `Text.addFontStyle('italic', 6)` it would font style in the word `Storm` in italic.
 // 
 // If you wish to change the text font weight see addFontWeight instead.
-func (self *Text) AddFontStyleI(args ...interface{}) Text{
-    return Text{self.Call("addFontStyle", args)}
+func (self *Text) AddFontStyleI(args ...interface{}) *Text{
+    return &Text{self.Call("addFontStyle", args)}
 }
 
 // Set specific font weights for certain characters within the Text.
@@ -1576,8 +1576,8 @@ func (self *Text) AddFontStyleI(args ...interface{}) Text{
 // For example if the Text was `Photon Storm` and you did `Text.addFontWeight('bold', 6)` it would font weight in the word `Storm` in bold.
 // 
 // If you wish to change the text font style see addFontStyle instead.
-func (self *Text) AddFontWeightI(args ...interface{}) Text{
-    return Text{self.Call("addFontWeight", args)}
+func (self *Text) AddFontWeightI(args ...interface{}) *Text{
+    return &Text{self.Call("addFontWeight", args)}
 }
 
 // Runs the given text through the Text.runWordWrap function and returns
@@ -1636,8 +1636,8 @@ func (self *Text) ComponentsToFontI(args ...interface{}) {
 // 
 // If not it will re-create the texture of this Text object during the next time the render
 // loop is called.
-func (self *Text) SetTextI(args ...interface{}) Text{
-    return Text{self.Call("setText", args)}
+func (self *Text) SetTextI(args ...interface{}) *Text{
+    return &Text{self.Call("setText", args)}
 }
 
 // Converts the given array into a tab delimited string and then updates this Text object.
@@ -1655,8 +1655,8 @@ func (self *Text) SetTextI(args ...interface{}) Text{
 // ]`
 // 
 // would convert in to: `"a\tb\tc\nd\te\tf"`
-func (self *Text) ParseListI(args ...interface{}) Text{
-    return Text{self.Call("parseList", args)}
+func (self *Text) ParseListI(args ...interface{}) *Text{
+    return &Text{self.Call("parseList", args)}
 }
 
 // The Text Bounds is a rectangular region that you control the dimensions of into which the Text object itself is positioned,
@@ -1681,8 +1681,8 @@ func (self *Text) ParseListI(args ...interface{}) Text{
 // have additional padding around them which you can mitigate by tweaking the Text.padding property. It then adjusts the `pivot`
 // property based on the given bounds and canvas size. This means if you need to set the pivot property directly in your game then
 // you either cannot use `setTextBounds` or you must place the Text object inside another DisplayObject on which you set the pivot.
-func (self *Text) SetTextBoundsI(args ...interface{}) Text{
-    return Text{self.Call("setTextBounds", args)}
+func (self *Text) SetTextBoundsI(args ...interface{}) *Text{
+    return &Text{self.Call("setTextBounds", args)}
 }
 
 // Updates the texture based on the canvas dimensions.
@@ -1707,8 +1707,8 @@ func (self *Text) DetermineFontPropertiesI(args ...interface{}) {
 
 // Returns the bounds of the Text as a rectangle.
 // The bounds calculation takes the worldTransform into account.
-func (self *Text) GetBoundsI(args ...interface{}) Rectangle{
-    return Rectangle{self.Call("getBounds", args)}
+func (self *Text) GetBoundsI(args ...interface{}) *Rectangle{
+    return &Rectangle{self.Call("getBounds", args)}
 }
 
 // Sets the texture of the sprite. Be warned that this doesn't remove or destroy the previous
@@ -1723,13 +1723,13 @@ func (self *Text) OnTextureUpdateI(args ...interface{}) {
 }
 
 // Adds a child to the container.
-func (self *Text) AddChildI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("addChild", args)}
+func (self *Text) AddChildI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("addChild", args)}
 }
 
 // Adds a child to the container at a specified index. If the index is out of bounds an error will be thrown
-func (self *Text) AddChildAtI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("addChildAt", args)}
+func (self *Text) AddChildAtI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("addChildAt", args)}
 }
 
 // Swaps the position of 2 Display Objects within this container.
@@ -1748,18 +1748,18 @@ func (self *Text) SetChildIndexI(args ...interface{}) {
 }
 
 // Returns the child at the specified index
-func (self *Text) GetChildAtI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("getChildAt", args)}
+func (self *Text) GetChildAtI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("getChildAt", args)}
 }
 
 // Removes a child from the container.
-func (self *Text) RemoveChildI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("removeChild", args)}
+func (self *Text) RemoveChildI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("removeChild", args)}
 }
 
 // Removes a child from the specified index position.
-func (self *Text) RemoveChildAtI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("removeChildAt", args)}
+func (self *Text) RemoveChildAtI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("removeChildAt", args)}
 }
 
 // Removes all children from this container that are within the begin and end indexes.
@@ -1768,8 +1768,8 @@ func (self *Text) RemoveChildrenI(args ...interface{}) {
 }
 
 // Retrieves the non-global local bounds of the displayObjectContainer as a rectangle. The calculation takes all visible children into consideration.
-func (self *Text) GetLocalBoundsI(args ...interface{}) Rectangle{
-    return Rectangle{self.Call("getLocalBounds", args)}
+func (self *Text) GetLocalBoundsI(args ...interface{}) *Rectangle{
+    return &Rectangle{self.Call("getLocalBounds", args)}
 }
 
 // Sets the containers Stage reference. This is the Stage that this object, and all of its children, is connected to.
@@ -1793,8 +1793,8 @@ func (self *Text) PostUpdateI(args ...interface{}) {
 // 
 // If the animation is already playing calling this again won't do anything.
 // If you need to reset an already running animation do so directly on the Animation object itself or via `AnimationManager.stop`.
-func (self *Text) PlayI(args ...interface{}) Animation{
-    return Animation{self.Call("play", args)}
+func (self *Text) PlayI(args ...interface{}) *Animation{
+    return &Animation{self.Call("play", args)}
 }
 
 // Aligns this Game Object within another Game Object, or Rectangle, known as the
@@ -1871,8 +1871,8 @@ func (self *Text) AlignToI(args ...interface{}) interface{}{
 // 
 // If this Game Object hasn't been added to a custom Group then this method will bring it to the top of the Game World, 
 // because the World is the root Group from which all Game Objects descend.
-func (self *Text) BringToTopI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("bringToTop", args)}
+func (self *Text) BringToTopI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("bringToTop", args)}
 }
 
 // Sends this Game Object to the bottom of its parents display list.
@@ -1880,8 +1880,8 @@ func (self *Text) BringToTopI(args ...interface{}) DisplayObject{
 // 
 // If this Game Object hasn't been added to a custom Group then this method will send it to the bottom of the Game World, 
 // because the World is the root Group from which all Game Objects descend.
-func (self *Text) SendToBackI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("sendToBack", args)}
+func (self *Text) SendToBackI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("sendToBack", args)}
 }
 
 // Moves this Game Object up one place in its parents display list.
@@ -1889,8 +1889,8 @@ func (self *Text) SendToBackI(args ...interface{}) DisplayObject{
 // 
 // If this Game Object hasn't been added to a custom Group then this method will move it one object up within the Game World, 
 // because the World is the root Group from which all Game Objects descend.
-func (self *Text) MoveUpI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("moveUp", args)}
+func (self *Text) MoveUpI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("moveUp", args)}
 }
 
 // Moves this Game Object down one place in its parents display list.
@@ -1898,8 +1898,8 @@ func (self *Text) MoveUpI(args ...interface{}) DisplayObject{
 // 
 // If this Game Object hasn't been added to a custom Group then this method will move it one object down within the Game World, 
 // because the World is the root Group from which all Game Objects descend.
-func (self *Text) MoveDownI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("moveDown", args)}
+func (self *Text) MoveDownI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("moveDown", args)}
 }
 
 // Crop allows you to crop the texture being used to display this Game Object.
@@ -1928,8 +1928,8 @@ func (self *Text) UpdateCropI(args ...interface{}) {
 // A resurrected Game Object has its `alive`, `exists` and `visible` properties all set to true.
 // 
 // It will dispatch the `onRevived` event. Listen to `events.onRevived` for the signal.
-func (self *Text) ReviveI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("revive", args)}
+func (self *Text) ReviveI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("revive", args)}
 }
 
 // Kills a Game Object. A killed Game Object has its `alive`, `exists` and `visible` properties all set to false.
@@ -1940,8 +1940,8 @@ func (self *Text) ReviveI(args ...interface{}) DisplayObject{
 // it doesn't destroy the object or free it up from memory.
 // 
 // If you don't need this Game Object any more you should call `destroy` instead.
-func (self *Text) KillI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("kill", args)}
+func (self *Text) KillI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("kill", args)}
 }
 
 // Changes the base texture the Game Object is using. The old texture is removed and the new one is referenced or fetched from the Cache.
@@ -2003,8 +2003,8 @@ func (self *Text) OverlapI(args ...interface{}) bool{
 // If this Game Object has the LifeSpan component it will also set `alive` to true and `health` to the given value.
 // 
 // If this Game Object has a Physics Body it will reset the Body.
-func (self *Text) ResetI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("reset", args)}
+func (self *Text) ResetI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("reset", args)}
 }
 
 // Adjust scaling limits, if set, to this Game Object.

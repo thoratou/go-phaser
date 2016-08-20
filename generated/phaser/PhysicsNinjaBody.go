@@ -15,22 +15,22 @@ type PhysicsNinjaBody struct {
 
 
 // Reference to the parent Sprite.
-func (self *PhysicsNinjaBody) GetSprite() Sprite{
-    return Sprite{self.Get("sprite")}
+func (self *PhysicsNinjaBody) GetSprite() *Sprite{
+    return &Sprite{self.Get("sprite")}
 }
 
 // Reference to the parent Sprite.
-func (self *PhysicsNinjaBody) SetSprite(member Sprite) {
+func (self *PhysicsNinjaBody) SetSprite(member *Sprite) {
     self.Set("sprite", member)
 }
 
 // Local reference to game.
-func (self *PhysicsNinjaBody) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *PhysicsNinjaBody) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // Local reference to game.
-func (self *PhysicsNinjaBody) SetGame(member Game) {
+func (self *PhysicsNinjaBody) SetGame(member *Game) {
     self.Set("game", member)
 }
 
@@ -45,42 +45,42 @@ func (self *PhysicsNinjaBody) SetType(member float64) {
 }
 
 // The parent physics system.
-func (self *PhysicsNinjaBody) GetSystem() PhysicsNinja{
-    return PhysicsNinja{self.Get("system")}
+func (self *PhysicsNinjaBody) GetSystem() *PhysicsNinja{
+    return &PhysicsNinja{self.Get("system")}
 }
 
 // The parent physics system.
-func (self *PhysicsNinjaBody) SetSystem(member PhysicsNinja) {
+func (self *PhysicsNinjaBody) SetSystem(member *PhysicsNinja) {
     self.Set("system", member)
 }
 
 // The AABB object this body is using for collision.
-func (self *PhysicsNinjaBody) GetAabb() PhysicsNinjaAABB{
-    return PhysicsNinjaAABB{self.Get("aabb")}
+func (self *PhysicsNinjaBody) GetAabb() *PhysicsNinjaAABB{
+    return &PhysicsNinjaAABB{self.Get("aabb")}
 }
 
 // The AABB object this body is using for collision.
-func (self *PhysicsNinjaBody) SetAabb(member PhysicsNinjaAABB) {
+func (self *PhysicsNinjaBody) SetAabb(member *PhysicsNinjaAABB) {
     self.Set("aabb", member)
 }
 
 // The Tile object this body is using for collision.
-func (self *PhysicsNinjaBody) GetTile() PhysicsNinjaTile{
-    return PhysicsNinjaTile{self.Get("tile")}
+func (self *PhysicsNinjaBody) GetTile() *PhysicsNinjaTile{
+    return &PhysicsNinjaTile{self.Get("tile")}
 }
 
 // The Tile object this body is using for collision.
-func (self *PhysicsNinjaBody) SetTile(member PhysicsNinjaTile) {
+func (self *PhysicsNinjaBody) SetTile(member *PhysicsNinjaTile) {
     self.Set("tile", member)
 }
 
 // The Circle object this body is using for collision.
-func (self *PhysicsNinjaBody) GetCircle() PhysicsNinjaCircle{
-    return PhysicsNinjaCircle{self.Get("circle")}
+func (self *PhysicsNinjaBody) GetCircle() *PhysicsNinjaCircle{
+    return &PhysicsNinjaCircle{self.Get("circle")}
 }
 
 // The Circle object this body is using for collision.
-func (self *PhysicsNinjaBody) SetCircle(member PhysicsNinjaCircle) {
+func (self *PhysicsNinjaBody) SetCircle(member *PhysicsNinjaCircle) {
     self.Set("circle", member)
 }
 
@@ -135,12 +135,12 @@ func (self *PhysicsNinjaBody) SetBounce(member float64) {
 }
 
 // The velocity in pixels per second sq. of the Body.
-func (self *PhysicsNinjaBody) GetVelocity() Point{
-    return Point{self.Get("velocity")}
+func (self *PhysicsNinjaBody) GetVelocity() *Point{
+    return &Point{self.Get("velocity")}
 }
 
 // The velocity in pixels per second sq. of the Body.
-func (self *PhysicsNinjaBody) SetVelocity(member Point) {
+func (self *PhysicsNinjaBody) SetVelocity(member *Point) {
     self.Set("velocity", member)
 }
 

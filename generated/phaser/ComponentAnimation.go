@@ -21,6 +21,6 @@ type ComponentAnimation struct {
 // 
 // If the animation is already playing calling this again won't do anything.
 // If you need to reset an already running animation do so directly on the Animation object itself or via `AnimationManager.stop`.
-func (self *ComponentAnimation) PlayI(args ...interface{}) Animation{
-    return Animation{self.Call("play", args)}
+func (self *ComponentAnimation) PlayI(args ...interface{}) *Animation{
+    return &Animation{self.Call("play", args)}
 }

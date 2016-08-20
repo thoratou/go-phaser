@@ -17,12 +17,12 @@ type RenderTexture struct {
 
 
 // A reference to the currently running game.
-func (self *RenderTexture) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *RenderTexture) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // A reference to the currently running game.
-func (self *RenderTexture) SetGame(member Game) {
+func (self *RenderTexture) SetGame(member *Game) {
     self.Set("game", member)
 }
 
@@ -77,34 +77,34 @@ func (self *RenderTexture) SetResolution(member float64) {
 }
 
 // The framing rectangle of the render texture
-func (self *RenderTexture) GetFrame() Rectangle{
-    return Rectangle{self.Get("frame")}
+func (self *RenderTexture) GetFrame() *Rectangle{
+    return &Rectangle{self.Get("frame")}
 }
 
 // The framing rectangle of the render texture
-func (self *RenderTexture) SetFrame(member Rectangle) {
+func (self *RenderTexture) SetFrame(member *Rectangle) {
     self.Set("frame", member)
 }
 
 // This is the area of the BaseTexture image to actually copy to the Canvas / WebGL when rendering,
 // irrespective of the actual frame size or placement (which can be influenced by trimmed texture atlases)
-func (self *RenderTexture) GetCrop() Rectangle{
-    return Rectangle{self.Get("crop")}
+func (self *RenderTexture) GetCrop() *Rectangle{
+    return &Rectangle{self.Get("crop")}
 }
 
 // This is the area of the BaseTexture image to actually copy to the Canvas / WebGL when rendering,
 // irrespective of the actual frame size or placement (which can be influenced by trimmed texture atlases)
-func (self *RenderTexture) SetCrop(member Rectangle) {
+func (self *RenderTexture) SetCrop(member *Rectangle) {
     self.Set("crop", member)
 }
 
 // The base texture object that this texture uses
-func (self *RenderTexture) GetBaseTexture() BaseTexture{
-    return BaseTexture{self.Get("baseTexture")}
+func (self *RenderTexture) GetBaseTexture() *BaseTexture{
+    return &BaseTexture{self.Get("baseTexture")}
 }
 
 // The base texture object that this texture uses
-func (self *RenderTexture) SetBaseTexture(member BaseTexture) {
+func (self *RenderTexture) SetBaseTexture(member *BaseTexture) {
     self.Set("baseTexture", member)
 }
 
@@ -139,12 +139,12 @@ func (self *RenderTexture) SetNoFrame(member bool) {
 }
 
 // The texture trim data.
-func (self *RenderTexture) GetTrim() Rectangle{
-    return Rectangle{self.Get("trim")}
+func (self *RenderTexture) GetTrim() *Rectangle{
+    return &Rectangle{self.Get("trim")}
 }
 
 // The texture trim data.
-func (self *RenderTexture) SetTrim(member Rectangle) {
+func (self *RenderTexture) SetTrim(member *Rectangle) {
     self.Set("trim", member)
 }
 
@@ -231,8 +231,8 @@ func (self *RenderTexture) RenderCanvasI(args ...interface{}) {
 }
 
 // Will return a HTML Image of the texture
-func (self *RenderTexture) GetImageI(args ...interface{}) Image{
-    return Image{self.Call("getImage", args)}
+func (self *RenderTexture) GetImageI(args ...interface{}) *Image{
+    return &Image{self.Call("getImage", args)}
 }
 
 // Will return a base64 encoded string of this texture. It works by calling RenderTexture.getCanvas and then running toDataURL on that.

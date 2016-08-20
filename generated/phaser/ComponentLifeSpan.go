@@ -72,8 +72,8 @@ func (self *ComponentLifeSpan) PreUpdateI(args ...interface{}) {
 // A resurrected Game Object has its `alive`, `exists` and `visible` properties all set to true.
 // 
 // It will dispatch the `onRevived` event. Listen to `events.onRevived` for the signal.
-func (self *ComponentLifeSpan) ReviveI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("revive", args)}
+func (self *ComponentLifeSpan) ReviveI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("revive", args)}
 }
 
 // Kills a Game Object. A killed Game Object has its `alive`, `exists` and `visible` properties all set to false.
@@ -84,6 +84,6 @@ func (self *ComponentLifeSpan) ReviveI(args ...interface{}) DisplayObject{
 // it doesn't destroy the object or free it up from memory.
 // 
 // If you don't need this Game Object any more you should call `destroy` instead.
-func (self *ComponentLifeSpan) KillI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("kill", args)}
+func (self *ComponentLifeSpan) KillI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("kill", args)}
 }

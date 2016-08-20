@@ -64,12 +64,12 @@ func (self *BaseTexture) SetHasLoaded(member bool) {
 }
 
 // The image source that is used to create the texture.
-func (self *BaseTexture) GetSource() Image{
-    return Image{self.Get("source")}
+func (self *BaseTexture) GetSource() *Image{
+    return &Image{self.Get("source")}
 }
 
 // The image source that is used to create the texture.
-func (self *BaseTexture) SetSource(member Image) {
+func (self *BaseTexture) SetSource(member *Image) {
     self.Set("source", member)
 }
 
@@ -142,6 +142,6 @@ func (self *BaseTexture) UnloadFromGPUI(args ...interface{}) {
 }
 
 // Helper function that creates a base texture from the given canvas element.
-func (self *BaseTexture) FromCanvasI(args ...interface{}) BaseTexture{
-    return BaseTexture{self.Call("fromCanvas", args)}
+func (self *BaseTexture) FromCanvasI(args ...interface{}) *BaseTexture{
+    return &BaseTexture{self.Call("fromCanvas", args)}
 }

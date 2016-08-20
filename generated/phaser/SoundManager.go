@@ -26,62 +26,62 @@ type SoundManager struct {
 
 
 // Local reference to game.
-func (self *SoundManager) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *SoundManager) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // Local reference to game.
-func (self *SoundManager) SetGame(member Game) {
+func (self *SoundManager) SetGame(member *Game) {
     self.Set("game", member)
 }
 
 // The event dispatched when a sound decodes (typically only for mp3 files)
-func (self *SoundManager) GetOnSoundDecode() Signal{
-    return Signal{self.Get("onSoundDecode")}
+func (self *SoundManager) GetOnSoundDecode() *Signal{
+    return &Signal{self.Get("onSoundDecode")}
 }
 
 // The event dispatched when a sound decodes (typically only for mp3 files)
-func (self *SoundManager) SetOnSoundDecode(member Signal) {
+func (self *SoundManager) SetOnSoundDecode(member *Signal) {
     self.Set("onSoundDecode", member)
 }
 
 // This signal is dispatched whenever the global volume changes. The new volume is passed as the only parameter to your callback.
-func (self *SoundManager) GetOnVolumeChange() Signal{
-    return Signal{self.Get("onVolumeChange")}
+func (self *SoundManager) GetOnVolumeChange() *Signal{
+    return &Signal{self.Get("onVolumeChange")}
 }
 
 // This signal is dispatched whenever the global volume changes. The new volume is passed as the only parameter to your callback.
-func (self *SoundManager) SetOnVolumeChange(member Signal) {
+func (self *SoundManager) SetOnVolumeChange(member *Signal) {
     self.Set("onVolumeChange", member)
 }
 
 // This signal is dispatched when the SoundManager is globally muted, either directly via game code or as a result of the game pausing.
-func (self *SoundManager) GetOnMute() Signal{
-    return Signal{self.Get("onMute")}
+func (self *SoundManager) GetOnMute() *Signal{
+    return &Signal{self.Get("onMute")}
 }
 
 // This signal is dispatched when the SoundManager is globally muted, either directly via game code or as a result of the game pausing.
-func (self *SoundManager) SetOnMute(member Signal) {
+func (self *SoundManager) SetOnMute(member *Signal) {
     self.Set("onMute", member)
 }
 
 // This signal is dispatched when the SoundManager is globally un-muted, either directly via game code or as a result of the game resuming from a pause.
-func (self *SoundManager) GetOnUnMute() Signal{
-    return Signal{self.Get("onUnMute")}
+func (self *SoundManager) GetOnUnMute() *Signal{
+    return &Signal{self.Get("onUnMute")}
 }
 
 // This signal is dispatched when the SoundManager is globally un-muted, either directly via game code or as a result of the game resuming from a pause.
-func (self *SoundManager) SetOnUnMute(member Signal) {
+func (self *SoundManager) SetOnUnMute(member *Signal) {
     self.Set("onUnMute", member)
 }
 
 // The AudioContext being used for playback.
-func (self *SoundManager) GetContext() AudioContext{
-    return AudioContext{self.Get("context")}
+func (self *SoundManager) GetContext() *AudioContext{
+    return &AudioContext{self.Get("context")}
 }
 
 // The AudioContext being used for playback.
-func (self *SoundManager) SetContext(member AudioContext) {
+func (self *SoundManager) SetContext(member *AudioContext) {
     self.Set("context", member)
 }
 
@@ -231,13 +231,13 @@ func (self *SoundManager) UpdateI(args ...interface{}) {
 }
 
 // Adds a new Sound into the SoundManager.
-func (self *SoundManager) AddI(args ...interface{}) Sound{
-    return Sound{self.Call("add", args)}
+func (self *SoundManager) AddI(args ...interface{}) *Sound{
+    return &Sound{self.Call("add", args)}
 }
 
 // Adds a new AudioSprite into the SoundManager.
-func (self *SoundManager) AddSpriteI(args ...interface{}) AudioSprite{
-    return AudioSprite{self.Call("addSprite", args)}
+func (self *SoundManager) AddSpriteI(args ...interface{}) *AudioSprite{
+    return &AudioSprite{self.Call("addSprite", args)}
 }
 
 // Removes a Sound from the SoundManager. The removed Sound is destroyed before removal.
@@ -252,8 +252,8 @@ func (self *SoundManager) RemoveByKeyI(args ...interface{}) float64{
 }
 
 // Adds a new Sound into the SoundManager and starts it playing.
-func (self *SoundManager) PlayI(args ...interface{}) Sound{
-    return Sound{self.Call("play", args)}
+func (self *SoundManager) PlayI(args ...interface{}) *Sound{
+    return &Sound{self.Call("play", args)}
 }
 
 // Internal mute handler called automatically by the SoundManager.mute setter.

@@ -16,22 +16,22 @@ type TweenData struct {
 
 
 // The Tween which owns this TweenData.
-func (self *TweenData) GetParent() Tween{
-    return Tween{self.Get("parent")}
+func (self *TweenData) GetParent() *Tween{
+    return &Tween{self.Get("parent")}
 }
 
 // The Tween which owns this TweenData.
-func (self *TweenData) SetParent(member Tween) {
+func (self *TweenData) SetParent(member *Tween) {
     self.Set("parent", member)
 }
 
 // A reference to the currently running Game.
-func (self *TweenData) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *TweenData) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // A reference to the currently running Game.
-func (self *TweenData) SetGame(member Game) {
+func (self *TweenData) SetGame(member *Game) {
     self.Set("game", member)
 }
 
@@ -249,24 +249,24 @@ func (self *TweenData) SetCOMPLETE(member float64) {
 
 // Sets this tween to be a `to` tween on the properties given. A `to` tween starts at the current value and tweens to the destination value given.
 // For example a Sprite with an `x` coordinate of 100 could be tweened to `x` 200 by giving a properties object of `{ x: 200 }`.
-func (self *TweenData) ToI(args ...interface{}) TweenData{
-    return TweenData{self.Call("to", args)}
+func (self *TweenData) ToI(args ...interface{}) *TweenData{
+    return &TweenData{self.Call("to", args)}
 }
 
 // Sets this tween to be a `from` tween on the properties given. A `from` tween sets the target to the destination value and tweens to its current value.
 // For example a Sprite with an `x` coordinate of 100 tweened from `x` 500 would be set to `x` 500 and then tweened to `x` 100 by giving a properties object of `{ x: 500 }`.
-func (self *TweenData) FromI(args ...interface{}) TweenData{
-    return TweenData{self.Call("from", args)}
+func (self *TweenData) FromI(args ...interface{}) *TweenData{
+    return &TweenData{self.Call("from", args)}
 }
 
 // Starts the Tween running.
-func (self *TweenData) StartI(args ...interface{}) TweenData{
-    return TweenData{self.Call("start", args)}
+func (self *TweenData) StartI(args ...interface{}) *TweenData{
+    return &TweenData{self.Call("start", args)}
 }
 
 // Loads the values from the target object into this Tween.
-func (self *TweenData) LoadValuesI(args ...interface{}) TweenData{
-    return TweenData{self.Call("loadValues", args)}
+func (self *TweenData) LoadValuesI(args ...interface{}) *TweenData{
+    return &TweenData{self.Call("loadValues", args)}
 }
 
 // Updates this Tween. This is called automatically by Phaser.Tween.

@@ -25,32 +25,32 @@ type UtilsDebug struct {
 
 
 // A reference to the currently running Game.
-func (self *UtilsDebug) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *UtilsDebug) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // A reference to the currently running Game.
-func (self *UtilsDebug) SetGame(member Game) {
+func (self *UtilsDebug) SetGame(member *Game) {
     self.Set("game", member)
 }
 
 // If debugging in WebGL mode we need this.
-func (self *UtilsDebug) GetSprite() Image{
-    return Image{self.Get("sprite")}
+func (self *UtilsDebug) GetSprite() *Image{
+    return &Image{self.Get("sprite")}
 }
 
 // If debugging in WebGL mode we need this.
-func (self *UtilsDebug) SetSprite(member Image) {
+func (self *UtilsDebug) SetSprite(member *Image) {
     self.Set("sprite", member)
 }
 
 // In WebGL mode this BitmapData contains a copy of the debug canvas.
-func (self *UtilsDebug) GetBmd() BitmapData{
-    return BitmapData{self.Get("bmd")}
+func (self *UtilsDebug) GetBmd() *BitmapData{
+    return &BitmapData{self.Get("bmd")}
 }
 
 // In WebGL mode this BitmapData contains a copy of the debug canvas.
-func (self *UtilsDebug) SetBmd(member BitmapData) {
+func (self *UtilsDebug) SetBmd(member *BitmapData) {
     self.Set("bmd", member)
 }
 

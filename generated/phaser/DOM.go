@@ -26,8 +26,8 @@ type DOM struct {
 //   iOS/Safari, Android 4, IE10, Firefox OS (maybe not Firefox Android), Opera Mobile 16
 // 
 // The properties change dynamically.
-func (self *DOM) GetVisualBounds() Rectangle{
-    return Rectangle{self.Get("visualBounds")}
+func (self *DOM) GetVisualBounds() *Rectangle{
+    return &Rectangle{self.Get("visualBounds")}
 }
 
 // The bounds of the Visual viewport, as discussed in 
@@ -38,7 +38,7 @@ func (self *DOM) GetVisualBounds() Rectangle{
 //   iOS/Safari, Android 4, IE10, Firefox OS (maybe not Firefox Android), Opera Mobile 16
 // 
 // The properties change dynamically.
-func (self *DOM) SetVisualBounds(member Rectangle) {
+func (self *DOM) SetVisualBounds(member *Rectangle) {
     self.Set("visualBounds", member)
 }
 
@@ -54,8 +54,8 @@ func (self *DOM) SetVisualBounds(member Rectangle) {
 // constrained viewport.
 // 
 // The properties change dynamically.
-func (self *DOM) GetLayoutBounds() Rectangle{
-    return Rectangle{self.Get("layoutBounds")}
+func (self *DOM) GetLayoutBounds() *Rectangle{
+    return &Rectangle{self.Get("layoutBounds")}
 }
 
 // The bounds of the Layout viewport, as discussed in 
@@ -70,7 +70,7 @@ func (self *DOM) GetLayoutBounds() Rectangle{
 // constrained viewport.
 // 
 // The properties change dynamically.
-func (self *DOM) SetLayoutBounds(member Rectangle) {
+func (self *DOM) SetLayoutBounds(member *Rectangle) {
     self.Set("layoutBounds", member)
 }
 
@@ -79,8 +79,8 @@ func (self *DOM) SetLayoutBounds(member Rectangle) {
 // This incorrectly reports the dimensions in IE.
 // 
 // The properties change dynamically.
-func (self *DOM) GetDocumentBounds() Rectangle{
-    return Rectangle{self.Get("documentBounds")}
+func (self *DOM) GetDocumentBounds() *Rectangle{
+    return &Rectangle{self.Get("documentBounds")}
 }
 
 // The size of the document / Layout viewport.
@@ -88,7 +88,7 @@ func (self *DOM) GetDocumentBounds() Rectangle{
 // This incorrectly reports the dimensions in IE.
 // 
 // The properties change dynamically.
-func (self *DOM) SetDocumentBounds(member Rectangle) {
+func (self *DOM) SetDocumentBounds(member *Rectangle) {
     self.Set("documentBounds", member)
 }
 
@@ -117,8 +117,8 @@ func (self *DOM) SetScrollY(member float64) {
 // Get the [absolute] position of the element relative to the Document.
 // 
 // The value may vary slightly as the page is scrolled due to rounding errors.
-func (self *DOM) GetOffsetI(args ...interface{}) Point{
-    return Point{self.Call("getOffset", args)}
+func (self *DOM) GetOffsetI(args ...interface{}) *Point{
+    return &Point{self.Call("getOffset", args)}
 }
 
 // A cross-browser element.getBoundingClientRect method with optional cushion.

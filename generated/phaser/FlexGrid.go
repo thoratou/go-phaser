@@ -19,22 +19,22 @@ type FlexGrid struct {
 
 
 // A reference to the currently running Game.
-func (self *FlexGrid) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *FlexGrid) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // A reference to the currently running Game.
-func (self *FlexGrid) SetGame(member Game) {
+func (self *FlexGrid) SetGame(member *Game) {
     self.Set("game", member)
 }
 
 // A reference to the ScaleManager.
-func (self *FlexGrid) GetManager() ScaleManager{
-    return ScaleManager{self.Get("manager")}
+func (self *FlexGrid) GetManager() *ScaleManager{
+    return &ScaleManager{self.Get("manager")}
 }
 
 // A reference to the ScaleManager.
-func (self *FlexGrid) SetManager(member ScaleManager) {
+func (self *FlexGrid) SetManager(member *ScaleManager) {
     self.Set("manager", member)
 }
 
@@ -66,23 +66,23 @@ func (self *FlexGrid) SetSizeI(args ...interface{}) {
 }
 
 // A custom layer is centered on the game and maintains its aspect ratio as it scales up and down.
-func (self *FlexGrid) CreateCustomLayerI(args ...interface{}) FlexLayer{
-    return FlexLayer{self.Call("createCustomLayer", args)}
+func (self *FlexGrid) CreateCustomLayerI(args ...interface{}) *FlexLayer{
+    return &FlexLayer{self.Call("createCustomLayer", args)}
 }
 
 // A fluid layer is centered on the game and maintains its aspect ratio as it scales up and down.
-func (self *FlexGrid) CreateFluidLayerI(args ...interface{}) FlexLayer{
-    return FlexLayer{self.Call("createFluidLayer", args)}
+func (self *FlexGrid) CreateFluidLayerI(args ...interface{}) *FlexLayer{
+    return &FlexLayer{self.Call("createFluidLayer", args)}
 }
 
 // A full layer is placed at 0,0 and extends to the full size of the game. Children are scaled according to the fluid ratios.
-func (self *FlexGrid) CreateFullLayerI(args ...interface{}) FlexLayer{
-    return FlexLayer{self.Call("createFullLayer", args)}
+func (self *FlexGrid) CreateFullLayerI(args ...interface{}) *FlexLayer{
+    return &FlexLayer{self.Call("createFullLayer", args)}
 }
 
 // A fixed layer is centered on the game and is the size of the required dimensions and is never scaled.
-func (self *FlexGrid) CreateFixedLayerI(args ...interface{}) FlexLayer{
-    return FlexLayer{self.Call("createFixedLayer", args)}
+func (self *FlexGrid) CreateFixedLayerI(args ...interface{}) *FlexLayer{
+    return &FlexLayer{self.Call("createFixedLayer", args)}
 }
 
 // Resets the layer children references

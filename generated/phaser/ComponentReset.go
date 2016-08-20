@@ -23,6 +23,6 @@ type ComponentReset struct {
 // If this Game Object has the LifeSpan component it will also set `alive` to true and `health` to the given value.
 // 
 // If this Game Object has a Physics Body it will reset the Body.
-func (self *ComponentReset) ResetI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("reset", args)}
+func (self *ComponentReset) ResetI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("reset", args)}
 }

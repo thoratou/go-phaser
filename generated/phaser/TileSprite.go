@@ -74,32 +74,32 @@ func (self *TileSprite) SetHeight(member float64) {
 }
 
 // The scaling of the image that is being tiled
-func (self *TileSprite) GetTileScale() Point{
-    return Point{self.Get("tileScale")}
+func (self *TileSprite) GetTileScale() *Point{
+    return &Point{self.Get("tileScale")}
 }
 
 // The scaling of the image that is being tiled
-func (self *TileSprite) SetTileScale(member Point) {
+func (self *TileSprite) SetTileScale(member *Point) {
     self.Set("tileScale", member)
 }
 
 // A point that represents the scale of the texture object
-func (self *TileSprite) GetTileScaleOffset() Point{
-    return Point{self.Get("tileScaleOffset")}
+func (self *TileSprite) GetTileScaleOffset() *Point{
+    return &Point{self.Get("tileScaleOffset")}
 }
 
 // A point that represents the scale of the texture object
-func (self *TileSprite) SetTileScaleOffset(member Point) {
+func (self *TileSprite) SetTileScaleOffset(member *Point) {
     self.Set("tileScaleOffset", member)
 }
 
 // The offset position of the image that is being tiled
-func (self *TileSprite) GetTilePosition() Point{
-    return Point{self.Get("tilePosition")}
+func (self *TileSprite) GetTilePosition() *Point{
+    return &Point{self.Get("tilePosition")}
 }
 
 // The offset position of the image that is being tiled
-func (self *TileSprite) SetTilePosition(member Point) {
+func (self *TileSprite) SetTilePosition(member *Point) {
     self.Set("tilePosition", member)
 }
 
@@ -146,32 +146,32 @@ func (self *TileSprite) SetBlendMode(member float64) {
 }
 
 // The CanvasBuffer object that the tiled texture is drawn to.
-func (self *TileSprite) GetCanvasBuffer() PIXICanvasBuffer{
-    return PIXICanvasBuffer{self.Get("canvasBuffer")}
+func (self *TileSprite) GetCanvasBuffer() *PIXICanvasBuffer{
+    return &PIXICanvasBuffer{self.Get("canvasBuffer")}
 }
 
 // The CanvasBuffer object that the tiled texture is drawn to.
-func (self *TileSprite) SetCanvasBuffer(member PIXICanvasBuffer) {
+func (self *TileSprite) SetCanvasBuffer(member *PIXICanvasBuffer) {
     self.Set("canvasBuffer", member)
 }
 
 // An internal Texture object that holds the tiling texture that was generated from TilingSprite.texture.
-func (self *TileSprite) GetTilingTexture() PIXITexture{
-    return PIXITexture{self.Get("tilingTexture")}
+func (self *TileSprite) GetTilingTexture() *PIXITexture{
+    return &PIXITexture{self.Get("tilingTexture")}
 }
 
 // An internal Texture object that holds the tiling texture that was generated from TilingSprite.texture.
-func (self *TileSprite) SetTilingTexture(member PIXITexture) {
+func (self *TileSprite) SetTilingTexture(member *PIXITexture) {
     self.Set("tilingTexture", member)
 }
 
 // The Context fill pattern that is used to draw the TilingSprite in Canvas mode only (will be null in WebGL).
-func (self *TileSprite) GetTilePattern() PIXITexture{
-    return PIXITexture{self.Get("tilePattern")}
+func (self *TileSprite) GetTilePattern() *PIXITexture{
+    return &PIXITexture{self.Get("tilePattern")}
 }
 
 // The Context fill pattern that is used to draw the TilingSprite in Canvas mode only (will be null in WebGL).
-func (self *TileSprite) SetTilePattern(member PIXITexture) {
+func (self *TileSprite) SetTilePattern(member *PIXITexture) {
     self.Set("tilePattern", member)
 }
 
@@ -191,45 +191,45 @@ func (self *TileSprite) SetRefreshTexture(member bool) {
 // The default is 0,0 this means the texture's origin is the top left
 // Setting than anchor to 0.5,0.5 means the textures origin is centered
 // Setting the anchor to 1,1 would mean the textures origin points will be the bottom right corner
-func (self *TileSprite) GetAnchor() Point{
-    return Point{self.Get("anchor")}
+func (self *TileSprite) GetAnchor() *Point{
+    return &Point{self.Get("anchor")}
 }
 
 // The anchor sets the origin point of the texture.
 // The default is 0,0 this means the texture's origin is the top left
 // Setting than anchor to 0.5,0.5 means the textures origin is centered
 // Setting the anchor to 1,1 would mean the textures origin points will be the bottom right corner
-func (self *TileSprite) SetAnchor(member Point) {
+func (self *TileSprite) SetAnchor(member *Point) {
     self.Set("anchor", member)
 }
 
 // The texture that the sprite is using
-func (self *TileSprite) GetTexture() Texture{
-    return Texture{self.Get("texture")}
+func (self *TileSprite) GetTexture() *Texture{
+    return &Texture{self.Get("texture")}
 }
 
 // The texture that the sprite is using
-func (self *TileSprite) SetTexture(member Texture) {
+func (self *TileSprite) SetTexture(member *Texture) {
     self.Set("texture", member)
 }
 
 // A canvas that contains the tinted version of the Sprite (in Canvas mode, WebGL doesn't populate this)
-func (self *TileSprite) GetTintedTexture() Canvas{
-    return Canvas{self.Get("tintedTexture")}
+func (self *TileSprite) GetTintedTexture() *Canvas{
+    return &Canvas{self.Get("tintedTexture")}
 }
 
 // A canvas that contains the tinted version of the Sprite (in Canvas mode, WebGL doesn't populate this)
-func (self *TileSprite) SetTintedTexture(member Canvas) {
+func (self *TileSprite) SetTintedTexture(member *Canvas) {
     self.Set("tintedTexture", member)
 }
 
 // The shader that will be used to render the texture to the stage. Set to null to remove a current shader.
-func (self *TileSprite) GetShader() AbstractFilter{
-    return AbstractFilter{self.Get("shader")}
+func (self *TileSprite) GetShader() *AbstractFilter{
+    return &AbstractFilter{self.Get("shader")}
 }
 
 // The shader that will be used to render the texture to the stage. Set to null to remove a current shader.
-func (self *TileSprite) SetShader(member AbstractFilter) {
+func (self *TileSprite) SetShader(member *AbstractFilter) {
     self.Set("shader", member)
 }
 
@@ -278,12 +278,12 @@ func (self *TileSprite) SetIgnoreChildInput(member bool) {
 }
 
 // A reference to the currently running Game.
-func (self *TileSprite) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *TileSprite) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // A reference to the currently running Game.
-func (self *TileSprite) SetGame(member Game) {
+func (self *TileSprite) SetGame(member *Game) {
     self.Set("game", member)
 }
 
@@ -343,25 +343,25 @@ func (self *TileSprite) SetZ(member float64) {
 
 // All Phaser Game Objects have an Events class which contains all of the events that are dispatched when certain things happen to this
 // Game Object, or any of its components.
-func (self *TileSprite) GetEvents() Events{
-    return Events{self.Get("events")}
+func (self *TileSprite) GetEvents() *Events{
+    return &Events{self.Get("events")}
 }
 
 // All Phaser Game Objects have an Events class which contains all of the events that are dispatched when certain things happen to this
 // Game Object, or any of its components.
-func (self *TileSprite) SetEvents(member Events) {
+func (self *TileSprite) SetEvents(member *Events) {
     self.Set("events", member)
 }
 
 // If the Game Object is enabled for animation (such as a Phaser.Sprite) this is a reference to its AnimationManager instance.
 // Through it you can create, play, pause and stop animations.
-func (self *TileSprite) GetAnimations() AnimationManager{
-    return AnimationManager{self.Get("animations")}
+func (self *TileSprite) GetAnimations() *AnimationManager{
+    return &AnimationManager{self.Get("animations")}
 }
 
 // If the Game Object is enabled for animation (such as a Phaser.Sprite) this is a reference to its AnimationManager instance.
 // Through it you can create, play, pause and stop animations.
-func (self *TileSprite) SetAnimations(member AnimationManager) {
+func (self *TileSprite) SetAnimations(member *AnimationManager) {
     self.Set("animations", member)
 }
 
@@ -386,14 +386,14 @@ func (self *TileSprite) SetKey(member interface{}) {
 // The world coordinates of this Game Object in pixels.
 // Depending on where in the display list this Game Object is placed this value can differ from `position`, 
 // which contains the x/y coordinates relative to the Game Objects parent.
-func (self *TileSprite) GetWorld() Point{
-    return Point{self.Get("world")}
+func (self *TileSprite) GetWorld() *Point{
+    return &Point{self.Get("world")}
 }
 
 // The world coordinates of this Game Object in pixels.
 // Depending on where in the display list this Game Object is placed this value can differ from `position`, 
 // which contains the x/y coordinates relative to the Game Objects parent.
-func (self *TileSprite) SetWorld(member Point) {
+func (self *TileSprite) SetWorld(member *Point) {
     self.Set("world", member)
 }
 
@@ -408,12 +408,12 @@ func (self *TileSprite) SetDebug(member bool) {
 }
 
 // The position the Game Object was located in the previous frame.
-func (self *TileSprite) GetPreviousPosition() Point{
-    return Point{self.Get("previousPosition")}
+func (self *TileSprite) GetPreviousPosition() *Point{
+    return &Point{self.Get("previousPosition")}
 }
 
 // The position the Game Object was located in the previous frame.
-func (self *TileSprite) SetPreviousPosition(member Point) {
+func (self *TileSprite) SetPreviousPosition(member *Point) {
     self.Set("previousPosition", member)
 }
 
@@ -676,14 +676,14 @@ func (self *TileSprite) SetFixedToCamera(member bool) {
 // The x/y coordinate offset applied to the top-left of the camera that this Game Object will be drawn at if `fixedToCamera` is true.
 // 
 // The values are relative to the top-left of the camera view and in addition to any parent of the Game Object on the display list.
-func (self *TileSprite) GetCameraOffset() Point{
-    return Point{self.Get("cameraOffset")}
+func (self *TileSprite) GetCameraOffset() *Point{
+    return &Point{self.Get("cameraOffset")}
 }
 
 // The x/y coordinate offset applied to the top-left of the camera that this Game Object will be drawn at if `fixedToCamera` is true.
 // 
 // The values are relative to the top-left of the camera view and in addition to any parent of the Game Object on the display list.
-func (self *TileSprite) SetCameraOffset(member Point) {
+func (self *TileSprite) SetCameraOffset(member *Point) {
     self.Set("cameraOffset", member)
 }
 
@@ -1068,8 +1068,8 @@ func (self *TileSprite) DestroyI(args ...interface{}) {
 // Resets the TileSprite. This places the TileSprite at the given x/y world coordinates, resets the tilePosition and then
 // sets alive, exists, visible and renderable all to true. Also resets the outOfBounds state.
 // If the TileSprite has a physics body that too is reset.
-func (self *TileSprite) ResetI(args ...interface{}) TileSprite{
-    return TileSprite{self.Call("reset", args)}
+func (self *TileSprite) ResetI(args ...interface{}) *TileSprite{
+    return &TileSprite{self.Call("reset", args)}
 }
 
 // Renders the object using the WebGL renderer
@@ -1093,8 +1093,8 @@ func (self *TileSprite) GenerateTilingTextureI(args ...interface{}) {
 }
 
 // Returns the framing rectangle of the sprite as a PIXI.Rectangle object
-func (self *TileSprite) GetBoundsI(args ...interface{}) Rectangle{
-    return Rectangle{self.Call("getBounds", args)}
+func (self *TileSprite) GetBoundsI(args ...interface{}) *Rectangle{
+    return &Rectangle{self.Call("getBounds", args)}
 }
 
 // Sets the texture of the sprite. Be warned that this doesn't remove or destroy the previous
@@ -1104,13 +1104,13 @@ func (self *TileSprite) SetTextureI(args ...interface{}) {
 }
 
 // Adds a child to the container.
-func (self *TileSprite) AddChildI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("addChild", args)}
+func (self *TileSprite) AddChildI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("addChild", args)}
 }
 
 // Adds a child to the container at a specified index. If the index is out of bounds an error will be thrown
-func (self *TileSprite) AddChildAtI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("addChildAt", args)}
+func (self *TileSprite) AddChildAtI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("addChildAt", args)}
 }
 
 // Swaps the position of 2 Display Objects within this container.
@@ -1129,18 +1129,18 @@ func (self *TileSprite) SetChildIndexI(args ...interface{}) {
 }
 
 // Returns the child at the specified index
-func (self *TileSprite) GetChildAtI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("getChildAt", args)}
+func (self *TileSprite) GetChildAtI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("getChildAt", args)}
 }
 
 // Removes a child from the container.
-func (self *TileSprite) RemoveChildI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("removeChild", args)}
+func (self *TileSprite) RemoveChildI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("removeChild", args)}
 }
 
 // Removes a child from the specified index position.
-func (self *TileSprite) RemoveChildAtI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("removeChildAt", args)}
+func (self *TileSprite) RemoveChildAtI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("removeChildAt", args)}
 }
 
 // Removes all children from this container that are within the begin and end indexes.
@@ -1149,8 +1149,8 @@ func (self *TileSprite) RemoveChildrenI(args ...interface{}) {
 }
 
 // Retrieves the non-global local bounds of the displayObjectContainer as a rectangle. The calculation takes all visible children into consideration.
-func (self *TileSprite) GetLocalBoundsI(args ...interface{}) Rectangle{
-    return Rectangle{self.Call("getLocalBounds", args)}
+func (self *TileSprite) GetLocalBoundsI(args ...interface{}) *Rectangle{
+    return &Rectangle{self.Call("getLocalBounds", args)}
 }
 
 // Sets the containers Stage reference. This is the Stage that this object, and all of its children, is connected to.
@@ -1181,8 +1181,8 @@ func (self *TileSprite) PostUpdateI(args ...interface{}) {
 // 
 // If the animation is already playing calling this again won't do anything.
 // If you need to reset an already running animation do so directly on the Animation object itself or via `AnimationManager.stop`.
-func (self *TileSprite) PlayI(args ...interface{}) Animation{
-    return Animation{self.Call("play", args)}
+func (self *TileSprite) PlayI(args ...interface{}) *Animation{
+    return &Animation{self.Call("play", args)}
 }
 
 // Aligns this Game Object within another Game Object, or Rectangle, known as the
@@ -1259,8 +1259,8 @@ func (self *TileSprite) AlignToI(args ...interface{}) interface{}{
 // 
 // If this Game Object hasn't been added to a custom Group then this method will bring it to the top of the Game World, 
 // because the World is the root Group from which all Game Objects descend.
-func (self *TileSprite) BringToTopI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("bringToTop", args)}
+func (self *TileSprite) BringToTopI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("bringToTop", args)}
 }
 
 // Sends this Game Object to the bottom of its parents display list.
@@ -1268,8 +1268,8 @@ func (self *TileSprite) BringToTopI(args ...interface{}) DisplayObject{
 // 
 // If this Game Object hasn't been added to a custom Group then this method will send it to the bottom of the Game World, 
 // because the World is the root Group from which all Game Objects descend.
-func (self *TileSprite) SendToBackI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("sendToBack", args)}
+func (self *TileSprite) SendToBackI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("sendToBack", args)}
 }
 
 // Moves this Game Object up one place in its parents display list.
@@ -1277,8 +1277,8 @@ func (self *TileSprite) SendToBackI(args ...interface{}) DisplayObject{
 // 
 // If this Game Object hasn't been added to a custom Group then this method will move it one object up within the Game World, 
 // because the World is the root Group from which all Game Objects descend.
-func (self *TileSprite) MoveUpI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("moveUp", args)}
+func (self *TileSprite) MoveUpI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("moveUp", args)}
 }
 
 // Moves this Game Object down one place in its parents display list.
@@ -1286,8 +1286,8 @@ func (self *TileSprite) MoveUpI(args ...interface{}) DisplayObject{
 // 
 // If this Game Object hasn't been added to a custom Group then this method will move it one object down within the Game World, 
 // because the World is the root Group from which all Game Objects descend.
-func (self *TileSprite) MoveDownI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("moveDown", args)}
+func (self *TileSprite) MoveDownI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("moveDown", args)}
 }
 
 // Brings a 'dead' Game Object back to life, optionally resetting its health value in the process.
@@ -1295,8 +1295,8 @@ func (self *TileSprite) MoveDownI(args ...interface{}) DisplayObject{
 // A resurrected Game Object has its `alive`, `exists` and `visible` properties all set to true.
 // 
 // It will dispatch the `onRevived` event. Listen to `events.onRevived` for the signal.
-func (self *TileSprite) ReviveI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("revive", args)}
+func (self *TileSprite) ReviveI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("revive", args)}
 }
 
 // Kills a Game Object. A killed Game Object has its `alive`, `exists` and `visible` properties all set to false.
@@ -1307,8 +1307,8 @@ func (self *TileSprite) ReviveI(args ...interface{}) DisplayObject{
 // it doesn't destroy the object or free it up from memory.
 // 
 // If you don't need this Game Object any more you should call `destroy` instead.
-func (self *TileSprite) KillI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("kill", args)}
+func (self *TileSprite) KillI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("kill", args)}
 }
 
 // Changes the base texture the Game Object is using. The old texture is removed and the new one is referenced or fetched from the Cache.

@@ -14,12 +14,12 @@ type Plugin struct {
 
 
 // A reference to the currently running game.
-func (self *Plugin) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *Plugin) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // A reference to the currently running game.
-func (self *Plugin) SetGame(member Game) {
+func (self *Plugin) SetGame(member *Game) {
     self.Set("game", member)
 }
 

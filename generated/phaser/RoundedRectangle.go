@@ -78,8 +78,8 @@ func (self *RoundedRectangle) SetType(member float64) {
 
 // Returns a new RoundedRectangle object with the same values for the x, y, width, height and
 // radius properties as this RoundedRectangle object.
-func (self *RoundedRectangle) CloneI(args ...interface{}) RoundedRectangle{
-    return RoundedRectangle{self.Call("clone", args)}
+func (self *RoundedRectangle) CloneI(args ...interface{}) *RoundedRectangle{
+    return &RoundedRectangle{self.Call("clone", args)}
 }
 
 // Determines whether the specified coordinates are contained within the region defined by this Rounded Rectangle object.

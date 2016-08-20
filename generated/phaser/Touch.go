@@ -16,12 +16,12 @@ type Touch struct {
 
 
 // A reference to the currently running game.
-func (self *Touch) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *Touch) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // A reference to the currently running game.
-func (self *Touch) SetGame(member Game) {
+func (self *Touch) SetGame(member *Game) {
     self.Set("game", member)
 }
 
@@ -106,12 +106,12 @@ func (self *Touch) SetPreventDefault(member bool) {
 }
 
 // The browser touch DOM event. Will be set to null if no touch event has ever been received.
-func (self *Touch) GetEvent() TouchEvent{
-    return TouchEvent{self.Get("event")}
+func (self *Touch) GetEvent() *TouchEvent{
+    return &TouchEvent{self.Get("event")}
 }
 
 // The browser touch DOM event. Will be set to null if no touch event has ever been received.
-func (self *Touch) SetEvent(member TouchEvent) {
+func (self *Touch) SetEvent(member *TouchEvent) {
     self.Set("event", member)
 }
 

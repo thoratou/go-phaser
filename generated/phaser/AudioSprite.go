@@ -15,12 +15,12 @@ type AudioSprite struct {
 
 
 // A reference to the currently running Game.
-func (self *AudioSprite) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *AudioSprite) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // A reference to the currently running Game.
-func (self *AudioSprite) SetGame(member Game) {
+func (self *AudioSprite) SetGame(member *Game) {
     self.Set("game", member)
 }
 
@@ -77,8 +77,8 @@ func (self *AudioSprite) SetSounds(member interface{}) {
 
 
 // Play a sound with the given name.
-func (self *AudioSprite) PlayI(args ...interface{}) Sound{
-    return Sound{self.Call("play", args)}
+func (self *AudioSprite) PlayI(args ...interface{}) *Sound{
+    return &Sound{self.Call("play", args)}
 }
 
 // Stop a sound with the given name.
@@ -87,6 +87,6 @@ func (self *AudioSprite) StopI(args ...interface{}) {
 }
 
 // Get a sound with the given name.
-func (self *AudioSprite) GetI(args ...interface{}) Sound{
-    return Sound{self.Call("get", args)}
+func (self *AudioSprite) GetI(args ...interface{}) *Sound{
+    return &Sound{self.Call("get", args)}
 }

@@ -34,42 +34,42 @@ func (self *WebGLSpriteBatch) SetSize(member float64) {
 }
 
 // Holds the vertices
-func (self *WebGLSpriteBatch) GetVertices() ArrayBuffer{
-    return ArrayBuffer{self.Get("vertices")}
+func (self *WebGLSpriteBatch) GetVertices() *ArrayBuffer{
+    return &ArrayBuffer{self.Get("vertices")}
 }
 
 // Holds the vertices
-func (self *WebGLSpriteBatch) SetVertices(member ArrayBuffer) {
+func (self *WebGLSpriteBatch) SetVertices(member *ArrayBuffer) {
     self.Set("vertices", member)
 }
 
 // View on the vertices as a Float32Array
-func (self *WebGLSpriteBatch) GetPositions() Float32Array{
-    return Float32Array{self.Get("positions")}
+func (self *WebGLSpriteBatch) GetPositions() *Float32Array{
+    return &Float32Array{self.Get("positions")}
 }
 
 // View on the vertices as a Float32Array
-func (self *WebGLSpriteBatch) SetPositions(member Float32Array) {
+func (self *WebGLSpriteBatch) SetPositions(member *Float32Array) {
     self.Set("positions", member)
 }
 
 // View on the vertices as a Uint32Array
-func (self *WebGLSpriteBatch) GetColors() Uint32Array{
-    return Uint32Array{self.Get("colors")}
+func (self *WebGLSpriteBatch) GetColors() *Uint32Array{
+    return &Uint32Array{self.Get("colors")}
 }
 
 // View on the vertices as a Uint32Array
-func (self *WebGLSpriteBatch) SetColors(member Uint32Array) {
+func (self *WebGLSpriteBatch) SetColors(member *Uint32Array) {
     self.Set("colors", member)
 }
 
 // Holds the indices
-func (self *WebGLSpriteBatch) GetIndices() Uint16Array{
-    return Uint16Array{self.Get("indices")}
+func (self *WebGLSpriteBatch) GetIndices() *Uint16Array{
+    return &Uint16Array{self.Get("indices")}
 }
 
 // Holds the indices
-func (self *WebGLSpriteBatch) SetIndices(member Uint16Array) {
+func (self *WebGLSpriteBatch) SetIndices(member *Uint16Array) {
     self.Set("indices", member)
 }
 
@@ -104,12 +104,12 @@ func (self *WebGLSpriteBatch) SetCurrentBatchSize(member float64) {
 }
 
 // 
-func (self *WebGLSpriteBatch) GetCurrentBaseTexture() BaseTexture{
-    return BaseTexture{self.Get("currentBaseTexture")}
+func (self *WebGLSpriteBatch) GetCurrentBaseTexture() *BaseTexture{
+    return &BaseTexture{self.Get("currentBaseTexture")}
 }
 
 // 
-func (self *WebGLSpriteBatch) SetCurrentBaseTexture(member BaseTexture) {
+func (self *WebGLSpriteBatch) SetCurrentBaseTexture(member *BaseTexture) {
     self.Set("currentBaseTexture", member)
 }
 
@@ -188,12 +188,12 @@ func (self *WebGLSpriteBatch) SetSprites(member []interface{}) {
 }
 
 // 
-func (self *WebGLSpriteBatch) GetDefaultShader() AbstractFilter{
-    return AbstractFilter{self.Get("defaultShader")}
+func (self *WebGLSpriteBatch) GetDefaultShader() *AbstractFilter{
+    return &AbstractFilter{self.Get("defaultShader")}
 }
 
 // 
-func (self *WebGLSpriteBatch) SetDefaultShader(member AbstractFilter) {
+func (self *WebGLSpriteBatch) SetDefaultShader(member *AbstractFilter) {
     self.Set("defaultShader", member)
 }
 

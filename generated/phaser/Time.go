@@ -38,12 +38,12 @@ type Time struct {
 
 
 // Local reference to game.
-func (self *Time) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *Time) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // Local reference to game.
-func (self *Time) SetGame(member Game) {
+func (self *Time) SetGame(member *Game) {
     self.Set("game", member)
 }
 
@@ -338,12 +338,12 @@ func (self *Time) SetTimeExpected(member float64) {
 }
 
 // A {@link Phaser.Timer} object bound to the master clock (this Time object) which events can be added to.
-func (self *Time) GetEvents() Timer{
-    return Timer{self.Get("events")}
+func (self *Time) GetEvents() *Timer{
+    return &Timer{self.Get("events")}
 }
 
 // A {@link Phaser.Timer} object bound to the master clock (this Time object) which events can be added to.
-func (self *Time) SetEvents(member Timer) {
+func (self *Time) SetEvents(member *Timer) {
     self.Set("events", member)
 }
 
@@ -369,13 +369,13 @@ func (self *Time) BootI(args ...interface{}) {
 }
 
 // Adds an existing Phaser.Timer object to the Timer pool.
-func (self *Time) AddI(args ...interface{}) Timer{
-    return Timer{self.Call("add", args)}
+func (self *Time) AddI(args ...interface{}) *Timer{
+    return &Timer{self.Call("add", args)}
 }
 
 // Creates a new stand-alone Phaser.Timer object.
-func (self *Time) CreateI(args ...interface{}) Timer{
-    return Timer{self.Call("create", args)}
+func (self *Time) CreateI(args ...interface{}) *Timer{
+    return &Timer{self.Call("create", args)}
 }
 
 // Remove all Timer objects, regardless of their state and clears all Timers from the {@link Phaser.Time#events events} timer.

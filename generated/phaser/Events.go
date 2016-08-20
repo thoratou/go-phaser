@@ -30,12 +30,12 @@ type Events struct {
 
 
 // The Sprite that owns these events.
-func (self *Events) GetParent() Sprite{
-    return Sprite{self.Get("parent")}
+func (self *Events) GetParent() *Sprite{
+    return &Sprite{self.Get("parent")}
 }
 
 // The Sprite that owns these events.
-func (self *Events) SetParent(member Sprite) {
+func (self *Events) SetParent(member *Sprite) {
     self.Set("parent", member)
 }
 
@@ -43,15 +43,15 @@ func (self *Events) SetParent(member Sprite) {
 // It is sent two arguments:
 // {any} The Game Object that was added to the Group.
 // {Phaser.Group} The Group it was added to.
-func (self *Events) GetOnAddedToGroup() Signal{
-    return Signal{self.Get("onAddedToGroup")}
+func (self *Events) GetOnAddedToGroup() *Signal{
+    return &Signal{self.Get("onAddedToGroup")}
 }
 
 // This signal is dispatched when this Game Object is added to a new Group.
 // It is sent two arguments:
 // {any} The Game Object that was added to the Group.
 // {Phaser.Group} The Group it was added to.
-func (self *Events) SetOnAddedToGroup(member Signal) {
+func (self *Events) SetOnAddedToGroup(member *Signal) {
     self.Set("onAddedToGroup", member)
 }
 
@@ -59,25 +59,25 @@ func (self *Events) SetOnAddedToGroup(member Signal) {
 // It is sent two arguments:
 // {any} The Game Object that was removed from the Group.
 // {Phaser.Group} The Group it was removed from.
-func (self *Events) GetOnRemovedFromGroup() Signal{
-    return Signal{self.Get("onRemovedFromGroup")}
+func (self *Events) GetOnRemovedFromGroup() *Signal{
+    return &Signal{self.Get("onRemovedFromGroup")}
 }
 
 // This signal is dispatched when the Game Object is removed from a Group.
 // It is sent two arguments:
 // {any} The Game Object that was removed from the Group.
 // {Phaser.Group} The Group it was removed from.
-func (self *Events) SetOnRemovedFromGroup(member Signal) {
+func (self *Events) SetOnRemovedFromGroup(member *Signal) {
     self.Set("onRemovedFromGroup", member)
 }
 
 // This Signal is never used internally by Phaser and is now deprecated.
-func (self *Events) GetOnRemovedFromWorld() Signal{
-    return Signal{self.Get("onRemovedFromWorld")}
+func (self *Events) GetOnRemovedFromWorld() *Signal{
+    return &Signal{self.Get("onRemovedFromWorld")}
 }
 
 // This Signal is never used internally by Phaser and is now deprecated.
-func (self *Events) SetOnRemovedFromWorld(member Signal) {
+func (self *Events) SetOnRemovedFromWorld(member *Signal) {
     self.Set("onRemovedFromWorld", member)
 }
 
@@ -85,15 +85,15 @@ func (self *Events) SetOnRemovedFromWorld(member Signal) {
 // This happens when `Sprite.destroy()` is called, or `Group.destroy()` with `destroyChildren` set to true.
 // It is sent one argument:
 // {any} The Game Object that was destroyed.
-func (self *Events) GetOnDestroy() Signal{
-    return Signal{self.Get("onDestroy")}
+func (self *Events) GetOnDestroy() *Signal{
+    return &Signal{self.Get("onDestroy")}
 }
 
 // This signal is dispatched when the Game Object is destroyed.
 // This happens when `Sprite.destroy()` is called, or `Group.destroy()` with `destroyChildren` set to true.
 // It is sent one argument:
 // {any} The Game Object that was destroyed.
-func (self *Events) SetOnDestroy(member Signal) {
+func (self *Events) SetOnDestroy(member *Signal) {
     self.Set("onDestroy", member)
 }
 
@@ -102,8 +102,8 @@ func (self *Events) SetOnDestroy(member Signal) {
 // Please understand the difference between `kill` and `destroy` by looking at their respective methods.
 // It is sent one argument:
 // {any} The Game Object that was killed.
-func (self *Events) GetOnKilled() Signal{
-    return Signal{self.Get("onKilled")}
+func (self *Events) GetOnKilled() *Signal{
+    return &Signal{self.Get("onKilled")}
 }
 
 // This signal is dispatched when the Game Object is killed.
@@ -111,7 +111,7 @@ func (self *Events) GetOnKilled() Signal{
 // Please understand the difference between `kill` and `destroy` by looking at their respective methods.
 // It is sent one argument:
 // {any} The Game Object that was killed.
-func (self *Events) SetOnKilled(member Signal) {
+func (self *Events) SetOnKilled(member *Signal) {
     self.Set("onKilled", member)
 }
 
@@ -119,15 +119,15 @@ func (self *Events) SetOnKilled(member Signal) {
 // This happens when `Sprite.revive()` is called.
 // It is sent one argument:
 // {any} The Game Object that was revived.
-func (self *Events) GetOnRevived() Signal{
-    return Signal{self.Get("onRevived")}
+func (self *Events) GetOnRevived() *Signal{
+    return &Signal{self.Get("onRevived")}
 }
 
 // This signal is dispatched when the Game Object is revived from a previously killed state.
 // This happens when `Sprite.revive()` is called.
 // It is sent one argument:
 // {any} The Game Object that was revived.
-func (self *Events) SetOnRevived(member Signal) {
+func (self *Events) SetOnRevived(member *Signal) {
     self.Set("onRevived", member)
 }
 
@@ -135,15 +135,15 @@ func (self *Events) SetOnRevived(member Signal) {
 // This signal is only if `Sprite.checkWorldBounds` is set to `true`.
 // It is sent one argument:
 // {any} The Game Object that left the World bounds.
-func (self *Events) GetOnOutOfBounds() Signal{
-    return Signal{self.Get("onOutOfBounds")}
+func (self *Events) GetOnOutOfBounds() *Signal{
+    return &Signal{self.Get("onOutOfBounds")}
 }
 
 // This signal is dispatched when the Game Object leaves the Phaser.World bounds.
 // This signal is only if `Sprite.checkWorldBounds` is set to `true`.
 // It is sent one argument:
 // {any} The Game Object that left the World bounds.
-func (self *Events) SetOnOutOfBounds(member Signal) {
+func (self *Events) SetOnOutOfBounds(member *Signal) {
     self.Set("onOutOfBounds", member)
 }
 
@@ -151,15 +151,15 @@ func (self *Events) SetOnOutOfBounds(member Signal) {
 // This signal is only if `Sprite.checkWorldBounds` is set to `true`.
 // It is sent one argument:
 // {any} The Game Object that entered the World bounds.
-func (self *Events) GetOnEnterBounds() Signal{
-    return Signal{self.Get("onEnterBounds")}
+func (self *Events) GetOnEnterBounds() *Signal{
+    return &Signal{self.Get("onEnterBounds")}
 }
 
 // This signal is dispatched when the Game Object returns within the Phaser.World bounds, having previously been outside of them.
 // This signal is only if `Sprite.checkWorldBounds` is set to `true`.
 // It is sent one argument:
 // {any} The Game Object that entered the World bounds.
-func (self *Events) SetOnEnterBounds(member Signal) {
+func (self *Events) SetOnEnterBounds(member *Signal) {
     self.Set("onEnterBounds", member)
 }
 
@@ -168,8 +168,8 @@ func (self *Events) SetOnEnterBounds(member Signal) {
 // It is sent two arguments:
 // {any} The Game Object that received the event.
 // {Phaser.Pointer} The Phaser.Pointer object that caused the event.
-func (self *Events) GetOnInputOver() Signal{
-    return Signal{self.Get("onInputOver")}
+func (self *Events) GetOnInputOver() *Signal{
+    return &Signal{self.Get("onInputOver")}
 }
 
 // This signal is dispatched if the Game Object has `inputEnabled` set to `true`, 
@@ -177,7 +177,7 @@ func (self *Events) GetOnInputOver() Signal{
 // It is sent two arguments:
 // {any} The Game Object that received the event.
 // {Phaser.Pointer} The Phaser.Pointer object that caused the event.
-func (self *Events) SetOnInputOver(member Signal) {
+func (self *Events) SetOnInputOver(member *Signal) {
     self.Set("onInputOver", member)
 }
 
@@ -186,8 +186,8 @@ func (self *Events) SetOnInputOver(member Signal) {
 // It is sent two arguments:
 // {any} The Game Object that received the event.
 // {Phaser.Pointer} The Phaser.Pointer object that caused the event.
-func (self *Events) GetOnInputOut() Signal{
-    return Signal{self.Get("onInputOut")}
+func (self *Events) GetOnInputOut() *Signal{
+    return &Signal{self.Get("onInputOut")}
 }
 
 // This signal is dispatched if the Game Object has `inputEnabled` set to `true`, 
@@ -195,7 +195,7 @@ func (self *Events) GetOnInputOut() Signal{
 // It is sent two arguments:
 // {any} The Game Object that received the event.
 // {Phaser.Pointer} The Phaser.Pointer object that caused the event.
-func (self *Events) SetOnInputOut(member Signal) {
+func (self *Events) SetOnInputOut(member *Signal) {
     self.Set("onInputOut", member)
 }
 
@@ -205,8 +205,8 @@ func (self *Events) SetOnInputOut(member Signal) {
 // It is sent two arguments:
 // {any} The Game Object that received the event.
 // {Phaser.Pointer} The Phaser.Pointer object that caused the event.
-func (self *Events) GetOnInputDown() Signal{
-    return Signal{self.Get("onInputDown")}
+func (self *Events) GetOnInputDown() *Signal{
+    return &Signal{self.Get("onInputDown")}
 }
 
 // This signal is dispatched if the Game Object has `inputEnabled` set to `true`, 
@@ -215,7 +215,7 @@ func (self *Events) GetOnInputDown() Signal{
 // It is sent two arguments:
 // {any} The Game Object that received the event.
 // {Phaser.Pointer} The Phaser.Pointer object that caused the event.
-func (self *Events) SetOnInputDown(member Signal) {
+func (self *Events) SetOnInputDown(member *Signal) {
     self.Set("onInputDown", member)
 }
 
@@ -226,8 +226,8 @@ func (self *Events) SetOnInputDown(member Signal) {
 // {any} The Game Object that received the event.
 // {Phaser.Pointer} The Phaser.Pointer object that caused the event.
 // {boolean} isOver - Is the Pointer still over the Game Object?
-func (self *Events) GetOnInputUp() Signal{
-    return Signal{self.Get("onInputUp")}
+func (self *Events) GetOnInputUp() *Signal{
+    return &Signal{self.Get("onInputUp")}
 }
 
 // This signal is dispatched if the Game Object has `inputEnabled` set to `true`, 
@@ -237,7 +237,7 @@ func (self *Events) GetOnInputUp() Signal{
 // {any} The Game Object that received the event.
 // {Phaser.Pointer} The Phaser.Pointer object that caused the event.
 // {boolean} isOver - Is the Pointer still over the Game Object?
-func (self *Events) SetOnInputUp(member Signal) {
+func (self *Events) SetOnInputUp(member *Signal) {
     self.Set("onInputUp", member)
 }
 
@@ -249,8 +249,8 @@ func (self *Events) SetOnInputUp(member Signal) {
 // {Phaser.Pointer} The Phaser.Pointer object that caused the event.
 // {number} The x coordinate that the drag started from.
 // {number} The y coordinate that the drag started from.
-func (self *Events) GetOnDragStart() Signal{
-    return Signal{self.Get("onDragStart")}
+func (self *Events) GetOnDragStart() *Signal{
+    return &Signal{self.Get("onDragStart")}
 }
 
 // This signal is dispatched if the Game Object has been `inputEnabled` and `enableDrag` has been set.
@@ -261,7 +261,7 @@ func (self *Events) GetOnDragStart() Signal{
 // {Phaser.Pointer} The Phaser.Pointer object that caused the event.
 // {number} The x coordinate that the drag started from.
 // {number} The y coordinate that the drag started from.
-func (self *Events) SetOnDragStart(member Signal) {
+func (self *Events) SetOnDragStart(member *Signal) {
     self.Set("onDragStart", member)
 }
 
@@ -275,8 +275,8 @@ func (self *Events) SetOnDragStart(member Signal) {
 // {number} The new y coordinate of the Game Object.
 // {Phaser.Point} A Point object that contains the point the Game Object was snapped to, if `snapOnDrag` has been enabled.
 // {boolean} The `fromStart` boolean, indicates if this is the first update immediately after the drag has started.
-func (self *Events) GetOnDragUpdate() Signal{
-    return Signal{self.Get("onDragUpdate")}
+func (self *Events) GetOnDragUpdate() *Signal{
+    return &Signal{self.Get("onDragUpdate")}
 }
 
 // This signal is dispatched if the Game Object has been `inputEnabled` and `enableDrag` has been set.
@@ -289,7 +289,7 @@ func (self *Events) GetOnDragUpdate() Signal{
 // {number} The new y coordinate of the Game Object.
 // {Phaser.Point} A Point object that contains the point the Game Object was snapped to, if `snapOnDrag` has been enabled.
 // {boolean} The `fromStart` boolean, indicates if this is the first update immediately after the drag has started.
-func (self *Events) SetOnDragUpdate(member Signal) {
+func (self *Events) SetOnDragUpdate(member *Signal) {
     self.Set("onDragUpdate", member)
 }
 
@@ -298,8 +298,8 @@ func (self *Events) SetOnDragUpdate(member Signal) {
 // It is sent two arguments:
 // {any} The Game Object that received the event.
 // {Phaser.Pointer} The Phaser.Pointer object that caused the event.
-func (self *Events) GetOnDragStop() Signal{
-    return Signal{self.Get("onDragStop")}
+func (self *Events) GetOnDragStop() *Signal{
+    return &Signal{self.Get("onDragStop")}
 }
 
 // This signal is dispatched if the Game Object has been `inputEnabled` and `enableDrag` has been set.
@@ -307,7 +307,7 @@ func (self *Events) GetOnDragStop() Signal{
 // It is sent two arguments:
 // {any} The Game Object that received the event.
 // {Phaser.Pointer} The Phaser.Pointer object that caused the event.
-func (self *Events) SetOnDragStop(member Signal) {
+func (self *Events) SetOnDragStop(member *Signal) {
     self.Set("onDragStop", member)
 }
 
@@ -317,8 +317,8 @@ func (self *Events) SetOnDragStop(member Signal) {
 // It is sent two arguments:
 // {any} The Game Object that received the event.
 // {Phaser.Animation} The Phaser.Animation that was started.
-func (self *Events) GetOnAnimationStart() Signal{
-    return Signal{self.Get("onAnimationStart")}
+func (self *Events) GetOnAnimationStart() *Signal{
+    return &Signal{self.Get("onAnimationStart")}
 }
 
 // This signal is dispatched if the Game Object has the AnimationManager component, 
@@ -327,7 +327,7 @@ func (self *Events) GetOnAnimationStart() Signal{
 // It is sent two arguments:
 // {any} The Game Object that received the event.
 // {Phaser.Animation} The Phaser.Animation that was started.
-func (self *Events) SetOnAnimationStart(member Signal) {
+func (self *Events) SetOnAnimationStart(member *Signal) {
     self.Set("onAnimationStart", member)
 }
 
@@ -337,8 +337,8 @@ func (self *Events) SetOnAnimationStart(member Signal) {
 // It is sent two arguments:
 // {any} The Game Object that received the event.
 // {Phaser.Animation} The Phaser.Animation that was stopped.
-func (self *Events) GetOnAnimationComplete() Signal{
-    return Signal{self.Get("onAnimationComplete")}
+func (self *Events) GetOnAnimationComplete() *Signal{
+    return &Signal{self.Get("onAnimationComplete")}
 }
 
 // This signal is dispatched if the Game Object has the AnimationManager component, 
@@ -347,7 +347,7 @@ func (self *Events) GetOnAnimationComplete() Signal{
 // It is sent two arguments:
 // {any} The Game Object that received the event.
 // {Phaser.Animation} The Phaser.Animation that was stopped.
-func (self *Events) SetOnAnimationComplete(member Signal) {
+func (self *Events) SetOnAnimationComplete(member *Signal) {
     self.Set("onAnimationComplete", member)
 }
 
@@ -357,8 +357,8 @@ func (self *Events) SetOnAnimationComplete(member Signal) {
 // It is sent two arguments:
 // {any} The Game Object that received the event.
 // {Phaser.Animation} The Phaser.Animation that looped.
-func (self *Events) GetOnAnimationLoop() Signal{
-    return Signal{self.Get("onAnimationLoop")}
+func (self *Events) GetOnAnimationLoop() *Signal{
+    return &Signal{self.Get("onAnimationLoop")}
 }
 
 // This signal is dispatched if the Game Object has the AnimationManager component, 
@@ -367,7 +367,7 @@ func (self *Events) GetOnAnimationLoop() Signal{
 // It is sent two arguments:
 // {any} The Game Object that received the event.
 // {Phaser.Animation} The Phaser.Animation that looped.
-func (self *Events) SetOnAnimationLoop(member Signal) {
+func (self *Events) SetOnAnimationLoop(member *Signal) {
     self.Set("onAnimationLoop", member)
 }
 

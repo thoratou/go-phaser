@@ -16,12 +16,12 @@ type PIXI struct {
 
 
 // A reference to the Phaser Game instance that owns this Pixi renderer.
-func (self *PIXI) GetGame() PhaserGame{
-    return PhaserGame{self.Get("game")}
+func (self *PIXI) GetGame() *PhaserGame{
+    return &PhaserGame{self.Get("game")}
 }
 
 // A reference to the Phaser Game instance that owns this Pixi renderer.
-func (self *PIXI) SetGame(member PhaserGame) {
+func (self *PIXI) SetGame(member *PhaserGame) {
     self.Set("game", member)
 }
 

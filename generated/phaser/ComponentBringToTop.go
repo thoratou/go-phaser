@@ -20,8 +20,8 @@ type ComponentBringToTop struct {
 // 
 // If this Game Object hasn't been added to a custom Group then this method will bring it to the top of the Game World, 
 // because the World is the root Group from which all Game Objects descend.
-func (self *ComponentBringToTop) BringToTopI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("bringToTop", args)}
+func (self *ComponentBringToTop) BringToTopI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("bringToTop", args)}
 }
 
 // Sends this Game Object to the bottom of its parents display list.
@@ -29,8 +29,8 @@ func (self *ComponentBringToTop) BringToTopI(args ...interface{}) DisplayObject{
 // 
 // If this Game Object hasn't been added to a custom Group then this method will send it to the bottom of the Game World, 
 // because the World is the root Group from which all Game Objects descend.
-func (self *ComponentBringToTop) SendToBackI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("sendToBack", args)}
+func (self *ComponentBringToTop) SendToBackI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("sendToBack", args)}
 }
 
 // Moves this Game Object up one place in its parents display list.
@@ -38,8 +38,8 @@ func (self *ComponentBringToTop) SendToBackI(args ...interface{}) DisplayObject{
 // 
 // If this Game Object hasn't been added to a custom Group then this method will move it one object up within the Game World, 
 // because the World is the root Group from which all Game Objects descend.
-func (self *ComponentBringToTop) MoveUpI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("moveUp", args)}
+func (self *ComponentBringToTop) MoveUpI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("moveUp", args)}
 }
 
 // Moves this Game Object down one place in its parents display list.
@@ -47,6 +47,6 @@ func (self *ComponentBringToTop) MoveUpI(args ...interface{}) DisplayObject{
 // 
 // If this Game Object hasn't been added to a custom Group then this method will move it one object down within the Game World, 
 // because the World is the root Group from which all Game Objects descend.
-func (self *ComponentBringToTop) MoveDownI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("moveDown", args)}
+func (self *ComponentBringToTop) MoveDownI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("moveDown", args)}
 }

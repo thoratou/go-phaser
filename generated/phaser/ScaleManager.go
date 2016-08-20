@@ -39,32 +39,32 @@ type ScaleManager struct {
 
 
 // A reference to the currently running game.
-func (self *ScaleManager) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *ScaleManager) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // A reference to the currently running game.
-func (self *ScaleManager) SetGame(member Game) {
+func (self *ScaleManager) SetGame(member *Game) {
     self.Set("game", member)
 }
 
 // Provides access to some cross-device DOM functions.
-func (self *ScaleManager) GetDom() DOM{
-    return DOM{self.Get("dom")}
+func (self *ScaleManager) GetDom() *DOM{
+    return &DOM{self.Get("dom")}
 }
 
 // Provides access to some cross-device DOM functions.
-func (self *ScaleManager) SetDom(member DOM) {
+func (self *ScaleManager) SetDom(member *DOM) {
     self.Set("dom", member)
 }
 
 // _EXPERIMENTAL:_ A responsive grid on which you can align game objects.
-func (self *ScaleManager) GetGrid() FlexGrid{
-    return FlexGrid{self.Get("grid")}
+func (self *ScaleManager) GetGrid() *FlexGrid{
+    return &FlexGrid{self.Get("grid")}
 }
 
 // _EXPERIMENTAL:_ A responsive grid on which you can align game objects.
-func (self *ScaleManager) SetGrid(member FlexGrid) {
+func (self *ScaleManager) SetGrid(member *FlexGrid) {
     self.Set("grid", member)
 }
 
@@ -142,13 +142,13 @@ func (self *ScaleManager) SetMaxHeight(member float64) {
 
 // The offset coordinates of the Display canvas from the top-left of the browser window.
 // The is used internally by Phaser.Pointer (for Input) and possibly other types.
-func (self *ScaleManager) GetOffset() Point{
-    return Point{self.Get("offset")}
+func (self *ScaleManager) GetOffset() *Point{
+    return &Point{self.Get("offset")}
 }
 
 // The offset coordinates of the Display canvas from the top-left of the browser window.
 // The is used internally by Phaser.Pointer (for Input) and possibly other types.
-func (self *ScaleManager) SetOffset(member Point) {
+func (self *ScaleManager) SetOffset(member *Point) {
     self.Set("offset", member)
 }
 
@@ -209,8 +209,8 @@ func (self *ScaleManager) SetIncorrectOrientation(member bool) {
 // correctness changes even if the orientation itself does not change.
 // 
 // This is signaled from `preUpdate` (or `pauseUpdate`) _even when_ the game is paused.
-func (self *ScaleManager) GetOnOrientationChange() Signal{
-    return Signal{self.Get("onOrientationChange")}
+func (self *ScaleManager) GetOnOrientationChange() *Signal{
+    return &Signal{self.Get("onOrientationChange")}
 }
 
 // This signal is dispatched when the orientation changes _or_ the validity of the current orientation changes.
@@ -232,35 +232,35 @@ func (self *ScaleManager) GetOnOrientationChange() Signal{
 // correctness changes even if the orientation itself does not change.
 // 
 // This is signaled from `preUpdate` (or `pauseUpdate`) _even when_ the game is paused.
-func (self *ScaleManager) SetOnOrientationChange(member Signal) {
+func (self *ScaleManager) SetOnOrientationChange(member *Signal) {
     self.Set("onOrientationChange", member)
 }
 
 // This signal is dispatched when the browser enters an incorrect orientation, as defined by {@link Phaser.ScaleManager#forceOrientation forceOrientation}.
 // 
 // This is signaled from `preUpdate` (or `pauseUpdate`) _even when_ the game is paused.
-func (self *ScaleManager) GetEnterIncorrectOrientation() Signal{
-    return Signal{self.Get("enterIncorrectOrientation")}
+func (self *ScaleManager) GetEnterIncorrectOrientation() *Signal{
+    return &Signal{self.Get("enterIncorrectOrientation")}
 }
 
 // This signal is dispatched when the browser enters an incorrect orientation, as defined by {@link Phaser.ScaleManager#forceOrientation forceOrientation}.
 // 
 // This is signaled from `preUpdate` (or `pauseUpdate`) _even when_ the game is paused.
-func (self *ScaleManager) SetEnterIncorrectOrientation(member Signal) {
+func (self *ScaleManager) SetEnterIncorrectOrientation(member *Signal) {
     self.Set("enterIncorrectOrientation", member)
 }
 
 // This signal is dispatched when the browser leaves an incorrect orientation, as defined by {@link Phaser.ScaleManager#forceOrientation forceOrientation}.
 // 
 // This is signaled from `preUpdate` (or `pauseUpdate`) _even when_ the game is paused.
-func (self *ScaleManager) GetLeaveIncorrectOrientation() Signal{
-    return Signal{self.Get("leaveIncorrectOrientation")}
+func (self *ScaleManager) GetLeaveIncorrectOrientation() *Signal{
+    return &Signal{self.Get("leaveIncorrectOrientation")}
 }
 
 // This signal is dispatched when the browser leaves an incorrect orientation, as defined by {@link Phaser.ScaleManager#forceOrientation forceOrientation}.
 // 
 // This is signaled from `preUpdate` (or `pauseUpdate`) _even when_ the game is paused.
-func (self *ScaleManager) SetLeaveIncorrectOrientation(member Signal) {
+func (self *ScaleManager) SetLeaveIncorrectOrientation(member *Signal) {
     self.Set("leaveIncorrectOrientation", member)
 }
 
@@ -304,8 +304,8 @@ func (self *ScaleManager) SetFullScreenTarget(member DOMElement) {
 // - The `targetElement` is moved/re-parented within the DOM and may have its CSS styles updated.
 // 
 // The behavior of a pre-assigned target element is covered in {@link Phaser.ScaleManager#fullScreenTarget fullScreenTarget}.
-func (self *ScaleManager) GetOnFullScreenInit() Signal{
-    return Signal{self.Get("onFullScreenInit")}
+func (self *ScaleManager) GetOnFullScreenInit() *Signal{
+    return &Signal{self.Get("onFullScreenInit")}
 }
 
 // This signal is dispatched when fullscreen mode is ready to be initialized but
@@ -324,7 +324,7 @@ func (self *ScaleManager) GetOnFullScreenInit() Signal{
 // - The `targetElement` is moved/re-parented within the DOM and may have its CSS styles updated.
 // 
 // The behavior of a pre-assigned target element is covered in {@link Phaser.ScaleManager#fullScreenTarget fullScreenTarget}.
-func (self *ScaleManager) SetOnFullScreenInit(member Signal) {
+func (self *ScaleManager) SetOnFullScreenInit(member *Signal) {
     self.Set("onFullScreenInit", member)
 }
 
@@ -332,15 +332,15 @@ func (self *ScaleManager) SetOnFullScreenInit(member Signal) {
 // 
 // The signal is supplied with a single argument: `scale` (the ScaleManager). Use `scale.isFullScreen` to determine
 // if currently running in Fullscreen mode.
-func (self *ScaleManager) GetOnFullScreenChange() Signal{
-    return Signal{self.Get("onFullScreenChange")}
+func (self *ScaleManager) GetOnFullScreenChange() *Signal{
+    return &Signal{self.Get("onFullScreenChange")}
 }
 
 // This signal is dispatched when the browser enters or leaves fullscreen mode, if supported.
 // 
 // The signal is supplied with a single argument: `scale` (the ScaleManager). Use `scale.isFullScreen` to determine
 // if currently running in Fullscreen mode.
-func (self *ScaleManager) SetOnFullScreenChange(member Signal) {
+func (self *ScaleManager) SetOnFullScreenChange(member *Signal) {
     self.Set("onFullScreenChange", member)
 }
 
@@ -348,15 +348,15 @@ func (self *ScaleManager) SetOnFullScreenChange(member Signal) {
 // or if the device does not support fullscreen mode and `startFullScreen` is invoked.
 // 
 // The signal is supplied with a single argument: `scale` (the ScaleManager).
-func (self *ScaleManager) GetOnFullScreenError() Signal{
-    return Signal{self.Get("onFullScreenError")}
+func (self *ScaleManager) GetOnFullScreenError() *Signal{
+    return &Signal{self.Get("onFullScreenError")}
 }
 
 // This signal is dispatched when the browser fails to enter fullscreen mode;
 // or if the device does not support fullscreen mode and `startFullScreen` is invoked.
 // 
 // The signal is supplied with a single argument: `scale` (the ScaleManager).
-func (self *ScaleManager) SetOnFullScreenError(member Signal) {
+func (self *ScaleManager) SetOnFullScreenError(member *Signal) {
     self.Set("onFullScreenError", member)
 }
 
@@ -373,22 +373,22 @@ func (self *ScaleManager) SetScreenOrientation(member string) {
 }
 
 // The _current_ scale factor based on the game dimensions vs. the scaled dimensions.
-func (self *ScaleManager) GetScaleFactor() Point{
-    return Point{self.Get("scaleFactor")}
+func (self *ScaleManager) GetScaleFactor() *Point{
+    return &Point{self.Get("scaleFactor")}
 }
 
 // The _current_ scale factor based on the game dimensions vs. the scaled dimensions.
-func (self *ScaleManager) SetScaleFactor(member Point) {
+func (self *ScaleManager) SetScaleFactor(member *Point) {
     self.Set("scaleFactor", member)
 }
 
 // The _current_ inversed scale factor. The displayed dimensions divided by the game dimensions.
-func (self *ScaleManager) GetScaleFactorInversed() Point{
-    return Point{self.Get("scaleFactorInversed")}
+func (self *ScaleManager) GetScaleFactorInversed() *Point{
+    return &Point{self.Get("scaleFactorInversed")}
 }
 
 // The _current_ inversed scale factor. The displayed dimensions divided by the game dimensions.
-func (self *ScaleManager) SetScaleFactorInversed(member Point) {
+func (self *ScaleManager) SetScaleFactorInversed(member *Point) {
     self.Set("scaleFactorInversed", member)
 }
 
@@ -403,12 +403,12 @@ func (self *ScaleManager) SetMargin(member float64) {
 }
 
 // The bounds of the scaled game. The x/y will match the offset of the canvas element and the width/height the scaled width and height.
-func (self *ScaleManager) GetBounds() Rectangle{
-    return Rectangle{self.Get("bounds")}
+func (self *ScaleManager) GetBounds() *Rectangle{
+    return &Rectangle{self.Get("bounds")}
 }
 
 // The bounds of the scaled game. The x/y will match the offset of the canvas element and the width/height the scaled width and height.
-func (self *ScaleManager) SetBounds(member Rectangle) {
+func (self *ScaleManager) SetBounds(member *Rectangle) {
     self.Set("bounds", member)
 }
 
@@ -501,12 +501,12 @@ func (self *ScaleManager) SetParentNode(member DOMElement) {
 }
 
 // The scale of the game in relation to its parent container.
-func (self *ScaleManager) GetParentScaleFactor() Point{
-    return Point{self.Get("parentScaleFactor")}
+func (self *ScaleManager) GetParentScaleFactor() *Point{
+    return &Point{self.Get("parentScaleFactor")}
 }
 
 // The scale of the game in relation to its parent container.
-func (self *ScaleManager) SetParentScaleFactor(member Point) {
+func (self *ScaleManager) SetParentScaleFactor(member *Point) {
     self.Set("parentScaleFactor", member)
 }
 
@@ -532,8 +532,8 @@ func (self *ScaleManager) SetTrackParentInterval(member int) {
 // Use this to handle responsive game layout options.
 // 
 // This is signaled from `preUpdate` (or `pauseUpdate`) _even when_ the game is paused.
-func (self *ScaleManager) GetOnSizeChange() Signal{
-    return Signal{self.Get("onSizeChange")}
+func (self *ScaleManager) GetOnSizeChange() *Signal{
+    return &Signal{self.Get("onSizeChange")}
 }
 
 // This signal is dispatched when the size of the Display canvas changes _or_ the size of the Game changes. 
@@ -546,7 +546,7 @@ func (self *ScaleManager) GetOnSizeChange() Signal{
 // Use this to handle responsive game layout options.
 // 
 // This is signaled from `preUpdate` (or `pauseUpdate`) _even when_ the game is paused.
-func (self *ScaleManager) SetOnSizeChange(member Signal) {
+func (self *ScaleManager) SetOnSizeChange(member *Signal) {
     self.Set("onSizeChange", member)
 }
 
@@ -1003,8 +1003,8 @@ func (self *ScaleManager) UpdateLayoutI(args ...interface{}) {
 // the viewport then this function may return a smaller than expected size.
 // 
 // Values are rounded to the nearest pixel.
-func (self *ScaleManager) GetParentBoundsI(args ...interface{}) Rectangle{
-    return Rectangle{self.Call("getParentBounds", args)}
+func (self *ScaleManager) GetParentBoundsI(args ...interface{}) *Rectangle{
+    return &Rectangle{self.Call("getParentBounds", args)}
 }
 
 // Update the canvas position/margins - for alignment within the parent container.

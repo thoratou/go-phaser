@@ -17,12 +17,12 @@ type Filter struct {
 
 
 // A reference to the currently running game.
-func (self *Filter) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *Filter) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // A reference to the currently running game.
-func (self *Filter) SetGame(member Game) {
+func (self *Filter) SetGame(member *Game) {
     self.Set("game", member)
 }
 
@@ -57,12 +57,12 @@ func (self *Filter) SetPadding(member float64) {
 }
 
 // The previous position of the pointer (we don't update the uniform if the same)
-func (self *Filter) GetPrevPoint() Point{
-    return Point{self.Get("prevPoint")}
+func (self *Filter) GetPrevPoint() *Point{
+    return &Point{self.Get("prevPoint")}
 }
 
 // The previous position of the pointer (we don't update the uniform if the same)
-func (self *Filter) SetPrevPoint(member Point) {
+func (self *Filter) SetPrevPoint(member *Point) {
     self.Set("prevPoint", member)
 }
 
@@ -130,8 +130,8 @@ func (self *Filter) UpdateI(args ...interface{}) {
 // 
 // If you do provide width and height values then this filter will be resized to match those
 // values.
-func (self *Filter) AddToWorldI(args ...interface{}) Image{
-    return Image{self.Call("addToWorld", args)}
+func (self *Filter) AddToWorldI(args ...interface{}) *Image{
+    return &Image{self.Call("addToWorld", args)}
 }
 
 // Clear down this Filter and null out references

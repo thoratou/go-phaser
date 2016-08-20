@@ -14,12 +14,12 @@ type Key struct {
 
 
 // A reference to the currently running game.
-func (self *Key) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *Key) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // A reference to the currently running game.
-func (self *Key) SetGame(member Game) {
+func (self *Key) SetGame(member *Game) {
     self.Set("game", member)
 }
 
@@ -136,12 +136,12 @@ func (self *Key) SetKeyCode(member float64) {
 }
 
 // This Signal is dispatched every time this Key is pressed down. It is only dispatched once (until the key is released again).
-func (self *Key) GetOnDown() Signal{
-    return Signal{self.Get("onDown")}
+func (self *Key) GetOnDown() *Signal{
+    return &Signal{self.Get("onDown")}
 }
 
 // This Signal is dispatched every time this Key is pressed down. It is only dispatched once (until the key is released again).
-func (self *Key) SetOnDown(member Signal) {
+func (self *Key) SetOnDown(member *Signal) {
     self.Set("onDown", member)
 }
 
@@ -161,12 +161,12 @@ func (self *Key) SetOnHoldContext(member interface{}) {
 }
 
 // This Signal is dispatched every time this Key is released. It is only dispatched once (until the key is pressed and released again).
-func (self *Key) GetOnUp() Signal{
-    return Signal{self.Get("onUp")}
+func (self *Key) GetOnUp() *Signal{
+    return &Signal{self.Get("onUp")}
 }
 
 // This Signal is dispatched every time this Key is released. It is only dispatched once (until the key is pressed and released again).
-func (self *Key) SetOnUp(member Signal) {
+func (self *Key) SetOnUp(member *Signal) {
     self.Set("onUp", member)
 }
 

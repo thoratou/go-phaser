@@ -14,32 +14,32 @@ type PhysicsArcade struct {
 
 
 // Local reference to game.
-func (self *PhysicsArcade) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *PhysicsArcade) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // Local reference to game.
-func (self *PhysicsArcade) SetGame(member Game) {
+func (self *PhysicsArcade) SetGame(member *Game) {
     self.Set("game", member)
 }
 
 // The World gravity setting. Defaults to x: 0, y: 0, or no gravity.
-func (self *PhysicsArcade) GetGravity() Point{
-    return Point{self.Get("gravity")}
+func (self *PhysicsArcade) GetGravity() *Point{
+    return &Point{self.Get("gravity")}
 }
 
 // The World gravity setting. Defaults to x: 0, y: 0, or no gravity.
-func (self *PhysicsArcade) SetGravity(member Point) {
+func (self *PhysicsArcade) SetGravity(member *Point) {
     self.Set("gravity", member)
 }
 
 // The bounds inside of which the physics world exists. Defaults to match the world bounds.
-func (self *PhysicsArcade) GetBounds() Rectangle{
-    return Rectangle{self.Get("bounds")}
+func (self *PhysicsArcade) GetBounds() *Rectangle{
+    return &Rectangle{self.Get("bounds")}
 }
 
 // The bounds inside of which the physics world exists. Defaults to match the world bounds.
-func (self *PhysicsArcade) SetBounds(member Rectangle) {
+func (self *PhysicsArcade) SetBounds(member *Rectangle) {
     self.Set("bounds", member)
 }
 
@@ -126,12 +126,12 @@ func (self *PhysicsArcade) SetIsPaused(member bool) {
 }
 
 // The world QuadTree.
-func (self *PhysicsArcade) GetQuadTree() QuadTree{
-    return QuadTree{self.Get("quadTree")}
+func (self *PhysicsArcade) GetQuadTree() *QuadTree{
+    return &QuadTree{self.Get("quadTree")}
 }
 
 // The world QuadTree.
-func (self *PhysicsArcade) SetQuadTree(member QuadTree) {
+func (self *PhysicsArcade) SetQuadTree(member *QuadTree) {
     self.Set("quadTree", member)
 }
 
@@ -420,20 +420,20 @@ func (self *PhysicsArcade) MoveToXYI(args ...interface{}) float64{
 
 // Given the angle (in degrees) and speed calculate the velocity and return it as a Point object, or set it to the given point object.
 // One way to use this is: velocityFromAngle(angle, 200, sprite.velocity) which will set the values directly to the sprites velocity and not create a new Point object.
-func (self *PhysicsArcade) VelocityFromAngleI(args ...interface{}) Point{
-    return Point{self.Call("velocityFromAngle", args)}
+func (self *PhysicsArcade) VelocityFromAngleI(args ...interface{}) *Point{
+    return &Point{self.Call("velocityFromAngle", args)}
 }
 
 // Given the rotation (in radians) and speed calculate the velocity and return it as a Point object, or set it to the given point object.
 // One way to use this is: velocityFromRotation(rotation, 200, sprite.velocity) which will set the values directly to the sprites velocity and not create a new Point object.
-func (self *PhysicsArcade) VelocityFromRotationI(args ...interface{}) Point{
-    return Point{self.Call("velocityFromRotation", args)}
+func (self *PhysicsArcade) VelocityFromRotationI(args ...interface{}) *Point{
+    return &Point{self.Call("velocityFromRotation", args)}
 }
 
 // Given the rotation (in radians) and speed calculate the acceleration and return it as a Point object, or set it to the given point object.
 // One way to use this is: accelerationFromRotation(rotation, 200, sprite.acceleration) which will set the values directly to the sprites acceleration and not create a new Point object.
-func (self *PhysicsArcade) AccelerationFromRotationI(args ...interface{}) Point{
-    return Point{self.Call("accelerationFromRotation", args)}
+func (self *PhysicsArcade) AccelerationFromRotationI(args ...interface{}) *Point{
+    return &Point{self.Call("accelerationFromRotation", args)}
 }
 
 // Sets the acceleration.x/y property on the display object so it will move towards the target at the given speed (in pixels per second sq.)

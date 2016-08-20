@@ -15,12 +15,12 @@ type State struct {
 
 
 // This is a reference to the currently running Game.
-func (self *State) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *State) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // This is a reference to the currently running Game.
-func (self *State) SetGame(member Game) {
+func (self *State) SetGame(member *Game) {
     self.Set("game", member)
 }
 
@@ -35,102 +35,102 @@ func (self *State) SetKey(member string) {
 }
 
 // A reference to the GameObjectFactory which can be used to add new objects to the World.
-func (self *State) GetAdd() GameObjectFactory{
-    return GameObjectFactory{self.Get("add")}
+func (self *State) GetAdd() *GameObjectFactory{
+    return &GameObjectFactory{self.Get("add")}
 }
 
 // A reference to the GameObjectFactory which can be used to add new objects to the World.
-func (self *State) SetAdd(member GameObjectFactory) {
+func (self *State) SetAdd(member *GameObjectFactory) {
     self.Set("add", member)
 }
 
 // A reference to the GameObjectCreator which can be used to make new objects.
-func (self *State) GetMake() GameObjectCreator{
-    return GameObjectCreator{self.Get("make")}
+func (self *State) GetMake() *GameObjectCreator{
+    return &GameObjectCreator{self.Get("make")}
 }
 
 // A reference to the GameObjectCreator which can be used to make new objects.
-func (self *State) SetMake(member GameObjectCreator) {
+func (self *State) SetMake(member *GameObjectCreator) {
     self.Set("make", member)
 }
 
 // A handy reference to World.camera.
-func (self *State) GetCamera() Camera{
-    return Camera{self.Get("camera")}
+func (self *State) GetCamera() *Camera{
+    return &Camera{self.Get("camera")}
 }
 
 // A handy reference to World.camera.
-func (self *State) SetCamera(member Camera) {
+func (self *State) SetCamera(member *Camera) {
     self.Set("camera", member)
 }
 
 // A reference to the game cache which contains any loaded or generated assets, such as images, sound and more.
-func (self *State) GetCache() Cache{
-    return Cache{self.Get("cache")}
+func (self *State) GetCache() *Cache{
+    return &Cache{self.Get("cache")}
 }
 
 // A reference to the game cache which contains any loaded or generated assets, such as images, sound and more.
-func (self *State) SetCache(member Cache) {
+func (self *State) SetCache(member *Cache) {
     self.Set("cache", member)
 }
 
 // A reference to the Input Manager.
-func (self *State) GetInput() Input{
-    return Input{self.Get("input")}
+func (self *State) GetInput() *Input{
+    return &Input{self.Get("input")}
 }
 
 // A reference to the Input Manager.
-func (self *State) SetInput(member Input) {
+func (self *State) SetInput(member *Input) {
     self.Set("input", member)
 }
 
 // A reference to the Loader, which you mostly use in the preload method of your state to load external assets.
-func (self *State) GetLoad() Loader{
-    return Loader{self.Get("load")}
+func (self *State) GetLoad() *Loader{
+    return &Loader{self.Get("load")}
 }
 
 // A reference to the Loader, which you mostly use in the preload method of your state to load external assets.
-func (self *State) SetLoad(member Loader) {
+func (self *State) SetLoad(member *Loader) {
     self.Set("load", member)
 }
 
 // A reference to Math class with lots of helpful functions.
-func (self *State) GetMath() Math{
-    return Math{self.Get("math")}
+func (self *State) GetMath() *Math{
+    return &Math{self.Get("math")}
 }
 
 // A reference to Math class with lots of helpful functions.
-func (self *State) SetMath(member Math) {
+func (self *State) SetMath(member *Math) {
     self.Set("math", member)
 }
 
 // A reference to the Sound Manager which can create, play and stop sounds, as well as adjust global volume.
-func (self *State) GetSound() SoundManager{
-    return SoundManager{self.Get("sound")}
+func (self *State) GetSound() *SoundManager{
+    return &SoundManager{self.Get("sound")}
 }
 
 // A reference to the Sound Manager which can create, play and stop sounds, as well as adjust global volume.
-func (self *State) SetSound(member SoundManager) {
+func (self *State) SetSound(member *SoundManager) {
     self.Set("sound", member)
 }
 
 // A reference to the Scale Manager which controls the way the game scales on different displays.
-func (self *State) GetScale() ScaleManager{
-    return ScaleManager{self.Get("scale")}
+func (self *State) GetScale() *ScaleManager{
+    return &ScaleManager{self.Get("scale")}
 }
 
 // A reference to the Scale Manager which controls the way the game scales on different displays.
-func (self *State) SetScale(member ScaleManager) {
+func (self *State) SetScale(member *ScaleManager) {
     self.Set("scale", member)
 }
 
 // A reference to the Stage.
-func (self *State) GetStage() Stage{
-    return Stage{self.Get("stage")}
+func (self *State) GetStage() *Stage{
+    return &Stage{self.Get("stage")}
 }
 
 // A reference to the Stage.
-func (self *State) SetStage(member Stage) {
+func (self *State) SetStage(member *Stage) {
     self.Set("stage", member)
 }
 
@@ -145,62 +145,62 @@ func (self *State) SetState(member interface{}) {
 }
 
 // A reference to the game clock and timed events system.
-func (self *State) GetTime() Time{
-    return Time{self.Get("time")}
+func (self *State) GetTime() *Time{
+    return &Time{self.Get("time")}
 }
 
 // A reference to the game clock and timed events system.
-func (self *State) SetTime(member Time) {
+func (self *State) SetTime(member *Time) {
     self.Set("time", member)
 }
 
 // A reference to the tween manager.
-func (self *State) GetTweens() TweenManager{
-    return TweenManager{self.Get("tweens")}
+func (self *State) GetTweens() *TweenManager{
+    return &TweenManager{self.Get("tweens")}
 }
 
 // A reference to the tween manager.
-func (self *State) SetTweens(member TweenManager) {
+func (self *State) SetTweens(member *TweenManager) {
     self.Set("tweens", member)
 }
 
 // A reference to the game world. All objects live in the Game World and its size is not bound by the display resolution.
-func (self *State) GetWorld() World{
-    return World{self.Get("world")}
+func (self *State) GetWorld() *World{
+    return &World{self.Get("world")}
 }
 
 // A reference to the game world. All objects live in the Game World and its size is not bound by the display resolution.
-func (self *State) SetWorld(member World) {
+func (self *State) SetWorld(member *World) {
     self.Set("world", member)
 }
 
 // The Particle Manager. It is called during the core gameloop and updates any Particle Emitters it has created.
-func (self *State) GetParticles() Particles{
-    return Particles{self.Get("particles")}
+func (self *State) GetParticles() *Particles{
+    return &Particles{self.Get("particles")}
 }
 
 // The Particle Manager. It is called during the core gameloop and updates any Particle Emitters it has created.
-func (self *State) SetParticles(member Particles) {
+func (self *State) SetParticles(member *Particles) {
     self.Set("particles", member)
 }
 
 // A reference to the physics manager which looks after the different physics systems available within Phaser.
-func (self *State) GetPhysics() Physics{
-    return Physics{self.Get("physics")}
+func (self *State) GetPhysics() *Physics{
+    return &Physics{self.Get("physics")}
 }
 
 // A reference to the physics manager which looks after the different physics systems available within Phaser.
-func (self *State) SetPhysics(member Physics) {
+func (self *State) SetPhysics(member *Physics) {
     self.Set("physics", member)
 }
 
 // A reference to the seeded and repeatable random data generator.
-func (self *State) GetRnd() RandomDataGenerator{
-    return RandomDataGenerator{self.Get("rnd")}
+func (self *State) GetRnd() *RandomDataGenerator{
+    return &RandomDataGenerator{self.Get("rnd")}
 }
 
 // A reference to the seeded and repeatable random data generator.
-func (self *State) SetRnd(member RandomDataGenerator) {
+func (self *State) SetRnd(member *RandomDataGenerator) {
     self.Set("rnd", member)
 }
 

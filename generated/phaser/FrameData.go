@@ -26,18 +26,18 @@ func (self *FrameData) SetTotal(member float64) {
 
 
 // Adds a new Frame to this FrameData collection. Typically called by the Animation.Parser and not directly.
-func (self *FrameData) AddFrameI(args ...interface{}) Frame{
-    return Frame{self.Call("addFrame", args)}
+func (self *FrameData) AddFrameI(args ...interface{}) *Frame{
+    return &Frame{self.Call("addFrame", args)}
 }
 
 // Get a Frame by its numerical index.
-func (self *FrameData) GetFrameI(args ...interface{}) Frame{
-    return Frame{self.Call("getFrame", args)}
+func (self *FrameData) GetFrameI(args ...interface{}) *Frame{
+    return &Frame{self.Call("getFrame", args)}
 }
 
 // Get a Frame by its frame name.
-func (self *FrameData) GetFrameByNameI(args ...interface{}) Frame{
-    return Frame{self.Call("getFrameByName", args)}
+func (self *FrameData) GetFrameByNameI(args ...interface{}) *Frame{
+    return &Frame{self.Call("getFrameByName", args)}
 }
 
 // Check if there is a Frame with the given name.
@@ -46,8 +46,8 @@ func (self *FrameData) CheckFrameNameI(args ...interface{}) bool{
 }
 
 // Makes a copy of this FrameData including copies (not references) to all of the Frames it contains.
-func (self *FrameData) CloneI(args ...interface{}) FrameData{
-    return FrameData{self.Call("clone", args)}
+func (self *FrameData) CloneI(args ...interface{}) *FrameData{
+    return &FrameData{self.Call("clone", args)}
 }
 
 // Returns a range of frames based on the given start and end frame indexes and returns them in an Array.

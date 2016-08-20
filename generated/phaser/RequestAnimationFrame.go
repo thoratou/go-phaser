@@ -14,12 +14,12 @@ type RequestAnimationFrame struct {
 
 
 // The currently running game.
-func (self *RequestAnimationFrame) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *RequestAnimationFrame) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // The currently running game.
-func (self *RequestAnimationFrame) SetGame(member Game) {
+func (self *RequestAnimationFrame) SetGame(member *Game) {
     self.Set("game", member)
 }
 

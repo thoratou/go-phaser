@@ -20,12 +20,12 @@ type Timer struct {
 
 
 // Local reference to game.
-func (self *Timer) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *Timer) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // Local reference to game.
-func (self *Timer) SetGame(member Game) {
+func (self *Timer) SetGame(member *Game) {
     self.Set("game", member)
 }
 
@@ -92,14 +92,14 @@ func (self *Timer) SetEvents(member []TimerEvent) {
 // This signal will be dispatched when this Timer has completed which means that there are no more events in the queue.
 // 
 // The signal is supplied with one argument, `timer`, which is this Timer object.
-func (self *Timer) GetOnComplete() Signal{
-    return Signal{self.Get("onComplete")}
+func (self *Timer) GetOnComplete() *Signal{
+    return &Signal{self.Get("onComplete")}
 }
 
 // This signal will be dispatched when this Timer has completed which means that there are no more events in the queue.
 // 
 // The signal is supplied with one argument, `timer`, which is this Timer object.
-func (self *Timer) SetOnComplete(member Signal) {
+func (self *Timer) SetOnComplete(member *Signal) {
     self.Set("onComplete", member)
 }
 
@@ -228,8 +228,8 @@ func (self *Timer) SetSeconds(member float64) {
 // Creates a new TimerEvent on this Timer.
 // 
 // Use {@link Phaser.Timer#add}, {@link Phaser.Timer#repeat}, or {@link Phaser.Timer#loop} methods to create a new event.
-func (self *Timer) CreateI(args ...interface{}) TimerEvent{
-    return TimerEvent{self.Call("create", args)}
+func (self *Timer) CreateI(args ...interface{}) *TimerEvent{
+    return &TimerEvent{self.Call("create", args)}
 }
 
 // Adds a new Event to this Timer.
@@ -238,8 +238,8 @@ func (self *Timer) CreateI(args ...interface{}) TimerEvent{
 // The delay is in relation to when the Timer starts, not the time it was added. If the Timer is already running the delay will be calculated based on the timers current time.
 // 
 // Make sure to call {@link Phaser.Timer#start start} after adding all of the Events you require for this Timer.
-func (self *Timer) AddI(args ...interface{}) TimerEvent{
-    return TimerEvent{self.Call("add", args)}
+func (self *Timer) AddI(args ...interface{}) *TimerEvent{
+    return &TimerEvent{self.Call("add", args)}
 }
 
 // Adds a new TimerEvent that will always play through once and then repeat for the given number of iterations.
@@ -249,8 +249,8 @@ func (self *Timer) AddI(args ...interface{}) TimerEvent{
 // If the Timer is already running the delay will be calculated based on the timers current time.
 // 
 // Make sure to call {@link Phaser.Timer#start start} after adding all of the Events you require for this Timer.
-func (self *Timer) RepeatI(args ...interface{}) TimerEvent{
-    return TimerEvent{self.Call("repeat", args)}
+func (self *Timer) RepeatI(args ...interface{}) *TimerEvent{
+    return &TimerEvent{self.Call("repeat", args)}
 }
 
 // Adds a new looped Event to this Timer that will repeat forever or until the Timer is stopped.
@@ -259,8 +259,8 @@ func (self *Timer) RepeatI(args ...interface{}) TimerEvent{
 // The delay is in relation to when the Timer starts, not the time it was added. If the Timer is already running the delay will be calculated based on the timers current time.
 // 
 // Make sure to call {@link Phaser.Timer#start start} after adding all of the Events you require for this Timer.
-func (self *Timer) LoopI(args ...interface{}) TimerEvent{
-    return TimerEvent{self.Call("loop", args)}
+func (self *Timer) LoopI(args ...interface{}) *TimerEvent{
+    return &TimerEvent{self.Call("loop", args)}
 }
 
 // Starts this Timer running.

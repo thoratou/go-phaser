@@ -38,12 +38,12 @@ type Video struct {
 
 
 // A reference to the currently running game.
-func (self *Video) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *Video) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // A reference to the currently running game.
-func (self *Video) SetGame(member Game) {
+func (self *Video) SetGame(member *Game) {
     self.Set("game", member)
 }
 
@@ -108,64 +108,64 @@ func (self *Video) SetTouchLocked(member bool) {
 }
 
 // This signal is dispatched when the Video starts to play. It sends 3 parameters: a reference to the Video object, if the video is set to loop or not and the playback rate.
-func (self *Video) GetOnPlay() Signal{
-    return Signal{self.Get("onPlay")}
+func (self *Video) GetOnPlay() *Signal{
+    return &Signal{self.Get("onPlay")}
 }
 
 // This signal is dispatched when the Video starts to play. It sends 3 parameters: a reference to the Video object, if the video is set to loop or not and the playback rate.
-func (self *Video) SetOnPlay(member Signal) {
+func (self *Video) SetOnPlay(member *Signal) {
     self.Set("onPlay", member)
 }
 
 // This signal is dispatched if the Video source is changed. It sends 3 parameters: a reference to the Video object and the new width and height of the new video source.
-func (self *Video) GetOnChangeSource() Signal{
-    return Signal{self.Get("onChangeSource")}
+func (self *Video) GetOnChangeSource() *Signal{
+    return &Signal{self.Get("onChangeSource")}
 }
 
 // This signal is dispatched if the Video source is changed. It sends 3 parameters: a reference to the Video object and the new width and height of the new video source.
-func (self *Video) SetOnChangeSource(member Signal) {
+func (self *Video) SetOnChangeSource(member *Signal) {
     self.Set("onChangeSource", member)
 }
 
 // This signal is dispatched when the Video completes playback, i.e. enters an 'ended' state. On iOS specifically it also fires if the user hits the 'Done' button at any point during playback. Videos set to loop will never dispatch this signal.
-func (self *Video) GetOnComplete() Signal{
-    return Signal{self.Get("onComplete")}
+func (self *Video) GetOnComplete() *Signal{
+    return &Signal{self.Get("onComplete")}
 }
 
 // This signal is dispatched when the Video completes playback, i.e. enters an 'ended' state. On iOS specifically it also fires if the user hits the 'Done' button at any point during playback. Videos set to loop will never dispatch this signal.
-func (self *Video) SetOnComplete(member Signal) {
+func (self *Video) SetOnComplete(member *Signal) {
     self.Set("onComplete", member)
 }
 
 // This signal is dispatched if the user allows access to their webcam.
-func (self *Video) GetOnAccess() Signal{
-    return Signal{self.Get("onAccess")}
+func (self *Video) GetOnAccess() *Signal{
+    return &Signal{self.Get("onAccess")}
 }
 
 // This signal is dispatched if the user allows access to their webcam.
-func (self *Video) SetOnAccess(member Signal) {
+func (self *Video) SetOnAccess(member *Signal) {
     self.Set("onAccess", member)
 }
 
 // This signal is dispatched if an error occurs either getting permission to use the webcam (for a Video Stream) or when trying to play back a video file.
-func (self *Video) GetOnError() Signal{
-    return Signal{self.Get("onError")}
+func (self *Video) GetOnError() *Signal{
+    return &Signal{self.Get("onError")}
 }
 
 // This signal is dispatched if an error occurs either getting permission to use the webcam (for a Video Stream) or when trying to play back a video file.
-func (self *Video) SetOnError(member Signal) {
+func (self *Video) SetOnError(member *Signal) {
     self.Set("onError", member)
 }
 
 // This signal is dispatched if when asking for permission to use the webcam no response is given within a the Video.timeout limit.
 // This may be because the user has picked `Not now` in the permissions window, or there is a delay in establishing the LocalMediaStream.
-func (self *Video) GetOnTimeout() Signal{
-    return Signal{self.Get("onTimeout")}
+func (self *Video) GetOnTimeout() *Signal{
+    return &Signal{self.Get("onTimeout")}
 }
 
 // This signal is dispatched if when asking for permission to use the webcam no response is given within a the Video.timeout limit.
 // This may be because the user has picked `Not now` in the permissions window, or there is a delay in establishing the LocalMediaStream.
-func (self *Video) SetOnTimeout(member Signal) {
+func (self *Video) SetOnTimeout(member *Signal) {
     self.Set("onTimeout", member)
 }
 
@@ -190,12 +190,12 @@ func (self *Video) SetVideo(member dom.HTMLVideoElement) {
 }
 
 // The Video Stream data. Only set if this Video is streaming from the webcam via `startMediaStream`.
-func (self *Video) GetVideoStream() MediaStream{
-    return MediaStream{self.Get("videoStream")}
+func (self *Video) GetVideoStream() *MediaStream{
+    return &MediaStream{self.Get("videoStream")}
 }
 
 // The Video Stream data. Only set if this Video is streaming from the webcam via `startMediaStream`.
-func (self *Video) SetVideoStream(member MediaStream) {
+func (self *Video) SetVideoStream(member *MediaStream) {
     self.Set("videoStream", member)
 }
 
@@ -244,36 +244,36 @@ func (self *Video) SetRetryInterval(member int) {
 }
 
 // The PIXI.Texture.
-func (self *Video) GetTexture() Texture{
-    return Texture{self.Get("texture")}
+func (self *Video) GetTexture() *Texture{
+    return &Texture{self.Get("texture")}
 }
 
 // The PIXI.Texture.
-func (self *Video) SetTexture(member Texture) {
+func (self *Video) SetTexture(member *Texture) {
     self.Set("texture", member)
 }
 
 // The Frame this video uses for rendering.
-func (self *Video) GetTextureFrame() Frame{
-    return Frame{self.Get("textureFrame")}
+func (self *Video) GetTextureFrame() *Frame{
+    return &Frame{self.Get("textureFrame")}
 }
 
 // The Frame this video uses for rendering.
-func (self *Video) SetTextureFrame(member Frame) {
+func (self *Video) SetTextureFrame(member *Frame) {
     self.Set("textureFrame", member)
 }
 
 // A snapshot grabbed from the video. This is initially black. Populate it by calling Video.grab().
 // When called the BitmapData is updated with a grab taken from the current video playing or active video stream.
 // If Phaser has been compiled without BitmapData support this property will always be `null`.
-func (self *Video) GetSnapshot() BitmapData{
-    return BitmapData{self.Get("snapshot")}
+func (self *Video) GetSnapshot() *BitmapData{
+    return &BitmapData{self.Get("snapshot")}
 }
 
 // A snapshot grabbed from the video. This is initially black. Populate it by calling Video.grab().
 // When called the BitmapData is updated with a grab taken from the current video playing or active video stream.
 // If Phaser has been compiled without BitmapData support this property will always be `null`.
-func (self *Video) SetSnapshot(member BitmapData) {
+func (self *Video) SetSnapshot(member *BitmapData) {
     self.Set("snapshot", member)
 }
 
@@ -376,8 +376,8 @@ func (self *Video) SetPlaying(member bool) {
 
 
 // Connects to an external media stream for the webcam, rather than using a local one.
-func (self *Video) ConnectToMediaStreamI(args ...interface{}) Video{
-    return Video{self.Call("connectToMediaStream", args)}
+func (self *Video) ConnectToMediaStreamI(args ...interface{}) *Video{
+    return &Video{self.Call("connectToMediaStream", args)}
 }
 
 // Instead of playing a video file this method allows you to stream video data from an attached webcam.
@@ -391,8 +391,8 @@ func (self *Video) ConnectToMediaStreamI(args ...interface{}) Video{
 // You can optionally set a width and height for the stream. If set the input will be cropped to these dimensions.
 // If not given then as soon as the stream has enough data the video dimensions will be changed to match the webcam device.
 // You can listen for this with the onChangeSource signal.
-func (self *Video) StartMediaStreamI(args ...interface{}) Video{
-    return Video{self.Call("startMediaStream", args)}
+func (self *Video) StartMediaStreamI(args ...interface{}) *Video{
+    return &Video{self.Call("startMediaStream", args)}
 }
 
 // 
@@ -412,13 +412,13 @@ func (self *Video) GetUserMediaSuccessI(args ...interface{}) {
 
 // Creates a new Video element from the given Blob. The Blob must contain the video data in the correct encoded format.
 // This method is typically called by the Phaser.Loader and Phaser.Cache for you, but is exposed publicly for convenience.
-func (self *Video) CreateVideoFromBlobI(args ...interface{}) Video{
-    return Video{self.Call("createVideoFromBlob", args)}
+func (self *Video) CreateVideoFromBlobI(args ...interface{}) *Video{
+    return &Video{self.Call("createVideoFromBlob", args)}
 }
 
 // Creates a new Video element from the given URL.
-func (self *Video) CreateVideoFromURLI(args ...interface{}) Video{
-    return Video{self.Call("createVideoFromURL", args)}
+func (self *Video) CreateVideoFromURLI(args ...interface{}) *Video{
+    return &Video{self.Call("createVideoFromURL", args)}
 }
 
 // Called automatically if the video source changes and updates the internal texture dimensions.
@@ -434,8 +434,8 @@ func (self *Video) CompleteI(args ...interface{}) {
 }
 
 // Starts this video playing if it's not already doing so.
-func (self *Video) PlayI(args ...interface{}) Video{
-    return Video{self.Call("play", args)}
+func (self *Video) PlayI(args ...interface{}) *Video{
+    return &Video{self.Call("play", args)}
 }
 
 // Called when the video starts to play. Updates the texture.
@@ -452,19 +452,19 @@ func (self *Video) PlayHandlerI(args ...interface{}) {
 // call `Video.destroy` instead.
 // 
 // If you are using a video stream from a webcam then calling Stop will disconnect the MediaStream session and disable the webcam.
-func (self *Video) StopI(args ...interface{}) Video{
-    return Video{self.Call("stop", args)}
+func (self *Video) StopI(args ...interface{}) *Video{
+    return &Video{self.Call("stop", args)}
 }
 
 // Updates the given Display Objects so they use this Video as their texture.
 // This will replace any texture they will currently have set.
-func (self *Video) AddI(args ...interface{}) Video{
-    return Video{self.Call("add", args)}
+func (self *Video) AddI(args ...interface{}) *Video{
+    return &Video{self.Call("add", args)}
 }
 
 // Creates a new Phaser.Image object, assigns this Video to be its texture, adds it to the world then returns it.
-func (self *Video) AddToWorldI(args ...interface{}) Image{
-    return Image{self.Call("addToWorld", args)}
+func (self *Video) AddToWorldI(args ...interface{}) *Image{
+    return &Image{self.Call("addToWorld", args)}
 }
 
 // If the game is running in WebGL this will push the texture up to the GPU if it's dirty.
@@ -508,8 +508,8 @@ func (self *Video) SetResumeI(args ...interface{}) {
 // When the video source is changed the video file is requested over the network. Listen for the `onChangeSource` signal to know
 // when the new video has downloaded enough content to be able to be played. Previous settings such as the volume and loop state
 // are adopted automatically by the new video.
-func (self *Video) ChangeSourceI(args ...interface{}) Video{
-    return Video{self.Call("changeSource", args)}
+func (self *Video) ChangeSourceI(args ...interface{}) *Video{
+    return &Video{self.Call("changeSource", args)}
 }
 
 // Internal callback that monitors the download progress of a video after changing its source.
@@ -535,8 +535,8 @@ func (self *Video) UnlockI(args ...interface{}) {
 // You can optionally set if the BitmapData should be cleared or not, the alpha and the blend mode of the draw.
 // 
 // If you need more advanced control over the grabbing them call `Video.snapshot.copy` directly with the same parameters as BitmapData.copy.
-func (self *Video) GrabI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("grab", args)}
+func (self *Video) GrabI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("grab", args)}
 }
 
 // Removes the Video element from the DOM by calling parentNode.removeChild on itself.

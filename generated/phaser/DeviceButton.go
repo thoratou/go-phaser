@@ -39,12 +39,12 @@ func (self *DeviceButton) SetParent(member interface{}) {
 }
 
 // A reference to the currently running game.
-func (self *DeviceButton) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *DeviceButton) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // A reference to the currently running game.
-func (self *DeviceButton) SetGame(member Game) {
+func (self *DeviceButton) SetGame(member *Game) {
     self.Set("game", member)
 }
 
@@ -169,42 +169,42 @@ func (self *DeviceButton) SetButtonCode(member float64) {
 // This Signal is dispatched every time this DeviceButton is pressed down.
 // It is only dispatched once (until the button is released again).
 // When dispatched it sends 2 arguments: A reference to this DeviceButton and the value of the button.
-func (self *DeviceButton) GetOnDown() Signal{
-    return Signal{self.Get("onDown")}
+func (self *DeviceButton) GetOnDown() *Signal{
+    return &Signal{self.Get("onDown")}
 }
 
 // This Signal is dispatched every time this DeviceButton is pressed down.
 // It is only dispatched once (until the button is released again).
 // When dispatched it sends 2 arguments: A reference to this DeviceButton and the value of the button.
-func (self *DeviceButton) SetOnDown(member Signal) {
+func (self *DeviceButton) SetOnDown(member *Signal) {
     self.Set("onDown", member)
 }
 
 // This Signal is dispatched every time this DeviceButton is released from a down state.
 // It is only dispatched once (until the button is pressed again).
 // When dispatched it sends 2 arguments: A reference to this DeviceButton and the value of the button.
-func (self *DeviceButton) GetOnUp() Signal{
-    return Signal{self.Get("onUp")}
+func (self *DeviceButton) GetOnUp() *Signal{
+    return &Signal{self.Get("onUp")}
 }
 
 // This Signal is dispatched every time this DeviceButton is released from a down state.
 // It is only dispatched once (until the button is pressed again).
 // When dispatched it sends 2 arguments: A reference to this DeviceButton and the value of the button.
-func (self *DeviceButton) SetOnUp(member Signal) {
+func (self *DeviceButton) SetOnUp(member *Signal) {
     self.Set("onUp", member)
 }
 
 // Gamepad only.
 // This Signal is dispatched every time this DeviceButton changes floating value (between, but not exactly, 0 and 1).
 // When dispatched it sends 2 arguments: A reference to this DeviceButton and the value of the button.
-func (self *DeviceButton) GetOnFloat() Signal{
-    return Signal{self.Get("onFloat")}
+func (self *DeviceButton) GetOnFloat() *Signal{
+    return &Signal{self.Get("onFloat")}
 }
 
 // Gamepad only.
 // This Signal is dispatched every time this DeviceButton changes floating value (between, but not exactly, 0 and 1).
 // When dispatched it sends 2 arguments: A reference to this DeviceButton and the value of the button.
-func (self *DeviceButton) SetOnFloat(member Signal) {
+func (self *DeviceButton) SetOnFloat(member *Signal) {
     self.Set("onFloat", member)
 }
 

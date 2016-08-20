@@ -14,12 +14,12 @@ type Particles struct {
 
 
 // A reference to the currently running Game.
-func (self *Particles) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *Particles) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // A reference to the currently running Game.
-func (self *Particles) SetGame(member Game) {
+func (self *Particles) SetGame(member *Game) {
     self.Set("game", member)
 }
 
@@ -46,8 +46,8 @@ func (self *Particles) SetID(member float64) {
 
 
 // Adds a new Particle Emitter to the Particle Manager.
-func (self *Particles) AddI(args ...interface{}) Emitter{
-    return Emitter{self.Call("add", args)}
+func (self *Particles) AddI(args ...interface{}) *Emitter{
+    return &Emitter{self.Call("add", args)}
 }
 
 // Removes an existing Particle Emitter from the Particle Manager.

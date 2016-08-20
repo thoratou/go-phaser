@@ -28,25 +28,25 @@ func (self *Image) SetType(member float64) {
 // The default is 0,0 this means the texture's origin is the top left
 // Setting than anchor to 0.5,0.5 means the textures origin is centered
 // Setting the anchor to 1,1 would mean the textures origin points will be the bottom right corner
-func (self *Image) GetAnchor() Point{
-    return Point{self.Get("anchor")}
+func (self *Image) GetAnchor() *Point{
+    return &Point{self.Get("anchor")}
 }
 
 // The anchor sets the origin point of the texture.
 // The default is 0,0 this means the texture's origin is the top left
 // Setting than anchor to 0.5,0.5 means the textures origin is centered
 // Setting the anchor to 1,1 would mean the textures origin points will be the bottom right corner
-func (self *Image) SetAnchor(member Point) {
+func (self *Image) SetAnchor(member *Point) {
     self.Set("anchor", member)
 }
 
 // The texture that the sprite is using
-func (self *Image) GetTexture() Texture{
-    return Texture{self.Get("texture")}
+func (self *Image) GetTexture() *Texture{
+    return &Texture{self.Get("texture")}
 }
 
 // The texture that the sprite is using
-func (self *Image) SetTexture(member Texture) {
+func (self *Image) SetTexture(member *Texture) {
     self.Set("texture", member)
 }
 
@@ -61,12 +61,12 @@ func (self *Image) SetTint(member float64) {
 }
 
 // A canvas that contains the tinted version of the Sprite (in Canvas mode, WebGL doesn't populate this)
-func (self *Image) GetTintedTexture() Canvas{
-    return Canvas{self.Get("tintedTexture")}
+func (self *Image) GetTintedTexture() *Canvas{
+    return &Canvas{self.Get("tintedTexture")}
 }
 
 // A canvas that contains the tinted version of the Sprite (in Canvas mode, WebGL doesn't populate this)
-func (self *Image) SetTintedTexture(member Canvas) {
+func (self *Image) SetTintedTexture(member *Canvas) {
     self.Set("tintedTexture", member)
 }
 
@@ -85,12 +85,12 @@ func (self *Image) SetBlendMode(member float64) {
 }
 
 // The shader that will be used to render the texture to the stage. Set to null to remove a current shader.
-func (self *Image) GetShader() AbstractFilter{
-    return AbstractFilter{self.Get("shader")}
+func (self *Image) GetShader() *AbstractFilter{
+    return &AbstractFilter{self.Get("shader")}
 }
 
 // The shader that will be used to render the texture to the stage. Set to null to remove a current shader.
-func (self *Image) SetShader(member AbstractFilter) {
+func (self *Image) SetShader(member *AbstractFilter) {
     self.Set("shader", member)
 }
 
@@ -159,12 +159,12 @@ func (self *Image) SetIgnoreChildInput(member bool) {
 }
 
 // A reference to the currently running Game.
-func (self *Image) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *Image) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // A reference to the currently running Game.
-func (self *Image) SetGame(member Game) {
+func (self *Image) SetGame(member *Game) {
     self.Set("game", member)
 }
 
@@ -224,25 +224,25 @@ func (self *Image) SetZ(member float64) {
 
 // All Phaser Game Objects have an Events class which contains all of the events that are dispatched when certain things happen to this
 // Game Object, or any of its components.
-func (self *Image) GetEvents() Events{
-    return Events{self.Get("events")}
+func (self *Image) GetEvents() *Events{
+    return &Events{self.Get("events")}
 }
 
 // All Phaser Game Objects have an Events class which contains all of the events that are dispatched when certain things happen to this
 // Game Object, or any of its components.
-func (self *Image) SetEvents(member Events) {
+func (self *Image) SetEvents(member *Events) {
     self.Set("events", member)
 }
 
 // If the Game Object is enabled for animation (such as a Phaser.Sprite) this is a reference to its AnimationManager instance.
 // Through it you can create, play, pause and stop animations.
-func (self *Image) GetAnimations() AnimationManager{
-    return AnimationManager{self.Get("animations")}
+func (self *Image) GetAnimations() *AnimationManager{
+    return &AnimationManager{self.Get("animations")}
 }
 
 // If the Game Object is enabled for animation (such as a Phaser.Sprite) this is a reference to its AnimationManager instance.
 // Through it you can create, play, pause and stop animations.
-func (self *Image) SetAnimations(member AnimationManager) {
+func (self *Image) SetAnimations(member *AnimationManager) {
     self.Set("animations", member)
 }
 
@@ -267,14 +267,14 @@ func (self *Image) SetKey(member interface{}) {
 // The world coordinates of this Game Object in pixels.
 // Depending on where in the display list this Game Object is placed this value can differ from `position`, 
 // which contains the x/y coordinates relative to the Game Objects parent.
-func (self *Image) GetWorld() Point{
-    return Point{self.Get("world")}
+func (self *Image) GetWorld() *Point{
+    return &Point{self.Get("world")}
 }
 
 // The world coordinates of this Game Object in pixels.
 // Depending on where in the display list this Game Object is placed this value can differ from `position`, 
 // which contains the x/y coordinates relative to the Game Objects parent.
-func (self *Image) SetWorld(member Point) {
+func (self *Image) SetWorld(member *Point) {
     self.Set("world", member)
 }
 
@@ -289,12 +289,12 @@ func (self *Image) SetDebug(member bool) {
 }
 
 // The position the Game Object was located in the previous frame.
-func (self *Image) GetPreviousPosition() Point{
-    return Point{self.Get("previousPosition")}
+func (self *Image) GetPreviousPosition() *Point{
+    return &Point{self.Get("previousPosition")}
 }
 
 // The position the Game Object was located in the previous frame.
-func (self *Image) SetPreviousPosition(member Point) {
+func (self *Image) SetPreviousPosition(member *Point) {
     self.Set("previousPosition", member)
 }
 
@@ -511,14 +511,14 @@ func (self *Image) SetBottom(member float64) {
 // The Rectangle used to crop the texture this Game Object uses.
 // Set this property via `crop`. 
 // If you modify this property directly you must call `updateCrop` in order to have the change take effect.
-func (self *Image) GetCropRect() Rectangle{
-    return Rectangle{self.Get("cropRect")}
+func (self *Image) GetCropRect() *Rectangle{
+    return &Rectangle{self.Get("cropRect")}
 }
 
 // The Rectangle used to crop the texture this Game Object uses.
 // Set this property via `crop`. 
 // If you modify this property directly you must call `updateCrop` in order to have the change take effect.
-func (self *Image) SetCropRect(member Rectangle) {
+func (self *Image) SetCropRect(member *Rectangle) {
     self.Set("cropRect", member)
 }
 
@@ -571,14 +571,14 @@ func (self *Image) SetFixedToCamera(member bool) {
 // The x/y coordinate offset applied to the top-left of the camera that this Game Object will be drawn at if `fixedToCamera` is true.
 // 
 // The values are relative to the top-left of the camera view and in addition to any parent of the Game Object on the display list.
-func (self *Image) GetCameraOffset() Point{
-    return Point{self.Get("cameraOffset")}
+func (self *Image) GetCameraOffset() *Point{
+    return &Point{self.Get("cameraOffset")}
 }
 
 // The x/y coordinate offset applied to the top-left of the camera that this Game Object will be drawn at if `fixedToCamera` is true.
 // 
 // The values are relative to the top-left of the camera view and in addition to any parent of the Game Object on the display list.
-func (self *Image) SetCameraOffset(member Point) {
+func (self *Image) SetCameraOffset(member *Point) {
     self.Set("cameraOffset", member)
 }
 
@@ -779,8 +779,8 @@ func (self *Image) OnTextureUpdateI(args ...interface{}) {
 // to this Sprites worldTransform. If you need to ensure that all parent transforms
 // are factored into this getBounds operation then you should call `updateTransform`
 // on the root most object in this Sprites display list first.
-func (self *Image) GetBoundsI(args ...interface{}) Rectangle{
-    return Rectangle{self.Call("getBounds", args)}
+func (self *Image) GetBoundsI(args ...interface{}) *Rectangle{
+    return &Rectangle{self.Call("getBounds", args)}
 }
 
 // Renders the object using the WebGL renderer
@@ -794,13 +794,13 @@ func (self *Image) _renderCanvasI(args ...interface{}) {
 }
 
 // Adds a child to the container.
-func (self *Image) AddChildI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("addChild", args)}
+func (self *Image) AddChildI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("addChild", args)}
 }
 
 // Adds a child to the container at a specified index. If the index is out of bounds an error will be thrown
-func (self *Image) AddChildAtI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("addChildAt", args)}
+func (self *Image) AddChildAtI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("addChildAt", args)}
 }
 
 // Swaps the position of 2 Display Objects within this container.
@@ -819,18 +819,18 @@ func (self *Image) SetChildIndexI(args ...interface{}) {
 }
 
 // Returns the child at the specified index
-func (self *Image) GetChildAtI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("getChildAt", args)}
+func (self *Image) GetChildAtI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("getChildAt", args)}
 }
 
 // Removes a child from the container.
-func (self *Image) RemoveChildI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("removeChild", args)}
+func (self *Image) RemoveChildI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("removeChild", args)}
 }
 
 // Removes a child from the specified index position.
-func (self *Image) RemoveChildAtI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("removeChildAt", args)}
+func (self *Image) RemoveChildAtI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("removeChildAt", args)}
 }
 
 // Removes all children from this container that are within the begin and end indexes.
@@ -839,8 +839,8 @@ func (self *Image) RemoveChildrenI(args ...interface{}) {
 }
 
 // Retrieves the non-global local bounds of the displayObjectContainer as a rectangle. The calculation takes all visible children into consideration.
-func (self *Image) GetLocalBoundsI(args ...interface{}) Rectangle{
-    return Rectangle{self.Call("getLocalBounds", args)}
+func (self *Image) GetLocalBoundsI(args ...interface{}) *Rectangle{
+    return &Rectangle{self.Call("getLocalBounds", args)}
 }
 
 // Sets the containers Stage reference. This is the Stage that this object, and all of its children, is connected to.
@@ -871,8 +871,8 @@ func (self *Image) PostUpdateI(args ...interface{}) {
 // 
 // If the animation is already playing calling this again won't do anything.
 // If you need to reset an already running animation do so directly on the Animation object itself or via `AnimationManager.stop`.
-func (self *Image) PlayI(args ...interface{}) Animation{
-    return Animation{self.Call("play", args)}
+func (self *Image) PlayI(args ...interface{}) *Animation{
+    return &Animation{self.Call("play", args)}
 }
 
 // Aligns this Game Object within another Game Object, or Rectangle, known as the
@@ -949,8 +949,8 @@ func (self *Image) AlignToI(args ...interface{}) interface{}{
 // 
 // If this Game Object hasn't been added to a custom Group then this method will bring it to the top of the Game World, 
 // because the World is the root Group from which all Game Objects descend.
-func (self *Image) BringToTopI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("bringToTop", args)}
+func (self *Image) BringToTopI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("bringToTop", args)}
 }
 
 // Sends this Game Object to the bottom of its parents display list.
@@ -958,8 +958,8 @@ func (self *Image) BringToTopI(args ...interface{}) DisplayObject{
 // 
 // If this Game Object hasn't been added to a custom Group then this method will send it to the bottom of the Game World, 
 // because the World is the root Group from which all Game Objects descend.
-func (self *Image) SendToBackI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("sendToBack", args)}
+func (self *Image) SendToBackI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("sendToBack", args)}
 }
 
 // Moves this Game Object up one place in its parents display list.
@@ -967,8 +967,8 @@ func (self *Image) SendToBackI(args ...interface{}) DisplayObject{
 // 
 // If this Game Object hasn't been added to a custom Group then this method will move it one object up within the Game World, 
 // because the World is the root Group from which all Game Objects descend.
-func (self *Image) MoveUpI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("moveUp", args)}
+func (self *Image) MoveUpI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("moveUp", args)}
 }
 
 // Moves this Game Object down one place in its parents display list.
@@ -976,8 +976,8 @@ func (self *Image) MoveUpI(args ...interface{}) DisplayObject{
 // 
 // If this Game Object hasn't been added to a custom Group then this method will move it one object down within the Game World, 
 // because the World is the root Group from which all Game Objects descend.
-func (self *Image) MoveDownI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("moveDown", args)}
+func (self *Image) MoveDownI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("moveDown", args)}
 }
 
 // Crop allows you to crop the texture being used to display this Game Object.
@@ -1017,8 +1017,8 @@ func (self *Image) DestroyI(args ...interface{}) {
 // A resurrected Game Object has its `alive`, `exists` and `visible` properties all set to true.
 // 
 // It will dispatch the `onRevived` event. Listen to `events.onRevived` for the signal.
-func (self *Image) ReviveI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("revive", args)}
+func (self *Image) ReviveI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("revive", args)}
 }
 
 // Kills a Game Object. A killed Game Object has its `alive`, `exists` and `visible` properties all set to false.
@@ -1029,8 +1029,8 @@ func (self *Image) ReviveI(args ...interface{}) DisplayObject{
 // it doesn't destroy the object or free it up from memory.
 // 
 // If you don't need this Game Object any more you should call `destroy` instead.
-func (self *Image) KillI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("kill", args)}
+func (self *Image) KillI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("kill", args)}
 }
 
 // Changes the base texture the Game Object is using. The old texture is removed and the new one is referenced or fetched from the Cache.
@@ -1092,6 +1092,6 @@ func (self *Image) OverlapI(args ...interface{}) bool{
 // If this Game Object has the LifeSpan component it will also set `alive` to true and `health` to the given value.
 // 
 // If this Game Object has a Physics Body it will reset the Body.
-func (self *Image) ResetI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("reset", args)}
+func (self *Image) ResetI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("reset", args)}
 }

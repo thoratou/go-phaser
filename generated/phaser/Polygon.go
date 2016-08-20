@@ -98,14 +98,14 @@ func (self *Polygon) ToNumberArrayI(args ...interface{}) []interface{}{
 // Flattens this Polygon so the points are a sequence of numbers.
 // Any Point objects found are removed and replaced with two numbers.
 // Also sets the Polygon.flattened property to `true`.
-func (self *Polygon) FlattenI(args ...interface{}) Polygon{
-    return Polygon{self.Call("flatten", args)}
+func (self *Polygon) FlattenI(args ...interface{}) *Polygon{
+    return &Polygon{self.Call("flatten", args)}
 }
 
 // Creates a copy of the given Polygon.
 // This is a deep clone, the resulting copy contains new Phaser.Point objects
-func (self *Polygon) CloneI(args ...interface{}) Polygon{
-    return Polygon{self.Call("clone", args)}
+func (self *Polygon) CloneI(args ...interface{}) *Polygon{
+    return &Polygon{self.Call("clone", args)}
 }
 
 // Checks whether the x and y coordinates are contained within this polygon.
@@ -126,8 +126,8 @@ func (self *Polygon) ContainsI(args ...interface{}) bool{
 // - As separate arguments representing point coordinates: `setTo(x1,y1, x2,y2, ...)`
 // 
 // `setTo` may also be called without any arguments to remove all points.
-func (self *Polygon) SetToI(args ...interface{}) Polygon{
-    return Polygon{self.Call("setTo", args)}
+func (self *Polygon) SetToI(args ...interface{}) *Polygon{
+    return &Polygon{self.Call("setTo", args)}
 }
 
 // Calcuates the area of the Polygon. This is available in the property Polygon.area

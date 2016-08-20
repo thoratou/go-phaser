@@ -20,22 +20,22 @@ type Create struct {
 
 
 // A reference to the currently running Game.
-func (self *Create) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *Create) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // A reference to the currently running Game.
-func (self *Create) SetGame(member Game) {
+func (self *Create) SetGame(member *Game) {
     self.Set("game", member)
 }
 
 // The internal BitmapData Create uses to generate textures from.
-func (self *Create) GetBmd() BitmapData{
-    return BitmapData{self.Get("bmd")}
+func (self *Create) GetBmd() *BitmapData{
+    return &BitmapData{self.Get("bmd")}
 }
 
 // The internal BitmapData Create uses to generate textures from.
-func (self *Create) SetBmd(member BitmapData) {
+func (self *Create) SetBmd(member *BitmapData) {
     self.Set("bmd", member)
 }
 
@@ -148,11 +148,11 @@ func (self *Create) SetPALETTE_JAPANESE_MACHINE(member float64) {
 // 
 // The above will create a new texture called `bob`, which will look like a little man wearing a hat. You can then use it
 // for sprites the same way you use any other texture: `game.add.sprite(0, 0, 'bob');`
-func (self *Create) TextureI(args ...interface{}) Texture{
-    return Texture{self.Call("texture", args)}
+func (self *Create) TextureI(args ...interface{}) *Texture{
+    return &Texture{self.Call("texture", args)}
 }
 
 // Creates a grid texture based on the given dimensions.
-func (self *Create) GridI(args ...interface{}) Texture{
-    return Texture{self.Call("grid", args)}
+func (self *Create) GridI(args ...interface{}) *Texture{
+    return &Texture{self.Call("grid", args)}
 }

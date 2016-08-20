@@ -21,12 +21,12 @@ type Gamepad struct {
 
 
 // Local reference to game.
-func (self *Gamepad) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *Gamepad) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // Local reference to game.
-func (self *Gamepad) SetGame(member Game) {
+func (self *Gamepad) SetGame(member *Game) {
     self.Set("game", member)
 }
 
@@ -111,42 +111,42 @@ func (self *Gamepad) SetPadsConnected(member float64) {
 }
 
 // Gamepad #1
-func (self *Gamepad) GetPad1() SinglePad{
-    return SinglePad{self.Get("pad1")}
+func (self *Gamepad) GetPad1() *SinglePad{
+    return &SinglePad{self.Get("pad1")}
 }
 
 // Gamepad #1
-func (self *Gamepad) SetPad1(member SinglePad) {
+func (self *Gamepad) SetPad1(member *SinglePad) {
     self.Set("pad1", member)
 }
 
 // Gamepad #2
-func (self *Gamepad) GetPad2() SinglePad{
-    return SinglePad{self.Get("pad2")}
+func (self *Gamepad) GetPad2() *SinglePad{
+    return &SinglePad{self.Get("pad2")}
 }
 
 // Gamepad #2
-func (self *Gamepad) SetPad2(member SinglePad) {
+func (self *Gamepad) SetPad2(member *SinglePad) {
     self.Set("pad2", member)
 }
 
 // Gamepad #3
-func (self *Gamepad) GetPad3() SinglePad{
-    return SinglePad{self.Get("pad3")}
+func (self *Gamepad) GetPad3() *SinglePad{
+    return &SinglePad{self.Get("pad3")}
 }
 
 // Gamepad #3
-func (self *Gamepad) SetPad3(member SinglePad) {
+func (self *Gamepad) SetPad3(member *SinglePad) {
     self.Set("pad3", member)
 }
 
 // Gamepad #4
-func (self *Gamepad) GetPad4() SinglePad{
-    return SinglePad{self.Get("pad4")}
+func (self *Gamepad) GetPad4() *SinglePad{
+    return &SinglePad{self.Get("pad4")}
 }
 
 // Gamepad #4
-func (self *Gamepad) SetPad4(member SinglePad) {
+func (self *Gamepad) SetPad4(member *SinglePad) {
     self.Set("pad4", member)
 }
 

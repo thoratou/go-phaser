@@ -22,22 +22,22 @@ type Loader struct {
 
 
 // Local reference to game.
-func (self *Loader) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *Loader) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // Local reference to game.
-func (self *Loader) SetGame(member Game) {
+func (self *Loader) SetGame(member *Game) {
     self.Set("game", member)
 }
 
 // Local reference to the Phaser.Cache.
-func (self *Loader) GetCache() Cache{
-    return Cache{self.Get("cache")}
+func (self *Loader) GetCache() *Cache{
+    return &Cache{self.Get("cache")}
 }
 
 // Local reference to the Phaser.Cache.
-func (self *Loader) SetCache(member Cache) {
+func (self *Loader) SetCache(member *Cache) {
     self.Set("cache", member)
 }
 
@@ -161,23 +161,23 @@ func (self *Loader) SetHeaders(member interface{}) {
 
 // This event is dispatched when the loading process starts: before the first file has been requested,
 // but after all the initial packs have been loaded.
-func (self *Loader) GetOnLoadStart() Signal{
-    return Signal{self.Get("onLoadStart")}
+func (self *Loader) GetOnLoadStart() *Signal{
+    return &Signal{self.Get("onLoadStart")}
 }
 
 // This event is dispatched when the loading process starts: before the first file has been requested,
 // but after all the initial packs have been loaded.
-func (self *Loader) SetOnLoadStart(member Signal) {
+func (self *Loader) SetOnLoadStart(member *Signal) {
     self.Set("onLoadStart", member)
 }
 
 // This event is dispatched when the final file in the load queue has either loaded or failed.
-func (self *Loader) GetOnLoadComplete() Signal{
-    return Signal{self.Get("onLoadComplete")}
+func (self *Loader) GetOnLoadComplete() *Signal{
+    return &Signal{self.Get("onLoadComplete")}
 }
 
 // This event is dispatched when the final file in the load queue has either loaded or failed.
-func (self *Loader) SetOnLoadComplete(member Signal) {
+func (self *Loader) SetOnLoadComplete(member *Signal) {
     self.Set("onLoadComplete", member)
 }
 
@@ -186,8 +186,8 @@ func (self *Loader) SetOnLoadComplete(member Signal) {
 // This is called when the asset pack manifest file has loaded and successfully added its contents to the loader queue.
 // 
 // Params: `(pack key, success?, total packs loaded, total packs)`
-func (self *Loader) GetOnPackComplete() Signal{
-    return Signal{self.Get("onPackComplete")}
+func (self *Loader) GetOnPackComplete() *Signal{
+    return &Signal{self.Get("onPackComplete")}
 }
 
 // This event is dispatched when an asset pack has either loaded or failed to load.
@@ -195,7 +195,7 @@ func (self *Loader) GetOnPackComplete() Signal{
 // This is called when the asset pack manifest file has loaded and successfully added its contents to the loader queue.
 // 
 // Params: `(pack key, success?, total packs loaded, total packs)`
-func (self *Loader) SetOnPackComplete(member Signal) {
+func (self *Loader) SetOnPackComplete(member *Signal) {
     self.Set("onPackComplete", member)
 }
 
@@ -203,15 +203,15 @@ func (self *Loader) SetOnPackComplete(member Signal) {
 // It's possible the file may fail (eg. download error, invalid format) after this event is sent.
 // 
 // Params: `(progress, file key, file url)`
-func (self *Loader) GetOnFileStart() Signal{
-    return Signal{self.Get("onFileStart")}
+func (self *Loader) GetOnFileStart() *Signal{
+    return &Signal{self.Get("onFileStart")}
 }
 
 // This event is dispatched immediately before a file starts loading.
 // It's possible the file may fail (eg. download error, invalid format) after this event is sent.
 // 
 // Params: `(progress, file key, file url)`
-func (self *Loader) SetOnFileStart(member Signal) {
+func (self *Loader) SetOnFileStart(member *Signal) {
     self.Set("onFileStart", member)
 }
 
@@ -222,8 +222,8 @@ func (self *Loader) SetOnFileStart(member Signal) {
 // progress, file key, success?, total loaded files, total files
 // 
 // Where progress is a number between 1 and 100 (inclusive) representing the percentage of the load.
-func (self *Loader) GetOnFileComplete() Signal{
-    return Signal{self.Get("onFileComplete")}
+func (self *Loader) GetOnFileComplete() *Signal{
+    return &Signal{self.Get("onFileComplete")}
 }
 
 // This event is dispatched when a file has either loaded or failed to load.
@@ -233,7 +233,7 @@ func (self *Loader) GetOnFileComplete() Signal{
 // progress, file key, success?, total loaded files, total files
 // 
 // Where progress is a number between 1 and 100 (inclusive) representing the percentage of the load.
-func (self *Loader) SetOnFileComplete(member Signal) {
+func (self *Loader) SetOnFileComplete(member *Signal) {
     self.Set("onFileComplete", member)
 }
 
@@ -242,8 +242,8 @@ func (self *Loader) SetOnFileComplete(member Signal) {
 // For files it will be triggered before `onFileComplete`. For packs it will be triggered before `onPackComplete`.
 // 
 // Params: `(file key, file)`
-func (self *Loader) GetOnFileError() Signal{
-    return Signal{self.Get("onFileError")}
+func (self *Loader) GetOnFileError() *Signal{
+    return &Signal{self.Get("onFileError")}
 }
 
 // This event is dispatched when a file (or pack) errors as a result of the load request.
@@ -251,7 +251,7 @@ func (self *Loader) GetOnFileError() Signal{
 // For files it will be triggered before `onFileComplete`. For packs it will be triggered before `onPackComplete`.
 // 
 // Params: `(file key, file)`
-func (self *Loader) SetOnFileError(member Signal) {
+func (self *Loader) SetOnFileError(member *Signal) {
     self.Set("onFileError", member)
 }
 
@@ -443,8 +443,8 @@ func (self *Loader) ResetI(args ...interface{}) {
 }
 
 // Internal function that adds a new entry to the file list. Do not call directly.
-func (self *Loader) AddToFileListI(args ...interface{}) Loader{
-    return Loader{self.Call("addToFileList", args)}
+func (self *Loader) AddToFileListI(args ...interface{}) *Loader{
+    return &Loader{self.Call("addToFileList", args)}
 }
 
 // Internal function that replaces an existing entry in the file list with a new one. Do not call directly.
@@ -465,8 +465,8 @@ func (self *Loader) ReplaceInFileListI(args ...interface{}) {
 // The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
 // 
 // The URL of the packfile can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
-func (self *Loader) PackI(args ...interface{}) Loader{
-    return Loader{self.Call("pack", args)}
+func (self *Loader) PackI(args ...interface{}) *Loader{
+    return &Loader{self.Call("pack", args)}
 }
 
 // Adds an Image to the current load queue.
@@ -484,8 +484,8 @@ func (self *Loader) PackI(args ...interface{}) Loader{
 // If the URL isn't specified the Loader will take the key and create a filename from that. For example if the key is "alien"
 // and no URL is given then the Loader will set the URL to be "alien.png". It will always add `.png` as the extension.
 // If you do not desire this action then provide a URL.
-func (self *Loader) ImageI(args ...interface{}) Loader{
-    return Loader{self.Call("image", args)}
+func (self *Loader) ImageI(args ...interface{}) *Loader{
+    return &Loader{self.Call("image", args)}
 }
 
 // Adds an array of images to the current load queue.
@@ -505,8 +505,8 @@ func (self *Loader) ImageI(args ...interface{}) Loader{
 // If the URL isn't specified the Loader will take the key and create a filename from that. For example if the key is "alien"
 // and no URL is given then the Loader will set the URL to be "alien.png". It will always add `.png` as the extension.
 // If you do not desire this action then provide a URL.
-func (self *Loader) ImagesI(args ...interface{}) Loader{
-    return Loader{self.Call("images", args)}
+func (self *Loader) ImagesI(args ...interface{}) *Loader{
+    return &Loader{self.Call("images", args)}
 }
 
 // Adds a Text file to the current load queue.
@@ -522,8 +522,8 @@ func (self *Loader) ImagesI(args ...interface{}) Loader{
 // If the URL isn't specified the Loader will take the key and create a filename from that. For example if the key is "alien"
 // and no URL is given then the Loader will set the URL to be "alien.txt". It will always add `.txt` as the extension.
 // If you do not desire this action then provide a URL.
-func (self *Loader) TextI(args ...interface{}) Loader{
-    return Loader{self.Call("text", args)}
+func (self *Loader) TextI(args ...interface{}) *Loader{
+    return &Loader{self.Call("text", args)}
 }
 
 // Adds a JSON file to the current load queue.
@@ -540,8 +540,8 @@ func (self *Loader) TextI(args ...interface{}) Loader{
 // If the URL isn't specified the Loader will take the key and create a filename from that. For example if the key is "alien"
 // and no URL is given then the Loader will set the URL to be "alien.json". It will always add `.json` as the extension.
 // If you do not desire this action then provide a URL.
-func (self *Loader) JsonI(args ...interface{}) Loader{
-    return Loader{self.Call("json", args)}
+func (self *Loader) JsonI(args ...interface{}) *Loader{
+    return &Loader{self.Call("json", args)}
 }
 
 // Adds a fragment shader file to the current load queue.
@@ -557,8 +557,8 @@ func (self *Loader) JsonI(args ...interface{}) Loader{
 // If the URL isn't specified the Loader will take the key and create a filename from that. For example if the key is "blur"
 // and no URL is given then the Loader will set the URL to be "blur.frag". It will always add `.frag` as the extension.
 // If you do not desire this action then provide a URL.
-func (self *Loader) ShaderI(args ...interface{}) Loader{
-    return Loader{self.Call("shader", args)}
+func (self *Loader) ShaderI(args ...interface{}) *Loader{
+    return &Loader{self.Call("shader", args)}
 }
 
 // Adds an XML file to the current load queue.
@@ -574,8 +574,8 @@ func (self *Loader) ShaderI(args ...interface{}) Loader{
 // If the URL isn't specified the Loader will take the key and create a filename from that. For example if the key is "alien"
 // and no URL is given then the Loader will set the URL to be "alien.xml". It will always add `.xml` as the extension.
 // If you do not desire this action then provide a URL.
-func (self *Loader) XmlI(args ...interface{}) Loader{
-    return Loader{self.Call("xml", args)}
+func (self *Loader) XmlI(args ...interface{}) *Loader{
+    return &Loader{self.Call("xml", args)}
 }
 
 // Adds a JavaScript file to the current load queue.
@@ -594,8 +594,8 @@ func (self *Loader) XmlI(args ...interface{}) Loader{
 // 
 // A callback, which will be invoked as the script tag has been created, can also be specified.
 // The callback must return relevant `data`.
-func (self *Loader) ScriptI(args ...interface{}) Loader{
-    return Loader{self.Call("script", args)}
+func (self *Loader) ScriptI(args ...interface{}) *Loader{
+    return &Loader{self.Call("script", args)}
 }
 
 // Adds a binary file to the current load queue.
@@ -616,8 +616,8 @@ func (self *Loader) ScriptI(args ...interface{}) Loader{
 // When the callback is called it will be passed 2 parameters: the key of the file and the file data.
 // 
 // WARNING: If a callback is specified the data will be set to whatever it returns. Always return the data object, even if you didn't modify it.
-func (self *Loader) BinaryI(args ...interface{}) Loader{
-    return Loader{self.Call("binary", args)}
+func (self *Loader) BinaryI(args ...interface{}) *Loader{
+    return &Loader{self.Call("binary", args)}
 }
 
 // Adds a Sprite Sheet to the current load queue.
@@ -640,8 +640,8 @@ func (self *Loader) BinaryI(args ...interface{}) Loader{
 // If the URL isn't specified the Loader will take the key and create a filename from that. For example if the key is "alien"
 // and no URL is given then the Loader will set the URL to be "alien.png". It will always add `.png` as the extension.
 // If you do not desire this action then provide a URL.
-func (self *Loader) SpritesheetI(args ...interface{}) Loader{
-    return Loader{self.Call("spritesheet", args)}
+func (self *Loader) SpritesheetI(args ...interface{}) *Loader{
+    return &Loader{self.Call("spritesheet", args)}
 }
 
 // Adds an audio file to the current load queue.
@@ -657,8 +657,8 @@ func (self *Loader) SpritesheetI(args ...interface{}) Loader{
 // Mobile warning: There are some mobile devices (certain iPad 2 and iPad Mini revisions) that cannot play 48000 Hz audio.
 // When they try to play the audio becomes extremely distorted and buzzes, eventually crashing the sound system.
 // The solution is to use a lower encoding rate such as 44100 Hz.
-func (self *Loader) AudioI(args ...interface{}) Loader{
-    return Loader{self.Call("audio", args)}
+func (self *Loader) AudioI(args ...interface{}) *Loader{
+    return &Loader{self.Call("audio", args)}
 }
 
 // Adds an audio sprite file to the current load queue.
@@ -674,8 +674,8 @@ func (self *Loader) AudioI(args ...interface{}) Loader{
 // Retrieve the file via `Cache.getSoundData(key)`.
 // 
 // The URL can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
-func (self *Loader) AudiospriteI(args ...interface{}) Loader{
-    return Loader{self.Call("audiosprite", args)}
+func (self *Loader) AudiospriteI(args ...interface{}) *Loader{
+    return &Loader{self.Call("audiosprite", args)}
 }
 
 // Adds a video file to the current load queue.
@@ -689,8 +689,8 @@ func (self *Loader) AudiospriteI(args ...interface{}) Loader{
 // The URL can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
 // 
 // You don't need to preload a video in order to play it in your game. See `Video.createVideoFromURL` for details.
-func (self *Loader) VideoI(args ...interface{}) Loader{
-    return Loader{self.Call("video", args)}
+func (self *Loader) VideoI(args ...interface{}) *Loader{
+    return &Loader{self.Call("video", args)}
 }
 
 // Adds a Tile Map data file to the current load queue.
@@ -713,8 +713,8 @@ func (self *Loader) VideoI(args ...interface{}) Loader{
 // If you set the format to be Tilemap.CSV it will set the URL to be "level1.csv" instead.
 // 
 // If you do not desire this action then provide a URL or data object.
-func (self *Loader) TilemapI(args ...interface{}) Loader{
-    return Loader{self.Call("tilemap", args)}
+func (self *Loader) TilemapI(args ...interface{}) *Loader{
+    return &Loader{self.Call("tilemap", args)}
 }
 
 // Adds a physics data file to the current load queue.
@@ -739,8 +739,8 @@ func (self *Loader) TilemapI(args ...interface{}) Loader{
 // It will always use `.json` as the extension.
 // 
 // If you do not desire this action then provide a URL or data object.
-func (self *Loader) PhysicsI(args ...interface{}) Loader{
-    return Loader{self.Call("physics", args)}
+func (self *Loader) PhysicsI(args ...interface{}) *Loader{
+    return &Loader{self.Call("physics", args)}
 }
 
 // Adds Bitmap Font files to the current load queue.
@@ -770,8 +770,8 @@ func (self *Loader) PhysicsI(args ...interface{}) Loader{
 // set the atlasURL to be the key. For example if the key is "megaFont" the atlasURL will be set to "megaFont.xml".
 // 
 // If you do not desire this action then provide URLs and / or a data object.
-func (self *Loader) BitmapFontI(args ...interface{}) Loader{
-    return Loader{self.Call("bitmapFont", args)}
+func (self *Loader) BitmapFontI(args ...interface{}) *Loader{
+    return &Loader{self.Call("bitmapFont", args)}
 }
 
 // Adds a Texture Atlas file to the current load queue.
@@ -805,8 +805,8 @@ func (self *Loader) BitmapFontI(args ...interface{}) Loader{
 // set the atlasURL to be the key. For example if the key is "player" the atlasURL will be set to "player.json".
 // 
 // If you do not desire this action then provide URLs and / or a data object.
-func (self *Loader) AtlasJSONArrayI(args ...interface{}) Loader{
-    return Loader{self.Call("atlasJSONArray", args)}
+func (self *Loader) AtlasJSONArrayI(args ...interface{}) *Loader{
+    return &Loader{self.Call("atlasJSONArray", args)}
 }
 
 // Adds a Texture Atlas file to the current load queue.
@@ -840,8 +840,8 @@ func (self *Loader) AtlasJSONArrayI(args ...interface{}) Loader{
 // set the atlasURL to be the key. For example if the key is "player" the atlasURL will be set to "player.json".
 // 
 // If you do not desire this action then provide URLs and / or a data object.
-func (self *Loader) AtlasJSONHashI(args ...interface{}) Loader{
-    return Loader{self.Call("atlasJSONHash", args)}
+func (self *Loader) AtlasJSONHashI(args ...interface{}) *Loader{
+    return &Loader{self.Call("atlasJSONHash", args)}
 }
 
 // Adds a Texture Atlas file to the current load queue.
@@ -875,8 +875,8 @@ func (self *Loader) AtlasJSONHashI(args ...interface{}) Loader{
 // set the atlasURL to be the key. For example if the key is "player" the atlasURL will be set to "player.xml".
 // 
 // If you do not desire this action then provide URLs and / or a data object.
-func (self *Loader) AtlasXMLI(args ...interface{}) Loader{
-    return Loader{self.Call("atlasXML", args)}
+func (self *Loader) AtlasXMLI(args ...interface{}) *Loader{
+    return &Loader{self.Call("atlasXML", args)}
 }
 
 // Adds a Texture Atlas file to the current load queue.
@@ -908,8 +908,8 @@ func (self *Loader) AtlasXMLI(args ...interface{}) Loader{
 // set the atlasURL to be the key. For example if the key is "player" the atlasURL will be set to "player.json".
 // 
 // If you do not desire this action then provide URLs and / or a data object.
-func (self *Loader) AtlasI(args ...interface{}) Loader{
-    return Loader{self.Call("atlas", args)}
+func (self *Loader) AtlasI(args ...interface{}) *Loader{
+    return &Loader{self.Call("atlas", args)}
 }
 
 // Add a synchronization point to the assets/files added within the supplied callback.
@@ -918,15 +918,15 @@ func (self *Loader) AtlasI(args ...interface{}) Loader{
 // subsequent assets can be loaded. An asset marked as a sync-point does not need to wait
 // for previous assets to load (unless they are sync-points). Resources, such as packs, may still
 // be downloaded around sync-points, as long as they do not finalize loading.
-func (self *Loader) WithSyncPointsI(args ...interface{}) Loader{
-    return Loader{self.Call("withSyncPoints", args)}
+func (self *Loader) WithSyncPointsI(args ...interface{}) *Loader{
+    return &Loader{self.Call("withSyncPoints", args)}
 }
 
 // Add a synchronization point to a specific file/asset in the load queue.
 // 
 // This has no effect on already loaded assets.
-func (self *Loader) AddSyncPointI(args ...interface{}) Loader{
-    return Loader{self.Call("addSyncPoint", args)}
+func (self *Loader) AddSyncPointI(args ...interface{}) *Loader{
+    return &Loader{self.Call("addSyncPoint", args)}
 }
 
 // Remove a file/asset from the loading queue.
@@ -1050,8 +1050,8 @@ func (self *Loader) XmlLoadCompleteI(args ...interface{}) {
 }
 
 // Parses string data as XML.
-func (self *Loader) ParseXmlI(args ...interface{}) XMLDocument{
-    return XMLDocument{self.Call("parseXml", args)}
+func (self *Loader) ParseXmlI(args ...interface{}) *XMLDocument{
+    return &XMLDocument{self.Call("parseXml", args)}
 }
 
 // Update the loading sprite progress.

@@ -118,18 +118,18 @@ func (self *Ellipse) SetEmpty(member bool) {
 
 
 // Sets the members of the Ellipse to the specified values.
-func (self *Ellipse) SetToI(args ...interface{}) Ellipse{
-    return Ellipse{self.Call("setTo", args)}
+func (self *Ellipse) SetToI(args ...interface{}) *Ellipse{
+    return &Ellipse{self.Call("setTo", args)}
 }
 
 // Returns the framing rectangle of the ellipse as a Phaser.Rectangle object.
-func (self *Ellipse) GetBoundsI(args ...interface{}) Rectangle{
-    return Rectangle{self.Call("getBounds", args)}
+func (self *Ellipse) GetBoundsI(args ...interface{}) *Rectangle{
+    return &Rectangle{self.Call("getBounds", args)}
 }
 
 // Copies the x, y, width and height properties from any given object to this Ellipse.
-func (self *Ellipse) CopyFromI(args ...interface{}) Ellipse{
-    return Ellipse{self.Call("copyFrom", args)}
+func (self *Ellipse) CopyFromI(args ...interface{}) *Ellipse{
+    return &Ellipse{self.Call("copyFrom", args)}
 }
 
 // Copies the x, y, width and height properties from this Ellipse to any given object.
@@ -138,8 +138,8 @@ func (self *Ellipse) CopyToI(args ...interface{}) interface{}{
 }
 
 // Returns a new Ellipse object with the same values for the x, y, width, and height properties as this Ellipse object.
-func (self *Ellipse) CloneI(args ...interface{}) Ellipse{
-    return Ellipse{self.Call("clone", args)}
+func (self *Ellipse) CloneI(args ...interface{}) *Ellipse{
+    return &Ellipse{self.Call("clone", args)}
 }
 
 // Return true if the given x/y coordinates are within this Ellipse object.
@@ -148,8 +148,8 @@ func (self *Ellipse) ContainsI(args ...interface{}) bool{
 }
 
 // Returns a uniformly distributed random point from anywhere within this Ellipse.
-func (self *Ellipse) RandomI(args ...interface{}) Point{
-    return Point{self.Call("random", args)}
+func (self *Ellipse) RandomI(args ...interface{}) *Point{
+    return &Point{self.Call("random", args)}
 }
 
 // Returns a string representation of this object.

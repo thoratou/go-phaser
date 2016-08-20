@@ -125,42 +125,42 @@ func (self *Button) SetOnUpSoundMarker(member string) {
 }
 
 // The Signal (or event) dispatched when this Button is in an Over state.
-func (self *Button) GetOnInputOver() Signal{
-    return Signal{self.Get("onInputOver")}
+func (self *Button) GetOnInputOver() *Signal{
+    return &Signal{self.Get("onInputOver")}
 }
 
 // The Signal (or event) dispatched when this Button is in an Over state.
-func (self *Button) SetOnInputOver(member Signal) {
+func (self *Button) SetOnInputOver(member *Signal) {
     self.Set("onInputOver", member)
 }
 
 // The Signal (or event) dispatched when this Button is in an Out state.
-func (self *Button) GetOnInputOut() Signal{
-    return Signal{self.Get("onInputOut")}
+func (self *Button) GetOnInputOut() *Signal{
+    return &Signal{self.Get("onInputOut")}
 }
 
 // The Signal (or event) dispatched when this Button is in an Out state.
-func (self *Button) SetOnInputOut(member Signal) {
+func (self *Button) SetOnInputOut(member *Signal) {
     self.Set("onInputOut", member)
 }
 
 // The Signal (or event) dispatched when this Button is in an Down state.
-func (self *Button) GetOnInputDown() Signal{
-    return Signal{self.Get("onInputDown")}
+func (self *Button) GetOnInputDown() *Signal{
+    return &Signal{self.Get("onInputDown")}
 }
 
 // The Signal (or event) dispatched when this Button is in an Down state.
-func (self *Button) SetOnInputDown(member Signal) {
+func (self *Button) SetOnInputDown(member *Signal) {
     self.Set("onInputDown", member)
 }
 
 // The Signal (or event) dispatched when this Button is in an Up state.
-func (self *Button) GetOnInputUp() Signal{
-    return Signal{self.Get("onInputUp")}
+func (self *Button) GetOnInputUp() *Signal{
+    return &Signal{self.Get("onInputUp")}
 }
 
 // The Signal (or event) dispatched when this Button is in an Up state.
-func (self *Button) SetOnInputUp(member Signal) {
+func (self *Button) SetOnInputUp(member *Signal) {
     self.Set("onInputUp", member)
 }
 
@@ -179,14 +179,14 @@ func (self *Button) SetOnOverMouseOnly(member bool) {
 // Suppresse the over event if a pointer was just released and it matches the given {@link Phaser.PointerModer pointer mode bitmask}.
 // 
 // This behavior was introduced in Phaser 2.3.1; this property is a soft-revert of the change.
-func (self *Button) GetJustReleasedPreventsOver() PointerMode{
-    return PointerMode{self.Get("justReleasedPreventsOver")}
+func (self *Button) GetJustReleasedPreventsOver() *PointerMode{
+    return &PointerMode{self.Get("justReleasedPreventsOver")}
 }
 
 // Suppresse the over event if a pointer was just released and it matches the given {@link Phaser.PointerModer pointer mode bitmask}.
 // 
 // This behavior was introduced in Phaser 2.3.1; this property is a soft-revert of the change.
-func (self *Button) SetJustReleasedPreventsOver(member PointerMode) {
+func (self *Button) SetJustReleasedPreventsOver(member *PointerMode) {
     self.Set("justReleasedPreventsOver", member)
 }
 
@@ -218,25 +218,25 @@ func (self *Button) SetForceOut(member interface{}) {
 // The default is 0,0 this means the texture's origin is the top left
 // Setting than anchor to 0.5,0.5 means the textures origin is centered
 // Setting the anchor to 1,1 would mean the textures origin points will be the bottom right corner
-func (self *Button) GetAnchor() Point{
-    return Point{self.Get("anchor")}
+func (self *Button) GetAnchor() *Point{
+    return &Point{self.Get("anchor")}
 }
 
 // The anchor sets the origin point of the texture.
 // The default is 0,0 this means the texture's origin is the top left
 // Setting than anchor to 0.5,0.5 means the textures origin is centered
 // Setting the anchor to 1,1 would mean the textures origin points will be the bottom right corner
-func (self *Button) SetAnchor(member Point) {
+func (self *Button) SetAnchor(member *Point) {
     self.Set("anchor", member)
 }
 
 // The texture that the sprite is using
-func (self *Button) GetTexture() Texture{
-    return Texture{self.Get("texture")}
+func (self *Button) GetTexture() *Texture{
+    return &Texture{self.Get("texture")}
 }
 
 // The texture that the sprite is using
-func (self *Button) SetTexture(member Texture) {
+func (self *Button) SetTexture(member *Texture) {
     self.Set("texture", member)
 }
 
@@ -251,12 +251,12 @@ func (self *Button) SetTint(member float64) {
 }
 
 // A canvas that contains the tinted version of the Sprite (in Canvas mode, WebGL doesn't populate this)
-func (self *Button) GetTintedTexture() Canvas{
-    return Canvas{self.Get("tintedTexture")}
+func (self *Button) GetTintedTexture() *Canvas{
+    return &Canvas{self.Get("tintedTexture")}
 }
 
 // A canvas that contains the tinted version of the Sprite (in Canvas mode, WebGL doesn't populate this)
-func (self *Button) SetTintedTexture(member Canvas) {
+func (self *Button) SetTintedTexture(member *Canvas) {
     self.Set("tintedTexture", member)
 }
 
@@ -275,12 +275,12 @@ func (self *Button) SetBlendMode(member float64) {
 }
 
 // The shader that will be used to render the texture to the stage. Set to null to remove a current shader.
-func (self *Button) GetShader() AbstractFilter{
-    return AbstractFilter{self.Get("shader")}
+func (self *Button) GetShader() *AbstractFilter{
+    return &AbstractFilter{self.Get("shader")}
 }
 
 // The shader that will be used to render the texture to the stage. Set to null to remove a current shader.
-func (self *Button) SetShader(member AbstractFilter) {
+func (self *Button) SetShader(member *AbstractFilter) {
     self.Set("shader", member)
 }
 
@@ -349,12 +349,12 @@ func (self *Button) SetIgnoreChildInput(member bool) {
 }
 
 // A reference to the currently running Game.
-func (self *Button) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *Button) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // A reference to the currently running Game.
-func (self *Button) SetGame(member Game) {
+func (self *Button) SetGame(member *Game) {
     self.Set("game", member)
 }
 
@@ -414,25 +414,25 @@ func (self *Button) SetZ(member float64) {
 
 // All Phaser Game Objects have an Events class which contains all of the events that are dispatched when certain things happen to this
 // Game Object, or any of its components.
-func (self *Button) GetEvents() Events{
-    return Events{self.Get("events")}
+func (self *Button) GetEvents() *Events{
+    return &Events{self.Get("events")}
 }
 
 // All Phaser Game Objects have an Events class which contains all of the events that are dispatched when certain things happen to this
 // Game Object, or any of its components.
-func (self *Button) SetEvents(member Events) {
+func (self *Button) SetEvents(member *Events) {
     self.Set("events", member)
 }
 
 // If the Game Object is enabled for animation (such as a Phaser.Sprite) this is a reference to its AnimationManager instance.
 // Through it you can create, play, pause and stop animations.
-func (self *Button) GetAnimations() AnimationManager{
-    return AnimationManager{self.Get("animations")}
+func (self *Button) GetAnimations() *AnimationManager{
+    return &AnimationManager{self.Get("animations")}
 }
 
 // If the Game Object is enabled for animation (such as a Phaser.Sprite) this is a reference to its AnimationManager instance.
 // Through it you can create, play, pause and stop animations.
-func (self *Button) SetAnimations(member AnimationManager) {
+func (self *Button) SetAnimations(member *AnimationManager) {
     self.Set("animations", member)
 }
 
@@ -457,14 +457,14 @@ func (self *Button) SetKey(member interface{}) {
 // The world coordinates of this Game Object in pixels.
 // Depending on where in the display list this Game Object is placed this value can differ from `position`, 
 // which contains the x/y coordinates relative to the Game Objects parent.
-func (self *Button) GetWorld() Point{
-    return Point{self.Get("world")}
+func (self *Button) GetWorld() *Point{
+    return &Point{self.Get("world")}
 }
 
 // The world coordinates of this Game Object in pixels.
 // Depending on where in the display list this Game Object is placed this value can differ from `position`, 
 // which contains the x/y coordinates relative to the Game Objects parent.
-func (self *Button) SetWorld(member Point) {
+func (self *Button) SetWorld(member *Point) {
     self.Set("world", member)
 }
 
@@ -479,12 +479,12 @@ func (self *Button) SetDebug(member bool) {
 }
 
 // The position the Game Object was located in the previous frame.
-func (self *Button) GetPreviousPosition() Point{
-    return Point{self.Get("previousPosition")}
+func (self *Button) GetPreviousPosition() *Point{
+    return &Point{self.Get("previousPosition")}
 }
 
 // The position the Game Object was located in the previous frame.
-func (self *Button) SetPreviousPosition(member Point) {
+func (self *Button) SetPreviousPosition(member *Point) {
     self.Set("previousPosition", member)
 }
 
@@ -701,14 +701,14 @@ func (self *Button) SetBottom(member float64) {
 // The Rectangle used to crop the texture this Game Object uses.
 // Set this property via `crop`. 
 // If you modify this property directly you must call `updateCrop` in order to have the change take effect.
-func (self *Button) GetCropRect() Rectangle{
-    return Rectangle{self.Get("cropRect")}
+func (self *Button) GetCropRect() *Rectangle{
+    return &Rectangle{self.Get("cropRect")}
 }
 
 // The Rectangle used to crop the texture this Game Object uses.
 // Set this property via `crop`. 
 // If you modify this property directly you must call `updateCrop` in order to have the change take effect.
-func (self *Button) SetCropRect(member Rectangle) {
+func (self *Button) SetCropRect(member *Rectangle) {
     self.Set("cropRect", member)
 }
 
@@ -761,14 +761,14 @@ func (self *Button) SetFixedToCamera(member bool) {
 // The x/y coordinate offset applied to the top-left of the camera that this Game Object will be drawn at if `fixedToCamera` is true.
 // 
 // The values are relative to the top-left of the camera view and in addition to any parent of the Game Object on the display list.
-func (self *Button) GetCameraOffset() Point{
-    return Point{self.Get("cameraOffset")}
+func (self *Button) GetCameraOffset() *Point{
+    return &Point{self.Get("cameraOffset")}
 }
 
 // The x/y coordinate offset applied to the top-left of the camera that this Game Object will be drawn at if `fixedToCamera` is true.
 // 
 // The values are relative to the top-left of the camera view and in addition to any parent of the Game Object on the display list.
-func (self *Button) SetCameraOffset(member Point) {
+func (self *Button) SetCameraOffset(member *Point) {
     self.Set("cameraOffset", member)
 }
 
@@ -1054,8 +1054,8 @@ func (self *Button) OnTextureUpdateI(args ...interface{}) {
 // to this Sprites worldTransform. If you need to ensure that all parent transforms
 // are factored into this getBounds operation then you should call `updateTransform`
 // on the root most object in this Sprites display list first.
-func (self *Button) GetBoundsI(args ...interface{}) Rectangle{
-    return Rectangle{self.Call("getBounds", args)}
+func (self *Button) GetBoundsI(args ...interface{}) *Rectangle{
+    return &Rectangle{self.Call("getBounds", args)}
 }
 
 // Renders the object using the WebGL renderer
@@ -1069,13 +1069,13 @@ func (self *Button) _renderCanvasI(args ...interface{}) {
 }
 
 // Adds a child to the container.
-func (self *Button) AddChildI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("addChild", args)}
+func (self *Button) AddChildI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("addChild", args)}
 }
 
 // Adds a child to the container at a specified index. If the index is out of bounds an error will be thrown
-func (self *Button) AddChildAtI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("addChildAt", args)}
+func (self *Button) AddChildAtI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("addChildAt", args)}
 }
 
 // Swaps the position of 2 Display Objects within this container.
@@ -1094,18 +1094,18 @@ func (self *Button) SetChildIndexI(args ...interface{}) {
 }
 
 // Returns the child at the specified index
-func (self *Button) GetChildAtI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("getChildAt", args)}
+func (self *Button) GetChildAtI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("getChildAt", args)}
 }
 
 // Removes a child from the container.
-func (self *Button) RemoveChildI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("removeChild", args)}
+func (self *Button) RemoveChildI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("removeChild", args)}
 }
 
 // Removes a child from the specified index position.
-func (self *Button) RemoveChildAtI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("removeChildAt", args)}
+func (self *Button) RemoveChildAtI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("removeChildAt", args)}
 }
 
 // Removes all children from this container that are within the begin and end indexes.
@@ -1114,8 +1114,8 @@ func (self *Button) RemoveChildrenI(args ...interface{}) {
 }
 
 // Retrieves the non-global local bounds of the displayObjectContainer as a rectangle. The calculation takes all visible children into consideration.
-func (self *Button) GetLocalBoundsI(args ...interface{}) Rectangle{
-    return Rectangle{self.Call("getLocalBounds", args)}
+func (self *Button) GetLocalBoundsI(args ...interface{}) *Rectangle{
+    return &Rectangle{self.Call("getLocalBounds", args)}
 }
 
 // Sets the containers Stage reference. This is the Stage that this object, and all of its children, is connected to.
@@ -1146,8 +1146,8 @@ func (self *Button) PostUpdateI(args ...interface{}) {
 // 
 // If the animation is already playing calling this again won't do anything.
 // If you need to reset an already running animation do so directly on the Animation object itself or via `AnimationManager.stop`.
-func (self *Button) PlayI(args ...interface{}) Animation{
-    return Animation{self.Call("play", args)}
+func (self *Button) PlayI(args ...interface{}) *Animation{
+    return &Animation{self.Call("play", args)}
 }
 
 // Aligns this Game Object within another Game Object, or Rectangle, known as the
@@ -1224,8 +1224,8 @@ func (self *Button) AlignToI(args ...interface{}) interface{}{
 // 
 // If this Game Object hasn't been added to a custom Group then this method will bring it to the top of the Game World, 
 // because the World is the root Group from which all Game Objects descend.
-func (self *Button) BringToTopI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("bringToTop", args)}
+func (self *Button) BringToTopI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("bringToTop", args)}
 }
 
 // Sends this Game Object to the bottom of its parents display list.
@@ -1233,8 +1233,8 @@ func (self *Button) BringToTopI(args ...interface{}) DisplayObject{
 // 
 // If this Game Object hasn't been added to a custom Group then this method will send it to the bottom of the Game World, 
 // because the World is the root Group from which all Game Objects descend.
-func (self *Button) SendToBackI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("sendToBack", args)}
+func (self *Button) SendToBackI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("sendToBack", args)}
 }
 
 // Moves this Game Object up one place in its parents display list.
@@ -1242,8 +1242,8 @@ func (self *Button) SendToBackI(args ...interface{}) DisplayObject{
 // 
 // If this Game Object hasn't been added to a custom Group then this method will move it one object up within the Game World, 
 // because the World is the root Group from which all Game Objects descend.
-func (self *Button) MoveUpI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("moveUp", args)}
+func (self *Button) MoveUpI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("moveUp", args)}
 }
 
 // Moves this Game Object down one place in its parents display list.
@@ -1251,8 +1251,8 @@ func (self *Button) MoveUpI(args ...interface{}) DisplayObject{
 // 
 // If this Game Object hasn't been added to a custom Group then this method will move it one object down within the Game World, 
 // because the World is the root Group from which all Game Objects descend.
-func (self *Button) MoveDownI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("moveDown", args)}
+func (self *Button) MoveDownI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("moveDown", args)}
 }
 
 // Crop allows you to crop the texture being used to display this Game Object.
@@ -1292,8 +1292,8 @@ func (self *Button) DestroyI(args ...interface{}) {
 // A resurrected Game Object has its `alive`, `exists` and `visible` properties all set to true.
 // 
 // It will dispatch the `onRevived` event. Listen to `events.onRevived` for the signal.
-func (self *Button) ReviveI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("revive", args)}
+func (self *Button) ReviveI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("revive", args)}
 }
 
 // Kills a Game Object. A killed Game Object has its `alive`, `exists` and `visible` properties all set to false.
@@ -1304,8 +1304,8 @@ func (self *Button) ReviveI(args ...interface{}) DisplayObject{
 // it doesn't destroy the object or free it up from memory.
 // 
 // If you don't need this Game Object any more you should call `destroy` instead.
-func (self *Button) KillI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("kill", args)}
+func (self *Button) KillI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("kill", args)}
 }
 
 // Changes the base texture the Game Object is using. The old texture is removed and the new one is referenced or fetched from the Cache.
@@ -1367,6 +1367,6 @@ func (self *Button) OverlapI(args ...interface{}) bool{
 // If this Game Object has the LifeSpan component it will also set `alive` to true and `health` to the given value.
 // 
 // If this Game Object has a Physics Body it will reset the Body.
-func (self *Button) ResetI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("reset", args)}
+func (self *Button) ResetI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("reset", args)}
 }

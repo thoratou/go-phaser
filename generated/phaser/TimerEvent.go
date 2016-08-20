@@ -21,12 +21,12 @@ type TimerEvent struct {
 
 
 // The Timer object that this TimerEvent belongs to.
-func (self *TimerEvent) GetTimer() Timer{
-    return Timer{self.Get("timer")}
+func (self *TimerEvent) GetTimer() *Timer{
+    return &Timer{self.Get("timer")}
 }
 
 // The Timer object that this TimerEvent belongs to.
-func (self *TimerEvent) SetTimer(member Timer) {
+func (self *TimerEvent) SetTimer(member *Timer) {
     self.Set("timer", member)
 }
 

@@ -44,22 +44,22 @@ func (self *WebGLFastSpriteBatch) SetSize(member float64) {
 }
 
 // Vertex data
-func (self *WebGLFastSpriteBatch) GetVertices() Float32Array{
-    return Float32Array{self.Get("vertices")}
+func (self *WebGLFastSpriteBatch) GetVertices() *Float32Array{
+    return &Float32Array{self.Get("vertices")}
 }
 
 // Vertex data
-func (self *WebGLFastSpriteBatch) SetVertices(member Float32Array) {
+func (self *WebGLFastSpriteBatch) SetVertices(member *Float32Array) {
     self.Set("vertices", member)
 }
 
 // Index data
-func (self *WebGLFastSpriteBatch) GetIndices() Uint16Array{
-    return Uint16Array{self.Get("indices")}
+func (self *WebGLFastSpriteBatch) GetIndices() *Uint16Array{
+    return &Uint16Array{self.Get("indices")}
 }
 
 // Index data
-func (self *WebGLFastSpriteBatch) SetIndices(member Uint16Array) {
+func (self *WebGLFastSpriteBatch) SetIndices(member *Uint16Array) {
     self.Set("indices", member)
 }
 
@@ -114,12 +114,12 @@ func (self *WebGLFastSpriteBatch) SetCurrentBatchSize(member float64) {
 }
 
 // 
-func (self *WebGLFastSpriteBatch) GetCurrentBaseTexture() BaseTexture{
-    return BaseTexture{self.Get("currentBaseTexture")}
+func (self *WebGLFastSpriteBatch) GetCurrentBaseTexture() *BaseTexture{
+    return &BaseTexture{self.Get("currentBaseTexture")}
 }
 
 // 
-func (self *WebGLFastSpriteBatch) SetCurrentBaseTexture(member BaseTexture) {
+func (self *WebGLFastSpriteBatch) SetCurrentBaseTexture(member *BaseTexture) {
     self.Set("currentBaseTexture", member)
 }
 
@@ -154,12 +154,12 @@ func (self *WebGLFastSpriteBatch) SetShader(member interface{}) {
 }
 
 // 
-func (self *WebGLFastSpriteBatch) GetMatrix() Matrix{
-    return Matrix{self.Get("matrix")}
+func (self *WebGLFastSpriteBatch) GetMatrix() *Matrix{
+    return &Matrix{self.Get("matrix")}
 }
 
 // 
-func (self *WebGLFastSpriteBatch) SetMatrix(member Matrix) {
+func (self *WebGLFastSpriteBatch) SetMatrix(member *Matrix) {
     self.Set("matrix", member)
 }
 

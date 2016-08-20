@@ -95,22 +95,22 @@ func (self *Rectangle) SetBottom(member float64) {
 }
 
 // The location of the Rectangles bottom left corner as a Point object. Gets or sets the location of the Rectangles bottom left corner as a Point object.
-func (self *Rectangle) GetBottomLeft() Point{
-    return Point{self.Get("bottomLeft")}
+func (self *Rectangle) GetBottomLeft() *Point{
+    return &Point{self.Get("bottomLeft")}
 }
 
 // The location of the Rectangles bottom left corner as a Point object. Gets or sets the location of the Rectangles bottom left corner as a Point object.
-func (self *Rectangle) SetBottomLeft(member Point) {
+func (self *Rectangle) SetBottomLeft(member *Point) {
     self.Set("bottomLeft", member)
 }
 
 // The location of the Rectangles bottom right corner as a Point object. Gets or sets the location of the Rectangles bottom right corner as a Point object.
-func (self *Rectangle) GetBottomRight() Point{
-    return Point{self.Get("bottomRight")}
+func (self *Rectangle) GetBottomRight() *Point{
+    return &Point{self.Get("bottomRight")}
 }
 
 // The location of the Rectangles bottom right corner as a Point object. Gets or sets the location of the Rectangles bottom right corner as a Point object.
-func (self *Rectangle) SetBottomRight(member Point) {
+func (self *Rectangle) SetBottomRight(member *Point) {
     self.Set("bottomRight", member)
 }
 
@@ -207,22 +207,22 @@ func (self *Rectangle) SetTop(member float64) {
 }
 
 // The location of the Rectangles top left corner as a Point object.
-func (self *Rectangle) GetTopLeft() Point{
-    return Point{self.Get("topLeft")}
+func (self *Rectangle) GetTopLeft() *Point{
+    return &Point{self.Get("topLeft")}
 }
 
 // The location of the Rectangles top left corner as a Point object.
-func (self *Rectangle) SetTopLeft(member Point) {
+func (self *Rectangle) SetTopLeft(member *Point) {
     self.Set("topLeft", member)
 }
 
 // The location of the Rectangles top right corner as a Point object. The location of the Rectangles top left corner as a Point object.
-func (self *Rectangle) GetTopRight() Point{
-    return Point{self.Get("topRight")}
+func (self *Rectangle) GetTopRight() *Point{
+    return &Point{self.Get("topRight")}
 }
 
 // The location of the Rectangles top right corner as a Point object. The location of the Rectangles top left corner as a Point object.
-func (self *Rectangle) SetTopRight(member Point) {
+func (self *Rectangle) SetTopRight(member *Point) {
     self.Set("topRight", member)
 }
 
@@ -241,28 +241,28 @@ func (self *Rectangle) SetEmpty(member bool) {
 
 
 // Adjusts the location of the Rectangle object, as determined by its top-left corner, by the specified amounts.
-func (self *Rectangle) OffsetI(args ...interface{}) Rectangle{
-    return Rectangle{self.Call("offset", args)}
+func (self *Rectangle) OffsetI(args ...interface{}) *Rectangle{
+    return &Rectangle{self.Call("offset", args)}
 }
 
 // Adjusts the location of the Rectangle object using a Point object as a parameter. This method is similar to the Rectangle.offset() method, except that it takes a Point object as a parameter.
-func (self *Rectangle) OffsetPointI(args ...interface{}) Rectangle{
-    return Rectangle{self.Call("offsetPoint", args)}
+func (self *Rectangle) OffsetPointI(args ...interface{}) *Rectangle{
+    return &Rectangle{self.Call("offsetPoint", args)}
 }
 
 // Sets the members of Rectangle to the specified values.
-func (self *Rectangle) SetToI(args ...interface{}) Rectangle{
-    return Rectangle{self.Call("setTo", args)}
+func (self *Rectangle) SetToI(args ...interface{}) *Rectangle{
+    return &Rectangle{self.Call("setTo", args)}
 }
 
 // Scales the width and height of this Rectangle by the given amounts.
-func (self *Rectangle) ScaleI(args ...interface{}) Rectangle{
-    return Rectangle{self.Call("scale", args)}
+func (self *Rectangle) ScaleI(args ...interface{}) *Rectangle{
+    return &Rectangle{self.Call("scale", args)}
 }
 
 // Centers this Rectangle so that the center coordinates match the given x and y values.
-func (self *Rectangle) CenterOnI(args ...interface{}) Rectangle{
-    return Rectangle{self.Call("centerOn", args)}
+func (self *Rectangle) CenterOnI(args ...interface{}) *Rectangle{
+    return &Rectangle{self.Call("centerOn", args)}
 }
 
 // Runs Math.floor() on both the x and y values of this Rectangle.
@@ -286,8 +286,8 @@ func (self *Rectangle) CeilAllI(args ...interface{}) {
 }
 
 // Copies the x, y, width and height properties from any given object to this Rectangle.
-func (self *Rectangle) CopyFromI(args ...interface{}) Rectangle{
-    return Rectangle{self.Call("copyFrom", args)}
+func (self *Rectangle) CopyFromI(args ...interface{}) *Rectangle{
+    return &Rectangle{self.Call("copyFrom", args)}
 }
 
 // Copies the x, y, width and height properties from this Rectangle to any given object.
@@ -296,24 +296,24 @@ func (self *Rectangle) CopyToI(args ...interface{}) interface{}{
 }
 
 // Increases the size of the Rectangle object by the specified amounts. The center point of the Rectangle object stays the same, and its size increases to the left and right by the dx value, and to the top and the bottom by the dy value.
-func (self *Rectangle) InflateI(args ...interface{}) Rectangle{
-    return Rectangle{self.Call("inflate", args)}
+func (self *Rectangle) InflateI(args ...interface{}) *Rectangle{
+    return &Rectangle{self.Call("inflate", args)}
 }
 
 // The size of the Rectangle object, expressed as a Point object with the values of the width and height properties.
-func (self *Rectangle) SizeI(args ...interface{}) Point{
-    return Point{self.Call("size", args)}
+func (self *Rectangle) SizeI(args ...interface{}) *Point{
+    return &Point{self.Call("size", args)}
 }
 
 // Resize the Rectangle by providing a new width and height.
 // The x and y positions remain unchanged.
-func (self *Rectangle) ResizeI(args ...interface{}) Rectangle{
-    return Rectangle{self.Call("resize", args)}
+func (self *Rectangle) ResizeI(args ...interface{}) *Rectangle{
+    return &Rectangle{self.Call("resize", args)}
 }
 
 // Returns a new Rectangle object with the same values for the x, y, width, and height properties as the original Rectangle object.
-func (self *Rectangle) CloneI(args ...interface{}) Rectangle{
-    return Rectangle{self.Call("clone", args)}
+func (self *Rectangle) CloneI(args ...interface{}) *Rectangle{
+    return &Rectangle{self.Call("clone", args)}
 }
 
 // Determines whether the specified coordinates are contained within the region defined by this Rectangle object.
@@ -334,8 +334,8 @@ func (self *Rectangle) EqualsI(args ...interface{}) bool{
 }
 
 // If the Rectangle object specified in the toIntersect parameter intersects with this Rectangle object, returns the area of intersection as a Rectangle object. If the Rectangles do not intersect, this method returns an empty Rectangle object with its properties set to 0.
-func (self *Rectangle) IntersectionI(args ...interface{}) Rectangle{
-    return Rectangle{self.Call("intersection", args)}
+func (self *Rectangle) IntersectionI(args ...interface{}) *Rectangle{
+    return &Rectangle{self.Call("intersection", args)}
 }
 
 // Determines whether this Rectangle and another given Rectangle intersect with each other.
@@ -350,13 +350,13 @@ func (self *Rectangle) IntersectsRawI(args ...interface{}) bool{
 }
 
 // Adds two Rectangles together to create a new Rectangle object, by filling in the horizontal and vertical space between the two Rectangles.
-func (self *Rectangle) UnionI(args ...interface{}) Rectangle{
-    return Rectangle{self.Call("union", args)}
+func (self *Rectangle) UnionI(args ...interface{}) *Rectangle{
+    return &Rectangle{self.Call("union", args)}
 }
 
 // Returns a uniformly distributed random point from anywhere within this Rectangle.
-func (self *Rectangle) RandomI(args ...interface{}) Point{
-    return Point{self.Call("random", args)}
+func (self *Rectangle) RandomI(args ...interface{}) *Point{
+    return &Point{self.Call("random", args)}
 }
 
 // Returns a point based on the given position constant, which can be one of:
@@ -367,8 +367,8 @@ func (self *Rectangle) RandomI(args ...interface{}) Point{
 // 
 // This method returns the same values as calling Rectangle.bottomLeft, etc, but those
 // calls always create a new Point object, where-as this one allows you to use your own.
-func (self *Rectangle) GetPointI(args ...interface{}) Point{
-    return Point{self.Call("getPoint", args)}
+func (self *Rectangle) GetPointI(args ...interface{}) *Point{
+    return &Point{self.Call("getPoint", args)}
 }
 
 // Returns a string representation of this object.
@@ -377,8 +377,8 @@ func (self *Rectangle) ToStringI(args ...interface{}) string{
 }
 
 // Increases the size of the Rectangle object. This method is similar to the Rectangle.inflate() method except it takes a Point object as a parameter.
-func (self *Rectangle) InflatePointI(args ...interface{}) Rectangle{
-    return Rectangle{self.Call("inflatePoint", args)}
+func (self *Rectangle) InflatePointI(args ...interface{}) *Rectangle{
+    return &Rectangle{self.Call("inflatePoint", args)}
 }
 
 // Determines whether the specified coordinates are contained within the region defined by the given raw values.
@@ -397,6 +397,6 @@ func (self *Rectangle) SameDimensionsI(args ...interface{}) bool{
 }
 
 // Calculates the Axis Aligned Bounding Box (or aabb) from an array of points.
-func (self *Rectangle) AabbI(args ...interface{}) Rectangle{
-    return Rectangle{self.Call("aabb", args)}
+func (self *Rectangle) AabbI(args ...interface{}) *Rectangle{
+    return &Rectangle{self.Call("aabb", args)}
 }

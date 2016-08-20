@@ -19,7 +19,3 @@ func (m *Member) GetDescriptionLines() []string {
 func (m *Member) IsPrivate() bool {
 	return m.Access == "private"
 }
-
-func (m *Member) IsCallback() bool {
-	return m.Type.GetType() == "func(...interface{})"
-}

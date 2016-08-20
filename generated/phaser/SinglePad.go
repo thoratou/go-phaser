@@ -14,12 +14,12 @@ type SinglePad struct {
 
 
 // Local reference to game.
-func (self *SinglePad) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *SinglePad) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // Local reference to game.
-func (self *SinglePad) SetGame(member Game) {
+func (self *SinglePad) SetGame(member *Game) {
     self.Set("game", member)
 }
 
@@ -102,8 +102,8 @@ func (self *SinglePad) AddCallbacksI(args ...interface{}) {
 
 // Gets a DeviceButton object from this controller to be stored and referenced locally.
 // The DeviceButton object can then be polled, have events attached to it, etc.
-func (self *SinglePad) GetButtonI(args ...interface{}) DeviceButton{
-    return DeviceButton{self.Call("getButton", args)}
+func (self *SinglePad) GetButtonI(args ...interface{}) *DeviceButton{
+    return &DeviceButton{self.Call("getButton", args)}
 }
 
 // Main update function called by Phaser.Gamepad.

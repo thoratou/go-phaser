@@ -23,22 +23,22 @@ type MSPointer struct {
 
 
 // A reference to the currently running game.
-func (self *MSPointer) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *MSPointer) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // A reference to the currently running game.
-func (self *MSPointer) SetGame(member Game) {
+func (self *MSPointer) SetGame(member *Game) {
     self.Set("game", member)
 }
 
 // A reference to the Phaser Input Manager.
-func (self *MSPointer) GetInput() Input{
-    return Input{self.Get("input")}
+func (self *MSPointer) GetInput() *Input{
+    return &Input{self.Get("input")}
 }
 
 // A reference to the Phaser Input Manager.
-func (self *MSPointer) SetInput(member Input) {
+func (self *MSPointer) SetInput(member *Input) {
     self.Set("input", member)
 }
 

@@ -29,22 +29,22 @@ type PhysicsNinja struct {
 
 
 // Local reference to game.
-func (self *PhysicsNinja) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *PhysicsNinja) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // Local reference to game.
-func (self *PhysicsNinja) SetGame(member Game) {
+func (self *PhysicsNinja) SetGame(member *Game) {
     self.Set("game", member)
 }
 
 // Local reference to game.time.
-func (self *PhysicsNinja) GetTime() Time{
-    return Time{self.Get("time")}
+func (self *PhysicsNinja) GetTime() *Time{
+    return &Time{self.Get("time")}
 }
 
 // Local reference to game.time.
-func (self *PhysicsNinja) SetTime(member Time) {
+func (self *PhysicsNinja) SetTime(member *Time) {
     self.Set("time", member)
 }
 
@@ -59,12 +59,12 @@ func (self *PhysicsNinja) SetGravity(member float64) {
 }
 
 // The bounds inside of which the physics world exists. Defaults to match the world bounds.
-func (self *PhysicsNinja) GetBounds() Rectangle{
-    return Rectangle{self.Get("bounds")}
+func (self *PhysicsNinja) GetBounds() *Rectangle{
+    return &Rectangle{self.Get("bounds")}
 }
 
 // The bounds inside of which the physics world exists. Defaults to match the world bounds.
-func (self *PhysicsNinja) SetBounds(member Rectangle) {
+func (self *PhysicsNinja) SetBounds(member *Rectangle) {
     self.Set("bounds", member)
 }
 
@@ -89,12 +89,12 @@ func (self *PhysicsNinja) SetMaxLevels(member float64) {
 }
 
 // The world QuadTree.
-func (self *PhysicsNinja) GetQuadTree() QuadTree{
-    return QuadTree{self.Get("quadTree")}
+func (self *PhysicsNinja) GetQuadTree() *QuadTree{
+    return &QuadTree{self.Get("quadTree")}
 }
 
 // The world QuadTree.
-func (self *PhysicsNinja) SetQuadTree(member QuadTree) {
+func (self *PhysicsNinja) SetQuadTree(member *QuadTree) {
     self.Set("quadTree", member)
 }
 

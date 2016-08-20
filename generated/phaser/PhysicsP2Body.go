@@ -19,32 +19,32 @@ type PhysicsP2Body struct {
 
 
 // Local reference to game.
-func (self *PhysicsP2Body) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *PhysicsP2Body) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // Local reference to game.
-func (self *PhysicsP2Body) SetGame(member Game) {
+func (self *PhysicsP2Body) SetGame(member *Game) {
     self.Set("game", member)
 }
 
 // Local reference to the P2 World.
-func (self *PhysicsP2Body) GetWorld() PhysicsP2{
-    return PhysicsP2{self.Get("world")}
+func (self *PhysicsP2Body) GetWorld() *PhysicsP2{
+    return &PhysicsP2{self.Get("world")}
 }
 
 // Local reference to the P2 World.
-func (self *PhysicsP2Body) SetWorld(member PhysicsP2) {
+func (self *PhysicsP2Body) SetWorld(member *PhysicsP2) {
     self.Set("world", member)
 }
 
 // Reference to the parent Sprite.
-func (self *PhysicsP2Body) GetSprite() Sprite{
-    return Sprite{self.Get("sprite")}
+func (self *PhysicsP2Body) GetSprite() *Sprite{
+    return &Sprite{self.Get("sprite")}
 }
 
 // Reference to the parent Sprite.
-func (self *PhysicsP2Body) SetSprite(member Sprite) {
+func (self *PhysicsP2Body) SetSprite(member *Sprite) {
     self.Set("sprite", member)
 }
 
@@ -59,52 +59,52 @@ func (self *PhysicsP2Body) SetType(member float64) {
 }
 
 // The offset of the Physics Body from the Sprite x/y position.
-func (self *PhysicsP2Body) GetOffset() Point{
-    return Point{self.Get("offset")}
+func (self *PhysicsP2Body) GetOffset() *Point{
+    return &Point{self.Get("offset")}
 }
 
 // The offset of the Physics Body from the Sprite x/y position.
-func (self *PhysicsP2Body) SetOffset(member Point) {
+func (self *PhysicsP2Body) SetOffset(member *Point) {
     self.Set("offset", member)
 }
 
 // The p2 Body data.
-func (self *PhysicsP2Body) GetData() P2Body{
-    return P2Body{self.Get("data")}
+func (self *PhysicsP2Body) GetData() *P2Body{
+    return &P2Body{self.Get("data")}
 }
 
 // The p2 Body data.
-func (self *PhysicsP2Body) SetData(member P2Body) {
+func (self *PhysicsP2Body) SetData(member *P2Body) {
     self.Set("data", member)
 }
 
 // The velocity of the body. Set velocity.x to a negative value to move to the left, position to the right. velocity.y negative values move up, positive move down.
-func (self *PhysicsP2Body) GetVelocity() PhysicsP2InversePointProxy{
-    return PhysicsP2InversePointProxy{self.Get("velocity")}
+func (self *PhysicsP2Body) GetVelocity() *PhysicsP2InversePointProxy{
+    return &PhysicsP2InversePointProxy{self.Get("velocity")}
 }
 
 // The velocity of the body. Set velocity.x to a negative value to move to the left, position to the right. velocity.y negative values move up, positive move down.
-func (self *PhysicsP2Body) SetVelocity(member PhysicsP2InversePointProxy) {
+func (self *PhysicsP2Body) SetVelocity(member *PhysicsP2InversePointProxy) {
     self.Set("velocity", member)
 }
 
 // The force applied to the body.
-func (self *PhysicsP2Body) GetForce() PhysicsP2InversePointProxy{
-    return PhysicsP2InversePointProxy{self.Get("force")}
+func (self *PhysicsP2Body) GetForce() *PhysicsP2InversePointProxy{
+    return &PhysicsP2InversePointProxy{self.Get("force")}
 }
 
 // The force applied to the body.
-func (self *PhysicsP2Body) SetForce(member PhysicsP2InversePointProxy) {
+func (self *PhysicsP2Body) SetForce(member *PhysicsP2InversePointProxy) {
     self.Set("force", member)
 }
 
 // A locally applied gravity force to the Body. Applied directly before the world step. NOTE: Not currently implemented.
-func (self *PhysicsP2Body) GetGravity() Point{
-    return Point{self.Get("gravity")}
+func (self *PhysicsP2Body) GetGravity() *Point{
+    return &Point{self.Get("gravity")}
 }
 
 // A locally applied gravity force to the Body. Applied directly before the world step. NOTE: Not currently implemented.
-func (self *PhysicsP2Body) SetGravity(member Point) {
+func (self *PhysicsP2Body) SetGravity(member *Point) {
     self.Set("gravity", member)
 }
 
@@ -118,8 +118,8 @@ func (self *PhysicsP2Body) SetGravity(member Point) {
 // The Shape from this body that caused the contact.
 // The Shape from the contact body.
 // The Contact Equation data array.
-func (self *PhysicsP2Body) GetOnBeginContact() Signal{
-    return Signal{self.Get("onBeginContact")}
+func (self *PhysicsP2Body) GetOnBeginContact() *Signal{
+    return &Signal{self.Get("onBeginContact")}
 }
 
 // Dispatched when a first contact is created between shapes in two bodies. 
@@ -132,7 +132,7 @@ func (self *PhysicsP2Body) GetOnBeginContact() Signal{
 // The Shape from this body that caused the contact.
 // The Shape from the contact body.
 // The Contact Equation data array.
-func (self *PhysicsP2Body) SetOnBeginContact(member Signal) {
+func (self *PhysicsP2Body) SetOnBeginContact(member *Signal) {
     self.Set("onBeginContact", member)
 }
 
@@ -145,8 +145,8 @@ func (self *PhysicsP2Body) SetOnBeginContact(member Signal) {
 // The p2.Body this Body has ended contact with.
 // The Shape from this body that caused the original contact.
 // The Shape from the contact body.
-func (self *PhysicsP2Body) GetOnEndContact() Signal{
-    return Signal{self.Get("onEndContact")}
+func (self *PhysicsP2Body) GetOnEndContact() *Signal{
+    return &Signal{self.Get("onEndContact")}
 }
 
 // Dispatched when contact ends between shapes in two bodies.
@@ -158,7 +158,7 @@ func (self *PhysicsP2Body) GetOnEndContact() Signal{
 // The p2.Body this Body has ended contact with.
 // The Shape from this body that caused the original contact.
 // The Shape from the contact body.
-func (self *PhysicsP2Body) SetOnEndContact(member Signal) {
+func (self *PhysicsP2Body) SetOnEndContact(member *Signal) {
     self.Set("onEndContact", member)
 }
 
@@ -189,12 +189,12 @@ func (self *PhysicsP2Body) SetRemoveNextStep(member bool) {
 }
 
 // Reference to the debug body.
-func (self *PhysicsP2Body) GetDebugBody() PhysicsP2BodyDebug{
-    return PhysicsP2BodyDebug{self.Get("debugBody")}
+func (self *PhysicsP2Body) GetDebugBody() *PhysicsP2BodyDebug{
+    return &PhysicsP2BodyDebug{self.Get("debugBody")}
 }
 
 // Reference to the debug body.
-func (self *PhysicsP2Body) SetDebugBody(member PhysicsP2BodyDebug) {
+func (self *PhysicsP2Body) SetDebugBody(member *PhysicsP2BodyDebug) {
     self.Set("debugBody", member)
 }
 
@@ -682,41 +682,41 @@ func (self *PhysicsP2Body) ClearShapesI(args ...interface{}) {
 // Add a shape to the body. You can pass a local transform when adding a shape, so that the shape gets an offset and an angle relative to the body center of mass.
 // Will automatically update the mass properties and bounding radius.
 // If this Body had a previously set Collision Group you will need to re-apply it to the new Shape this creates.
-func (self *PhysicsP2Body) AddShapeI(args ...interface{}) P2Shape{
-    return P2Shape{self.Call("addShape", args)}
+func (self *PhysicsP2Body) AddShapeI(args ...interface{}) *P2Shape{
+    return &P2Shape{self.Call("addShape", args)}
 }
 
 // Adds a Circle shape to this Body. You can control the offset from the center of the body and the rotation.
-func (self *PhysicsP2Body) AddCircleI(args ...interface{}) P2Circle{
-    return P2Circle{self.Call("addCircle", args)}
+func (self *PhysicsP2Body) AddCircleI(args ...interface{}) *P2Circle{
+    return &P2Circle{self.Call("addCircle", args)}
 }
 
 // Adds a Rectangle shape to this Body. You can control the offset from the center of the body and the rotation.
-func (self *PhysicsP2Body) AddRectangleI(args ...interface{}) P2Box{
-    return P2Box{self.Call("addRectangle", args)}
+func (self *PhysicsP2Body) AddRectangleI(args ...interface{}) *P2Box{
+    return &P2Box{self.Call("addRectangle", args)}
 }
 
 // Adds a Plane shape to this Body. The plane is facing in the Y direction. You can control the offset from the center of the body and the rotation.
-func (self *PhysicsP2Body) AddPlaneI(args ...interface{}) P2Plane{
-    return P2Plane{self.Call("addPlane", args)}
+func (self *PhysicsP2Body) AddPlaneI(args ...interface{}) *P2Plane{
+    return &P2Plane{self.Call("addPlane", args)}
 }
 
 // Adds a Particle shape to this Body. You can control the offset from the center of the body and the rotation.
-func (self *PhysicsP2Body) AddParticleI(args ...interface{}) P2Particle{
-    return P2Particle{self.Call("addParticle", args)}
+func (self *PhysicsP2Body) AddParticleI(args ...interface{}) *P2Particle{
+    return &P2Particle{self.Call("addParticle", args)}
 }
 
 // Adds a Line shape to this Body.
 // The line shape is along the x direction, and stretches from [-length/2, 0] to [length/2,0].
 // You can control the offset from the center of the body and the rotation.
-func (self *PhysicsP2Body) AddLineI(args ...interface{}) P2Line{
-    return P2Line{self.Call("addLine", args)}
+func (self *PhysicsP2Body) AddLineI(args ...interface{}) *P2Line{
+    return &P2Line{self.Call("addLine", args)}
 }
 
 // Adds a Capsule shape to this Body.
 // You can control the offset from the center of the body and the rotation.
-func (self *PhysicsP2Body) AddCapsuleI(args ...interface{}) P2Capsule{
-    return P2Capsule{self.Call("addCapsule", args)}
+func (self *PhysicsP2Body) AddCapsuleI(args ...interface{}) *P2Capsule{
+    return &P2Capsule{self.Call("addCapsule", args)}
 }
 
 // Reads a polygon shape path, and assembles convex shapes from that and puts them at proper offset points. The shape must be simple and without holes.
@@ -739,16 +739,16 @@ func (self *PhysicsP2Body) SetCircleI(args ...interface{}) {
 // Clears any previously set shapes. The creates a new Rectangle shape at the given size and offset, and adds it to this Body.
 // If you wish to create a Rectangle to match the size of a Sprite or Image see Body.setRectangleFromSprite.
 // If this Body had a previously set Collision Group you will need to re-apply it to the new Shape this creates.
-func (self *PhysicsP2Body) SetRectangleI(args ...interface{}) P2Rectangle{
-    return P2Rectangle{self.Call("setRectangle", args)}
+func (self *PhysicsP2Body) SetRectangleI(args ...interface{}) *P2Rectangle{
+    return &P2Rectangle{self.Call("setRectangle", args)}
 }
 
 // Clears any previously set shapes.
 // Then creates a Rectangle shape sized to match the dimensions and orientation of the Sprite given.
 // If no Sprite is given it defaults to using the parent of this Body.
 // If this Body had a previously set Collision Group you will need to re-apply it to the new Shape this creates.
-func (self *PhysicsP2Body) SetRectangleFromSpriteI(args ...interface{}) P2Rectangle{
-    return P2Rectangle{self.Call("setRectangleFromSprite", args)}
+func (self *PhysicsP2Body) SetRectangleFromSpriteI(args ...interface{}) *P2Rectangle{
+    return &P2Rectangle{self.Call("setRectangleFromSprite", args)}
 }
 
 // Adds the given Material to all Shapes that belong to this Body.

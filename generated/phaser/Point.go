@@ -49,67 +49,67 @@ func (self *Point) SetType(member float64) {
 
 
 // Copies the x and y properties from any given object to this Point.
-func (self *Point) CopyFromI(args ...interface{}) Point{
-    return Point{self.Call("copyFrom", args)}
+func (self *Point) CopyFromI(args ...interface{}) *Point{
+    return &Point{self.Call("copyFrom", args)}
 }
 
 // Inverts the x and y values of this Point
-func (self *Point) InvertI(args ...interface{}) Point{
-    return Point{self.Call("invert", args)}
+func (self *Point) InvertI(args ...interface{}) *Point{
+    return &Point{self.Call("invert", args)}
 }
 
 // Sets the `x` and `y` values of this Point object to the given values.
 // If you omit the `y` value then the `x` value will be applied to both, for example:
 // `Point.setTo(2)` is the same as `Point.setTo(2, 2)`
-func (self *Point) SetToI(args ...interface{}) Point{
-    return Point{self.Call("setTo", args)}
+func (self *Point) SetToI(args ...interface{}) *Point{
+    return &Point{self.Call("setTo", args)}
 }
 
 // Sets the `x` and `y` values of this Point object to the given values.
 // If you omit the `y` value then the `x` value will be applied to both, for example:
 // `Point.set(2)` is the same as `Point.set(2, 2)`
-func (self *Point) SetI(args ...interface{}) Point{
-    return Point{self.Call("set", args)}
+func (self *Point) SetI(args ...interface{}) *Point{
+    return &Point{self.Call("set", args)}
 }
 
 // Adds the given x and y values to this Point.
-func (self *Point) AddI(args ...interface{}) Point{
-    return Point{self.Call("add", args)}
+func (self *Point) AddI(args ...interface{}) *Point{
+    return &Point{self.Call("add", args)}
 }
 
 // Subtracts the given x and y values from this Point.
-func (self *Point) SubtractI(args ...interface{}) Point{
-    return Point{self.Call("subtract", args)}
+func (self *Point) SubtractI(args ...interface{}) *Point{
+    return &Point{self.Call("subtract", args)}
 }
 
 // Multiplies Point.x and Point.y by the given x and y values. Sometimes known as `Scale`.
-func (self *Point) MultiplyI(args ...interface{}) Point{
-    return Point{self.Call("multiply", args)}
+func (self *Point) MultiplyI(args ...interface{}) *Point{
+    return &Point{self.Call("multiply", args)}
 }
 
 // Divides Point.x and Point.y by the given x and y values.
-func (self *Point) DivideI(args ...interface{}) Point{
-    return Point{self.Call("divide", args)}
+func (self *Point) DivideI(args ...interface{}) *Point{
+    return &Point{self.Call("divide", args)}
 }
 
 // Clamps the x value of this Point to be between the given min and max.
-func (self *Point) ClampXI(args ...interface{}) Point{
-    return Point{self.Call("clampX", args)}
+func (self *Point) ClampXI(args ...interface{}) *Point{
+    return &Point{self.Call("clampX", args)}
 }
 
 // Clamps the y value of this Point to be between the given min and max
-func (self *Point) ClampYI(args ...interface{}) Point{
-    return Point{self.Call("clampY", args)}
+func (self *Point) ClampYI(args ...interface{}) *Point{
+    return &Point{self.Call("clampY", args)}
 }
 
 // Clamps this Point object values to be between the given min and max.
-func (self *Point) ClampI(args ...interface{}) Point{
-    return Point{self.Call("clamp", args)}
+func (self *Point) ClampI(args ...interface{}) *Point{
+    return &Point{self.Call("clamp", args)}
 }
 
 // Creates a copy of the given Point.
-func (self *Point) CloneI(args ...interface{}) Point{
-    return Point{self.Call("clone", args)}
+func (self *Point) CloneI(args ...interface{}) *Point{
+    return &Point{self.Call("clone", args)}
 }
 
 // Copies the x and y properties from this Point to any given object.
@@ -133,8 +133,8 @@ func (self *Point) AngleI(args ...interface{}) float64{
 }
 
 // Rotates this Point around the x/y coordinates given to the desired angle.
-func (self *Point) RotateI(args ...interface{}) Point{
-    return Point{self.Call("rotate", args)}
+func (self *Point) RotateI(args ...interface{}) *Point{
+    return &Point{self.Call("rotate", args)}
 }
 
 // Calculates the length of the Point object.
@@ -148,13 +148,13 @@ func (self *Point) GetMagnitudeSqI(args ...interface{}) float64{
 }
 
 // Alters the length of the Point without changing the direction.
-func (self *Point) SetMagnitudeI(args ...interface{}) Point{
-    return Point{self.Call("setMagnitude", args)}
+func (self *Point) SetMagnitudeI(args ...interface{}) *Point{
+    return &Point{self.Call("setMagnitude", args)}
 }
 
 // Alters the Point object so that its length is 1, but it retains the same direction.
-func (self *Point) NormalizeI(args ...interface{}) Point{
-    return Point{self.Call("normalize", args)}
+func (self *Point) NormalizeI(args ...interface{}) *Point{
+    return &Point{self.Call("normalize", args)}
 }
 
 // Determine if this point is at 0,0.
@@ -173,28 +173,28 @@ func (self *Point) CrossI(args ...interface{}) float64{
 }
 
 // Make this Point perpendicular (90 degrees rotation)
-func (self *Point) PerpI(args ...interface{}) Point{
-    return Point{self.Call("perp", args)}
+func (self *Point) PerpI(args ...interface{}) *Point{
+    return &Point{self.Call("perp", args)}
 }
 
 // Make this Point perpendicular (-90 degrees rotation)
-func (self *Point) RperpI(args ...interface{}) Point{
-    return Point{self.Call("rperp", args)}
+func (self *Point) RperpI(args ...interface{}) *Point{
+    return &Point{self.Call("rperp", args)}
 }
 
 // Right-hand normalize (make unit length) this Point.
-func (self *Point) NormalRightHandI(args ...interface{}) Point{
-    return Point{self.Call("normalRightHand", args)}
+func (self *Point) NormalRightHandI(args ...interface{}) *Point{
+    return &Point{self.Call("normalRightHand", args)}
 }
 
 // Math.floor() both the x and y properties of this Point.
-func (self *Point) FloorI(args ...interface{}) Point{
-    return Point{self.Call("floor", args)}
+func (self *Point) FloorI(args ...interface{}) *Point{
+    return &Point{self.Call("floor", args)}
 }
 
 // Math.ceil() both the x and y properties of this Point.
-func (self *Point) CeilI(args ...interface{}) Point{
-    return Point{self.Call("ceil", args)}
+func (self *Point) CeilI(args ...interface{}) *Point{
+    return &Point{self.Call("ceil", args)}
 }
 
 // Returns a string representation of this object.
@@ -203,37 +203,37 @@ func (self *Point) ToStringI(args ...interface{}) string{
 }
 
 // Creates a negative Point.
-func (self *Point) NegativeI(args ...interface{}) Point{
-    return Point{self.Call("negative", args)}
+func (self *Point) NegativeI(args ...interface{}) *Point{
+    return &Point{self.Call("negative", args)}
 }
 
 // Adds two 2D Points together and multiplies the result by the given scalar.
-func (self *Point) MultiplyAddI(args ...interface{}) Point{
-    return Point{self.Call("multiplyAdd", args)}
+func (self *Point) MultiplyAddI(args ...interface{}) *Point{
+    return &Point{self.Call("multiplyAdd", args)}
 }
 
 // Interpolates the two given Points, based on the `f` value (between 0 and 1) and returns a new Point.
-func (self *Point) InterpolateI(args ...interface{}) Point{
-    return Point{self.Call("interpolate", args)}
+func (self *Point) InterpolateI(args ...interface{}) *Point{
+    return &Point{self.Call("interpolate", args)}
 }
 
 // Project two Points onto another Point.
-func (self *Point) ProjectI(args ...interface{}) Point{
-    return Point{self.Call("project", args)}
+func (self *Point) ProjectI(args ...interface{}) *Point{
+    return &Point{self.Call("project", args)}
 }
 
 // Project two Points onto a Point of unit length.
-func (self *Point) ProjectUnitI(args ...interface{}) Point{
-    return Point{self.Call("projectUnit", args)}
+func (self *Point) ProjectUnitI(args ...interface{}) *Point{
+    return &Point{self.Call("projectUnit", args)}
 }
 
 // Calculates centroid (or midpoint) from an array of points. If only one point is provided, that point is returned.
-func (self *Point) CentroidI(args ...interface{}) Point{
-    return Point{self.Call("centroid", args)}
+func (self *Point) CentroidI(args ...interface{}) *Point{
+    return &Point{self.Call("centroid", args)}
 }
 
 // Parses an object for x and/or y properties and returns a new Phaser.Point with matching values.
 // If the object doesn't contain those properties a Point with x/y of zero will be returned.
-func (self *Point) ParseI(args ...interface{}) Point{
-    return Point{self.Call("parse", args)}
+func (self *Point) ParseI(args ...interface{}) *Point{
+    return &Point{self.Call("parse", args)}
 }

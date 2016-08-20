@@ -34,32 +34,32 @@ func (self *TilingSprite) SetHeight(member float64) {
 }
 
 // The scaling of the image that is being tiled
-func (self *TilingSprite) GetTileScale() Point{
-    return Point{self.Get("tileScale")}
+func (self *TilingSprite) GetTileScale() *Point{
+    return &Point{self.Get("tileScale")}
 }
 
 // The scaling of the image that is being tiled
-func (self *TilingSprite) SetTileScale(member Point) {
+func (self *TilingSprite) SetTileScale(member *Point) {
     self.Set("tileScale", member)
 }
 
 // A point that represents the scale of the texture object
-func (self *TilingSprite) GetTileScaleOffset() Point{
-    return Point{self.Get("tileScaleOffset")}
+func (self *TilingSprite) GetTileScaleOffset() *Point{
+    return &Point{self.Get("tileScaleOffset")}
 }
 
 // A point that represents the scale of the texture object
-func (self *TilingSprite) SetTileScaleOffset(member Point) {
+func (self *TilingSprite) SetTileScaleOffset(member *Point) {
     self.Set("tileScaleOffset", member)
 }
 
 // The offset position of the image that is being tiled
-func (self *TilingSprite) GetTilePosition() Point{
-    return Point{self.Get("tilePosition")}
+func (self *TilingSprite) GetTilePosition() *Point{
+    return &Point{self.Get("tilePosition")}
 }
 
 // The offset position of the image that is being tiled
-func (self *TilingSprite) SetTilePosition(member Point) {
+func (self *TilingSprite) SetTilePosition(member *Point) {
     self.Set("tilePosition", member)
 }
 
@@ -106,32 +106,32 @@ func (self *TilingSprite) SetBlendMode(member float64) {
 }
 
 // The CanvasBuffer object that the tiled texture is drawn to.
-func (self *TilingSprite) GetCanvasBuffer() PIXICanvasBuffer{
-    return PIXICanvasBuffer{self.Get("canvasBuffer")}
+func (self *TilingSprite) GetCanvasBuffer() *PIXICanvasBuffer{
+    return &PIXICanvasBuffer{self.Get("canvasBuffer")}
 }
 
 // The CanvasBuffer object that the tiled texture is drawn to.
-func (self *TilingSprite) SetCanvasBuffer(member PIXICanvasBuffer) {
+func (self *TilingSprite) SetCanvasBuffer(member *PIXICanvasBuffer) {
     self.Set("canvasBuffer", member)
 }
 
 // An internal Texture object that holds the tiling texture that was generated from TilingSprite.texture.
-func (self *TilingSprite) GetTilingTexture() PIXITexture{
-    return PIXITexture{self.Get("tilingTexture")}
+func (self *TilingSprite) GetTilingTexture() *PIXITexture{
+    return &PIXITexture{self.Get("tilingTexture")}
 }
 
 // An internal Texture object that holds the tiling texture that was generated from TilingSprite.texture.
-func (self *TilingSprite) SetTilingTexture(member PIXITexture) {
+func (self *TilingSprite) SetTilingTexture(member *PIXITexture) {
     self.Set("tilingTexture", member)
 }
 
 // The Context fill pattern that is used to draw the TilingSprite in Canvas mode only (will be null in WebGL).
-func (self *TilingSprite) GetTilePattern() PIXITexture{
-    return PIXITexture{self.Get("tilePattern")}
+func (self *TilingSprite) GetTilePattern() *PIXITexture{
+    return &PIXITexture{self.Get("tilePattern")}
 }
 
 // The Context fill pattern that is used to draw the TilingSprite in Canvas mode only (will be null in WebGL).
-func (self *TilingSprite) SetTilePattern(member PIXITexture) {
+func (self *TilingSprite) SetTilePattern(member *PIXITexture) {
     self.Set("tilePattern", member)
 }
 
@@ -151,45 +151,45 @@ func (self *TilingSprite) SetRefreshTexture(member bool) {
 // The default is 0,0 this means the texture's origin is the top left
 // Setting than anchor to 0.5,0.5 means the textures origin is centered
 // Setting the anchor to 1,1 would mean the textures origin points will be the bottom right corner
-func (self *TilingSprite) GetAnchor() Point{
-    return Point{self.Get("anchor")}
+func (self *TilingSprite) GetAnchor() *Point{
+    return &Point{self.Get("anchor")}
 }
 
 // The anchor sets the origin point of the texture.
 // The default is 0,0 this means the texture's origin is the top left
 // Setting than anchor to 0.5,0.5 means the textures origin is centered
 // Setting the anchor to 1,1 would mean the textures origin points will be the bottom right corner
-func (self *TilingSprite) SetAnchor(member Point) {
+func (self *TilingSprite) SetAnchor(member *Point) {
     self.Set("anchor", member)
 }
 
 // The texture that the sprite is using
-func (self *TilingSprite) GetTexture() Texture{
-    return Texture{self.Get("texture")}
+func (self *TilingSprite) GetTexture() *Texture{
+    return &Texture{self.Get("texture")}
 }
 
 // The texture that the sprite is using
-func (self *TilingSprite) SetTexture(member Texture) {
+func (self *TilingSprite) SetTexture(member *Texture) {
     self.Set("texture", member)
 }
 
 // A canvas that contains the tinted version of the Sprite (in Canvas mode, WebGL doesn't populate this)
-func (self *TilingSprite) GetTintedTexture() Canvas{
-    return Canvas{self.Get("tintedTexture")}
+func (self *TilingSprite) GetTintedTexture() *Canvas{
+    return &Canvas{self.Get("tintedTexture")}
 }
 
 // A canvas that contains the tinted version of the Sprite (in Canvas mode, WebGL doesn't populate this)
-func (self *TilingSprite) SetTintedTexture(member Canvas) {
+func (self *TilingSprite) SetTintedTexture(member *Canvas) {
     self.Set("tintedTexture", member)
 }
 
 // The shader that will be used to render the texture to the stage. Set to null to remove a current shader.
-func (self *TilingSprite) GetShader() AbstractFilter{
-    return AbstractFilter{self.Get("shader")}
+func (self *TilingSprite) GetShader() *AbstractFilter{
+    return &AbstractFilter{self.Get("shader")}
 }
 
 // The shader that will be used to render the texture to the stage. Set to null to remove a current shader.
-func (self *TilingSprite) SetShader(member AbstractFilter) {
+func (self *TilingSprite) SetShader(member *AbstractFilter) {
     self.Set("shader", member)
 }
 
@@ -260,8 +260,8 @@ func (self *TilingSprite) GenerateTilingTextureI(args ...interface{}) {
 }
 
 // Returns the framing rectangle of the sprite as a PIXI.Rectangle object
-func (self *TilingSprite) GetBoundsI(args ...interface{}) Rectangle{
-    return Rectangle{self.Call("getBounds", args)}
+func (self *TilingSprite) GetBoundsI(args ...interface{}) *Rectangle{
+    return &Rectangle{self.Call("getBounds", args)}
 }
 
 // Sets the texture of the sprite. Be warned that this doesn't remove or destroy the previous
@@ -271,13 +271,13 @@ func (self *TilingSprite) SetTextureI(args ...interface{}) {
 }
 
 // Adds a child to the container.
-func (self *TilingSprite) AddChildI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("addChild", args)}
+func (self *TilingSprite) AddChildI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("addChild", args)}
 }
 
 // Adds a child to the container at a specified index. If the index is out of bounds an error will be thrown
-func (self *TilingSprite) AddChildAtI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("addChildAt", args)}
+func (self *TilingSprite) AddChildAtI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("addChildAt", args)}
 }
 
 // Swaps the position of 2 Display Objects within this container.
@@ -296,18 +296,18 @@ func (self *TilingSprite) SetChildIndexI(args ...interface{}) {
 }
 
 // Returns the child at the specified index
-func (self *TilingSprite) GetChildAtI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("getChildAt", args)}
+func (self *TilingSprite) GetChildAtI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("getChildAt", args)}
 }
 
 // Removes a child from the container.
-func (self *TilingSprite) RemoveChildI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("removeChild", args)}
+func (self *TilingSprite) RemoveChildI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("removeChild", args)}
 }
 
 // Removes a child from the specified index position.
-func (self *TilingSprite) RemoveChildAtI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("removeChildAt", args)}
+func (self *TilingSprite) RemoveChildAtI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("removeChildAt", args)}
 }
 
 // Removes all children from this container that are within the begin and end indexes.
@@ -316,8 +316,8 @@ func (self *TilingSprite) RemoveChildrenI(args ...interface{}) {
 }
 
 // Retrieves the non-global local bounds of the displayObjectContainer as a rectangle. The calculation takes all visible children into consideration.
-func (self *TilingSprite) GetLocalBoundsI(args ...interface{}) Rectangle{
-    return Rectangle{self.Call("getLocalBounds", args)}
+func (self *TilingSprite) GetLocalBoundsI(args ...interface{}) *Rectangle{
+    return &Rectangle{self.Call("getLocalBounds", args)}
 }
 
 // Sets the containers Stage reference. This is the Stage that this object, and all of its children, is connected to.

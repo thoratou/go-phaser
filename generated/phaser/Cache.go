@@ -34,12 +34,12 @@ type Cache struct {
 
 
 // Local reference to game.
-func (self *Cache) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *Cache) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // Local reference to game.
-func (self *Cache) SetGame(member Game) {
+func (self *Cache) SetGame(member *Game) {
     self.Set("game", member)
 }
 
@@ -54,12 +54,12 @@ func (self *Cache) SetAutoResolveURL(member bool) {
 }
 
 // This event is dispatched when the sound system is unlocked via a touch event on cellular devices.
-func (self *Cache) GetOnSoundUnlock() Signal{
-    return Signal{self.Get("onSoundUnlock")}
+func (self *Cache) GetOnSoundUnlock() *Signal{
+    return &Signal{self.Get("onSoundUnlock")}
 }
 
 // This event is dispatched when the sound system is unlocked via a touch event on cellular devices.
-func (self *Cache) SetOnSoundUnlock(member Signal) {
+func (self *Cache) SetOnSoundUnlock(member *Signal) {
     self.Set("onSoundUnlock", member)
 }
 
@@ -214,22 +214,22 @@ func (self *Cache) SetRENDER_TEXTURE(member float64) {
 }
 
 // The default image used for a texture when no other is specified.
-func (self *Cache) GetDEFAULT() Texture{
-    return Texture{self.Get("DEFAULT")}
+func (self *Cache) GetDEFAULT() *Texture{
+    return &Texture{self.Get("DEFAULT")}
 }
 
 // The default image used for a texture when no other is specified.
-func (self *Cache) SetDEFAULT(member Texture) {
+func (self *Cache) SetDEFAULT(member *Texture) {
     self.Set("DEFAULT", member)
 }
 
 // The default image used for a texture when the source image is missing.
-func (self *Cache) GetMISSING() Texture{
-    return Texture{self.Get("MISSING")}
+func (self *Cache) GetMISSING() *Texture{
+    return &Texture{self.Get("MISSING")}
 }
 
 // The default image used for a texture when the source image is missing.
-func (self *Cache) SetMISSING(member Texture) {
+func (self *Cache) SetMISSING(member *Texture) {
     self.Set("MISSING", member)
 }
 
@@ -288,8 +288,8 @@ func (self *Cache) AddBinaryI(args ...interface{}) {
 }
 
 // Add a BitmapData object to the cache.
-func (self *Cache) AddBitmapDataI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("addBitmapData", args)}
+func (self *Cache) AddBitmapDataI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("addBitmapData", args)}
 }
 
 // Add a new Bitmap Font to the Cache.
@@ -477,15 +477,15 @@ func (self *Cache) GetCanvasI(args ...interface{}) interface{}{
 // Only the Image cache is searched, which covers images loaded via Loader.image, Sprite Sheets and Texture Atlases.
 // 
 // If you need the image used by a bitmap font or similar then please use those respective 'get' methods.
-func (self *Cache) GetImageI(args ...interface{}) Image{
-    return Image{self.Call("getImage", args)}
+func (self *Cache) GetImageI(args ...interface{}) *Image{
+    return &Image{self.Call("getImage", args)}
 }
 
 // Get a single texture frame by key.
 // 
 // You'd only do this to get the default Frame created for a non-atlas / spritesheet image.
-func (self *Cache) GetTextureFrameI(args ...interface{}) Frame{
-    return Frame{self.Call("getTextureFrame", args)}
+func (self *Cache) GetTextureFrameI(args ...interface{}) *Frame{
+    return &Frame{self.Call("getTextureFrame", args)}
 }
 
 // Gets a Phaser.Sound object from the cache.
@@ -493,8 +493,8 @@ func (self *Cache) GetTextureFrameI(args ...interface{}) Frame{
 // The object is looked-up based on the key given.
 // 
 // Note: If the object cannot be found a `console.warn` message is displayed.
-func (self *Cache) GetSoundI(args ...interface{}) Sound{
-    return Sound{self.Call("getSound", args)}
+func (self *Cache) GetSoundI(args ...interface{}) *Sound{
+    return &Sound{self.Call("getSound", args)}
 }
 
 // Gets a raw Sound data object from the cache.
@@ -549,8 +549,8 @@ func (self *Cache) GetBinaryI(args ...interface{}) interface{}{
 // The object is looked-up based on the key given.
 // 
 // Note: If the object cannot be found a `console.warn` message is displayed.
-func (self *Cache) GetBitmapDataI(args ...interface{}) BitmapData{
-    return BitmapData{self.Call("getBitmapData", args)}
+func (self *Cache) GetBitmapDataI(args ...interface{}) *BitmapData{
+    return &BitmapData{self.Call("getBitmapData", args)}
 }
 
 // Gets a Bitmap Font object from the cache.
@@ -558,8 +558,8 @@ func (self *Cache) GetBitmapDataI(args ...interface{}) BitmapData{
 // The object is looked-up based on the key given.
 // 
 // Note: If the object cannot be found a `console.warn` message is displayed.
-func (self *Cache) GetBitmapFontI(args ...interface{}) BitmapFont{
-    return BitmapFont{self.Call("getBitmapFont", args)}
+func (self *Cache) GetBitmapFontI(args ...interface{}) *BitmapFont{
+    return &BitmapFont{self.Call("getBitmapFont", args)}
 }
 
 // Gets a JSON object from the cache.
@@ -588,8 +588,8 @@ func (self *Cache) GetXMLI(args ...interface{}) interface{}{
 // The object is looked-up based on the key given.
 // 
 // Note: If the object cannot be found a `console.warn` message is displayed.
-func (self *Cache) GetVideoI(args ...interface{}) Video{
-    return Video{self.Call("getVideo", args)}
+func (self *Cache) GetVideoI(args ...interface{}) *Video{
+    return &Video{self.Call("getVideo", args)}
 }
 
 // Gets a fragment shader object from the cache.
@@ -611,13 +611,13 @@ func (self *Cache) GetRenderTextureI(args ...interface{}) interface{}{
 }
 
 // Gets a PIXI.BaseTexture by key from the given Cache.
-func (self *Cache) GetBaseTextureI(args ...interface{}) BaseTexture{
-    return BaseTexture{self.Call("getBaseTexture", args)}
+func (self *Cache) GetBaseTextureI(args ...interface{}) *BaseTexture{
+    return &BaseTexture{self.Call("getBaseTexture", args)}
 }
 
 // Get a single frame by key. You'd only do this to get the default Frame created for a non-atlas/spritesheet image.
-func (self *Cache) GetFrameI(args ...interface{}) Frame{
-    return Frame{self.Call("getFrame", args)}
+func (self *Cache) GetFrameI(args ...interface{}) *Frame{
+    return &Frame{self.Call("getFrame", args)}
 }
 
 // Get the total number of frames contained in the FrameData object specified by the given key.
@@ -630,8 +630,8 @@ func (self *Cache) GetFrameCountI(args ...interface{}) float64{
 // The object is looked-up based on the key given.
 // 
 // Note: If the object cannot be found a `console.warn` message is displayed.
-func (self *Cache) GetFrameDataI(args ...interface{}) FrameData{
-    return FrameData{self.Call("getFrameData", args)}
+func (self *Cache) GetFrameDataI(args ...interface{}) *FrameData{
+    return &FrameData{self.Call("getFrameData", args)}
 }
 
 // Check if the FrameData for the given key exists in the Image Cache.
@@ -645,13 +645,13 @@ func (self *Cache) UpdateFrameDataI(args ...interface{}) {
 }
 
 // Get a single frame out of a frameData set by key.
-func (self *Cache) GetFrameByIndexI(args ...interface{}) Frame{
-    return Frame{self.Call("getFrameByIndex", args)}
+func (self *Cache) GetFrameByIndexI(args ...interface{}) *Frame{
+    return &Frame{self.Call("getFrameByIndex", args)}
 }
 
 // Get a single frame out of a frameData set by key.
-func (self *Cache) GetFrameByNameI(args ...interface{}) Frame{
-    return Frame{self.Call("getFrameByName", args)}
+func (self *Cache) GetFrameByNameI(args ...interface{}) *Frame{
+    return &Frame{self.Call("getFrameByName", args)}
 }
 
 // Get a cached object by the URL.

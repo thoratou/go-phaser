@@ -160,12 +160,12 @@ func (self *Game) SetRenderType(member float64) {
 }
 
 // The StateManager.
-func (self *Game) GetState() StateManager{
-    return StateManager{self.Get("state")}
+func (self *Game) GetState() *StateManager{
+    return &StateManager{self.Get("state")}
 }
 
 // The StateManager.
-func (self *Game) SetState(member StateManager) {
+func (self *Game) SetState(member *StateManager) {
     self.Set("state", member)
 }
 
@@ -190,192 +190,192 @@ func (self *Game) SetIsRunning(member bool) {
 }
 
 // Automatically handles the core game loop via requestAnimationFrame or setTimeout
-func (self *Game) GetRaf() RequestAnimationFrame{
-    return RequestAnimationFrame{self.Get("raf")}
+func (self *Game) GetRaf() *RequestAnimationFrame{
+    return &RequestAnimationFrame{self.Get("raf")}
 }
 
 // Automatically handles the core game loop via requestAnimationFrame or setTimeout
-func (self *Game) SetRaf(member RequestAnimationFrame) {
+func (self *Game) SetRaf(member *RequestAnimationFrame) {
     self.Set("raf", member)
 }
 
 // Reference to the Phaser.GameObjectFactory.
-func (self *Game) GetAdd() GameObjectFactory{
-    return GameObjectFactory{self.Get("add")}
+func (self *Game) GetAdd() *GameObjectFactory{
+    return &GameObjectFactory{self.Get("add")}
 }
 
 // Reference to the Phaser.GameObjectFactory.
-func (self *Game) SetAdd(member GameObjectFactory) {
+func (self *Game) SetAdd(member *GameObjectFactory) {
     self.Set("add", member)
 }
 
 // Reference to the GameObject Creator.
-func (self *Game) GetMake() GameObjectCreator{
-    return GameObjectCreator{self.Get("make")}
+func (self *Game) GetMake() *GameObjectCreator{
+    return &GameObjectCreator{self.Get("make")}
 }
 
 // Reference to the GameObject Creator.
-func (self *Game) SetMake(member GameObjectCreator) {
+func (self *Game) SetMake(member *GameObjectCreator) {
     self.Set("make", member)
 }
 
 // Reference to the assets cache.
-func (self *Game) GetCache() Cache{
-    return Cache{self.Get("cache")}
+func (self *Game) GetCache() *Cache{
+    return &Cache{self.Get("cache")}
 }
 
 // Reference to the assets cache.
-func (self *Game) SetCache(member Cache) {
+func (self *Game) SetCache(member *Cache) {
     self.Set("cache", member)
 }
 
 // Reference to the input manager
-func (self *Game) GetInput() Input{
-    return Input{self.Get("input")}
+func (self *Game) GetInput() *Input{
+    return &Input{self.Get("input")}
 }
 
 // Reference to the input manager
-func (self *Game) SetInput(member Input) {
+func (self *Game) SetInput(member *Input) {
     self.Set("input", member)
 }
 
 // Reference to the assets loader.
-func (self *Game) GetLoad() Loader{
-    return Loader{self.Get("load")}
+func (self *Game) GetLoad() *Loader{
+    return &Loader{self.Get("load")}
 }
 
 // Reference to the assets loader.
-func (self *Game) SetLoad(member Loader) {
+func (self *Game) SetLoad(member *Loader) {
     self.Set("load", member)
 }
 
 // Reference to the math helper.
-func (self *Game) GetMath() Math{
-    return Math{self.Get("math")}
+func (self *Game) GetMath() *Math{
+    return &Math{self.Get("math")}
 }
 
 // Reference to the math helper.
-func (self *Game) SetMath(member Math) {
+func (self *Game) SetMath(member *Math) {
     self.Set("math", member)
 }
 
 // Reference to the network class.
-func (self *Game) GetNet() Net{
-    return Net{self.Get("net")}
+func (self *Game) GetNet() *Net{
+    return &Net{self.Get("net")}
 }
 
 // Reference to the network class.
-func (self *Game) SetNet(member Net) {
+func (self *Game) SetNet(member *Net) {
     self.Set("net", member)
 }
 
 // The game scale manager.
-func (self *Game) GetScale() ScaleManager{
-    return ScaleManager{self.Get("scale")}
+func (self *Game) GetScale() *ScaleManager{
+    return &ScaleManager{self.Get("scale")}
 }
 
 // The game scale manager.
-func (self *Game) SetScale(member ScaleManager) {
+func (self *Game) SetScale(member *ScaleManager) {
     self.Set("scale", member)
 }
 
 // Reference to the sound manager.
-func (self *Game) GetSound() SoundManager{
-    return SoundManager{self.Get("sound")}
+func (self *Game) GetSound() *SoundManager{
+    return &SoundManager{self.Get("sound")}
 }
 
 // Reference to the sound manager.
-func (self *Game) SetSound(member SoundManager) {
+func (self *Game) SetSound(member *SoundManager) {
     self.Set("sound", member)
 }
 
 // Reference to the stage.
-func (self *Game) GetStage() Stage{
-    return Stage{self.Get("stage")}
+func (self *Game) GetStage() *Stage{
+    return &Stage{self.Get("stage")}
 }
 
 // Reference to the stage.
-func (self *Game) SetStage(member Stage) {
+func (self *Game) SetStage(member *Stage) {
     self.Set("stage", member)
 }
 
 // Reference to the core game clock.
-func (self *Game) GetTime() Time{
-    return Time{self.Get("time")}
+func (self *Game) GetTime() *Time{
+    return &Time{self.Get("time")}
 }
 
 // Reference to the core game clock.
-func (self *Game) SetTime(member Time) {
+func (self *Game) SetTime(member *Time) {
     self.Set("time", member)
 }
 
 // Reference to the tween manager.
-func (self *Game) GetTweens() TweenManager{
-    return TweenManager{self.Get("tweens")}
+func (self *Game) GetTweens() *TweenManager{
+    return &TweenManager{self.Get("tweens")}
 }
 
 // Reference to the tween manager.
-func (self *Game) SetTweens(member TweenManager) {
+func (self *Game) SetTweens(member *TweenManager) {
     self.Set("tweens", member)
 }
 
 // Reference to the world.
-func (self *Game) GetWorld() World{
-    return World{self.Get("world")}
+func (self *Game) GetWorld() *World{
+    return &World{self.Get("world")}
 }
 
 // Reference to the world.
-func (self *Game) SetWorld(member World) {
+func (self *Game) SetWorld(member *World) {
     self.Set("world", member)
 }
 
 // Reference to the physics manager.
-func (self *Game) GetPhysics() Physics{
-    return Physics{self.Get("physics")}
+func (self *Game) GetPhysics() *Physics{
+    return &Physics{self.Get("physics")}
 }
 
 // Reference to the physics manager.
-func (self *Game) SetPhysics(member Physics) {
+func (self *Game) SetPhysics(member *Physics) {
     self.Set("physics", member)
 }
 
 // Reference to the plugin manager.
-func (self *Game) GetPlugins() PluginManager{
-    return PluginManager{self.Get("plugins")}
+func (self *Game) GetPlugins() *PluginManager{
+    return &PluginManager{self.Get("plugins")}
 }
 
 // Reference to the plugin manager.
-func (self *Game) SetPlugins(member PluginManager) {
+func (self *Game) SetPlugins(member *PluginManager) {
     self.Set("plugins", member)
 }
 
 // Instance of repeatable random data generator helper.
-func (self *Game) GetRnd() RandomDataGenerator{
-    return RandomDataGenerator{self.Get("rnd")}
+func (self *Game) GetRnd() *RandomDataGenerator{
+    return &RandomDataGenerator{self.Get("rnd")}
 }
 
 // Instance of repeatable random data generator helper.
-func (self *Game) SetRnd(member RandomDataGenerator) {
+func (self *Game) SetRnd(member *RandomDataGenerator) {
     self.Set("rnd", member)
 }
 
 // Contains device information and capabilities.
-func (self *Game) GetDevice() Device{
-    return Device{self.Get("device")}
+func (self *Game) GetDevice() *Device{
+    return &Device{self.Get("device")}
 }
 
 // Contains device information and capabilities.
-func (self *Game) SetDevice(member Device) {
+func (self *Game) SetDevice(member *Device) {
     self.Set("device", member)
 }
 
 // A handy reference to world.camera.
-func (self *Game) GetCamera() Camera{
-    return Camera{self.Get("camera")}
+func (self *Game) GetCamera() *Camera{
+    return &Camera{self.Get("camera")}
 }
 
 // A handy reference to world.camera.
-func (self *Game) SetCamera(member Camera) {
+func (self *Game) SetCamera(member *Camera) {
     self.Set("camera", member)
 }
 
@@ -400,32 +400,32 @@ func (self *Game) SetContext(member dom.CanvasRenderingContext2D) {
 }
 
 // A set of useful debug utilities.
-func (self *Game) GetDebug() UtilsDebug{
-    return UtilsDebug{self.Get("debug")}
+func (self *Game) GetDebug() *UtilsDebug{
+    return &UtilsDebug{self.Get("debug")}
 }
 
 // A set of useful debug utilities.
-func (self *Game) SetDebug(member UtilsDebug) {
+func (self *Game) SetDebug(member *UtilsDebug) {
     self.Set("debug", member)
 }
 
 // The Particle Manager.
-func (self *Game) GetParticles() Particles{
-    return Particles{self.Get("particles")}
+func (self *Game) GetParticles() *Particles{
+    return &Particles{self.Get("particles")}
 }
 
 // The Particle Manager.
-func (self *Game) SetParticles(member Particles) {
+func (self *Game) SetParticles(member *Particles) {
     self.Set("particles", member)
 }
 
 // The Asset Generator.
-func (self *Game) GetCreate() Create{
-    return Create{self.Get("create")}
+func (self *Game) GetCreate() *Create{
+    return &Create{self.Get("create")}
 }
 
 // The Asset Generator.
-func (self *Game) SetCreate(member Create) {
+func (self *Game) SetCreate(member *Create) {
     self.Set("create", member)
 }
 
@@ -474,42 +474,42 @@ func (self *Game) SetStepCount(member float64) {
 }
 
 // This event is fired when the game pauses.
-func (self *Game) GetOnPause() Signal{
-    return Signal{self.Get("onPause")}
+func (self *Game) GetOnPause() *Signal{
+    return &Signal{self.Get("onPause")}
 }
 
 // This event is fired when the game pauses.
-func (self *Game) SetOnPause(member Signal) {
+func (self *Game) SetOnPause(member *Signal) {
     self.Set("onPause", member)
 }
 
 // This event is fired when the game resumes from a paused state.
-func (self *Game) GetOnResume() Signal{
-    return Signal{self.Get("onResume")}
+func (self *Game) GetOnResume() *Signal{
+    return &Signal{self.Get("onResume")}
 }
 
 // This event is fired when the game resumes from a paused state.
-func (self *Game) SetOnResume(member Signal) {
+func (self *Game) SetOnResume(member *Signal) {
     self.Set("onResume", member)
 }
 
 // This event is fired when the game no longer has focus (typically on page hide).
-func (self *Game) GetOnBlur() Signal{
-    return Signal{self.Get("onBlur")}
+func (self *Game) GetOnBlur() *Signal{
+    return &Signal{self.Get("onBlur")}
 }
 
 // This event is fired when the game no longer has focus (typically on page hide).
-func (self *Game) SetOnBlur(member Signal) {
+func (self *Game) SetOnBlur(member *Signal) {
     self.Set("onBlur", member)
 }
 
 // This event is fired when the game has focus (typically on page show).
-func (self *Game) GetOnFocus() Signal{
-    return Signal{self.Get("onFocus")}
+func (self *Game) GetOnFocus() *Signal{
+    return &Signal{self.Get("onFocus")}
 }
 
 // This event is fired when the game has focus (typically on page show).
-func (self *Game) SetOnFocus(member Signal) {
+func (self *Game) SetOnFocus(member *Signal) {
     self.Set("onFocus", member)
 }
 
@@ -537,13 +537,13 @@ func (self *Game) SetUpdatesThisFrame(member int) {
 
 // If the game is struggling to maintain the desired FPS, this signal will be dispatched.
 // The desired/chosen FPS should probably be closer to the {@link Phaser.Time#suggestedFps} value.
-func (self *Game) GetFpsProblemNotifier() Signal{
-    return Signal{self.Get("fpsProblemNotifier")}
+func (self *Game) GetFpsProblemNotifier() *Signal{
+    return &Signal{self.Get("fpsProblemNotifier")}
 }
 
 // If the game is struggling to maintain the desired FPS, this signal will be dispatched.
 // The desired/chosen FPS should probably be closer to the {@link Phaser.Time#suggestedFps} value.
-func (self *Game) SetFpsProblemNotifier(member Signal) {
+func (self *Game) SetFpsProblemNotifier(member *Signal) {
     self.Set("fpsProblemNotifier", member)
 }
 

@@ -85,8 +85,8 @@ func (self *SignalBinding) GetListenerI(args ...interface{}) func(...interface{}
 }
 
 // 
-func (self *SignalBinding) GetSignalI(args ...interface{}) Signal{
-    return Signal{self.Call("getSignal", args)}
+func (self *SignalBinding) GetSignalI(args ...interface{}) *Signal{
+    return &Signal{self.Call("getSignal", args)}
 }
 
 // Delete instance properties

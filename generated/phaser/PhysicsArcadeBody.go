@@ -15,22 +15,22 @@ type PhysicsArcadeBody struct {
 
 
 // Reference to the parent Sprite.
-func (self *PhysicsArcadeBody) GetSprite() Sprite{
-    return Sprite{self.Get("sprite")}
+func (self *PhysicsArcadeBody) GetSprite() *Sprite{
+    return &Sprite{self.Get("sprite")}
 }
 
 // Reference to the parent Sprite.
-func (self *PhysicsArcadeBody) SetSprite(member Sprite) {
+func (self *PhysicsArcadeBody) SetSprite(member *Sprite) {
     self.Set("sprite", member)
 }
 
 // Local reference to game.
-func (self *PhysicsArcadeBody) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *PhysicsArcadeBody) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // Local reference to game.
-func (self *PhysicsArcadeBody) SetGame(member Game) {
+func (self *PhysicsArcadeBody) SetGame(member *Game) {
     self.Set("game", member)
 }
 
@@ -81,32 +81,32 @@ func (self *PhysicsArcadeBody) SetRadius(member float64) {
 }
 
 // The offset of the Physics Body from the Sprite x/y position.
-func (self *PhysicsArcadeBody) GetOffset() Point{
-    return Point{self.Get("offset")}
+func (self *PhysicsArcadeBody) GetOffset() *Point{
+    return &Point{self.Get("offset")}
 }
 
 // The offset of the Physics Body from the Sprite x/y position.
-func (self *PhysicsArcadeBody) SetOffset(member Point) {
+func (self *PhysicsArcadeBody) SetOffset(member *Point) {
     self.Set("offset", member)
 }
 
 // The position of the physics body.
-func (self *PhysicsArcadeBody) GetPosition() Point{
-    return Point{self.Get("position")}
+func (self *PhysicsArcadeBody) GetPosition() *Point{
+    return &Point{self.Get("position")}
 }
 
 // The position of the physics body.
-func (self *PhysicsArcadeBody) SetPosition(member Point) {
+func (self *PhysicsArcadeBody) SetPosition(member *Point) {
     self.Set("position", member)
 }
 
 // The previous position of the physics body.
-func (self *PhysicsArcadeBody) GetPrev() Point{
-    return Point{self.Get("prev")}
+func (self *PhysicsArcadeBody) GetPrev() *Point{
+    return &Point{self.Get("prev")}
 }
 
 // The previous position of the physics body.
-func (self *PhysicsArcadeBody) SetPrev(member Point) {
+func (self *PhysicsArcadeBody) SetPrev(member *Point) {
     self.Set("prev", member)
 }
 
@@ -203,62 +203,62 @@ func (self *PhysicsArcadeBody) SetHalfHeight(member float64) {
 }
 
 // The center coordinate of the Physics Body.
-func (self *PhysicsArcadeBody) GetCenter() Point{
-    return Point{self.Get("center")}
+func (self *PhysicsArcadeBody) GetCenter() *Point{
+    return &Point{self.Get("center")}
 }
 
 // The center coordinate of the Physics Body.
-func (self *PhysicsArcadeBody) SetCenter(member Point) {
+func (self *PhysicsArcadeBody) SetCenter(member *Point) {
     self.Set("center", member)
 }
 
 // The velocity, or rate of change in speed of the Body. Measured in pixels per second.
-func (self *PhysicsArcadeBody) GetVelocity() Point{
-    return Point{self.Get("velocity")}
+func (self *PhysicsArcadeBody) GetVelocity() *Point{
+    return &Point{self.Get("velocity")}
 }
 
 // The velocity, or rate of change in speed of the Body. Measured in pixels per second.
-func (self *PhysicsArcadeBody) SetVelocity(member Point) {
+func (self *PhysicsArcadeBody) SetVelocity(member *Point) {
     self.Set("velocity", member)
 }
 
 // The new velocity. Calculated during the Body.preUpdate and applied to its position.
-func (self *PhysicsArcadeBody) GetNewVelocity() Point{
-    return Point{self.Get("newVelocity")}
+func (self *PhysicsArcadeBody) GetNewVelocity() *Point{
+    return &Point{self.Get("newVelocity")}
 }
 
 // The new velocity. Calculated during the Body.preUpdate and applied to its position.
-func (self *PhysicsArcadeBody) SetNewVelocity(member Point) {
+func (self *PhysicsArcadeBody) SetNewVelocity(member *Point) {
     self.Set("newVelocity", member)
 }
 
 // The Sprite position is updated based on the delta x/y values. You can set a cap on those (both +-) using deltaMax.
-func (self *PhysicsArcadeBody) GetDeltaMax() Point{
-    return Point{self.Get("deltaMax")}
+func (self *PhysicsArcadeBody) GetDeltaMax() *Point{
+    return &Point{self.Get("deltaMax")}
 }
 
 // The Sprite position is updated based on the delta x/y values. You can set a cap on those (both +-) using deltaMax.
-func (self *PhysicsArcadeBody) SetDeltaMax(member Point) {
+func (self *PhysicsArcadeBody) SetDeltaMax(member *Point) {
     self.Set("deltaMax", member)
 }
 
 // The acceleration is the rate of change of the velocity. Measured in pixels per second squared.
-func (self *PhysicsArcadeBody) GetAcceleration() Point{
-    return Point{self.Get("acceleration")}
+func (self *PhysicsArcadeBody) GetAcceleration() *Point{
+    return &Point{self.Get("acceleration")}
 }
 
 // The acceleration is the rate of change of the velocity. Measured in pixels per second squared.
-func (self *PhysicsArcadeBody) SetAcceleration(member Point) {
+func (self *PhysicsArcadeBody) SetAcceleration(member *Point) {
     self.Set("acceleration", member)
 }
 
 // The drag applied to the motion of the Body.
-func (self *PhysicsArcadeBody) GetDrag() Point{
-    return Point{self.Get("drag")}
+func (self *PhysicsArcadeBody) GetDrag() *Point{
+    return &Point{self.Get("drag")}
 }
 
 // The drag applied to the motion of the Body.
-func (self *PhysicsArcadeBody) SetDrag(member Point) {
+func (self *PhysicsArcadeBody) SetDrag(member *Point) {
     self.Set("drag", member)
 }
 
@@ -273,36 +273,36 @@ func (self *PhysicsArcadeBody) SetAllowGravity(member bool) {
 }
 
 // A local gravity applied to this Body. If non-zero this over rides any world gravity, unless Body.allowGravity is set to false.
-func (self *PhysicsArcadeBody) GetGravity() Point{
-    return Point{self.Get("gravity")}
+func (self *PhysicsArcadeBody) GetGravity() *Point{
+    return &Point{self.Get("gravity")}
 }
 
 // A local gravity applied to this Body. If non-zero this over rides any world gravity, unless Body.allowGravity is set to false.
-func (self *PhysicsArcadeBody) SetGravity(member Point) {
+func (self *PhysicsArcadeBody) SetGravity(member *Point) {
     self.Set("gravity", member)
 }
 
 // The elasticity of the Body when colliding. bounce.x/y = 1 means full rebound, bounce.x/y = 0.5 means 50% rebound velocity.
-func (self *PhysicsArcadeBody) GetBounce() Point{
-    return Point{self.Get("bounce")}
+func (self *PhysicsArcadeBody) GetBounce() *Point{
+    return &Point{self.Get("bounce")}
 }
 
 // The elasticity of the Body when colliding. bounce.x/y = 1 means full rebound, bounce.x/y = 0.5 means 50% rebound velocity.
-func (self *PhysicsArcadeBody) SetBounce(member Point) {
+func (self *PhysicsArcadeBody) SetBounce(member *Point) {
     self.Set("bounce", member)
 }
 
 // The elasticity of the Body when colliding with the World bounds.
 // By default this property is `null`, in which case `Body.bounce` is used instead. Set this property
 // to a Phaser.Point object in order to enable a World bounds specific bounce value.
-func (self *PhysicsArcadeBody) GetWorldBounce() Point{
-    return Point{self.Get("worldBounce")}
+func (self *PhysicsArcadeBody) GetWorldBounce() *Point{
+    return &Point{self.Get("worldBounce")}
 }
 
 // The elasticity of the Body when colliding with the World bounds.
 // By default this property is `null`, in which case `Body.bounce` is used instead. Set this property
 // to a Phaser.Point object in order to enable a World bounds specific bounce value.
-func (self *PhysicsArcadeBody) SetWorldBounce(member Point) {
+func (self *PhysicsArcadeBody) SetWorldBounce(member *Point) {
     self.Set("worldBounce", member)
 }
 
@@ -313,8 +313,8 @@ func (self *PhysicsArcadeBody) SetWorldBounce(member Point) {
 // `onWorldBounds(sprite, up, down, left, right)`
 // where the Sprite is a reference to the Sprite that owns this Body, and the other arguments are booleans
 // indicating on which side of the world the Body collided.
-func (self *PhysicsArcadeBody) GetOnWorldBounds() Signal{
-    return Signal{self.Get("onWorldBounds")}
+func (self *PhysicsArcadeBody) GetOnWorldBounds() *Signal{
+    return &Signal{self.Get("onWorldBounds")}
 }
 
 // A Signal that is dispatched when this Body collides with the world bounds.
@@ -324,7 +324,7 @@ func (self *PhysicsArcadeBody) GetOnWorldBounds() Signal{
 // `onWorldBounds(sprite, up, down, left, right)`
 // where the Sprite is a reference to the Sprite that owns this Body, and the other arguments are booleans
 // indicating on which side of the world the Body collided.
-func (self *PhysicsArcadeBody) SetOnWorldBounds(member Signal) {
+func (self *PhysicsArcadeBody) SetOnWorldBounds(member *Signal) {
     self.Set("onWorldBounds", member)
 }
 
@@ -343,8 +343,8 @@ func (self *PhysicsArcadeBody) SetOnWorldBounds(member Signal) {
 // The first sprite in the argument is always the owner of this Body.
 // 
 // If two Bodies with this Signal set collide, both will dispatch the Signal.
-func (self *PhysicsArcadeBody) GetOnCollide() Signal{
-    return Signal{self.Get("onCollide")}
+func (self *PhysicsArcadeBody) GetOnCollide() *Signal{
+    return &Signal{self.Get("onCollide")}
 }
 
 // A Signal that is dispatched when this Body collides with another Body.
@@ -362,7 +362,7 @@ func (self *PhysicsArcadeBody) GetOnCollide() Signal{
 // The first sprite in the argument is always the owner of this Body.
 // 
 // If two Bodies with this Signal set collide, both will dispatch the Signal.
-func (self *PhysicsArcadeBody) SetOnCollide(member Signal) {
+func (self *PhysicsArcadeBody) SetOnCollide(member *Signal) {
     self.Set("onCollide", member)
 }
 
@@ -381,8 +381,8 @@ func (self *PhysicsArcadeBody) SetOnCollide(member Signal) {
 // The first sprite in the argument is always the owner of this Body.
 // 
 // If two Bodies with this Signal set collide, both will dispatch the Signal.
-func (self *PhysicsArcadeBody) GetOnOverlap() Signal{
-    return Signal{self.Get("onOverlap")}
+func (self *PhysicsArcadeBody) GetOnOverlap() *Signal{
+    return &Signal{self.Get("onOverlap")}
 }
 
 // A Signal that is dispatched when this Body overlaps with another Body.
@@ -400,27 +400,27 @@ func (self *PhysicsArcadeBody) GetOnOverlap() Signal{
 // The first sprite in the argument is always the owner of this Body.
 // 
 // If two Bodies with this Signal set collide, both will dispatch the Signal.
-func (self *PhysicsArcadeBody) SetOnOverlap(member Signal) {
+func (self *PhysicsArcadeBody) SetOnOverlap(member *Signal) {
     self.Set("onOverlap", member)
 }
 
 // The maximum velocity in pixels per second sq. that the Body can reach.
-func (self *PhysicsArcadeBody) GetMaxVelocity() Point{
-    return Point{self.Get("maxVelocity")}
+func (self *PhysicsArcadeBody) GetMaxVelocity() *Point{
+    return &Point{self.Get("maxVelocity")}
 }
 
 // The maximum velocity in pixels per second sq. that the Body can reach.
-func (self *PhysicsArcadeBody) SetMaxVelocity(member Point) {
+func (self *PhysicsArcadeBody) SetMaxVelocity(member *Point) {
     self.Set("maxVelocity", member)
 }
 
 // The amount of movement that will occur if another object 'rides' this one.
-func (self *PhysicsArcadeBody) GetFriction() Point{
-    return Point{self.Get("friction")}
+func (self *PhysicsArcadeBody) GetFriction() *Point{
+    return &Point{self.Get("friction")}
 }
 
 // The amount of movement that will occur if another object 'rides' this one.
-func (self *PhysicsArcadeBody) SetFriction(member Point) {
+func (self *PhysicsArcadeBody) SetFriction(member *Point) {
     self.Set("friction", member)
 }
 
@@ -650,13 +650,13 @@ func (self *PhysicsArcadeBody) SetBlocked(member interface{}) {
 
 // If this is an especially small or fast moving object then it can sometimes skip over tilemap collisions if it moves through a tile in a step.
 // Set this padding value to add extra padding to its bounds. tilePadding.x applied to its width, y to its height. Extra padding to be added to this sprite's dimensions when checking for tile collision.
-func (self *PhysicsArcadeBody) GetTilePadding() Point{
-    return Point{self.Get("tilePadding")}
+func (self *PhysicsArcadeBody) GetTilePadding() *Point{
+    return &Point{self.Get("tilePadding")}
 }
 
 // If this is an especially small or fast moving object then it can sometimes skip over tilemap collisions if it moves through a tile in a step.
 // Set this padding value to add extra padding to its bounds. tilePadding.x applied to its width, y to its height. Extra padding to be added to this sprite's dimensions when checking for tile collision.
-func (self *PhysicsArcadeBody) SetTilePadding(member Point) {
+func (self *PhysicsArcadeBody) SetTilePadding(member *Point) {
     self.Set("tilePadding", member)
 }
 
@@ -717,12 +717,12 @@ func (self *PhysicsArcadeBody) SetStopVelocityOnCollide(member bool) {
 }
 
 // Listen for the completion of `moveTo` or `moveFrom` events.
-func (self *PhysicsArcadeBody) GetOnMoveComplete() Signal{
-    return Signal{self.Get("onMoveComplete")}
+func (self *PhysicsArcadeBody) GetOnMoveComplete() *Signal{
+    return &Signal{self.Get("onMoveComplete")}
 }
 
 // Listen for the completion of `moveTo` or `moveFrom` events.
-func (self *PhysicsArcadeBody) SetOnMoveComplete(member Signal) {
+func (self *PhysicsArcadeBody) SetOnMoveComplete(member *Signal) {
     self.Set("onMoveComplete", member)
 }
 

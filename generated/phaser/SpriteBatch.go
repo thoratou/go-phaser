@@ -29,12 +29,12 @@ func (self *SpriteBatch) SetType(member float64) {
 }
 
 // A reference to the currently running Game.
-func (self *SpriteBatch) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *SpriteBatch) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // A reference to the currently running Game.
-func (self *SpriteBatch) SetGame(member Game) {
+func (self *SpriteBatch) SetGame(member *Game) {
     self.Set("game", member)
 }
 
@@ -139,14 +139,14 @@ func (self *SpriteBatch) SetClassType(member interface{}) {
 // The current display object that the group cursor is pointing to, if any. (Can be set manually.)
 // 
 // The cursor is a way to iterate through the children in a Group using {@link Phaser.Group#next next} and {@link Phaser.Group#previous previous}.
-func (self *SpriteBatch) GetCursor() DisplayObject{
-    return DisplayObject{self.Get("cursor")}
+func (self *SpriteBatch) GetCursor() *DisplayObject{
+    return &DisplayObject{self.Get("cursor")}
 }
 
 // The current display object that the group cursor is pointing to, if any. (Can be set manually.)
 // 
 // The cursor is a way to iterate through the children in a Group using {@link Phaser.Group#next next} and {@link Phaser.Group#previous previous}.
-func (self *SpriteBatch) SetCursor(member DisplayObject) {
+func (self *SpriteBatch) SetCursor(member *DisplayObject) {
     self.Set("cursor", member)
 }
 
@@ -172,8 +172,8 @@ func (self *SpriteBatch) SetInputEnableChildren(member bool) {
 // 
 // This Signal is sent 2 arguments: A reference to the Sprite that triggered the signal, and
 // a reference to the Pointer that caused it.
-func (self *SpriteBatch) GetOnChildInputDown() Signal{
-    return Signal{self.Get("onChildInputDown")}
+func (self *SpriteBatch) GetOnChildInputDown() *Signal{
+    return &Signal{self.Get("onChildInputDown")}
 }
 
 // This Signal is dispatched whenever a child of this Group emits an onInputDown signal as a result
@@ -182,7 +182,7 @@ func (self *SpriteBatch) GetOnChildInputDown() Signal{
 // 
 // This Signal is sent 2 arguments: A reference to the Sprite that triggered the signal, and
 // a reference to the Pointer that caused it.
-func (self *SpriteBatch) SetOnChildInputDown(member Signal) {
+func (self *SpriteBatch) SetOnChildInputDown(member *Signal) {
     self.Set("onChildInputDown", member)
 }
 
@@ -193,8 +193,8 @@ func (self *SpriteBatch) SetOnChildInputDown(member Signal) {
 // This Signal is sent 3 arguments: A reference to the Sprite that triggered the signal, 
 // a reference to the Pointer that caused it, and a boolean value `isOver` that tells you if the Pointer
 // is still over the Sprite or not.
-func (self *SpriteBatch) GetOnChildInputUp() Signal{
-    return Signal{self.Get("onChildInputUp")}
+func (self *SpriteBatch) GetOnChildInputUp() *Signal{
+    return &Signal{self.Get("onChildInputUp")}
 }
 
 // This Signal is dispatched whenever a child of this Group emits an onInputUp signal as a result
@@ -204,7 +204,7 @@ func (self *SpriteBatch) GetOnChildInputUp() Signal{
 // This Signal is sent 3 arguments: A reference to the Sprite that triggered the signal, 
 // a reference to the Pointer that caused it, and a boolean value `isOver` that tells you if the Pointer
 // is still over the Sprite or not.
-func (self *SpriteBatch) SetOnChildInputUp(member Signal) {
+func (self *SpriteBatch) SetOnChildInputUp(member *Signal) {
     self.Set("onChildInputUp", member)
 }
 
@@ -214,8 +214,8 @@ func (self *SpriteBatch) SetOnChildInputUp(member Signal) {
 // 
 // This Signal is sent 2 arguments: A reference to the Sprite that triggered the signal, and
 // a reference to the Pointer that caused it.
-func (self *SpriteBatch) GetOnChildInputOver() Signal{
-    return Signal{self.Get("onChildInputOver")}
+func (self *SpriteBatch) GetOnChildInputOver() *Signal{
+    return &Signal{self.Get("onChildInputOver")}
 }
 
 // This Signal is dispatched whenever a child of this Group emits an onInputOver signal as a result
@@ -224,7 +224,7 @@ func (self *SpriteBatch) GetOnChildInputOver() Signal{
 // 
 // This Signal is sent 2 arguments: A reference to the Sprite that triggered the signal, and
 // a reference to the Pointer that caused it.
-func (self *SpriteBatch) SetOnChildInputOver(member Signal) {
+func (self *SpriteBatch) SetOnChildInputOver(member *Signal) {
     self.Set("onChildInputOver", member)
 }
 
@@ -234,8 +234,8 @@ func (self *SpriteBatch) SetOnChildInputOver(member Signal) {
 // 
 // This Signal is sent 2 arguments: A reference to the Sprite that triggered the signal, and
 // a reference to the Pointer that caused it.
-func (self *SpriteBatch) GetOnChildInputOut() Signal{
-    return Signal{self.Get("onChildInputOut")}
+func (self *SpriteBatch) GetOnChildInputOut() *Signal{
+    return &Signal{self.Get("onChildInputOut")}
 }
 
 // This Signal is dispatched whenever a child of this Group emits an onInputOut signal as a result
@@ -244,7 +244,7 @@ func (self *SpriteBatch) GetOnChildInputOut() Signal{
 // 
 // This Signal is sent 2 arguments: A reference to the Sprite that triggered the signal, and
 // a reference to the Pointer that caused it.
-func (self *SpriteBatch) SetOnChildInputOut(member Signal) {
+func (self *SpriteBatch) SetOnChildInputOut(member *Signal) {
     self.Set("onChildInputOut", member)
 }
 
@@ -325,12 +325,12 @@ func (self *SpriteBatch) SetPhysicsSortDirection(member int) {
 }
 
 // This signal is dispatched when the group is destroyed.
-func (self *SpriteBatch) GetOnDestroy() Signal{
-    return Signal{self.Get("onDestroy")}
+func (self *SpriteBatch) GetOnDestroy() *Signal{
+    return &Signal{self.Get("onDestroy")}
 }
 
 // This signal is dispatched when the group is destroyed.
-func (self *SpriteBatch) SetOnDestroy(member Signal) {
+func (self *SpriteBatch) SetOnDestroy(member *Signal) {
     self.Set("onDestroy", member)
 }
 
@@ -362,13 +362,13 @@ func (self *SpriteBatch) SetFixedToCamera(member bool) {
 
 // If this object is {@link Phaser.Group#fixedToCamera fixedToCamera} then this stores the x/y position offset relative to the top-left of the camera view.
 // If the parent of this Group is also `fixedToCamera` then the offset here is in addition to that and should typically be disabled.
-func (self *SpriteBatch) GetCameraOffset() Point{
-    return Point{self.Get("cameraOffset")}
+func (self *SpriteBatch) GetCameraOffset() *Point{
+    return &Point{self.Get("cameraOffset")}
 }
 
 // If this object is {@link Phaser.Group#fixedToCamera fixedToCamera} then this stores the x/y position offset relative to the top-left of the camera view.
 // If the parent of this Group is also `fixedToCamera` then the offset here is in addition to that and should typically be disabled.
-func (self *SpriteBatch) SetCameraOffset(member Point) {
+func (self *SpriteBatch) SetCameraOffset(member *Point) {
     self.Set("cameraOffset", member)
 }
 
@@ -734,8 +734,8 @@ func (self *SpriteBatch) SetHeight(member float64) {
 // If `Group.inputEnableChildren` is set, then an Input Handler will be created on the object, so long as one does not already exist.
 // 
 // Use {@link Phaser.Group#addAt addAt} to control where a child is added. Use {@link Phaser.Group#create create} to create and add a new child.
-func (self *SpriteBatch) AddI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("add", args)}
+func (self *SpriteBatch) AddI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("add", args)}
 }
 
 // Adds an existing object to this group.
@@ -745,8 +745,8 @@ func (self *SpriteBatch) AddI(args ...interface{}) DisplayObject{
 // If `Group.enableBody` is set, then a physics body will be created on the object, so long as one does not already exist.
 // 
 // If `Group.inputEnableChildren` is set, then an Input Handler will be created on the object, so long as one does not already exist.
-func (self *SpriteBatch) AddAtI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("addAt", args)}
+func (self *SpriteBatch) AddAtI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("addAt", args)}
 }
 
 // Adds a child of this Group into the hash array.
@@ -792,8 +792,8 @@ func (self *SpriteBatch) GetAtI(args ...interface{}) interface{}{
 // If `Group.enableBody` is set, then a physics body will be created on the object, so long as one does not already exist.
 // 
 // If `Group.inputEnableChildren` is set, then an Input Handler will be created on the object, so long as one does not already exist.
-func (self *SpriteBatch) CreateI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("create", args)}
+func (self *SpriteBatch) CreateI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("create", args)}
 }
 
 // Creates multiple Phaser.Sprite objects and adds them to the top of this Group.
@@ -1108,8 +1108,8 @@ func (self *SpriteBatch) PostUpdateI(args ...interface{}) {
 //     healthyList.callAll('attack');
 // 
 // Note: Currently this will skip any children which are Groups themselves.
-func (self *SpriteBatch) FilterI(args ...interface{}) ArraySet{
-    return ArraySet{self.Call("filter", args)}
+func (self *SpriteBatch) FilterI(args ...interface{}) *ArraySet{
+    return &ArraySet{self.Call("filter", args)}
 }
 
 // Call a function on each child in this group.
@@ -1205,8 +1205,8 @@ func (self *SpriteBatch) IterateI(args ...interface{}) interface{}{
 // 
 // If a child *was* found , `createIfNull` is `false` and you provided the additional arguments then the child
 // will be reset and/or have a new texture loaded on it. This is handled by `Group.resetChild`.
-func (self *SpriteBatch) GetFirstExistsI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("getFirstExists", args)}
+func (self *SpriteBatch) GetFirstExistsI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("getFirstExists", args)}
 }
 
 // Get the first child that is alive (`child.alive === true`).
@@ -1219,8 +1219,8 @@ func (self *SpriteBatch) GetFirstExistsI(args ...interface{}) DisplayObject{
 // 
 // If a child *was* found , `createIfNull` is `false` and you provided the additional arguments then the child
 // will be reset and/or have a new texture loaded on it. This is handled by `Group.resetChild`.
-func (self *SpriteBatch) GetFirstAliveI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("getFirstAlive", args)}
+func (self *SpriteBatch) GetFirstAliveI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("getFirstAlive", args)}
 }
 
 // Get the first child that is dead (`child.alive === false`).
@@ -1233,8 +1233,8 @@ func (self *SpriteBatch) GetFirstAliveI(args ...interface{}) DisplayObject{
 // 
 // If a child *was* found , `createIfNull` is `false` and you provided the additional arguments then the child
 // will be reset and/or have a new texture loaded on it. This is handled by `Group.resetChild`.
-func (self *SpriteBatch) GetFirstDeadI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("getFirstDead", args)}
+func (self *SpriteBatch) GetFirstDeadI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("getFirstDead", args)}
 }
 
 // Takes a child and if the `x` and `y` arguments are given it calls `child.reset(x, y)` on it.
@@ -1242,8 +1242,8 @@ func (self *SpriteBatch) GetFirstDeadI(args ...interface{}) DisplayObject{
 // If the `key` and optionally the `frame` arguments are given, it calls `child.loadTexture(key, frame)` on it.
 // 
 // The two operations are separate. For example if you just wish to load a new texture then pass `null` as the x and y values.
-func (self *SpriteBatch) ResetChildI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("resetChild", args)}
+func (self *SpriteBatch) ResetChildI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("resetChild", args)}
 }
 
 // Return the child at the top of this group.
@@ -1313,8 +1313,8 @@ func (self *SpriteBatch) RemoveI(args ...interface{}) bool{
 }
 
 // Moves all children from this Group to the Group given.
-func (self *SpriteBatch) MoveAllI(args ...interface{}) Group{
-    return Group{self.Call("moveAll", args)}
+func (self *SpriteBatch) MoveAllI(args ...interface{}) *Group{
+    return &Group{self.Call("moveAll", args)}
 }
 
 // Removes all children from this Group, but does not remove the group from its parent.
@@ -1369,8 +1369,8 @@ func (self *SpriteBatch) DestroyI(args ...interface{}) {
 // Think of the offsets as applying an adjustment to the containers bounds before the alignment takes place.
 // So providing a negative offset will 'shrink' the container bounds by that amount, and providing a positive
 // one expands it.
-func (self *SpriteBatch) AlignInI(args ...interface{}) Group{
-    return Group{self.Call("alignIn", args)}
+func (self *SpriteBatch) AlignInI(args ...interface{}) *Group{
+    return &Group{self.Call("alignIn", args)}
 }
 
 // Aligns this Group to the side of another Game Object, or Rectangle, known as the
@@ -1404,18 +1404,18 @@ func (self *SpriteBatch) AlignInI(args ...interface{}) Group{
 // Think of the offsets as applying an adjustment to the parents bounds before the alignment takes place.
 // So providing a negative offset will 'shrink' the parent bounds by that amount, and providing a positive
 // one expands it.
-func (self *SpriteBatch) AlignToI(args ...interface{}) Group{
-    return Group{self.Call("alignTo", args)}
+func (self *SpriteBatch) AlignToI(args ...interface{}) *Group{
+    return &Group{self.Call("alignTo", args)}
 }
 
 // Adds a child to the container.
-func (self *SpriteBatch) AddChildI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("addChild", args)}
+func (self *SpriteBatch) AddChildI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("addChild", args)}
 }
 
 // Adds a child to the container at a specified index. If the index is out of bounds an error will be thrown
-func (self *SpriteBatch) AddChildAtI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("addChildAt", args)}
+func (self *SpriteBatch) AddChildAtI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("addChildAt", args)}
 }
 
 // Swaps the position of 2 Display Objects within this container.
@@ -1434,18 +1434,18 @@ func (self *SpriteBatch) SetChildIndexI(args ...interface{}) {
 }
 
 // Returns the child at the specified index
-func (self *SpriteBatch) GetChildAtI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("getChildAt", args)}
+func (self *SpriteBatch) GetChildAtI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("getChildAt", args)}
 }
 
 // Removes a child from the container.
-func (self *SpriteBatch) RemoveChildI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("removeChild", args)}
+func (self *SpriteBatch) RemoveChildI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("removeChild", args)}
 }
 
 // Removes a child from the specified index position.
-func (self *SpriteBatch) RemoveChildAtI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("removeChildAt", args)}
+func (self *SpriteBatch) RemoveChildAtI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("removeChildAt", args)}
 }
 
 // Removes all children from this container that are within the begin and end indexes.
@@ -1454,13 +1454,13 @@ func (self *SpriteBatch) RemoveChildrenI(args ...interface{}) {
 }
 
 // Retrieves the bounds of the displayObjectContainer as a rectangle. The bounds calculation takes all visible children into consideration.
-func (self *SpriteBatch) GetBoundsI(args ...interface{}) Rectangle{
-    return Rectangle{self.Call("getBounds", args)}
+func (self *SpriteBatch) GetBoundsI(args ...interface{}) *Rectangle{
+    return &Rectangle{self.Call("getBounds", args)}
 }
 
 // Retrieves the non-global local bounds of the displayObjectContainer as a rectangle. The calculation takes all visible children into consideration.
-func (self *SpriteBatch) GetLocalBoundsI(args ...interface{}) Rectangle{
-    return Rectangle{self.Call("getLocalBounds", args)}
+func (self *SpriteBatch) GetLocalBoundsI(args ...interface{}) *Rectangle{
+    return &Rectangle{self.Call("getLocalBounds", args)}
 }
 
 // Sets the containers Stage reference. This is the Stage that this object, and all of its children, is connected to.

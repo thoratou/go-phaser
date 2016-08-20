@@ -15,22 +15,22 @@ type Camera struct {
 
 
 // A reference to the currently running Game.
-func (self *Camera) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *Camera) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // A reference to the currently running Game.
-func (self *Camera) SetGame(member Game) {
+func (self *Camera) SetGame(member *Game) {
     self.Set("game", member)
 }
 
 // A reference to the game world.
-func (self *Camera) GetWorld() World{
-    return World{self.Get("world")}
+func (self *Camera) GetWorld() *World{
+    return &World{self.Get("world")}
 }
 
 // A reference to the game world.
-func (self *Camera) SetWorld(member World) {
+func (self *Camera) SetWorld(member *World) {
     self.Set("world", member)
 }
 
@@ -48,39 +48,39 @@ func (self *Camera) SetId(member float64) {
 // The view into the world we wish to render (by default the game dimensions).
 // The x/y values are in world coordinates, not screen coordinates, the width/height is how many pixels to render.
 // Sprites outside of this view are not rendered if Sprite.autoCull is set to `true`. Otherwise they are always rendered.
-func (self *Camera) GetView() Rectangle{
-    return Rectangle{self.Get("view")}
+func (self *Camera) GetView() *Rectangle{
+    return &Rectangle{self.Get("view")}
 }
 
 // Camera view.
 // The view into the world we wish to render (by default the game dimensions).
 // The x/y values are in world coordinates, not screen coordinates, the width/height is how many pixels to render.
 // Sprites outside of this view are not rendered if Sprite.autoCull is set to `true`. Otherwise they are always rendered.
-func (self *Camera) SetView(member Rectangle) {
+func (self *Camera) SetView(member *Rectangle) {
     self.Set("view", member)
 }
 
 // The Camera is bound to this Rectangle and cannot move outside of it. By default it is enabled and set to the size of the World.
 // The Rectangle can be located anywhere in the world and updated as often as you like. If you don't wish the Camera to be bound
 // at all then set this to null. The values can be anything and are in World coordinates, with 0,0 being the top-left of the world. The Rectangle in which the Camera is bounded. Set to null to allow for movement anywhere.
-func (self *Camera) GetBounds() Rectangle{
-    return Rectangle{self.Get("bounds")}
+func (self *Camera) GetBounds() *Rectangle{
+    return &Rectangle{self.Get("bounds")}
 }
 
 // The Camera is bound to this Rectangle and cannot move outside of it. By default it is enabled and set to the size of the World.
 // The Rectangle can be located anywhere in the world and updated as often as you like. If you don't wish the Camera to be bound
 // at all then set this to null. The values can be anything and are in World coordinates, with 0,0 being the top-left of the world. The Rectangle in which the Camera is bounded. Set to null to allow for movement anywhere.
-func (self *Camera) SetBounds(member Rectangle) {
+func (self *Camera) SetBounds(member *Rectangle) {
     self.Set("bounds", member)
 }
 
 // Moving inside this Rectangle will not cause the camera to move.
-func (self *Camera) GetDeadzone() Rectangle{
-    return Rectangle{self.Get("deadzone")}
+func (self *Camera) GetDeadzone() *Rectangle{
+    return &Rectangle{self.Get("deadzone")}
 }
 
 // Moving inside this Rectangle will not cause the camera to move.
-func (self *Camera) SetDeadzone(member Rectangle) {
+func (self *Camera) SetDeadzone(member *Rectangle) {
     self.Set("deadzone", member)
 }
 
@@ -115,32 +115,32 @@ func (self *Camera) SetAtLimit(member bool) {
 }
 
 // If the camera is tracking a Sprite, this is a reference to it, otherwise null.
-func (self *Camera) GetTarget() Sprite{
-    return Sprite{self.Get("target")}
+func (self *Camera) GetTarget() *Sprite{
+    return &Sprite{self.Get("target")}
 }
 
 // If the camera is tracking a Sprite, this is a reference to it, otherwise null.
-func (self *Camera) SetTarget(member Sprite) {
+func (self *Camera) SetTarget(member *Sprite) {
     self.Set("target", member)
 }
 
 // The display object to which all game objects are added. Set by World.boot.
-func (self *Camera) GetDisplayObject() DisplayObject{
-    return DisplayObject{self.Get("displayObject")}
+func (self *Camera) GetDisplayObject() *DisplayObject{
+    return &DisplayObject{self.Get("displayObject")}
 }
 
 // The display object to which all game objects are added. Set by World.boot.
-func (self *Camera) SetDisplayObject(member DisplayObject) {
+func (self *Camera) SetDisplayObject(member *DisplayObject) {
     self.Set("displayObject", member)
 }
 
 // The scale of the display object to which all game objects are added. Set by World.boot.
-func (self *Camera) GetScale() Point{
-    return Point{self.Get("scale")}
+func (self *Camera) GetScale() *Point{
+    return &Point{self.Get("scale")}
 }
 
 // The scale of the display object to which all game objects are added. Set by World.boot.
-func (self *Camera) SetScale(member Point) {
+func (self *Camera) SetScale(member *Point) {
     self.Set("scale", member)
 }
 
@@ -159,8 +159,8 @@ func (self *Camera) SetTotalInView(member float64) {
 // A lower value, such as 0.1 means the camera will more slowly track the target, giving
 // a smooth transition. You can set the horizontal and vertical values independently, and also
 // adjust this value in real-time during your game.
-func (self *Camera) GetLerp() Point{
-    return Point{self.Get("lerp")}
+func (self *Camera) GetLerp() *Point{
+    return &Point{self.Get("lerp")}
 }
 
 // The linear interpolation value to use when following a target.
@@ -168,27 +168,27 @@ func (self *Camera) GetLerp() Point{
 // A lower value, such as 0.1 means the camera will more slowly track the target, giving
 // a smooth transition. You can set the horizontal and vertical values independently, and also
 // adjust this value in real-time during your game.
-func (self *Camera) SetLerp(member Point) {
+func (self *Camera) SetLerp(member *Point) {
     self.Set("lerp", member)
 }
 
 // This signal is dispatched when the camera shake effect completes.
-func (self *Camera) GetOnShakeComplete() Signal{
-    return Signal{self.Get("onShakeComplete")}
+func (self *Camera) GetOnShakeComplete() *Signal{
+    return &Signal{self.Get("onShakeComplete")}
 }
 
 // This signal is dispatched when the camera shake effect completes.
-func (self *Camera) SetOnShakeComplete(member Signal) {
+func (self *Camera) SetOnShakeComplete(member *Signal) {
     self.Set("onShakeComplete", member)
 }
 
 // This signal is dispatched when the camera flash effect completes.
-func (self *Camera) GetOnFlashComplete() Signal{
-    return Signal{self.Get("onFlashComplete")}
+func (self *Camera) GetOnFlashComplete() *Signal{
+    return &Signal{self.Get("onFlashComplete")}
 }
 
 // This signal is dispatched when the camera flash effect completes.
-func (self *Camera) SetOnFlashComplete(member Signal) {
+func (self *Camera) SetOnFlashComplete(member *Signal) {
     self.Set("onFlashComplete", member)
 }
 
@@ -196,25 +196,25 @@ func (self *Camera) SetOnFlashComplete(member Signal) {
 // When the fade effect completes you will be left with the screen black (or whatever
 // color you faded to). In order to reset this call `Camera.resetFX`. This is called
 // automatically when you change State.
-func (self *Camera) GetOnFadeComplete() Signal{
-    return Signal{self.Get("onFadeComplete")}
+func (self *Camera) GetOnFadeComplete() *Signal{
+    return &Signal{self.Get("onFadeComplete")}
 }
 
 // This signal is dispatched when the camera fade effect completes.
 // When the fade effect completes you will be left with the screen black (or whatever
 // color you faded to). In order to reset this call `Camera.resetFX`. This is called
 // automatically when you change State.
-func (self *Camera) SetOnFadeComplete(member Signal) {
+func (self *Camera) SetOnFadeComplete(member *Signal) {
     self.Set("onFadeComplete", member)
 }
 
 // The Graphics object used to handle camera fx such as fade and flash.
-func (self *Camera) GetFx() Graphics{
-    return Graphics{self.Get("fx")}
+func (self *Camera) GetFx() *Graphics{
+    return &Graphics{self.Get("fx")}
 }
 
 // The Graphics object used to handle camera fx such as fade and flash.
-func (self *Camera) SetFx(member Graphics) {
+func (self *Camera) SetFx(member *Graphics) {
     self.Set("fx", member)
 }
 
@@ -319,12 +319,12 @@ func (self *Camera) SetY(member float64) {
 }
 
 // The Cameras position. This value is automatically clamped if it falls outside of the World bounds. Gets or sets the cameras xy position using Phaser.Point object.
-func (self *Camera) GetPosition() Point{
-    return Point{self.Get("position")}
+func (self *Camera) GetPosition() *Point{
+    return &Point{self.Get("position")}
 }
 
 // The Cameras position. This value is automatically clamped if it falls outside of the World bounds. Gets or sets the cameras xy position using Phaser.Point object.
-func (self *Camera) SetPosition(member Point) {
+func (self *Camera) SetPosition(member *Point) {
     self.Set("position", member)
 }
 

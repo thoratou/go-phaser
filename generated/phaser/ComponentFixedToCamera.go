@@ -51,14 +51,14 @@ func (self *ComponentFixedToCamera) SetFixedToCamera(member bool) {
 // The x/y coordinate offset applied to the top-left of the camera that this Game Object will be drawn at if `fixedToCamera` is true.
 // 
 // The values are relative to the top-left of the camera view and in addition to any parent of the Game Object on the display list.
-func (self *ComponentFixedToCamera) GetCameraOffset() Point{
-    return Point{self.Get("cameraOffset")}
+func (self *ComponentFixedToCamera) GetCameraOffset() *Point{
+    return &Point{self.Get("cameraOffset")}
 }
 
 // The x/y coordinate offset applied to the top-left of the camera that this Game Object will be drawn at if `fixedToCamera` is true.
 // 
 // The values are relative to the top-left of the camera view and in addition to any parent of the Game Object on the display list.
-func (self *ComponentFixedToCamera) SetCameraOffset(member Point) {
+func (self *ComponentFixedToCamera) SetCameraOffset(member *Point) {
     self.Set("cameraOffset", member)
 }
 

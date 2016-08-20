@@ -14,22 +14,22 @@ type InputHandler struct {
 
 
 // The Sprite object to which this Input Handler belongs.
-func (self *InputHandler) GetSprite() Sprite{
-    return Sprite{self.Get("sprite")}
+func (self *InputHandler) GetSprite() *Sprite{
+    return &Sprite{self.Get("sprite")}
 }
 
 // The Sprite object to which this Input Handler belongs.
-func (self *InputHandler) SetSprite(member Sprite) {
+func (self *InputHandler) SetSprite(member *Sprite) {
     self.Set("sprite", member)
 }
 
 // A reference to the currently running game.
-func (self *InputHandler) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *InputHandler) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // A reference to the currently running game.
-func (self *InputHandler) SetGame(member Game) {
+func (self *InputHandler) SetGame(member *Game) {
     self.Set("game", member)
 }
 
@@ -118,12 +118,12 @@ func (self *InputHandler) SetBringToTop(member bool) {
 }
 
 // A Point object that contains by how far the Sprite snap is offset.
-func (self *InputHandler) GetSnapOffset() Point{
-    return Point{self.Get("snapOffset")}
+func (self *InputHandler) GetSnapOffset() *Point{
+    return &Point{self.Get("snapOffset")}
 }
 
 // A Point object that contains by how far the Sprite snap is offset.
-func (self *InputHandler) SetSnapOffset(member Point) {
+func (self *InputHandler) SetSnapOffset(member *Point) {
     self.Set("snapOffset", member)
 }
 
@@ -240,22 +240,22 @@ func (self *InputHandler) SetDraggable(member bool) {
 }
 
 // A region of the game world within which the sprite is restricted during drag.
-func (self *InputHandler) GetBoundsRect() Rectangle{
-    return Rectangle{self.Get("boundsRect")}
+func (self *InputHandler) GetBoundsRect() *Rectangle{
+    return &Rectangle{self.Get("boundsRect")}
 }
 
 // A region of the game world within which the sprite is restricted during drag.
-func (self *InputHandler) SetBoundsRect(member Rectangle) {
+func (self *InputHandler) SetBoundsRect(member *Rectangle) {
     self.Set("boundsRect", member)
 }
 
 // A Sprite the bounds of which this sprite is restricted during drag.
-func (self *InputHandler) GetBoundsSprite() Sprite{
-    return Sprite{self.Get("boundsSprite")}
+func (self *InputHandler) GetBoundsSprite() *Sprite{
+    return &Sprite{self.Get("boundsSprite")}
 }
 
 // A Sprite the bounds of which this sprite is restricted during drag.
-func (self *InputHandler) SetBoundsSprite(member Sprite) {
+func (self *InputHandler) SetBoundsSprite(member *Sprite) {
     self.Set("boundsSprite", member)
 }
 
@@ -270,12 +270,12 @@ func (self *InputHandler) SetScaleLayer(member bool) {
 }
 
 // The offset from the Sprites position that dragging takes place from.
-func (self *InputHandler) GetDragOffset() Point{
-    return Point{self.Get("dragOffset")}
+func (self *InputHandler) GetDragOffset() *Point{
+    return &Point{self.Get("dragOffset")}
 }
 
 // The offset from the Sprites position that dragging takes place from.
-func (self *InputHandler) SetDragOffset(member Point) {
+func (self *InputHandler) SetDragOffset(member *Point) {
     self.Set("dragOffset", member)
 }
 
@@ -300,12 +300,12 @@ func (self *InputHandler) SetDragStopBlocksInputUp(member bool) {
 }
 
 // The Point from which the most recent drag started from. Useful if you need to return an object to its starting position.
-func (self *InputHandler) GetDragStartPoint() Point{
-    return Point{self.Get("dragStartPoint")}
+func (self *InputHandler) GetDragStartPoint() *Point{
+    return &Point{self.Get("dragStartPoint")}
 }
 
 // The Point from which the most recent drag started from. Useful if you need to return an object to its starting position.
-func (self *InputHandler) SetDragStartPoint(member Point) {
+func (self *InputHandler) SetDragStartPoint(member *Point) {
     self.Set("dragStartPoint", member)
 }
 
@@ -330,30 +330,30 @@ func (self *InputHandler) SetDragTimeThreshold(member int) {
 }
 
 // A Point object containing the coordinates of the Pointer when it was first pressed down onto this Sprite.
-func (self *InputHandler) GetDownPoint() Point{
-    return Point{self.Get("downPoint")}
+func (self *InputHandler) GetDownPoint() *Point{
+    return &Point{self.Get("downPoint")}
 }
 
 // A Point object containing the coordinates of the Pointer when it was first pressed down onto this Sprite.
-func (self *InputHandler) SetDownPoint(member Point) {
+func (self *InputHandler) SetDownPoint(member *Point) {
     self.Set("downPoint", member)
 }
 
 // If the sprite is set to snap while dragging this holds the point of the most recent 'snap' event.
-func (self *InputHandler) GetSnapPoint() Point{
-    return Point{self.Get("snapPoint")}
+func (self *InputHandler) GetSnapPoint() *Point{
+    return &Point{self.Get("snapPoint")}
 }
 
 // If the sprite is set to snap while dragging this holds the point of the most recent 'snap' event.
-func (self *InputHandler) SetSnapPoint(member Point) {
+func (self *InputHandler) SetSnapPoint(member *Point) {
     self.Set("snapPoint", member)
 }
 
 
 
 // Starts the Input Handler running. This is called automatically when you enable input on a Sprite, or can be called directly if you need to set a specific priority.
-func (self *InputHandler) StartI(args ...interface{}) Sprite{
-    return Sprite{self.Call("start", args)}
+func (self *InputHandler) StartI(args ...interface{}) *Sprite{
+    return &Sprite{self.Call("start", args)}
 }
 
 // Handles when the parent Sprite is added to a new Group.

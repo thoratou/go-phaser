@@ -20,12 +20,12 @@ type Physics struct {
 
 
 // Local reference to game.
-func (self *Physics) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *Physics) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // Local reference to game.
-func (self *Physics) SetGame(member Game) {
+func (self *Physics) SetGame(member *Game) {
     self.Set("game", member)
 }
 
@@ -40,62 +40,62 @@ func (self *Physics) SetConfig(member interface{}) {
 }
 
 // The Arcade Physics system.
-func (self *Physics) GetArcade() PhysicsArcade{
-    return PhysicsArcade{self.Get("arcade")}
+func (self *Physics) GetArcade() *PhysicsArcade{
+    return &PhysicsArcade{self.Get("arcade")}
 }
 
 // The Arcade Physics system.
-func (self *Physics) SetArcade(member PhysicsArcade) {
+func (self *Physics) SetArcade(member *PhysicsArcade) {
     self.Set("arcade", member)
 }
 
 // The P2.JS Physics system.
-func (self *Physics) GetP2() PhysicsP2{
-    return PhysicsP2{self.Get("p2")}
+func (self *Physics) GetP2() *PhysicsP2{
+    return &PhysicsP2{self.Get("p2")}
 }
 
 // The P2.JS Physics system.
-func (self *Physics) SetP2(member PhysicsP2) {
+func (self *Physics) SetP2(member *PhysicsP2) {
     self.Set("p2", member)
 }
 
 // The N+ Ninja Physics system.
-func (self *Physics) GetNinja() PhysicsNinja{
-    return PhysicsNinja{self.Get("ninja")}
+func (self *Physics) GetNinja() *PhysicsNinja{
+    return &PhysicsNinja{self.Get("ninja")}
 }
 
 // The N+ Ninja Physics system.
-func (self *Physics) SetNinja(member PhysicsNinja) {
+func (self *Physics) SetNinja(member *PhysicsNinja) {
     self.Set("ninja", member)
 }
 
 // The Box2D Physics system.
-func (self *Physics) GetBox2d() PhysicsBox2D{
-    return PhysicsBox2D{self.Get("box2d")}
+func (self *Physics) GetBox2d() *PhysicsBox2D{
+    return &PhysicsBox2D{self.Get("box2d")}
 }
 
 // The Box2D Physics system.
-func (self *Physics) SetBox2d(member PhysicsBox2D) {
+func (self *Physics) SetBox2d(member *PhysicsBox2D) {
     self.Set("box2d", member)
 }
 
 // The Chipmunk Physics system (to be done).
-func (self *Physics) GetChipmunk() PhysicsChipmunk{
-    return PhysicsChipmunk{self.Get("chipmunk")}
+func (self *Physics) GetChipmunk() *PhysicsChipmunk{
+    return &PhysicsChipmunk{self.Get("chipmunk")}
 }
 
 // The Chipmunk Physics system (to be done).
-func (self *Physics) SetChipmunk(member PhysicsChipmunk) {
+func (self *Physics) SetChipmunk(member *PhysicsChipmunk) {
     self.Set("chipmunk", member)
 }
 
 // The MatterJS Physics system (coming soon).
-func (self *Physics) GetMatter() PhysicsMatter{
-    return PhysicsMatter{self.Get("matter")}
+func (self *Physics) GetMatter() *PhysicsMatter{
+    return &PhysicsMatter{self.Get("matter")}
 }
 
 // The MatterJS Physics system (coming soon).
-func (self *Physics) SetMatter(member PhysicsMatter) {
+func (self *Physics) SetMatter(member *PhysicsMatter) {
     self.Set("matter", member)
 }
 

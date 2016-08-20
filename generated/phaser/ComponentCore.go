@@ -14,12 +14,12 @@ type ComponentCore struct {
 
 
 // A reference to the currently running Game.
-func (self *ComponentCore) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *ComponentCore) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // A reference to the currently running Game.
-func (self *ComponentCore) SetGame(member Game) {
+func (self *ComponentCore) SetGame(member *Game) {
     self.Set("game", member)
 }
 
@@ -79,25 +79,25 @@ func (self *ComponentCore) SetZ(member float64) {
 
 // All Phaser Game Objects have an Events class which contains all of the events that are dispatched when certain things happen to this
 // Game Object, or any of its components.
-func (self *ComponentCore) GetEvents() Events{
-    return Events{self.Get("events")}
+func (self *ComponentCore) GetEvents() *Events{
+    return &Events{self.Get("events")}
 }
 
 // All Phaser Game Objects have an Events class which contains all of the events that are dispatched when certain things happen to this
 // Game Object, or any of its components.
-func (self *ComponentCore) SetEvents(member Events) {
+func (self *ComponentCore) SetEvents(member *Events) {
     self.Set("events", member)
 }
 
 // If the Game Object is enabled for animation (such as a Phaser.Sprite) this is a reference to its AnimationManager instance.
 // Through it you can create, play, pause and stop animations.
-func (self *ComponentCore) GetAnimations() AnimationManager{
-    return AnimationManager{self.Get("animations")}
+func (self *ComponentCore) GetAnimations() *AnimationManager{
+    return &AnimationManager{self.Get("animations")}
 }
 
 // If the Game Object is enabled for animation (such as a Phaser.Sprite) this is a reference to its AnimationManager instance.
 // Through it you can create, play, pause and stop animations.
-func (self *ComponentCore) SetAnimations(member AnimationManager) {
+func (self *ComponentCore) SetAnimations(member *AnimationManager) {
     self.Set("animations", member)
 }
 
@@ -122,14 +122,14 @@ func (self *ComponentCore) SetKey(member interface{}) {
 // The world coordinates of this Game Object in pixels.
 // Depending on where in the display list this Game Object is placed this value can differ from `position`, 
 // which contains the x/y coordinates relative to the Game Objects parent.
-func (self *ComponentCore) GetWorld() Point{
-    return Point{self.Get("world")}
+func (self *ComponentCore) GetWorld() *Point{
+    return &Point{self.Get("world")}
 }
 
 // The world coordinates of this Game Object in pixels.
 // Depending on where in the display list this Game Object is placed this value can differ from `position`, 
 // which contains the x/y coordinates relative to the Game Objects parent.
-func (self *ComponentCore) SetWorld(member Point) {
+func (self *ComponentCore) SetWorld(member *Point) {
     self.Set("world", member)
 }
 
@@ -144,12 +144,12 @@ func (self *ComponentCore) SetDebug(member bool) {
 }
 
 // The position the Game Object was located in the previous frame.
-func (self *ComponentCore) GetPreviousPosition() Point{
-    return Point{self.Get("previousPosition")}
+func (self *ComponentCore) GetPreviousPosition() *Point{
+    return &Point{self.Get("previousPosition")}
 }
 
 // The position the Game Object was located in the previous frame.
-func (self *ComponentCore) SetPreviousPosition(member Point) {
+func (self *ComponentCore) SetPreviousPosition(member *Point) {
     self.Set("previousPosition", member)
 }
 

@@ -60,8 +60,19 @@ func (t *Type) GetType() string {
 	return "interface{}"
 }
 
+func (t *Type) GetTypeOptionalPointer() string {
+	if !t.IsVoid() && !t.IsAnyType() && !t.IsNativeType() && !t.IsArray() && !t.IsCallback() && !t.HasWrapper() {
+		return "*" + t.GetType()
+	}
+	return t.GetType()
+}
+
 func (t *Type) IsVoid() bool {
 	return len(t.Names) == 0 || (len(t.Names) == 1 && t.Names[0] == "")
+}
+
+func (t *Type) IsCallback() bool {
+	return t.GetType() == "func(...interface{})"
 }
 
 func (t *Type) IsAnyType() bool {

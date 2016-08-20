@@ -15,44 +15,44 @@ type AnimationManager struct {
 
 
 // A reference to the parent Sprite that owns this AnimationManager.
-func (self *AnimationManager) GetSprite() Sprite{
-    return Sprite{self.Get("sprite")}
+func (self *AnimationManager) GetSprite() *Sprite{
+    return &Sprite{self.Get("sprite")}
 }
 
 // A reference to the parent Sprite that owns this AnimationManager.
-func (self *AnimationManager) SetSprite(member Sprite) {
+func (self *AnimationManager) SetSprite(member *Sprite) {
     self.Set("sprite", member)
 }
 
 // A reference to the currently running Game.
-func (self *AnimationManager) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *AnimationManager) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // A reference to the currently running Game.
-func (self *AnimationManager) SetGame(member Game) {
+func (self *AnimationManager) SetGame(member *Game) {
     self.Set("game", member)
 }
 
 // The currently displayed Frame of animation, if any.
 // This property is only set once an Animation starts playing. Until that point it remains set as `null`.
-func (self *AnimationManager) GetCurrentFrame() Frame{
-    return Frame{self.Get("currentFrame")}
+func (self *AnimationManager) GetCurrentFrame() *Frame{
+    return &Frame{self.Get("currentFrame")}
 }
 
 // The currently displayed Frame of animation, if any.
 // This property is only set once an Animation starts playing. Until that point it remains set as `null`.
-func (self *AnimationManager) SetCurrentFrame(member Frame) {
+func (self *AnimationManager) SetCurrentFrame(member *Frame) {
     self.Set("currentFrame", member)
 }
 
 // The currently displayed animation, if any.
-func (self *AnimationManager) GetCurrentAnim() Animation{
-    return Animation{self.Get("currentAnim")}
+func (self *AnimationManager) GetCurrentAnim() *Animation{
+    return &Animation{self.Get("currentAnim")}
 }
 
 // The currently displayed animation, if any.
-func (self *AnimationManager) SetCurrentAnim(member Animation) {
+func (self *AnimationManager) SetCurrentAnim(member *Animation) {
     self.Set("currentAnim", member)
 }
 
@@ -77,12 +77,12 @@ func (self *AnimationManager) SetIsLoaded(member bool) {
 }
 
 // The current animations FrameData.
-func (self *AnimationManager) GetFrameData() FrameData{
-    return FrameData{self.Get("frameData")}
+func (self *AnimationManager) GetFrameData() *FrameData{
+    return &FrameData{self.Get("frameData")}
 }
 
 // The current animations FrameData.
-func (self *AnimationManager) SetFrameData(member FrameData) {
+func (self *AnimationManager) SetFrameData(member *FrameData) {
     self.Set("frameData", member)
 }
 
@@ -152,8 +152,8 @@ func (self *AnimationManager) CopyFrameDataI(args ...interface{}) bool{
 
 // Adds a new animation under the given key. Optionally set the frames, frame rate and loop.
 // Animations added in this way are played back with the play function.
-func (self *AnimationManager) AddI(args ...interface{}) Animation{
-    return Animation{self.Call("add", args)}
+func (self *AnimationManager) AddI(args ...interface{}) *Animation{
+    return &Animation{self.Call("add", args)}
 }
 
 // Check whether the frames in the given array are valid and exist.
@@ -165,8 +165,8 @@ func (self *AnimationManager) ValidateFramesI(args ...interface{}) bool{
 // 
 // If the requested animation is already playing this request will be ignored. 
 // If you need to reset an already running animation do so directly on the Animation object itself.
-func (self *AnimationManager) PlayI(args ...interface{}) Animation{
-    return Animation{self.Call("play", args)}
+func (self *AnimationManager) PlayI(args ...interface{}) *Animation{
+    return &Animation{self.Call("play", args)}
 }
 
 // Stop playback of an animation. If a name is given that specific animation is stopped, otherwise the current animation is stopped.
@@ -191,8 +191,8 @@ func (self *AnimationManager) PreviousI(args ...interface{}) {
 }
 
 // Returns an animation that was previously added by name.
-func (self *AnimationManager) GetAnimationI(args ...interface{}) Animation{
-    return Animation{self.Call("getAnimation", args)}
+func (self *AnimationManager) GetAnimationI(args ...interface{}) *Animation{
+    return &Animation{self.Call("getAnimation", args)}
 }
 
 // Refreshes the current frame data back to the parent Sprite and also resets the texture data.

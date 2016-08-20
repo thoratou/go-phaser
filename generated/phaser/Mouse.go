@@ -21,22 +21,22 @@ type Mouse struct {
 
 
 // A reference to the currently running game.
-func (self *Mouse) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *Mouse) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // A reference to the currently running game.
-func (self *Mouse) SetGame(member Game) {
+func (self *Mouse) SetGame(member *Game) {
     self.Set("game", member)
 }
 
 // A reference to the Phaser Input Manager.
-func (self *Mouse) GetInput() Input{
-    return Input{self.Get("input")}
+func (self *Mouse) GetInput() *Input{
+    return &Input{self.Get("input")}
 }
 
 // A reference to the Phaser Input Manager.
-func (self *Mouse) SetInput(member Input) {
+func (self *Mouse) SetInput(member *Input) {
     self.Set("input", member)
 }
 
@@ -140,12 +140,12 @@ func (self *Mouse) SetStopOnGameOut(member bool) {
 }
 
 // This event is dispatched when the browser enters or leaves pointer lock state.
-func (self *Mouse) GetPointerLock() Signal{
-    return Signal{self.Get("pointerLock")}
+func (self *Mouse) GetPointerLock() *Signal{
+    return &Signal{self.Get("pointerLock")}
 }
 
 // This event is dispatched when the browser enters or leaves pointer lock state.
-func (self *Mouse) SetPointerLock(member Signal) {
+func (self *Mouse) SetPointerLock(member *Signal) {
     self.Set("pointerLock", member)
 }
 

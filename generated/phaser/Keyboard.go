@@ -21,12 +21,12 @@ type Keyboard struct {
 
 
 // Local reference to game.
-func (self *Keyboard) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *Keyboard) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // Local reference to game.
-func (self *Keyboard) SetGame(member Game) {
+func (self *Keyboard) SetGame(member *Game) {
     self.Set("game", member)
 }
 
@@ -96,12 +96,12 @@ func (self *Keyboard) SetLastChar(member string) {
 }
 
 // Returns the most recently pressed Key. This is a Phaser.Key object and it changes every time a key is pressed.
-func (self *Keyboard) GetLastKey() Key{
-    return Key{self.Get("lastKey")}
+func (self *Keyboard) GetLastKey() *Key{
+    return &Key{self.Get("lastKey")}
 }
 
 // Returns the most recently pressed Key. This is a Phaser.Key object and it changes every time a key is pressed.
-func (self *Keyboard) SetLastKey(member Key) {
+func (self *Keyboard) SetLastKey(member *Key) {
     self.Set("lastKey", member)
 }
 
@@ -114,8 +114,8 @@ func (self *Keyboard) AddCallbacksI(args ...interface{}) {
 
 // If you need more fine-grained control over a Key you can create a new Phaser.Key object via this method.
 // The Key object can then be polled, have events attached to it, etc.
-func (self *Keyboard) AddKeyI(args ...interface{}) Key{
-    return Key{self.Call("addKey", args)}
+func (self *Keyboard) AddKeyI(args ...interface{}) *Key{
+    return &Key{self.Call("addKey", args)}
 }
 
 // A practical way to create an object containing user selected hotkeys.

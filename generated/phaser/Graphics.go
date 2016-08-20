@@ -180,12 +180,12 @@ func (self *Graphics) SetHeight(member float64) {
 }
 
 // A reference to the currently running Game.
-func (self *Graphics) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *Graphics) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // A reference to the currently running Game.
-func (self *Graphics) SetGame(member Game) {
+func (self *Graphics) SetGame(member *Game) {
     self.Set("game", member)
 }
 
@@ -245,25 +245,25 @@ func (self *Graphics) SetZ(member float64) {
 
 // All Phaser Game Objects have an Events class which contains all of the events that are dispatched when certain things happen to this
 // Game Object, or any of its components.
-func (self *Graphics) GetEvents() Events{
-    return Events{self.Get("events")}
+func (self *Graphics) GetEvents() *Events{
+    return &Events{self.Get("events")}
 }
 
 // All Phaser Game Objects have an Events class which contains all of the events that are dispatched when certain things happen to this
 // Game Object, or any of its components.
-func (self *Graphics) SetEvents(member Events) {
+func (self *Graphics) SetEvents(member *Events) {
     self.Set("events", member)
 }
 
 // If the Game Object is enabled for animation (such as a Phaser.Sprite) this is a reference to its AnimationManager instance.
 // Through it you can create, play, pause and stop animations.
-func (self *Graphics) GetAnimations() AnimationManager{
-    return AnimationManager{self.Get("animations")}
+func (self *Graphics) GetAnimations() *AnimationManager{
+    return &AnimationManager{self.Get("animations")}
 }
 
 // If the Game Object is enabled for animation (such as a Phaser.Sprite) this is a reference to its AnimationManager instance.
 // Through it you can create, play, pause and stop animations.
-func (self *Graphics) SetAnimations(member AnimationManager) {
+func (self *Graphics) SetAnimations(member *AnimationManager) {
     self.Set("animations", member)
 }
 
@@ -288,14 +288,14 @@ func (self *Graphics) SetKey(member interface{}) {
 // The world coordinates of this Game Object in pixels.
 // Depending on where in the display list this Game Object is placed this value can differ from `position`, 
 // which contains the x/y coordinates relative to the Game Objects parent.
-func (self *Graphics) GetWorld() Point{
-    return Point{self.Get("world")}
+func (self *Graphics) GetWorld() *Point{
+    return &Point{self.Get("world")}
 }
 
 // The world coordinates of this Game Object in pixels.
 // Depending on where in the display list this Game Object is placed this value can differ from `position`, 
 // which contains the x/y coordinates relative to the Game Objects parent.
-func (self *Graphics) SetWorld(member Point) {
+func (self *Graphics) SetWorld(member *Point) {
     self.Set("world", member)
 }
 
@@ -310,12 +310,12 @@ func (self *Graphics) SetDebug(member bool) {
 }
 
 // The position the Game Object was located in the previous frame.
-func (self *Graphics) GetPreviousPosition() Point{
-    return Point{self.Get("previousPosition")}
+func (self *Graphics) GetPreviousPosition() *Point{
+    return &Point{self.Get("previousPosition")}
 }
 
 // The position the Game Object was located in the previous frame.
-func (self *Graphics) SetPreviousPosition(member Point) {
+func (self *Graphics) SetPreviousPosition(member *Point) {
     self.Set("previousPosition", member)
 }
 
@@ -600,14 +600,14 @@ func (self *Graphics) SetFixedToCamera(member bool) {
 // The x/y coordinate offset applied to the top-left of the camera that this Game Object will be drawn at if `fixedToCamera` is true.
 // 
 // The values are relative to the top-left of the camera view and in addition to any parent of the Game Object on the display list.
-func (self *Graphics) GetCameraOffset() Point{
-    return Point{self.Get("cameraOffset")}
+func (self *Graphics) GetCameraOffset() *Point{
+    return &Point{self.Get("cameraOffset")}
 }
 
 // The x/y coordinate offset applied to the top-left of the camera that this Game Object will be drawn at if `fixedToCamera` is true.
 // 
 // The values are relative to the top-left of the camera view and in addition to any parent of the Game Object on the display list.
-func (self *Graphics) SetCameraOffset(member Point) {
+func (self *Graphics) SetCameraOffset(member *Point) {
     self.Set("cameraOffset", member)
 }
 
@@ -840,51 +840,51 @@ func (self *Graphics) DestroyI(args ...interface{}) {
 }
 
 // Specifies the line style used for subsequent calls to Graphics methods such as the lineTo() method or the drawCircle() method.
-func (self *Graphics) LineStyleI(args ...interface{}) Graphics{
-    return Graphics{self.Call("lineStyle", args)}
+func (self *Graphics) LineStyleI(args ...interface{}) *Graphics{
+    return &Graphics{self.Call("lineStyle", args)}
 }
 
 // Moves the current drawing position to x, y.
-func (self *Graphics) MoveToI(args ...interface{}) Graphics{
-    return Graphics{self.Call("moveTo", args)}
+func (self *Graphics) MoveToI(args ...interface{}) *Graphics{
+    return &Graphics{self.Call("moveTo", args)}
 }
 
 // Draws a line using the current line style from the current drawing position to (x, y);
 // The current drawing position is then set to (x, y).
-func (self *Graphics) LineToI(args ...interface{}) Graphics{
-    return Graphics{self.Call("lineTo", args)}
+func (self *Graphics) LineToI(args ...interface{}) *Graphics{
+    return &Graphics{self.Call("lineTo", args)}
 }
 
 // Calculate the points for a quadratic bezier curve and then draws it.
 // Based on: https://stackoverflow.com/questions/785097/how-do-i-implement-a-bezier-curve-in-c
-func (self *Graphics) QuadraticCurveToI(args ...interface{}) Graphics{
-    return Graphics{self.Call("quadraticCurveTo", args)}
+func (self *Graphics) QuadraticCurveToI(args ...interface{}) *Graphics{
+    return &Graphics{self.Call("quadraticCurveTo", args)}
 }
 
 // Calculate the points for a bezier curve and then draws it.
-func (self *Graphics) BezierCurveToI(args ...interface{}) Graphics{
-    return Graphics{self.Call("bezierCurveTo", args)}
+func (self *Graphics) BezierCurveToI(args ...interface{}) *Graphics{
+    return &Graphics{self.Call("bezierCurveTo", args)}
 }
 
 // The arc method creates an arc/curve (used to create circles, or parts of circles).
-func (self *Graphics) ArcI(args ...interface{}) Graphics{
-    return Graphics{self.Call("arc", args)}
+func (self *Graphics) ArcI(args ...interface{}) *Graphics{
+    return &Graphics{self.Call("arc", args)}
 }
 
 // Specifies a simple one-color fill that subsequent calls to other Graphics methods
 // (such as lineTo() or drawCircle()) use when drawing.
-func (self *Graphics) BeginFillI(args ...interface{}) Graphics{
-    return Graphics{self.Call("beginFill", args)}
+func (self *Graphics) BeginFillI(args ...interface{}) *Graphics{
+    return &Graphics{self.Call("beginFill", args)}
 }
 
 // Applies a fill to the lines and shapes that were added since the last call to the beginFill() method.
-func (self *Graphics) EndFillI(args ...interface{}) Graphics{
-    return Graphics{self.Call("endFill", args)}
+func (self *Graphics) EndFillI(args ...interface{}) *Graphics{
+    return &Graphics{self.Call("endFill", args)}
 }
 
 // 
-func (self *Graphics) DrawRectI(args ...interface{}) Graphics{
-    return Graphics{self.Call("drawRect", args)}
+func (self *Graphics) DrawRectI(args ...interface{}) *Graphics{
+    return &Graphics{self.Call("drawRect", args)}
 }
 
 // 
@@ -893,29 +893,29 @@ func (self *Graphics) DrawRoundedRectI(args ...interface{}) {
 }
 
 // Draws a circle.
-func (self *Graphics) DrawCircleI(args ...interface{}) Graphics{
-    return Graphics{self.Call("drawCircle", args)}
+func (self *Graphics) DrawCircleI(args ...interface{}) *Graphics{
+    return &Graphics{self.Call("drawCircle", args)}
 }
 
 // Draws an ellipse.
-func (self *Graphics) DrawEllipseI(args ...interface{}) Graphics{
-    return Graphics{self.Call("drawEllipse", args)}
+func (self *Graphics) DrawEllipseI(args ...interface{}) *Graphics{
+    return &Graphics{self.Call("drawEllipse", args)}
 }
 
 // Draws a polygon using the given path.
-func (self *Graphics) DrawPolygonI(args ...interface{}) Graphics{
-    return Graphics{self.Call("drawPolygon", args)}
+func (self *Graphics) DrawPolygonI(args ...interface{}) *Graphics{
+    return &Graphics{self.Call("drawPolygon", args)}
 }
 
 // Clears the graphics that were drawn to this Graphics object, and resets fill and line style settings.
-func (self *Graphics) ClearI(args ...interface{}) Graphics{
-    return Graphics{self.Call("clear", args)}
+func (self *Graphics) ClearI(args ...interface{}) *Graphics{
+    return &Graphics{self.Call("clear", args)}
 }
 
 // Useful function that returns a texture of the graphics object that can then be used to create sprites
 // This can be quite useful if your geometry is complicated and needs to be reused multiple times.
-func (self *Graphics) GenerateTextureI(args ...interface{}) Texture{
-    return Texture{self.Call("generateTexture", args)}
+func (self *Graphics) GenerateTextureI(args ...interface{}) *Texture{
+    return &Texture{self.Call("generateTexture", args)}
 }
 
 // Renders the object using the WebGL renderer
@@ -929,8 +929,8 @@ func (self *Graphics) _renderCanvasI(args ...interface{}) {
 }
 
 // Retrieves the bounds of the graphic shape as a rectangle object
-func (self *Graphics) GetBoundsI(args ...interface{}) Rectangle{
-    return Rectangle{self.Call("getBounds", args)}
+func (self *Graphics) GetBoundsI(args ...interface{}) *Rectangle{
+    return &Rectangle{self.Call("getBounds", args)}
 }
 
 // Update the bounds of the object
@@ -954,18 +954,18 @@ func (self *Graphics) DestroyCachedSpriteI(args ...interface{}) {
 }
 
 // Draws the given shape to this Graphics object. Can be any of Circle, Rectangle, Ellipse, Line or Polygon.
-func (self *Graphics) DrawShapeI(args ...interface{}) GraphicsData{
-    return GraphicsData{self.Call("drawShape", args)}
+func (self *Graphics) DrawShapeI(args ...interface{}) *GraphicsData{
+    return &GraphicsData{self.Call("drawShape", args)}
 }
 
 // Adds a child to the container.
-func (self *Graphics) AddChildI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("addChild", args)}
+func (self *Graphics) AddChildI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("addChild", args)}
 }
 
 // Adds a child to the container at a specified index. If the index is out of bounds an error will be thrown
-func (self *Graphics) AddChildAtI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("addChildAt", args)}
+func (self *Graphics) AddChildAtI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("addChildAt", args)}
 }
 
 // Swaps the position of 2 Display Objects within this container.
@@ -984,18 +984,18 @@ func (self *Graphics) SetChildIndexI(args ...interface{}) {
 }
 
 // Returns the child at the specified index
-func (self *Graphics) GetChildAtI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("getChildAt", args)}
+func (self *Graphics) GetChildAtI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("getChildAt", args)}
 }
 
 // Removes a child from the container.
-func (self *Graphics) RemoveChildI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("removeChild", args)}
+func (self *Graphics) RemoveChildI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("removeChild", args)}
 }
 
 // Removes a child from the specified index position.
-func (self *Graphics) RemoveChildAtI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("removeChildAt", args)}
+func (self *Graphics) RemoveChildAtI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("removeChildAt", args)}
 }
 
 // Removes all children from this container that are within the begin and end indexes.
@@ -1004,8 +1004,8 @@ func (self *Graphics) RemoveChildrenI(args ...interface{}) {
 }
 
 // Retrieves the non-global local bounds of the displayObjectContainer as a rectangle. The calculation takes all visible children into consideration.
-func (self *Graphics) GetLocalBoundsI(args ...interface{}) Rectangle{
-    return Rectangle{self.Call("getLocalBounds", args)}
+func (self *Graphics) GetLocalBoundsI(args ...interface{}) *Rectangle{
+    return &Rectangle{self.Call("getLocalBounds", args)}
 }
 
 // Sets the containers Stage reference. This is the Stage that this object, and all of its children, is connected to.
@@ -1104,8 +1104,8 @@ func (self *Graphics) AlignToI(args ...interface{}) interface{}{
 // A resurrected Game Object has its `alive`, `exists` and `visible` properties all set to true.
 // 
 // It will dispatch the `onRevived` event. Listen to `events.onRevived` for the signal.
-func (self *Graphics) ReviveI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("revive", args)}
+func (self *Graphics) ReviveI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("revive", args)}
 }
 
 // Kills a Game Object. A killed Game Object has its `alive`, `exists` and `visible` properties all set to false.
@@ -1116,8 +1116,8 @@ func (self *Graphics) ReviveI(args ...interface{}) DisplayObject{
 // it doesn't destroy the object or free it up from memory.
 // 
 // If you don't need this Game Object any more you should call `destroy` instead.
-func (self *Graphics) KillI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("kill", args)}
+func (self *Graphics) KillI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("kill", args)}
 }
 
 // Resets the Game Object.
@@ -1128,6 +1128,6 @@ func (self *Graphics) KillI(args ...interface{}) DisplayObject{
 // If this Game Object has the LifeSpan component it will also set `alive` to true and `health` to the given value.
 // 
 // If this Game Object has a Physics Body it will reset the Body.
-func (self *Graphics) ResetI(args ...interface{}) DisplayObject{
-    return DisplayObject{self.Call("reset", args)}
+func (self *Graphics) ResetI(args ...interface{}) *DisplayObject{
+    return &DisplayObject{self.Call("reset", args)}
 }

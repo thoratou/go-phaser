@@ -20,12 +20,12 @@ type TweenManager struct {
 
 
 // Local reference to game.
-func (self *TweenManager) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *TweenManager) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // Local reference to game.
-func (self *TweenManager) SetGame(member Game) {
+func (self *TweenManager) SetGame(member *Game) {
     self.Set("game", member)
 }
 
@@ -76,13 +76,13 @@ func (self *TweenManager) RemoveFromI(args ...interface{}) {
 }
 
 // Add a new tween into the TweenManager.
-func (self *TweenManager) AddI(args ...interface{}) Tween{
-    return Tween{self.Call("add", args)}
+func (self *TweenManager) AddI(args ...interface{}) *Tween{
+    return &Tween{self.Call("add", args)}
 }
 
 // Create a tween object for a specific object. The object can be any JavaScript object or Phaser object such as Sprite.
-func (self *TweenManager) CreateI(args ...interface{}) Tween{
-    return Tween{self.Call("create", args)}
+func (self *TweenManager) CreateI(args ...interface{}) *Tween{
+    return &Tween{self.Call("create", args)}
 }
 
 // Remove a tween from this manager.

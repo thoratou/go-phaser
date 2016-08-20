@@ -25,32 +25,32 @@ func (self *Texture) SetNoFrame(member bool) {
 }
 
 // The base texture that this texture uses.
-func (self *Texture) GetBaseTexture() BaseTexture{
-    return BaseTexture{self.Get("baseTexture")}
+func (self *Texture) GetBaseTexture() *BaseTexture{
+    return &BaseTexture{self.Get("baseTexture")}
 }
 
 // The base texture that this texture uses.
-func (self *Texture) SetBaseTexture(member BaseTexture) {
+func (self *Texture) SetBaseTexture(member *BaseTexture) {
     self.Set("baseTexture", member)
 }
 
 // The frame specifies the region of the base texture that this texture uses
-func (self *Texture) GetFrame() Rectangle{
-    return Rectangle{self.Get("frame")}
+func (self *Texture) GetFrame() *Rectangle{
+    return &Rectangle{self.Get("frame")}
 }
 
 // The frame specifies the region of the base texture that this texture uses
-func (self *Texture) SetFrame(member Rectangle) {
+func (self *Texture) SetFrame(member *Rectangle) {
     self.Set("frame", member)
 }
 
 // The texture trim data.
-func (self *Texture) GetTrim() Rectangle{
-    return Rectangle{self.Get("trim")}
+func (self *Texture) GetTrim() *Rectangle{
+    return &Rectangle{self.Get("trim")}
 }
 
 // The texture trim data.
-func (self *Texture) SetTrim(member Rectangle) {
+func (self *Texture) SetTrim(member *Rectangle) {
     self.Set("trim", member)
 }
 
@@ -116,13 +116,13 @@ func (self *Texture) SetHeight(member float64) {
 
 // This is the area of the BaseTexture image to actually copy to the Canvas / WebGL when rendering,
 // irrespective of the actual frame size or placement (which can be influenced by trimmed texture atlases)
-func (self *Texture) GetCrop() Rectangle{
-    return Rectangle{self.Get("crop")}
+func (self *Texture) GetCrop() *Rectangle{
+    return &Rectangle{self.Get("crop")}
 }
 
 // This is the area of the BaseTexture image to actually copy to the Canvas / WebGL when rendering,
 // irrespective of the actual frame size or placement (which can be influenced by trimmed texture atlases)
-func (self *Texture) SetCrop(member Rectangle) {
+func (self *Texture) SetCrop(member *Rectangle) {
     self.Set("crop", member)
 }
 
@@ -149,6 +149,6 @@ func (self *Texture) _updateUvsI(args ...interface{}) {
 }
 
 // Helper function that creates a new a Texture based on the given canvas element.
-func (self *Texture) FromCanvasI(args ...interface{}) Texture{
-    return Texture{self.Call("fromCanvas", args)}
+func (self *Texture) FromCanvasI(args ...interface{}) *Texture{
+    return &Texture{self.Call("fromCanvas", args)}
 }

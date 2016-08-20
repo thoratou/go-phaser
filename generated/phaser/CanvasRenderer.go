@@ -17,12 +17,12 @@ type CanvasRenderer struct {
 
 
 // 
-func (self *CanvasRenderer) GetGame() PhaserGame{
-    return PhaserGame{self.Get("game")}
+func (self *CanvasRenderer) GetGame() *PhaserGame{
+    return &PhaserGame{self.Get("game")}
 }
 
 // 
-func (self *CanvasRenderer) SetGame(member PhaserGame) {
+func (self *CanvasRenderer) SetGame(member *PhaserGame) {
     self.Set("game", member)
 }
 
@@ -143,12 +143,12 @@ func (self *CanvasRenderer) SetCount(member float64) {
 }
 
 // Instance of a PIXI.CanvasMaskManager, handles masking when using the canvas renderer
-func (self *CanvasRenderer) GetCanvasMaskManager() CanvasMaskManager{
-    return CanvasMaskManager{self.Get("CanvasMaskManager")}
+func (self *CanvasRenderer) GetCanvasMaskManager() *CanvasMaskManager{
+    return &CanvasMaskManager{self.Get("CanvasMaskManager")}
 }
 
 // Instance of a PIXI.CanvasMaskManager, handles masking when using the canvas renderer
-func (self *CanvasRenderer) SetCanvasMaskManager(member CanvasMaskManager) {
+func (self *CanvasRenderer) SetCanvasMaskManager(member *CanvasMaskManager) {
     self.Set("CanvasMaskManager", member)
 }
 

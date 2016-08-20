@@ -20,12 +20,12 @@ type Tilemap struct {
 
 
 // A reference to the currently running Game.
-func (self *Tilemap) GetGame() Game{
-    return Game{self.Get("game")}
+func (self *Tilemap) GetGame() *Game{
+    return &Game{self.Get("game")}
 }
 
 // A reference to the currently running Game.
-func (self *Tilemap) SetGame(member Game) {
+func (self *Tilemap) SetGame(member *Game) {
     self.Set("game", member)
 }
 
@@ -366,8 +366,8 @@ func (self *Tilemap) SetLayer(member interface{}) {
 
 
 // Creates an empty map of the given dimensions and one blank layer. If layers already exist they are erased.
-func (self *Tilemap) CreateI(args ...interface{}) TilemapLayer{
-    return TilemapLayer{self.Call("create", args)}
+func (self *Tilemap) CreateI(args ...interface{}) *TilemapLayer{
+    return &TilemapLayer{self.Call("create", args)}
 }
 
 // Sets the base tile size for the map.
@@ -377,8 +377,8 @@ func (self *Tilemap) SetTileSizeI(args ...interface{}) {
 
 // Adds an image to the map to be used as a tileset. A single map may use multiple tilesets.
 // Note that the tileset name can be found in the JSON file exported from Tiled, or in the Tiled editor.
-func (self *Tilemap) AddTilesetImageI(args ...interface{}) Tileset{
-    return Tileset{self.Call("addTilesetImage", args)}
+func (self *Tilemap) AddTilesetImageI(args ...interface{}) *Tileset{
+    return &Tileset{self.Call("addTilesetImage", args)}
 }
 
 // Creates a Sprite for every object matching the given gid in the map data. You can optionally specify the group that the Sprite will be created in. If none is
@@ -401,13 +401,13 @@ func (self *Tilemap) CreateFromTilesI(args ...interface{}) int{
 // The `layer` parameter is important. If you've created your map in Tiled then you can get this by looking in Tiled and looking at the Layer name.
 // Or you can open the JSON file it exports and look at the layers[].name value. Either way it must match.
 // If you wish to create a blank layer to put your own tiles on then see Tilemap.createBlankLayer.
-func (self *Tilemap) CreateLayerI(args ...interface{}) TilemapLayer{
-    return TilemapLayer{self.Call("createLayer", args)}
+func (self *Tilemap) CreateLayerI(args ...interface{}) *TilemapLayer{
+    return &TilemapLayer{self.Call("createLayer", args)}
 }
 
 // Creates a new and empty layer on this Tilemap. By default TilemapLayers are fixed to the camera.
-func (self *Tilemap) CreateBlankLayerI(args ...interface{}) TilemapLayer{
-    return TilemapLayer{self.Call("createBlankLayer", args)}
+func (self *Tilemap) CreateBlankLayerI(args ...interface{}) *TilemapLayer{
+    return &TilemapLayer{self.Call("createBlankLayer", args)}
 }
 
 // Gets the layer index based on the layers name.
@@ -520,42 +520,42 @@ func (self *Tilemap) HasTileI(args ...interface{}) bool{
 }
 
 // Removes the tile located at the given coordinates and updates the collision data.
-func (self *Tilemap) RemoveTileI(args ...interface{}) Tile{
-    return Tile{self.Call("removeTile", args)}
+func (self *Tilemap) RemoveTileI(args ...interface{}) *Tile{
+    return &Tile{self.Call("removeTile", args)}
 }
 
 // Removes the tile located at the given coordinates and updates the collision data. The coordinates are given in pixel values.
-func (self *Tilemap) RemoveTileWorldXYI(args ...interface{}) Tile{
-    return Tile{self.Call("removeTileWorldXY", args)}
+func (self *Tilemap) RemoveTileWorldXYI(args ...interface{}) *Tile{
+    return &Tile{self.Call("removeTileWorldXY", args)}
 }
 
 // Puts a tile of the given index value at the coordinate specified.
 // If you pass `null` as the tile it will pass your call over to Tilemap.removeTile instead.
-func (self *Tilemap) PutTileI(args ...interface{}) Tile{
-    return Tile{self.Call("putTile", args)}
+func (self *Tilemap) PutTileI(args ...interface{}) *Tile{
+    return &Tile{self.Call("putTile", args)}
 }
 
 // Puts a tile into the Tilemap layer. The coordinates are given in pixel values.
-func (self *Tilemap) PutTileWorldXYI(args ...interface{}) Tile{
-    return Tile{self.Call("putTileWorldXY", args)}
+func (self *Tilemap) PutTileWorldXYI(args ...interface{}) *Tile{
+    return &Tile{self.Call("putTileWorldXY", args)}
 }
 
 // Searches the entire map layer for the first tile matching the given index, then returns that Phaser.Tile object.
 // If no match is found it returns null.
 // The search starts from the top-left tile and continues horizontally until it hits the end of the row, then it drops down to the next column.
 // If the reverse boolean is true, it scans starting from the bottom-right corner traveling up to the top-left.
-func (self *Tilemap) SearchTileIndexI(args ...interface{}) Tile{
-    return Tile{self.Call("searchTileIndex", args)}
+func (self *Tilemap) SearchTileIndexI(args ...interface{}) *Tile{
+    return &Tile{self.Call("searchTileIndex", args)}
 }
 
 // Gets a tile from the Tilemap Layer. The coordinates are given in tile values.
-func (self *Tilemap) GetTileI(args ...interface{}) Tile{
-    return Tile{self.Call("getTile", args)}
+func (self *Tilemap) GetTileI(args ...interface{}) *Tile{
+    return &Tile{self.Call("getTile", args)}
 }
 
 // Gets a tile from the Tilemap layer. The coordinates are given in pixel values.
-func (self *Tilemap) GetTileWorldXYI(args ...interface{}) Tile{
-    return Tile{self.Call("getTileWorldXY", args)}
+func (self *Tilemap) GetTileWorldXYI(args ...interface{}) *Tile{
+    return &Tile{self.Call("getTileWorldXY", args)}
 }
 
 // Copies all of the tiles in the given rectangular block into the tilemap data buffer.

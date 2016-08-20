@@ -823,8 +823,8 @@ func (self *Device) SetFullscreenKeyboard(member bool) {
 // 
 // _Note_: This signal is removed after the device has been readied; if a handler has not been
 // added _before_ `new Phaser.Game(..)` it is probably too late.
-func (self *Device) GetOnInitialized() Signal{
-    return Signal{self.Get("onInitialized")}
+func (self *Device) GetOnInitialized() *Signal{
+    return &Signal{self.Get("onInitialized")}
 }
 
 // This signal is dispatched after device initialization occurs but before any of the ready
@@ -834,7 +834,7 @@ func (self *Device) GetOnInitialized() Signal{
 // 
 // _Note_: This signal is removed after the device has been readied; if a handler has not been
 // added _before_ `new Phaser.Game(..)` it is probably too late.
-func (self *Device) SetOnInitialized(member Signal) {
+func (self *Device) SetOnInitialized(member *Signal) {
     self.Set("onInitialized", member)
 }
 
