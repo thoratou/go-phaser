@@ -1,0 +1,27 @@
+// Automatic generation for mat2d
+// generated file Mat2d.go
+package phaser
+
+import (
+	"github.com/gopherjs/gopherjs/js"
+
+)
+
+// A mat2d contains six elements defined as:
+// <pre>
+// [a, c, tx,
+//  b, d, ty]
+// </pre>
+// This is a short form for the 3x3 matrix:
+// <pre>
+// [a, c, tx,
+//  b, d, ty,
+//  0, 0, 1]
+// </pre>
+// The last row is ignored so the array is shorter and operations are faster.
+type Mat2d struct {
+    *js.Object
+}
+
+
+
