@@ -59,7 +59,13 @@ func (self *SignalBinding) SetParamsA(member interface{}) {
 
 // Call listener passing arbitrary parameters.
 // If binding was added using `Signal.addOnce()` it will be automatically removed from signal dispatch queue, this method is used internally for the signal dispatch.
-func (self *SignalBinding) Execute(paramsArr []interface{}) interface{}{
+func (self *SignalBinding) Execute() interface{}{
+    return self.Object.Call("execute")
+}
+
+// Call listener passing arbitrary parameters.
+// If binding was added using `Signal.addOnce()` it will be automatically removed from signal dispatch queue, this method is used internally for the signal dispatch.
+func (self *SignalBinding) Execute1O(paramsArr []interface{}) interface{}{
     return self.Object.Call("execute", paramsArr)
 }
 

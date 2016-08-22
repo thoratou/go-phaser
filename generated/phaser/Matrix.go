@@ -132,7 +132,14 @@ func (self *Matrix) SetToI(args ...interface{}) *Matrix{
 // Creates a new Matrix object based on the values of this Matrix.
 // If you provide the output parameter the values of this Matrix will be copied over to it.
 // If the output parameter is blank a new Matrix object will be created.
-func (self *Matrix) Clone(output *Matrix) *Matrix{
+func (self *Matrix) Clone() *Matrix{
+    return &Matrix{self.Object.Call("clone")}
+}
+
+// Creates a new Matrix object based on the values of this Matrix.
+// If you provide the output parameter the values of this Matrix will be copied over to it.
+// If the output parameter is blank a new Matrix object will be created.
+func (self *Matrix) Clone1O(output *Matrix) *Matrix{
     return &Matrix{self.Object.Call("clone", output)}
 }
 
@@ -164,7 +171,17 @@ func (self *Matrix) CopyFromI(args ...interface{}) *Matrix{
 }
 
 // Creates a Float32 Array with values populated from this Matrix object.
-func (self *Matrix) ToArray(transpose bool, array *Float32Array) *Float32Array{
+func (self *Matrix) ToArray() *Float32Array{
+    return &Float32Array{self.Object.Call("toArray")}
+}
+
+// Creates a Float32 Array with values populated from this Matrix object.
+func (self *Matrix) ToArray1O(transpose bool) *Float32Array{
+    return &Float32Array{self.Object.Call("toArray", transpose)}
+}
+
+// Creates a Float32 Array with values populated from this Matrix object.
+func (self *Matrix) ToArray2O(transpose bool, array *Float32Array) *Float32Array{
     return &Float32Array{self.Object.Call("toArray", transpose, array)}
 }
 
@@ -176,7 +193,14 @@ func (self *Matrix) ToArrayI(args ...interface{}) *Float32Array{
 // Get a new position with the current transformation applied.
 // 
 // Can be used to go from a childs coordinate space to the world coordinate space (e.g. rendering)
-func (self *Matrix) Apply(pos *Point, newPos *Point) *Point{
+func (self *Matrix) Apply(pos *Point) *Point{
+    return &Point{self.Object.Call("apply", pos)}
+}
+
+// Get a new position with the current transformation applied.
+// 
+// Can be used to go from a childs coordinate space to the world coordinate space (e.g. rendering)
+func (self *Matrix) Apply1O(pos *Point, newPos *Point) *Point{
     return &Point{self.Object.Call("apply", pos, newPos)}
 }
 
@@ -190,7 +214,14 @@ func (self *Matrix) ApplyI(args ...interface{}) *Point{
 // Get a new position with the inverse of the current transformation applied.
 // 
 // Can be used to go from the world coordinate space to a childs coordinate space. (e.g. input)
-func (self *Matrix) ApplyInverse(pos *Point, newPos *Point) *Point{
+func (self *Matrix) ApplyInverse(pos *Point) *Point{
+    return &Point{self.Object.Call("applyInverse", pos)}
+}
+
+// Get a new position with the inverse of the current transformation applied.
+// 
+// Can be used to go from the world coordinate space to a childs coordinate space. (e.g. input)
+func (self *Matrix) ApplyInverse1O(pos *Point, newPos *Point) *Point{
     return &Point{self.Object.Call("applyInverse", pos, newPos)}
 }
 

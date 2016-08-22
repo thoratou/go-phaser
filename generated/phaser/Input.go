@@ -769,7 +769,16 @@ func (self *Input) UpdateI(args ...interface{}) {
 // The optional `hard` parameter will reset any events or callbacks that may be bound.
 // Input.reset is called automatically during a State change or if a game loses focus / visibility.
 // To control control the reset manually set {@link Phaser.InputManager.resetLocked} to `true`.
-func (self *Input) Reset(hard bool) {
+func (self *Input) Reset() {
+    self.Object.Call("reset")
+}
+
+// Reset all of the Pointers and Input states.
+// 
+// The optional `hard` parameter will reset any events or callbacks that may be bound.
+// Input.reset is called automatically during a State change or if a game loses focus / visibility.
+// To control control the reset manually set {@link Phaser.InputManager.resetLocked} to `true`.
+func (self *Input) Reset1O(hard bool) {
     self.Object.Call("reset", hard)
 }
 
@@ -827,7 +836,12 @@ func (self *Input) StopPointerI(args ...interface{}) *Pointer{
 }
 
 // Get the first Pointer with the given active state.
-func (self *Input) GetPointer(isActive bool) *Pointer{
+func (self *Input) GetPointer() *Pointer{
+    return &Pointer{self.Object.Call("getPointer")}
+}
+
+// Get the first Pointer with the given active state.
+func (self *Input) GetPointer1O(isActive bool) *Pointer{
     return &Pointer{self.Object.Call("getPointer", isActive)}
 }
 

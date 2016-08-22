@@ -706,7 +706,12 @@ func (self *Pointer) UpdateI(args ...interface{}) {
 }
 
 // Called when the Pointer is moved.
-func (self *Pointer) Move(event interface{}, fromClick bool) {
+func (self *Pointer) Move(event interface{}) {
+    self.Object.Call("move", event)
+}
+
+// Called when the Pointer is moved.
+func (self *Pointer) Move1O(event interface{}, fromClick bool) {
     self.Object.Call("move", event, fromClick)
 }
 
@@ -716,7 +721,12 @@ func (self *Pointer) MoveI(args ...interface{}) {
 }
 
 // Process all interactive objects to find out which ones were updated in the recent Pointer move.
-func (self *Pointer) ProcessInteractiveObjects(fromClick bool) bool{
+func (self *Pointer) ProcessInteractiveObjects() bool{
+    return self.Object.Call("processInteractiveObjects").Bool()
+}
+
+// Process all interactive objects to find out which ones were updated in the recent Pointer move.
+func (self *Pointer) ProcessInteractiveObjects1O(fromClick bool) bool{
     return self.Object.Call("processInteractiveObjects", fromClick).Bool()
 }
 
@@ -731,7 +741,17 @@ func (self *Pointer) ProcessInteractiveObjectsI(args ...interface{}) bool{
 // 
 // Note that even if you set a new Target here, it is still able to be replaced by any other valid
 // target during the next Pointer update.
-func (self *Pointer) SwapTarget(newTarget *InputHandler, silent bool) {
+func (self *Pointer) SwapTarget(newTarget *InputHandler) {
+    self.Object.Call("swapTarget", newTarget)
+}
+
+// This will change the `Pointer.targetObject` object to be the one provided.
+// 
+// This allows you to have fine-grained control over which object the Pointer is targeting.
+// 
+// Note that even if you set a new Target here, it is still able to be replaced by any other valid
+// target during the next Pointer update.
+func (self *Pointer) SwapTarget1O(newTarget *InputHandler, silent bool) {
     self.Object.Call("swapTarget", newTarget, silent)
 }
 
@@ -768,7 +788,14 @@ func (self *Pointer) StopI(args ...interface{}) {
 // The Pointer is considered justPressed if the time it was pressed onto the touchscreen or clicked is less than justPressedRate.
 // Note that calling justPressed doesn't reset the pressed status of the Pointer, it will return `true` for as long as the duration is valid.
 // If you wish to check if the Pointer was pressed down just once then see the Sprite.events.onInputDown event.
-func (self *Pointer) JustPressed(duration int) bool{
+func (self *Pointer) JustPressed() bool{
+    return self.Object.Call("justPressed").Bool()
+}
+
+// The Pointer is considered justPressed if the time it was pressed onto the touchscreen or clicked is less than justPressedRate.
+// Note that calling justPressed doesn't reset the pressed status of the Pointer, it will return `true` for as long as the duration is valid.
+// If you wish to check if the Pointer was pressed down just once then see the Sprite.events.onInputDown event.
+func (self *Pointer) JustPressed1O(duration int) bool{
     return self.Object.Call("justPressed", duration).Bool()
 }
 
@@ -782,7 +809,14 @@ func (self *Pointer) JustPressedI(args ...interface{}) bool{
 // The Pointer is considered justReleased if the time it left the touchscreen is less than justReleasedRate.
 // Note that calling justReleased doesn't reset the pressed status of the Pointer, it will return `true` for as long as the duration is valid.
 // If you wish to check if the Pointer was released just once then see the Sprite.events.onInputUp event.
-func (self *Pointer) JustReleased(duration int) bool{
+func (self *Pointer) JustReleased() bool{
+    return self.Object.Call("justReleased").Bool()
+}
+
+// The Pointer is considered justReleased if the time it left the touchscreen is less than justReleasedRate.
+// Note that calling justReleased doesn't reset the pressed status of the Pointer, it will return `true` for as long as the duration is valid.
+// If you wish to check if the Pointer was released just once then see the Sprite.events.onInputUp event.
+func (self *Pointer) JustReleased1O(duration int) bool{
     return self.Object.Call("justReleased", duration).Bool()
 }
 

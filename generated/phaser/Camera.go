@@ -387,7 +387,40 @@ func (self *Camera) PreUpdateI(args ...interface{}) {
 // 
 // If you find you're getting a slight "jitter" effect when following a Sprite it's probably to do with sub-pixel rendering of the Sprite position.
 // This can be disabled by setting `game.renderer.renderSession.roundPixels = true` to force full pixel rendering.
-func (self *Camera) Follow(target interface{}, style int, lerpX float64, lerpY float64) {
+func (self *Camera) Follow(target interface{}) {
+    self.Object.Call("follow", target)
+}
+
+// Tell the camera which sprite to follow.
+// 
+// You can set the follow type and a linear interpolation value.
+// Use low lerp values (such as 0.1) to automatically smooth the camera motion.
+// 
+// If you find you're getting a slight "jitter" effect when following a Sprite it's probably to do with sub-pixel rendering of the Sprite position.
+// This can be disabled by setting `game.renderer.renderSession.roundPixels = true` to force full pixel rendering.
+func (self *Camera) Follow1O(target interface{}, style int) {
+    self.Object.Call("follow", target, style)
+}
+
+// Tell the camera which sprite to follow.
+// 
+// You can set the follow type and a linear interpolation value.
+// Use low lerp values (such as 0.1) to automatically smooth the camera motion.
+// 
+// If you find you're getting a slight "jitter" effect when following a Sprite it's probably to do with sub-pixel rendering of the Sprite position.
+// This can be disabled by setting `game.renderer.renderSession.roundPixels = true` to force full pixel rendering.
+func (self *Camera) Follow2O(target interface{}, style int, lerpX float64) {
+    self.Object.Call("follow", target, style, lerpX)
+}
+
+// Tell the camera which sprite to follow.
+// 
+// You can set the follow type and a linear interpolation value.
+// Use low lerp values (such as 0.1) to automatically smooth the camera motion.
+// 
+// If you find you're getting a slight "jitter" effect when following a Sprite it's probably to do with sub-pixel rendering of the Sprite position.
+// This can be disabled by setting `game.renderer.renderSession.roundPixels = true` to force full pixel rendering.
+func (self *Camera) Follow3O(target interface{}, style int, lerpX float64, lerpY float64) {
     self.Object.Call("follow", target, style, lerpX, lerpY)
 }
 
@@ -437,7 +470,52 @@ func (self *Camera) FocusOnXYI(args ...interface{}) {
 // of the effect, and if it should effect both axis or just one.
 // 
 // When the shake effect ends the signal Camera.onShakeComplete is dispatched.
-func (self *Camera) Shake(intensity float64, duration int, force bool, direction int, shakeBounds bool) bool{
+func (self *Camera) Shake() bool{
+    return self.Object.Call("shake").Bool()
+}
+
+// This creates a camera shake effect. It works by applying a random amount of additional
+// spacing on the x and y axis each frame. You can control the intensity and duration
+// of the effect, and if it should effect both axis or just one.
+// 
+// When the shake effect ends the signal Camera.onShakeComplete is dispatched.
+func (self *Camera) Shake1O(intensity float64) bool{
+    return self.Object.Call("shake", intensity).Bool()
+}
+
+// This creates a camera shake effect. It works by applying a random amount of additional
+// spacing on the x and y axis each frame. You can control the intensity and duration
+// of the effect, and if it should effect both axis or just one.
+// 
+// When the shake effect ends the signal Camera.onShakeComplete is dispatched.
+func (self *Camera) Shake2O(intensity float64, duration int) bool{
+    return self.Object.Call("shake", intensity, duration).Bool()
+}
+
+// This creates a camera shake effect. It works by applying a random amount of additional
+// spacing on the x and y axis each frame. You can control the intensity and duration
+// of the effect, and if it should effect both axis or just one.
+// 
+// When the shake effect ends the signal Camera.onShakeComplete is dispatched.
+func (self *Camera) Shake3O(intensity float64, duration int, force bool) bool{
+    return self.Object.Call("shake", intensity, duration, force).Bool()
+}
+
+// This creates a camera shake effect. It works by applying a random amount of additional
+// spacing on the x and y axis each frame. You can control the intensity and duration
+// of the effect, and if it should effect both axis or just one.
+// 
+// When the shake effect ends the signal Camera.onShakeComplete is dispatched.
+func (self *Camera) Shake4O(intensity float64, duration int, force bool, direction int) bool{
+    return self.Object.Call("shake", intensity, duration, force, direction).Bool()
+}
+
+// This creates a camera shake effect. It works by applying a random amount of additional
+// spacing on the x and y axis each frame. You can control the intensity and duration
+// of the effect, and if it should effect both axis or just one.
+// 
+// When the shake effect ends the signal Camera.onShakeComplete is dispatched.
+func (self *Camera) Shake5O(intensity float64, duration int, force bool, direction int, shakeBounds bool) bool{
     return self.Object.Call("shake", intensity, duration, force, direction, shakeBounds).Bool()
 }
 
@@ -456,7 +534,37 @@ func (self *Camera) ShakeI(args ...interface{}) bool{
 // You can use this for things such as hit feedback effects.
 // 
 // When the effect ends the signal Camera.onFlashComplete is dispatched.
-func (self *Camera) Flash(color float64, duration int, force bool) bool{
+func (self *Camera) Flash() bool{
+    return self.Object.Call("flash").Bool()
+}
+
+// This creates a camera flash effect. It works by filling the game with the solid fill
+// color specified, and then fading it away to alpha 0 over the duration given.
+// 
+// You can use this for things such as hit feedback effects.
+// 
+// When the effect ends the signal Camera.onFlashComplete is dispatched.
+func (self *Camera) Flash1O(color float64) bool{
+    return self.Object.Call("flash", color).Bool()
+}
+
+// This creates a camera flash effect. It works by filling the game with the solid fill
+// color specified, and then fading it away to alpha 0 over the duration given.
+// 
+// You can use this for things such as hit feedback effects.
+// 
+// When the effect ends the signal Camera.onFlashComplete is dispatched.
+func (self *Camera) Flash2O(color float64, duration int) bool{
+    return self.Object.Call("flash", color, duration).Bool()
+}
+
+// This creates a camera flash effect. It works by filling the game with the solid fill
+// color specified, and then fading it away to alpha 0 over the duration given.
+// 
+// You can use this for things such as hit feedback effects.
+// 
+// When the effect ends the signal Camera.onFlashComplete is dispatched.
+func (self *Camera) Flash3O(color float64, duration int, force bool) bool{
     return self.Object.Call("flash", color, duration, force).Bool()
 }
 
@@ -481,7 +589,52 @@ func (self *Camera) FlashI(args ...interface{}) bool{
 // reverse the process, bringing the game back into view again.
 // 
 // When the effect ends the signal Camera.onFadeComplete is dispatched.
-func (self *Camera) Fade(color float64, duration int, force bool) bool{
+func (self *Camera) Fade() bool{
+    return self.Object.Call("fade").Bool()
+}
+
+// This creates a camera fade effect. It works by filling the game with the
+// color specified, over the duration given, ending with a solid fill.
+// 
+// You can use this for things such as transitioning to a new scene.
+// 
+// The game will be left 'filled' at the end of this effect, likely obscuring
+// everything. In order to reset it you can call `Camera.resetFX` and it will clear the
+// fade. Or you can call `Camera.flash` with the same color as the fade, and it will
+// reverse the process, bringing the game back into view again.
+// 
+// When the effect ends the signal Camera.onFadeComplete is dispatched.
+func (self *Camera) Fade1O(color float64) bool{
+    return self.Object.Call("fade", color).Bool()
+}
+
+// This creates a camera fade effect. It works by filling the game with the
+// color specified, over the duration given, ending with a solid fill.
+// 
+// You can use this for things such as transitioning to a new scene.
+// 
+// The game will be left 'filled' at the end of this effect, likely obscuring
+// everything. In order to reset it you can call `Camera.resetFX` and it will clear the
+// fade. Or you can call `Camera.flash` with the same color as the fade, and it will
+// reverse the process, bringing the game back into view again.
+// 
+// When the effect ends the signal Camera.onFadeComplete is dispatched.
+func (self *Camera) Fade2O(color float64, duration int) bool{
+    return self.Object.Call("fade", color, duration).Bool()
+}
+
+// This creates a camera fade effect. It works by filling the game with the
+// color specified, over the duration given, ending with a solid fill.
+// 
+// You can use this for things such as transitioning to a new scene.
+// 
+// The game will be left 'filled' at the end of this effect, likely obscuring
+// everything. In order to reset it you can call `Camera.resetFX` and it will clear the
+// fade. Or you can call `Camera.flash` with the same color as the fade, and it will
+// reverse the process, bringing the game back into view again.
+// 
+// When the effect ends the signal Camera.onFadeComplete is dispatched.
+func (self *Camera) Fade3O(color float64, duration int, force bool) bool{
     return self.Object.Call("fade", color, duration, force).Bool()
 }
 

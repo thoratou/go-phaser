@@ -401,7 +401,17 @@ func (self *Loader) SetProgressA(member interface{}) {
 // This allows you to easily make loading bars for games.
 // 
 // The sprite will automatically be made visible when calling this.
-func (self *Loader) SetPreloadSprite(sprite interface{}, direction int) {
+func (self *Loader) SetPreloadSprite(sprite interface{}) {
+    self.Object.Call("setPreloadSprite", sprite)
+}
+
+// Set a Sprite to be a "preload" sprite by passing it to this method.
+// 
+// A "preload" sprite will have its width or height crop adjusted based on the percentage of the loader in real-time.
+// This allows you to easily make loading bars for games.
+// 
+// The sprite will automatically be made visible when calling this.
+func (self *Loader) SetPreloadSprite1O(sprite interface{}, direction int) {
     self.Object.Call("setPreloadSprite", sprite, direction)
 }
 
@@ -476,7 +486,25 @@ func (self *Loader) GetAssetI(args ...interface{}) interface{}{
 // This will abort any loading and clear any queued assets.
 // 
 // Optionally you can clear any associated events.
-func (self *Loader) Reset(hard bool, clearEvents bool) {
+func (self *Loader) Reset() {
+    self.Object.Call("reset")
+}
+
+// Reset the loader and clear any queued assets. If `Loader.resetLocked` is true this operation will abort.
+// 
+// This will abort any loading and clear any queued assets.
+// 
+// Optionally you can clear any associated events.
+func (self *Loader) Reset1O(hard bool) {
+    self.Object.Call("reset", hard)
+}
+
+// Reset the loader and clear any queued assets. If `Loader.resetLocked` is true this operation will abort.
+// 
+// This will abort any loading and clear any queued assets.
+// 
+// Optionally you can clear any associated events.
+func (self *Loader) Reset2O(hard bool, clearEvents bool) {
     self.Object.Call("reset", hard, clearEvents)
 }
 
@@ -490,7 +518,27 @@ func (self *Loader) ResetI(args ...interface{}) {
 }
 
 // Internal function that adds a new entry to the file list. Do not call directly.
-func (self *Loader) AddToFileList(type_ string, key string, url string, properties interface{}, overwrite bool, extension string) *Loader{
+func (self *Loader) AddToFileList(type_ string, key string) *Loader{
+    return &Loader{self.Object.Call("addToFileList", type_, key)}
+}
+
+// Internal function that adds a new entry to the file list. Do not call directly.
+func (self *Loader) AddToFileList1O(type_ string, key string, url string) *Loader{
+    return &Loader{self.Object.Call("addToFileList", type_, key, url)}
+}
+
+// Internal function that adds a new entry to the file list. Do not call directly.
+func (self *Loader) AddToFileList2O(type_ string, key string, url string, properties interface{}) *Loader{
+    return &Loader{self.Object.Call("addToFileList", type_, key, url, properties)}
+}
+
+// Internal function that adds a new entry to the file list. Do not call directly.
+func (self *Loader) AddToFileList3O(type_ string, key string, url string, properties interface{}, overwrite bool) *Loader{
+    return &Loader{self.Object.Call("addToFileList", type_, key, url, properties, overwrite)}
+}
+
+// Internal function that adds a new entry to the file list. Do not call directly.
+func (self *Loader) AddToFileList4O(type_ string, key string, url string, properties interface{}, overwrite bool, extension string) *Loader{
     return &Loader{self.Object.Call("addToFileList", type_, key, url, properties, overwrite, extension)}
 }
 
@@ -522,7 +570,58 @@ func (self *Loader) ReplaceInFileListI(args ...interface{}) {
 // The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
 // 
 // The URL of the packfile can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
-func (self *Loader) Pack(key string, url string, data interface{}, callbackContext interface{}) *Loader{
+func (self *Loader) Pack(key string) *Loader{
+    return &Loader{self.Object.Call("pack", key)}
+}
+
+// Add a JSON resource pack ('packfile') to the Loader.
+// 
+// A packfile is a JSON file that contains a list of assets to the be loaded.
+// Please see the example 'loader/asset pack' in the Phaser Examples repository.
+// 
+// Packs are always put before the first non-pack file that is not loaded / loading.
+// 
+// This means that all packs added before any loading has started are added to the front
+// of the file queue, in the order added.
+// 
+// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+// 
+// The URL of the packfile can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+func (self *Loader) Pack1O(key string, url string) *Loader{
+    return &Loader{self.Object.Call("pack", key, url)}
+}
+
+// Add a JSON resource pack ('packfile') to the Loader.
+// 
+// A packfile is a JSON file that contains a list of assets to the be loaded.
+// Please see the example 'loader/asset pack' in the Phaser Examples repository.
+// 
+// Packs are always put before the first non-pack file that is not loaded / loading.
+// 
+// This means that all packs added before any loading has started are added to the front
+// of the file queue, in the order added.
+// 
+// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+// 
+// The URL of the packfile can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+func (self *Loader) Pack2O(key string, url string, data interface{}) *Loader{
+    return &Loader{self.Object.Call("pack", key, url, data)}
+}
+
+// Add a JSON resource pack ('packfile') to the Loader.
+// 
+// A packfile is a JSON file that contains a list of assets to the be loaded.
+// Please see the example 'loader/asset pack' in the Phaser Examples repository.
+// 
+// Packs are always put before the first non-pack file that is not loaded / loading.
+// 
+// This means that all packs added before any loading has started are added to the front
+// of the file queue, in the order added.
+// 
+// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+// 
+// The URL of the packfile can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+func (self *Loader) Pack3O(key string, url string, data interface{}, callbackContext interface{}) *Loader{
     return &Loader{self.Object.Call("pack", key, url, data, callbackContext)}
 }
 
@@ -558,7 +657,45 @@ func (self *Loader) PackI(args ...interface{}) *Loader{
 // If the URL isn't specified the Loader will take the key and create a filename from that. For example if the key is "alien"
 // and no URL is given then the Loader will set the URL to be "alien.png". It will always add `.png` as the extension.
 // If you do not desire this action then provide a URL.
-func (self *Loader) Image(key string, url string, overwrite bool) *Loader{
+func (self *Loader) Image(key string) *Loader{
+    return &Loader{self.Object.Call("image", key)}
+}
+
+// Adds an Image to the current load queue.
+// 
+// The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
+// 
+// Phaser can load all common image types: png, jpg, gif and any other format the browser can natively handle.
+// 
+// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+// 
+// Retrieve the image via `Cache.getImage(key)`
+// 
+// The URL can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// 
+// If the URL isn't specified the Loader will take the key and create a filename from that. For example if the key is "alien"
+// and no URL is given then the Loader will set the URL to be "alien.png". It will always add `.png` as the extension.
+// If you do not desire this action then provide a URL.
+func (self *Loader) Image1O(key string, url string) *Loader{
+    return &Loader{self.Object.Call("image", key, url)}
+}
+
+// Adds an Image to the current load queue.
+// 
+// The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
+// 
+// Phaser can load all common image types: png, jpg, gif and any other format the browser can natively handle.
+// 
+// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+// 
+// Retrieve the image via `Cache.getImage(key)`
+// 
+// The URL can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// 
+// If the URL isn't specified the Loader will take the key and create a filename from that. For example if the key is "alien"
+// and no URL is given then the Loader will set the URL to be "alien.png". It will always add `.png` as the extension.
+// If you do not desire this action then provide a URL.
+func (self *Loader) Image2O(key string, url string, overwrite bool) *Loader{
     return &Loader{self.Object.Call("image", key, url, overwrite)}
 }
 
@@ -598,7 +735,28 @@ func (self *Loader) ImageI(args ...interface{}) *Loader{
 // If the URL isn't specified the Loader will take the key and create a filename from that. For example if the key is "alien"
 // and no URL is given then the Loader will set the URL to be "alien.png". It will always add `.png` as the extension.
 // If you do not desire this action then provide a URL.
-func (self *Loader) Images(keys []interface{}, urls []interface{}) *Loader{
+func (self *Loader) Images(keys []interface{}) *Loader{
+    return &Loader{self.Object.Call("images", keys)}
+}
+
+// Adds an array of images to the current load queue.
+// 
+// It works by passing each element of the array to the Loader.image method.
+// 
+// The files are **not** loaded immediately after calling this method. The files are added to the queue ready to be loaded when the loader starts.
+// 
+// Phaser can load all common image types: png, jpg, gif and any other format the browser can natively handle.
+// 
+// The keys must be unique Strings. They are used to add the files to the Phaser.Cache upon successful load.
+// 
+// Retrieve the images via `Cache.getImage(key)`
+// 
+// The URL can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// 
+// If the URL isn't specified the Loader will take the key and create a filename from that. For example if the key is "alien"
+// and no URL is given then the Loader will set the URL to be "alien.png". It will always add `.png` as the extension.
+// If you do not desire this action then provide a URL.
+func (self *Loader) Images1O(keys []interface{}, urls []interface{}) *Loader{
     return &Loader{self.Object.Call("images", keys, urls)}
 }
 
@@ -636,7 +794,41 @@ func (self *Loader) ImagesI(args ...interface{}) *Loader{
 // If the URL isn't specified the Loader will take the key and create a filename from that. For example if the key is "alien"
 // and no URL is given then the Loader will set the URL to be "alien.txt". It will always add `.txt` as the extension.
 // If you do not desire this action then provide a URL.
-func (self *Loader) Text(key string, url string, overwrite bool) *Loader{
+func (self *Loader) Text(key string) *Loader{
+    return &Loader{self.Object.Call("text", key)}
+}
+
+// Adds a Text file to the current load queue.
+// 
+// The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
+// 
+// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+// 
+// Retrieve the file via `Cache.getText(key)`
+// 
+// The URL can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// 
+// If the URL isn't specified the Loader will take the key and create a filename from that. For example if the key is "alien"
+// and no URL is given then the Loader will set the URL to be "alien.txt". It will always add `.txt` as the extension.
+// If you do not desire this action then provide a URL.
+func (self *Loader) Text1O(key string, url string) *Loader{
+    return &Loader{self.Object.Call("text", key, url)}
+}
+
+// Adds a Text file to the current load queue.
+// 
+// The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
+// 
+// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+// 
+// Retrieve the file via `Cache.getText(key)`
+// 
+// The URL can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// 
+// If the URL isn't specified the Loader will take the key and create a filename from that. For example if the key is "alien"
+// and no URL is given then the Loader will set the URL to be "alien.txt". It will always add `.txt` as the extension.
+// If you do not desire this action then provide a URL.
+func (self *Loader) Text2O(key string, url string, overwrite bool) *Loader{
     return &Loader{self.Object.Call("text", key, url, overwrite)}
 }
 
@@ -671,7 +863,43 @@ func (self *Loader) TextI(args ...interface{}) *Loader{
 // If the URL isn't specified the Loader will take the key and create a filename from that. For example if the key is "alien"
 // and no URL is given then the Loader will set the URL to be "alien.json". It will always add `.json` as the extension.
 // If you do not desire this action then provide a URL.
-func (self *Loader) Json(key string, url string, overwrite bool) *Loader{
+func (self *Loader) Json(key string) *Loader{
+    return &Loader{self.Object.Call("json", key)}
+}
+
+// Adds a JSON file to the current load queue.
+// 
+// The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
+// 
+// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+// 
+// Retrieve the file via `Cache.getJSON(key)`. JSON files are automatically parsed upon load.
+// If you need to control when the JSON is parsed then use `Loader.text` instead and parse the text file as needed.
+// 
+// The URL can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// 
+// If the URL isn't specified the Loader will take the key and create a filename from that. For example if the key is "alien"
+// and no URL is given then the Loader will set the URL to be "alien.json". It will always add `.json` as the extension.
+// If you do not desire this action then provide a URL.
+func (self *Loader) Json1O(key string, url string) *Loader{
+    return &Loader{self.Object.Call("json", key, url)}
+}
+
+// Adds a JSON file to the current load queue.
+// 
+// The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
+// 
+// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+// 
+// Retrieve the file via `Cache.getJSON(key)`. JSON files are automatically parsed upon load.
+// If you need to control when the JSON is parsed then use `Loader.text` instead and parse the text file as needed.
+// 
+// The URL can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// 
+// If the URL isn't specified the Loader will take the key and create a filename from that. For example if the key is "alien"
+// and no URL is given then the Loader will set the URL to be "alien.json". It will always add `.json` as the extension.
+// If you do not desire this action then provide a URL.
+func (self *Loader) Json2O(key string, url string, overwrite bool) *Loader{
     return &Loader{self.Object.Call("json", key, url, overwrite)}
 }
 
@@ -706,7 +934,41 @@ func (self *Loader) JsonI(args ...interface{}) *Loader{
 // If the URL isn't specified the Loader will take the key and create a filename from that. For example if the key is "blur"
 // and no URL is given then the Loader will set the URL to be "blur.frag". It will always add `.frag` as the extension.
 // If you do not desire this action then provide a URL.
-func (self *Loader) Shader(key string, url string, overwrite bool) *Loader{
+func (self *Loader) Shader(key string) *Loader{
+    return &Loader{self.Object.Call("shader", key)}
+}
+
+// Adds a fragment shader file to the current load queue.
+// 
+// The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
+// 
+// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+// 
+// Retrieve the file via `Cache.getShader(key)`.
+// 
+// The URL can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// 
+// If the URL isn't specified the Loader will take the key and create a filename from that. For example if the key is "blur"
+// and no URL is given then the Loader will set the URL to be "blur.frag". It will always add `.frag` as the extension.
+// If you do not desire this action then provide a URL.
+func (self *Loader) Shader1O(key string, url string) *Loader{
+    return &Loader{self.Object.Call("shader", key, url)}
+}
+
+// Adds a fragment shader file to the current load queue.
+// 
+// The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
+// 
+// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+// 
+// Retrieve the file via `Cache.getShader(key)`.
+// 
+// The URL can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// 
+// If the URL isn't specified the Loader will take the key and create a filename from that. For example if the key is "blur"
+// and no URL is given then the Loader will set the URL to be "blur.frag". It will always add `.frag` as the extension.
+// If you do not desire this action then provide a URL.
+func (self *Loader) Shader2O(key string, url string, overwrite bool) *Loader{
     return &Loader{self.Object.Call("shader", key, url, overwrite)}
 }
 
@@ -740,7 +1002,41 @@ func (self *Loader) ShaderI(args ...interface{}) *Loader{
 // If the URL isn't specified the Loader will take the key and create a filename from that. For example if the key is "alien"
 // and no URL is given then the Loader will set the URL to be "alien.xml". It will always add `.xml` as the extension.
 // If you do not desire this action then provide a URL.
-func (self *Loader) Xml(key string, url string, overwrite bool) *Loader{
+func (self *Loader) Xml(key string) *Loader{
+    return &Loader{self.Object.Call("xml", key)}
+}
+
+// Adds an XML file to the current load queue.
+// 
+// The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
+// 
+// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+// 
+// Retrieve the file via `Cache.getXML(key)`.
+// 
+// The URL can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// 
+// If the URL isn't specified the Loader will take the key and create a filename from that. For example if the key is "alien"
+// and no URL is given then the Loader will set the URL to be "alien.xml". It will always add `.xml` as the extension.
+// If you do not desire this action then provide a URL.
+func (self *Loader) Xml1O(key string, url string) *Loader{
+    return &Loader{self.Object.Call("xml", key, url)}
+}
+
+// Adds an XML file to the current load queue.
+// 
+// The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
+// 
+// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+// 
+// Retrieve the file via `Cache.getXML(key)`.
+// 
+// The URL can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// 
+// If the URL isn't specified the Loader will take the key and create a filename from that. For example if the key is "alien"
+// and no URL is given then the Loader will set the URL to be "alien.xml". It will always add `.xml` as the extension.
+// If you do not desire this action then provide a URL.
+func (self *Loader) Xml2O(key string, url string, overwrite bool) *Loader{
     return &Loader{self.Object.Call("xml", key, url, overwrite)}
 }
 
@@ -777,7 +1073,67 @@ func (self *Loader) XmlI(args ...interface{}) *Loader{
 // 
 // A callback, which will be invoked as the script tag has been created, can also be specified.
 // The callback must return relevant `data`.
-func (self *Loader) Script(key string, url string, callback func(...interface{}), callbackContext interface{}) *Loader{
+func (self *Loader) Script(key string) *Loader{
+    return &Loader{self.Object.Call("script", key)}
+}
+
+// Adds a JavaScript file to the current load queue.
+// 
+// The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
+// 
+// The key must be a unique String.
+// 
+// The URL can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// 
+// If the URL isn't specified the Loader will take the key and create a filename from that. For example if the key is "alien"
+// and no URL is given then the Loader will set the URL to be "alien.js". It will always add `.js` as the extension.
+// If you do not desire this action then provide a URL.
+// 
+// Upon successful load the JavaScript is automatically turned into a script tag and executed, so be careful what you load!
+// 
+// A callback, which will be invoked as the script tag has been created, can also be specified.
+// The callback must return relevant `data`.
+func (self *Loader) Script1O(key string, url string) *Loader{
+    return &Loader{self.Object.Call("script", key, url)}
+}
+
+// Adds a JavaScript file to the current load queue.
+// 
+// The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
+// 
+// The key must be a unique String.
+// 
+// The URL can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// 
+// If the URL isn't specified the Loader will take the key and create a filename from that. For example if the key is "alien"
+// and no URL is given then the Loader will set the URL to be "alien.js". It will always add `.js` as the extension.
+// If you do not desire this action then provide a URL.
+// 
+// Upon successful load the JavaScript is automatically turned into a script tag and executed, so be careful what you load!
+// 
+// A callback, which will be invoked as the script tag has been created, can also be specified.
+// The callback must return relevant `data`.
+func (self *Loader) Script2O(key string, url string, callback func(...interface{})) *Loader{
+    return &Loader{self.Object.Call("script", key, url, callback)}
+}
+
+// Adds a JavaScript file to the current load queue.
+// 
+// The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
+// 
+// The key must be a unique String.
+// 
+// The URL can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// 
+// If the URL isn't specified the Loader will take the key and create a filename from that. For example if the key is "alien"
+// and no URL is given then the Loader will set the URL to be "alien.js". It will always add `.js` as the extension.
+// If you do not desire this action then provide a URL.
+// 
+// Upon successful load the JavaScript is automatically turned into a script tag and executed, so be careful what you load!
+// 
+// A callback, which will be invoked as the script tag has been created, can also be specified.
+// The callback must return relevant `data`.
+func (self *Loader) Script3O(key string, url string, callback func(...interface{}), callbackContext interface{}) *Loader{
     return &Loader{self.Object.Call("script", key, url, callback, callbackContext)}
 }
 
@@ -819,7 +1175,73 @@ func (self *Loader) ScriptI(args ...interface{}) *Loader{
 // When the callback is called it will be passed 2 parameters: the key of the file and the file data.
 // 
 // WARNING: If a callback is specified the data will be set to whatever it returns. Always return the data object, even if you didn't modify it.
-func (self *Loader) Binary(key string, url string, callback func(...interface{}), callbackContext interface{}) *Loader{
+func (self *Loader) Binary(key string) *Loader{
+    return &Loader{self.Object.Call("binary", key)}
+}
+
+// Adds a binary file to the current load queue.
+// 
+// The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
+// 
+// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+// 
+// Retrieve the file via `Cache.getBinary(key)`.
+// 
+// The URL can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// 
+// If the URL isn't specified the Loader will take the key and create a filename from that. For example if the key is "alien"
+// and no URL is given then the Loader will set the URL to be "alien.bin". It will always add `.bin` as the extension.
+// If you do not desire this action then provide a URL.
+// 
+// It will be loaded via xhr with a responseType of "arraybuffer". You can specify an optional callback to process the file after load.
+// When the callback is called it will be passed 2 parameters: the key of the file and the file data.
+// 
+// WARNING: If a callback is specified the data will be set to whatever it returns. Always return the data object, even if you didn't modify it.
+func (self *Loader) Binary1O(key string, url string) *Loader{
+    return &Loader{self.Object.Call("binary", key, url)}
+}
+
+// Adds a binary file to the current load queue.
+// 
+// The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
+// 
+// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+// 
+// Retrieve the file via `Cache.getBinary(key)`.
+// 
+// The URL can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// 
+// If the URL isn't specified the Loader will take the key and create a filename from that. For example if the key is "alien"
+// and no URL is given then the Loader will set the URL to be "alien.bin". It will always add `.bin` as the extension.
+// If you do not desire this action then provide a URL.
+// 
+// It will be loaded via xhr with a responseType of "arraybuffer". You can specify an optional callback to process the file after load.
+// When the callback is called it will be passed 2 parameters: the key of the file and the file data.
+// 
+// WARNING: If a callback is specified the data will be set to whatever it returns. Always return the data object, even if you didn't modify it.
+func (self *Loader) Binary2O(key string, url string, callback func(...interface{})) *Loader{
+    return &Loader{self.Object.Call("binary", key, url, callback)}
+}
+
+// Adds a binary file to the current load queue.
+// 
+// The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
+// 
+// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+// 
+// Retrieve the file via `Cache.getBinary(key)`.
+// 
+// The URL can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// 
+// If the URL isn't specified the Loader will take the key and create a filename from that. For example if the key is "alien"
+// and no URL is given then the Loader will set the URL to be "alien.bin". It will always add `.bin` as the extension.
+// If you do not desire this action then provide a URL.
+// 
+// It will be loaded via xhr with a responseType of "arraybuffer". You can specify an optional callback to process the file after load.
+// When the callback is called it will be passed 2 parameters: the key of the file and the file data.
+// 
+// WARNING: If a callback is specified the data will be set to whatever it returns. Always return the data object, even if you didn't modify it.
+func (self *Loader) Binary3O(key string, url string, callback func(...interface{}), callbackContext interface{}) *Loader{
     return &Loader{self.Object.Call("binary", key, url, callback, callbackContext)}
 }
 
@@ -865,7 +1287,79 @@ func (self *Loader) BinaryI(args ...interface{}) *Loader{
 // If the URL isn't specified the Loader will take the key and create a filename from that. For example if the key is "alien"
 // and no URL is given then the Loader will set the URL to be "alien.png". It will always add `.png` as the extension.
 // If you do not desire this action then provide a URL.
-func (self *Loader) Spritesheet(key string, url string, frameWidth int, frameHeight int, frameMax int, margin int, spacing int) *Loader{
+func (self *Loader) Spritesheet(key string, url string, frameWidth int, frameHeight int) *Loader{
+    return &Loader{self.Object.Call("spritesheet", key, url, frameWidth, frameHeight)}
+}
+
+// Adds a Sprite Sheet to the current load queue.
+// 
+// The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
+// 
+// To clarify the terminology that Phaser uses: A Sprite Sheet is an image containing frames, usually of an animation, that are all equal
+// dimensions and often in sequence. For example if the frame size is 32x32 then every frame in the sprite sheet will be that size.
+// Sometimes (outside of Phaser) the term "sprite sheet" is used to refer to a texture atlas.
+// A Texture Atlas works by packing together images as best it can, using whatever frame sizes it likes, often with cropping and trimming
+// the frames in the process. Software such as Texture Packer, Flash CC or Shoebox all generate texture atlases, not sprite sheets.
+// If you've got an atlas then use `Loader.atlas` instead.
+// 
+// The key must be a unique String. It is used to add the image to the Phaser.Cache upon successful load.
+// 
+// Retrieve the file via `Cache.getImage(key)`. Sprite sheets, being image based, live in the same Cache as all other Images.
+// 
+// The URL can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// 
+// If the URL isn't specified the Loader will take the key and create a filename from that. For example if the key is "alien"
+// and no URL is given then the Loader will set the URL to be "alien.png". It will always add `.png` as the extension.
+// If you do not desire this action then provide a URL.
+func (self *Loader) Spritesheet1O(key string, url string, frameWidth int, frameHeight int, frameMax int) *Loader{
+    return &Loader{self.Object.Call("spritesheet", key, url, frameWidth, frameHeight, frameMax)}
+}
+
+// Adds a Sprite Sheet to the current load queue.
+// 
+// The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
+// 
+// To clarify the terminology that Phaser uses: A Sprite Sheet is an image containing frames, usually of an animation, that are all equal
+// dimensions and often in sequence. For example if the frame size is 32x32 then every frame in the sprite sheet will be that size.
+// Sometimes (outside of Phaser) the term "sprite sheet" is used to refer to a texture atlas.
+// A Texture Atlas works by packing together images as best it can, using whatever frame sizes it likes, often with cropping and trimming
+// the frames in the process. Software such as Texture Packer, Flash CC or Shoebox all generate texture atlases, not sprite sheets.
+// If you've got an atlas then use `Loader.atlas` instead.
+// 
+// The key must be a unique String. It is used to add the image to the Phaser.Cache upon successful load.
+// 
+// Retrieve the file via `Cache.getImage(key)`. Sprite sheets, being image based, live in the same Cache as all other Images.
+// 
+// The URL can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// 
+// If the URL isn't specified the Loader will take the key and create a filename from that. For example if the key is "alien"
+// and no URL is given then the Loader will set the URL to be "alien.png". It will always add `.png` as the extension.
+// If you do not desire this action then provide a URL.
+func (self *Loader) Spritesheet2O(key string, url string, frameWidth int, frameHeight int, frameMax int, margin int) *Loader{
+    return &Loader{self.Object.Call("spritesheet", key, url, frameWidth, frameHeight, frameMax, margin)}
+}
+
+// Adds a Sprite Sheet to the current load queue.
+// 
+// The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
+// 
+// To clarify the terminology that Phaser uses: A Sprite Sheet is an image containing frames, usually of an animation, that are all equal
+// dimensions and often in sequence. For example if the frame size is 32x32 then every frame in the sprite sheet will be that size.
+// Sometimes (outside of Phaser) the term "sprite sheet" is used to refer to a texture atlas.
+// A Texture Atlas works by packing together images as best it can, using whatever frame sizes it likes, often with cropping and trimming
+// the frames in the process. Software such as Texture Packer, Flash CC or Shoebox all generate texture atlases, not sprite sheets.
+// If you've got an atlas then use `Loader.atlas` instead.
+// 
+// The key must be a unique String. It is used to add the image to the Phaser.Cache upon successful load.
+// 
+// Retrieve the file via `Cache.getImage(key)`. Sprite sheets, being image based, live in the same Cache as all other Images.
+// 
+// The URL can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// 
+// If the URL isn't specified the Loader will take the key and create a filename from that. For example if the key is "alien"
+// and no URL is given then the Loader will set the URL to be "alien.png". It will always add `.png` as the extension.
+// If you do not desire this action then provide a URL.
+func (self *Loader) Spritesheet3O(key string, url string, frameWidth int, frameHeight int, frameMax int, margin int, spacing int) *Loader{
     return &Loader{self.Object.Call("spritesheet", key, url, frameWidth, frameHeight, frameMax, margin, spacing)}
 }
 
@@ -906,7 +1400,24 @@ func (self *Loader) SpritesheetI(args ...interface{}) *Loader{
 // Mobile warning: There are some mobile devices (certain iPad 2 and iPad Mini revisions) that cannot play 48000 Hz audio.
 // When they try to play the audio becomes extremely distorted and buzzes, eventually crashing the sound system.
 // The solution is to use a lower encoding rate such as 44100 Hz.
-func (self *Loader) Audio(key string, urls interface{}, autoDecode bool) *Loader{
+func (self *Loader) Audio(key string, urls interface{}) *Loader{
+    return &Loader{self.Object.Call("audio", key, urls)}
+}
+
+// Adds an audio file to the current load queue.
+// 
+// The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
+// 
+// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+// 
+// Retrieve the file via `Cache.getSound(key)`.
+// 
+// The URL can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// 
+// Mobile warning: There are some mobile devices (certain iPad 2 and iPad Mini revisions) that cannot play 48000 Hz audio.
+// When they try to play the audio becomes extremely distorted and buzzes, eventually crashing the sound system.
+// The solution is to use a lower encoding rate such as 44100 Hz.
+func (self *Loader) Audio1O(key string, urls interface{}, autoDecode bool) *Loader{
     return &Loader{self.Object.Call("audio", key, urls, autoDecode)}
 }
 
@@ -940,7 +1451,58 @@ func (self *Loader) AudioI(args ...interface{}) *Loader{
 // Retrieve the file via `Cache.getSoundData(key)`.
 // 
 // The URL can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
-func (self *Loader) Audiosprite(key string, urls interface{}, jsonURL string, jsonData interface{}, autoDecode bool) *Loader{
+func (self *Loader) Audiosprite(key string, urls interface{}) *Loader{
+    return &Loader{self.Object.Call("audiosprite", key, urls)}
+}
+
+// Adds an audio sprite file to the current load queue.
+// 
+// The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
+// 
+// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+// 
+// Audio Sprites are a combination of audio files and a JSON configuration.
+// 
+// The JSON follows the format of that created by https://github.com/tonistiigi/audiosprite
+// 
+// Retrieve the file via `Cache.getSoundData(key)`.
+// 
+// The URL can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+func (self *Loader) Audiosprite1O(key string, urls interface{}, jsonURL string) *Loader{
+    return &Loader{self.Object.Call("audiosprite", key, urls, jsonURL)}
+}
+
+// Adds an audio sprite file to the current load queue.
+// 
+// The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
+// 
+// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+// 
+// Audio Sprites are a combination of audio files and a JSON configuration.
+// 
+// The JSON follows the format of that created by https://github.com/tonistiigi/audiosprite
+// 
+// Retrieve the file via `Cache.getSoundData(key)`.
+// 
+// The URL can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+func (self *Loader) Audiosprite2O(key string, urls interface{}, jsonURL string, jsonData interface{}) *Loader{
+    return &Loader{self.Object.Call("audiosprite", key, urls, jsonURL, jsonData)}
+}
+
+// Adds an audio sprite file to the current load queue.
+// 
+// The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
+// 
+// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+// 
+// Audio Sprites are a combination of audio files and a JSON configuration.
+// 
+// The JSON follows the format of that created by https://github.com/tonistiigi/audiosprite
+// 
+// Retrieve the file via `Cache.getSoundData(key)`.
+// 
+// The URL can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+func (self *Loader) Audiosprite3O(key string, urls interface{}, jsonURL string, jsonData interface{}, autoDecode bool) *Loader{
     return &Loader{self.Object.Call("audiosprite", key, urls, jsonURL, jsonData, autoDecode)}
 }
 
@@ -972,7 +1534,37 @@ func (self *Loader) AudiospriteI(args ...interface{}) *Loader{
 // The URL can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
 // 
 // You don't need to preload a video in order to play it in your game. See `Video.createVideoFromURL` for details.
-func (self *Loader) Video(key string, urls interface{}, loadEvent string, asBlob bool) *Loader{
+func (self *Loader) Video(key string, urls interface{}) *Loader{
+    return &Loader{self.Object.Call("video", key, urls)}
+}
+
+// Adds a video file to the current load queue.
+// 
+// The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
+// 
+// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+// 
+// Retrieve the file via `Cache.getVideo(key)`.
+// 
+// The URL can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// 
+// You don't need to preload a video in order to play it in your game. See `Video.createVideoFromURL` for details.
+func (self *Loader) Video1O(key string, urls interface{}, loadEvent string) *Loader{
+    return &Loader{self.Object.Call("video", key, urls, loadEvent)}
+}
+
+// Adds a video file to the current load queue.
+// 
+// The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
+// 
+// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+// 
+// Retrieve the file via `Cache.getVideo(key)`.
+// 
+// The URL can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// 
+// You don't need to preload a video in order to play it in your game. See `Video.createVideoFromURL` for details.
+func (self *Loader) Video2O(key string, urls interface{}, loadEvent string, asBlob bool) *Loader{
     return &Loader{self.Object.Call("video", key, urls, loadEvent, asBlob)}
 }
 
@@ -1011,7 +1603,79 @@ func (self *Loader) VideoI(args ...interface{}) *Loader{
 // If you set the format to be Tilemap.CSV it will set the URL to be "level1.csv" instead.
 // 
 // If you do not desire this action then provide a URL or data object.
-func (self *Loader) Tilemap(key string, url string, data interface{}, format int) *Loader{
+func (self *Loader) Tilemap(key string) *Loader{
+    return &Loader{self.Object.Call("tilemap", key)}
+}
+
+// Adds a Tile Map data file to the current load queue.
+// 
+// You can choose to either load the data externally, by providing a URL to a json file.
+// Or you can pass in a JSON object or String via the `data` parameter.
+// If you pass a String the data is automatically run through `JSON.parse` and then immediately added to the Phaser.Cache.
+// 
+// If a URL is provided the file is **not** loaded immediately after calling this method, but is added to the load queue.
+// 
+// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+// 
+// Retrieve the file via `Cache.getTilemapData(key)`. JSON files are automatically parsed upon load.
+// If you need to control when the JSON is parsed then use `Loader.text` instead and parse the text file as needed.
+// 
+// The URL can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// 
+// If the URL isn't specified and no data is given then the Loader will take the key and create a filename from that.
+// For example if the key is "level1" and no URL or data is given then the Loader will set the URL to be "level1.json".
+// If you set the format to be Tilemap.CSV it will set the URL to be "level1.csv" instead.
+// 
+// If you do not desire this action then provide a URL or data object.
+func (self *Loader) Tilemap1O(key string, url string) *Loader{
+    return &Loader{self.Object.Call("tilemap", key, url)}
+}
+
+// Adds a Tile Map data file to the current load queue.
+// 
+// You can choose to either load the data externally, by providing a URL to a json file.
+// Or you can pass in a JSON object or String via the `data` parameter.
+// If you pass a String the data is automatically run through `JSON.parse` and then immediately added to the Phaser.Cache.
+// 
+// If a URL is provided the file is **not** loaded immediately after calling this method, but is added to the load queue.
+// 
+// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+// 
+// Retrieve the file via `Cache.getTilemapData(key)`. JSON files are automatically parsed upon load.
+// If you need to control when the JSON is parsed then use `Loader.text` instead and parse the text file as needed.
+// 
+// The URL can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// 
+// If the URL isn't specified and no data is given then the Loader will take the key and create a filename from that.
+// For example if the key is "level1" and no URL or data is given then the Loader will set the URL to be "level1.json".
+// If you set the format to be Tilemap.CSV it will set the URL to be "level1.csv" instead.
+// 
+// If you do not desire this action then provide a URL or data object.
+func (self *Loader) Tilemap2O(key string, url string, data interface{}) *Loader{
+    return &Loader{self.Object.Call("tilemap", key, url, data)}
+}
+
+// Adds a Tile Map data file to the current load queue.
+// 
+// You can choose to either load the data externally, by providing a URL to a json file.
+// Or you can pass in a JSON object or String via the `data` parameter.
+// If you pass a String the data is automatically run through `JSON.parse` and then immediately added to the Phaser.Cache.
+// 
+// If a URL is provided the file is **not** loaded immediately after calling this method, but is added to the load queue.
+// 
+// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+// 
+// Retrieve the file via `Cache.getTilemapData(key)`. JSON files are automatically parsed upon load.
+// If you need to control when the JSON is parsed then use `Loader.text` instead and parse the text file as needed.
+// 
+// The URL can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// 
+// If the URL isn't specified and no data is given then the Loader will take the key and create a filename from that.
+// For example if the key is "level1" and no URL or data is given then the Loader will set the URL to be "level1.json".
+// If you set the format to be Tilemap.CSV it will set the URL to be "level1.csv" instead.
+// 
+// If you do not desire this action then provide a URL or data object.
+func (self *Loader) Tilemap3O(key string, url string, data interface{}, format int) *Loader{
     return &Loader{self.Object.Call("tilemap", key, url, data, format)}
 }
 
@@ -1061,7 +1725,85 @@ func (self *Loader) TilemapI(args ...interface{}) *Loader{
 // It will always use `.json` as the extension.
 // 
 // If you do not desire this action then provide a URL or data object.
-func (self *Loader) Physics(key string, url string, data interface{}, format string) *Loader{
+func (self *Loader) Physics(key string) *Loader{
+    return &Loader{self.Object.Call("physics", key)}
+}
+
+// Adds a physics data file to the current load queue.
+// 
+// The data must be in `Lime + Corona` JSON format. [Physics Editor](https://www.codeandweb.com) by code'n'web exports in this format natively.
+// 
+// You can choose to either load the data externally, by providing a URL to a json file.
+// Or you can pass in a JSON object or String via the `data` parameter.
+// If you pass a String the data is automatically run through `JSON.parse` and then immediately added to the Phaser.Cache.
+// 
+// If a URL is provided the file is **not** loaded immediately after calling this method, but is added to the load queue.
+// 
+// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+// 
+// Retrieve the file via `Cache.getJSON(key)`. JSON files are automatically parsed upon load.
+// If you need to control when the JSON is parsed then use `Loader.text` instead and parse the text file as needed.
+// 
+// The URL can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// 
+// If the URL isn't specified and no data is given then the Loader will take the key and create a filename from that.
+// For example if the key is "alien" and no URL or data is given then the Loader will set the URL to be "alien.json".
+// It will always use `.json` as the extension.
+// 
+// If you do not desire this action then provide a URL or data object.
+func (self *Loader) Physics1O(key string, url string) *Loader{
+    return &Loader{self.Object.Call("physics", key, url)}
+}
+
+// Adds a physics data file to the current load queue.
+// 
+// The data must be in `Lime + Corona` JSON format. [Physics Editor](https://www.codeandweb.com) by code'n'web exports in this format natively.
+// 
+// You can choose to either load the data externally, by providing a URL to a json file.
+// Or you can pass in a JSON object or String via the `data` parameter.
+// If you pass a String the data is automatically run through `JSON.parse` and then immediately added to the Phaser.Cache.
+// 
+// If a URL is provided the file is **not** loaded immediately after calling this method, but is added to the load queue.
+// 
+// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+// 
+// Retrieve the file via `Cache.getJSON(key)`. JSON files are automatically parsed upon load.
+// If you need to control when the JSON is parsed then use `Loader.text` instead and parse the text file as needed.
+// 
+// The URL can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// 
+// If the URL isn't specified and no data is given then the Loader will take the key and create a filename from that.
+// For example if the key is "alien" and no URL or data is given then the Loader will set the URL to be "alien.json".
+// It will always use `.json` as the extension.
+// 
+// If you do not desire this action then provide a URL or data object.
+func (self *Loader) Physics2O(key string, url string, data interface{}) *Loader{
+    return &Loader{self.Object.Call("physics", key, url, data)}
+}
+
+// Adds a physics data file to the current load queue.
+// 
+// The data must be in `Lime + Corona` JSON format. [Physics Editor](https://www.codeandweb.com) by code'n'web exports in this format natively.
+// 
+// You can choose to either load the data externally, by providing a URL to a json file.
+// Or you can pass in a JSON object or String via the `data` parameter.
+// If you pass a String the data is automatically run through `JSON.parse` and then immediately added to the Phaser.Cache.
+// 
+// If a URL is provided the file is **not** loaded immediately after calling this method, but is added to the load queue.
+// 
+// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+// 
+// Retrieve the file via `Cache.getJSON(key)`. JSON files are automatically parsed upon load.
+// If you need to control when the JSON is parsed then use `Loader.text` instead and parse the text file as needed.
+// 
+// The URL can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// 
+// If the URL isn't specified and no data is given then the Loader will take the key and create a filename from that.
+// For example if the key is "alien" and no URL or data is given then the Loader will set the URL to be "alien.json".
+// It will always use `.json` as the extension.
+// 
+// If you do not desire this action then provide a URL or data object.
+func (self *Loader) Physics3O(key string, url string, data interface{}, format string) *Loader{
     return &Loader{self.Object.Call("physics", key, url, data, format)}
 }
 
@@ -1118,7 +1860,69 @@ func (self *Loader) PhysicsI(args ...interface{}) *Loader{
 // set the atlasURL to be the key. For example if the key is "megaFont" the atlasURL will be set to "megaFont.xml".
 // 
 // If you do not desire this action then provide URLs and / or a data object.
-func (self *Loader) BitmapFont(key string, textureURL string, atlasURL string, atlasData interface{}, xSpacing int, ySpacing int) *Loader{
+func (self *Loader) BitmapFont(key string, textureURL string, atlasURL string, atlasData interface{}) *Loader{
+    return &Loader{self.Object.Call("bitmapFont", key, textureURL, atlasURL, atlasData)}
+}
+
+// Adds Bitmap Font files to the current load queue.
+// 
+// To create the Bitmap Font files you can use:
+// 
+// BMFont (Windows, free): http://www.angelcode.com/products/bmfont/
+// Glyph Designer (OS X, commercial): http://www.71squared.com/en/glyphdesigner
+// Littera (Web-based, free): http://kvazars.com/littera/
+// 
+// You can choose to either load the data externally, by providing a URL to an xml file.
+// Or you can pass in an XML object or String via the `xmlData` parameter.
+// If you pass a String the data is automatically run through `Loader.parseXML` and then immediately added to the Phaser.Cache.
+// 
+// If URLs are provided the files are **not** loaded immediately after calling this method, but are added to the load queue.
+// 
+// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+// 
+// Retrieve the file via `Cache.getBitmapFont(key)`. XML files are automatically parsed upon load.
+// If you need to control when the XML is parsed then use `Loader.text` instead and parse the XML file as needed.
+// 
+// The URLs can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// 
+// If the textureURL isn't specified then the Loader will take the key and create a filename from that.
+// For example if the key is "megaFont" and textureURL is null then the Loader will set the URL to be "megaFont.png".
+// The same is true for the atlasURL. If atlasURL isn't specified and no atlasData has been provided then the Loader will
+// set the atlasURL to be the key. For example if the key is "megaFont" the atlasURL will be set to "megaFont.xml".
+// 
+// If you do not desire this action then provide URLs and / or a data object.
+func (self *Loader) BitmapFont1O(key string, textureURL string, atlasURL string, atlasData interface{}, xSpacing int) *Loader{
+    return &Loader{self.Object.Call("bitmapFont", key, textureURL, atlasURL, atlasData, xSpacing)}
+}
+
+// Adds Bitmap Font files to the current load queue.
+// 
+// To create the Bitmap Font files you can use:
+// 
+// BMFont (Windows, free): http://www.angelcode.com/products/bmfont/
+// Glyph Designer (OS X, commercial): http://www.71squared.com/en/glyphdesigner
+// Littera (Web-based, free): http://kvazars.com/littera/
+// 
+// You can choose to either load the data externally, by providing a URL to an xml file.
+// Or you can pass in an XML object or String via the `xmlData` parameter.
+// If you pass a String the data is automatically run through `Loader.parseXML` and then immediately added to the Phaser.Cache.
+// 
+// If URLs are provided the files are **not** loaded immediately after calling this method, but are added to the load queue.
+// 
+// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+// 
+// Retrieve the file via `Cache.getBitmapFont(key)`. XML files are automatically parsed upon load.
+// If you need to control when the XML is parsed then use `Loader.text` instead and parse the XML file as needed.
+// 
+// The URLs can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// 
+// If the textureURL isn't specified then the Loader will take the key and create a filename from that.
+// For example if the key is "megaFont" and textureURL is null then the Loader will set the URL to be "megaFont.png".
+// The same is true for the atlasURL. If atlasURL isn't specified and no atlasData has been provided then the Loader will
+// set the atlasURL to be the key. For example if the key is "megaFont" the atlasURL will be set to "megaFont.xml".
+// 
+// If you do not desire this action then provide URLs and / or a data object.
+func (self *Loader) BitmapFont2O(key string, textureURL string, atlasURL string, atlasData interface{}, xSpacing int, ySpacing int) *Loader{
     return &Loader{self.Object.Call("bitmapFont", key, textureURL, atlasURL, atlasData, xSpacing, ySpacing)}
 }
 
@@ -1184,7 +1988,112 @@ func (self *Loader) BitmapFontI(args ...interface{}) *Loader{
 // set the atlasURL to be the key. For example if the key is "player" the atlasURL will be set to "player.json".
 // 
 // If you do not desire this action then provide URLs and / or a data object.
-func (self *Loader) AtlasJSONArray(key string, textureURL string, atlasURL string, atlasData interface{}) *Loader{
+func (self *Loader) AtlasJSONArray(key string) *Loader{
+    return &Loader{self.Object.Call("atlasJSONArray", key)}
+}
+
+// Adds a Texture Atlas file to the current load queue.
+// 
+// Unlike `Loader.atlasJSONHash` this call expects the atlas data to be in a JSON Array format.
+// 
+// To create the Texture Atlas you can use tools such as:
+// 
+// [Texture Packer](https://www.codeandweb.com/texturepacker/phaser)
+// [Shoebox](http://renderhjs.net/shoebox/)
+// 
+// If using Texture Packer we recommend you enable "Trim sprite names".
+// If your atlas software has an option to "rotate" the resulting frames, you must disable it.
+// 
+// You can choose to either load the data externally, by providing a URL to a json file.
+// Or you can pass in a JSON object or String via the `atlasData` parameter.
+// If you pass a String the data is automatically run through `JSON.parse` and then immediately added to the Phaser.Cache.
+// 
+// If URLs are provided the files are **not** loaded immediately after calling this method, but are added to the load queue.
+// 
+// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+// 
+// Retrieve the file via `Cache.getImage(key)`. JSON files are automatically parsed upon load.
+// If you need to control when the JSON is parsed then use `Loader.text` instead and parse the JSON file as needed.
+// 
+// The URLs can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// 
+// If the textureURL isn't specified then the Loader will take the key and create a filename from that.
+// For example if the key is "player" and textureURL is null then the Loader will set the URL to be "player.png".
+// The same is true for the atlasURL. If atlasURL isn't specified and no atlasData has been provided then the Loader will
+// set the atlasURL to be the key. For example if the key is "player" the atlasURL will be set to "player.json".
+// 
+// If you do not desire this action then provide URLs and / or a data object.
+func (self *Loader) AtlasJSONArray1O(key string, textureURL string) *Loader{
+    return &Loader{self.Object.Call("atlasJSONArray", key, textureURL)}
+}
+
+// Adds a Texture Atlas file to the current load queue.
+// 
+// Unlike `Loader.atlasJSONHash` this call expects the atlas data to be in a JSON Array format.
+// 
+// To create the Texture Atlas you can use tools such as:
+// 
+// [Texture Packer](https://www.codeandweb.com/texturepacker/phaser)
+// [Shoebox](http://renderhjs.net/shoebox/)
+// 
+// If using Texture Packer we recommend you enable "Trim sprite names".
+// If your atlas software has an option to "rotate" the resulting frames, you must disable it.
+// 
+// You can choose to either load the data externally, by providing a URL to a json file.
+// Or you can pass in a JSON object or String via the `atlasData` parameter.
+// If you pass a String the data is automatically run through `JSON.parse` and then immediately added to the Phaser.Cache.
+// 
+// If URLs are provided the files are **not** loaded immediately after calling this method, but are added to the load queue.
+// 
+// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+// 
+// Retrieve the file via `Cache.getImage(key)`. JSON files are automatically parsed upon load.
+// If you need to control when the JSON is parsed then use `Loader.text` instead and parse the JSON file as needed.
+// 
+// The URLs can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// 
+// If the textureURL isn't specified then the Loader will take the key and create a filename from that.
+// For example if the key is "player" and textureURL is null then the Loader will set the URL to be "player.png".
+// The same is true for the atlasURL. If atlasURL isn't specified and no atlasData has been provided then the Loader will
+// set the atlasURL to be the key. For example if the key is "player" the atlasURL will be set to "player.json".
+// 
+// If you do not desire this action then provide URLs and / or a data object.
+func (self *Loader) AtlasJSONArray2O(key string, textureURL string, atlasURL string) *Loader{
+    return &Loader{self.Object.Call("atlasJSONArray", key, textureURL, atlasURL)}
+}
+
+// Adds a Texture Atlas file to the current load queue.
+// 
+// Unlike `Loader.atlasJSONHash` this call expects the atlas data to be in a JSON Array format.
+// 
+// To create the Texture Atlas you can use tools such as:
+// 
+// [Texture Packer](https://www.codeandweb.com/texturepacker/phaser)
+// [Shoebox](http://renderhjs.net/shoebox/)
+// 
+// If using Texture Packer we recommend you enable "Trim sprite names".
+// If your atlas software has an option to "rotate" the resulting frames, you must disable it.
+// 
+// You can choose to either load the data externally, by providing a URL to a json file.
+// Or you can pass in a JSON object or String via the `atlasData` parameter.
+// If you pass a String the data is automatically run through `JSON.parse` and then immediately added to the Phaser.Cache.
+// 
+// If URLs are provided the files are **not** loaded immediately after calling this method, but are added to the load queue.
+// 
+// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+// 
+// Retrieve the file via `Cache.getImage(key)`. JSON files are automatically parsed upon load.
+// If you need to control when the JSON is parsed then use `Loader.text` instead and parse the JSON file as needed.
+// 
+// The URLs can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// 
+// If the textureURL isn't specified then the Loader will take the key and create a filename from that.
+// For example if the key is "player" and textureURL is null then the Loader will set the URL to be "player.png".
+// The same is true for the atlasURL. If atlasURL isn't specified and no atlasData has been provided then the Loader will
+// set the atlasURL to be the key. For example if the key is "player" the atlasURL will be set to "player.json".
+// 
+// If you do not desire this action then provide URLs and / or a data object.
+func (self *Loader) AtlasJSONArray3O(key string, textureURL string, atlasURL string, atlasData interface{}) *Loader{
     return &Loader{self.Object.Call("atlasJSONArray", key, textureURL, atlasURL, atlasData)}
 }
 
@@ -1254,7 +2163,112 @@ func (self *Loader) AtlasJSONArrayI(args ...interface{}) *Loader{
 // set the atlasURL to be the key. For example if the key is "player" the atlasURL will be set to "player.json".
 // 
 // If you do not desire this action then provide URLs and / or a data object.
-func (self *Loader) AtlasJSONHash(key string, textureURL string, atlasURL string, atlasData interface{}) *Loader{
+func (self *Loader) AtlasJSONHash(key string) *Loader{
+    return &Loader{self.Object.Call("atlasJSONHash", key)}
+}
+
+// Adds a Texture Atlas file to the current load queue.
+// 
+// Unlike `Loader.atlas` this call expects the atlas data to be in a JSON Hash format.
+// 
+// To create the Texture Atlas you can use tools such as:
+// 
+// [Texture Packer](https://www.codeandweb.com/texturepacker/phaser)
+// [Shoebox](http://renderhjs.net/shoebox/)
+// 
+// If using Texture Packer we recommend you enable "Trim sprite names".
+// If your atlas software has an option to "rotate" the resulting frames, you must disable it.
+// 
+// You can choose to either load the data externally, by providing a URL to a json file.
+// Or you can pass in a JSON object or String via the `atlasData` parameter.
+// If you pass a String the data is automatically run through `JSON.parse` and then immediately added to the Phaser.Cache.
+// 
+// If URLs are provided the files are **not** loaded immediately after calling this method, but are added to the load queue.
+// 
+// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+// 
+// Retrieve the file via `Cache.getImage(key)`. JSON files are automatically parsed upon load.
+// If you need to control when the JSON is parsed then use `Loader.text` instead and parse the JSON file as needed.
+// 
+// The URLs can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// 
+// If the textureURL isn't specified then the Loader will take the key and create a filename from that.
+// For example if the key is "player" and textureURL is null then the Loader will set the URL to be "player.png".
+// The same is true for the atlasURL. If atlasURL isn't specified and no atlasData has been provided then the Loader will
+// set the atlasURL to be the key. For example if the key is "player" the atlasURL will be set to "player.json".
+// 
+// If you do not desire this action then provide URLs and / or a data object.
+func (self *Loader) AtlasJSONHash1O(key string, textureURL string) *Loader{
+    return &Loader{self.Object.Call("atlasJSONHash", key, textureURL)}
+}
+
+// Adds a Texture Atlas file to the current load queue.
+// 
+// Unlike `Loader.atlas` this call expects the atlas data to be in a JSON Hash format.
+// 
+// To create the Texture Atlas you can use tools such as:
+// 
+// [Texture Packer](https://www.codeandweb.com/texturepacker/phaser)
+// [Shoebox](http://renderhjs.net/shoebox/)
+// 
+// If using Texture Packer we recommend you enable "Trim sprite names".
+// If your atlas software has an option to "rotate" the resulting frames, you must disable it.
+// 
+// You can choose to either load the data externally, by providing a URL to a json file.
+// Or you can pass in a JSON object or String via the `atlasData` parameter.
+// If you pass a String the data is automatically run through `JSON.parse` and then immediately added to the Phaser.Cache.
+// 
+// If URLs are provided the files are **not** loaded immediately after calling this method, but are added to the load queue.
+// 
+// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+// 
+// Retrieve the file via `Cache.getImage(key)`. JSON files are automatically parsed upon load.
+// If you need to control when the JSON is parsed then use `Loader.text` instead and parse the JSON file as needed.
+// 
+// The URLs can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// 
+// If the textureURL isn't specified then the Loader will take the key and create a filename from that.
+// For example if the key is "player" and textureURL is null then the Loader will set the URL to be "player.png".
+// The same is true for the atlasURL. If atlasURL isn't specified and no atlasData has been provided then the Loader will
+// set the atlasURL to be the key. For example if the key is "player" the atlasURL will be set to "player.json".
+// 
+// If you do not desire this action then provide URLs and / or a data object.
+func (self *Loader) AtlasJSONHash2O(key string, textureURL string, atlasURL string) *Loader{
+    return &Loader{self.Object.Call("atlasJSONHash", key, textureURL, atlasURL)}
+}
+
+// Adds a Texture Atlas file to the current load queue.
+// 
+// Unlike `Loader.atlas` this call expects the atlas data to be in a JSON Hash format.
+// 
+// To create the Texture Atlas you can use tools such as:
+// 
+// [Texture Packer](https://www.codeandweb.com/texturepacker/phaser)
+// [Shoebox](http://renderhjs.net/shoebox/)
+// 
+// If using Texture Packer we recommend you enable "Trim sprite names".
+// If your atlas software has an option to "rotate" the resulting frames, you must disable it.
+// 
+// You can choose to either load the data externally, by providing a URL to a json file.
+// Or you can pass in a JSON object or String via the `atlasData` parameter.
+// If you pass a String the data is automatically run through `JSON.parse` and then immediately added to the Phaser.Cache.
+// 
+// If URLs are provided the files are **not** loaded immediately after calling this method, but are added to the load queue.
+// 
+// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+// 
+// Retrieve the file via `Cache.getImage(key)`. JSON files are automatically parsed upon load.
+// If you need to control when the JSON is parsed then use `Loader.text` instead and parse the JSON file as needed.
+// 
+// The URLs can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// 
+// If the textureURL isn't specified then the Loader will take the key and create a filename from that.
+// For example if the key is "player" and textureURL is null then the Loader will set the URL to be "player.png".
+// The same is true for the atlasURL. If atlasURL isn't specified and no atlasData has been provided then the Loader will
+// set the atlasURL to be the key. For example if the key is "player" the atlasURL will be set to "player.json".
+// 
+// If you do not desire this action then provide URLs and / or a data object.
+func (self *Loader) AtlasJSONHash3O(key string, textureURL string, atlasURL string, atlasData interface{}) *Loader{
     return &Loader{self.Object.Call("atlasJSONHash", key, textureURL, atlasURL, atlasData)}
 }
 
@@ -1324,7 +2338,112 @@ func (self *Loader) AtlasJSONHashI(args ...interface{}) *Loader{
 // set the atlasURL to be the key. For example if the key is "player" the atlasURL will be set to "player.xml".
 // 
 // If you do not desire this action then provide URLs and / or a data object.
-func (self *Loader) AtlasXML(key string, textureURL string, atlasURL string, atlasData interface{}) *Loader{
+func (self *Loader) AtlasXML(key string) *Loader{
+    return &Loader{self.Object.Call("atlasXML", key)}
+}
+
+// Adds a Texture Atlas file to the current load queue.
+// 
+// This call expects the atlas data to be in the Starling XML data format.
+// 
+// To create the Texture Atlas you can use tools such as:
+// 
+// [Texture Packer](https://www.codeandweb.com/texturepacker/phaser)
+// [Shoebox](http://renderhjs.net/shoebox/)
+// 
+// If using Texture Packer we recommend you enable "Trim sprite names".
+// If your atlas software has an option to "rotate" the resulting frames, you must disable it.
+// 
+// You can choose to either load the data externally, by providing a URL to an xml file.
+// Or you can pass in an XML object or String via the `atlasData` parameter.
+// If you pass a String the data is automatically run through `Loader.parseXML` and then immediately added to the Phaser.Cache.
+// 
+// If URLs are provided the files are **not** loaded immediately after calling this method, but are added to the load queue.
+// 
+// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+// 
+// Retrieve the file via `Cache.getImage(key)`. XML files are automatically parsed upon load.
+// If you need to control when the XML is parsed then use `Loader.text` instead and parse the XML file as needed.
+// 
+// The URLs can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// 
+// If the textureURL isn't specified then the Loader will take the key and create a filename from that.
+// For example if the key is "player" and textureURL is null then the Loader will set the URL to be "player.png".
+// The same is true for the atlasURL. If atlasURL isn't specified and no atlasData has been provided then the Loader will
+// set the atlasURL to be the key. For example if the key is "player" the atlasURL will be set to "player.xml".
+// 
+// If you do not desire this action then provide URLs and / or a data object.
+func (self *Loader) AtlasXML1O(key string, textureURL string) *Loader{
+    return &Loader{self.Object.Call("atlasXML", key, textureURL)}
+}
+
+// Adds a Texture Atlas file to the current load queue.
+// 
+// This call expects the atlas data to be in the Starling XML data format.
+// 
+// To create the Texture Atlas you can use tools such as:
+// 
+// [Texture Packer](https://www.codeandweb.com/texturepacker/phaser)
+// [Shoebox](http://renderhjs.net/shoebox/)
+// 
+// If using Texture Packer we recommend you enable "Trim sprite names".
+// If your atlas software has an option to "rotate" the resulting frames, you must disable it.
+// 
+// You can choose to either load the data externally, by providing a URL to an xml file.
+// Or you can pass in an XML object or String via the `atlasData` parameter.
+// If you pass a String the data is automatically run through `Loader.parseXML` and then immediately added to the Phaser.Cache.
+// 
+// If URLs are provided the files are **not** loaded immediately after calling this method, but are added to the load queue.
+// 
+// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+// 
+// Retrieve the file via `Cache.getImage(key)`. XML files are automatically parsed upon load.
+// If you need to control when the XML is parsed then use `Loader.text` instead and parse the XML file as needed.
+// 
+// The URLs can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// 
+// If the textureURL isn't specified then the Loader will take the key and create a filename from that.
+// For example if the key is "player" and textureURL is null then the Loader will set the URL to be "player.png".
+// The same is true for the atlasURL. If atlasURL isn't specified and no atlasData has been provided then the Loader will
+// set the atlasURL to be the key. For example if the key is "player" the atlasURL will be set to "player.xml".
+// 
+// If you do not desire this action then provide URLs and / or a data object.
+func (self *Loader) AtlasXML2O(key string, textureURL string, atlasURL string) *Loader{
+    return &Loader{self.Object.Call("atlasXML", key, textureURL, atlasURL)}
+}
+
+// Adds a Texture Atlas file to the current load queue.
+// 
+// This call expects the atlas data to be in the Starling XML data format.
+// 
+// To create the Texture Atlas you can use tools such as:
+// 
+// [Texture Packer](https://www.codeandweb.com/texturepacker/phaser)
+// [Shoebox](http://renderhjs.net/shoebox/)
+// 
+// If using Texture Packer we recommend you enable "Trim sprite names".
+// If your atlas software has an option to "rotate" the resulting frames, you must disable it.
+// 
+// You can choose to either load the data externally, by providing a URL to an xml file.
+// Or you can pass in an XML object or String via the `atlasData` parameter.
+// If you pass a String the data is automatically run through `Loader.parseXML` and then immediately added to the Phaser.Cache.
+// 
+// If URLs are provided the files are **not** loaded immediately after calling this method, but are added to the load queue.
+// 
+// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+// 
+// Retrieve the file via `Cache.getImage(key)`. XML files are automatically parsed upon load.
+// If you need to control when the XML is parsed then use `Loader.text` instead and parse the XML file as needed.
+// 
+// The URLs can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// 
+// If the textureURL isn't specified then the Loader will take the key and create a filename from that.
+// For example if the key is "player" and textureURL is null then the Loader will set the URL to be "player.png".
+// The same is true for the atlasURL. If atlasURL isn't specified and no atlasData has been provided then the Loader will
+// set the atlasURL to be the key. For example if the key is "player" the atlasURL will be set to "player.xml".
+// 
+// If you do not desire this action then provide URLs and / or a data object.
+func (self *Loader) AtlasXML3O(key string, textureURL string, atlasURL string, atlasData interface{}) *Loader{
     return &Loader{self.Object.Call("atlasXML", key, textureURL, atlasURL, atlasData)}
 }
 
@@ -1392,7 +2511,139 @@ func (self *Loader) AtlasXMLI(args ...interface{}) *Loader{
 // set the atlasURL to be the key. For example if the key is "player" the atlasURL will be set to "player.json".
 // 
 // If you do not desire this action then provide URLs and / or a data object.
-func (self *Loader) Atlas(key string, textureURL string, atlasURL string, atlasData interface{}, format int) *Loader{
+func (self *Loader) Atlas(key string) *Loader{
+    return &Loader{self.Object.Call("atlas", key)}
+}
+
+// Adds a Texture Atlas file to the current load queue.
+// 
+// To create the Texture Atlas you can use tools such as:
+// 
+// [Texture Packer](https://www.codeandweb.com/texturepacker/phaser)
+// [Shoebox](http://renderhjs.net/shoebox/)
+// 
+// If using Texture Packer we recommend you enable "Trim sprite names".
+// If your atlas software has an option to "rotate" the resulting frames, you must disable it.
+// 
+// You can choose to either load the data externally, by providing a URL to a json file.
+// Or you can pass in a JSON object or String via the `atlasData` parameter.
+// If you pass a String the data is automatically run through `JSON.parse` and then immediately added to the Phaser.Cache.
+// 
+// If URLs are provided the files are **not** loaded immediately after calling this method, but are added to the load queue.
+// 
+// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+// 
+// Retrieve the file via `Cache.getImage(key)`. JSON files are automatically parsed upon load.
+// If you need to control when the JSON is parsed then use `Loader.text` instead and parse the JSON file as needed.
+// 
+// The URLs can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// 
+// If the textureURL isn't specified then the Loader will take the key and create a filename from that.
+// For example if the key is "player" and textureURL is null then the Loader will set the URL to be "player.png".
+// The same is true for the atlasURL. If atlasURL isn't specified and no atlasData has been provided then the Loader will
+// set the atlasURL to be the key. For example if the key is "player" the atlasURL will be set to "player.json".
+// 
+// If you do not desire this action then provide URLs and / or a data object.
+func (self *Loader) Atlas1O(key string, textureURL string) *Loader{
+    return &Loader{self.Object.Call("atlas", key, textureURL)}
+}
+
+// Adds a Texture Atlas file to the current load queue.
+// 
+// To create the Texture Atlas you can use tools such as:
+// 
+// [Texture Packer](https://www.codeandweb.com/texturepacker/phaser)
+// [Shoebox](http://renderhjs.net/shoebox/)
+// 
+// If using Texture Packer we recommend you enable "Trim sprite names".
+// If your atlas software has an option to "rotate" the resulting frames, you must disable it.
+// 
+// You can choose to either load the data externally, by providing a URL to a json file.
+// Or you can pass in a JSON object or String via the `atlasData` parameter.
+// If you pass a String the data is automatically run through `JSON.parse` and then immediately added to the Phaser.Cache.
+// 
+// If URLs are provided the files are **not** loaded immediately after calling this method, but are added to the load queue.
+// 
+// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+// 
+// Retrieve the file via `Cache.getImage(key)`. JSON files are automatically parsed upon load.
+// If you need to control when the JSON is parsed then use `Loader.text` instead and parse the JSON file as needed.
+// 
+// The URLs can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// 
+// If the textureURL isn't specified then the Loader will take the key and create a filename from that.
+// For example if the key is "player" and textureURL is null then the Loader will set the URL to be "player.png".
+// The same is true for the atlasURL. If atlasURL isn't specified and no atlasData has been provided then the Loader will
+// set the atlasURL to be the key. For example if the key is "player" the atlasURL will be set to "player.json".
+// 
+// If you do not desire this action then provide URLs and / or a data object.
+func (self *Loader) Atlas2O(key string, textureURL string, atlasURL string) *Loader{
+    return &Loader{self.Object.Call("atlas", key, textureURL, atlasURL)}
+}
+
+// Adds a Texture Atlas file to the current load queue.
+// 
+// To create the Texture Atlas you can use tools such as:
+// 
+// [Texture Packer](https://www.codeandweb.com/texturepacker/phaser)
+// [Shoebox](http://renderhjs.net/shoebox/)
+// 
+// If using Texture Packer we recommend you enable "Trim sprite names".
+// If your atlas software has an option to "rotate" the resulting frames, you must disable it.
+// 
+// You can choose to either load the data externally, by providing a URL to a json file.
+// Or you can pass in a JSON object or String via the `atlasData` parameter.
+// If you pass a String the data is automatically run through `JSON.parse` and then immediately added to the Phaser.Cache.
+// 
+// If URLs are provided the files are **not** loaded immediately after calling this method, but are added to the load queue.
+// 
+// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+// 
+// Retrieve the file via `Cache.getImage(key)`. JSON files are automatically parsed upon load.
+// If you need to control when the JSON is parsed then use `Loader.text` instead and parse the JSON file as needed.
+// 
+// The URLs can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// 
+// If the textureURL isn't specified then the Loader will take the key and create a filename from that.
+// For example if the key is "player" and textureURL is null then the Loader will set the URL to be "player.png".
+// The same is true for the atlasURL. If atlasURL isn't specified and no atlasData has been provided then the Loader will
+// set the atlasURL to be the key. For example if the key is "player" the atlasURL will be set to "player.json".
+// 
+// If you do not desire this action then provide URLs and / or a data object.
+func (self *Loader) Atlas3O(key string, textureURL string, atlasURL string, atlasData interface{}) *Loader{
+    return &Loader{self.Object.Call("atlas", key, textureURL, atlasURL, atlasData)}
+}
+
+// Adds a Texture Atlas file to the current load queue.
+// 
+// To create the Texture Atlas you can use tools such as:
+// 
+// [Texture Packer](https://www.codeandweb.com/texturepacker/phaser)
+// [Shoebox](http://renderhjs.net/shoebox/)
+// 
+// If using Texture Packer we recommend you enable "Trim sprite names".
+// If your atlas software has an option to "rotate" the resulting frames, you must disable it.
+// 
+// You can choose to either load the data externally, by providing a URL to a json file.
+// Or you can pass in a JSON object or String via the `atlasData` parameter.
+// If you pass a String the data is automatically run through `JSON.parse` and then immediately added to the Phaser.Cache.
+// 
+// If URLs are provided the files are **not** loaded immediately after calling this method, but are added to the load queue.
+// 
+// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+// 
+// Retrieve the file via `Cache.getImage(key)`. JSON files are automatically parsed upon load.
+// If you need to control when the JSON is parsed then use `Loader.text` instead and parse the JSON file as needed.
+// 
+// The URLs can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// 
+// If the textureURL isn't specified then the Loader will take the key and create a filename from that.
+// For example if the key is "player" and textureURL is null then the Loader will set the URL to be "player.png".
+// The same is true for the atlasURL. If atlasURL isn't specified and no atlasData has been provided then the Loader will
+// set the atlasURL to be the key. For example if the key is "player" the atlasURL will be set to "player.json".
+// 
+// If you do not desire this action then provide URLs and / or a data object.
+func (self *Loader) Atlas4O(key string, textureURL string, atlasURL string, atlasData interface{}, format int) *Loader{
     return &Loader{self.Object.Call("atlas", key, textureURL, atlasURL, atlasData, format)}
 }
 
@@ -1435,7 +2686,17 @@ func (self *Loader) AtlasI(args ...interface{}) *Loader{
 // subsequent assets can be loaded. An asset marked as a sync-point does not need to wait
 // for previous assets to load (unless they are sync-points). Resources, such as packs, may still
 // be downloaded around sync-points, as long as they do not finalize loading.
-func (self *Loader) WithSyncPoints(callback func(...interface{}), callbackContext interface{}) *Loader{
+func (self *Loader) WithSyncPoints(callback func(...interface{})) *Loader{
+    return &Loader{self.Object.Call("withSyncPoints", callback)}
+}
+
+// Add a synchronization point to the assets/files added within the supplied callback.
+// 
+// A synchronization point denotes that an asset _must_ be completely loaded before
+// subsequent assets can be loaded. An asset marked as a sync-point does not need to wait
+// for previous assets to load (unless they are sync-points). Resources, such as packs, may still
+// be downloaded around sync-points, as long as they do not finalize loading.
+func (self *Loader) WithSyncPoints1O(callback func(...interface{}), callbackContext interface{}) *Loader{
     return &Loader{self.Object.Call("withSyncPoints", callback, callbackContext)}
 }
 
@@ -1522,7 +2783,12 @@ func (self *Loader) ProcessLoadQueueI(args ...interface{}) {
 }
 
 // The loading is all finished.
-func (self *Loader) FinishedLoading(abnormal bool) {
+func (self *Loader) FinishedLoading() {
+    self.Object.Call("finishedLoading")
+}
+
+// The loading is all finished.
+func (self *Loader) FinishedLoading1O(abnormal bool) {
     self.Object.Call("finishedLoading", abnormal)
 }
 
@@ -1533,7 +2799,13 @@ func (self *Loader) FinishedLoadingI(args ...interface{}) {
 
 // Informs the loader that the given file resource has been fetched and processed;
 // or such a request has failed.
-func (self *Loader) AsyncComplete(file interface{}, error string) {
+func (self *Loader) AsyncComplete(file interface{}) {
+    self.Object.Call("asyncComplete", file)
+}
+
+// Informs the loader that the given file resource has been fetched and processed;
+// or such a request has failed.
+func (self *Loader) AsyncComplete1O(file interface{}, error string) {
     self.Object.Call("asyncComplete", file, error)
 }
 
@@ -1614,7 +2886,14 @@ func (self *Loader) LoadAudioTagI(args ...interface{}) {
 // Starts the xhr loader.
 // 
 // This is designed specifically to use with asset file processing.
-func (self *Loader) XhrLoad(file interface{}, url string, type_ string, onload func(...interface{}), onerror func(...interface{})) {
+func (self *Loader) XhrLoad(file interface{}, url string, type_ string, onload func(...interface{})) {
+    self.Object.Call("xhrLoad", file, url, type_, onload)
+}
+
+// Starts the xhr loader.
+// 
+// This is designed specifically to use with asset file processing.
+func (self *Loader) XhrLoad1O(file interface{}, url string, type_ string, onload func(...interface{}), onerror func(...interface{})) {
     self.Object.Call("xhrLoad", file, url, type_, onload, onerror)
 }
 

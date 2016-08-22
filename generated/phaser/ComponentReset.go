@@ -23,7 +23,19 @@ type ComponentReset struct {
 // If this Game Object has the LifeSpan component it will also set `alive` to true and `health` to the given value.
 // 
 // If this Game Object has a Physics Body it will reset the Body.
-func (self *ComponentReset) Reset(x int, y int, health int) *DisplayObject{
+func (self *ComponentReset) Reset(x int, y int) *DisplayObject{
+    return &DisplayObject{self.Object.Call("reset", x, y)}
+}
+
+// Resets the Game Object.
+// 
+// This moves the Game Object to the given x/y world coordinates and sets `fresh`, `exists`, 
+// `visible` and `renderable` to true.
+// 
+// If this Game Object has the LifeSpan component it will also set `alive` to true and `health` to the given value.
+// 
+// If this Game Object has a Physics Body it will reset the Body.
+func (self *ComponentReset) Reset1O(x int, y int, health int) *DisplayObject{
     return &DisplayObject{self.Object.Call("reset", x, y, health)}
 }
 

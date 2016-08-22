@@ -1486,7 +1486,12 @@ func (self *Text) UpdateI(args ...interface{}) {
 }
 
 // Destroy this Text object, removing it from the group it belongs to.
-func (self *Text) Destroy(destroyChildren bool) {
+func (self *Text) Destroy() {
+    self.Object.Call("destroy")
+}
+
+// Destroy this Text object, removing it from the group it belongs to.
+func (self *Text) Destroy1O(destroyChildren bool) {
     self.Object.Call("destroy", destroyChildren)
 }
 
@@ -1499,7 +1504,55 @@ func (self *Text) DestroyI(args ...interface{}) {
 // The color controls the shade of the shadow (default is black) and can be either an `rgba` or `hex` value.
 // The blur is the strength of the shadow. A value of zero means a hard shadow, a value of 10 means a very soft shadow.
 // To remove a shadow already in place you can call this method with no parameters set.
-func (self *Text) SetShadow(x int, y int, color string, blur int, shadowStroke bool, shadowFill bool) *Text{
+func (self *Text) SetShadow() *Text{
+    return &Text{self.Object.Call("setShadow")}
+}
+
+// Sets a drop shadow effect on the Text. You can specify the horizontal and vertical distance of the drop shadow with the `x` and `y` parameters.
+// The color controls the shade of the shadow (default is black) and can be either an `rgba` or `hex` value.
+// The blur is the strength of the shadow. A value of zero means a hard shadow, a value of 10 means a very soft shadow.
+// To remove a shadow already in place you can call this method with no parameters set.
+func (self *Text) SetShadow1O(x int) *Text{
+    return &Text{self.Object.Call("setShadow", x)}
+}
+
+// Sets a drop shadow effect on the Text. You can specify the horizontal and vertical distance of the drop shadow with the `x` and `y` parameters.
+// The color controls the shade of the shadow (default is black) and can be either an `rgba` or `hex` value.
+// The blur is the strength of the shadow. A value of zero means a hard shadow, a value of 10 means a very soft shadow.
+// To remove a shadow already in place you can call this method with no parameters set.
+func (self *Text) SetShadow2O(x int, y int) *Text{
+    return &Text{self.Object.Call("setShadow", x, y)}
+}
+
+// Sets a drop shadow effect on the Text. You can specify the horizontal and vertical distance of the drop shadow with the `x` and `y` parameters.
+// The color controls the shade of the shadow (default is black) and can be either an `rgba` or `hex` value.
+// The blur is the strength of the shadow. A value of zero means a hard shadow, a value of 10 means a very soft shadow.
+// To remove a shadow already in place you can call this method with no parameters set.
+func (self *Text) SetShadow3O(x int, y int, color string) *Text{
+    return &Text{self.Object.Call("setShadow", x, y, color)}
+}
+
+// Sets a drop shadow effect on the Text. You can specify the horizontal and vertical distance of the drop shadow with the `x` and `y` parameters.
+// The color controls the shade of the shadow (default is black) and can be either an `rgba` or `hex` value.
+// The blur is the strength of the shadow. A value of zero means a hard shadow, a value of 10 means a very soft shadow.
+// To remove a shadow already in place you can call this method with no parameters set.
+func (self *Text) SetShadow4O(x int, y int, color string, blur int) *Text{
+    return &Text{self.Object.Call("setShadow", x, y, color, blur)}
+}
+
+// Sets a drop shadow effect on the Text. You can specify the horizontal and vertical distance of the drop shadow with the `x` and `y` parameters.
+// The color controls the shade of the shadow (default is black) and can be either an `rgba` or `hex` value.
+// The blur is the strength of the shadow. A value of zero means a hard shadow, a value of 10 means a very soft shadow.
+// To remove a shadow already in place you can call this method with no parameters set.
+func (self *Text) SetShadow5O(x int, y int, color string, blur int, shadowStroke bool) *Text{
+    return &Text{self.Object.Call("setShadow", x, y, color, blur, shadowStroke)}
+}
+
+// Sets a drop shadow effect on the Text. You can specify the horizontal and vertical distance of the drop shadow with the `x` and `y` parameters.
+// The color controls the shade of the shadow (default is black) and can be either an `rgba` or `hex` value.
+// The blur is the strength of the shadow. A value of zero means a hard shadow, a value of 10 means a very soft shadow.
+// To remove a shadow already in place you can call this method with no parameters set.
+func (self *Text) SetShadow6O(x int, y int, color string, blur int, shadowStroke bool, shadowFill bool) *Text{
     return &Text{self.Object.Call("setShadow", x, y, color, blur, shadowStroke, shadowFill)}
 }
 
@@ -1512,7 +1565,97 @@ func (self *Text) SetShadowI(args ...interface{}) *Text{
 }
 
 // Set the style of the text by passing a single style object to it.
-func (self *Text) SetStyle(style interface{}, update bool) *Text{
+func (self *Text) SetStyle() *Text{
+    return &Text{self.Object.Call("setStyle")}
+}
+
+// Set the style of the text by passing a single style object to it.
+func (self *Text) SetStyle1O(style interface{}) *Text{
+    return &Text{self.Object.Call("setStyle", style)}
+}
+
+// Set the style of the text by passing a single style object to it.
+func (self *Text) SetStyle2O(style interface{}) *Text{
+    return &Text{self.Object.Call("setStyle", style)}
+}
+
+// Set the style of the text by passing a single style object to it.
+func (self *Text) SetStyle3O(style interface{}) *Text{
+    return &Text{self.Object.Call("setStyle", style)}
+}
+
+// Set the style of the text by passing a single style object to it.
+func (self *Text) SetStyle4O(style interface{}) *Text{
+    return &Text{self.Object.Call("setStyle", style)}
+}
+
+// Set the style of the text by passing a single style object to it.
+func (self *Text) SetStyle5O(style interface{}) *Text{
+    return &Text{self.Object.Call("setStyle", style)}
+}
+
+// Set the style of the text by passing a single style object to it.
+func (self *Text) SetStyle6O(style interface{}) *Text{
+    return &Text{self.Object.Call("setStyle", style)}
+}
+
+// Set the style of the text by passing a single style object to it.
+func (self *Text) SetStyle7O(style interface{}) *Text{
+    return &Text{self.Object.Call("setStyle", style)}
+}
+
+// Set the style of the text by passing a single style object to it.
+func (self *Text) SetStyle8O(style interface{}) *Text{
+    return &Text{self.Object.Call("setStyle", style)}
+}
+
+// Set the style of the text by passing a single style object to it.
+func (self *Text) SetStyle9O(style interface{}) *Text{
+    return &Text{self.Object.Call("setStyle", style)}
+}
+
+// Set the style of the text by passing a single style object to it.
+func (self *Text) SetStyle10O(style interface{}) *Text{
+    return &Text{self.Object.Call("setStyle", style)}
+}
+
+// Set the style of the text by passing a single style object to it.
+func (self *Text) SetStyle11O(style interface{}) *Text{
+    return &Text{self.Object.Call("setStyle", style)}
+}
+
+// Set the style of the text by passing a single style object to it.
+func (self *Text) SetStyle12O(style interface{}) *Text{
+    return &Text{self.Object.Call("setStyle", style)}
+}
+
+// Set the style of the text by passing a single style object to it.
+func (self *Text) SetStyle13O(style interface{}) *Text{
+    return &Text{self.Object.Call("setStyle", style)}
+}
+
+// Set the style of the text by passing a single style object to it.
+func (self *Text) SetStyle14O(style interface{}) *Text{
+    return &Text{self.Object.Call("setStyle", style)}
+}
+
+// Set the style of the text by passing a single style object to it.
+func (self *Text) SetStyle15O(style interface{}) *Text{
+    return &Text{self.Object.Call("setStyle", style)}
+}
+
+// Set the style of the text by passing a single style object to it.
+func (self *Text) SetStyle16O(style interface{}) *Text{
+    return &Text{self.Object.Call("setStyle", style)}
+}
+
+// Set the style of the text by passing a single style object to it.
+func (self *Text) SetStyle17O(style interface{}) *Text{
+    return &Text{self.Object.Call("setStyle", style)}
+}
+
+// Set the style of the text by passing a single style object to it.
+func (self *Text) SetStyle18O(style interface{}, update bool) *Text{
     return &Text{self.Object.Call("setStyle", style, update)}
 }
 
@@ -1799,7 +1942,31 @@ func (self *Text) ComponentsToFontI(args ...interface{}) {
 // 
 // If not it will re-create the texture of this Text object during the next time the render
 // loop is called.
-func (self *Text) SetText(text string, immediate bool) *Text{
+func (self *Text) SetText() *Text{
+    return &Text{self.Object.Call("setText")}
+}
+
+// The text to be displayed by this Text object.
+// Use a \n to insert a carriage return and split the text.
+// The text will be rendered with any style currently set.
+// 
+// Use the optional `immediate` argument if you need the Text display to update immediately.
+// 
+// If not it will re-create the texture of this Text object during the next time the render
+// loop is called.
+func (self *Text) SetText1O(text string) *Text{
+    return &Text{self.Object.Call("setText", text)}
+}
+
+// The text to be displayed by this Text object.
+// Use a \n to insert a carriage return and split the text.
+// The text will be rendered with any style currently set.
+// 
+// Use the optional `immediate` argument if you need the Text display to update immediately.
+// 
+// If not it will re-create the texture of this Text object during the next time the render
+// loop is called.
+func (self *Text) SetText2O(text string, immediate bool) *Text{
     return &Text{self.Object.Call("setText", text, immediate)}
 }
 
@@ -1875,7 +2042,111 @@ func (self *Text) ParseListI(args ...interface{}) *Text{
 // have additional padding around them which you can mitigate by tweaking the Text.padding property. It then adjusts the `pivot`
 // property based on the given bounds and canvas size. This means if you need to set the pivot property directly in your game then
 // you either cannot use `setTextBounds` or you must place the Text object inside another DisplayObject on which you set the pivot.
-func (self *Text) SetTextBounds(x int, y int, width int, height int) *Text{
+func (self *Text) SetTextBounds() *Text{
+    return &Text{self.Object.Call("setTextBounds")}
+}
+
+// The Text Bounds is a rectangular region that you control the dimensions of into which the Text object itself is positioned,
+// regardless of the number of lines in the text, the font size or any other attribute.
+// 
+// Alignment is controlled via the properties `boundsAlignH` and `boundsAlignV` within the Text.style object, or can be directly
+// set through the setters `Text.boundsAlignH` and `Text.boundsAlignV`. Bounds alignment is independent of text alignment.
+// 
+// For example: If your game is 800x600 in size and you set the text bounds to be 0,0,800,600 then by setting boundsAlignH to
+// 'center' and boundsAlignV to 'bottom' the text will render in the center and at the bottom of your game window, regardless of
+// how many lines of text there may be. Even if you adjust the text content or change the style it will remain at the bottom center
+// of the text bounds.
+// 
+// This is especially powerful when you need to align text against specific coordinates in your game, but the actual text dimensions
+// may vary based on font (say for multi-lingual games).
+// 
+// If `Text.wordWrapWidth` is greater than the width of the text bounds it is clamped to match the bounds width.
+// 
+// Call this method with no arguments given to reset an existing textBounds.
+// 
+// It works by calculating the final position based on the Text.canvas size, which is modified as the text is updated. Some fonts
+// have additional padding around them which you can mitigate by tweaking the Text.padding property. It then adjusts the `pivot`
+// property based on the given bounds and canvas size. This means if you need to set the pivot property directly in your game then
+// you either cannot use `setTextBounds` or you must place the Text object inside another DisplayObject on which you set the pivot.
+func (self *Text) SetTextBounds1O(x int) *Text{
+    return &Text{self.Object.Call("setTextBounds", x)}
+}
+
+// The Text Bounds is a rectangular region that you control the dimensions of into which the Text object itself is positioned,
+// regardless of the number of lines in the text, the font size or any other attribute.
+// 
+// Alignment is controlled via the properties `boundsAlignH` and `boundsAlignV` within the Text.style object, or can be directly
+// set through the setters `Text.boundsAlignH` and `Text.boundsAlignV`. Bounds alignment is independent of text alignment.
+// 
+// For example: If your game is 800x600 in size and you set the text bounds to be 0,0,800,600 then by setting boundsAlignH to
+// 'center' and boundsAlignV to 'bottom' the text will render in the center and at the bottom of your game window, regardless of
+// how many lines of text there may be. Even if you adjust the text content or change the style it will remain at the bottom center
+// of the text bounds.
+// 
+// This is especially powerful when you need to align text against specific coordinates in your game, but the actual text dimensions
+// may vary based on font (say for multi-lingual games).
+// 
+// If `Text.wordWrapWidth` is greater than the width of the text bounds it is clamped to match the bounds width.
+// 
+// Call this method with no arguments given to reset an existing textBounds.
+// 
+// It works by calculating the final position based on the Text.canvas size, which is modified as the text is updated. Some fonts
+// have additional padding around them which you can mitigate by tweaking the Text.padding property. It then adjusts the `pivot`
+// property based on the given bounds and canvas size. This means if you need to set the pivot property directly in your game then
+// you either cannot use `setTextBounds` or you must place the Text object inside another DisplayObject on which you set the pivot.
+func (self *Text) SetTextBounds2O(x int, y int) *Text{
+    return &Text{self.Object.Call("setTextBounds", x, y)}
+}
+
+// The Text Bounds is a rectangular region that you control the dimensions of into which the Text object itself is positioned,
+// regardless of the number of lines in the text, the font size or any other attribute.
+// 
+// Alignment is controlled via the properties `boundsAlignH` and `boundsAlignV` within the Text.style object, or can be directly
+// set through the setters `Text.boundsAlignH` and `Text.boundsAlignV`. Bounds alignment is independent of text alignment.
+// 
+// For example: If your game is 800x600 in size and you set the text bounds to be 0,0,800,600 then by setting boundsAlignH to
+// 'center' and boundsAlignV to 'bottom' the text will render in the center and at the bottom of your game window, regardless of
+// how many lines of text there may be. Even if you adjust the text content or change the style it will remain at the bottom center
+// of the text bounds.
+// 
+// This is especially powerful when you need to align text against specific coordinates in your game, but the actual text dimensions
+// may vary based on font (say for multi-lingual games).
+// 
+// If `Text.wordWrapWidth` is greater than the width of the text bounds it is clamped to match the bounds width.
+// 
+// Call this method with no arguments given to reset an existing textBounds.
+// 
+// It works by calculating the final position based on the Text.canvas size, which is modified as the text is updated. Some fonts
+// have additional padding around them which you can mitigate by tweaking the Text.padding property. It then adjusts the `pivot`
+// property based on the given bounds and canvas size. This means if you need to set the pivot property directly in your game then
+// you either cannot use `setTextBounds` or you must place the Text object inside another DisplayObject on which you set the pivot.
+func (self *Text) SetTextBounds3O(x int, y int, width int) *Text{
+    return &Text{self.Object.Call("setTextBounds", x, y, width)}
+}
+
+// The Text Bounds is a rectangular region that you control the dimensions of into which the Text object itself is positioned,
+// regardless of the number of lines in the text, the font size or any other attribute.
+// 
+// Alignment is controlled via the properties `boundsAlignH` and `boundsAlignV` within the Text.style object, or can be directly
+// set through the setters `Text.boundsAlignH` and `Text.boundsAlignV`. Bounds alignment is independent of text alignment.
+// 
+// For example: If your game is 800x600 in size and you set the text bounds to be 0,0,800,600 then by setting boundsAlignH to
+// 'center' and boundsAlignV to 'bottom' the text will render in the center and at the bottom of your game window, regardless of
+// how many lines of text there may be. Even if you adjust the text content or change the style it will remain at the bottom center
+// of the text bounds.
+// 
+// This is especially powerful when you need to align text against specific coordinates in your game, but the actual text dimensions
+// may vary based on font (say for multi-lingual games).
+// 
+// If `Text.wordWrapWidth` is greater than the width of the text bounds it is clamped to match the bounds width.
+// 
+// Call this method with no arguments given to reset an existing textBounds.
+// 
+// It works by calculating the final position based on the Text.canvas size, which is modified as the text is updated. Some fonts
+// have additional padding around them which you can mitigate by tweaking the Text.padding property. It then adjusts the `pivot`
+// property based on the given bounds and canvas size. This means if you need to set the pivot property directly in your game then
+// you either cannot use `setTextBounds` or you must place the Text object inside another DisplayObject on which you set the pivot.
+func (self *Text) SetTextBounds4O(x int, y int, width int, height int) *Text{
     return &Text{self.Object.Call("setTextBounds", x, y, width, height)}
 }
 
@@ -1959,7 +2230,13 @@ func (self *Text) GetBoundsI(args ...interface{}) *Rectangle{
 
 // Sets the texture of the sprite. Be warned that this doesn't remove or destroy the previous
 // texture this Sprite was using.
-func (self *Text) SetTexture(texture *Texture, destroy bool) {
+func (self *Text) SetTexture(texture *Texture) {
+    self.Object.Call("setTexture", texture)
+}
+
+// Sets the texture of the sprite. Be warned that this doesn't remove or destroy the previous
+// texture this Sprite was using.
+func (self *Text) SetTexture1O(texture *Texture, destroy bool) {
     self.Object.Call("setTexture", texture, destroy)
 }
 
@@ -2115,7 +2392,37 @@ func (self *Text) PostUpdateI(args ...interface{}) {
 // 
 // If the animation is already playing calling this again won't do anything.
 // If you need to reset an already running animation do so directly on the Animation object itself or via `AnimationManager.stop`.
-func (self *Text) Play(name string, frameRate int, loop bool, killOnComplete bool) *Animation{
+func (self *Text) Play(name string) *Animation{
+    return &Animation{self.Object.Call("play", name)}
+}
+
+// Plays an Animation.
+// 
+// The animation should have previously been created via `animations.add`.
+// 
+// If the animation is already playing calling this again won't do anything.
+// If you need to reset an already running animation do so directly on the Animation object itself or via `AnimationManager.stop`.
+func (self *Text) Play1O(name string, frameRate int) *Animation{
+    return &Animation{self.Object.Call("play", name, frameRate)}
+}
+
+// Plays an Animation.
+// 
+// The animation should have previously been created via `animations.add`.
+// 
+// If the animation is already playing calling this again won't do anything.
+// If you need to reset an already running animation do so directly on the Animation object itself or via `AnimationManager.stop`.
+func (self *Text) Play2O(name string, frameRate int, loop bool) *Animation{
+    return &Animation{self.Object.Call("play", name, frameRate, loop)}
+}
+
+// Plays an Animation.
+// 
+// The animation should have previously been created via `animations.add`.
+// 
+// If the animation is already playing calling this again won't do anything.
+// If you need to reset an already running animation do so directly on the Animation object itself or via `AnimationManager.stop`.
+func (self *Text) Play3O(name string, frameRate int, loop bool, killOnComplete bool) *Animation{
     return &Animation{self.Object.Call("play", name, frameRate, loop, killOnComplete)}
 }
 
@@ -2159,7 +2466,109 @@ func (self *Text) PlayI(args ...interface{}) *Animation{
 // Think of the offsets as applying an adjustment to the containers bounds before the alignment takes place.
 // So providing a negative offset will 'shrink' the container bounds by that amount, and providing a positive
 // one expands it.
-func (self *Text) AlignIn(container interface{}, position int, offsetX int, offsetY int) interface{}{
+func (self *Text) AlignIn(container interface{}) interface{}{
+    return self.Object.Call("alignIn", container)
+}
+
+// Aligns this Game Object within another Game Object, or Rectangle, known as the
+// 'container', to one of 9 possible positions.
+// 
+// The container must be a Game Object, or Phaser.Rectangle object. This can include properties
+// such as `World.bounds` or `Camera.view`, for aligning Game Objects within the world 
+// and camera bounds. Or it can include other Sprites, Images, Text objects, BitmapText,
+// TileSprites or Buttons.
+// 
+// Please note that aligning a Sprite to another Game Object does **not** make it a child of
+// the container. It simply modifies its position coordinates so it aligns with it.
+// 
+// The position constants you can use are:
+// 
+// `Phaser.TOP_LEFT`, `Phaser.TOP_CENTER`, `Phaser.TOP_RIGHT`, `Phaser.LEFT_CENTER`, 
+// `Phaser.CENTER`, `Phaser.RIGHT_CENTER`, `Phaser.BOTTOM_LEFT`, 
+// `Phaser.BOTTOM_CENTER` and `Phaser.BOTTOM_RIGHT`.
+// 
+// The Game Objects are placed in such a way that their _bounds_ align with the
+// container, taking into consideration rotation, scale and the anchor property.
+// This allows you to neatly align Game Objects, irrespective of their position value.
+// 
+// The optional `offsetX` and `offsetY` arguments allow you to apply extra spacing to the final
+// aligned position of the Game Object. For example:
+// 
+// `sprite.alignIn(background, Phaser.BOTTOM_RIGHT, -20, -20)`
+// 
+// Would align the `sprite` to the bottom-right, but moved 20 pixels in from the corner.
+// Think of the offsets as applying an adjustment to the containers bounds before the alignment takes place.
+// So providing a negative offset will 'shrink' the container bounds by that amount, and providing a positive
+// one expands it.
+func (self *Text) AlignIn1O(container interface{}, position int) interface{}{
+    return self.Object.Call("alignIn", container, position)
+}
+
+// Aligns this Game Object within another Game Object, or Rectangle, known as the
+// 'container', to one of 9 possible positions.
+// 
+// The container must be a Game Object, or Phaser.Rectangle object. This can include properties
+// such as `World.bounds` or `Camera.view`, for aligning Game Objects within the world 
+// and camera bounds. Or it can include other Sprites, Images, Text objects, BitmapText,
+// TileSprites or Buttons.
+// 
+// Please note that aligning a Sprite to another Game Object does **not** make it a child of
+// the container. It simply modifies its position coordinates so it aligns with it.
+// 
+// The position constants you can use are:
+// 
+// `Phaser.TOP_LEFT`, `Phaser.TOP_CENTER`, `Phaser.TOP_RIGHT`, `Phaser.LEFT_CENTER`, 
+// `Phaser.CENTER`, `Phaser.RIGHT_CENTER`, `Phaser.BOTTOM_LEFT`, 
+// `Phaser.BOTTOM_CENTER` and `Phaser.BOTTOM_RIGHT`.
+// 
+// The Game Objects are placed in such a way that their _bounds_ align with the
+// container, taking into consideration rotation, scale and the anchor property.
+// This allows you to neatly align Game Objects, irrespective of their position value.
+// 
+// The optional `offsetX` and `offsetY` arguments allow you to apply extra spacing to the final
+// aligned position of the Game Object. For example:
+// 
+// `sprite.alignIn(background, Phaser.BOTTOM_RIGHT, -20, -20)`
+// 
+// Would align the `sprite` to the bottom-right, but moved 20 pixels in from the corner.
+// Think of the offsets as applying an adjustment to the containers bounds before the alignment takes place.
+// So providing a negative offset will 'shrink' the container bounds by that amount, and providing a positive
+// one expands it.
+func (self *Text) AlignIn2O(container interface{}, position int, offsetX int) interface{}{
+    return self.Object.Call("alignIn", container, position, offsetX)
+}
+
+// Aligns this Game Object within another Game Object, or Rectangle, known as the
+// 'container', to one of 9 possible positions.
+// 
+// The container must be a Game Object, or Phaser.Rectangle object. This can include properties
+// such as `World.bounds` or `Camera.view`, for aligning Game Objects within the world 
+// and camera bounds. Or it can include other Sprites, Images, Text objects, BitmapText,
+// TileSprites or Buttons.
+// 
+// Please note that aligning a Sprite to another Game Object does **not** make it a child of
+// the container. It simply modifies its position coordinates so it aligns with it.
+// 
+// The position constants you can use are:
+// 
+// `Phaser.TOP_LEFT`, `Phaser.TOP_CENTER`, `Phaser.TOP_RIGHT`, `Phaser.LEFT_CENTER`, 
+// `Phaser.CENTER`, `Phaser.RIGHT_CENTER`, `Phaser.BOTTOM_LEFT`, 
+// `Phaser.BOTTOM_CENTER` and `Phaser.BOTTOM_RIGHT`.
+// 
+// The Game Objects are placed in such a way that their _bounds_ align with the
+// container, taking into consideration rotation, scale and the anchor property.
+// This allows you to neatly align Game Objects, irrespective of their position value.
+// 
+// The optional `offsetX` and `offsetY` arguments allow you to apply extra spacing to the final
+// aligned position of the Game Object. For example:
+// 
+// `sprite.alignIn(background, Phaser.BOTTOM_RIGHT, -20, -20)`
+// 
+// Would align the `sprite` to the bottom-right, but moved 20 pixels in from the corner.
+// Think of the offsets as applying an adjustment to the containers bounds before the alignment takes place.
+// So providing a negative offset will 'shrink' the container bounds by that amount, and providing a positive
+// one expands it.
+func (self *Text) AlignIn3O(container interface{}, position int, offsetX int, offsetY int) interface{}{
     return self.Object.Call("alignIn", container, position, offsetX, offsetY)
 }
 
@@ -2228,7 +2637,112 @@ func (self *Text) AlignInI(args ...interface{}) interface{}{
 // Think of the offsets as applying an adjustment to the parents bounds before the alignment takes place.
 // So providing a negative offset will 'shrink' the parent bounds by that amount, and providing a positive
 // one expands it.
-func (self *Text) AlignTo(parent interface{}, position int, offsetX int, offsetY int) interface{}{
+func (self *Text) AlignTo(parent interface{}) interface{}{
+    return self.Object.Call("alignTo", parent)
+}
+
+// Aligns this Game Object to the side of another Game Object, or Rectangle, known as the
+// 'parent', in one of 11 possible positions.
+// 
+// The parent must be a Game Object, or Phaser.Rectangle object. This can include properties
+// such as `World.bounds` or `Camera.view`, for aligning Game Objects within the world 
+// and camera bounds. Or it can include other Sprites, Images, Text objects, BitmapText,
+// TileSprites or Buttons.
+// 
+// Please note that aligning a Sprite to another Game Object does **not** make it a child of
+// the parent. It simply modifies its position coordinates so it aligns with it.
+// 
+// The position constants you can use are:
+// 
+// `Phaser.TOP_LEFT` (default), `Phaser.TOP_CENTER`, `Phaser.TOP_RIGHT`, `Phaser.LEFT_TOP`, 
+// `Phaser.LEFT_CENTER`, `Phaser.LEFT_BOTTOM`, `Phaser.RIGHT_TOP`, `Phaser.RIGHT_CENTER`, 
+// `Phaser.RIGHT_BOTTOM`, `Phaser.BOTTOM_LEFT`, `Phaser.BOTTOM_CENTER` 
+// and `Phaser.BOTTOM_RIGHT`.
+// 
+// The Game Objects are placed in such a way that their _bounds_ align with the
+// parent, taking into consideration rotation, scale and the anchor property.
+// This allows you to neatly align Game Objects, irrespective of their position value.
+// 
+// The optional `offsetX` and `offsetY` arguments allow you to apply extra spacing to the final
+// aligned position of the Game Object. For example:
+// 
+// `sprite.alignTo(background, Phaser.BOTTOM_RIGHT, -20, -20)`
+// 
+// Would align the `sprite` to the bottom-right, but moved 20 pixels in from the corner.
+// Think of the offsets as applying an adjustment to the parents bounds before the alignment takes place.
+// So providing a negative offset will 'shrink' the parent bounds by that amount, and providing a positive
+// one expands it.
+func (self *Text) AlignTo1O(parent interface{}, position int) interface{}{
+    return self.Object.Call("alignTo", parent, position)
+}
+
+// Aligns this Game Object to the side of another Game Object, or Rectangle, known as the
+// 'parent', in one of 11 possible positions.
+// 
+// The parent must be a Game Object, or Phaser.Rectangle object. This can include properties
+// such as `World.bounds` or `Camera.view`, for aligning Game Objects within the world 
+// and camera bounds. Or it can include other Sprites, Images, Text objects, BitmapText,
+// TileSprites or Buttons.
+// 
+// Please note that aligning a Sprite to another Game Object does **not** make it a child of
+// the parent. It simply modifies its position coordinates so it aligns with it.
+// 
+// The position constants you can use are:
+// 
+// `Phaser.TOP_LEFT` (default), `Phaser.TOP_CENTER`, `Phaser.TOP_RIGHT`, `Phaser.LEFT_TOP`, 
+// `Phaser.LEFT_CENTER`, `Phaser.LEFT_BOTTOM`, `Phaser.RIGHT_TOP`, `Phaser.RIGHT_CENTER`, 
+// `Phaser.RIGHT_BOTTOM`, `Phaser.BOTTOM_LEFT`, `Phaser.BOTTOM_CENTER` 
+// and `Phaser.BOTTOM_RIGHT`.
+// 
+// The Game Objects are placed in such a way that their _bounds_ align with the
+// parent, taking into consideration rotation, scale and the anchor property.
+// This allows you to neatly align Game Objects, irrespective of their position value.
+// 
+// The optional `offsetX` and `offsetY` arguments allow you to apply extra spacing to the final
+// aligned position of the Game Object. For example:
+// 
+// `sprite.alignTo(background, Phaser.BOTTOM_RIGHT, -20, -20)`
+// 
+// Would align the `sprite` to the bottom-right, but moved 20 pixels in from the corner.
+// Think of the offsets as applying an adjustment to the parents bounds before the alignment takes place.
+// So providing a negative offset will 'shrink' the parent bounds by that amount, and providing a positive
+// one expands it.
+func (self *Text) AlignTo2O(parent interface{}, position int, offsetX int) interface{}{
+    return self.Object.Call("alignTo", parent, position, offsetX)
+}
+
+// Aligns this Game Object to the side of another Game Object, or Rectangle, known as the
+// 'parent', in one of 11 possible positions.
+// 
+// The parent must be a Game Object, or Phaser.Rectangle object. This can include properties
+// such as `World.bounds` or `Camera.view`, for aligning Game Objects within the world 
+// and camera bounds. Or it can include other Sprites, Images, Text objects, BitmapText,
+// TileSprites or Buttons.
+// 
+// Please note that aligning a Sprite to another Game Object does **not** make it a child of
+// the parent. It simply modifies its position coordinates so it aligns with it.
+// 
+// The position constants you can use are:
+// 
+// `Phaser.TOP_LEFT` (default), `Phaser.TOP_CENTER`, `Phaser.TOP_RIGHT`, `Phaser.LEFT_TOP`, 
+// `Phaser.LEFT_CENTER`, `Phaser.LEFT_BOTTOM`, `Phaser.RIGHT_TOP`, `Phaser.RIGHT_CENTER`, 
+// `Phaser.RIGHT_BOTTOM`, `Phaser.BOTTOM_LEFT`, `Phaser.BOTTOM_CENTER` 
+// and `Phaser.BOTTOM_RIGHT`.
+// 
+// The Game Objects are placed in such a way that their _bounds_ align with the
+// parent, taking into consideration rotation, scale and the anchor property.
+// This allows you to neatly align Game Objects, irrespective of their position value.
+// 
+// The optional `offsetX` and `offsetY` arguments allow you to apply extra spacing to the final
+// aligned position of the Game Object. For example:
+// 
+// `sprite.alignTo(background, Phaser.BOTTOM_RIGHT, -20, -20)`
+// 
+// Would align the `sprite` to the bottom-right, but moved 20 pixels in from the corner.
+// Think of the offsets as applying an adjustment to the parents bounds before the alignment takes place.
+// So providing a negative offset will 'shrink' the parent bounds by that amount, and providing a positive
+// one expands it.
+func (self *Text) AlignTo3O(parent interface{}, position int, offsetX int, offsetY int) interface{}{
     return self.Object.Call("alignTo", parent, position, offsetX, offsetY)
 }
 
@@ -2350,7 +2864,22 @@ func (self *Text) MoveDownI(args ...interface{}) *DisplayObject{
 // 
 // A reference to the rectangle is stored in `cropRect` unless the `copy` parameter is `true`, 
 // in which case the values are duplicated to a local object.
-func (self *Text) Crop(rect *Rectangle, copy bool) {
+func (self *Text) Crop(rect *Rectangle) {
+    self.Object.Call("crop", rect)
+}
+
+// Crop allows you to crop the texture being used to display this Game Object.
+// Setting a crop rectangle modifies the core texture frame. The Game Object width and height properties will be adjusted accordingly.
+// 
+// Cropping takes place from the top-left and can be modified in real-time either by providing an updated rectangle object to this method,
+// or by modifying `cropRect` property directly and then calling `updateCrop`.
+// 
+// The rectangle object given to this method can be either a `Phaser.Rectangle` or any other object 
+// so long as it has public `x`, `y`, `width`, `height`, `right` and `bottom` properties.
+// 
+// A reference to the rectangle is stored in `cropRect` unless the `copy` parameter is `true`, 
+// in which case the values are duplicated to a local object.
+func (self *Text) Crop1O(rect *Rectangle, copy bool) {
     self.Object.Call("crop", rect, copy)
 }
 
@@ -2386,7 +2915,16 @@ func (self *Text) UpdateCropI(args ...interface{}) {
 // A resurrected Game Object has its `alive`, `exists` and `visible` properties all set to true.
 // 
 // It will dispatch the `onRevived` event. Listen to `events.onRevived` for the signal.
-func (self *Text) Revive(health int) *DisplayObject{
+func (self *Text) Revive() *DisplayObject{
+    return &DisplayObject{self.Object.Call("revive")}
+}
+
+// Brings a 'dead' Game Object back to life, optionally resetting its health value in the process.
+// 
+// A resurrected Game Object has its `alive`, `exists` and `visible` properties all set to true.
+// 
+// It will dispatch the `onRevived` event. Listen to `events.onRevived` for the signal.
+func (self *Text) Revive1O(health int) *DisplayObject{
     return &DisplayObject{self.Object.Call("revive", health)}
 }
 
@@ -2439,7 +2977,47 @@ func (self *Text) KillI(args ...interface{}) *DisplayObject{
 // and swapping it to be the key of the atlas data.
 // 
 // Note: You cannot use a RenderTexture as a texture for a TileSprite.
-func (self *Text) LoadTexture(key interface{}, frame interface{}, stopAnimation bool) {
+func (self *Text) LoadTexture(key interface{}) {
+    self.Object.Call("loadTexture", key)
+}
+
+// Changes the base texture the Game Object is using. The old texture is removed and the new one is referenced or fetched from the Cache.
+// 
+// If your Game Object is using a frame from a texture atlas and you just wish to change to another frame, then see the `frame` or `frameName` properties instead.
+// 
+// You should only use `loadTexture` if you want to replace the base texture entirely.
+// 
+// Calling this method causes a WebGL texture update, so use sparingly or in low-intensity portions of your game, or if you know the new texture is already on the GPU.
+// 
+// You can use the new const `Phaser.PENDING_ATLAS` as the texture key for any sprite. 
+// Doing this then sets the key to be the `frame` argument (the frame is set to zero). 
+// 
+// This allows you to create sprites using `load.image` during development, and then change them 
+// to use a Texture Atlas later in development by simply searching your code for 'PENDING_ATLAS' 
+// and swapping it to be the key of the atlas data.
+// 
+// Note: You cannot use a RenderTexture as a texture for a TileSprite.
+func (self *Text) LoadTexture1O(key interface{}, frame interface{}) {
+    self.Object.Call("loadTexture", key, frame)
+}
+
+// Changes the base texture the Game Object is using. The old texture is removed and the new one is referenced or fetched from the Cache.
+// 
+// If your Game Object is using a frame from a texture atlas and you just wish to change to another frame, then see the `frame` or `frameName` properties instead.
+// 
+// You should only use `loadTexture` if you want to replace the base texture entirely.
+// 
+// Calling this method causes a WebGL texture update, so use sparingly or in low-intensity portions of your game, or if you know the new texture is already on the GPU.
+// 
+// You can use the new const `Phaser.PENDING_ATLAS` as the texture key for any sprite. 
+// Doing this then sets the key to be the `frame` argument (the frame is set to zero). 
+// 
+// This allows you to create sprites using `load.image` during development, and then change them 
+// to use a Texture Atlas later in development by simply searching your code for 'PENDING_ATLAS' 
+// and swapping it to be the key of the atlas data.
+// 
+// Note: You cannot use a RenderTexture as a texture for a TileSprite.
+func (self *Text) LoadTexture2O(key interface{}, frame interface{}, stopAnimation bool) {
     self.Object.Call("loadTexture", key, frame, stopAnimation)
 }
 
@@ -2533,7 +3111,19 @@ func (self *Text) OverlapI(args ...interface{}) bool{
 // If this Game Object has the LifeSpan component it will also set `alive` to true and `health` to the given value.
 // 
 // If this Game Object has a Physics Body it will reset the Body.
-func (self *Text) Reset(x int, y int, health int) *DisplayObject{
+func (self *Text) Reset(x int, y int) *DisplayObject{
+    return &DisplayObject{self.Object.Call("reset", x, y)}
+}
+
+// Resets the Game Object.
+// 
+// This moves the Game Object to the given x/y world coordinates and sets `fresh`, `exists`, 
+// `visible` and `renderable` to true.
+// 
+// If this Game Object has the LifeSpan component it will also set `alive` to true and `health` to the given value.
+// 
+// If this Game Object has a Physics Body it will reset the Body.
+func (self *Text) Reset1O(x int, y int, health int) *DisplayObject{
     return &DisplayObject{self.Object.Call("reset", x, y, health)}
 }
 

@@ -16,7 +16,22 @@ type AnimationParser struct {
 
 
 // Parse a Sprite Sheet and extract the animation frame data from it.
-func (self *AnimationParser) SpriteSheet(game *Game, key interface{}, frameWidth int, frameHeight int, frameMax int, margin int, spacing int) *FrameData{
+func (self *AnimationParser) SpriteSheet(game *Game, key interface{}, frameWidth int, frameHeight int) *FrameData{
+    return &FrameData{self.Object.Call("spriteSheet", game, key, frameWidth, frameHeight)}
+}
+
+// Parse a Sprite Sheet and extract the animation frame data from it.
+func (self *AnimationParser) SpriteSheet1O(game *Game, key interface{}, frameWidth int, frameHeight int, frameMax int) *FrameData{
+    return &FrameData{self.Object.Call("spriteSheet", game, key, frameWidth, frameHeight, frameMax)}
+}
+
+// Parse a Sprite Sheet and extract the animation frame data from it.
+func (self *AnimationParser) SpriteSheet2O(game *Game, key interface{}, frameWidth int, frameHeight int, frameMax int, margin int) *FrameData{
+    return &FrameData{self.Object.Call("spriteSheet", game, key, frameWidth, frameHeight, frameMax, margin)}
+}
+
+// Parse a Sprite Sheet and extract the animation frame data from it.
+func (self *AnimationParser) SpriteSheet3O(game *Game, key interface{}, frameWidth int, frameHeight int, frameMax int, margin int, spacing int) *FrameData{
     return &FrameData{self.Object.Call("spriteSheet", game, key, frameWidth, frameHeight, frameMax, margin, spacing)}
 }
 

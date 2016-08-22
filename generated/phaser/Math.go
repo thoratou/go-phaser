@@ -38,7 +38,12 @@ func (self *Math) BetweenI(args ...interface{}) int{
 }
 
 // Two number are fuzzyEqual if their difference is less than epsilon.
-func (self *Math) FuzzyEqual(a int, b int, epsilon int) bool{
+func (self *Math) FuzzyEqual(a int, b int) bool{
+    return self.Object.Call("fuzzyEqual", a, b).Bool()
+}
+
+// Two number are fuzzyEqual if their difference is less than epsilon.
+func (self *Math) FuzzyEqual1O(a int, b int, epsilon int) bool{
     return self.Object.Call("fuzzyEqual", a, b, epsilon).Bool()
 }
 
@@ -48,7 +53,12 @@ func (self *Math) FuzzyEqualI(args ...interface{}) bool{
 }
 
 // `a` is fuzzyLessThan `b` if it is less than b + epsilon.
-func (self *Math) FuzzyLessThan(a int, b int, epsilon int) bool{
+func (self *Math) FuzzyLessThan(a int, b int) bool{
+    return self.Object.Call("fuzzyLessThan", a, b).Bool()
+}
+
+// `a` is fuzzyLessThan `b` if it is less than b + epsilon.
+func (self *Math) FuzzyLessThan1O(a int, b int, epsilon int) bool{
     return self.Object.Call("fuzzyLessThan", a, b, epsilon).Bool()
 }
 
@@ -58,7 +68,12 @@ func (self *Math) FuzzyLessThanI(args ...interface{}) bool{
 }
 
 // `a` is fuzzyGreaterThan `b` if it is more than b - epsilon.
-func (self *Math) FuzzyGreaterThan(a int, b int, epsilon int) bool{
+func (self *Math) FuzzyGreaterThan(a int, b int) bool{
+    return self.Object.Call("fuzzyGreaterThan", a, b).Bool()
+}
+
+// `a` is fuzzyGreaterThan `b` if it is more than b - epsilon.
+func (self *Math) FuzzyGreaterThan1O(a int, b int, epsilon int) bool{
     return self.Object.Call("fuzzyGreaterThan", a, b, epsilon).Bool()
 }
 
@@ -68,7 +83,12 @@ func (self *Math) FuzzyGreaterThanI(args ...interface{}) bool{
 }
 
 // Applies a fuzzy ceil to the given value.
-func (self *Math) FuzzyCeil(val int, epsilon int) int{
+func (self *Math) FuzzyCeil(val int) int{
+    return self.Object.Call("fuzzyCeil", val).Int()
+}
+
+// Applies a fuzzy ceil to the given value.
+func (self *Math) FuzzyCeil1O(val int, epsilon int) int{
     return self.Object.Call("fuzzyCeil", val, epsilon).Int()
 }
 
@@ -78,7 +98,12 @@ func (self *Math) FuzzyCeilI(args ...interface{}) int{
 }
 
 // Applies a fuzzy floor to the given value.
-func (self *Math) FuzzyFloor(val int, epsilon int) int{
+func (self *Math) FuzzyFloor(val int) int{
+    return self.Object.Call("fuzzyFloor", val).Int()
+}
+
+// Applies a fuzzy floor to the given value.
+func (self *Math) FuzzyFloor1O(val int, epsilon int) int{
     return self.Object.Call("fuzzyFloor", val, epsilon).Int()
 }
 
@@ -110,7 +135,14 @@ func (self *Math) ShearI(args ...interface{}) int{
 // Snap a value to nearest grid slice, using rounding.
 // 
 // Example: if you have an interval gap of 5 and a position of 12... you will snap to 10 whereas 14 will snap to 15.
-func (self *Math) SnapTo(input int, gap int, start int) int{
+func (self *Math) SnapTo(input int, gap int) int{
+    return self.Object.Call("snapTo", input, gap).Int()
+}
+
+// Snap a value to nearest grid slice, using rounding.
+// 
+// Example: if you have an interval gap of 5 and a position of 12... you will snap to 10 whereas 14 will snap to 15.
+func (self *Math) SnapTo1O(input int, gap int, start int) int{
     return self.Object.Call("snapTo", input, gap, start).Int()
 }
 
@@ -125,7 +157,15 @@ func (self *Math) SnapToI(args ...interface{}) int{
 // 
 // Example: if you have an interval gap of 5 and a position of 12... you will snap to 10.
 // As will 14 snap to 10... but 16 will snap to 15.
-func (self *Math) SnapToFloor(input int, gap int, start int) int{
+func (self *Math) SnapToFloor(input int, gap int) int{
+    return self.Object.Call("snapToFloor", input, gap).Int()
+}
+
+// Snap a value to nearest grid slice, using floor.
+// 
+// Example: if you have an interval gap of 5 and a position of 12... you will snap to 10.
+// As will 14 snap to 10... but 16 will snap to 15.
+func (self *Math) SnapToFloor1O(input int, gap int, start int) int{
     return self.Object.Call("snapToFloor", input, gap, start).Int()
 }
 
@@ -141,7 +181,15 @@ func (self *Math) SnapToFloorI(args ...interface{}) int{
 // 
 // Example: if you have an interval gap of 5 and a position of 12... you will snap to 15.
 // As will 14 will snap to 15... but 16 will snap to 20.
-func (self *Math) SnapToCeil(input int, gap int, start int) int{
+func (self *Math) SnapToCeil(input int, gap int) int{
+    return self.Object.Call("snapToCeil", input, gap).Int()
+}
+
+// Snap a value to nearest grid slice, using ceil.
+// 
+// Example: if you have an interval gap of 5 and a position of 12... you will snap to 15.
+// As will 14 will snap to 15... but 16 will snap to 20.
+func (self *Math) SnapToCeil1O(input int, gap int, start int) int{
     return self.Object.Call("snapToCeil", input, gap, start).Int()
 }
 
@@ -180,7 +228,69 @@ func (self *Math) SnapToCeilI(args ...interface{}) int{
 // 
 // Note what occurs when we round to the 3rd space (8ths place), 100100000, this is to be assumed
 // because we are rounding 100011.1011011011011011 which rounds up.
-func (self *Math) RoundTo(value int, place int, base int) int{
+func (self *Math) RoundTo(value int) int{
+    return self.Object.Call("roundTo", value).Int()
+}
+
+// Round to some place comparative to a `base`, default is 10 for decimal place.
+// The `place` is represented by the power applied to `base` to get that place.
+// 
+//     e.g. 2000/7 ~= 285.714285714285714285714 ~= (bin)100011101.1011011011011011
+// 
+//     roundTo(2000/7,3) === 0
+//     roundTo(2000/7,2) == 300
+//     roundTo(2000/7,1) == 290
+//     roundTo(2000/7,0) == 286
+//     roundTo(2000/7,-1) == 285.7
+//     roundTo(2000/7,-2) == 285.71
+//     roundTo(2000/7,-3) == 285.714
+//     roundTo(2000/7,-4) == 285.7143
+//     roundTo(2000/7,-5) == 285.71429
+// 
+//     roundTo(2000/7,3,2)  == 288       -- 100100000
+//     roundTo(2000/7,2,2)  == 284       -- 100011100
+//     roundTo(2000/7,1,2)  == 286       -- 100011110
+//     roundTo(2000/7,0,2)  == 286       -- 100011110
+//     roundTo(2000/7,-1,2) == 285.5     -- 100011101.1
+//     roundTo(2000/7,-2,2) == 285.75    -- 100011101.11
+//     roundTo(2000/7,-3,2) == 285.75    -- 100011101.11
+//     roundTo(2000/7,-4,2) == 285.6875  -- 100011101.1011
+//     roundTo(2000/7,-5,2) == 285.71875 -- 100011101.10111
+// 
+// Note what occurs when we round to the 3rd space (8ths place), 100100000, this is to be assumed
+// because we are rounding 100011.1011011011011011 which rounds up.
+func (self *Math) RoundTo1O(value int, place int) int{
+    return self.Object.Call("roundTo", value, place).Int()
+}
+
+// Round to some place comparative to a `base`, default is 10 for decimal place.
+// The `place` is represented by the power applied to `base` to get that place.
+// 
+//     e.g. 2000/7 ~= 285.714285714285714285714 ~= (bin)100011101.1011011011011011
+// 
+//     roundTo(2000/7,3) === 0
+//     roundTo(2000/7,2) == 300
+//     roundTo(2000/7,1) == 290
+//     roundTo(2000/7,0) == 286
+//     roundTo(2000/7,-1) == 285.7
+//     roundTo(2000/7,-2) == 285.71
+//     roundTo(2000/7,-3) == 285.714
+//     roundTo(2000/7,-4) == 285.7143
+//     roundTo(2000/7,-5) == 285.71429
+// 
+//     roundTo(2000/7,3,2)  == 288       -- 100100000
+//     roundTo(2000/7,2,2)  == 284       -- 100011100
+//     roundTo(2000/7,1,2)  == 286       -- 100011110
+//     roundTo(2000/7,0,2)  == 286       -- 100011110
+//     roundTo(2000/7,-1,2) == 285.5     -- 100011101.1
+//     roundTo(2000/7,-2,2) == 285.75    -- 100011101.11
+//     roundTo(2000/7,-3,2) == 285.75    -- 100011101.11
+//     roundTo(2000/7,-4,2) == 285.6875  -- 100011101.1011
+//     roundTo(2000/7,-5,2) == 285.71875 -- 100011101.10111
+// 
+// Note what occurs when we round to the 3rd space (8ths place), 100100000, this is to be assumed
+// because we are rounding 100011.1011011011011011 which rounds up.
+func (self *Math) RoundTo2O(value int, place int, base int) int{
     return self.Object.Call("roundTo", value, place, base).Int()
 }
 
@@ -217,7 +327,19 @@ func (self *Math) RoundToI(args ...interface{}) int{
 
 // Floors to some place comparative to a `base`, default is 10 for decimal place.
 // The `place` is represented by the power applied to `base` to get that place.
-func (self *Math) FloorTo(value int, place int, base int) int{
+func (self *Math) FloorTo(value int) int{
+    return self.Object.Call("floorTo", value).Int()
+}
+
+// Floors to some place comparative to a `base`, default is 10 for decimal place.
+// The `place` is represented by the power applied to `base` to get that place.
+func (self *Math) FloorTo1O(value int, place int) int{
+    return self.Object.Call("floorTo", value, place).Int()
+}
+
+// Floors to some place comparative to a `base`, default is 10 for decimal place.
+// The `place` is represented by the power applied to `base` to get that place.
+func (self *Math) FloorTo2O(value int, place int, base int) int{
     return self.Object.Call("floorTo", value, place, base).Int()
 }
 
@@ -229,7 +351,19 @@ func (self *Math) FloorToI(args ...interface{}) int{
 
 // Ceils to some place comparative to a `base`, default is 10 for decimal place.
 // The `place` is represented by the power applied to `base` to get that place.
-func (self *Math) CeilTo(value int, place int, base int) int{
+func (self *Math) CeilTo(value int) int{
+    return self.Object.Call("ceilTo", value).Int()
+}
+
+// Ceils to some place comparative to a `base`, default is 10 for decimal place.
+// The `place` is represented by the power applied to `base` to get that place.
+func (self *Math) CeilTo1O(value int, place int) int{
+    return self.Object.Call("ceilTo", value, place).Int()
+}
+
+// Ceils to some place comparative to a `base`, default is 10 for decimal place.
+// The `place` is represented by the power applied to `base` to get that place.
+func (self *Math) CeilTo2O(value int, place int, base int) int{
     return self.Object.Call("ceilTo", value, place, base).Int()
 }
 
@@ -426,7 +560,12 @@ func (self *Math) MaxPropertyI(args ...interface{}) int{
 }
 
 // Keeps an angle value between -180 and +180; or -PI and PI if radians.
-func (self *Math) WrapAngle(angle int, radians bool) int{
+func (self *Math) WrapAngle(angle int) int{
+    return self.Object.Call("wrapAngle", angle).Int()
+}
+
+// Keeps an angle value between -180 and +180; or -PI and PI if radians.
+func (self *Math) WrapAngle1O(angle int, radians bool) int{
     return self.Object.Call("wrapAngle", angle, radians).Int()
 }
 
@@ -564,7 +703,12 @@ func (self *Math) DistanceSqI(args ...interface{}) int{
 }
 
 // Returns the distance between the two given set of coordinates at the power given.
-func (self *Math) DistancePow(x1 int, y1 int, x2 int, y2 int, pow int) int{
+func (self *Math) DistancePow(x1 int, y1 int, x2 int, y2 int) int{
+    return self.Object.Call("distancePow", x1, y1, x2, y2).Int()
+}
+
+// Returns the distance between the two given set of coordinates at the power given.
+func (self *Math) DistancePow1O(x1 int, y1 int, x2 int, y2 int, pow int) int{
     return self.Object.Call("distancePow", x1, y1, x2, y2, pow).Int()
 }
 
@@ -650,7 +794,12 @@ func (self *Math) SignI(args ...interface{}) int{
 }
 
 // Work out what percentage value `a` is of value `b` using the given base.
-func (self *Math) Percent(a int, b int, base int) int{
+func (self *Math) Percent(a int, b int) int{
+    return self.Object.Call("percent", a, b).Int()
+}
+
+// Work out what percentage value `a` is of value `b` using the given base.
+func (self *Math) Percent1O(a int, b int, base int) int{
     return self.Object.Call("percent", a, b, base).Int()
 }
 

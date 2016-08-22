@@ -196,7 +196,27 @@ func (self *Line) SetNormalAngleA(member int) {
 
 
 // Sets the components of the Line to the specified values.
-func (self *Line) SetTo(x1 int, y1 int, x2 int, y2 int) *Line{
+func (self *Line) SetTo() *Line{
+    return &Line{self.Object.Call("setTo")}
+}
+
+// Sets the components of the Line to the specified values.
+func (self *Line) SetTo1O(x1 int) *Line{
+    return &Line{self.Object.Call("setTo", x1)}
+}
+
+// Sets the components of the Line to the specified values.
+func (self *Line) SetTo2O(x1 int, y1 int) *Line{
+    return &Line{self.Object.Call("setTo", x1, y1)}
+}
+
+// Sets the components of the Line to the specified values.
+func (self *Line) SetTo3O(x1 int, y1 int, x2 int) *Line{
+    return &Line{self.Object.Call("setTo", x1, y1, x2)}
+}
+
+// Sets the components of the Line to the specified values.
+func (self *Line) SetTo4O(x1 int, y1 int, x2 int, y2 int) *Line{
     return &Line{self.Object.Call("setTo", x1, y1, x2, y2)}
 }
 
@@ -207,7 +227,13 @@ func (self *Line) SetToI(args ...interface{}) *Line{
 
 // Sets the line to match the x/y coordinates of the two given sprites.
 // Can optionally be calculated from their center coordinates.
-func (self *Line) FromSprite(startSprite *Sprite, endSprite *Sprite, useCenter bool) *Line{
+func (self *Line) FromSprite(startSprite *Sprite, endSprite *Sprite) *Line{
+    return &Line{self.Object.Call("fromSprite", startSprite, endSprite)}
+}
+
+// Sets the line to match the x/y coordinates of the two given sprites.
+// Can optionally be calculated from their center coordinates.
+func (self *Line) FromSprite1O(startSprite *Sprite, endSprite *Sprite, useCenter bool) *Line{
     return &Line{self.Object.Call("fromSprite", startSprite, endSprite, useCenter)}
 }
 
@@ -233,7 +259,17 @@ func (self *Line) FromAngleI(args ...interface{}) *Line{
 // If you wish to rotate around a different point see Line.rotateAround.
 // 
 // If you wish to rotate the ends of the Line then see Line.start.rotate or Line.end.rotate.
-func (self *Line) Rotate(angle int, asDegrees bool) *Line{
+func (self *Line) Rotate(angle int) *Line{
+    return &Line{self.Object.Call("rotate", angle)}
+}
+
+// Rotates the line by the amount specified in `angle`.
+// 
+// Rotation takes place from the center of the line.
+// If you wish to rotate around a different point see Line.rotateAround.
+// 
+// If you wish to rotate the ends of the Line then see Line.start.rotate or Line.end.rotate.
+func (self *Line) Rotate1O(angle int, asDegrees bool) *Line{
     return &Line{self.Object.Call("rotate", angle, asDegrees)}
 }
 
@@ -250,7 +286,14 @@ func (self *Line) RotateI(args ...interface{}) *Line{
 // Rotates the line by the amount specified in `angle`.
 // 
 // Rotation takes place around the coordinates given.
-func (self *Line) RotateAround(x int, y int, angle int, asDegrees bool) *Line{
+func (self *Line) RotateAround(x int, y int, angle int) *Line{
+    return &Line{self.Object.Call("rotateAround", x, y, angle)}
+}
+
+// Rotates the line by the amount specified in `angle`.
+// 
+// Rotation takes place around the coordinates given.
+func (self *Line) RotateAround1O(x int, y int, angle int, asDegrees bool) *Line{
     return &Line{self.Object.Call("rotateAround", x, y, angle, asDegrees)}
 }
 
@@ -264,7 +307,21 @@ func (self *Line) RotateAroundI(args ...interface{}) *Line{
 // Checks for intersection between this line and another Line.
 // If asSegment is true it will check for segment intersection. If asSegment is false it will check for line intersection.
 // Returns the intersection segment of AB and EF as a Point, or null if there is no intersection.
-func (self *Line) Intersects(line *Line, asSegment bool, result *Point) *Point{
+func (self *Line) Intersects(line *Line) *Point{
+    return &Point{self.Object.Call("intersects", line)}
+}
+
+// Checks for intersection between this line and another Line.
+// If asSegment is true it will check for segment intersection. If asSegment is false it will check for line intersection.
+// Returns the intersection segment of AB and EF as a Point, or null if there is no intersection.
+func (self *Line) Intersects1O(line *Line, asSegment bool) *Point{
+    return &Point{self.Object.Call("intersects", line, asSegment)}
+}
+
+// Checks for intersection between this line and another Line.
+// If asSegment is true it will check for segment intersection. If asSegment is false it will check for line intersection.
+// Returns the intersection segment of AB and EF as a Point, or null if there is no intersection.
+func (self *Line) Intersects2O(line *Line, asSegment bool, result *Point) *Point{
     return &Point{self.Object.Call("intersects", line, asSegment, result)}
 }
 
@@ -288,7 +345,12 @@ func (self *Line) ReflectI(args ...interface{}) int{
 }
 
 // Returns a Point object where the x and y values correspond to the center (or midpoint) of the Line segment.
-func (self *Line) MidPoint(out *Point) *Point{
+func (self *Line) MidPoint() *Point{
+    return &Point{self.Object.Call("midPoint")}
+}
+
+// Returns a Point object where the x and y values correspond to the center (or midpoint) of the Line segment.
+func (self *Line) MidPoint1O(out *Point) *Point{
     return &Point{self.Object.Call("midPoint", out)}
 }
 
@@ -334,7 +396,12 @@ func (self *Line) PointOnSegmentI(args ...interface{}) bool{
 }
 
 // Picks a random point from anywhere on the Line segment and returns it.
-func (self *Line) Random(out interface{}) *Point{
+func (self *Line) Random() *Point{
+    return &Point{self.Object.Call("random")}
+}
+
+// Picks a random point from anywhere on the Line segment and returns it.
+func (self *Line) Random1O(out interface{}) *Point{
     return &Point{self.Object.Call("random", out)}
 }
 
@@ -345,7 +412,31 @@ func (self *Line) RandomI(args ...interface{}) *Point{
 
 // Using Bresenham's line algorithm this will return an array of all coordinates on this line.
 // The start and end points are rounded before this runs as the algorithm works on integers.
-func (self *Line) CoordinatesOnLine(stepRate int, results []interface{}) []interface{}{
+func (self *Line) CoordinatesOnLine() []interface{}{
+	array00 := self.Object.Call("coordinatesOnLine")
+	length00 := array00.Length()
+	out00 := make([]interface{}, length00, length00)
+	for i00 := 0; i00 < length00; i00++ {
+		out00[i00] = array00.Index(i00).Interface()
+	}
+	return out00
+}
+
+// Using Bresenham's line algorithm this will return an array of all coordinates on this line.
+// The start and end points are rounded before this runs as the algorithm works on integers.
+func (self *Line) CoordinatesOnLine1O(stepRate int) []interface{}{
+	array00 := self.Object.Call("coordinatesOnLine", stepRate)
+	length00 := array00.Length()
+	out00 := make([]interface{}, length00, length00)
+	for i00 := 0; i00 < length00; i00++ {
+		out00[i00] = array00.Index(i00).Interface()
+	}
+	return out00
+}
+
+// Using Bresenham's line algorithm this will return an array of all coordinates on this line.
+// The start and end points are rounded before this runs as the algorithm works on integers.
+func (self *Line) CoordinatesOnLine2O(stepRate int, results []interface{}) []interface{}{
 	array00 := self.Object.Call("coordinatesOnLine", stepRate, results)
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
@@ -381,7 +472,23 @@ func (self *Line) CloneI(args ...interface{}) *Line{
 // If asSegment is true it will check for line segment intersection. If asSegment is false it will check for line intersection.
 // Returns the intersection segment of AB and EF as a Point, or null if there is no intersection.
 // Adapted from code by Keith Hair
-func (self *Line) IntersectsPoints(a *Point, b *Point, e *Point, f *Point, asSegment bool, result interface{}) *Point{
+func (self *Line) IntersectsPoints(a *Point, b *Point, e *Point, f *Point) *Point{
+    return &Point{self.Object.Call("intersectsPoints", a, b, e, f)}
+}
+
+// Checks for intersection between two lines as defined by the given start and end points.
+// If asSegment is true it will check for line segment intersection. If asSegment is false it will check for line intersection.
+// Returns the intersection segment of AB and EF as a Point, or null if there is no intersection.
+// Adapted from code by Keith Hair
+func (self *Line) IntersectsPoints1O(a *Point, b *Point, e *Point, f *Point, asSegment bool) *Point{
+    return &Point{self.Object.Call("intersectsPoints", a, b, e, f, asSegment)}
+}
+
+// Checks for intersection between two lines as defined by the given start and end points.
+// If asSegment is true it will check for line segment intersection. If asSegment is false it will check for line intersection.
+// Returns the intersection segment of AB and EF as a Point, or null if there is no intersection.
+// Adapted from code by Keith Hair
+func (self *Line) IntersectsPoints2O(a *Point, b *Point, e *Point, f *Point, asSegment bool, result interface{}) *Point{
     return &Point{self.Object.Call("intersectsPoints", a, b, e, f, asSegment, result)}
 }
 

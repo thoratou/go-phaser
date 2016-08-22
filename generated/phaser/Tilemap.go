@@ -366,7 +366,12 @@ func (self *Tilemap) SetLayerA(member interface{}) {
 
 
 // Creates an empty map of the given dimensions and one blank layer. If layers already exist they are erased.
-func (self *Tilemap) Create(name string, width int, height int, tileWidth int, tileHeight int, group *Group) *TilemapLayer{
+func (self *Tilemap) Create(name string, width int, height int, tileWidth int, tileHeight int) *TilemapLayer{
+    return &TilemapLayer{self.Object.Call("create", name, width, height, tileWidth, tileHeight)}
+}
+
+// Creates an empty map of the given dimensions and one blank layer. If layers already exist they are erased.
+func (self *Tilemap) Create1O(name string, width int, height int, tileWidth int, tileHeight int, group *Group) *TilemapLayer{
     return &TilemapLayer{self.Object.Call("create", name, width, height, tileWidth, tileHeight, group)}
 }
 
@@ -387,7 +392,43 @@ func (self *Tilemap) SetTileSizeI(args ...interface{}) {
 
 // Adds an image to the map to be used as a tileset. A single map may use multiple tilesets.
 // Note that the tileset name can be found in the JSON file exported from Tiled, or in the Tiled editor.
-func (self *Tilemap) AddTilesetImage(tileset string, key interface{}, tileWidth int, tileHeight int, tileMargin int, tileSpacing int, gid int) *Tileset{
+func (self *Tilemap) AddTilesetImage(tileset string) *Tileset{
+    return &Tileset{self.Object.Call("addTilesetImage", tileset)}
+}
+
+// Adds an image to the map to be used as a tileset. A single map may use multiple tilesets.
+// Note that the tileset name can be found in the JSON file exported from Tiled, or in the Tiled editor.
+func (self *Tilemap) AddTilesetImage1O(tileset string, key interface{}) *Tileset{
+    return &Tileset{self.Object.Call("addTilesetImage", tileset, key)}
+}
+
+// Adds an image to the map to be used as a tileset. A single map may use multiple tilesets.
+// Note that the tileset name can be found in the JSON file exported from Tiled, or in the Tiled editor.
+func (self *Tilemap) AddTilesetImage2O(tileset string, key interface{}, tileWidth int) *Tileset{
+    return &Tileset{self.Object.Call("addTilesetImage", tileset, key, tileWidth)}
+}
+
+// Adds an image to the map to be used as a tileset. A single map may use multiple tilesets.
+// Note that the tileset name can be found in the JSON file exported from Tiled, or in the Tiled editor.
+func (self *Tilemap) AddTilesetImage3O(tileset string, key interface{}, tileWidth int, tileHeight int) *Tileset{
+    return &Tileset{self.Object.Call("addTilesetImage", tileset, key, tileWidth, tileHeight)}
+}
+
+// Adds an image to the map to be used as a tileset. A single map may use multiple tilesets.
+// Note that the tileset name can be found in the JSON file exported from Tiled, or in the Tiled editor.
+func (self *Tilemap) AddTilesetImage4O(tileset string, key interface{}, tileWidth int, tileHeight int, tileMargin int) *Tileset{
+    return &Tileset{self.Object.Call("addTilesetImage", tileset, key, tileWidth, tileHeight, tileMargin)}
+}
+
+// Adds an image to the map to be used as a tileset. A single map may use multiple tilesets.
+// Note that the tileset name can be found in the JSON file exported from Tiled, or in the Tiled editor.
+func (self *Tilemap) AddTilesetImage5O(tileset string, key interface{}, tileWidth int, tileHeight int, tileMargin int, tileSpacing int) *Tileset{
+    return &Tileset{self.Object.Call("addTilesetImage", tileset, key, tileWidth, tileHeight, tileMargin, tileSpacing)}
+}
+
+// Adds an image to the map to be used as a tileset. A single map may use multiple tilesets.
+// Note that the tileset name can be found in the JSON file exported from Tiled, or in the Tiled editor.
+func (self *Tilemap) AddTilesetImage6O(tileset string, key interface{}, tileWidth int, tileHeight int, tileMargin int, tileSpacing int, gid int) *Tileset{
     return &Tileset{self.Object.Call("addTilesetImage", tileset, key, tileWidth, tileHeight, tileMargin, tileSpacing, gid)}
 }
 
@@ -401,7 +442,55 @@ func (self *Tilemap) AddTilesetImageI(args ...interface{}) *Tileset{
 // given it will be created in the World. All properties from the map data objectgroup are copied across to the Sprite, so you can use this as an easy way to
 // configure Sprite properties from within the map editor. For example giving an object a property of alpha: 0.5 in the map editor will duplicate that when the
 // Sprite is created. You could also give it a value like: body.velocity.x: 100 to set it moving automatically.
-func (self *Tilemap) CreateFromObjects(name string, gid int, key string, frame interface{}, exists bool, autoCull bool, group *Group, CustomClass interface{}, adjustY bool) {
+func (self *Tilemap) CreateFromObjects(name string, gid int, key string) {
+    self.Object.Call("createFromObjects", name, gid, key)
+}
+
+// Creates a Sprite for every object matching the given gid in the map data. You can optionally specify the group that the Sprite will be created in. If none is
+// given it will be created in the World. All properties from the map data objectgroup are copied across to the Sprite, so you can use this as an easy way to
+// configure Sprite properties from within the map editor. For example giving an object a property of alpha: 0.5 in the map editor will duplicate that when the
+// Sprite is created. You could also give it a value like: body.velocity.x: 100 to set it moving automatically.
+func (self *Tilemap) CreateFromObjects1O(name string, gid int, key string, frame interface{}) {
+    self.Object.Call("createFromObjects", name, gid, key, frame)
+}
+
+// Creates a Sprite for every object matching the given gid in the map data. You can optionally specify the group that the Sprite will be created in. If none is
+// given it will be created in the World. All properties from the map data objectgroup are copied across to the Sprite, so you can use this as an easy way to
+// configure Sprite properties from within the map editor. For example giving an object a property of alpha: 0.5 in the map editor will duplicate that when the
+// Sprite is created. You could also give it a value like: body.velocity.x: 100 to set it moving automatically.
+func (self *Tilemap) CreateFromObjects2O(name string, gid int, key string, frame interface{}, exists bool) {
+    self.Object.Call("createFromObjects", name, gid, key, frame, exists)
+}
+
+// Creates a Sprite for every object matching the given gid in the map data. You can optionally specify the group that the Sprite will be created in. If none is
+// given it will be created in the World. All properties from the map data objectgroup are copied across to the Sprite, so you can use this as an easy way to
+// configure Sprite properties from within the map editor. For example giving an object a property of alpha: 0.5 in the map editor will duplicate that when the
+// Sprite is created. You could also give it a value like: body.velocity.x: 100 to set it moving automatically.
+func (self *Tilemap) CreateFromObjects3O(name string, gid int, key string, frame interface{}, exists bool, autoCull bool) {
+    self.Object.Call("createFromObjects", name, gid, key, frame, exists, autoCull)
+}
+
+// Creates a Sprite for every object matching the given gid in the map data. You can optionally specify the group that the Sprite will be created in. If none is
+// given it will be created in the World. All properties from the map data objectgroup are copied across to the Sprite, so you can use this as an easy way to
+// configure Sprite properties from within the map editor. For example giving an object a property of alpha: 0.5 in the map editor will duplicate that when the
+// Sprite is created. You could also give it a value like: body.velocity.x: 100 to set it moving automatically.
+func (self *Tilemap) CreateFromObjects4O(name string, gid int, key string, frame interface{}, exists bool, autoCull bool, group *Group) {
+    self.Object.Call("createFromObjects", name, gid, key, frame, exists, autoCull, group)
+}
+
+// Creates a Sprite for every object matching the given gid in the map data. You can optionally specify the group that the Sprite will be created in. If none is
+// given it will be created in the World. All properties from the map data objectgroup are copied across to the Sprite, so you can use this as an easy way to
+// configure Sprite properties from within the map editor. For example giving an object a property of alpha: 0.5 in the map editor will duplicate that when the
+// Sprite is created. You could also give it a value like: body.velocity.x: 100 to set it moving automatically.
+func (self *Tilemap) CreateFromObjects5O(name string, gid int, key string, frame interface{}, exists bool, autoCull bool, group *Group, CustomClass interface{}) {
+    self.Object.Call("createFromObjects", name, gid, key, frame, exists, autoCull, group, CustomClass)
+}
+
+// Creates a Sprite for every object matching the given gid in the map data. You can optionally specify the group that the Sprite will be created in. If none is
+// given it will be created in the World. All properties from the map data objectgroup are copied across to the Sprite, so you can use this as an easy way to
+// configure Sprite properties from within the map editor. For example giving an object a property of alpha: 0.5 in the map editor will duplicate that when the
+// Sprite is created. You could also give it a value like: body.velocity.x: 100 to set it moving automatically.
+func (self *Tilemap) CreateFromObjects6O(name string, gid int, key string, frame interface{}, exists bool, autoCull bool, group *Group, CustomClass interface{}, adjustY bool) {
     self.Object.Call("createFromObjects", name, gid, key, frame, exists, autoCull, group, CustomClass, adjustY)
 }
 
@@ -417,7 +506,31 @@ func (self *Tilemap) CreateFromObjectsI(args ...interface{}) {
 // You can specify the group that the Sprite will be created in. If none is given it will be created in the World.
 // You can optional specify if the tile will be replaced with another after the Sprite is created. This is useful if you want to lay down special 
 // tiles in a level that are converted to Sprites, but want to replace the tile itself with a floor tile or similar once converted.
-func (self *Tilemap) CreateFromTiles(tiles interface{}, replacements interface{}, key string, layer interface{}, group *Group, properties interface{}) int{
+func (self *Tilemap) CreateFromTiles(tiles interface{}, replacements interface{}, key string) int{
+    return self.Object.Call("createFromTiles", tiles, replacements, key).Int()
+}
+
+// Creates a Sprite for every object matching the given tile indexes in the map data.
+// You can specify the group that the Sprite will be created in. If none is given it will be created in the World.
+// You can optional specify if the tile will be replaced with another after the Sprite is created. This is useful if you want to lay down special 
+// tiles in a level that are converted to Sprites, but want to replace the tile itself with a floor tile or similar once converted.
+func (self *Tilemap) CreateFromTiles1O(tiles interface{}, replacements interface{}, key string, layer interface{}) int{
+    return self.Object.Call("createFromTiles", tiles, replacements, key, layer).Int()
+}
+
+// Creates a Sprite for every object matching the given tile indexes in the map data.
+// You can specify the group that the Sprite will be created in. If none is given it will be created in the World.
+// You can optional specify if the tile will be replaced with another after the Sprite is created. This is useful if you want to lay down special 
+// tiles in a level that are converted to Sprites, but want to replace the tile itself with a floor tile or similar once converted.
+func (self *Tilemap) CreateFromTiles2O(tiles interface{}, replacements interface{}, key string, layer interface{}, group *Group) int{
+    return self.Object.Call("createFromTiles", tiles, replacements, key, layer, group).Int()
+}
+
+// Creates a Sprite for every object matching the given tile indexes in the map data.
+// You can specify the group that the Sprite will be created in. If none is given it will be created in the World.
+// You can optional specify if the tile will be replaced with another after the Sprite is created. This is useful if you want to lay down special 
+// tiles in a level that are converted to Sprites, but want to replace the tile itself with a floor tile or similar once converted.
+func (self *Tilemap) CreateFromTiles3O(tiles interface{}, replacements interface{}, key string, layer interface{}, group *Group, properties interface{}) int{
     return self.Object.Call("createFromTiles", tiles, replacements, key, layer, group, properties).Int()
 }
 
@@ -433,7 +546,39 @@ func (self *Tilemap) CreateFromTilesI(args ...interface{}) int{
 // The `layer` parameter is important. If you've created your map in Tiled then you can get this by looking in Tiled and looking at the Layer name.
 // Or you can open the JSON file it exports and look at the layers[].name value. Either way it must match.
 // If you wish to create a blank layer to put your own tiles on then see Tilemap.createBlankLayer.
-func (self *Tilemap) CreateLayer(layer interface{}, width int, height int, group *Group, pixiTest bool) *TilemapLayer{
+func (self *Tilemap) CreateLayer(layer interface{}) *TilemapLayer{
+    return &TilemapLayer{self.Object.Call("createLayer", layer)}
+}
+
+// Creates a new TilemapLayer object. By default TilemapLayers are fixed to the camera.
+// The `layer` parameter is important. If you've created your map in Tiled then you can get this by looking in Tiled and looking at the Layer name.
+// Or you can open the JSON file it exports and look at the layers[].name value. Either way it must match.
+// If you wish to create a blank layer to put your own tiles on then see Tilemap.createBlankLayer.
+func (self *Tilemap) CreateLayer1O(layer interface{}, width int) *TilemapLayer{
+    return &TilemapLayer{self.Object.Call("createLayer", layer, width)}
+}
+
+// Creates a new TilemapLayer object. By default TilemapLayers are fixed to the camera.
+// The `layer` parameter is important. If you've created your map in Tiled then you can get this by looking in Tiled and looking at the Layer name.
+// Or you can open the JSON file it exports and look at the layers[].name value. Either way it must match.
+// If you wish to create a blank layer to put your own tiles on then see Tilemap.createBlankLayer.
+func (self *Tilemap) CreateLayer2O(layer interface{}, width int, height int) *TilemapLayer{
+    return &TilemapLayer{self.Object.Call("createLayer", layer, width, height)}
+}
+
+// Creates a new TilemapLayer object. By default TilemapLayers are fixed to the camera.
+// The `layer` parameter is important. If you've created your map in Tiled then you can get this by looking in Tiled and looking at the Layer name.
+// Or you can open the JSON file it exports and look at the layers[].name value. Either way it must match.
+// If you wish to create a blank layer to put your own tiles on then see Tilemap.createBlankLayer.
+func (self *Tilemap) CreateLayer3O(layer interface{}, width int, height int, group *Group) *TilemapLayer{
+    return &TilemapLayer{self.Object.Call("createLayer", layer, width, height, group)}
+}
+
+// Creates a new TilemapLayer object. By default TilemapLayers are fixed to the camera.
+// The `layer` parameter is important. If you've created your map in Tiled then you can get this by looking in Tiled and looking at the Layer name.
+// Or you can open the JSON file it exports and look at the layers[].name value. Either way it must match.
+// If you wish to create a blank layer to put your own tiles on then see Tilemap.createBlankLayer.
+func (self *Tilemap) CreateLayer4O(layer interface{}, width int, height int, group *Group, pixiTest bool) *TilemapLayer{
     return &TilemapLayer{self.Object.Call("createLayer", layer, width, height, group, pixiTest)}
 }
 
@@ -446,7 +591,12 @@ func (self *Tilemap) CreateLayerI(args ...interface{}) *TilemapLayer{
 }
 
 // Creates a new and empty layer on this Tilemap. By default TilemapLayers are fixed to the camera.
-func (self *Tilemap) CreateBlankLayer(name string, width int, height int, tileWidth int, tileHeight int, group *Group) *TilemapLayer{
+func (self *Tilemap) CreateBlankLayer(name string, width int, height int, tileWidth int, tileHeight int) *TilemapLayer{
+    return &TilemapLayer{self.Object.Call("createBlankLayer", name, width, height, tileWidth, tileHeight)}
+}
+
+// Creates a new and empty layer on this Tilemap. By default TilemapLayers are fixed to the camera.
+func (self *Tilemap) CreateBlankLayer1O(name string, width int, height int, tileWidth int, tileHeight int, group *Group) *TilemapLayer{
     return &TilemapLayer{self.Object.Call("createBlankLayer", name, width, height, tileWidth, tileHeight, group)}
 }
 
@@ -498,7 +648,14 @@ func (self *Tilemap) GetImageIndexI(args ...interface{}) int{
 // Sets a global collision callback for the given tile index within the layer. This will affect all tiles on this layer that have the same index.
 // If a callback is already set for the tile index it will be replaced. Set the callback to null to remove it.
 // If you want to set a callback for a tile at a specific location on the map then see setTileLocationCallback.
-func (self *Tilemap) SetTileIndexCallback(indexes interface{}, callback func(...interface{}), callbackContext interface{}, layer interface{}) {
+func (self *Tilemap) SetTileIndexCallback(indexes interface{}, callback func(...interface{}), callbackContext interface{}) {
+    self.Object.Call("setTileIndexCallback", indexes, callback, callbackContext)
+}
+
+// Sets a global collision callback for the given tile index within the layer. This will affect all tiles on this layer that have the same index.
+// If a callback is already set for the tile index it will be replaced. Set the callback to null to remove it.
+// If you want to set a callback for a tile at a specific location on the map then see setTileLocationCallback.
+func (self *Tilemap) SetTileIndexCallback1O(indexes interface{}, callback func(...interface{}), callbackContext interface{}, layer interface{}) {
     self.Object.Call("setTileIndexCallback", indexes, callback, callbackContext, layer)
 }
 
@@ -512,7 +669,14 @@ func (self *Tilemap) SetTileIndexCallbackI(args ...interface{}) {
 // Sets a global collision callback for the given map location within the layer. This will affect all tiles on this layer found in the given area.
 // If a callback is already set for the tile index it will be replaced. Set the callback to null to remove it.
 // If you want to set a callback for a tile at a specific location on the map then see setTileLocationCallback.
-func (self *Tilemap) SetTileLocationCallback(x int, y int, width int, height int, callback func(...interface{}), callbackContext interface{}, layer interface{}) {
+func (self *Tilemap) SetTileLocationCallback(x int, y int, width int, height int, callback func(...interface{}), callbackContext interface{}) {
+    self.Object.Call("setTileLocationCallback", x, y, width, height, callback, callbackContext)
+}
+
+// Sets a global collision callback for the given map location within the layer. This will affect all tiles on this layer found in the given area.
+// If a callback is already set for the tile index it will be replaced. Set the callback to null to remove it.
+// If you want to set a callback for a tile at a specific location on the map then see setTileLocationCallback.
+func (self *Tilemap) SetTileLocationCallback1O(x int, y int, width int, height int, callback func(...interface{}), callbackContext interface{}, layer interface{}) {
     self.Object.Call("setTileLocationCallback", x, y, width, height, callback, callbackContext, layer)
 }
 
@@ -525,7 +689,25 @@ func (self *Tilemap) SetTileLocationCallbackI(args ...interface{}) {
 
 // Sets collision the given tile or tiles. You can pass in either a single numeric index or an array of indexes: [ 2, 3, 15, 20].
 // The `collides` parameter controls if collision will be enabled (true) or disabled (false).
-func (self *Tilemap) SetCollision(indexes interface{}, collides bool, layer interface{}, recalculate bool) {
+func (self *Tilemap) SetCollision(indexes interface{}) {
+    self.Object.Call("setCollision", indexes)
+}
+
+// Sets collision the given tile or tiles. You can pass in either a single numeric index or an array of indexes: [ 2, 3, 15, 20].
+// The `collides` parameter controls if collision will be enabled (true) or disabled (false).
+func (self *Tilemap) SetCollision1O(indexes interface{}, collides bool) {
+    self.Object.Call("setCollision", indexes, collides)
+}
+
+// Sets collision the given tile or tiles. You can pass in either a single numeric index or an array of indexes: [ 2, 3, 15, 20].
+// The `collides` parameter controls if collision will be enabled (true) or disabled (false).
+func (self *Tilemap) SetCollision2O(indexes interface{}, collides bool, layer interface{}) {
+    self.Object.Call("setCollision", indexes, collides, layer)
+}
+
+// Sets collision the given tile or tiles. You can pass in either a single numeric index or an array of indexes: [ 2, 3, 15, 20].
+// The `collides` parameter controls if collision will be enabled (true) or disabled (false).
+func (self *Tilemap) SetCollision3O(indexes interface{}, collides bool, layer interface{}, recalculate bool) {
     self.Object.Call("setCollision", indexes, collides, layer, recalculate)
 }
 
@@ -538,7 +720,28 @@ func (self *Tilemap) SetCollisionI(args ...interface{}) {
 // Sets collision on a range of tiles where the tile IDs increment sequentially.
 // Calling this with a start value of 10 and a stop value of 14 would set collision for tiles 10, 11, 12, 13 and 14.
 // The `collides` parameter controls if collision will be enabled (true) or disabled (false).
-func (self *Tilemap) SetCollisionBetween(start int, stop int, collides bool, layer interface{}, recalculate bool) {
+func (self *Tilemap) SetCollisionBetween(start int, stop int) {
+    self.Object.Call("setCollisionBetween", start, stop)
+}
+
+// Sets collision on a range of tiles where the tile IDs increment sequentially.
+// Calling this with a start value of 10 and a stop value of 14 would set collision for tiles 10, 11, 12, 13 and 14.
+// The `collides` parameter controls if collision will be enabled (true) or disabled (false).
+func (self *Tilemap) SetCollisionBetween1O(start int, stop int, collides bool) {
+    self.Object.Call("setCollisionBetween", start, stop, collides)
+}
+
+// Sets collision on a range of tiles where the tile IDs increment sequentially.
+// Calling this with a start value of 10 and a stop value of 14 would set collision for tiles 10, 11, 12, 13 and 14.
+// The `collides` parameter controls if collision will be enabled (true) or disabled (false).
+func (self *Tilemap) SetCollisionBetween2O(start int, stop int, collides bool, layer interface{}) {
+    self.Object.Call("setCollisionBetween", start, stop, collides, layer)
+}
+
+// Sets collision on a range of tiles where the tile IDs increment sequentially.
+// Calling this with a start value of 10 and a stop value of 14 would set collision for tiles 10, 11, 12, 13 and 14.
+// The `collides` parameter controls if collision will be enabled (true) or disabled (false).
+func (self *Tilemap) SetCollisionBetween3O(start int, stop int, collides bool, layer interface{}, recalculate bool) {
     self.Object.Call("setCollisionBetween", start, stop, collides, layer, recalculate)
 }
 
@@ -551,7 +754,25 @@ func (self *Tilemap) SetCollisionBetweenI(args ...interface{}) {
 
 // Sets collision on all tiles in the given layer, except for the IDs of those in the given array.
 // The `collides` parameter controls if collision will be enabled (true) or disabled (false).
-func (self *Tilemap) SetCollisionByExclusion(indexes []interface{}, collides bool, layer interface{}, recalculate bool) {
+func (self *Tilemap) SetCollisionByExclusion(indexes []interface{}) {
+    self.Object.Call("setCollisionByExclusion", indexes)
+}
+
+// Sets collision on all tiles in the given layer, except for the IDs of those in the given array.
+// The `collides` parameter controls if collision will be enabled (true) or disabled (false).
+func (self *Tilemap) SetCollisionByExclusion1O(indexes []interface{}, collides bool) {
+    self.Object.Call("setCollisionByExclusion", indexes, collides)
+}
+
+// Sets collision on all tiles in the given layer, except for the IDs of those in the given array.
+// The `collides` parameter controls if collision will be enabled (true) or disabled (false).
+func (self *Tilemap) SetCollisionByExclusion2O(indexes []interface{}, collides bool, layer interface{}) {
+    self.Object.Call("setCollisionByExclusion", indexes, collides, layer)
+}
+
+// Sets collision on all tiles in the given layer, except for the IDs of those in the given array.
+// The `collides` parameter controls if collision will be enabled (true) or disabled (false).
+func (self *Tilemap) SetCollisionByExclusion3O(indexes []interface{}, collides bool, layer interface{}, recalculate bool) {
     self.Object.Call("setCollisionByExclusion", indexes, collides, layer, recalculate)
 }
 
@@ -563,7 +784,25 @@ func (self *Tilemap) SetCollisionByExclusionI(args ...interface{}) {
 
 // Sets collision values on a tile in the set.
 // You shouldn't usually call this method directly, instead use setCollision, setCollisionBetween or setCollisionByExclusion.
-func (self *Tilemap) SetCollisionByIndex(index int, collides bool, layer int, recalculate bool) {
+func (self *Tilemap) SetCollisionByIndex(index int) {
+    self.Object.Call("setCollisionByIndex", index)
+}
+
+// Sets collision values on a tile in the set.
+// You shouldn't usually call this method directly, instead use setCollision, setCollisionBetween or setCollisionByExclusion.
+func (self *Tilemap) SetCollisionByIndex1O(index int, collides bool) {
+    self.Object.Call("setCollisionByIndex", index, collides)
+}
+
+// Sets collision values on a tile in the set.
+// You shouldn't usually call this method directly, instead use setCollision, setCollisionBetween or setCollisionByExclusion.
+func (self *Tilemap) SetCollisionByIndex2O(index int, collides bool, layer int) {
+    self.Object.Call("setCollisionByIndex", index, collides, layer)
+}
+
+// Sets collision values on a tile in the set.
+// You shouldn't usually call this method directly, instead use setCollision, setCollisionBetween or setCollisionByExclusion.
+func (self *Tilemap) SetCollisionByIndex3O(index int, collides bool, layer int, recalculate bool) {
     self.Object.Call("setCollisionByIndex", index, collides, layer, recalculate)
 }
 
@@ -674,7 +913,12 @@ func (self *Tilemap) HasTileI(args ...interface{}) bool{
 }
 
 // Removes the tile located at the given coordinates and updates the collision data.
-func (self *Tilemap) RemoveTile(x int, y int, layer interface{}) *Tile{
+func (self *Tilemap) RemoveTile(x int, y int) *Tile{
+    return &Tile{self.Object.Call("removeTile", x, y)}
+}
+
+// Removes the tile located at the given coordinates and updates the collision data.
+func (self *Tilemap) RemoveTile1O(x int, y int, layer interface{}) *Tile{
     return &Tile{self.Object.Call("removeTile", x, y, layer)}
 }
 
@@ -684,7 +928,12 @@ func (self *Tilemap) RemoveTileI(args ...interface{}) *Tile{
 }
 
 // Removes the tile located at the given coordinates and updates the collision data. The coordinates are given in pixel values.
-func (self *Tilemap) RemoveTileWorldXY(x int, y int, tileWidth int, tileHeight int, layer interface{}) *Tile{
+func (self *Tilemap) RemoveTileWorldXY(x int, y int, tileWidth int, tileHeight int) *Tile{
+    return &Tile{self.Object.Call("removeTileWorldXY", x, y, tileWidth, tileHeight)}
+}
+
+// Removes the tile located at the given coordinates and updates the collision data. The coordinates are given in pixel values.
+func (self *Tilemap) RemoveTileWorldXY1O(x int, y int, tileWidth int, tileHeight int, layer interface{}) *Tile{
     return &Tile{self.Object.Call("removeTileWorldXY", x, y, tileWidth, tileHeight, layer)}
 }
 
@@ -695,7 +944,13 @@ func (self *Tilemap) RemoveTileWorldXYI(args ...interface{}) *Tile{
 
 // Puts a tile of the given index value at the coordinate specified.
 // If you pass `null` as the tile it will pass your call over to Tilemap.removeTile instead.
-func (self *Tilemap) PutTile(tile interface{}, x int, y int, layer interface{}) *Tile{
+func (self *Tilemap) PutTile(tile interface{}, x int, y int) *Tile{
+    return &Tile{self.Object.Call("putTile", tile, x, y)}
+}
+
+// Puts a tile of the given index value at the coordinate specified.
+// If you pass `null` as the tile it will pass your call over to Tilemap.removeTile instead.
+func (self *Tilemap) PutTile1O(tile interface{}, x int, y int, layer interface{}) *Tile{
     return &Tile{self.Object.Call("putTile", tile, x, y, layer)}
 }
 
@@ -706,7 +961,12 @@ func (self *Tilemap) PutTileI(args ...interface{}) *Tile{
 }
 
 // Puts a tile into the Tilemap layer. The coordinates are given in pixel values.
-func (self *Tilemap) PutTileWorldXY(tile interface{}, x int, y int, tileWidth int, tileHeight int, layer interface{}) *Tile{
+func (self *Tilemap) PutTileWorldXY(tile interface{}, x int, y int, tileWidth int, tileHeight int) *Tile{
+    return &Tile{self.Object.Call("putTileWorldXY", tile, x, y, tileWidth, tileHeight)}
+}
+
+// Puts a tile into the Tilemap layer. The coordinates are given in pixel values.
+func (self *Tilemap) PutTileWorldXY1O(tile interface{}, x int, y int, tileWidth int, tileHeight int, layer interface{}) *Tile{
     return &Tile{self.Object.Call("putTileWorldXY", tile, x, y, tileWidth, tileHeight, layer)}
 }
 
@@ -719,7 +979,31 @@ func (self *Tilemap) PutTileWorldXYI(args ...interface{}) *Tile{
 // If no match is found it returns null.
 // The search starts from the top-left tile and continues horizontally until it hits the end of the row, then it drops down to the next column.
 // If the reverse boolean is true, it scans starting from the bottom-right corner traveling up to the top-left.
-func (self *Tilemap) SearchTileIndex(index int, skip int, reverse int, layer interface{}) *Tile{
+func (self *Tilemap) SearchTileIndex(index int) *Tile{
+    return &Tile{self.Object.Call("searchTileIndex", index)}
+}
+
+// Searches the entire map layer for the first tile matching the given index, then returns that Phaser.Tile object.
+// If no match is found it returns null.
+// The search starts from the top-left tile and continues horizontally until it hits the end of the row, then it drops down to the next column.
+// If the reverse boolean is true, it scans starting from the bottom-right corner traveling up to the top-left.
+func (self *Tilemap) SearchTileIndex1O(index int, skip int) *Tile{
+    return &Tile{self.Object.Call("searchTileIndex", index, skip)}
+}
+
+// Searches the entire map layer for the first tile matching the given index, then returns that Phaser.Tile object.
+// If no match is found it returns null.
+// The search starts from the top-left tile and continues horizontally until it hits the end of the row, then it drops down to the next column.
+// If the reverse boolean is true, it scans starting from the bottom-right corner traveling up to the top-left.
+func (self *Tilemap) SearchTileIndex2O(index int, skip int, reverse int) *Tile{
+    return &Tile{self.Object.Call("searchTileIndex", index, skip, reverse)}
+}
+
+// Searches the entire map layer for the first tile matching the given index, then returns that Phaser.Tile object.
+// If no match is found it returns null.
+// The search starts from the top-left tile and continues horizontally until it hits the end of the row, then it drops down to the next column.
+// If the reverse boolean is true, it scans starting from the bottom-right corner traveling up to the top-left.
+func (self *Tilemap) SearchTileIndex3O(index int, skip int, reverse int, layer interface{}) *Tile{
     return &Tile{self.Object.Call("searchTileIndex", index, skip, reverse, layer)}
 }
 
@@ -732,7 +1016,17 @@ func (self *Tilemap) SearchTileIndexI(args ...interface{}) *Tile{
 }
 
 // Gets a tile from the Tilemap Layer. The coordinates are given in tile values.
-func (self *Tilemap) GetTile(x int, y int, layer interface{}, nonNull bool) *Tile{
+func (self *Tilemap) GetTile(x int, y int) *Tile{
+    return &Tile{self.Object.Call("getTile", x, y)}
+}
+
+// Gets a tile from the Tilemap Layer. The coordinates are given in tile values.
+func (self *Tilemap) GetTile1O(x int, y int, layer interface{}) *Tile{
+    return &Tile{self.Object.Call("getTile", x, y, layer)}
+}
+
+// Gets a tile from the Tilemap Layer. The coordinates are given in tile values.
+func (self *Tilemap) GetTile2O(x int, y int, layer interface{}, nonNull bool) *Tile{
     return &Tile{self.Object.Call("getTile", x, y, layer, nonNull)}
 }
 
@@ -742,7 +1036,27 @@ func (self *Tilemap) GetTileI(args ...interface{}) *Tile{
 }
 
 // Gets a tile from the Tilemap layer. The coordinates are given in pixel values.
-func (self *Tilemap) GetTileWorldXY(x int, y int, tileWidth int, tileHeight int, layer interface{}, nonNull bool) *Tile{
+func (self *Tilemap) GetTileWorldXY(x int, y int) *Tile{
+    return &Tile{self.Object.Call("getTileWorldXY", x, y)}
+}
+
+// Gets a tile from the Tilemap layer. The coordinates are given in pixel values.
+func (self *Tilemap) GetTileWorldXY1O(x int, y int, tileWidth int) *Tile{
+    return &Tile{self.Object.Call("getTileWorldXY", x, y, tileWidth)}
+}
+
+// Gets a tile from the Tilemap layer. The coordinates are given in pixel values.
+func (self *Tilemap) GetTileWorldXY2O(x int, y int, tileWidth int, tileHeight int) *Tile{
+    return &Tile{self.Object.Call("getTileWorldXY", x, y, tileWidth, tileHeight)}
+}
+
+// Gets a tile from the Tilemap layer. The coordinates are given in pixel values.
+func (self *Tilemap) GetTileWorldXY3O(x int, y int, tileWidth int, tileHeight int, layer interface{}) *Tile{
+    return &Tile{self.Object.Call("getTileWorldXY", x, y, tileWidth, tileHeight, layer)}
+}
+
+// Gets a tile from the Tilemap layer. The coordinates are given in pixel values.
+func (self *Tilemap) GetTileWorldXY4O(x int, y int, tileWidth int, tileHeight int, layer interface{}, nonNull bool) *Tile{
     return &Tile{self.Object.Call("getTileWorldXY", x, y, tileWidth, tileHeight, layer, nonNull)}
 }
 
@@ -752,7 +1066,18 @@ func (self *Tilemap) GetTileWorldXYI(args ...interface{}) *Tile{
 }
 
 // Copies all of the tiles in the given rectangular block into the tilemap data buffer.
-func (self *Tilemap) Copy(x int, y int, width int, height int, layer interface{}) []interface{}{
+func (self *Tilemap) Copy(x int, y int, width int, height int) []interface{}{
+	array00 := self.Object.Call("copy", x, y, width, height)
+	length00 := array00.Length()
+	out00 := make([]interface{}, length00, length00)
+	for i00 := 0; i00 < length00; i00++ {
+		out00[i00] = array00.Index(i00).Interface()
+	}
+	return out00
+}
+
+// Copies all of the tiles in the given rectangular block into the tilemap data buffer.
+func (self *Tilemap) Copy1O(x int, y int, width int, height int, layer interface{}) []interface{}{
 	array00 := self.Object.Call("copy", x, y, width, height, layer)
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
@@ -774,7 +1099,12 @@ func (self *Tilemap) CopyI(args ...interface{}) []interface{}{
 }
 
 // Pastes a previously copied block of tile data into the given x/y coordinates. Data should have been prepared with Tilemap.copy.
-func (self *Tilemap) Paste(x int, y int, tileblock []interface{}, layer interface{}) {
+func (self *Tilemap) Paste(x int, y int, tileblock []interface{}) {
+    self.Object.Call("paste", x, y, tileblock)
+}
+
+// Pastes a previously copied block of tile data into the given x/y coordinates. Data should have been prepared with Tilemap.copy.
+func (self *Tilemap) Paste1O(x int, y int, tileblock []interface{}, layer interface{}) {
     self.Object.Call("paste", x, y, tileblock, layer)
 }
 
@@ -784,7 +1114,12 @@ func (self *Tilemap) PasteI(args ...interface{}) {
 }
 
 // Scans the given area for tiles with an index matching tileA and swaps them with tileB.
-func (self *Tilemap) Swap(tileA int, tileB int, x int, y int, width int, height int, layer interface{}) {
+func (self *Tilemap) Swap(tileA int, tileB int, x int, y int, width int, height int) {
+    self.Object.Call("swap", tileA, tileB, x, y, width, height)
+}
+
+// Scans the given area for tiles with an index matching tileA and swaps them with tileB.
+func (self *Tilemap) Swap1O(tileA int, tileB int, x int, y int, width int, height int, layer interface{}) {
     self.Object.Call("swap", tileA, tileB, x, y, width, height, layer)
 }
 
@@ -804,7 +1139,12 @@ func (self *Tilemap) SwapHandlerI(args ...interface{}) {
 }
 
 // For each tile in the given area defined by x/y and width/height run the given callback.
-func (self *Tilemap) ForEach(callback int, context int, x int, y int, width int, height int, layer interface{}) {
+func (self *Tilemap) ForEach(callback int, context int, x int, y int, width int, height int) {
+    self.Object.Call("forEach", callback, context, x, y, width, height)
+}
+
+// For each tile in the given area defined by x/y and width/height run the given callback.
+func (self *Tilemap) ForEach1O(callback int, context int, x int, y int, width int, height int, layer interface{}) {
     self.Object.Call("forEach", callback, context, x, y, width, height, layer)
 }
 
@@ -814,7 +1154,12 @@ func (self *Tilemap) ForEachI(args ...interface{}) {
 }
 
 // Scans the given area for tiles with an index matching `source` and updates their index to match `dest`.
-func (self *Tilemap) Replace(source int, dest int, x int, y int, width int, height int, layer interface{}) {
+func (self *Tilemap) Replace(source int, dest int, x int, y int, width int, height int) {
+    self.Object.Call("replace", source, dest, x, y, width, height)
+}
+
+// Scans the given area for tiles with an index matching `source` and updates their index to match `dest`.
+func (self *Tilemap) Replace1O(source int, dest int, x int, y int, width int, height int, layer interface{}) {
     self.Object.Call("replace", source, dest, x, y, width, height, layer)
 }
 
@@ -824,7 +1169,12 @@ func (self *Tilemap) ReplaceI(args ...interface{}) {
 }
 
 // Randomises a set of tiles in a given area.
-func (self *Tilemap) Random(x int, y int, width int, height int, layer interface{}) {
+func (self *Tilemap) Random(x int, y int, width int, height int) {
+    self.Object.Call("random", x, y, width, height)
+}
+
+// Randomises a set of tiles in a given area.
+func (self *Tilemap) Random1O(x int, y int, width int, height int, layer interface{}) {
     self.Object.Call("random", x, y, width, height, layer)
 }
 
@@ -834,7 +1184,12 @@ func (self *Tilemap) RandomI(args ...interface{}) {
 }
 
 // Shuffles a set of tiles in a given area. It will only randomise the tiles in that area, so if they're all the same nothing will appear to have changed!
-func (self *Tilemap) Shuffle(x int, y int, width int, height int, layer interface{}) {
+func (self *Tilemap) Shuffle(x int, y int, width int, height int) {
+    self.Object.Call("shuffle", x, y, width, height)
+}
+
+// Shuffles a set of tiles in a given area. It will only randomise the tiles in that area, so if they're all the same nothing will appear to have changed!
+func (self *Tilemap) Shuffle1O(x int, y int, width int, height int, layer interface{}) {
     self.Object.Call("shuffle", x, y, width, height, layer)
 }
 
@@ -844,7 +1199,12 @@ func (self *Tilemap) ShuffleI(args ...interface{}) {
 }
 
 // Fills the given area with the specified tile.
-func (self *Tilemap) Fill(index int, x int, y int, width int, height int, layer interface{}) {
+func (self *Tilemap) Fill(index int, x int, y int, width int, height int) {
+    self.Object.Call("fill", index, x, y, width, height)
+}
+
+// Fills the given area with the specified tile.
+func (self *Tilemap) Fill1O(index int, x int, y int, width int, height int, layer interface{}) {
     self.Object.Call("fill", index, x, y, width, height, layer)
 }
 

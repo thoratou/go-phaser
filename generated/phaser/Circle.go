@@ -139,7 +139,12 @@ func (self *Circle) CircumferenceI(args ...interface{}) int{
 }
 
 // Returns a uniformly distributed random point from anywhere within this Circle.
-func (self *Circle) Random(out interface{}) *Point{
+func (self *Circle) Random() *Point{
+    return &Point{self.Object.Call("random")}
+}
+
+// Returns a uniformly distributed random point from anywhere within this Circle.
+func (self *Circle) Random1O(out interface{}) *Point{
     return &Point{self.Object.Call("random", out)}
 }
 
@@ -190,7 +195,13 @@ func (self *Circle) CopyToI(args ...interface{}) interface{}{
 
 // Returns the distance from the center of the Circle object to the given object
 // (can be Circle, Point or anything with x/y properties)
-func (self *Circle) Distance(dest interface{}, round bool) int{
+func (self *Circle) Distance(dest interface{}) int{
+    return self.Object.Call("distance", dest).Int()
+}
+
+// Returns the distance from the center of the Circle object to the given object
+// (can be Circle, Point or anything with x/y properties)
+func (self *Circle) Distance1O(dest interface{}, round bool) int{
     return self.Object.Call("distance", dest, round).Int()
 }
 
@@ -221,7 +232,17 @@ func (self *Circle) ContainsI(args ...interface{}) bool{
 }
 
 // Returns a Point object containing the coordinates of a point on the circumference of the Circle based on the given angle.
-func (self *Circle) CircumferencePoint(angle int, asDegrees bool, out *Point) *Point{
+func (self *Circle) CircumferencePoint(angle int) *Point{
+    return &Point{self.Object.Call("circumferencePoint", angle)}
+}
+
+// Returns a Point object containing the coordinates of a point on the circumference of the Circle based on the given angle.
+func (self *Circle) CircumferencePoint1O(angle int, asDegrees bool) *Point{
+    return &Point{self.Object.Call("circumferencePoint", angle, asDegrees)}
+}
+
+// Returns a Point object containing the coordinates of a point on the circumference of the Circle based on the given angle.
+func (self *Circle) CircumferencePoint2O(angle int, asDegrees bool, out *Point) *Point{
     return &Point{self.Object.Call("circumferencePoint", angle, asDegrees, out)}
 }
 

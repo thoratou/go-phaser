@@ -228,7 +228,12 @@ func (self *SinglePad) IsUpI(args ...interface{}) bool{
 }
 
 // Returns the "just released" state of a button from this gamepad. Just released is considered as being true if the button was released within the duration given (default 250ms).
-func (self *SinglePad) JustReleased(buttonCode int, duration int) bool{
+func (self *SinglePad) JustReleased(buttonCode int) bool{
+    return self.Object.Call("justReleased", buttonCode).Bool()
+}
+
+// Returns the "just released" state of a button from this gamepad. Just released is considered as being true if the button was released within the duration given (default 250ms).
+func (self *SinglePad) JustReleased1O(buttonCode int, duration int) bool{
     return self.Object.Call("justReleased", buttonCode, duration).Bool()
 }
 
@@ -238,7 +243,12 @@ func (self *SinglePad) JustReleasedI(args ...interface{}) bool{
 }
 
 // Returns the "just pressed" state of a button from this gamepad. Just pressed is considered true if the button was pressed down within the duration given (default 250ms).
-func (self *SinglePad) JustPressed(buttonCode int, duration int) bool{
+func (self *SinglePad) JustPressed(buttonCode int) bool{
+    return self.Object.Call("justPressed", buttonCode).Bool()
+}
+
+// Returns the "just pressed" state of a button from this gamepad. Just pressed is considered true if the button was pressed down within the duration given (default 250ms).
+func (self *SinglePad) JustPressed1O(buttonCode int, duration int) bool{
     return self.Object.Call("justPressed", buttonCode, duration).Bool()
 }
 

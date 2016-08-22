@@ -199,7 +199,22 @@ func (self *RandomDataGenerator) AngleI(args ...interface{}) int{
 // If providing a state it should match the same format that this method
 // returns, which is a string with a header `!rnd` followed by the `c`,
 // `s0`, `s1` and `s2` values respectively, each comma-delimited.
-func (self *RandomDataGenerator) State(state string) string{
+func (self *RandomDataGenerator) State() string{
+    return self.Object.Call("state").String()
+}
+
+// Gets or Sets the state of the generator. This allows you to retain the values
+// that the generator is using between games, i.e. in a game save file.
+// 
+// To seed this generator with a previously saved state you can pass it as the 
+// `seed` value in your game config, or call this method directly after Phaser has booted.
+// 
+// Call this method with no parameters to return the current state.
+// 
+// If providing a state it should match the same format that this method
+// returns, which is a string with a header `!rnd` followed by the `c`,
+// `s0`, `s1` and `s2` values respectively, each comma-delimited.
+func (self *RandomDataGenerator) State1O(state string) string{
     return self.Object.Call("state", state).String()
 }
 

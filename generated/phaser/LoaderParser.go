@@ -16,7 +16,17 @@ type LoaderParser struct {
 
 
 // Alias for xmlBitmapFont, for backwards compatibility.
-func (self *LoaderParser) BitmapFont(xml interface{}, baseTexture *BaseTexture, xSpacing int, ySpacing int) interface{}{
+func (self *LoaderParser) BitmapFont(xml interface{}, baseTexture *BaseTexture) interface{}{
+    return self.Object.Call("bitmapFont", xml, baseTexture)
+}
+
+// Alias for xmlBitmapFont, for backwards compatibility.
+func (self *LoaderParser) BitmapFont1O(xml interface{}, baseTexture *BaseTexture, xSpacing int) interface{}{
+    return self.Object.Call("bitmapFont", xml, baseTexture, xSpacing)
+}
+
+// Alias for xmlBitmapFont, for backwards compatibility.
+func (self *LoaderParser) BitmapFont2O(xml interface{}, baseTexture *BaseTexture, xSpacing int, ySpacing int) interface{}{
     return self.Object.Call("bitmapFont", xml, baseTexture, xSpacing, ySpacing)
 }
 
@@ -26,7 +36,17 @@ func (self *LoaderParser) BitmapFontI(args ...interface{}) interface{}{
 }
 
 // Parse a Bitmap Font from an XML file.
-func (self *LoaderParser) XmlBitmapFont(xml interface{}, baseTexture *BaseTexture, xSpacing int, ySpacing int) interface{}{
+func (self *LoaderParser) XmlBitmapFont(xml interface{}, baseTexture *BaseTexture) interface{}{
+    return self.Object.Call("xmlBitmapFont", xml, baseTexture)
+}
+
+// Parse a Bitmap Font from an XML file.
+func (self *LoaderParser) XmlBitmapFont1O(xml interface{}, baseTexture *BaseTexture, xSpacing int) interface{}{
+    return self.Object.Call("xmlBitmapFont", xml, baseTexture, xSpacing)
+}
+
+// Parse a Bitmap Font from an XML file.
+func (self *LoaderParser) XmlBitmapFont2O(xml interface{}, baseTexture *BaseTexture, xSpacing int, ySpacing int) interface{}{
     return self.Object.Call("xmlBitmapFont", xml, baseTexture, xSpacing, ySpacing)
 }
 
@@ -36,7 +56,17 @@ func (self *LoaderParser) XmlBitmapFontI(args ...interface{}) interface{}{
 }
 
 // Parse a Bitmap Font from a JSON file.
-func (self *LoaderParser) JsonBitmapFont(json interface{}, baseTexture *BaseTexture, xSpacing int, ySpacing int) interface{}{
+func (self *LoaderParser) JsonBitmapFont(json interface{}, baseTexture *BaseTexture) interface{}{
+    return self.Object.Call("jsonBitmapFont", json, baseTexture)
+}
+
+// Parse a Bitmap Font from a JSON file.
+func (self *LoaderParser) JsonBitmapFont1O(json interface{}, baseTexture *BaseTexture, xSpacing int) interface{}{
+    return self.Object.Call("jsonBitmapFont", json, baseTexture, xSpacing)
+}
+
+// Parse a Bitmap Font from a JSON file.
+func (self *LoaderParser) JsonBitmapFont2O(json interface{}, baseTexture *BaseTexture, xSpacing int, ySpacing int) interface{}{
     return self.Object.Call("jsonBitmapFont", json, baseTexture, xSpacing, ySpacing)
 }
 

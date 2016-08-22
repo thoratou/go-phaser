@@ -225,7 +225,12 @@ func (self *Gamepad) ResetI(args ...interface{}) {
 }
 
 // Returns the "just pressed" state of a button from ANY gamepad connected. Just pressed is considered true if the button was pressed down within the duration given (default 250ms).
-func (self *Gamepad) JustPressed(buttonCode int, duration int) bool{
+func (self *Gamepad) JustPressed(buttonCode int) bool{
+    return self.Object.Call("justPressed", buttonCode).Bool()
+}
+
+// Returns the "just pressed" state of a button from ANY gamepad connected. Just pressed is considered true if the button was pressed down within the duration given (default 250ms).
+func (self *Gamepad) JustPressed1O(buttonCode int, duration int) bool{
     return self.Object.Call("justPressed", buttonCode, duration).Bool()
 }
 

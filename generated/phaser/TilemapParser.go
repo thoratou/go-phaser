@@ -72,7 +72,27 @@ func (self *TilemapParser) SetFLIPPED_DIAGONALLY_FLAGA(member int) {
 
 
 // Parse tilemap data from the cache and creates a Tilemap object.
-func (self *TilemapParser) Parse(game *Game, key string, tileWidth int, tileHeight int, width int, height int) interface{}{
+func (self *TilemapParser) Parse(game *Game, key string) interface{}{
+    return self.Object.Call("parse", game, key)
+}
+
+// Parse tilemap data from the cache and creates a Tilemap object.
+func (self *TilemapParser) Parse1O(game *Game, key string, tileWidth int) interface{}{
+    return self.Object.Call("parse", game, key, tileWidth)
+}
+
+// Parse tilemap data from the cache and creates a Tilemap object.
+func (self *TilemapParser) Parse2O(game *Game, key string, tileWidth int, tileHeight int) interface{}{
+    return self.Object.Call("parse", game, key, tileWidth, tileHeight)
+}
+
+// Parse tilemap data from the cache and creates a Tilemap object.
+func (self *TilemapParser) Parse3O(game *Game, key string, tileWidth int, tileHeight int, width int) interface{}{
+    return self.Object.Call("parse", game, key, tileWidth, tileHeight, width)
+}
+
+// Parse tilemap data from the cache and creates a Tilemap object.
+func (self *TilemapParser) Parse4O(game *Game, key string, tileWidth int, tileHeight int, width int, height int) interface{}{
     return self.Object.Call("parse", game, key, tileWidth, tileHeight, width, height)
 }
 
@@ -82,7 +102,17 @@ func (self *TilemapParser) ParseI(args ...interface{}) interface{}{
 }
 
 // Parses a CSV file into valid map data.
-func (self *TilemapParser) ParseCSV(key string, data string, tileWidth int, tileHeight int) interface{}{
+func (self *TilemapParser) ParseCSV(key string, data string) interface{}{
+    return self.Object.Call("parseCSV", key, data)
+}
+
+// Parses a CSV file into valid map data.
+func (self *TilemapParser) ParseCSV1O(key string, data string, tileWidth int) interface{}{
+    return self.Object.Call("parseCSV", key, data, tileWidth)
+}
+
+// Parses a CSV file into valid map data.
+func (self *TilemapParser) ParseCSV2O(key string, data string, tileWidth int, tileHeight int) interface{}{
     return self.Object.Call("parseCSV", key, data, tileWidth, tileHeight)
 }
 

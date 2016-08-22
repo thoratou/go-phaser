@@ -384,7 +384,12 @@ func (self *Time) AddI(args ...interface{}) *Timer{
 }
 
 // Creates a new stand-alone Phaser.Timer object.
-func (self *Time) Create(autoDestroy bool) *Timer{
+func (self *Time) Create() *Timer{
+    return &Timer{self.Object.Call("create")}
+}
+
+// Creates a new stand-alone Phaser.Timer object.
+func (self *Time) Create1O(autoDestroy bool) *Timer{
     return &Timer{self.Object.Call("create", autoDestroy)}
 }
 

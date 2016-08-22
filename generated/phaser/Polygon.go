@@ -85,7 +85,18 @@ func (self *Polygon) SetPointsA(member []Point) {
 
 
 // Export the points as an array of flat numbers, following the sequence [ x,y, x,y, x,y ]
-func (self *Polygon) ToNumberArray(output []interface{}) []interface{}{
+func (self *Polygon) ToNumberArray() []interface{}{
+	array00 := self.Object.Call("toNumberArray")
+	length00 := array00.Length()
+	out00 := make([]interface{}, length00, length00)
+	for i00 := 0; i00 < length00; i00++ {
+		out00[i00] = array00.Index(i00).Interface()
+	}
+	return out00
+}
+
+// Export the points as an array of flat numbers, following the sequence [ x,y, x,y, x,y ]
+func (self *Polygon) ToNumberArray1O(output []interface{}) []interface{}{
 	array00 := self.Object.Call("toNumberArray", output)
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
@@ -122,7 +133,13 @@ func (self *Polygon) FlattenI(args ...interface{}) *Polygon{
 
 // Creates a copy of the given Polygon.
 // This is a deep clone, the resulting copy contains new Phaser.Point objects
-func (self *Polygon) Clone(output *Polygon) *Polygon{
+func (self *Polygon) Clone() *Polygon{
+    return &Polygon{self.Object.Call("clone")}
+}
+
+// Creates a copy of the given Polygon.
+// This is a deep clone, the resulting copy contains new Phaser.Point objects
+func (self *Polygon) Clone1O(output *Polygon) *Polygon{
     return &Polygon{self.Object.Call("clone", output)}
 }
 

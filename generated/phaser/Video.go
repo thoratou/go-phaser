@@ -396,7 +396,52 @@ func (self *Video) ConnectToMediaStreamI(args ...interface{}) *Video{
 // You can optionally set a width and height for the stream. If set the input will be cropped to these dimensions.
 // If not given then as soon as the stream has enough data the video dimensions will be changed to match the webcam device.
 // You can listen for this with the onChangeSource signal.
-func (self *Video) StartMediaStream(captureAudio bool, width int, height int) *Video{
+func (self *Video) StartMediaStream() *Video{
+    return &Video{self.Object.Call("startMediaStream")}
+}
+
+// Instead of playing a video file this method allows you to stream video data from an attached webcam.
+// 
+// As soon as this method is called the user will be prompted by their browser to "Allow" access to the webcam.
+// If they allow it the webcam feed is directed to this Video. Call `Video.play` to start the stream.
+// 
+// If they block the webcam the onError signal will be dispatched containing the NavigatorUserMediaError
+// or MediaStreamError event.
+// 
+// You can optionally set a width and height for the stream. If set the input will be cropped to these dimensions.
+// If not given then as soon as the stream has enough data the video dimensions will be changed to match the webcam device.
+// You can listen for this with the onChangeSource signal.
+func (self *Video) StartMediaStream1O(captureAudio bool) *Video{
+    return &Video{self.Object.Call("startMediaStream", captureAudio)}
+}
+
+// Instead of playing a video file this method allows you to stream video data from an attached webcam.
+// 
+// As soon as this method is called the user will be prompted by their browser to "Allow" access to the webcam.
+// If they allow it the webcam feed is directed to this Video. Call `Video.play` to start the stream.
+// 
+// If they block the webcam the onError signal will be dispatched containing the NavigatorUserMediaError
+// or MediaStreamError event.
+// 
+// You can optionally set a width and height for the stream. If set the input will be cropped to these dimensions.
+// If not given then as soon as the stream has enough data the video dimensions will be changed to match the webcam device.
+// You can listen for this with the onChangeSource signal.
+func (self *Video) StartMediaStream2O(captureAudio bool, width int) *Video{
+    return &Video{self.Object.Call("startMediaStream", captureAudio, width)}
+}
+
+// Instead of playing a video file this method allows you to stream video data from an attached webcam.
+// 
+// As soon as this method is called the user will be prompted by their browser to "Allow" access to the webcam.
+// If they allow it the webcam feed is directed to this Video. Call `Video.play` to start the stream.
+// 
+// If they block the webcam the onError signal will be dispatched containing the NavigatorUserMediaError
+// or MediaStreamError event.
+// 
+// You can optionally set a width and height for the stream. If set the input will be cropped to these dimensions.
+// If not given then as soon as the stream has enough data the video dimensions will be changed to match the webcam device.
+// You can listen for this with the onChangeSource signal.
+func (self *Video) StartMediaStream3O(captureAudio bool, width int, height int) *Video{
     return &Video{self.Object.Call("startMediaStream", captureAudio, width, height)}
 }
 
@@ -458,7 +503,12 @@ func (self *Video) CreateVideoFromBlobI(args ...interface{}) *Video{
 }
 
 // Creates a new Video element from the given URL.
-func (self *Video) CreateVideoFromURL(url string, autoplay bool) *Video{
+func (self *Video) CreateVideoFromURL(url string) *Video{
+    return &Video{self.Object.Call("createVideoFromURL", url)}
+}
+
+// Creates a new Video element from the given URL.
+func (self *Video) CreateVideoFromURL1O(url string, autoplay bool) *Video{
     return &Video{self.Object.Call("createVideoFromURL", url, autoplay)}
 }
 
@@ -469,7 +519,25 @@ func (self *Video) CreateVideoFromURLI(args ...interface{}) *Video{
 
 // Called automatically if the video source changes and updates the internal texture dimensions.
 // Then dispatches the onChangeSource signal.
-func (self *Video) UpdateTexture(event interface{}, width int, height int) {
+func (self *Video) UpdateTexture() {
+    self.Object.Call("updateTexture")
+}
+
+// Called automatically if the video source changes and updates the internal texture dimensions.
+// Then dispatches the onChangeSource signal.
+func (self *Video) UpdateTexture1O(event interface{}) {
+    self.Object.Call("updateTexture", event)
+}
+
+// Called automatically if the video source changes and updates the internal texture dimensions.
+// Then dispatches the onChangeSource signal.
+func (self *Video) UpdateTexture2O(event interface{}, width int) {
+    self.Object.Call("updateTexture", event, width)
+}
+
+// Called automatically if the video source changes and updates the internal texture dimensions.
+// Then dispatches the onChangeSource signal.
+func (self *Video) UpdateTexture3O(event interface{}, width int, height int) {
     self.Object.Call("updateTexture", event, width, height)
 }
 
@@ -492,7 +560,17 @@ func (self *Video) CompleteI(args ...interface{}) {
 }
 
 // Starts this video playing if it's not already doing so.
-func (self *Video) Play(loop bool, playbackRate int) *Video{
+func (self *Video) Play() *Video{
+    return &Video{self.Object.Call("play")}
+}
+
+// Starts this video playing if it's not already doing so.
+func (self *Video) Play1O(loop bool) *Video{
+    return &Video{self.Object.Call("play", loop)}
+}
+
+// Starts this video playing if it's not already doing so.
+func (self *Video) Play2O(loop bool, playbackRate int) *Video{
     return &Video{self.Object.Call("play", loop, playbackRate)}
 }
 
@@ -550,7 +628,37 @@ func (self *Video) AddI(args ...interface{}) *Video{
 }
 
 // Creates a new Phaser.Image object, assigns this Video to be its texture, adds it to the world then returns it.
-func (self *Video) AddToWorld(x int, y int, anchorX int, anchorY int, scaleX int, scaleY int) *Image{
+func (self *Video) AddToWorld() *Image{
+    return &Image{self.Object.Call("addToWorld")}
+}
+
+// Creates a new Phaser.Image object, assigns this Video to be its texture, adds it to the world then returns it.
+func (self *Video) AddToWorld1O(x int) *Image{
+    return &Image{self.Object.Call("addToWorld", x)}
+}
+
+// Creates a new Phaser.Image object, assigns this Video to be its texture, adds it to the world then returns it.
+func (self *Video) AddToWorld2O(x int, y int) *Image{
+    return &Image{self.Object.Call("addToWorld", x, y)}
+}
+
+// Creates a new Phaser.Image object, assigns this Video to be its texture, adds it to the world then returns it.
+func (self *Video) AddToWorld3O(x int, y int, anchorX int) *Image{
+    return &Image{self.Object.Call("addToWorld", x, y, anchorX)}
+}
+
+// Creates a new Phaser.Image object, assigns this Video to be its texture, adds it to the world then returns it.
+func (self *Video) AddToWorld4O(x int, y int, anchorX int, anchorY int) *Image{
+    return &Image{self.Object.Call("addToWorld", x, y, anchorX, anchorY)}
+}
+
+// Creates a new Phaser.Image object, assigns this Video to be its texture, adds it to the world then returns it.
+func (self *Video) AddToWorld5O(x int, y int, anchorX int, anchorY int, scaleX int) *Image{
+    return &Image{self.Object.Call("addToWorld", x, y, anchorX, anchorY, scaleX)}
+}
+
+// Creates a new Phaser.Image object, assigns this Video to be its texture, adds it to the world then returns it.
+func (self *Video) AddToWorld6O(x int, y int, anchorX int, anchorY int, scaleX int, scaleY int) *Image{
     return &Image{self.Object.Call("addToWorld", x, y, anchorX, anchorY, scaleX, scaleY)}
 }
 
@@ -627,7 +735,25 @@ func (self *Video) SetResumeI(args ...interface{}) {
 // When the video source is changed the video file is requested over the network. Listen for the `onChangeSource` signal to know
 // when the new video has downloaded enough content to be able to be played. Previous settings such as the volume and loop state
 // are adopted automatically by the new video.
-func (self *Video) ChangeSource(src string, autoplay bool) *Video{
+func (self *Video) ChangeSource(src string) *Video{
+    return &Video{self.Object.Call("changeSource", src)}
+}
+
+// On some mobile browsers you cannot play a video until the user has explicitly touched the video to allow it.
+// Phaser handles this via the `setTouchLock` method. However if you have 3 different videos, maybe an "Intro", "Start" and "Game Over"
+// split into three different Video objects, then you will need the user to touch-unlock every single one of them.
+// 
+// You can avoid this by using just one Video object and simply changing the video source. Once a Video element is unlocked it remains
+// unlocked, even if the source changes. So you can use this to your benefit to avoid forcing the user to 'touch' the video yet again.
+// 
+// As you'd expect there are limitations. So far we've found that the videos need to be in the same encoding format and bitrate.
+// This method will automatically handle a change in video dimensions, but if you try swapping to a different bitrate we've found it
+// cannot render the new video on iOS (desktop browsers cope better).
+// 
+// When the video source is changed the video file is requested over the network. Listen for the `onChangeSource` signal to know
+// when the new video has downloaded enough content to be able to be played. Previous settings such as the volume and loop state
+// are adopted automatically by the new video.
+func (self *Video) ChangeSource1O(src string, autoplay bool) *Video{
     return &Video{self.Object.Call("changeSource", src, autoplay)}
 }
 
@@ -690,7 +816,34 @@ func (self *Video) UnlockI(args ...interface{}) {
 // You can optionally set if the BitmapData should be cleared or not, the alpha and the blend mode of the draw.
 // 
 // If you need more advanced control over the grabbing them call `Video.snapshot.copy` directly with the same parameters as BitmapData.copy.
-func (self *Video) Grab(clear bool, alpha int, blendMode string) *BitmapData{
+func (self *Video) Grab() *BitmapData{
+    return &BitmapData{self.Object.Call("grab")}
+}
+
+// Grabs the current frame from the Video or Video Stream and renders it to the Video.snapshot BitmapData.
+// 
+// You can optionally set if the BitmapData should be cleared or not, the alpha and the blend mode of the draw.
+// 
+// If you need more advanced control over the grabbing them call `Video.snapshot.copy` directly with the same parameters as BitmapData.copy.
+func (self *Video) Grab1O(clear bool) *BitmapData{
+    return &BitmapData{self.Object.Call("grab", clear)}
+}
+
+// Grabs the current frame from the Video or Video Stream and renders it to the Video.snapshot BitmapData.
+// 
+// You can optionally set if the BitmapData should be cleared or not, the alpha and the blend mode of the draw.
+// 
+// If you need more advanced control over the grabbing them call `Video.snapshot.copy` directly with the same parameters as BitmapData.copy.
+func (self *Video) Grab2O(clear bool, alpha int) *BitmapData{
+    return &BitmapData{self.Object.Call("grab", clear, alpha)}
+}
+
+// Grabs the current frame from the Video or Video Stream and renders it to the Video.snapshot BitmapData.
+// 
+// You can optionally set if the BitmapData should be cleared or not, the alpha and the blend mode of the draw.
+// 
+// If you need more advanced control over the grabbing them call `Video.snapshot.copy` directly with the same parameters as BitmapData.copy.
+func (self *Video) Grab3O(clear bool, alpha int, blendMode string) *BitmapData{
     return &BitmapData{self.Object.Call("grab", clear, alpha, blendMode)}
 }
 

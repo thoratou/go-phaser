@@ -232,7 +232,41 @@ func (self *ArrayUtils) NumberArrayI(args ...interface{}) []int{
 // 
 // Certain values for `start` and `end` (eg. NaN/undefined/null) are currently coerced to 0;
 // for forward compatibility make sure to pass in actual numbers.
-func (self *ArrayUtils) NumberArrayStep(start int, end int, step int) []interface{}{
+func (self *ArrayUtils) NumberArrayStep(start int) []interface{}{
+	array00 := self.Object.Call("numberArrayStep", start)
+	length00 := array00.Length()
+	out00 := make([]interface{}, length00, length00)
+	for i00 := 0; i00 < length00; i00++ {
+		out00[i00] = array00.Index(i00).Interface()
+	}
+	return out00
+}
+
+// Create an array of numbers (positive and/or negative) progressing from `start`
+// up to but not including `end` by advancing by `step`.
+// 
+// If `start` is less than `end` a zero-length range is created unless a negative `step` is specified.
+// 
+// Certain values for `start` and `end` (eg. NaN/undefined/null) are currently coerced to 0;
+// for forward compatibility make sure to pass in actual numbers.
+func (self *ArrayUtils) NumberArrayStep1O(start int, end int) []interface{}{
+	array00 := self.Object.Call("numberArrayStep", start, end)
+	length00 := array00.Length()
+	out00 := make([]interface{}, length00, length00)
+	for i00 := 0; i00 < length00; i00++ {
+		out00[i00] = array00.Index(i00).Interface()
+	}
+	return out00
+}
+
+// Create an array of numbers (positive and/or negative) progressing from `start`
+// up to but not including `end` by advancing by `step`.
+// 
+// If `start` is less than `end` a zero-length range is created unless a negative `step` is specified.
+// 
+// Certain values for `start` and `end` (eg. NaN/undefined/null) are currently coerced to 0;
+// for forward compatibility make sure to pass in actual numbers.
+func (self *ArrayUtils) NumberArrayStep2O(start int, end int, step int) []interface{}{
 	array00 := self.Object.Call("numberArrayStep", start, end, step)
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)

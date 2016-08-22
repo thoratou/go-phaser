@@ -280,7 +280,12 @@ func (self *WebGLSpriteBatch) EndI(args ...interface{}) {
 }
 
 // 
-func (self *WebGLSpriteBatch) Render(sprite *Sprite, matrix *Matrix) {
+func (self *WebGLSpriteBatch) Render(sprite *Sprite) {
+    self.Object.Call("render", sprite)
+}
+
+// 
+func (self *WebGLSpriteBatch) Render1O(sprite *Sprite, matrix *Matrix) {
     self.Object.Call("render", sprite, matrix)
 }
 

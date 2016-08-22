@@ -129,7 +129,12 @@ func (self *Filter) SetResolutionI(args ...interface{}) {
 }
 
 // Updates the filter.
-func (self *Filter) Update(pointer *Pointer) {
+func (self *Filter) Update() {
+    self.Object.Call("update")
+}
+
+// Updates the filter.
+func (self *Filter) Update1O(pointer *Pointer) {
     self.Object.Call("update", pointer)
 }
 
@@ -145,7 +150,73 @@ func (self *Filter) UpdateI(args ...interface{}) {
 // 
 // If you do provide width and height values then this filter will be resized to match those
 // values.
-func (self *Filter) AddToWorld(x int, y int, width int, height int, anchorX int, anchorY int) *Image{
+func (self *Filter) AddToWorld() *Image{
+    return &Image{self.Object.Call("addToWorld")}
+}
+
+// Creates a new Phaser.Image object using a blank texture and assigns 
+// this Filter to it. The image is then added to the world.
+// 
+// If you don't provide width and height values then Filter.width and Filter.height are used.
+// 
+// If you do provide width and height values then this filter will be resized to match those
+// values.
+func (self *Filter) AddToWorld1O(x int) *Image{
+    return &Image{self.Object.Call("addToWorld", x)}
+}
+
+// Creates a new Phaser.Image object using a blank texture and assigns 
+// this Filter to it. The image is then added to the world.
+// 
+// If you don't provide width and height values then Filter.width and Filter.height are used.
+// 
+// If you do provide width and height values then this filter will be resized to match those
+// values.
+func (self *Filter) AddToWorld2O(x int, y int) *Image{
+    return &Image{self.Object.Call("addToWorld", x, y)}
+}
+
+// Creates a new Phaser.Image object using a blank texture and assigns 
+// this Filter to it. The image is then added to the world.
+// 
+// If you don't provide width and height values then Filter.width and Filter.height are used.
+// 
+// If you do provide width and height values then this filter will be resized to match those
+// values.
+func (self *Filter) AddToWorld3O(x int, y int, width int) *Image{
+    return &Image{self.Object.Call("addToWorld", x, y, width)}
+}
+
+// Creates a new Phaser.Image object using a blank texture and assigns 
+// this Filter to it. The image is then added to the world.
+// 
+// If you don't provide width and height values then Filter.width and Filter.height are used.
+// 
+// If you do provide width and height values then this filter will be resized to match those
+// values.
+func (self *Filter) AddToWorld4O(x int, y int, width int, height int) *Image{
+    return &Image{self.Object.Call("addToWorld", x, y, width, height)}
+}
+
+// Creates a new Phaser.Image object using a blank texture and assigns 
+// this Filter to it. The image is then added to the world.
+// 
+// If you don't provide width and height values then Filter.width and Filter.height are used.
+// 
+// If you do provide width and height values then this filter will be resized to match those
+// values.
+func (self *Filter) AddToWorld5O(x int, y int, width int, height int, anchorX int) *Image{
+    return &Image{self.Object.Call("addToWorld", x, y, width, height, anchorX)}
+}
+
+// Creates a new Phaser.Image object using a blank texture and assigns 
+// this Filter to it. The image is then added to the world.
+// 
+// If you don't provide width and height values then Filter.width and Filter.height are used.
+// 
+// If you do provide width and height values then this filter will be resized to match those
+// values.
+func (self *Filter) AddToWorld6O(x int, y int, width int, height int, anchorX int, anchorY int) *Image{
     return &Image{self.Object.Call("addToWorld", x, y, width, height, anchorX, anchorY)}
 }
 

@@ -476,7 +476,21 @@ func (self *PhysicsP2) PreUpdateI(args ...interface{}) {
 // This will create a P2 Physics body on the given game object or array of game objects.
 // A game object can only have 1 physics body active at any one time, and it can't be changed until the object is destroyed.
 // Note: When the game object is enabled for P2 physics it has its anchor x/y set to 0.5 so it becomes centered.
-func (self *PhysicsP2) Enable(object interface{}, debug bool, children bool) {
+func (self *PhysicsP2) Enable(object interface{}) {
+    self.Object.Call("enable", object)
+}
+
+// This will create a P2 Physics body on the given game object or array of game objects.
+// A game object can only have 1 physics body active at any one time, and it can't be changed until the object is destroyed.
+// Note: When the game object is enabled for P2 physics it has its anchor x/y set to 0.5 so it becomes centered.
+func (self *PhysicsP2) Enable1O(object interface{}, debug bool) {
+    self.Object.Call("enable", object, debug)
+}
+
+// This will create a P2 Physics body on the given game object or array of game objects.
+// A game object can only have 1 physics body active at any one time, and it can't be changed until the object is destroyed.
+// Note: When the game object is enabled for P2 physics it has its anchor x/y set to 0.5 so it becomes centered.
+func (self *PhysicsP2) Enable2O(object interface{}, debug bool, children bool) {
     self.Object.Call("enable", object, debug, children)
 }
 
@@ -570,7 +584,14 @@ func (self *PhysicsP2) EndContactHandlerI(args ...interface{}) {
 // By default the World will be set to collide everything with everything. The bounds of the world is a Body with 4 shapes, one for each face.
 // If you start to use your own collision groups then your objects will no longer collide with the bounds.
 // To fix this you need to adjust the bounds to use its own collision group first BEFORE changing your Sprites collision group.
-func (self *PhysicsP2) UpdateBoundsCollisionGroup(setCollisionGroup bool) {
+func (self *PhysicsP2) UpdateBoundsCollisionGroup() {
+    self.Object.Call("updateBoundsCollisionGroup")
+}
+
+// By default the World will be set to collide everything with everything. The bounds of the world is a Body with 4 shapes, one for each face.
+// If you start to use your own collision groups then your objects will no longer collide with the bounds.
+// To fix this you need to adjust the bounds to use its own collision group first BEFORE changing your Sprites collision group.
+func (self *PhysicsP2) UpdateBoundsCollisionGroup1O(setCollisionGroup bool) {
     self.Object.Call("updateBoundsCollisionGroup", setCollisionGroup)
 }
 
@@ -587,7 +608,57 @@ func (self *PhysicsP2) UpdateBoundsCollisionGroupI(args ...interface{}) {
 // I.e. if you previously told it to not have the left or right walls, and you then adjust the world size
 // the newly created bounds will also not have the left and right walls.
 // Explicitly state them in the parameters to override this.
-func (self *PhysicsP2) SetBounds(x int, y int, width int, height int, left bool, right bool, top bool, bottom bool, setCollisionGroup bool) {
+func (self *PhysicsP2) SetBounds(x int, y int, width int, height int) {
+    self.Object.Call("setBounds", x, y, width, height)
+}
+
+// Sets the bounds of the Physics world to match the given world pixel dimensions.
+// You can optionally set which 'walls' to create: left, right, top or bottom.
+// If none of the walls are given it will default to use the walls settings it had previously.
+// I.e. if you previously told it to not have the left or right walls, and you then adjust the world size
+// the newly created bounds will also not have the left and right walls.
+// Explicitly state them in the parameters to override this.
+func (self *PhysicsP2) SetBounds1O(x int, y int, width int, height int, left bool) {
+    self.Object.Call("setBounds", x, y, width, height, left)
+}
+
+// Sets the bounds of the Physics world to match the given world pixel dimensions.
+// You can optionally set which 'walls' to create: left, right, top or bottom.
+// If none of the walls are given it will default to use the walls settings it had previously.
+// I.e. if you previously told it to not have the left or right walls, and you then adjust the world size
+// the newly created bounds will also not have the left and right walls.
+// Explicitly state them in the parameters to override this.
+func (self *PhysicsP2) SetBounds2O(x int, y int, width int, height int, left bool, right bool) {
+    self.Object.Call("setBounds", x, y, width, height, left, right)
+}
+
+// Sets the bounds of the Physics world to match the given world pixel dimensions.
+// You can optionally set which 'walls' to create: left, right, top or bottom.
+// If none of the walls are given it will default to use the walls settings it had previously.
+// I.e. if you previously told it to not have the left or right walls, and you then adjust the world size
+// the newly created bounds will also not have the left and right walls.
+// Explicitly state them in the parameters to override this.
+func (self *PhysicsP2) SetBounds3O(x int, y int, width int, height int, left bool, right bool, top bool) {
+    self.Object.Call("setBounds", x, y, width, height, left, right, top)
+}
+
+// Sets the bounds of the Physics world to match the given world pixel dimensions.
+// You can optionally set which 'walls' to create: left, right, top or bottom.
+// If none of the walls are given it will default to use the walls settings it had previously.
+// I.e. if you previously told it to not have the left or right walls, and you then adjust the world size
+// the newly created bounds will also not have the left and right walls.
+// Explicitly state them in the parameters to override this.
+func (self *PhysicsP2) SetBounds4O(x int, y int, width int, height int, left bool, right bool, top bool, bottom bool) {
+    self.Object.Call("setBounds", x, y, width, height, left, right, top, bottom)
+}
+
+// Sets the bounds of the Physics world to match the given world pixel dimensions.
+// You can optionally set which 'walls' to create: left, right, top or bottom.
+// If none of the walls are given it will default to use the walls settings it had previously.
+// I.e. if you previously told it to not have the left or right walls, and you then adjust the world size
+// the newly created bounds will also not have the left and right walls.
+// Explicitly state them in the parameters to override this.
+func (self *PhysicsP2) SetBounds5O(x int, y int, width int, height int, left bool, right bool, top bool, bottom bool, setCollisionGroup bool) {
     self.Object.Call("setBounds", x, y, width, height, left, right, top, bottom, setCollisionGroup)
 }
 
@@ -603,7 +674,13 @@ func (self *PhysicsP2) SetBoundsI(args ...interface{}) {
 
 // Internal method called by setBounds. Responsible for creating, updating or 
 // removing the wall body shapes.
-func (self *PhysicsP2) SetupWall(create bool, wall string, x int, y int, angle float64, setCollisionGroup bool) {
+func (self *PhysicsP2) SetupWall(create bool, wall string, x int, y int, angle float64) {
+    self.Object.Call("setupWall", create, wall, x, y, angle)
+}
+
+// Internal method called by setBounds. Responsible for creating, updating or 
+// removing the wall body shapes.
+func (self *PhysicsP2) SetupWall1O(create bool, wall string, x int, y int, angle float64, setCollisionGroup bool) {
     self.Object.Call("setupWall", create, wall, x, y, angle, setCollisionGroup)
 }
 
@@ -736,7 +813,22 @@ func (self *PhysicsP2) RemoveSpringI(args ...interface{}) *PhysicsP2Spring{
 }
 
 // Creates a constraint that tries to keep the distance between two bodies constant.
-func (self *PhysicsP2) CreateDistanceConstraint(bodyA interface{}, bodyB interface{}, distance int, localAnchorA []interface{}, localAnchorB []interface{}, maxForce int) *PhysicsP2DistanceConstraint{
+func (self *PhysicsP2) CreateDistanceConstraint(bodyA interface{}, bodyB interface{}, distance int) *PhysicsP2DistanceConstraint{
+    return &PhysicsP2DistanceConstraint{self.Object.Call("createDistanceConstraint", bodyA, bodyB, distance)}
+}
+
+// Creates a constraint that tries to keep the distance between two bodies constant.
+func (self *PhysicsP2) CreateDistanceConstraint1O(bodyA interface{}, bodyB interface{}, distance int, localAnchorA []interface{}) *PhysicsP2DistanceConstraint{
+    return &PhysicsP2DistanceConstraint{self.Object.Call("createDistanceConstraint", bodyA, bodyB, distance, localAnchorA)}
+}
+
+// Creates a constraint that tries to keep the distance between two bodies constant.
+func (self *PhysicsP2) CreateDistanceConstraint2O(bodyA interface{}, bodyB interface{}, distance int, localAnchorA []interface{}, localAnchorB []interface{}) *PhysicsP2DistanceConstraint{
+    return &PhysicsP2DistanceConstraint{self.Object.Call("createDistanceConstraint", bodyA, bodyB, distance, localAnchorA, localAnchorB)}
+}
+
+// Creates a constraint that tries to keep the distance between two bodies constant.
+func (self *PhysicsP2) CreateDistanceConstraint3O(bodyA interface{}, bodyB interface{}, distance int, localAnchorA []interface{}, localAnchorB []interface{}, maxForce int) *PhysicsP2DistanceConstraint{
     return &PhysicsP2DistanceConstraint{self.Object.Call("createDistanceConstraint", bodyA, bodyB, distance, localAnchorA, localAnchorB, maxForce)}
 }
 
@@ -746,7 +838,17 @@ func (self *PhysicsP2) CreateDistanceConstraintI(args ...interface{}) *PhysicsP2
 }
 
 // Creates a constraint that tries to keep the distance between two bodies constant.
-func (self *PhysicsP2) CreateGearConstraint(bodyA interface{}, bodyB interface{}, angle int, ratio int) *PhysicsP2GearConstraint{
+func (self *PhysicsP2) CreateGearConstraint(bodyA interface{}, bodyB interface{}) *PhysicsP2GearConstraint{
+    return &PhysicsP2GearConstraint{self.Object.Call("createGearConstraint", bodyA, bodyB)}
+}
+
+// Creates a constraint that tries to keep the distance between two bodies constant.
+func (self *PhysicsP2) CreateGearConstraint1O(bodyA interface{}, bodyB interface{}, angle int) *PhysicsP2GearConstraint{
+    return &PhysicsP2GearConstraint{self.Object.Call("createGearConstraint", bodyA, bodyB, angle)}
+}
+
+// Creates a constraint that tries to keep the distance between two bodies constant.
+func (self *PhysicsP2) CreateGearConstraint2O(bodyA interface{}, bodyB interface{}, angle int, ratio int) *PhysicsP2GearConstraint{
     return &PhysicsP2GearConstraint{self.Object.Call("createGearConstraint", bodyA, bodyB, angle, ratio)}
 }
 
@@ -757,7 +859,19 @@ func (self *PhysicsP2) CreateGearConstraintI(args ...interface{}) *PhysicsP2Gear
 
 // Connects two bodies at given offset points, letting them rotate relative to each other around this point.
 // The pivot points are given in world (pixel) coordinates.
-func (self *PhysicsP2) CreateRevoluteConstraint(bodyA interface{}, pivotA []interface{}, bodyB interface{}, pivotB []interface{}, maxForce int, worldPivot *Float32Array) *PhysicsP2RevoluteConstraint{
+func (self *PhysicsP2) CreateRevoluteConstraint(bodyA interface{}, pivotA []interface{}, bodyB interface{}, pivotB []interface{}) *PhysicsP2RevoluteConstraint{
+    return &PhysicsP2RevoluteConstraint{self.Object.Call("createRevoluteConstraint", bodyA, pivotA, bodyB, pivotB)}
+}
+
+// Connects two bodies at given offset points, letting them rotate relative to each other around this point.
+// The pivot points are given in world (pixel) coordinates.
+func (self *PhysicsP2) CreateRevoluteConstraint1O(bodyA interface{}, pivotA []interface{}, bodyB interface{}, pivotB []interface{}, maxForce int) *PhysicsP2RevoluteConstraint{
+    return &PhysicsP2RevoluteConstraint{self.Object.Call("createRevoluteConstraint", bodyA, pivotA, bodyB, pivotB, maxForce)}
+}
+
+// Connects two bodies at given offset points, letting them rotate relative to each other around this point.
+// The pivot points are given in world (pixel) coordinates.
+func (self *PhysicsP2) CreateRevoluteConstraint2O(bodyA interface{}, pivotA []interface{}, bodyB interface{}, pivotB []interface{}, maxForce int, worldPivot *Float32Array) *PhysicsP2RevoluteConstraint{
     return &PhysicsP2RevoluteConstraint{self.Object.Call("createRevoluteConstraint", bodyA, pivotA, bodyB, pivotB, maxForce, worldPivot)}
 }
 
@@ -768,7 +882,22 @@ func (self *PhysicsP2) CreateRevoluteConstraintI(args ...interface{}) *PhysicsP2
 }
 
 // Locks the relative position between two bodies.
-func (self *PhysicsP2) CreateLockConstraint(bodyA interface{}, bodyB interface{}, offset []interface{}, angle int, maxForce int) *PhysicsP2LockConstraint{
+func (self *PhysicsP2) CreateLockConstraint(bodyA interface{}, bodyB interface{}) *PhysicsP2LockConstraint{
+    return &PhysicsP2LockConstraint{self.Object.Call("createLockConstraint", bodyA, bodyB)}
+}
+
+// Locks the relative position between two bodies.
+func (self *PhysicsP2) CreateLockConstraint1O(bodyA interface{}, bodyB interface{}, offset []interface{}) *PhysicsP2LockConstraint{
+    return &PhysicsP2LockConstraint{self.Object.Call("createLockConstraint", bodyA, bodyB, offset)}
+}
+
+// Locks the relative position between two bodies.
+func (self *PhysicsP2) CreateLockConstraint2O(bodyA interface{}, bodyB interface{}, offset []interface{}, angle int) *PhysicsP2LockConstraint{
+    return &PhysicsP2LockConstraint{self.Object.Call("createLockConstraint", bodyA, bodyB, offset, angle)}
+}
+
+// Locks the relative position between two bodies.
+func (self *PhysicsP2) CreateLockConstraint3O(bodyA interface{}, bodyB interface{}, offset []interface{}, angle int, maxForce int) *PhysicsP2LockConstraint{
     return &PhysicsP2LockConstraint{self.Object.Call("createLockConstraint", bodyA, bodyB, offset, angle, maxForce)}
 }
 
@@ -779,7 +908,37 @@ func (self *PhysicsP2) CreateLockConstraintI(args ...interface{}) *PhysicsP2Lock
 
 // Constraint that only allows bodies to move along a line, relative to each other.
 // See http://www.iforce2d.net/b2dtut/joints-prismatic
-func (self *PhysicsP2) CreatePrismaticConstraint(bodyA interface{}, bodyB interface{}, lockRotation bool, anchorA []interface{}, anchorB []interface{}, axis []interface{}, maxForce int) *PhysicsP2PrismaticConstraint{
+func (self *PhysicsP2) CreatePrismaticConstraint(bodyA interface{}, bodyB interface{}) *PhysicsP2PrismaticConstraint{
+    return &PhysicsP2PrismaticConstraint{self.Object.Call("createPrismaticConstraint", bodyA, bodyB)}
+}
+
+// Constraint that only allows bodies to move along a line, relative to each other.
+// See http://www.iforce2d.net/b2dtut/joints-prismatic
+func (self *PhysicsP2) CreatePrismaticConstraint1O(bodyA interface{}, bodyB interface{}, lockRotation bool) *PhysicsP2PrismaticConstraint{
+    return &PhysicsP2PrismaticConstraint{self.Object.Call("createPrismaticConstraint", bodyA, bodyB, lockRotation)}
+}
+
+// Constraint that only allows bodies to move along a line, relative to each other.
+// See http://www.iforce2d.net/b2dtut/joints-prismatic
+func (self *PhysicsP2) CreatePrismaticConstraint2O(bodyA interface{}, bodyB interface{}, lockRotation bool, anchorA []interface{}) *PhysicsP2PrismaticConstraint{
+    return &PhysicsP2PrismaticConstraint{self.Object.Call("createPrismaticConstraint", bodyA, bodyB, lockRotation, anchorA)}
+}
+
+// Constraint that only allows bodies to move along a line, relative to each other.
+// See http://www.iforce2d.net/b2dtut/joints-prismatic
+func (self *PhysicsP2) CreatePrismaticConstraint3O(bodyA interface{}, bodyB interface{}, lockRotation bool, anchorA []interface{}, anchorB []interface{}) *PhysicsP2PrismaticConstraint{
+    return &PhysicsP2PrismaticConstraint{self.Object.Call("createPrismaticConstraint", bodyA, bodyB, lockRotation, anchorA, anchorB)}
+}
+
+// Constraint that only allows bodies to move along a line, relative to each other.
+// See http://www.iforce2d.net/b2dtut/joints-prismatic
+func (self *PhysicsP2) CreatePrismaticConstraint4O(bodyA interface{}, bodyB interface{}, lockRotation bool, anchorA []interface{}, anchorB []interface{}, axis []interface{}) *PhysicsP2PrismaticConstraint{
+    return &PhysicsP2PrismaticConstraint{self.Object.Call("createPrismaticConstraint", bodyA, bodyB, lockRotation, anchorA, anchorB, axis)}
+}
+
+// Constraint that only allows bodies to move along a line, relative to each other.
+// See http://www.iforce2d.net/b2dtut/joints-prismatic
+func (self *PhysicsP2) CreatePrismaticConstraint5O(bodyA interface{}, bodyB interface{}, lockRotation bool, anchorA []interface{}, anchorB []interface{}, axis []interface{}, maxForce int) *PhysicsP2PrismaticConstraint{
     return &PhysicsP2PrismaticConstraint{self.Object.Call("createPrismaticConstraint", bodyA, bodyB, lockRotation, anchorA, anchorB, axis, maxForce)}
 }
 
@@ -852,7 +1011,21 @@ func (self *PhysicsP2) SetMaterialI(args ...interface{}) {
 // Creates a Material. Materials are applied to Shapes owned by a Body and can be set with Body.setMaterial().
 // Materials are a way to control what happens when Shapes collide. Combine unique Materials together to create Contact Materials.
 // Contact Materials have properties such as friction and restitution that allow for fine-grained collision control between different Materials.
-func (self *PhysicsP2) CreateMaterial(name string, body *PhysicsP2Body) *PhysicsP2Material{
+func (self *PhysicsP2) CreateMaterial() *PhysicsP2Material{
+    return &PhysicsP2Material{self.Object.Call("createMaterial")}
+}
+
+// Creates a Material. Materials are applied to Shapes owned by a Body and can be set with Body.setMaterial().
+// Materials are a way to control what happens when Shapes collide. Combine unique Materials together to create Contact Materials.
+// Contact Materials have properties such as friction and restitution that allow for fine-grained collision control between different Materials.
+func (self *PhysicsP2) CreateMaterial1O(name string) *PhysicsP2Material{
+    return &PhysicsP2Material{self.Object.Call("createMaterial", name)}
+}
+
+// Creates a Material. Materials are applied to Shapes owned by a Body and can be set with Body.setMaterial().
+// Materials are a way to control what happens when Shapes collide. Combine unique Materials together to create Contact Materials.
+// Contact Materials have properties such as friction and restitution that allow for fine-grained collision control between different Materials.
+func (self *PhysicsP2) CreateMaterial2O(name string, body *PhysicsP2Body) *PhysicsP2Material{
     return &PhysicsP2Material{self.Object.Call("createMaterial", name, body)}
 }
 
@@ -864,7 +1037,22 @@ func (self *PhysicsP2) CreateMaterialI(args ...interface{}) *PhysicsP2Material{
 }
 
 // Creates a Contact Material from the two given Materials. You can then edit the properties of the Contact Material directly.
-func (self *PhysicsP2) CreateContactMaterial(materialA *PhysicsP2Material, materialB *PhysicsP2Material, options interface{}) *PhysicsP2ContactMaterial{
+func (self *PhysicsP2) CreateContactMaterial() *PhysicsP2ContactMaterial{
+    return &PhysicsP2ContactMaterial{self.Object.Call("createContactMaterial")}
+}
+
+// Creates a Contact Material from the two given Materials. You can then edit the properties of the Contact Material directly.
+func (self *PhysicsP2) CreateContactMaterial1O(materialA *PhysicsP2Material) *PhysicsP2ContactMaterial{
+    return &PhysicsP2ContactMaterial{self.Object.Call("createContactMaterial", materialA)}
+}
+
+// Creates a Contact Material from the two given Materials. You can then edit the properties of the Contact Material directly.
+func (self *PhysicsP2) CreateContactMaterial2O(materialA *PhysicsP2Material, materialB *PhysicsP2Material) *PhysicsP2ContactMaterial{
+    return &PhysicsP2ContactMaterial{self.Object.Call("createContactMaterial", materialA, materialB)}
+}
+
+// Creates a Contact Material from the two given Materials. You can then edit the properties of the Contact Material directly.
+func (self *PhysicsP2) CreateContactMaterial3O(materialA *PhysicsP2Material, materialB *PhysicsP2Material, options interface{}) *PhysicsP2ContactMaterial{
     return &PhysicsP2ContactMaterial{self.Object.Call("createContactMaterial", materialA, materialB, options)}
 }
 
@@ -961,7 +1149,43 @@ func (self *PhysicsP2) GetConstraintsI(args ...interface{}) []PhysicsP2Constrain
 
 // Test if a world point overlaps bodies. You will get an array of actual P2 bodies back. You can find out which Sprite a Body belongs to
 // (if any) by checking the Body.parent.sprite property. Body.parent is a Phaser.Physics.P2.Body property.
-func (self *PhysicsP2) HitTest(worldPoint *Point, bodies []interface{}, precision int, filterStatic bool) []interface{}{
+func (self *PhysicsP2) HitTest(worldPoint *Point) []interface{}{
+	array00 := self.Object.Call("hitTest", worldPoint)
+	length00 := array00.Length()
+	out00 := make([]interface{}, length00, length00)
+	for i00 := 0; i00 < length00; i00++ {
+		out00[i00] = array00.Index(i00).Interface()
+	}
+	return out00
+}
+
+// Test if a world point overlaps bodies. You will get an array of actual P2 bodies back. You can find out which Sprite a Body belongs to
+// (if any) by checking the Body.parent.sprite property. Body.parent is a Phaser.Physics.P2.Body property.
+func (self *PhysicsP2) HitTest1O(worldPoint *Point, bodies []interface{}) []interface{}{
+	array00 := self.Object.Call("hitTest", worldPoint, bodies)
+	length00 := array00.Length()
+	out00 := make([]interface{}, length00, length00)
+	for i00 := 0; i00 < length00; i00++ {
+		out00[i00] = array00.Index(i00).Interface()
+	}
+	return out00
+}
+
+// Test if a world point overlaps bodies. You will get an array of actual P2 bodies back. You can find out which Sprite a Body belongs to
+// (if any) by checking the Body.parent.sprite property. Body.parent is a Phaser.Physics.P2.Body property.
+func (self *PhysicsP2) HitTest2O(worldPoint *Point, bodies []interface{}, precision int) []interface{}{
+	array00 := self.Object.Call("hitTest", worldPoint, bodies, precision)
+	length00 := array00.Length()
+	out00 := make([]interface{}, length00, length00)
+	for i00 := 0; i00 < length00; i00++ {
+		out00[i00] = array00.Index(i00).Interface()
+	}
+	return out00
+}
+
+// Test if a world point overlaps bodies. You will get an array of actual P2 bodies back. You can find out which Sprite a Body belongs to
+// (if any) by checking the Body.parent.sprite property. Body.parent is a Phaser.Physics.P2.Body property.
+func (self *PhysicsP2) HitTest3O(worldPoint *Point, bodies []interface{}, precision int, filterStatic bool) []interface{}{
 	array00 := self.Object.Call("hitTest", worldPoint, bodies, precision, filterStatic)
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
@@ -995,7 +1219,13 @@ func (self *PhysicsP2) ToJSONI(args ...interface{}) interface{}{
 
 // Creates a new Collision Group and optionally applies it to the given object.
 // Collision Groups are handled using bitmasks, therefore you have a fixed limit you can create before you need to re-use older groups.
-func (self *PhysicsP2) CreateCollisionGroup(object interface{}) {
+func (self *PhysicsP2) CreateCollisionGroup() {
+    self.Object.Call("createCollisionGroup")
+}
+
+// Creates a new Collision Group and optionally applies it to the given object.
+// Collision Groups are handled using bitmasks, therefore you have a fixed limit you can create before you need to re-use older groups.
+func (self *PhysicsP2) CreateCollisionGroup1O(object interface{}) {
     self.Object.Call("createCollisionGroup", object)
 }
 
@@ -1006,7 +1236,42 @@ func (self *PhysicsP2) CreateCollisionGroupI(args ...interface{}) {
 }
 
 // Creates a linear spring, connecting two bodies. A spring can have a resting length, a stiffness and damping.
-func (self *PhysicsP2) CreateSpring(bodyA interface{}, bodyB interface{}, restLength int, stiffness int, damping int, worldA []interface{}, worldB []interface{}, localA []interface{}, localB []interface{}) *PhysicsP2Spring{
+func (self *PhysicsP2) CreateSpring(bodyA interface{}, bodyB interface{}) *PhysicsP2Spring{
+    return &PhysicsP2Spring{self.Object.Call("createSpring", bodyA, bodyB)}
+}
+
+// Creates a linear spring, connecting two bodies. A spring can have a resting length, a stiffness and damping.
+func (self *PhysicsP2) CreateSpring1O(bodyA interface{}, bodyB interface{}, restLength int) *PhysicsP2Spring{
+    return &PhysicsP2Spring{self.Object.Call("createSpring", bodyA, bodyB, restLength)}
+}
+
+// Creates a linear spring, connecting two bodies. A spring can have a resting length, a stiffness and damping.
+func (self *PhysicsP2) CreateSpring2O(bodyA interface{}, bodyB interface{}, restLength int, stiffness int) *PhysicsP2Spring{
+    return &PhysicsP2Spring{self.Object.Call("createSpring", bodyA, bodyB, restLength, stiffness)}
+}
+
+// Creates a linear spring, connecting two bodies. A spring can have a resting length, a stiffness and damping.
+func (self *PhysicsP2) CreateSpring3O(bodyA interface{}, bodyB interface{}, restLength int, stiffness int, damping int) *PhysicsP2Spring{
+    return &PhysicsP2Spring{self.Object.Call("createSpring", bodyA, bodyB, restLength, stiffness, damping)}
+}
+
+// Creates a linear spring, connecting two bodies. A spring can have a resting length, a stiffness and damping.
+func (self *PhysicsP2) CreateSpring4O(bodyA interface{}, bodyB interface{}, restLength int, stiffness int, damping int, worldA []interface{}) *PhysicsP2Spring{
+    return &PhysicsP2Spring{self.Object.Call("createSpring", bodyA, bodyB, restLength, stiffness, damping, worldA)}
+}
+
+// Creates a linear spring, connecting two bodies. A spring can have a resting length, a stiffness and damping.
+func (self *PhysicsP2) CreateSpring5O(bodyA interface{}, bodyB interface{}, restLength int, stiffness int, damping int, worldA []interface{}, worldB []interface{}) *PhysicsP2Spring{
+    return &PhysicsP2Spring{self.Object.Call("createSpring", bodyA, bodyB, restLength, stiffness, damping, worldA, worldB)}
+}
+
+// Creates a linear spring, connecting two bodies. A spring can have a resting length, a stiffness and damping.
+func (self *PhysicsP2) CreateSpring6O(bodyA interface{}, bodyB interface{}, restLength int, stiffness int, damping int, worldA []interface{}, worldB []interface{}, localA []interface{}) *PhysicsP2Spring{
+    return &PhysicsP2Spring{self.Object.Call("createSpring", bodyA, bodyB, restLength, stiffness, damping, worldA, worldB, localA)}
+}
+
+// Creates a linear spring, connecting two bodies. A spring can have a resting length, a stiffness and damping.
+func (self *PhysicsP2) CreateSpring7O(bodyA interface{}, bodyB interface{}, restLength int, stiffness int, damping int, worldA []interface{}, worldB []interface{}, localA []interface{}, localB []interface{}) *PhysicsP2Spring{
     return &PhysicsP2Spring{self.Object.Call("createSpring", bodyA, bodyB, restLength, stiffness, damping, worldA, worldB, localA, localB)}
 }
 
@@ -1016,7 +1281,22 @@ func (self *PhysicsP2) CreateSpringI(args ...interface{}) *PhysicsP2Spring{
 }
 
 // Creates a rotational spring, connecting two bodies. A spring can have a resting length, a stiffness and damping.
-func (self *PhysicsP2) CreateRotationalSpring(bodyA interface{}, bodyB interface{}, restAngle int, stiffness int, damping int) *PhysicsP2RotationalSpring{
+func (self *PhysicsP2) CreateRotationalSpring(bodyA interface{}, bodyB interface{}) *PhysicsP2RotationalSpring{
+    return &PhysicsP2RotationalSpring{self.Object.Call("createRotationalSpring", bodyA, bodyB)}
+}
+
+// Creates a rotational spring, connecting two bodies. A spring can have a resting length, a stiffness and damping.
+func (self *PhysicsP2) CreateRotationalSpring1O(bodyA interface{}, bodyB interface{}, restAngle int) *PhysicsP2RotationalSpring{
+    return &PhysicsP2RotationalSpring{self.Object.Call("createRotationalSpring", bodyA, bodyB, restAngle)}
+}
+
+// Creates a rotational spring, connecting two bodies. A spring can have a resting length, a stiffness and damping.
+func (self *PhysicsP2) CreateRotationalSpring2O(bodyA interface{}, bodyB interface{}, restAngle int, stiffness int) *PhysicsP2RotationalSpring{
+    return &PhysicsP2RotationalSpring{self.Object.Call("createRotationalSpring", bodyA, bodyB, restAngle, stiffness)}
+}
+
+// Creates a rotational spring, connecting two bodies. A spring can have a resting length, a stiffness and damping.
+func (self *PhysicsP2) CreateRotationalSpring3O(bodyA interface{}, bodyB interface{}, restAngle int, stiffness int, damping int) *PhysicsP2RotationalSpring{
     return &PhysicsP2RotationalSpring{self.Object.Call("createRotationalSpring", bodyA, bodyB, restAngle, stiffness, damping)}
 }
 
@@ -1047,7 +1327,31 @@ func (self *PhysicsP2) CreateParticleI(args ...interface{}) {
 
 // Converts all of the polylines objects inside a Tiled ObjectGroup into physics bodies that are added to the world.
 // Note that the polylines must be created in such a way that they can withstand polygon decomposition.
-func (self *PhysicsP2) ConvertCollisionObjects(map_ *Tilemap, layer interface{}, addToWorld bool) []interface{}{
+func (self *PhysicsP2) ConvertCollisionObjects(map_ *Tilemap) []interface{}{
+	array00 := self.Object.Call("convertCollisionObjects", map_)
+	length00 := array00.Length()
+	out00 := make([]interface{}, length00, length00)
+	for i00 := 0; i00 < length00; i00++ {
+		out00[i00] = array00.Index(i00).Interface()
+	}
+	return out00
+}
+
+// Converts all of the polylines objects inside a Tiled ObjectGroup into physics bodies that are added to the world.
+// Note that the polylines must be created in such a way that they can withstand polygon decomposition.
+func (self *PhysicsP2) ConvertCollisionObjects1O(map_ *Tilemap, layer interface{}) []interface{}{
+	array00 := self.Object.Call("convertCollisionObjects", map_, layer)
+	length00 := array00.Length()
+	out00 := make([]interface{}, length00, length00)
+	for i00 := 0; i00 < length00; i00++ {
+		out00[i00] = array00.Index(i00).Interface()
+	}
+	return out00
+}
+
+// Converts all of the polylines objects inside a Tiled ObjectGroup into physics bodies that are added to the world.
+// Note that the polylines must be created in such a way that they can withstand polygon decomposition.
+func (self *PhysicsP2) ConvertCollisionObjects2O(map_ *Tilemap, layer interface{}, addToWorld bool) []interface{}{
 	array00 := self.Object.Call("convertCollisionObjects", map_, layer, addToWorld)
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
@@ -1070,7 +1374,12 @@ func (self *PhysicsP2) ConvertCollisionObjectsI(args ...interface{}) []interface
 }
 
 // Clears all physics bodies from the given TilemapLayer that were created with `World.convertTilemap`.
-func (self *PhysicsP2) ClearTilemapLayerBodies(map_ *Tilemap, layer interface{}) {
+func (self *PhysicsP2) ClearTilemapLayerBodies(map_ *Tilemap) {
+    self.Object.Call("clearTilemapLayerBodies", map_)
+}
+
+// Clears all physics bodies from the given TilemapLayer that were created with `World.convertTilemap`.
+func (self *PhysicsP2) ClearTilemapLayerBodies1O(map_ *Tilemap, layer interface{}) {
     self.Object.Call("clearTilemapLayerBodies", map_, layer)
 }
 
@@ -1083,7 +1392,49 @@ func (self *PhysicsP2) ClearTilemapLayerBodiesI(args ...interface{}) {
 // Only call this *after* you have specified all of the tiles you wish to collide with calls like Tilemap.setCollisionBetween, etc.
 // Every time you call this method it will destroy any previously created bodies and remove them from the world.
 // Therefore understand it's a very expensive operation and not to be done in a core game update loop.
-func (self *PhysicsP2) ConvertTilemap(map_ *Tilemap, layer interface{}, addToWorld bool, optimize bool) []interface{}{
+func (self *PhysicsP2) ConvertTilemap(map_ *Tilemap) []interface{}{
+	array00 := self.Object.Call("convertTilemap", map_)
+	length00 := array00.Length()
+	out00 := make([]interface{}, length00, length00)
+	for i00 := 0; i00 < length00; i00++ {
+		out00[i00] = array00.Index(i00).Interface()
+	}
+	return out00
+}
+
+// Goes through all tiles in the given Tilemap and TilemapLayer and converts those set to collide into physics bodies.
+// Only call this *after* you have specified all of the tiles you wish to collide with calls like Tilemap.setCollisionBetween, etc.
+// Every time you call this method it will destroy any previously created bodies and remove them from the world.
+// Therefore understand it's a very expensive operation and not to be done in a core game update loop.
+func (self *PhysicsP2) ConvertTilemap1O(map_ *Tilemap, layer interface{}) []interface{}{
+	array00 := self.Object.Call("convertTilemap", map_, layer)
+	length00 := array00.Length()
+	out00 := make([]interface{}, length00, length00)
+	for i00 := 0; i00 < length00; i00++ {
+		out00[i00] = array00.Index(i00).Interface()
+	}
+	return out00
+}
+
+// Goes through all tiles in the given Tilemap and TilemapLayer and converts those set to collide into physics bodies.
+// Only call this *after* you have specified all of the tiles you wish to collide with calls like Tilemap.setCollisionBetween, etc.
+// Every time you call this method it will destroy any previously created bodies and remove them from the world.
+// Therefore understand it's a very expensive operation and not to be done in a core game update loop.
+func (self *PhysicsP2) ConvertTilemap2O(map_ *Tilemap, layer interface{}, addToWorld bool) []interface{}{
+	array00 := self.Object.Call("convertTilemap", map_, layer, addToWorld)
+	length00 := array00.Length()
+	out00 := make([]interface{}, length00, length00)
+	for i00 := 0; i00 < length00; i00++ {
+		out00[i00] = array00.Index(i00).Interface()
+	}
+	return out00
+}
+
+// Goes through all tiles in the given Tilemap and TilemapLayer and converts those set to collide into physics bodies.
+// Only call this *after* you have specified all of the tiles you wish to collide with calls like Tilemap.setCollisionBetween, etc.
+// Every time you call this method it will destroy any previously created bodies and remove them from the world.
+// Therefore understand it's a very expensive operation and not to be done in a core game update loop.
+func (self *PhysicsP2) ConvertTilemap3O(map_ *Tilemap, layer interface{}, addToWorld bool, optimize bool) []interface{}{
 	array00 := self.Object.Call("convertTilemap", map_, layer, addToWorld, optimize)
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)

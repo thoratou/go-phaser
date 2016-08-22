@@ -87,7 +87,47 @@ func (self *ComponentLoadTexture) SetFrameNameA(member string) {
 // and swapping it to be the key of the atlas data.
 // 
 // Note: You cannot use a RenderTexture as a texture for a TileSprite.
-func (self *ComponentLoadTexture) LoadTexture(key interface{}, frame interface{}, stopAnimation bool) {
+func (self *ComponentLoadTexture) LoadTexture(key interface{}) {
+    self.Object.Call("loadTexture", key)
+}
+
+// Changes the base texture the Game Object is using. The old texture is removed and the new one is referenced or fetched from the Cache.
+// 
+// If your Game Object is using a frame from a texture atlas and you just wish to change to another frame, then see the `frame` or `frameName` properties instead.
+// 
+// You should only use `loadTexture` if you want to replace the base texture entirely.
+// 
+// Calling this method causes a WebGL texture update, so use sparingly or in low-intensity portions of your game, or if you know the new texture is already on the GPU.
+// 
+// You can use the new const `Phaser.PENDING_ATLAS` as the texture key for any sprite. 
+// Doing this then sets the key to be the `frame` argument (the frame is set to zero). 
+// 
+// This allows you to create sprites using `load.image` during development, and then change them 
+// to use a Texture Atlas later in development by simply searching your code for 'PENDING_ATLAS' 
+// and swapping it to be the key of the atlas data.
+// 
+// Note: You cannot use a RenderTexture as a texture for a TileSprite.
+func (self *ComponentLoadTexture) LoadTexture1O(key interface{}, frame interface{}) {
+    self.Object.Call("loadTexture", key, frame)
+}
+
+// Changes the base texture the Game Object is using. The old texture is removed and the new one is referenced or fetched from the Cache.
+// 
+// If your Game Object is using a frame from a texture atlas and you just wish to change to another frame, then see the `frame` or `frameName` properties instead.
+// 
+// You should only use `loadTexture` if you want to replace the base texture entirely.
+// 
+// Calling this method causes a WebGL texture update, so use sparingly or in low-intensity portions of your game, or if you know the new texture is already on the GPU.
+// 
+// You can use the new const `Phaser.PENDING_ATLAS` as the texture key for any sprite. 
+// Doing this then sets the key to be the `frame` argument (the frame is set to zero). 
+// 
+// This allows you to create sprites using `load.image` during development, and then change them 
+// to use a Texture Atlas later in development by simply searching your code for 'PENDING_ATLAS' 
+// and swapping it to be the key of the atlas data.
+// 
+// Note: You cannot use a RenderTexture as a texture for a TileSprite.
+func (self *ComponentLoadTexture) LoadTexture2O(key interface{}, frame interface{}, stopAnimation bool) {
     self.Object.Call("loadTexture", key, frame, stopAnimation)
 }
 

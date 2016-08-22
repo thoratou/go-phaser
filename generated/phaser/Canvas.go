@@ -19,7 +19,27 @@ type Canvas struct {
 
 
 // Creates a `canvas` DOM element. The element is not automatically added to the document.
-func (self *Canvas) Create(parent interface{}, width int, height int, id string, skipPool bool) dom.HTMLCanvasElement{
+func (self *Canvas) Create(parent interface{}) dom.HTMLCanvasElement{
+    return WrapHTMLCanvasElement(self.Object.Call("create", parent))
+}
+
+// Creates a `canvas` DOM element. The element is not automatically added to the document.
+func (self *Canvas) Create1O(parent interface{}, width int) dom.HTMLCanvasElement{
+    return WrapHTMLCanvasElement(self.Object.Call("create", parent, width))
+}
+
+// Creates a `canvas` DOM element. The element is not automatically added to the document.
+func (self *Canvas) Create2O(parent interface{}, width int, height int) dom.HTMLCanvasElement{
+    return WrapHTMLCanvasElement(self.Object.Call("create", parent, width, height))
+}
+
+// Creates a `canvas` DOM element. The element is not automatically added to the document.
+func (self *Canvas) Create3O(parent interface{}, width int, height int, id string) dom.HTMLCanvasElement{
+    return WrapHTMLCanvasElement(self.Object.Call("create", parent, width, height, id))
+}
+
+// Creates a `canvas` DOM element. The element is not automatically added to the document.
+func (self *Canvas) Create4O(parent interface{}, width int, height int, id string, skipPool bool) dom.HTMLCanvasElement{
     return WrapHTMLCanvasElement(self.Object.Call("create", parent, width, height, id, skipPool))
 }
 
@@ -29,7 +49,12 @@ func (self *Canvas) CreateI(args ...interface{}) dom.HTMLCanvasElement{
 }
 
 // Sets the background color behind the canvas. This changes the canvas style property.
-func (self *Canvas) SetBackgroundColor(canvas *dom.HTMLCanvasElement, color string) dom.HTMLCanvasElement{
+func (self *Canvas) SetBackgroundColor(canvas *dom.HTMLCanvasElement) dom.HTMLCanvasElement{
+    return WrapHTMLCanvasElement(self.Object.Call("setBackgroundColor", canvas))
+}
+
+// Sets the background color behind the canvas. This changes the canvas style property.
+func (self *Canvas) SetBackgroundColor1O(canvas *dom.HTMLCanvasElement, color string) dom.HTMLCanvasElement{
     return WrapHTMLCanvasElement(self.Object.Call("setBackgroundColor", canvas, color))
 }
 
@@ -39,7 +64,12 @@ func (self *Canvas) SetBackgroundColorI(args ...interface{}) dom.HTMLCanvasEleme
 }
 
 // Sets the touch-action property on the canvas style. Can be used to disable default browser touch actions.
-func (self *Canvas) SetTouchAction(canvas *dom.HTMLCanvasElement, value string) dom.HTMLCanvasElement{
+func (self *Canvas) SetTouchAction(canvas *dom.HTMLCanvasElement) dom.HTMLCanvasElement{
+    return WrapHTMLCanvasElement(self.Object.Call("setTouchAction", canvas))
+}
+
+// Sets the touch-action property on the canvas style. Can be used to disable default browser touch actions.
+func (self *Canvas) SetTouchAction1O(canvas *dom.HTMLCanvasElement, value string) dom.HTMLCanvasElement{
     return WrapHTMLCanvasElement(self.Object.Call("setTouchAction", canvas, value))
 }
 
@@ -49,7 +79,12 @@ func (self *Canvas) SetTouchActionI(args ...interface{}) dom.HTMLCanvasElement{
 }
 
 // Sets the user-select property on the canvas style. Can be used to disable default browser selection actions.
-func (self *Canvas) SetUserSelect(canvas *dom.HTMLCanvasElement, value string) dom.HTMLCanvasElement{
+func (self *Canvas) SetUserSelect(canvas *dom.HTMLCanvasElement) dom.HTMLCanvasElement{
+    return WrapHTMLCanvasElement(self.Object.Call("setUserSelect", canvas))
+}
+
+// Sets the user-select property on the canvas style. Can be used to disable default browser selection actions.
+func (self *Canvas) SetUserSelect1O(canvas *dom.HTMLCanvasElement, value string) dom.HTMLCanvasElement{
     return WrapHTMLCanvasElement(self.Object.Call("setUserSelect", canvas, value))
 }
 
@@ -60,7 +95,13 @@ func (self *Canvas) SetUserSelectI(args ...interface{}) dom.HTMLCanvasElement{
 
 // Adds the given canvas element to the DOM. The canvas will be added as a child of the given parent.
 // If no parent is given it will be added as a child of the document.body.
-func (self *Canvas) AddToDOM(canvas *dom.HTMLCanvasElement, parent interface{}, overflowHidden bool) dom.HTMLCanvasElement{
+func (self *Canvas) AddToDOM(canvas *dom.HTMLCanvasElement, parent interface{}) dom.HTMLCanvasElement{
+    return WrapHTMLCanvasElement(self.Object.Call("addToDOM", canvas, parent))
+}
+
+// Adds the given canvas element to the DOM. The canvas will be added as a child of the given parent.
+// If no parent is given it will be added as a child of the document.body.
+func (self *Canvas) AddToDOM1O(canvas *dom.HTMLCanvasElement, parent interface{}, overflowHidden bool) dom.HTMLCanvasElement{
     return WrapHTMLCanvasElement(self.Object.Call("addToDOM", canvas, parent, overflowHidden))
 }
 

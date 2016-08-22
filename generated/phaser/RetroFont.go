@@ -504,7 +504,13 @@ func (self *RetroFont) SetRequiresReTintA(member bool) {
 
 // If you need this RetroFont to have a fixed width and custom alignment you can set the width here.
 // If text is wider than the width specified it will be cropped off.
-func (self *RetroFont) SetFixedWidth(width int, lineAlignment string) {
+func (self *RetroFont) SetFixedWidth(width int) {
+    self.Object.Call("setFixedWidth", width)
+}
+
+// If you need this RetroFont to have a fixed width and custom alignment you can set the width here.
+// If text is wider than the width specified it will be cropped off.
+func (self *RetroFont) SetFixedWidth1O(width int, lineAlignment string) {
     self.Object.Call("setFixedWidth", width, lineAlignment)
 }
 
@@ -515,7 +521,32 @@ func (self *RetroFont) SetFixedWidthI(args ...interface{}) {
 }
 
 // A helper function that quickly sets lots of variables at once, and then updates the text.
-func (self *RetroFont) SetText(content string, multiLine bool, characterSpacing int, lineSpacing int, lineAlignment string, allowLowerCase bool) {
+func (self *RetroFont) SetText(content string) {
+    self.Object.Call("setText", content)
+}
+
+// A helper function that quickly sets lots of variables at once, and then updates the text.
+func (self *RetroFont) SetText1O(content string, multiLine bool) {
+    self.Object.Call("setText", content, multiLine)
+}
+
+// A helper function that quickly sets lots of variables at once, and then updates the text.
+func (self *RetroFont) SetText2O(content string, multiLine bool, characterSpacing int) {
+    self.Object.Call("setText", content, multiLine, characterSpacing)
+}
+
+// A helper function that quickly sets lots of variables at once, and then updates the text.
+func (self *RetroFont) SetText3O(content string, multiLine bool, characterSpacing int, lineSpacing int) {
+    self.Object.Call("setText", content, multiLine, characterSpacing, lineSpacing)
+}
+
+// A helper function that quickly sets lots of variables at once, and then updates the text.
+func (self *RetroFont) SetText4O(content string, multiLine bool, characterSpacing int, lineSpacing int, lineAlignment string) {
+    self.Object.Call("setText", content, multiLine, characterSpacing, lineSpacing, lineAlignment)
+}
+
+// A helper function that quickly sets lots of variables at once, and then updates the text.
+func (self *RetroFont) SetText5O(content string, multiLine bool, characterSpacing int, lineSpacing int, lineAlignment string, allowLowerCase bool) {
     self.Object.Call("setText", content, multiLine, characterSpacing, lineSpacing, lineAlignment, allowLowerCase)
 }
 
@@ -557,7 +588,12 @@ func (self *RetroFont) GetLongestLineI(args ...interface{}) int{
 }
 
 // Internal helper function that removes all unsupported characters from the _text String, leaving only characters contained in the font set.
-func (self *RetroFont) RemoveUnsupportedCharacters(stripCR bool) string{
+func (self *RetroFont) RemoveUnsupportedCharacters() string{
+    return self.Object.Call("removeUnsupportedCharacters").String()
+}
+
+// Internal helper function that removes all unsupported characters from the _text String, leaving only characters contained in the font set.
+func (self *RetroFont) RemoveUnsupportedCharacters1O(stripCR bool) string{
     return self.Object.Call("removeUnsupportedCharacters", stripCR).String()
 }
 
@@ -569,7 +605,21 @@ func (self *RetroFont) RemoveUnsupportedCharactersI(args ...interface{}) string{
 // Updates the x and/or y offset that the font is rendered from. This updates all of the texture frames, so be careful how often it is called.
 // Note that the values given for the x and y properties are either ADDED to or SUBTRACTED from (if negative) the existing offsetX/Y values of the characters.
 // So if the current offsetY is 8 and you want it to start rendering from y16 you would call updateOffset(0, 8) to add 8 to the current y offset.
-func (self *RetroFont) UpdateOffset(xOffset int, yOffset int) {
+func (self *RetroFont) UpdateOffset() {
+    self.Object.Call("updateOffset")
+}
+
+// Updates the x and/or y offset that the font is rendered from. This updates all of the texture frames, so be careful how often it is called.
+// Note that the values given for the x and y properties are either ADDED to or SUBTRACTED from (if negative) the existing offsetX/Y values of the characters.
+// So if the current offsetY is 8 and you want it to start rendering from y16 you would call updateOffset(0, 8) to add 8 to the current y offset.
+func (self *RetroFont) UpdateOffset1O(xOffset int) {
+    self.Object.Call("updateOffset", xOffset)
+}
+
+// Updates the x and/or y offset that the font is rendered from. This updates all of the texture frames, so be careful how often it is called.
+// Note that the values given for the x and y properties are either ADDED to or SUBTRACTED from (if negative) the existing offsetX/Y values of the characters.
+// So if the current offsetY is 8 and you want it to start rendering from y16 you would call updateOffset(0, 8) to add 8 to the current y offset.
+func (self *RetroFont) UpdateOffset2O(xOffset int, yOffset int) {
     self.Object.Call("updateOffset", xOffset, yOffset)
 }
 
@@ -585,7 +635,16 @@ func (self *RetroFont) UpdateOffsetI(args ...interface{}) {
 // When the display object is drawn it takes into account scale and rotation.
 // 
 // If you don't want those then use RenderTexture.renderRawXY instead.
-func (self *RetroFont) RenderXY(displayObject interface{}, x int, y int, clear bool) {
+func (self *RetroFont) RenderXY(displayObject interface{}, x int, y int) {
+    self.Object.Call("renderXY", displayObject, x, y)
+}
+
+// This function will draw the display object to the RenderTexture at the given coordinates.
+// 
+// When the display object is drawn it takes into account scale and rotation.
+// 
+// If you don't want those then use RenderTexture.renderRawXY instead.
+func (self *RetroFont) RenderXY1O(displayObject interface{}, x int, y int, clear bool) {
     self.Object.Call("renderXY", displayObject, x, y, clear)
 }
 
@@ -603,7 +662,16 @@ func (self *RetroFont) RenderXYI(args ...interface{}) {
 // When the display object is drawn it doesn't take into account scale, rotation or translation.
 // 
 // If you need those then use RenderTexture.renderXY instead.
-func (self *RetroFont) RenderRawXY(displayObject interface{}, x int, y int, clear bool) {
+func (self *RetroFont) RenderRawXY(displayObject interface{}, x int, y int) {
+    self.Object.Call("renderRawXY", displayObject, x, y)
+}
+
+// This function will draw the display object to the RenderTexture at the given coordinates.
+// 
+// When the display object is drawn it doesn't take into account scale, rotation or translation.
+// 
+// If you need those then use RenderTexture.renderXY instead.
+func (self *RetroFont) RenderRawXY1O(displayObject interface{}, x int, y int, clear bool) {
     self.Object.Call("renderRawXY", displayObject, x, y, clear)
 }
 
@@ -624,7 +692,31 @@ func (self *RetroFont) RenderRawXYI(args ...interface{}) {
 // 
 // If you wish for the displayObject to be rendered taking its current scale, rotation and translation into account then either
 // pass `null`, leave it undefined or pass `displayObject.worldTransform` as the matrix value.
-func (self *RetroFont) Render(displayObject interface{}, matrix *Matrix, clear bool) {
+func (self *RetroFont) Render(displayObject interface{}) {
+    self.Object.Call("render", displayObject)
+}
+
+// This function will draw the display object to the RenderTexture.
+// 
+// In versions of Phaser prior to 2.4.0 the second parameter was a Phaser.Point object. 
+// This is now a Matrix allowing you much more control over how the Display Object is rendered.
+// If you need to replicate the earlier behavior please use Phaser.RenderTexture.renderXY instead.
+// 
+// If you wish for the displayObject to be rendered taking its current scale, rotation and translation into account then either
+// pass `null`, leave it undefined or pass `displayObject.worldTransform` as the matrix value.
+func (self *RetroFont) Render1O(displayObject interface{}, matrix *Matrix) {
+    self.Object.Call("render", displayObject, matrix)
+}
+
+// This function will draw the display object to the RenderTexture.
+// 
+// In versions of Phaser prior to 2.4.0 the second parameter was a Phaser.Point object. 
+// This is now a Matrix allowing you much more control over how the Display Object is rendered.
+// If you need to replicate the earlier behavior please use Phaser.RenderTexture.renderXY instead.
+// 
+// If you wish for the displayObject to be rendered taking its current scale, rotation and translation into account then either
+// pass `null`, leave it undefined or pass `displayObject.worldTransform` as the matrix value.
+func (self *RetroFont) Render2O(displayObject interface{}, matrix *Matrix, clear bool) {
     self.Object.Call("render", displayObject, matrix, clear)
 }
 
@@ -661,7 +753,17 @@ func (self *RetroFont) ClearI(args ...interface{}) {
 }
 
 // This function will draw the display object to the texture.
-func (self *RetroFont) RenderWebGL(displayObject *DisplayObject, matrix *Matrix, clear bool) {
+func (self *RetroFont) RenderWebGL(displayObject *DisplayObject) {
+    self.Object.Call("renderWebGL", displayObject)
+}
+
+// This function will draw the display object to the texture.
+func (self *RetroFont) RenderWebGL1O(displayObject *DisplayObject, matrix *Matrix) {
+    self.Object.Call("renderWebGL", displayObject, matrix)
+}
+
+// This function will draw the display object to the texture.
+func (self *RetroFont) RenderWebGL2O(displayObject *DisplayObject, matrix *Matrix, clear bool) {
     self.Object.Call("renderWebGL", displayObject, matrix, clear)
 }
 
@@ -671,7 +773,17 @@ func (self *RetroFont) RenderWebGLI(args ...interface{}) {
 }
 
 // This function will draw the display object to the texture.
-func (self *RetroFont) RenderCanvas(displayObject *DisplayObject, matrix *Matrix, clear bool) {
+func (self *RetroFont) RenderCanvas(displayObject *DisplayObject) {
+    self.Object.Call("renderCanvas", displayObject)
+}
+
+// This function will draw the display object to the texture.
+func (self *RetroFont) RenderCanvas1O(displayObject *DisplayObject, matrix *Matrix) {
+    self.Object.Call("renderCanvas", displayObject, matrix)
+}
+
+// This function will draw the display object to the texture.
+func (self *RetroFont) RenderCanvas2O(displayObject *DisplayObject, matrix *Matrix, clear bool) {
     self.Object.Call("renderCanvas", displayObject, matrix, clear)
 }
 

@@ -178,7 +178,12 @@ func (self *Ellipse) ContainsI(args ...interface{}) bool{
 }
 
 // Returns a uniformly distributed random point from anywhere within this Ellipse.
-func (self *Ellipse) Random(out interface{}) *Point{
+func (self *Ellipse) Random() *Point{
+    return &Point{self.Object.Call("random")}
+}
+
+// Returns a uniformly distributed random point from anywhere within this Ellipse.
+func (self *Ellipse) Random1O(out interface{}) *Point{
     return &Point{self.Object.Call("random", out)}
 }
 

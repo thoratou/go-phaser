@@ -102,7 +102,13 @@ func (self *PhysicsNinja) SetQuadTreeA(member *QuadTree) {
 
 // This will create a Ninja Physics AABB body on the given game object. Its dimensions will match the width and height of the object at the point it is created.
 // A game object can only have 1 physics body active at any one time, and it can't be changed until the object is destroyed.
-func (self *PhysicsNinja) EnableAABB(object interface{}, children bool) {
+func (self *PhysicsNinja) EnableAABB(object interface{}) {
+    self.Object.Call("enableAABB", object)
+}
+
+// This will create a Ninja Physics AABB body on the given game object. Its dimensions will match the width and height of the object at the point it is created.
+// A game object can only have 1 physics body active at any one time, and it can't be changed until the object is destroyed.
+func (self *PhysicsNinja) EnableAABB1O(object interface{}, children bool) {
     self.Object.Call("enableAABB", object, children)
 }
 
@@ -114,7 +120,13 @@ func (self *PhysicsNinja) EnableAABBI(args ...interface{}) {
 
 // This will create a Ninja Physics Circle body on the given game object.
 // A game object can only have 1 physics body active at any one time, and it can't be changed until the object is destroyed.
-func (self *PhysicsNinja) EnableCircle(object interface{}, radius int, children bool) {
+func (self *PhysicsNinja) EnableCircle(object interface{}, radius int) {
+    self.Object.Call("enableCircle", object, radius)
+}
+
+// This will create a Ninja Physics Circle body on the given game object.
+// A game object can only have 1 physics body active at any one time, and it can't be changed until the object is destroyed.
+func (self *PhysicsNinja) EnableCircle1O(object interface{}, radius int, children bool) {
     self.Object.Call("enableCircle", object, radius, children)
 }
 
@@ -128,7 +140,23 @@ func (self *PhysicsNinja) EnableCircleI(args ...interface{}) {
 // convex and concave circles and more. The id parameter controls which Tile type is created, but you can also change it at run-time.
 // Note that for all degree based tile types they need to have an equal width and height. If the given object doesn't have equal width and height it will use the width.
 // A game object can only have 1 physics body active at any one time, and it can't be changed until the object is destroyed.
-func (self *PhysicsNinja) EnableTile(object interface{}, id int, children bool) {
+func (self *PhysicsNinja) EnableTile(object interface{}) {
+    self.Object.Call("enableTile", object)
+}
+
+// This will create a Ninja Physics Tile body on the given game object. There are 34 different types of tile you can create, including 45 degree slopes,
+// convex and concave circles and more. The id parameter controls which Tile type is created, but you can also change it at run-time.
+// Note that for all degree based tile types they need to have an equal width and height. If the given object doesn't have equal width and height it will use the width.
+// A game object can only have 1 physics body active at any one time, and it can't be changed until the object is destroyed.
+func (self *PhysicsNinja) EnableTile1O(object interface{}, id int) {
+    self.Object.Call("enableTile", object, id)
+}
+
+// This will create a Ninja Physics Tile body on the given game object. There are 34 different types of tile you can create, including 45 degree slopes,
+// convex and concave circles and more. The id parameter controls which Tile type is created, but you can also change it at run-time.
+// Note that for all degree based tile types they need to have an equal width and height. If the given object doesn't have equal width and height it will use the width.
+// A game object can only have 1 physics body active at any one time, and it can't be changed until the object is destroyed.
+func (self *PhysicsNinja) EnableTile2O(object interface{}, id int, children bool) {
     self.Object.Call("enableTile", object, id, children)
 }
 
@@ -142,7 +170,31 @@ func (self *PhysicsNinja) EnableTileI(args ...interface{}) {
 
 // This will create a Ninja Physics body on the given game object or array of game objects.
 // A game object can only have 1 physics body active at any one time, and it can't be changed until the object is destroyed.
-func (self *PhysicsNinja) Enable(object interface{}, type_ int, id int, radius int, children bool) {
+func (self *PhysicsNinja) Enable(object interface{}) {
+    self.Object.Call("enable", object)
+}
+
+// This will create a Ninja Physics body on the given game object or array of game objects.
+// A game object can only have 1 physics body active at any one time, and it can't be changed until the object is destroyed.
+func (self *PhysicsNinja) Enable1O(object interface{}, type_ int) {
+    self.Object.Call("enable", object, type_)
+}
+
+// This will create a Ninja Physics body on the given game object or array of game objects.
+// A game object can only have 1 physics body active at any one time, and it can't be changed until the object is destroyed.
+func (self *PhysicsNinja) Enable2O(object interface{}, type_ int, id int) {
+    self.Object.Call("enable", object, type_, id)
+}
+
+// This will create a Ninja Physics body on the given game object or array of game objects.
+// A game object can only have 1 physics body active at any one time, and it can't be changed until the object is destroyed.
+func (self *PhysicsNinja) Enable3O(object interface{}, type_ int, id int, radius int) {
+    self.Object.Call("enable", object, type_, id, radius)
+}
+
+// This will create a Ninja Physics body on the given game object or array of game objects.
+// A game object can only have 1 physics body active at any one time, and it can't be changed until the object is destroyed.
+func (self *PhysicsNinja) Enable4O(object interface{}, type_ int, id int, radius int, children bool) {
     self.Object.Call("enable", object, type_, id, radius, children)
 }
 
@@ -185,7 +237,12 @@ func (self *PhysicsNinja) SetBoundsToWorldI(args ...interface{}) {
 }
 
 // Clears all physics bodies from the given TilemapLayer that were created with `World.convertTilemap`.
-func (self *PhysicsNinja) ClearTilemapLayerBodies(map_ *Tilemap, layer interface{}) {
+func (self *PhysicsNinja) ClearTilemapLayerBodies(map_ *Tilemap) {
+    self.Object.Call("clearTilemapLayerBodies", map_)
+}
+
+// Clears all physics bodies from the given TilemapLayer that were created with `World.convertTilemap`.
+func (self *PhysicsNinja) ClearTilemapLayerBodies1O(map_ *Tilemap, layer interface{}) {
     self.Object.Call("clearTilemapLayerBodies", map_, layer)
 }
 
@@ -240,7 +297,31 @@ func (self *PhysicsNinja) ConvertTilemapI(args ...interface{}) []interface{}{
 // You can perform Sprite vs. Sprite, Sprite vs. Group and Group vs. Group overlap checks.
 // Unlike collide the objects are NOT automatically separated or have any physics applied, they merely test for overlap results.
 // The second parameter can be an array of objects, of differing types.
-func (self *PhysicsNinja) Overlap(object1 interface{}, object2 interface{}, overlapCallback func(...interface{}), processCallback func(...interface{}), callbackContext interface{}) bool{
+func (self *PhysicsNinja) Overlap(object1 interface{}, object2 interface{}) bool{
+    return self.Object.Call("overlap", object1, object2).Bool()
+}
+
+// Checks for overlaps between two game objects. The objects can be Sprites, Groups or Emitters.
+// You can perform Sprite vs. Sprite, Sprite vs. Group and Group vs. Group overlap checks.
+// Unlike collide the objects are NOT automatically separated or have any physics applied, they merely test for overlap results.
+// The second parameter can be an array of objects, of differing types.
+func (self *PhysicsNinja) Overlap1O(object1 interface{}, object2 interface{}, overlapCallback func(...interface{})) bool{
+    return self.Object.Call("overlap", object1, object2, overlapCallback).Bool()
+}
+
+// Checks for overlaps between two game objects. The objects can be Sprites, Groups or Emitters.
+// You can perform Sprite vs. Sprite, Sprite vs. Group and Group vs. Group overlap checks.
+// Unlike collide the objects are NOT automatically separated or have any physics applied, they merely test for overlap results.
+// The second parameter can be an array of objects, of differing types.
+func (self *PhysicsNinja) Overlap2O(object1 interface{}, object2 interface{}, overlapCallback func(...interface{}), processCallback func(...interface{})) bool{
+    return self.Object.Call("overlap", object1, object2, overlapCallback, processCallback).Bool()
+}
+
+// Checks for overlaps between two game objects. The objects can be Sprites, Groups or Emitters.
+// You can perform Sprite vs. Sprite, Sprite vs. Group and Group vs. Group overlap checks.
+// Unlike collide the objects are NOT automatically separated or have any physics applied, they merely test for overlap results.
+// The second parameter can be an array of objects, of differing types.
+func (self *PhysicsNinja) Overlap3O(object1 interface{}, object2 interface{}, overlapCallback func(...interface{}), processCallback func(...interface{}), callbackContext interface{}) bool{
     return self.Object.Call("overlap", object1, object2, overlapCallback, processCallback, callbackContext).Bool()
 }
 
@@ -258,7 +339,37 @@ func (self *PhysicsNinja) OverlapI(args ...interface{}) bool{
 // An optional processCallback can be provided. If given this function will be called when two sprites are found to be colliding. It is called before any separation takes place,
 // giving you the chance to perform additional checks. If the function returns true then the collision and separation is carried out. If it returns false it is skipped.
 // The collideCallback is an optional function that is only called if two sprites collide. If a processCallback has been set then it needs to return true for collideCallback to be called.
-func (self *PhysicsNinja) Collide(object1 interface{}, object2 interface{}, collideCallback func(...interface{}), processCallback func(...interface{}), callbackContext interface{}) bool{
+func (self *PhysicsNinja) Collide(object1 interface{}, object2 interface{}) bool{
+    return self.Object.Call("collide", object1, object2).Bool()
+}
+
+// Checks for collision between two game objects. You can perform Sprite vs. Sprite, Sprite vs. Group, Group vs. Group, Sprite vs. Tilemap Layer or Group vs. Tilemap Layer collisions.
+// The second parameter can be an array of objects, of differing types.
+// The objects are also automatically separated. If you don't require separation then use ArcadePhysics.overlap instead.
+// An optional processCallback can be provided. If given this function will be called when two sprites are found to be colliding. It is called before any separation takes place,
+// giving you the chance to perform additional checks. If the function returns true then the collision and separation is carried out. If it returns false it is skipped.
+// The collideCallback is an optional function that is only called if two sprites collide. If a processCallback has been set then it needs to return true for collideCallback to be called.
+func (self *PhysicsNinja) Collide1O(object1 interface{}, object2 interface{}, collideCallback func(...interface{})) bool{
+    return self.Object.Call("collide", object1, object2, collideCallback).Bool()
+}
+
+// Checks for collision between two game objects. You can perform Sprite vs. Sprite, Sprite vs. Group, Group vs. Group, Sprite vs. Tilemap Layer or Group vs. Tilemap Layer collisions.
+// The second parameter can be an array of objects, of differing types.
+// The objects are also automatically separated. If you don't require separation then use ArcadePhysics.overlap instead.
+// An optional processCallback can be provided. If given this function will be called when two sprites are found to be colliding. It is called before any separation takes place,
+// giving you the chance to perform additional checks. If the function returns true then the collision and separation is carried out. If it returns false it is skipped.
+// The collideCallback is an optional function that is only called if two sprites collide. If a processCallback has been set then it needs to return true for collideCallback to be called.
+func (self *PhysicsNinja) Collide2O(object1 interface{}, object2 interface{}, collideCallback func(...interface{}), processCallback func(...interface{})) bool{
+    return self.Object.Call("collide", object1, object2, collideCallback, processCallback).Bool()
+}
+
+// Checks for collision between two game objects. You can perform Sprite vs. Sprite, Sprite vs. Group, Group vs. Group, Sprite vs. Tilemap Layer or Group vs. Tilemap Layer collisions.
+// The second parameter can be an array of objects, of differing types.
+// The objects are also automatically separated. If you don't require separation then use ArcadePhysics.overlap instead.
+// An optional processCallback can be provided. If given this function will be called when two sprites are found to be colliding. It is called before any separation takes place,
+// giving you the chance to perform additional checks. If the function returns true then the collision and separation is carried out. If it returns false it is skipped.
+// The collideCallback is an optional function that is only called if two sprites collide. If a processCallback has been set then it needs to return true for collideCallback to be called.
+func (self *PhysicsNinja) Collide3O(object1 interface{}, object2 interface{}, collideCallback func(...interface{}), processCallback func(...interface{}), callbackContext interface{}) bool{
     return self.Object.Call("collide", object1, object2, collideCallback, processCallback, callbackContext).Bool()
 }
 

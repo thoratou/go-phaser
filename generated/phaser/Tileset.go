@@ -166,7 +166,17 @@ func (self *Tileset) SetImageI(args ...interface{}) {
 }
 
 // Sets tile spacing and margins.
-func (self *Tileset) SetSpacing(margin int, spacing int) {
+func (self *Tileset) SetSpacing() {
+    self.Object.Call("setSpacing")
+}
+
+// Sets tile spacing and margins.
+func (self *Tileset) SetSpacing1O(margin int) {
+    self.Object.Call("setSpacing", margin)
+}
+
+// Sets tile spacing and margins.
+func (self *Tileset) SetSpacing2O(margin int, spacing int) {
     self.Object.Call("setSpacing", margin, spacing)
 }
 

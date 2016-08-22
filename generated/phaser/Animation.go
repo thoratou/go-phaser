@@ -236,7 +236,22 @@ func (self *Animation) SetEnableUpdateA(member bool) {
 
 
 // Plays this animation.
-func (self *Animation) Play(frameRate int, loop bool, killOnComplete bool) *Animation{
+func (self *Animation) Play() *Animation{
+    return &Animation{self.Object.Call("play")}
+}
+
+// Plays this animation.
+func (self *Animation) Play1O(frameRate int) *Animation{
+    return &Animation{self.Object.Call("play", frameRate)}
+}
+
+// Plays this animation.
+func (self *Animation) Play2O(frameRate int, loop bool) *Animation{
+    return &Animation{self.Object.Call("play", frameRate, loop)}
+}
+
+// Plays this animation.
+func (self *Animation) Play3O(frameRate int, loop bool, killOnComplete bool) *Animation{
     return &Animation{self.Object.Call("play", frameRate, loop, killOnComplete)}
 }
 
@@ -280,7 +295,17 @@ func (self *Animation) ReverseOnceI(args ...interface{}) *Animation{
 }
 
 // Sets this animations playback to a given frame with the given ID.
-func (self *Animation) SetFrame(frameId interface{}, useLocalFrameIndex bool) {
+func (self *Animation) SetFrame() {
+    self.Object.Call("setFrame")
+}
+
+// Sets this animations playback to a given frame with the given ID.
+func (self *Animation) SetFrame1O(frameId interface{}) {
+    self.Object.Call("setFrame", frameId)
+}
+
+// Sets this animations playback to a given frame with the given ID.
+func (self *Animation) SetFrame2O(frameId interface{}, useLocalFrameIndex bool) {
     self.Object.Call("setFrame", frameId, useLocalFrameIndex)
 }
 
@@ -291,7 +316,19 @@ func (self *Animation) SetFrameI(args ...interface{}) {
 
 // Stops playback of this animation and set it to a finished state. If a resetFrame is provided it will stop playback and set frame to the first in the animation.
 // If `dispatchComplete` is true it will dispatch the complete events, otherwise they'll be ignored.
-func (self *Animation) Stop(resetFrame bool, dispatchComplete bool) {
+func (self *Animation) Stop() {
+    self.Object.Call("stop")
+}
+
+// Stops playback of this animation and set it to a finished state. If a resetFrame is provided it will stop playback and set frame to the first in the animation.
+// If `dispatchComplete` is true it will dispatch the complete events, otherwise they'll be ignored.
+func (self *Animation) Stop1O(resetFrame bool) {
+    self.Object.Call("stop", resetFrame)
+}
+
+// Stops playback of this animation and set it to a finished state. If a resetFrame is provided it will stop playback and set frame to the first in the animation.
+// If `dispatchComplete` is true it will dispatch the complete events, otherwise they'll be ignored.
+func (self *Animation) Stop2O(resetFrame bool, dispatchComplete bool) {
     self.Object.Call("stop", resetFrame, dispatchComplete)
 }
 
@@ -348,7 +385,12 @@ func (self *Animation) UpdateCurrentFrameI(args ...interface{}) bool{
 }
 
 // Advances by the given number of frames in the Animation, taking the loop value into consideration.
-func (self *Animation) Next(quantity int) {
+func (self *Animation) Next() {
+    self.Object.Call("next")
+}
+
+// Advances by the given number of frames in the Animation, taking the loop value into consideration.
+func (self *Animation) Next1O(quantity int) {
     self.Object.Call("next", quantity)
 }
 
@@ -358,7 +400,12 @@ func (self *Animation) NextI(args ...interface{}) {
 }
 
 // Moves backwards the given number of frames in the Animation, taking the loop value into consideration.
-func (self *Animation) Previous(quantity int) {
+func (self *Animation) Previous() {
+    self.Object.Call("previous")
+}
+
+// Moves backwards the given number of frames in the Animation, taking the loop value into consideration.
+func (self *Animation) Previous1O(quantity int) {
     self.Object.Call("previous", quantity)
 }
 
@@ -402,7 +449,35 @@ func (self *Animation) CompleteI(args ...interface{}) {
 // Really handy function for when you are creating arrays of animation data but it's using frame names and not numbers.
 // For example imagine you've got 30 frames named: 'explosion_0001-large' to 'explosion_0030-large'
 // You could use this function to generate those by doing: Phaser.Animation.generateFrameNames('explosion_', 1, 30, '-large', 4);
-func (self *Animation) GenerateFrameNames(prefix string, start int, stop int, suffix string, zeroPad int) []string{
+func (self *Animation) GenerateFrameNames(prefix string, start int, stop int) []string{
+	array00 := self.Object.Call("generateFrameNames", prefix, start, stop)
+	length00 := array00.Length()
+	out00 := make([]string, length00, length00)
+	for i00 := 0; i00 < length00; i00++ {
+		out00[i00] = array00.Index(i00).String()
+		
+	}
+	return out00
+}
+
+// Really handy function for when you are creating arrays of animation data but it's using frame names and not numbers.
+// For example imagine you've got 30 frames named: 'explosion_0001-large' to 'explosion_0030-large'
+// You could use this function to generate those by doing: Phaser.Animation.generateFrameNames('explosion_', 1, 30, '-large', 4);
+func (self *Animation) GenerateFrameNames1O(prefix string, start int, stop int, suffix string) []string{
+	array00 := self.Object.Call("generateFrameNames", prefix, start, stop, suffix)
+	length00 := array00.Length()
+	out00 := make([]string, length00, length00)
+	for i00 := 0; i00 < length00; i00++ {
+		out00[i00] = array00.Index(i00).String()
+		
+	}
+	return out00
+}
+
+// Really handy function for when you are creating arrays of animation data but it's using frame names and not numbers.
+// For example imagine you've got 30 frames named: 'explosion_0001-large' to 'explosion_0030-large'
+// You could use this function to generate those by doing: Phaser.Animation.generateFrameNames('explosion_', 1, 30, '-large', 4);
+func (self *Animation) GenerateFrameNames2O(prefix string, start int, stop int, suffix string, zeroPad int) []string{
 	array00 := self.Object.Call("generateFrameNames", prefix, start, stop, suffix, zeroPad)
 	length00 := array00.Length()
 	out00 := make([]string, length00, length00)

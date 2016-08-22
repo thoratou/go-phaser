@@ -71,7 +71,14 @@ func (self *Point) InvertI(args ...interface{}) *Point{
 // Sets the `x` and `y` values of this Point object to the given values.
 // If you omit the `y` value then the `x` value will be applied to both, for example:
 // `Point.setTo(2)` is the same as `Point.setTo(2, 2)`
-func (self *Point) SetTo(x int, y int) *Point{
+func (self *Point) SetTo(x int) *Point{
+    return &Point{self.Object.Call("setTo", x)}
+}
+
+// Sets the `x` and `y` values of this Point object to the given values.
+// If you omit the `y` value then the `x` value will be applied to both, for example:
+// `Point.setTo(2)` is the same as `Point.setTo(2, 2)`
+func (self *Point) SetTo1O(x int, y int) *Point{
     return &Point{self.Object.Call("setTo", x, y)}
 }
 
@@ -85,7 +92,14 @@ func (self *Point) SetToI(args ...interface{}) *Point{
 // Sets the `x` and `y` values of this Point object to the given values.
 // If you omit the `y` value then the `x` value will be applied to both, for example:
 // `Point.set(2)` is the same as `Point.set(2, 2)`
-func (self *Point) Set(x int, y int) *Point{
+func (self *Point) Set(x int) *Point{
+    return &Point{self.Object.Call("set", x)}
+}
+
+// Sets the `x` and `y` values of this Point object to the given values.
+// If you omit the `y` value then the `x` value will be applied to both, for example:
+// `Point.set(2)` is the same as `Point.set(2, 2)`
+func (self *Point) Set1O(x int, y int) *Point{
     return &Point{self.Object.Call("set", x, y)}
 }
 
@@ -167,7 +181,12 @@ func (self *Point) ClampI(args ...interface{}) *Point{
 }
 
 // Creates a copy of the given Point.
-func (self *Point) Clone(output *Point) *Point{
+func (self *Point) Clone() *Point{
+    return &Point{self.Object.Call("clone")}
+}
+
+// Creates a copy of the given Point.
+func (self *Point) Clone1O(output *Point) *Point{
     return &Point{self.Object.Call("clone", output)}
 }
 
@@ -187,7 +206,12 @@ func (self *Point) CopyToI(args ...interface{}) interface{}{
 }
 
 // Returns the distance of this Point object to the given object (can be a Circle, Point or anything with x/y properties)
-func (self *Point) Distance(dest interface{}, round bool) int{
+func (self *Point) Distance(dest interface{}) int{
+    return self.Object.Call("distance", dest).Int()
+}
+
+// Returns the distance of this Point object to the given object (can be a Circle, Point or anything with x/y properties)
+func (self *Point) Distance1O(dest interface{}, round bool) int{
     return self.Object.Call("distance", dest, round).Int()
 }
 
@@ -207,7 +231,12 @@ func (self *Point) EqualsI(args ...interface{}) bool{
 }
 
 // Returns the angle between this Point object and another object with public x and y properties.
-func (self *Point) Angle(a interface{}, asDegrees bool) int{
+func (self *Point) Angle(a interface{}) int{
+    return self.Object.Call("angle", a).Int()
+}
+
+// Returns the angle between this Point object and another object with public x and y properties.
+func (self *Point) Angle1O(a interface{}, asDegrees bool) int{
     return self.Object.Call("angle", a, asDegrees).Int()
 }
 
@@ -217,7 +246,17 @@ func (self *Point) AngleI(args ...interface{}) int{
 }
 
 // Rotates this Point around the x/y coordinates given to the desired angle.
-func (self *Point) Rotate(x int, y int, angle int, asDegrees bool, distance int) *Point{
+func (self *Point) Rotate(x int, y int, angle int) *Point{
+    return &Point{self.Object.Call("rotate", x, y, angle)}
+}
+
+// Rotates this Point around the x/y coordinates given to the desired angle.
+func (self *Point) Rotate1O(x int, y int, angle int, asDegrees bool) *Point{
+    return &Point{self.Object.Call("rotate", x, y, angle, asDegrees)}
+}
+
+// Rotates this Point around the x/y coordinates given to the desired angle.
+func (self *Point) Rotate2O(x int, y int, angle int, asDegrees bool, distance int) *Point{
     return &Point{self.Object.Call("rotate", x, y, angle, asDegrees, distance)}
 }
 
@@ -357,7 +396,12 @@ func (self *Point) ToStringI(args ...interface{}) string{
 }
 
 // Creates a negative Point.
-func (self *Point) Negative(a *Point, out *Point) *Point{
+func (self *Point) Negative(a *Point) *Point{
+    return &Point{self.Object.Call("negative", a)}
+}
+
+// Creates a negative Point.
+func (self *Point) Negative1O(a *Point, out *Point) *Point{
     return &Point{self.Object.Call("negative", a, out)}
 }
 
@@ -367,7 +411,12 @@ func (self *Point) NegativeI(args ...interface{}) *Point{
 }
 
 // Adds two 2D Points together and multiplies the result by the given scalar.
-func (self *Point) MultiplyAdd(a *Point, b *Point, s int, out *Point) *Point{
+func (self *Point) MultiplyAdd(a *Point, b *Point, s int) *Point{
+    return &Point{self.Object.Call("multiplyAdd", a, b, s)}
+}
+
+// Adds two 2D Points together and multiplies the result by the given scalar.
+func (self *Point) MultiplyAdd1O(a *Point, b *Point, s int, out *Point) *Point{
     return &Point{self.Object.Call("multiplyAdd", a, b, s, out)}
 }
 
@@ -377,7 +426,12 @@ func (self *Point) MultiplyAddI(args ...interface{}) *Point{
 }
 
 // Interpolates the two given Points, based on the `f` value (between 0 and 1) and returns a new Point.
-func (self *Point) Interpolate(a *Point, b *Point, f int, out *Point) *Point{
+func (self *Point) Interpolate(a *Point, b *Point, f int) *Point{
+    return &Point{self.Object.Call("interpolate", a, b, f)}
+}
+
+// Interpolates the two given Points, based on the `f` value (between 0 and 1) and returns a new Point.
+func (self *Point) Interpolate1O(a *Point, b *Point, f int, out *Point) *Point{
     return &Point{self.Object.Call("interpolate", a, b, f, out)}
 }
 
@@ -387,7 +441,12 @@ func (self *Point) InterpolateI(args ...interface{}) *Point{
 }
 
 // Project two Points onto another Point.
-func (self *Point) Project(a *Point, b *Point, out *Point) *Point{
+func (self *Point) Project(a *Point, b *Point) *Point{
+    return &Point{self.Object.Call("project", a, b)}
+}
+
+// Project two Points onto another Point.
+func (self *Point) Project1O(a *Point, b *Point, out *Point) *Point{
     return &Point{self.Object.Call("project", a, b, out)}
 }
 
@@ -397,7 +456,12 @@ func (self *Point) ProjectI(args ...interface{}) *Point{
 }
 
 // Project two Points onto a Point of unit length.
-func (self *Point) ProjectUnit(a *Point, b *Point, out *Point) *Point{
+func (self *Point) ProjectUnit(a *Point, b *Point) *Point{
+    return &Point{self.Object.Call("projectUnit", a, b)}
+}
+
+// Project two Points onto a Point of unit length.
+func (self *Point) ProjectUnit1O(a *Point, b *Point, out *Point) *Point{
     return &Point{self.Object.Call("projectUnit", a, b, out)}
 }
 
@@ -407,7 +471,12 @@ func (self *Point) ProjectUnitI(args ...interface{}) *Point{
 }
 
 // Calculates centroid (or midpoint) from an array of points. If only one point is provided, that point is returned.
-func (self *Point) Centroid(points []Point, out *Point) *Point{
+func (self *Point) Centroid(points []Point) *Point{
+    return &Point{self.Object.Call("centroid", points)}
+}
+
+// Calculates centroid (or midpoint) from an array of points. If only one point is provided, that point is returned.
+func (self *Point) Centroid1O(points []Point, out *Point) *Point{
     return &Point{self.Object.Call("centroid", points, out)}
 }
 
@@ -418,7 +487,19 @@ func (self *Point) CentroidI(args ...interface{}) *Point{
 
 // Parses an object for x and/or y properties and returns a new Phaser.Point with matching values.
 // If the object doesn't contain those properties a Point with x/y of zero will be returned.
-func (self *Point) Parse(obj interface{}, xProp string, yProp string) *Point{
+func (self *Point) Parse(obj interface{}) *Point{
+    return &Point{self.Object.Call("parse", obj)}
+}
+
+// Parses an object for x and/or y properties and returns a new Phaser.Point with matching values.
+// If the object doesn't contain those properties a Point with x/y of zero will be returned.
+func (self *Point) Parse1O(obj interface{}, xProp string) *Point{
+    return &Point{self.Object.Call("parse", obj, xProp)}
+}
+
+// Parses an object for x and/or y properties and returns a new Phaser.Point with matching values.
+// If the object doesn't contain those properties a Point with x/y of zero will be returned.
+func (self *Point) Parse2O(obj interface{}, xProp string, yProp string) *Point{
     return &Point{self.Object.Call("parse", obj, xProp, yProp)}
 }
 

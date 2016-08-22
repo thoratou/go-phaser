@@ -271,7 +271,12 @@ func (self *Rectangle) SetToI(args ...interface{}) *Rectangle{
 }
 
 // Scales the width and height of this Rectangle by the given amounts.
-func (self *Rectangle) Scale(x int, y int) *Rectangle{
+func (self *Rectangle) Scale(x int) *Rectangle{
+    return &Rectangle{self.Object.Call("scale", x)}
+}
+
+// Scales the width and height of this Rectangle by the given amounts.
+func (self *Rectangle) Scale1O(x int, y int) *Rectangle{
     return &Rectangle{self.Object.Call("scale", x, y)}
 }
 
@@ -361,7 +366,12 @@ func (self *Rectangle) InflateI(args ...interface{}) *Rectangle{
 }
 
 // The size of the Rectangle object, expressed as a Point object with the values of the width and height properties.
-func (self *Rectangle) Size(output *Point) *Point{
+func (self *Rectangle) Size() *Point{
+    return &Point{self.Object.Call("size")}
+}
+
+// The size of the Rectangle object, expressed as a Point object with the values of the width and height properties.
+func (self *Rectangle) Size1O(output *Point) *Point{
     return &Point{self.Object.Call("size", output)}
 }
 
@@ -383,7 +393,12 @@ func (self *Rectangle) ResizeI(args ...interface{}) *Rectangle{
 }
 
 // Returns a new Rectangle object with the same values for the x, y, width, and height properties as the original Rectangle object.
-func (self *Rectangle) Clone(output *Rectangle) *Rectangle{
+func (self *Rectangle) Clone() *Rectangle{
+    return &Rectangle{self.Object.Call("clone")}
+}
+
+// Returns a new Rectangle object with the same values for the x, y, width, and height properties as the original Rectangle object.
+func (self *Rectangle) Clone1O(output *Rectangle) *Rectangle{
     return &Rectangle{self.Object.Call("clone", output)}
 }
 
@@ -459,7 +474,12 @@ func (self *Rectangle) IntersectsRawI(args ...interface{}) bool{
 }
 
 // Adds two Rectangles together to create a new Rectangle object, by filling in the horizontal and vertical space between the two Rectangles.
-func (self *Rectangle) Union(b *Rectangle, out *Rectangle) *Rectangle{
+func (self *Rectangle) Union(b *Rectangle) *Rectangle{
+    return &Rectangle{self.Object.Call("union", b)}
+}
+
+// Adds two Rectangles together to create a new Rectangle object, by filling in the horizontal and vertical space between the two Rectangles.
+func (self *Rectangle) Union1O(b *Rectangle, out *Rectangle) *Rectangle{
     return &Rectangle{self.Object.Call("union", b, out)}
 }
 
@@ -469,7 +489,12 @@ func (self *Rectangle) UnionI(args ...interface{}) *Rectangle{
 }
 
 // Returns a uniformly distributed random point from anywhere within this Rectangle.
-func (self *Rectangle) Random(out interface{}) *Point{
+func (self *Rectangle) Random() *Point{
+    return &Point{self.Object.Call("random")}
+}
+
+// Returns a uniformly distributed random point from anywhere within this Rectangle.
+func (self *Rectangle) Random1O(out interface{}) *Point{
     return &Point{self.Object.Call("random", out)}
 }
 
@@ -486,7 +511,31 @@ func (self *Rectangle) RandomI(args ...interface{}) *Point{
 // 
 // This method returns the same values as calling Rectangle.bottomLeft, etc, but those
 // calls always create a new Point object, where-as this one allows you to use your own.
-func (self *Rectangle) GetPoint(position int, out *Point) *Point{
+func (self *Rectangle) GetPoint() *Point{
+    return &Point{self.Object.Call("getPoint")}
+}
+
+// Returns a point based on the given position constant, which can be one of:
+// 
+// `Phaser.TOP_LEFT`, `Phaser.TOP_CENTER`, `Phaser.TOP_RIGHT`, `Phaser.LEFT_CENTER`,
+// `Phaser.CENTER`, `Phaser.RIGHT_CENTER`, `Phaser.BOTTOM_LEFT`, `Phaser.BOTTOM_CENTER` 
+// and `Phaser.BOTTOM_RIGHT`.
+// 
+// This method returns the same values as calling Rectangle.bottomLeft, etc, but those
+// calls always create a new Point object, where-as this one allows you to use your own.
+func (self *Rectangle) GetPoint1O(position int) *Point{
+    return &Point{self.Object.Call("getPoint", position)}
+}
+
+// Returns a point based on the given position constant, which can be one of:
+// 
+// `Phaser.TOP_LEFT`, `Phaser.TOP_CENTER`, `Phaser.TOP_RIGHT`, `Phaser.LEFT_CENTER`,
+// `Phaser.CENTER`, `Phaser.RIGHT_CENTER`, `Phaser.BOTTOM_LEFT`, `Phaser.BOTTOM_CENTER` 
+// and `Phaser.BOTTOM_RIGHT`.
+// 
+// This method returns the same values as calling Rectangle.bottomLeft, etc, but those
+// calls always create a new Point object, where-as this one allows you to use your own.
+func (self *Rectangle) GetPoint2O(position int, out *Point) *Point{
     return &Point{self.Object.Call("getPoint", position, out)}
 }
 
@@ -553,7 +602,12 @@ func (self *Rectangle) SameDimensionsI(args ...interface{}) bool{
 }
 
 // Calculates the Axis Aligned Bounding Box (or aabb) from an array of points.
-func (self *Rectangle) Aabb(points []Point, out *Rectangle) *Rectangle{
+func (self *Rectangle) Aabb(points []Point) *Rectangle{
+    return &Rectangle{self.Object.Call("aabb", points)}
+}
+
+// Calculates the Axis Aligned Bounding Box (or aabb) from an array of points.
+func (self *Rectangle) Aabb1O(points []Point, out *Rectangle) *Rectangle{
     return &Rectangle{self.Object.Call("aabb", points, out)}
 }
 

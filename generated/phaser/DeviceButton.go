@@ -224,7 +224,19 @@ func (self *DeviceButton) SetDurationA(member int) {
 
 // Called automatically by Phaser.Pointer and Phaser.SinglePad.
 // Handles the button down state.
-func (self *DeviceButton) Start(event interface{}, value int) {
+func (self *DeviceButton) Start() {
+    self.Object.Call("start")
+}
+
+// Called automatically by Phaser.Pointer and Phaser.SinglePad.
+// Handles the button down state.
+func (self *DeviceButton) Start1O(event interface{}) {
+    self.Object.Call("start", event)
+}
+
+// Called automatically by Phaser.Pointer and Phaser.SinglePad.
+// Handles the button down state.
+func (self *DeviceButton) Start2O(event interface{}, value int) {
     self.Object.Call("start", event, value)
 }
 
@@ -236,7 +248,19 @@ func (self *DeviceButton) StartI(args ...interface{}) {
 
 // Called automatically by Phaser.Pointer and Phaser.SinglePad.
 // Handles the button up state.
-func (self *DeviceButton) Stop(event interface{}, value int) {
+func (self *DeviceButton) Stop() {
+    self.Object.Call("stop")
+}
+
+// Called automatically by Phaser.Pointer and Phaser.SinglePad.
+// Handles the button up state.
+func (self *DeviceButton) Stop1O(event interface{}) {
+    self.Object.Call("stop", event)
+}
+
+// Called automatically by Phaser.Pointer and Phaser.SinglePad.
+// Handles the button up state.
+func (self *DeviceButton) Stop2O(event interface{}, value int) {
     self.Object.Call("stop", event, value)
 }
 
@@ -258,7 +282,13 @@ func (self *DeviceButton) PadFloatI(args ...interface{}) {
 
 // Returns the "just pressed" state of this button.
 // Just pressed is considered true if the button was pressed down within the duration given (default 250ms).
-func (self *DeviceButton) JustPressed(duration int) bool{
+func (self *DeviceButton) JustPressed() bool{
+    return self.Object.Call("justPressed").Bool()
+}
+
+// Returns the "just pressed" state of this button.
+// Just pressed is considered true if the button was pressed down within the duration given (default 250ms).
+func (self *DeviceButton) JustPressed1O(duration int) bool{
     return self.Object.Call("justPressed", duration).Bool()
 }
 
@@ -270,7 +300,13 @@ func (self *DeviceButton) JustPressedI(args ...interface{}) bool{
 
 // Returns the "just released" state of this button.
 // Just released is considered as being true if the button was released within the duration given (default 250ms).
-func (self *DeviceButton) JustReleased(duration int) bool{
+func (self *DeviceButton) JustReleased() bool{
+    return self.Object.Call("justReleased").Bool()
+}
+
+// Returns the "just released" state of this button.
+// Just released is considered as being true if the button was released within the duration given (default 250ms).
+func (self *DeviceButton) JustReleased1O(duration int) bool{
     return self.Object.Call("justReleased", duration).Bool()
 }
 

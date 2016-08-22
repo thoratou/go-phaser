@@ -35,7 +35,43 @@ func (self *Color) PackPixelI(args ...interface{}) int{
 // Note that the integer is assumed to be packed in the correct endianness. On little-endian
 // the format is 0xAABBGGRR and on big-endian the format is 0xRRGGBBAA. If you want a
 // endian-independent method, use fromRGBA(rgba) and toRGBA(r, g, b, a).
-func (self *Color) UnpackPixel(rgba int, out interface{}, hsl bool, hsv bool) interface{}{
+func (self *Color) UnpackPixel(rgba int) interface{}{
+    return self.Object.Call("unpackPixel", rgba)
+}
+
+// Unpacks the r, g, b, a components into the specified color object, or a new
+// object, for use with Int32Array. If little endian, then ABGR order is used when
+// unpacking, otherwise, RGBA order is used. The resulting color object has the
+// `r, g, b, a` properties which are unrelated to endianness.
+// 
+// Note that the integer is assumed to be packed in the correct endianness. On little-endian
+// the format is 0xAABBGGRR and on big-endian the format is 0xRRGGBBAA. If you want a
+// endian-independent method, use fromRGBA(rgba) and toRGBA(r, g, b, a).
+func (self *Color) UnpackPixel1O(rgba int, out interface{}) interface{}{
+    return self.Object.Call("unpackPixel", rgba, out)
+}
+
+// Unpacks the r, g, b, a components into the specified color object, or a new
+// object, for use with Int32Array. If little endian, then ABGR order is used when
+// unpacking, otherwise, RGBA order is used. The resulting color object has the
+// `r, g, b, a` properties which are unrelated to endianness.
+// 
+// Note that the integer is assumed to be packed in the correct endianness. On little-endian
+// the format is 0xAABBGGRR and on big-endian the format is 0xRRGGBBAA. If you want a
+// endian-independent method, use fromRGBA(rgba) and toRGBA(r, g, b, a).
+func (self *Color) UnpackPixel2O(rgba int, out interface{}, hsl bool) interface{}{
+    return self.Object.Call("unpackPixel", rgba, out, hsl)
+}
+
+// Unpacks the r, g, b, a components into the specified color object, or a new
+// object, for use with Int32Array. If little endian, then ABGR order is used when
+// unpacking, otherwise, RGBA order is used. The resulting color object has the
+// `r, g, b, a` properties which are unrelated to endianness.
+// 
+// Note that the integer is assumed to be packed in the correct endianness. On little-endian
+// the format is 0xAABBGGRR and on big-endian the format is 0xRRGGBBAA. If you want a
+// endian-independent method, use fromRGBA(rgba) and toRGBA(r, g, b, a).
+func (self *Color) UnpackPixel3O(rgba int, out interface{}, hsl bool, hsv bool) interface{}{
     return self.Object.Call("unpackPixel", rgba, out, hsl, hsv)
 }
 
@@ -53,7 +89,13 @@ func (self *Color) UnpackPixelI(args ...interface{}) interface{}{
 
 // A utility to convert an integer in 0xRRGGBBAA format to a color object.
 // This does not rely on endianness.
-func (self *Color) FromRGBA(rgba int, out interface{}) interface{}{
+func (self *Color) FromRGBA(rgba int) interface{}{
+    return self.Object.Call("fromRGBA", rgba)
+}
+
+// A utility to convert an integer in 0xRRGGBBAA format to a color object.
+// This does not rely on endianness.
+func (self *Color) FromRGBA1O(rgba int, out interface{}) interface{}{
     return self.Object.Call("fromRGBA", rgba, out)
 }
 
@@ -87,7 +129,15 @@ func (self *Color) ToABGRI(args ...interface{}) int{
 // Conversion forumla from http://en.wikipedia.org/wiki/HSL_color_space.
 // Assumes RGB values are contained in the set [0, 255] and returns h, s and l in the set [0, 1].
 // Based on code by Michael Jackson (https://github.com/mjijackson)
-func (self *Color) RGBtoHSL(r int, g int, b int, out interface{}) interface{}{
+func (self *Color) RGBtoHSL(r int, g int, b int) interface{}{
+    return self.Object.Call("RGBtoHSL", r, g, b)
+}
+
+// Converts an RGB color value to HSL (hue, saturation and lightness).
+// Conversion forumla from http://en.wikipedia.org/wiki/HSL_color_space.
+// Assumes RGB values are contained in the set [0, 255] and returns h, s and l in the set [0, 1].
+// Based on code by Michael Jackson (https://github.com/mjijackson)
+func (self *Color) RGBtoHSL1O(r int, g int, b int, out interface{}) interface{}{
     return self.Object.Call("RGBtoHSL", r, g, b, out)
 }
 
@@ -103,7 +153,15 @@ func (self *Color) RGBtoHSLI(args ...interface{}) interface{}{
 // Conversion forumla from http://en.wikipedia.org/wiki/HSL_color_space.
 // Assumes HSL values are contained in the set [0, 1] and returns r, g and b values in the set [0, 255].
 // Based on code by Michael Jackson (https://github.com/mjijackson)
-func (self *Color) HSLtoRGB(h int, s int, l int, out interface{}) interface{}{
+func (self *Color) HSLtoRGB(h int, s int, l int) interface{}{
+    return self.Object.Call("HSLtoRGB", h, s, l)
+}
+
+// Converts an HSL (hue, saturation and lightness) color value to RGB.
+// Conversion forumla from http://en.wikipedia.org/wiki/HSL_color_space.
+// Assumes HSL values are contained in the set [0, 1] and returns r, g and b values in the set [0, 255].
+// Based on code by Michael Jackson (https://github.com/mjijackson)
+func (self *Color) HSLtoRGB1O(h int, s int, l int, out interface{}) interface{}{
     return self.Object.Call("HSLtoRGB", h, s, l, out)
 }
 
@@ -119,7 +177,15 @@ func (self *Color) HSLtoRGBI(args ...interface{}) interface{}{
 // Conversion forumla from http://en.wikipedia.org/wiki/HSL_color_space.
 // Assumes RGB values are contained in the set [0, 255] and returns h, s and v in the set [0, 1].
 // Based on code by Michael Jackson (https://github.com/mjijackson)
-func (self *Color) RGBtoHSV(r int, g int, b int, out interface{}) interface{}{
+func (self *Color) RGBtoHSV(r int, g int, b int) interface{}{
+    return self.Object.Call("RGBtoHSV", r, g, b)
+}
+
+// Converts an RGB color value to HSV (hue, saturation and value).
+// Conversion forumla from http://en.wikipedia.org/wiki/HSL_color_space.
+// Assumes RGB values are contained in the set [0, 255] and returns h, s and v in the set [0, 1].
+// Based on code by Michael Jackson (https://github.com/mjijackson)
+func (self *Color) RGBtoHSV1O(r int, g int, b int, out interface{}) interface{}{
     return self.Object.Call("RGBtoHSV", r, g, b, out)
 }
 
@@ -135,7 +201,15 @@ func (self *Color) RGBtoHSVI(args ...interface{}) interface{}{
 // Conversion forumla from http://en.wikipedia.org/wiki/HSL_color_space.
 // Assumes HSV values are contained in the set [0, 1] and returns r, g and b values in the set [0, 255].
 // Based on code by Michael Jackson (https://github.com/mjijackson)
-func (self *Color) HSVtoRGB(h int, s int, v int, out interface{}) interface{}{
+func (self *Color) HSVtoRGB(h int, s int, v int) interface{}{
+    return self.Object.Call("HSVtoRGB", h, s, v)
+}
+
+// Converts an HSV (hue, saturation and value) color value to RGB.
+// Conversion forumla from http://en.wikipedia.org/wiki/HSL_color_space.
+// Assumes HSV values are contained in the set [0, 1] and returns r, g and b values in the set [0, 255].
+// Based on code by Michael Jackson (https://github.com/mjijackson)
+func (self *Color) HSVtoRGB1O(h int, s int, v int, out interface{}) interface{}{
     return self.Object.Call("HSVtoRGB", h, s, v, out)
 }
 
@@ -163,7 +237,71 @@ func (self *Color) HueToColorI(args ...interface{}) int{
 // Any components that are not specified will default to zero.
 // 
 // This is useful when you want to use a shared color object for the getPixel and getPixelAt methods.
-func (self *Color) CreateColor(r int, g int, b int, a int, h int, s int, l int, v int) interface{}{
+func (self *Color) CreateColor() interface{}{
+    return self.Object.Call("createColor")
+}
+
+// A utility function to create a lightweight 'color' object with the default components.
+// Any components that are not specified will default to zero.
+// 
+// This is useful when you want to use a shared color object for the getPixel and getPixelAt methods.
+func (self *Color) CreateColor1O(r int) interface{}{
+    return self.Object.Call("createColor", r)
+}
+
+// A utility function to create a lightweight 'color' object with the default components.
+// Any components that are not specified will default to zero.
+// 
+// This is useful when you want to use a shared color object for the getPixel and getPixelAt methods.
+func (self *Color) CreateColor2O(r int, g int) interface{}{
+    return self.Object.Call("createColor", r, g)
+}
+
+// A utility function to create a lightweight 'color' object with the default components.
+// Any components that are not specified will default to zero.
+// 
+// This is useful when you want to use a shared color object for the getPixel and getPixelAt methods.
+func (self *Color) CreateColor3O(r int, g int, b int) interface{}{
+    return self.Object.Call("createColor", r, g, b)
+}
+
+// A utility function to create a lightweight 'color' object with the default components.
+// Any components that are not specified will default to zero.
+// 
+// This is useful when you want to use a shared color object for the getPixel and getPixelAt methods.
+func (self *Color) CreateColor4O(r int, g int, b int, a int) interface{}{
+    return self.Object.Call("createColor", r, g, b, a)
+}
+
+// A utility function to create a lightweight 'color' object with the default components.
+// Any components that are not specified will default to zero.
+// 
+// This is useful when you want to use a shared color object for the getPixel and getPixelAt methods.
+func (self *Color) CreateColor5O(r int, g int, b int, a int, h int) interface{}{
+    return self.Object.Call("createColor", r, g, b, a, h)
+}
+
+// A utility function to create a lightweight 'color' object with the default components.
+// Any components that are not specified will default to zero.
+// 
+// This is useful when you want to use a shared color object for the getPixel and getPixelAt methods.
+func (self *Color) CreateColor6O(r int, g int, b int, a int, h int, s int) interface{}{
+    return self.Object.Call("createColor", r, g, b, a, h, s)
+}
+
+// A utility function to create a lightweight 'color' object with the default components.
+// Any components that are not specified will default to zero.
+// 
+// This is useful when you want to use a shared color object for the getPixel and getPixelAt methods.
+func (self *Color) CreateColor7O(r int, g int, b int, a int, h int, s int, l int) interface{}{
+    return self.Object.Call("createColor", r, g, b, a, h, s, l)
+}
+
+// A utility function to create a lightweight 'color' object with the default components.
+// Any components that are not specified will default to zero.
+// 
+// This is useful when you want to use a shared color object for the getPixel and getPixelAt methods.
+func (self *Color) CreateColor8O(r int, g int, b int, a int, h int, s int, l int, v int) interface{}{
     return self.Object.Call("createColor", r, g, b, a, h, s, l, v)
 }
 
@@ -207,7 +345,19 @@ func (self *Color) GetColorI(args ...interface{}) int{
 
 // Converts the given color values into a string.
 // If prefix was '#' it will be in the format `#RRGGBB` otherwise `0xAARRGGBB`.
-func (self *Color) RGBtoString(r int, g int, b int, a int, prefix string) string{
+func (self *Color) RGBtoString(r int, g int, b int) string{
+    return self.Object.Call("RGBtoString", r, g, b).String()
+}
+
+// Converts the given color values into a string.
+// If prefix was '#' it will be in the format `#RRGGBB` otherwise `0xAARRGGBB`.
+func (self *Color) RGBtoString1O(r int, g int, b int, a int) string{
+    return self.Object.Call("RGBtoString", r, g, b, a).String()
+}
+
+// Converts the given color values into a string.
+// If prefix was '#' it will be in the format `#RRGGBB` otherwise `0xAARRGGBB`.
+func (self *Color) RGBtoString2O(r int, g int, b int, a int, prefix string) string{
     return self.Object.Call("RGBtoString", r, g, b, a, prefix).String()
 }
 
@@ -232,7 +382,16 @@ func (self *Color) HexToRGBI(args ...interface{}) int{
 // The hex string can supplied as `'#0033ff'` or the short-hand format of `'#03f'`; it can begin with an optional "#" or "0x", or be unprefixed.    
 // 
 // An alpha channel is _not_ supported.
-func (self *Color) HexToColor(hex string, out interface{}) interface{}{
+func (self *Color) HexToColor(hex string) interface{}{
+    return self.Object.Call("hexToColor", hex)
+}
+
+// Converts a hex string into a Phaser Color object.
+// 
+// The hex string can supplied as `'#0033ff'` or the short-hand format of `'#03f'`; it can begin with an optional "#" or "0x", or be unprefixed.    
+// 
+// An alpha channel is _not_ supported.
+func (self *Color) HexToColor1O(hex string, out interface{}) interface{}{
     return self.Object.Call("hexToColor", hex, out)
 }
 
@@ -248,7 +407,14 @@ func (self *Color) HexToColorI(args ...interface{}) interface{}{
 // Converts a CSS 'web' string into a Phaser Color object.
 // 
 // The web string can be in the format `'rgb(r,g,b)'` or `'rgba(r,g,b,a)'` where r/g/b are in the range [0..255] and a is in the range [0..1].
-func (self *Color) WebToColor(web string, out interface{}) interface{}{
+func (self *Color) WebToColor(web string) interface{}{
+    return self.Object.Call("webToColor", web)
+}
+
+// Converts a CSS 'web' string into a Phaser Color object.
+// 
+// The web string can be in the format `'rgb(r,g,b)'` or `'rgba(r,g,b,a)'` where r/g/b are in the range [0..255] and a is in the range [0..1].
+func (self *Color) WebToColor1O(web string, out interface{}) interface{}{
     return self.Object.Call("webToColor", web, out)
 }
 
@@ -264,7 +430,16 @@ func (self *Color) WebToColorI(args ...interface{}) interface{}{
 // The value can be a string (see `hexToColor` and `webToColor` for the supported formats) or a packed integer (see `getRGB`).
 // 
 // An alpha channel is _not_ supported when specifying a hex string.
-func (self *Color) ValueToColor(value interface{}, out interface{}) interface{}{
+func (self *Color) ValueToColor(value interface{}) interface{}{
+    return self.Object.Call("valueToColor", value)
+}
+
+// Converts a value - a "hex" string, a "CSS 'web' string", or a number - into red, green, blue, and alpha components.
+// 
+// The value can be a string (see `hexToColor` and `webToColor` for the supported formats) or a packed integer (see `getRGB`).
+// 
+// An alpha channel is _not_ supported when specifying a hex string.
+func (self *Color) ValueToColor1O(value interface{}, out interface{}) interface{}{
     return self.Object.Call("valueToColor", value, out)
 }
 
@@ -288,7 +463,29 @@ func (self *Color) ComponentToHexI(args ...interface{}) string{
 }
 
 // Get HSV color wheel values in an array which will be 360 elements in size.
-func (self *Color) HSVColorWheel(s int, v int) []interface{}{
+func (self *Color) HSVColorWheel() []interface{}{
+	array00 := self.Object.Call("HSVColorWheel")
+	length00 := array00.Length()
+	out00 := make([]interface{}, length00, length00)
+	for i00 := 0; i00 < length00; i00++ {
+		out00[i00] = array00.Index(i00).Interface()
+	}
+	return out00
+}
+
+// Get HSV color wheel values in an array which will be 360 elements in size.
+func (self *Color) HSVColorWheel1O(s int) []interface{}{
+	array00 := self.Object.Call("HSVColorWheel", s)
+	length00 := array00.Length()
+	out00 := make([]interface{}, length00, length00)
+	for i00 := 0; i00 < length00; i00++ {
+		out00[i00] = array00.Index(i00).Interface()
+	}
+	return out00
+}
+
+// Get HSV color wheel values in an array which will be 360 elements in size.
+func (self *Color) HSVColorWheel2O(s int, v int) []interface{}{
 	array00 := self.Object.Call("HSVColorWheel", s, v)
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
@@ -310,7 +507,29 @@ func (self *Color) HSVColorWheelI(args ...interface{}) []interface{}{
 }
 
 // Get HSL color wheel values in an array which will be 360 elements in size.
-func (self *Color) HSLColorWheel(s int, l int) []interface{}{
+func (self *Color) HSLColorWheel() []interface{}{
+	array00 := self.Object.Call("HSLColorWheel")
+	length00 := array00.Length()
+	out00 := make([]interface{}, length00, length00)
+	for i00 := 0; i00 < length00; i00++ {
+		out00[i00] = array00.Index(i00).Interface()
+	}
+	return out00
+}
+
+// Get HSL color wheel values in an array which will be 360 elements in size.
+func (self *Color) HSLColorWheel1O(s int) []interface{}{
+	array00 := self.Object.Call("HSLColorWheel", s)
+	length00 := array00.Length()
+	out00 := make([]interface{}, length00, length00)
+	for i00 := 0; i00 < length00; i00++ {
+		out00[i00] = array00.Index(i00).Interface()
+	}
+	return out00
+}
+
+// Get HSL color wheel values in an array which will be 360 elements in size.
+func (self *Color) HSLColorWheel2O(s int, l int) []interface{}{
 	array00 := self.Object.Call("HSLColorWheel", s, l)
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
@@ -364,7 +583,28 @@ func (self *Color) InterpolateRGBI(args ...interface{}) int{
 // Returns a random color value between black and white
 // Set the min value to start each channel from the given offset.
 // Set the max value to restrict the maximum color used per channel.
-func (self *Color) GetRandomColor(min int, max int, alpha int) int{
+func (self *Color) GetRandomColor() int{
+    return self.Object.Call("getRandomColor").Int()
+}
+
+// Returns a random color value between black and white
+// Set the min value to start each channel from the given offset.
+// Set the max value to restrict the maximum color used per channel.
+func (self *Color) GetRandomColor1O(min int) int{
+    return self.Object.Call("getRandomColor", min).Int()
+}
+
+// Returns a random color value between black and white
+// Set the min value to start each channel from the given offset.
+// Set the max value to restrict the maximum color used per channel.
+func (self *Color) GetRandomColor2O(min int, max int) int{
+    return self.Object.Call("getRandomColor", min, max).Int()
+}
+
+// Returns a random color value between black and white
+// Set the min value to start each channel from the given offset.
+// Set the max value to restrict the maximum color used per channel.
+func (self *Color) GetRandomColor3O(min int, max int, alpha int) int{
     return self.Object.Call("getRandomColor", min, max, alpha).Int()
 }
 

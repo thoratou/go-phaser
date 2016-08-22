@@ -164,7 +164,31 @@ func (self *AnimationManager) CopyFrameDataI(args ...interface{}) bool{
 
 // Adds a new animation under the given key. Optionally set the frames, frame rate and loop.
 // Animations added in this way are played back with the play function.
-func (self *AnimationManager) Add(name string, frames []interface{}, frameRate int, loop bool, useNumericIndex bool) *Animation{
+func (self *AnimationManager) Add(name string) *Animation{
+    return &Animation{self.Object.Call("add", name)}
+}
+
+// Adds a new animation under the given key. Optionally set the frames, frame rate and loop.
+// Animations added in this way are played back with the play function.
+func (self *AnimationManager) Add1O(name string, frames []interface{}) *Animation{
+    return &Animation{self.Object.Call("add", name, frames)}
+}
+
+// Adds a new animation under the given key. Optionally set the frames, frame rate and loop.
+// Animations added in this way are played back with the play function.
+func (self *AnimationManager) Add2O(name string, frames []interface{}, frameRate int) *Animation{
+    return &Animation{self.Object.Call("add", name, frames, frameRate)}
+}
+
+// Adds a new animation under the given key. Optionally set the frames, frame rate and loop.
+// Animations added in this way are played back with the play function.
+func (self *AnimationManager) Add3O(name string, frames []interface{}, frameRate int, loop bool) *Animation{
+    return &Animation{self.Object.Call("add", name, frames, frameRate, loop)}
+}
+
+// Adds a new animation under the given key. Optionally set the frames, frame rate and loop.
+// Animations added in this way are played back with the play function.
+func (self *AnimationManager) Add4O(name string, frames []interface{}, frameRate int, loop bool, useNumericIndex bool) *Animation{
     return &Animation{self.Object.Call("add", name, frames, frameRate, loop, useNumericIndex)}
 }
 
@@ -175,7 +199,12 @@ func (self *AnimationManager) AddI(args ...interface{}) *Animation{
 }
 
 // Check whether the frames in the given array are valid and exist.
-func (self *AnimationManager) ValidateFrames(frames []interface{}, useNumericIndex bool) bool{
+func (self *AnimationManager) ValidateFrames(frames []interface{}) bool{
+    return self.Object.Call("validateFrames", frames).Bool()
+}
+
+// Check whether the frames in the given array are valid and exist.
+func (self *AnimationManager) ValidateFrames1O(frames []interface{}, useNumericIndex bool) bool{
     return self.Object.Call("validateFrames", frames, useNumericIndex).Bool()
 }
 
@@ -188,7 +217,31 @@ func (self *AnimationManager) ValidateFramesI(args ...interface{}) bool{
 // 
 // If the requested animation is already playing this request will be ignored. 
 // If you need to reset an already running animation do so directly on the Animation object itself.
-func (self *AnimationManager) Play(name string, frameRate int, loop bool, killOnComplete bool) *Animation{
+func (self *AnimationManager) Play(name string) *Animation{
+    return &Animation{self.Object.Call("play", name)}
+}
+
+// Play an animation based on the given key. The animation should previously have been added via `animations.add`
+// 
+// If the requested animation is already playing this request will be ignored. 
+// If you need to reset an already running animation do so directly on the Animation object itself.
+func (self *AnimationManager) Play1O(name string, frameRate int) *Animation{
+    return &Animation{self.Object.Call("play", name, frameRate)}
+}
+
+// Play an animation based on the given key. The animation should previously have been added via `animations.add`
+// 
+// If the requested animation is already playing this request will be ignored. 
+// If you need to reset an already running animation do so directly on the Animation object itself.
+func (self *AnimationManager) Play2O(name string, frameRate int, loop bool) *Animation{
+    return &Animation{self.Object.Call("play", name, frameRate, loop)}
+}
+
+// Play an animation based on the given key. The animation should previously have been added via `animations.add`
+// 
+// If the requested animation is already playing this request will be ignored. 
+// If you need to reset an already running animation do so directly on the Animation object itself.
+func (self *AnimationManager) Play3O(name string, frameRate int, loop bool, killOnComplete bool) *Animation{
     return &Animation{self.Object.Call("play", name, frameRate, loop, killOnComplete)}
 }
 
@@ -202,7 +255,19 @@ func (self *AnimationManager) PlayI(args ...interface{}) *Animation{
 
 // Stop playback of an animation. If a name is given that specific animation is stopped, otherwise the current animation is stopped.
 // The currentAnim property of the AnimationManager is automatically set to the animation given.
-func (self *AnimationManager) Stop(name string, resetFrame bool) {
+func (self *AnimationManager) Stop() {
+    self.Object.Call("stop")
+}
+
+// Stop playback of an animation. If a name is given that specific animation is stopped, otherwise the current animation is stopped.
+// The currentAnim property of the AnimationManager is automatically set to the animation given.
+func (self *AnimationManager) Stop1O(name string) {
+    self.Object.Call("stop", name)
+}
+
+// Stop playback of an animation. If a name is given that specific animation is stopped, otherwise the current animation is stopped.
+// The currentAnim property of the AnimationManager is automatically set to the animation given.
+func (self *AnimationManager) Stop2O(name string, resetFrame bool) {
     self.Object.Call("stop", name, resetFrame)
 }
 
@@ -223,7 +288,12 @@ func (self *AnimationManager) UpdateI(args ...interface{}) bool{
 }
 
 // Advances by the given number of frames in the current animation, taking the loop value into consideration.
-func (self *AnimationManager) Next(quantity int) {
+func (self *AnimationManager) Next() {
+    self.Object.Call("next")
+}
+
+// Advances by the given number of frames in the current animation, taking the loop value into consideration.
+func (self *AnimationManager) Next1O(quantity int) {
     self.Object.Call("next", quantity)
 }
 
@@ -233,7 +303,12 @@ func (self *AnimationManager) NextI(args ...interface{}) {
 }
 
 // Moves backwards the given number of frames in the current animation, taking the loop value into consideration.
-func (self *AnimationManager) Previous(quantity int) {
+func (self *AnimationManager) Previous() {
+    self.Object.Call("previous")
+}
+
+// Moves backwards the given number of frames in the current animation, taking the loop value into consideration.
+func (self *AnimationManager) Previous1O(quantity int) {
     self.Object.Call("previous", quantity)
 }
 

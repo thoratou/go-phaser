@@ -277,16 +277,10 @@ func AddFunctionWrappers(elements []Function, wrappers map[string]string) []Func
 func AddParameteredFunctions(elements []Function) []Function {
 	result := []Function{}
 	for _, v := range elements {
-		//most specific function => keep the default one
-		result = append(result, v)
 
 		//optional parameter removal from last to start
-		/*optionalNumber := 1
-		for f.IsLastParameterOptional() {
-			v.Suffix = "O" + string(optionalNumber)
-			v.Parameters = v.Parameters[0 : len(v.Parameters)-1]
-			optionalNumber++
-		}*/
+		optionalNumber := 1
+		addOptParameteredFunctions(&result, v, &optionalNumber)
 
 		//generic parameters
 		v.Suffix = "I"
@@ -306,6 +300,21 @@ func AddParameteredFunctions(elements []Function) []Function {
 		result = append(result, v)
 	}
 	return result
+}
+
+func addOptParameteredFunctions(result *[]Function, v Function, optionNumber *int) {
+	if len(v.Parameters) != 0 && v.Parameters[len(v.Parameters)-1].Optional {
+		n := v
+		n.Parameters = v.Parameters[0 : len(v.Parameters)-1]
+		addOptParameteredFunctions(result, n, optionNumber)
+		v.Suffix = fmt.Sprintf("%dO", *optionNumber)
+		*result = append(*result, v)
+		(*optionNumber)++
+	} else {
+		//most specific function => keep as default one
+		v.Suffix = ""
+		*result = append(*result, v)
+	}
 }
 
 func ConvertGoReserveNames(str string) string {

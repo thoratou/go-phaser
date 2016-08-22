@@ -144,7 +144,18 @@ func (self *Touch) ConsumeTouchMoveI(args ...interface{}) {
 // If the callback returns 'true' then the callback is automatically deleted once invoked.
 // 
 // The callback is added to the Phaser.Touch.touchLockCallbacks array and should be removed with Phaser.Touch.removeTouchLockCallback.
-func (self *Touch) AddTouchLockCallback(callback func(...interface{}), context interface{}, onEnd bool) {
+func (self *Touch) AddTouchLockCallback(callback func(...interface{}), context interface{}) {
+    self.Object.Call("addTouchLockCallback", callback, context)
+}
+
+// Adds a callback that is fired when a browser touchstart or touchend event is received.
+// 
+// This is used internally to handle audio and video unlocking on mobile devices.
+// 
+// If the callback returns 'true' then the callback is automatically deleted once invoked.
+// 
+// The callback is added to the Phaser.Touch.touchLockCallbacks array and should be removed with Phaser.Touch.removeTouchLockCallback.
+func (self *Touch) AddTouchLockCallback1O(callback func(...interface{}), context interface{}, onEnd bool) {
     self.Object.Call("addTouchLockCallback", callback, context, onEnd)
 }
 

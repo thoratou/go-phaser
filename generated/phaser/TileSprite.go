@@ -1079,7 +1079,13 @@ func (self *TileSprite) StopScrollI(args ...interface{}) {
 
 // Destroys the TileSprite. This removes it from its parent group, destroys the event and animation handlers if present
 // and nulls its reference to game, freeing it up for garbage collection.
-func (self *TileSprite) Destroy(destroyChildren bool) {
+func (self *TileSprite) Destroy() {
+    self.Object.Call("destroy")
+}
+
+// Destroys the TileSprite. This removes it from its parent group, destroys the event and animation handlers if present
+// and nulls its reference to game, freeing it up for garbage collection.
+func (self *TileSprite) Destroy1O(destroyChildren bool) {
     self.Object.Call("destroy", destroyChildren)
 }
 
@@ -1155,7 +1161,13 @@ func (self *TileSprite) GetBoundsI(args ...interface{}) *Rectangle{
 
 // Sets the texture of the sprite. Be warned that this doesn't remove or destroy the previous
 // texture this Sprite was using.
-func (self *TileSprite) SetTexture(texture *Texture, destroy bool) {
+func (self *TileSprite) SetTexture(texture *Texture) {
+    self.Object.Call("setTexture", texture)
+}
+
+// Sets the texture of the sprite. Be warned that this doesn't remove or destroy the previous
+// texture this Sprite was using.
+func (self *TileSprite) SetTexture1O(texture *Texture, destroy bool) {
     self.Object.Call("setTexture", texture, destroy)
 }
 
@@ -1315,7 +1327,37 @@ func (self *TileSprite) PostUpdateI(args ...interface{}) {
 // 
 // If the animation is already playing calling this again won't do anything.
 // If you need to reset an already running animation do so directly on the Animation object itself or via `AnimationManager.stop`.
-func (self *TileSprite) Play(name string, frameRate int, loop bool, killOnComplete bool) *Animation{
+func (self *TileSprite) Play(name string) *Animation{
+    return &Animation{self.Object.Call("play", name)}
+}
+
+// Plays an Animation.
+// 
+// The animation should have previously been created via `animations.add`.
+// 
+// If the animation is already playing calling this again won't do anything.
+// If you need to reset an already running animation do so directly on the Animation object itself or via `AnimationManager.stop`.
+func (self *TileSprite) Play1O(name string, frameRate int) *Animation{
+    return &Animation{self.Object.Call("play", name, frameRate)}
+}
+
+// Plays an Animation.
+// 
+// The animation should have previously been created via `animations.add`.
+// 
+// If the animation is already playing calling this again won't do anything.
+// If you need to reset an already running animation do so directly on the Animation object itself or via `AnimationManager.stop`.
+func (self *TileSprite) Play2O(name string, frameRate int, loop bool) *Animation{
+    return &Animation{self.Object.Call("play", name, frameRate, loop)}
+}
+
+// Plays an Animation.
+// 
+// The animation should have previously been created via `animations.add`.
+// 
+// If the animation is already playing calling this again won't do anything.
+// If you need to reset an already running animation do so directly on the Animation object itself or via `AnimationManager.stop`.
+func (self *TileSprite) Play3O(name string, frameRate int, loop bool, killOnComplete bool) *Animation{
     return &Animation{self.Object.Call("play", name, frameRate, loop, killOnComplete)}
 }
 
@@ -1359,7 +1401,109 @@ func (self *TileSprite) PlayI(args ...interface{}) *Animation{
 // Think of the offsets as applying an adjustment to the containers bounds before the alignment takes place.
 // So providing a negative offset will 'shrink' the container bounds by that amount, and providing a positive
 // one expands it.
-func (self *TileSprite) AlignIn(container interface{}, position int, offsetX int, offsetY int) interface{}{
+func (self *TileSprite) AlignIn(container interface{}) interface{}{
+    return self.Object.Call("alignIn", container)
+}
+
+// Aligns this Game Object within another Game Object, or Rectangle, known as the
+// 'container', to one of 9 possible positions.
+// 
+// The container must be a Game Object, or Phaser.Rectangle object. This can include properties
+// such as `World.bounds` or `Camera.view`, for aligning Game Objects within the world 
+// and camera bounds. Or it can include other Sprites, Images, Text objects, BitmapText,
+// TileSprites or Buttons.
+// 
+// Please note that aligning a Sprite to another Game Object does **not** make it a child of
+// the container. It simply modifies its position coordinates so it aligns with it.
+// 
+// The position constants you can use are:
+// 
+// `Phaser.TOP_LEFT`, `Phaser.TOP_CENTER`, `Phaser.TOP_RIGHT`, `Phaser.LEFT_CENTER`, 
+// `Phaser.CENTER`, `Phaser.RIGHT_CENTER`, `Phaser.BOTTOM_LEFT`, 
+// `Phaser.BOTTOM_CENTER` and `Phaser.BOTTOM_RIGHT`.
+// 
+// The Game Objects are placed in such a way that their _bounds_ align with the
+// container, taking into consideration rotation, scale and the anchor property.
+// This allows you to neatly align Game Objects, irrespective of their position value.
+// 
+// The optional `offsetX` and `offsetY` arguments allow you to apply extra spacing to the final
+// aligned position of the Game Object. For example:
+// 
+// `sprite.alignIn(background, Phaser.BOTTOM_RIGHT, -20, -20)`
+// 
+// Would align the `sprite` to the bottom-right, but moved 20 pixels in from the corner.
+// Think of the offsets as applying an adjustment to the containers bounds before the alignment takes place.
+// So providing a negative offset will 'shrink' the container bounds by that amount, and providing a positive
+// one expands it.
+func (self *TileSprite) AlignIn1O(container interface{}, position int) interface{}{
+    return self.Object.Call("alignIn", container, position)
+}
+
+// Aligns this Game Object within another Game Object, or Rectangle, known as the
+// 'container', to one of 9 possible positions.
+// 
+// The container must be a Game Object, or Phaser.Rectangle object. This can include properties
+// such as `World.bounds` or `Camera.view`, for aligning Game Objects within the world 
+// and camera bounds. Or it can include other Sprites, Images, Text objects, BitmapText,
+// TileSprites or Buttons.
+// 
+// Please note that aligning a Sprite to another Game Object does **not** make it a child of
+// the container. It simply modifies its position coordinates so it aligns with it.
+// 
+// The position constants you can use are:
+// 
+// `Phaser.TOP_LEFT`, `Phaser.TOP_CENTER`, `Phaser.TOP_RIGHT`, `Phaser.LEFT_CENTER`, 
+// `Phaser.CENTER`, `Phaser.RIGHT_CENTER`, `Phaser.BOTTOM_LEFT`, 
+// `Phaser.BOTTOM_CENTER` and `Phaser.BOTTOM_RIGHT`.
+// 
+// The Game Objects are placed in such a way that their _bounds_ align with the
+// container, taking into consideration rotation, scale and the anchor property.
+// This allows you to neatly align Game Objects, irrespective of their position value.
+// 
+// The optional `offsetX` and `offsetY` arguments allow you to apply extra spacing to the final
+// aligned position of the Game Object. For example:
+// 
+// `sprite.alignIn(background, Phaser.BOTTOM_RIGHT, -20, -20)`
+// 
+// Would align the `sprite` to the bottom-right, but moved 20 pixels in from the corner.
+// Think of the offsets as applying an adjustment to the containers bounds before the alignment takes place.
+// So providing a negative offset will 'shrink' the container bounds by that amount, and providing a positive
+// one expands it.
+func (self *TileSprite) AlignIn2O(container interface{}, position int, offsetX int) interface{}{
+    return self.Object.Call("alignIn", container, position, offsetX)
+}
+
+// Aligns this Game Object within another Game Object, or Rectangle, known as the
+// 'container', to one of 9 possible positions.
+// 
+// The container must be a Game Object, or Phaser.Rectangle object. This can include properties
+// such as `World.bounds` or `Camera.view`, for aligning Game Objects within the world 
+// and camera bounds. Or it can include other Sprites, Images, Text objects, BitmapText,
+// TileSprites or Buttons.
+// 
+// Please note that aligning a Sprite to another Game Object does **not** make it a child of
+// the container. It simply modifies its position coordinates so it aligns with it.
+// 
+// The position constants you can use are:
+// 
+// `Phaser.TOP_LEFT`, `Phaser.TOP_CENTER`, `Phaser.TOP_RIGHT`, `Phaser.LEFT_CENTER`, 
+// `Phaser.CENTER`, `Phaser.RIGHT_CENTER`, `Phaser.BOTTOM_LEFT`, 
+// `Phaser.BOTTOM_CENTER` and `Phaser.BOTTOM_RIGHT`.
+// 
+// The Game Objects are placed in such a way that their _bounds_ align with the
+// container, taking into consideration rotation, scale and the anchor property.
+// This allows you to neatly align Game Objects, irrespective of their position value.
+// 
+// The optional `offsetX` and `offsetY` arguments allow you to apply extra spacing to the final
+// aligned position of the Game Object. For example:
+// 
+// `sprite.alignIn(background, Phaser.BOTTOM_RIGHT, -20, -20)`
+// 
+// Would align the `sprite` to the bottom-right, but moved 20 pixels in from the corner.
+// Think of the offsets as applying an adjustment to the containers bounds before the alignment takes place.
+// So providing a negative offset will 'shrink' the container bounds by that amount, and providing a positive
+// one expands it.
+func (self *TileSprite) AlignIn3O(container interface{}, position int, offsetX int, offsetY int) interface{}{
     return self.Object.Call("alignIn", container, position, offsetX, offsetY)
 }
 
@@ -1428,7 +1572,112 @@ func (self *TileSprite) AlignInI(args ...interface{}) interface{}{
 // Think of the offsets as applying an adjustment to the parents bounds before the alignment takes place.
 // So providing a negative offset will 'shrink' the parent bounds by that amount, and providing a positive
 // one expands it.
-func (self *TileSprite) AlignTo(parent interface{}, position int, offsetX int, offsetY int) interface{}{
+func (self *TileSprite) AlignTo(parent interface{}) interface{}{
+    return self.Object.Call("alignTo", parent)
+}
+
+// Aligns this Game Object to the side of another Game Object, or Rectangle, known as the
+// 'parent', in one of 11 possible positions.
+// 
+// The parent must be a Game Object, or Phaser.Rectangle object. This can include properties
+// such as `World.bounds` or `Camera.view`, for aligning Game Objects within the world 
+// and camera bounds. Or it can include other Sprites, Images, Text objects, BitmapText,
+// TileSprites or Buttons.
+// 
+// Please note that aligning a Sprite to another Game Object does **not** make it a child of
+// the parent. It simply modifies its position coordinates so it aligns with it.
+// 
+// The position constants you can use are:
+// 
+// `Phaser.TOP_LEFT` (default), `Phaser.TOP_CENTER`, `Phaser.TOP_RIGHT`, `Phaser.LEFT_TOP`, 
+// `Phaser.LEFT_CENTER`, `Phaser.LEFT_BOTTOM`, `Phaser.RIGHT_TOP`, `Phaser.RIGHT_CENTER`, 
+// `Phaser.RIGHT_BOTTOM`, `Phaser.BOTTOM_LEFT`, `Phaser.BOTTOM_CENTER` 
+// and `Phaser.BOTTOM_RIGHT`.
+// 
+// The Game Objects are placed in such a way that their _bounds_ align with the
+// parent, taking into consideration rotation, scale and the anchor property.
+// This allows you to neatly align Game Objects, irrespective of their position value.
+// 
+// The optional `offsetX` and `offsetY` arguments allow you to apply extra spacing to the final
+// aligned position of the Game Object. For example:
+// 
+// `sprite.alignTo(background, Phaser.BOTTOM_RIGHT, -20, -20)`
+// 
+// Would align the `sprite` to the bottom-right, but moved 20 pixels in from the corner.
+// Think of the offsets as applying an adjustment to the parents bounds before the alignment takes place.
+// So providing a negative offset will 'shrink' the parent bounds by that amount, and providing a positive
+// one expands it.
+func (self *TileSprite) AlignTo1O(parent interface{}, position int) interface{}{
+    return self.Object.Call("alignTo", parent, position)
+}
+
+// Aligns this Game Object to the side of another Game Object, or Rectangle, known as the
+// 'parent', in one of 11 possible positions.
+// 
+// The parent must be a Game Object, or Phaser.Rectangle object. This can include properties
+// such as `World.bounds` or `Camera.view`, for aligning Game Objects within the world 
+// and camera bounds. Or it can include other Sprites, Images, Text objects, BitmapText,
+// TileSprites or Buttons.
+// 
+// Please note that aligning a Sprite to another Game Object does **not** make it a child of
+// the parent. It simply modifies its position coordinates so it aligns with it.
+// 
+// The position constants you can use are:
+// 
+// `Phaser.TOP_LEFT` (default), `Phaser.TOP_CENTER`, `Phaser.TOP_RIGHT`, `Phaser.LEFT_TOP`, 
+// `Phaser.LEFT_CENTER`, `Phaser.LEFT_BOTTOM`, `Phaser.RIGHT_TOP`, `Phaser.RIGHT_CENTER`, 
+// `Phaser.RIGHT_BOTTOM`, `Phaser.BOTTOM_LEFT`, `Phaser.BOTTOM_CENTER` 
+// and `Phaser.BOTTOM_RIGHT`.
+// 
+// The Game Objects are placed in such a way that their _bounds_ align with the
+// parent, taking into consideration rotation, scale and the anchor property.
+// This allows you to neatly align Game Objects, irrespective of their position value.
+// 
+// The optional `offsetX` and `offsetY` arguments allow you to apply extra spacing to the final
+// aligned position of the Game Object. For example:
+// 
+// `sprite.alignTo(background, Phaser.BOTTOM_RIGHT, -20, -20)`
+// 
+// Would align the `sprite` to the bottom-right, but moved 20 pixels in from the corner.
+// Think of the offsets as applying an adjustment to the parents bounds before the alignment takes place.
+// So providing a negative offset will 'shrink' the parent bounds by that amount, and providing a positive
+// one expands it.
+func (self *TileSprite) AlignTo2O(parent interface{}, position int, offsetX int) interface{}{
+    return self.Object.Call("alignTo", parent, position, offsetX)
+}
+
+// Aligns this Game Object to the side of another Game Object, or Rectangle, known as the
+// 'parent', in one of 11 possible positions.
+// 
+// The parent must be a Game Object, or Phaser.Rectangle object. This can include properties
+// such as `World.bounds` or `Camera.view`, for aligning Game Objects within the world 
+// and camera bounds. Or it can include other Sprites, Images, Text objects, BitmapText,
+// TileSprites or Buttons.
+// 
+// Please note that aligning a Sprite to another Game Object does **not** make it a child of
+// the parent. It simply modifies its position coordinates so it aligns with it.
+// 
+// The position constants you can use are:
+// 
+// `Phaser.TOP_LEFT` (default), `Phaser.TOP_CENTER`, `Phaser.TOP_RIGHT`, `Phaser.LEFT_TOP`, 
+// `Phaser.LEFT_CENTER`, `Phaser.LEFT_BOTTOM`, `Phaser.RIGHT_TOP`, `Phaser.RIGHT_CENTER`, 
+// `Phaser.RIGHT_BOTTOM`, `Phaser.BOTTOM_LEFT`, `Phaser.BOTTOM_CENTER` 
+// and `Phaser.BOTTOM_RIGHT`.
+// 
+// The Game Objects are placed in such a way that their _bounds_ align with the
+// parent, taking into consideration rotation, scale and the anchor property.
+// This allows you to neatly align Game Objects, irrespective of their position value.
+// 
+// The optional `offsetX` and `offsetY` arguments allow you to apply extra spacing to the final
+// aligned position of the Game Object. For example:
+// 
+// `sprite.alignTo(background, Phaser.BOTTOM_RIGHT, -20, -20)`
+// 
+// Would align the `sprite` to the bottom-right, but moved 20 pixels in from the corner.
+// Think of the offsets as applying an adjustment to the parents bounds before the alignment takes place.
+// So providing a negative offset will 'shrink' the parent bounds by that amount, and providing a positive
+// one expands it.
+func (self *TileSprite) AlignTo3O(parent interface{}, position int, offsetX int, offsetY int) interface{}{
     return self.Object.Call("alignTo", parent, position, offsetX, offsetY)
 }
 
@@ -1544,7 +1793,16 @@ func (self *TileSprite) MoveDownI(args ...interface{}) *DisplayObject{
 // A resurrected Game Object has its `alive`, `exists` and `visible` properties all set to true.
 // 
 // It will dispatch the `onRevived` event. Listen to `events.onRevived` for the signal.
-func (self *TileSprite) Revive(health int) *DisplayObject{
+func (self *TileSprite) Revive() *DisplayObject{
+    return &DisplayObject{self.Object.Call("revive")}
+}
+
+// Brings a 'dead' Game Object back to life, optionally resetting its health value in the process.
+// 
+// A resurrected Game Object has its `alive`, `exists` and `visible` properties all set to true.
+// 
+// It will dispatch the `onRevived` event. Listen to `events.onRevived` for the signal.
+func (self *TileSprite) Revive1O(health int) *DisplayObject{
     return &DisplayObject{self.Object.Call("revive", health)}
 }
 
@@ -1597,7 +1855,47 @@ func (self *TileSprite) KillI(args ...interface{}) *DisplayObject{
 // and swapping it to be the key of the atlas data.
 // 
 // Note: You cannot use a RenderTexture as a texture for a TileSprite.
-func (self *TileSprite) LoadTexture(key interface{}, frame interface{}, stopAnimation bool) {
+func (self *TileSprite) LoadTexture(key interface{}) {
+    self.Object.Call("loadTexture", key)
+}
+
+// Changes the base texture the Game Object is using. The old texture is removed and the new one is referenced or fetched from the Cache.
+// 
+// If your Game Object is using a frame from a texture atlas and you just wish to change to another frame, then see the `frame` or `frameName` properties instead.
+// 
+// You should only use `loadTexture` if you want to replace the base texture entirely.
+// 
+// Calling this method causes a WebGL texture update, so use sparingly or in low-intensity portions of your game, or if you know the new texture is already on the GPU.
+// 
+// You can use the new const `Phaser.PENDING_ATLAS` as the texture key for any sprite. 
+// Doing this then sets the key to be the `frame` argument (the frame is set to zero). 
+// 
+// This allows you to create sprites using `load.image` during development, and then change them 
+// to use a Texture Atlas later in development by simply searching your code for 'PENDING_ATLAS' 
+// and swapping it to be the key of the atlas data.
+// 
+// Note: You cannot use a RenderTexture as a texture for a TileSprite.
+func (self *TileSprite) LoadTexture1O(key interface{}, frame interface{}) {
+    self.Object.Call("loadTexture", key, frame)
+}
+
+// Changes the base texture the Game Object is using. The old texture is removed and the new one is referenced or fetched from the Cache.
+// 
+// If your Game Object is using a frame from a texture atlas and you just wish to change to another frame, then see the `frame` or `frameName` properties instead.
+// 
+// You should only use `loadTexture` if you want to replace the base texture entirely.
+// 
+// Calling this method causes a WebGL texture update, so use sparingly or in low-intensity portions of your game, or if you know the new texture is already on the GPU.
+// 
+// You can use the new const `Phaser.PENDING_ATLAS` as the texture key for any sprite. 
+// Doing this then sets the key to be the `frame` argument (the frame is set to zero). 
+// 
+// This allows you to create sprites using `load.image` during development, and then change them 
+// to use a Texture Atlas later in development by simply searching your code for 'PENDING_ATLAS' 
+// and swapping it to be the key of the atlas data.
+// 
+// Note: You cannot use a RenderTexture as a texture for a TileSprite.
+func (self *TileSprite) LoadTexture2O(key interface{}, frame interface{}, stopAnimation bool) {
     self.Object.Call("loadTexture", key, frame, stopAnimation)
 }
 

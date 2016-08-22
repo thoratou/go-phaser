@@ -987,7 +987,35 @@ func (self *Button) ChangeStateFrameI(args ...interface{}) bool{
 // Used to manually set the frames that will be used for the different states of the Button.
 // 
 // Frames can be specified as either an integer (the frame ID) or a string (the frame name); these are the same values that can be used with a Sprite constructor.
-func (self *Button) SetFrames(overFrame interface{}, outFrame interface{}, downFrame interface{}, upFrame interface{}) {
+func (self *Button) SetFrames() {
+    self.Object.Call("setFrames")
+}
+
+// Used to manually set the frames that will be used for the different states of the Button.
+// 
+// Frames can be specified as either an integer (the frame ID) or a string (the frame name); these are the same values that can be used with a Sprite constructor.
+func (self *Button) SetFrames1O(overFrame interface{}) {
+    self.Object.Call("setFrames", overFrame)
+}
+
+// Used to manually set the frames that will be used for the different states of the Button.
+// 
+// Frames can be specified as either an integer (the frame ID) or a string (the frame name); these are the same values that can be used with a Sprite constructor.
+func (self *Button) SetFrames2O(overFrame interface{}, outFrame interface{}) {
+    self.Object.Call("setFrames", overFrame, outFrame)
+}
+
+// Used to manually set the frames that will be used for the different states of the Button.
+// 
+// Frames can be specified as either an integer (the frame ID) or a string (the frame name); these are the same values that can be used with a Sprite constructor.
+func (self *Button) SetFrames3O(overFrame interface{}, outFrame interface{}, downFrame interface{}) {
+    self.Object.Call("setFrames", overFrame, outFrame, downFrame)
+}
+
+// Used to manually set the frames that will be used for the different states of the Button.
+// 
+// Frames can be specified as either an integer (the frame ID) or a string (the frame name); these are the same values that can be used with a Sprite constructor.
+func (self *Button) SetFrames4O(overFrame interface{}, outFrame interface{}, downFrame interface{}, upFrame interface{}) {
     self.Object.Call("setFrames", overFrame, outFrame, downFrame, upFrame)
 }
 
@@ -999,7 +1027,17 @@ func (self *Button) SetFramesI(args ...interface{}) {
 }
 
 // Set the sound/marker for the given state.
-func (self *Button) SetStateSound(state interface{}, sound interface{}, marker string) {
+func (self *Button) SetStateSound(state interface{}) {
+    self.Object.Call("setStateSound", state)
+}
+
+// Set the sound/marker for the given state.
+func (self *Button) SetStateSound1O(state interface{}, sound interface{}) {
+    self.Object.Call("setStateSound", state, sound)
+}
+
+// Set the sound/marker for the given state.
+func (self *Button) SetStateSound2O(state interface{}, sound interface{}, marker string) {
     self.Object.Call("setStateSound", state, sound, marker)
 }
 
@@ -1022,7 +1060,71 @@ func (self *Button) PlayStateSoundI(args ...interface{}) bool{
 // The most common forms of sounds are 'hover' effects and 'click' effects, which is why the order of the parameters is overSound then downSound.
 // 
 // Call this function with no parameters to reset all sounds on this Button.
-func (self *Button) SetSounds(overSound interface{}, overMarker string, downSound interface{}, downMarker string, outSound interface{}, outMarker string, upSound interface{}, upMarker string) {
+func (self *Button) SetSounds() {
+    self.Object.Call("setSounds")
+}
+
+// Sets the sounds to be played whenever this Button is interacted with. Sounds can be either full Sound objects, or markers pointing to a section of a Sound object.
+// The most common forms of sounds are 'hover' effects and 'click' effects, which is why the order of the parameters is overSound then downSound.
+// 
+// Call this function with no parameters to reset all sounds on this Button.
+func (self *Button) SetSounds1O(overSound interface{}) {
+    self.Object.Call("setSounds", overSound)
+}
+
+// Sets the sounds to be played whenever this Button is interacted with. Sounds can be either full Sound objects, or markers pointing to a section of a Sound object.
+// The most common forms of sounds are 'hover' effects and 'click' effects, which is why the order of the parameters is overSound then downSound.
+// 
+// Call this function with no parameters to reset all sounds on this Button.
+func (self *Button) SetSounds2O(overSound interface{}, overMarker string) {
+    self.Object.Call("setSounds", overSound, overMarker)
+}
+
+// Sets the sounds to be played whenever this Button is interacted with. Sounds can be either full Sound objects, or markers pointing to a section of a Sound object.
+// The most common forms of sounds are 'hover' effects and 'click' effects, which is why the order of the parameters is overSound then downSound.
+// 
+// Call this function with no parameters to reset all sounds on this Button.
+func (self *Button) SetSounds3O(overSound interface{}, overMarker string, downSound interface{}) {
+    self.Object.Call("setSounds", overSound, overMarker, downSound)
+}
+
+// Sets the sounds to be played whenever this Button is interacted with. Sounds can be either full Sound objects, or markers pointing to a section of a Sound object.
+// The most common forms of sounds are 'hover' effects and 'click' effects, which is why the order of the parameters is overSound then downSound.
+// 
+// Call this function with no parameters to reset all sounds on this Button.
+func (self *Button) SetSounds4O(overSound interface{}, overMarker string, downSound interface{}, downMarker string) {
+    self.Object.Call("setSounds", overSound, overMarker, downSound, downMarker)
+}
+
+// Sets the sounds to be played whenever this Button is interacted with. Sounds can be either full Sound objects, or markers pointing to a section of a Sound object.
+// The most common forms of sounds are 'hover' effects and 'click' effects, which is why the order of the parameters is overSound then downSound.
+// 
+// Call this function with no parameters to reset all sounds on this Button.
+func (self *Button) SetSounds5O(overSound interface{}, overMarker string, downSound interface{}, downMarker string, outSound interface{}) {
+    self.Object.Call("setSounds", overSound, overMarker, downSound, downMarker, outSound)
+}
+
+// Sets the sounds to be played whenever this Button is interacted with. Sounds can be either full Sound objects, or markers pointing to a section of a Sound object.
+// The most common forms of sounds are 'hover' effects and 'click' effects, which is why the order of the parameters is overSound then downSound.
+// 
+// Call this function with no parameters to reset all sounds on this Button.
+func (self *Button) SetSounds6O(overSound interface{}, overMarker string, downSound interface{}, downMarker string, outSound interface{}, outMarker string) {
+    self.Object.Call("setSounds", overSound, overMarker, downSound, downMarker, outSound, outMarker)
+}
+
+// Sets the sounds to be played whenever this Button is interacted with. Sounds can be either full Sound objects, or markers pointing to a section of a Sound object.
+// The most common forms of sounds are 'hover' effects and 'click' effects, which is why the order of the parameters is overSound then downSound.
+// 
+// Call this function with no parameters to reset all sounds on this Button.
+func (self *Button) SetSounds7O(overSound interface{}, overMarker string, downSound interface{}, downMarker string, outSound interface{}, outMarker string, upSound interface{}) {
+    self.Object.Call("setSounds", overSound, overMarker, downSound, downMarker, outSound, outMarker, upSound)
+}
+
+// Sets the sounds to be played whenever this Button is interacted with. Sounds can be either full Sound objects, or markers pointing to a section of a Sound object.
+// The most common forms of sounds are 'hover' effects and 'click' effects, which is why the order of the parameters is overSound then downSound.
+// 
+// Call this function with no parameters to reset all sounds on this Button.
+func (self *Button) SetSounds8O(overSound interface{}, overMarker string, downSound interface{}, downMarker string, outSound interface{}, outMarker string, upSound interface{}, upMarker string) {
     self.Object.Call("setSounds", overSound, overMarker, downSound, downMarker, outSound, outMarker, upSound, upMarker)
 }
 
@@ -1035,7 +1137,12 @@ func (self *Button) SetSoundsI(args ...interface{}) {
 }
 
 // The Sound to be played when a Pointer moves over this Button.
-func (self *Button) SetOverSound(sound interface{}, marker string) {
+func (self *Button) SetOverSound(sound interface{}) {
+    self.Object.Call("setOverSound", sound)
+}
+
+// The Sound to be played when a Pointer moves over this Button.
+func (self *Button) SetOverSound1O(sound interface{}, marker string) {
     self.Object.Call("setOverSound", sound, marker)
 }
 
@@ -1045,7 +1152,12 @@ func (self *Button) SetOverSoundI(args ...interface{}) {
 }
 
 // The Sound to be played when a Pointer moves out of this Button.
-func (self *Button) SetOutSound(sound interface{}, marker string) {
+func (self *Button) SetOutSound(sound interface{}) {
+    self.Object.Call("setOutSound", sound)
+}
+
+// The Sound to be played when a Pointer moves out of this Button.
+func (self *Button) SetOutSound1O(sound interface{}, marker string) {
     self.Object.Call("setOutSound", sound, marker)
 }
 
@@ -1055,7 +1167,12 @@ func (self *Button) SetOutSoundI(args ...interface{}) {
 }
 
 // The Sound to be played when a Pointer presses down on this Button.
-func (self *Button) SetDownSound(sound interface{}, marker string) {
+func (self *Button) SetDownSound(sound interface{}) {
+    self.Object.Call("setDownSound", sound)
+}
+
+// The Sound to be played when a Pointer presses down on this Button.
+func (self *Button) SetDownSound1O(sound interface{}, marker string) {
     self.Object.Call("setDownSound", sound, marker)
 }
 
@@ -1065,7 +1182,12 @@ func (self *Button) SetDownSoundI(args ...interface{}) {
 }
 
 // The Sound to be played when a Pointer has pressed down and is released from this Button.
-func (self *Button) SetUpSound(sound interface{}, marker string) {
+func (self *Button) SetUpSound(sound interface{}) {
+    self.Object.Call("setUpSound", sound)
+}
+
+// The Sound to be played when a Pointer has pressed down and is released from this Button.
+func (self *Button) SetUpSound1O(sound interface{}, marker string) {
     self.Object.Call("setUpSound", sound, marker)
 }
 
@@ -1126,7 +1248,13 @@ func (self *Button) PreUpdateI(args ...interface{}) {
 
 // Sets the texture of the sprite. Be warned that this doesn't remove or destroy the previous
 // texture this Sprite was using.
-func (self *Button) SetTexture(texture *Texture, destroy bool) {
+func (self *Button) SetTexture(texture *Texture) {
+    self.Object.Call("setTexture", texture)
+}
+
+// Sets the texture of the sprite. Be warned that this doesn't remove or destroy the previous
+// texture this Sprite was using.
+func (self *Button) SetTexture1O(texture *Texture, destroy bool) {
     self.Object.Call("setTexture", texture, destroy)
 }
 
@@ -1173,7 +1301,12 @@ func (self *Button) GetBoundsI(args ...interface{}) *Rectangle{
 }
 
 // Renders the object using the WebGL renderer
-func (self *Button) _renderWebGL(renderSession *RenderSession, matrix *Matrix) {
+func (self *Button) _renderWebGL(renderSession *RenderSession) {
+    self.Object.Call("_renderWebGL", renderSession)
+}
+
+// Renders the object using the WebGL renderer
+func (self *Button) _renderWebGL1O(renderSession *RenderSession, matrix *Matrix) {
     self.Object.Call("_renderWebGL", renderSession, matrix)
 }
 
@@ -1183,7 +1316,12 @@ func (self *Button) _renderWebGLI(args ...interface{}) {
 }
 
 // Renders the object using the Canvas renderer
-func (self *Button) _renderCanvas(renderSession *RenderSession, matrix *Matrix) {
+func (self *Button) _renderCanvas(renderSession *RenderSession) {
+    self.Object.Call("_renderCanvas", renderSession)
+}
+
+// Renders the object using the Canvas renderer
+func (self *Button) _renderCanvas1O(renderSession *RenderSession, matrix *Matrix) {
     self.Object.Call("_renderCanvas", renderSession, matrix)
 }
 
@@ -1342,7 +1480,37 @@ func (self *Button) PostUpdateI(args ...interface{}) {
 // 
 // If the animation is already playing calling this again won't do anything.
 // If you need to reset an already running animation do so directly on the Animation object itself or via `AnimationManager.stop`.
-func (self *Button) Play(name string, frameRate int, loop bool, killOnComplete bool) *Animation{
+func (self *Button) Play(name string) *Animation{
+    return &Animation{self.Object.Call("play", name)}
+}
+
+// Plays an Animation.
+// 
+// The animation should have previously been created via `animations.add`.
+// 
+// If the animation is already playing calling this again won't do anything.
+// If you need to reset an already running animation do so directly on the Animation object itself or via `AnimationManager.stop`.
+func (self *Button) Play1O(name string, frameRate int) *Animation{
+    return &Animation{self.Object.Call("play", name, frameRate)}
+}
+
+// Plays an Animation.
+// 
+// The animation should have previously been created via `animations.add`.
+// 
+// If the animation is already playing calling this again won't do anything.
+// If you need to reset an already running animation do so directly on the Animation object itself or via `AnimationManager.stop`.
+func (self *Button) Play2O(name string, frameRate int, loop bool) *Animation{
+    return &Animation{self.Object.Call("play", name, frameRate, loop)}
+}
+
+// Plays an Animation.
+// 
+// The animation should have previously been created via `animations.add`.
+// 
+// If the animation is already playing calling this again won't do anything.
+// If you need to reset an already running animation do so directly on the Animation object itself or via `AnimationManager.stop`.
+func (self *Button) Play3O(name string, frameRate int, loop bool, killOnComplete bool) *Animation{
     return &Animation{self.Object.Call("play", name, frameRate, loop, killOnComplete)}
 }
 
@@ -1386,7 +1554,109 @@ func (self *Button) PlayI(args ...interface{}) *Animation{
 // Think of the offsets as applying an adjustment to the containers bounds before the alignment takes place.
 // So providing a negative offset will 'shrink' the container bounds by that amount, and providing a positive
 // one expands it.
-func (self *Button) AlignIn(container interface{}, position int, offsetX int, offsetY int) interface{}{
+func (self *Button) AlignIn(container interface{}) interface{}{
+    return self.Object.Call("alignIn", container)
+}
+
+// Aligns this Game Object within another Game Object, or Rectangle, known as the
+// 'container', to one of 9 possible positions.
+// 
+// The container must be a Game Object, or Phaser.Rectangle object. This can include properties
+// such as `World.bounds` or `Camera.view`, for aligning Game Objects within the world 
+// and camera bounds. Or it can include other Sprites, Images, Text objects, BitmapText,
+// TileSprites or Buttons.
+// 
+// Please note that aligning a Sprite to another Game Object does **not** make it a child of
+// the container. It simply modifies its position coordinates so it aligns with it.
+// 
+// The position constants you can use are:
+// 
+// `Phaser.TOP_LEFT`, `Phaser.TOP_CENTER`, `Phaser.TOP_RIGHT`, `Phaser.LEFT_CENTER`, 
+// `Phaser.CENTER`, `Phaser.RIGHT_CENTER`, `Phaser.BOTTOM_LEFT`, 
+// `Phaser.BOTTOM_CENTER` and `Phaser.BOTTOM_RIGHT`.
+// 
+// The Game Objects are placed in such a way that their _bounds_ align with the
+// container, taking into consideration rotation, scale and the anchor property.
+// This allows you to neatly align Game Objects, irrespective of their position value.
+// 
+// The optional `offsetX` and `offsetY` arguments allow you to apply extra spacing to the final
+// aligned position of the Game Object. For example:
+// 
+// `sprite.alignIn(background, Phaser.BOTTOM_RIGHT, -20, -20)`
+// 
+// Would align the `sprite` to the bottom-right, but moved 20 pixels in from the corner.
+// Think of the offsets as applying an adjustment to the containers bounds before the alignment takes place.
+// So providing a negative offset will 'shrink' the container bounds by that amount, and providing a positive
+// one expands it.
+func (self *Button) AlignIn1O(container interface{}, position int) interface{}{
+    return self.Object.Call("alignIn", container, position)
+}
+
+// Aligns this Game Object within another Game Object, or Rectangle, known as the
+// 'container', to one of 9 possible positions.
+// 
+// The container must be a Game Object, or Phaser.Rectangle object. This can include properties
+// such as `World.bounds` or `Camera.view`, for aligning Game Objects within the world 
+// and camera bounds. Or it can include other Sprites, Images, Text objects, BitmapText,
+// TileSprites or Buttons.
+// 
+// Please note that aligning a Sprite to another Game Object does **not** make it a child of
+// the container. It simply modifies its position coordinates so it aligns with it.
+// 
+// The position constants you can use are:
+// 
+// `Phaser.TOP_LEFT`, `Phaser.TOP_CENTER`, `Phaser.TOP_RIGHT`, `Phaser.LEFT_CENTER`, 
+// `Phaser.CENTER`, `Phaser.RIGHT_CENTER`, `Phaser.BOTTOM_LEFT`, 
+// `Phaser.BOTTOM_CENTER` and `Phaser.BOTTOM_RIGHT`.
+// 
+// The Game Objects are placed in such a way that their _bounds_ align with the
+// container, taking into consideration rotation, scale and the anchor property.
+// This allows you to neatly align Game Objects, irrespective of their position value.
+// 
+// The optional `offsetX` and `offsetY` arguments allow you to apply extra spacing to the final
+// aligned position of the Game Object. For example:
+// 
+// `sprite.alignIn(background, Phaser.BOTTOM_RIGHT, -20, -20)`
+// 
+// Would align the `sprite` to the bottom-right, but moved 20 pixels in from the corner.
+// Think of the offsets as applying an adjustment to the containers bounds before the alignment takes place.
+// So providing a negative offset will 'shrink' the container bounds by that amount, and providing a positive
+// one expands it.
+func (self *Button) AlignIn2O(container interface{}, position int, offsetX int) interface{}{
+    return self.Object.Call("alignIn", container, position, offsetX)
+}
+
+// Aligns this Game Object within another Game Object, or Rectangle, known as the
+// 'container', to one of 9 possible positions.
+// 
+// The container must be a Game Object, or Phaser.Rectangle object. This can include properties
+// such as `World.bounds` or `Camera.view`, for aligning Game Objects within the world 
+// and camera bounds. Or it can include other Sprites, Images, Text objects, BitmapText,
+// TileSprites or Buttons.
+// 
+// Please note that aligning a Sprite to another Game Object does **not** make it a child of
+// the container. It simply modifies its position coordinates so it aligns with it.
+// 
+// The position constants you can use are:
+// 
+// `Phaser.TOP_LEFT`, `Phaser.TOP_CENTER`, `Phaser.TOP_RIGHT`, `Phaser.LEFT_CENTER`, 
+// `Phaser.CENTER`, `Phaser.RIGHT_CENTER`, `Phaser.BOTTOM_LEFT`, 
+// `Phaser.BOTTOM_CENTER` and `Phaser.BOTTOM_RIGHT`.
+// 
+// The Game Objects are placed in such a way that their _bounds_ align with the
+// container, taking into consideration rotation, scale and the anchor property.
+// This allows you to neatly align Game Objects, irrespective of their position value.
+// 
+// The optional `offsetX` and `offsetY` arguments allow you to apply extra spacing to the final
+// aligned position of the Game Object. For example:
+// 
+// `sprite.alignIn(background, Phaser.BOTTOM_RIGHT, -20, -20)`
+// 
+// Would align the `sprite` to the bottom-right, but moved 20 pixels in from the corner.
+// Think of the offsets as applying an adjustment to the containers bounds before the alignment takes place.
+// So providing a negative offset will 'shrink' the container bounds by that amount, and providing a positive
+// one expands it.
+func (self *Button) AlignIn3O(container interface{}, position int, offsetX int, offsetY int) interface{}{
     return self.Object.Call("alignIn", container, position, offsetX, offsetY)
 }
 
@@ -1455,7 +1725,112 @@ func (self *Button) AlignInI(args ...interface{}) interface{}{
 // Think of the offsets as applying an adjustment to the parents bounds before the alignment takes place.
 // So providing a negative offset will 'shrink' the parent bounds by that amount, and providing a positive
 // one expands it.
-func (self *Button) AlignTo(parent interface{}, position int, offsetX int, offsetY int) interface{}{
+func (self *Button) AlignTo(parent interface{}) interface{}{
+    return self.Object.Call("alignTo", parent)
+}
+
+// Aligns this Game Object to the side of another Game Object, or Rectangle, known as the
+// 'parent', in one of 11 possible positions.
+// 
+// The parent must be a Game Object, or Phaser.Rectangle object. This can include properties
+// such as `World.bounds` or `Camera.view`, for aligning Game Objects within the world 
+// and camera bounds. Or it can include other Sprites, Images, Text objects, BitmapText,
+// TileSprites or Buttons.
+// 
+// Please note that aligning a Sprite to another Game Object does **not** make it a child of
+// the parent. It simply modifies its position coordinates so it aligns with it.
+// 
+// The position constants you can use are:
+// 
+// `Phaser.TOP_LEFT` (default), `Phaser.TOP_CENTER`, `Phaser.TOP_RIGHT`, `Phaser.LEFT_TOP`, 
+// `Phaser.LEFT_CENTER`, `Phaser.LEFT_BOTTOM`, `Phaser.RIGHT_TOP`, `Phaser.RIGHT_CENTER`, 
+// `Phaser.RIGHT_BOTTOM`, `Phaser.BOTTOM_LEFT`, `Phaser.BOTTOM_CENTER` 
+// and `Phaser.BOTTOM_RIGHT`.
+// 
+// The Game Objects are placed in such a way that their _bounds_ align with the
+// parent, taking into consideration rotation, scale and the anchor property.
+// This allows you to neatly align Game Objects, irrespective of their position value.
+// 
+// The optional `offsetX` and `offsetY` arguments allow you to apply extra spacing to the final
+// aligned position of the Game Object. For example:
+// 
+// `sprite.alignTo(background, Phaser.BOTTOM_RIGHT, -20, -20)`
+// 
+// Would align the `sprite` to the bottom-right, but moved 20 pixels in from the corner.
+// Think of the offsets as applying an adjustment to the parents bounds before the alignment takes place.
+// So providing a negative offset will 'shrink' the parent bounds by that amount, and providing a positive
+// one expands it.
+func (self *Button) AlignTo1O(parent interface{}, position int) interface{}{
+    return self.Object.Call("alignTo", parent, position)
+}
+
+// Aligns this Game Object to the side of another Game Object, or Rectangle, known as the
+// 'parent', in one of 11 possible positions.
+// 
+// The parent must be a Game Object, or Phaser.Rectangle object. This can include properties
+// such as `World.bounds` or `Camera.view`, for aligning Game Objects within the world 
+// and camera bounds. Or it can include other Sprites, Images, Text objects, BitmapText,
+// TileSprites or Buttons.
+// 
+// Please note that aligning a Sprite to another Game Object does **not** make it a child of
+// the parent. It simply modifies its position coordinates so it aligns with it.
+// 
+// The position constants you can use are:
+// 
+// `Phaser.TOP_LEFT` (default), `Phaser.TOP_CENTER`, `Phaser.TOP_RIGHT`, `Phaser.LEFT_TOP`, 
+// `Phaser.LEFT_CENTER`, `Phaser.LEFT_BOTTOM`, `Phaser.RIGHT_TOP`, `Phaser.RIGHT_CENTER`, 
+// `Phaser.RIGHT_BOTTOM`, `Phaser.BOTTOM_LEFT`, `Phaser.BOTTOM_CENTER` 
+// and `Phaser.BOTTOM_RIGHT`.
+// 
+// The Game Objects are placed in such a way that their _bounds_ align with the
+// parent, taking into consideration rotation, scale and the anchor property.
+// This allows you to neatly align Game Objects, irrespective of their position value.
+// 
+// The optional `offsetX` and `offsetY` arguments allow you to apply extra spacing to the final
+// aligned position of the Game Object. For example:
+// 
+// `sprite.alignTo(background, Phaser.BOTTOM_RIGHT, -20, -20)`
+// 
+// Would align the `sprite` to the bottom-right, but moved 20 pixels in from the corner.
+// Think of the offsets as applying an adjustment to the parents bounds before the alignment takes place.
+// So providing a negative offset will 'shrink' the parent bounds by that amount, and providing a positive
+// one expands it.
+func (self *Button) AlignTo2O(parent interface{}, position int, offsetX int) interface{}{
+    return self.Object.Call("alignTo", parent, position, offsetX)
+}
+
+// Aligns this Game Object to the side of another Game Object, or Rectangle, known as the
+// 'parent', in one of 11 possible positions.
+// 
+// The parent must be a Game Object, or Phaser.Rectangle object. This can include properties
+// such as `World.bounds` or `Camera.view`, for aligning Game Objects within the world 
+// and camera bounds. Or it can include other Sprites, Images, Text objects, BitmapText,
+// TileSprites or Buttons.
+// 
+// Please note that aligning a Sprite to another Game Object does **not** make it a child of
+// the parent. It simply modifies its position coordinates so it aligns with it.
+// 
+// The position constants you can use are:
+// 
+// `Phaser.TOP_LEFT` (default), `Phaser.TOP_CENTER`, `Phaser.TOP_RIGHT`, `Phaser.LEFT_TOP`, 
+// `Phaser.LEFT_CENTER`, `Phaser.LEFT_BOTTOM`, `Phaser.RIGHT_TOP`, `Phaser.RIGHT_CENTER`, 
+// `Phaser.RIGHT_BOTTOM`, `Phaser.BOTTOM_LEFT`, `Phaser.BOTTOM_CENTER` 
+// and `Phaser.BOTTOM_RIGHT`.
+// 
+// The Game Objects are placed in such a way that their _bounds_ align with the
+// parent, taking into consideration rotation, scale and the anchor property.
+// This allows you to neatly align Game Objects, irrespective of their position value.
+// 
+// The optional `offsetX` and `offsetY` arguments allow you to apply extra spacing to the final
+// aligned position of the Game Object. For example:
+// 
+// `sprite.alignTo(background, Phaser.BOTTOM_RIGHT, -20, -20)`
+// 
+// Would align the `sprite` to the bottom-right, but moved 20 pixels in from the corner.
+// Think of the offsets as applying an adjustment to the parents bounds before the alignment takes place.
+// So providing a negative offset will 'shrink' the parent bounds by that amount, and providing a positive
+// one expands it.
+func (self *Button) AlignTo3O(parent interface{}, position int, offsetX int, offsetY int) interface{}{
     return self.Object.Call("alignTo", parent, position, offsetX, offsetY)
 }
 
@@ -1577,7 +1952,22 @@ func (self *Button) MoveDownI(args ...interface{}) *DisplayObject{
 // 
 // A reference to the rectangle is stored in `cropRect` unless the `copy` parameter is `true`, 
 // in which case the values are duplicated to a local object.
-func (self *Button) Crop(rect *Rectangle, copy bool) {
+func (self *Button) Crop(rect *Rectangle) {
+    self.Object.Call("crop", rect)
+}
+
+// Crop allows you to crop the texture being used to display this Game Object.
+// Setting a crop rectangle modifies the core texture frame. The Game Object width and height properties will be adjusted accordingly.
+// 
+// Cropping takes place from the top-left and can be modified in real-time either by providing an updated rectangle object to this method,
+// or by modifying `cropRect` property directly and then calling `updateCrop`.
+// 
+// The rectangle object given to this method can be either a `Phaser.Rectangle` or any other object 
+// so long as it has public `x`, `y`, `width`, `height`, `right` and `bottom` properties.
+// 
+// A reference to the rectangle is stored in `cropRect` unless the `copy` parameter is `true`, 
+// in which case the values are duplicated to a local object.
+func (self *Button) Crop1O(rect *Rectangle, copy bool) {
     self.Object.Call("crop", rect, copy)
 }
 
@@ -1615,7 +2005,29 @@ func (self *Button) UpdateCropI(args ...interface{}) {
 // 
 // You can optionally also destroy the BaseTexture this Game Object is using. Be careful if you've
 // more than one Game Object sharing the same BaseTexture.
-func (self *Button) Destroy(destroyChildren bool, destroyTexture bool) {
+func (self *Button) Destroy() {
+    self.Object.Call("destroy")
+}
+
+// Destroys the Game Object. This removes it from its parent group, destroys the input, event and animation handlers if present
+// and nulls its reference to `game`, freeing it up for garbage collection.
+// 
+// If this Game Object has the Events component it will also dispatch the `onDestroy` event.
+// 
+// You can optionally also destroy the BaseTexture this Game Object is using. Be careful if you've
+// more than one Game Object sharing the same BaseTexture.
+func (self *Button) Destroy1O(destroyChildren bool) {
+    self.Object.Call("destroy", destroyChildren)
+}
+
+// Destroys the Game Object. This removes it from its parent group, destroys the input, event and animation handlers if present
+// and nulls its reference to `game`, freeing it up for garbage collection.
+// 
+// If this Game Object has the Events component it will also dispatch the `onDestroy` event.
+// 
+// You can optionally also destroy the BaseTexture this Game Object is using. Be careful if you've
+// more than one Game Object sharing the same BaseTexture.
+func (self *Button) Destroy2O(destroyChildren bool, destroyTexture bool) {
     self.Object.Call("destroy", destroyChildren, destroyTexture)
 }
 
@@ -1635,7 +2047,16 @@ func (self *Button) DestroyI(args ...interface{}) {
 // A resurrected Game Object has its `alive`, `exists` and `visible` properties all set to true.
 // 
 // It will dispatch the `onRevived` event. Listen to `events.onRevived` for the signal.
-func (self *Button) Revive(health int) *DisplayObject{
+func (self *Button) Revive() *DisplayObject{
+    return &DisplayObject{self.Object.Call("revive")}
+}
+
+// Brings a 'dead' Game Object back to life, optionally resetting its health value in the process.
+// 
+// A resurrected Game Object has its `alive`, `exists` and `visible` properties all set to true.
+// 
+// It will dispatch the `onRevived` event. Listen to `events.onRevived` for the signal.
+func (self *Button) Revive1O(health int) *DisplayObject{
     return &DisplayObject{self.Object.Call("revive", health)}
 }
 
@@ -1688,7 +2109,47 @@ func (self *Button) KillI(args ...interface{}) *DisplayObject{
 // and swapping it to be the key of the atlas data.
 // 
 // Note: You cannot use a RenderTexture as a texture for a TileSprite.
-func (self *Button) LoadTexture(key interface{}, frame interface{}, stopAnimation bool) {
+func (self *Button) LoadTexture(key interface{}) {
+    self.Object.Call("loadTexture", key)
+}
+
+// Changes the base texture the Game Object is using. The old texture is removed and the new one is referenced or fetched from the Cache.
+// 
+// If your Game Object is using a frame from a texture atlas and you just wish to change to another frame, then see the `frame` or `frameName` properties instead.
+// 
+// You should only use `loadTexture` if you want to replace the base texture entirely.
+// 
+// Calling this method causes a WebGL texture update, so use sparingly or in low-intensity portions of your game, or if you know the new texture is already on the GPU.
+// 
+// You can use the new const `Phaser.PENDING_ATLAS` as the texture key for any sprite. 
+// Doing this then sets the key to be the `frame` argument (the frame is set to zero). 
+// 
+// This allows you to create sprites using `load.image` during development, and then change them 
+// to use a Texture Atlas later in development by simply searching your code for 'PENDING_ATLAS' 
+// and swapping it to be the key of the atlas data.
+// 
+// Note: You cannot use a RenderTexture as a texture for a TileSprite.
+func (self *Button) LoadTexture1O(key interface{}, frame interface{}) {
+    self.Object.Call("loadTexture", key, frame)
+}
+
+// Changes the base texture the Game Object is using. The old texture is removed and the new one is referenced or fetched from the Cache.
+// 
+// If your Game Object is using a frame from a texture atlas and you just wish to change to another frame, then see the `frame` or `frameName` properties instead.
+// 
+// You should only use `loadTexture` if you want to replace the base texture entirely.
+// 
+// Calling this method causes a WebGL texture update, so use sparingly or in low-intensity portions of your game, or if you know the new texture is already on the GPU.
+// 
+// You can use the new const `Phaser.PENDING_ATLAS` as the texture key for any sprite. 
+// Doing this then sets the key to be the `frame` argument (the frame is set to zero). 
+// 
+// This allows you to create sprites using `load.image` during development, and then change them 
+// to use a Texture Atlas later in development by simply searching your code for 'PENDING_ATLAS' 
+// and swapping it to be the key of the atlas data.
+// 
+// Note: You cannot use a RenderTexture as a texture for a TileSprite.
+func (self *Button) LoadTexture2O(key interface{}, frame interface{}, stopAnimation bool) {
     self.Object.Call("loadTexture", key, frame, stopAnimation)
 }
 
@@ -1782,7 +2243,19 @@ func (self *Button) OverlapI(args ...interface{}) bool{
 // If this Game Object has the LifeSpan component it will also set `alive` to true and `health` to the given value.
 // 
 // If this Game Object has a Physics Body it will reset the Body.
-func (self *Button) Reset(x int, y int, health int) *DisplayObject{
+func (self *Button) Reset(x int, y int) *DisplayObject{
+    return &DisplayObject{self.Object.Call("reset", x, y)}
+}
+
+// Resets the Game Object.
+// 
+// This moves the Game Object to the given x/y world coordinates and sets `fresh`, `exists`, 
+// `visible` and `renderable` to true.
+// 
+// If this Game Object has the LifeSpan component it will also set `alive` to true and `health` to the given value.
+// 
+// If this Game Object has a Physics Body it will reset the Body.
+func (self *Button) Reset1O(x int, y int, health int) *DisplayObject{
     return &DisplayObject{self.Object.Call("reset", x, y, health)}
 }
 

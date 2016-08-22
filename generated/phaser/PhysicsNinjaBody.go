@@ -391,7 +391,17 @@ func (self *PhysicsNinjaBody) DestroyI(args ...interface{}) {
 }
 
 // Render Sprite's Body.
-func (self *PhysicsNinjaBody) Render(context interface{}, body *PhysicsNinjaBody, color string, filled bool) {
+func (self *PhysicsNinjaBody) Render(context interface{}, body *PhysicsNinjaBody) {
+    self.Object.Call("render", context, body)
+}
+
+// Render Sprite's Body.
+func (self *PhysicsNinjaBody) Render1O(context interface{}, body *PhysicsNinjaBody, color string) {
+    self.Object.Call("render", context, body, color)
+}
+
+// Render Sprite's Body.
+func (self *PhysicsNinjaBody) Render2O(context interface{}, body *PhysicsNinjaBody, color string, filled bool) {
     self.Object.Call("render", context, body, color, filled)
 }
 

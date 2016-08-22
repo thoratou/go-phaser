@@ -101,7 +101,73 @@ func (self *Utils) ParseDimensionI(args ...interface{}) int{
 // `pad('c64', 7, '*')`
 // 
 // Would return: `**c64**`
-func (self *Utils) Pad(str string, len int, pad string, dir int) string{
+func (self *Utils) Pad(str string) string{
+    return self.Object.Call("pad", str).String()
+}
+
+// Takes the given string and pads it out, to the length required, using the character
+// specified. For example if you need a string to be 6 characters long, you can call:
+// 
+// `pad('bob', 6, '-', 2)`
+// 
+// This would return: `bob---` as it has padded it out to 6 characters, using the `-` on the right.
+// 
+// You can also use it to pad numbers (they are always returned as strings):
+// 
+// `pad(512, 6, '0', 1)`
+// 
+// Would return: `000512` with the string padded to the left.
+// 
+// If you don't specify a direction it'll pad to both sides:
+// 
+// `pad('c64', 7, '*')`
+// 
+// Would return: `**c64**`
+func (self *Utils) Pad1O(str string, len int) string{
+    return self.Object.Call("pad", str, len).String()
+}
+
+// Takes the given string and pads it out, to the length required, using the character
+// specified. For example if you need a string to be 6 characters long, you can call:
+// 
+// `pad('bob', 6, '-', 2)`
+// 
+// This would return: `bob---` as it has padded it out to 6 characters, using the `-` on the right.
+// 
+// You can also use it to pad numbers (they are always returned as strings):
+// 
+// `pad(512, 6, '0', 1)`
+// 
+// Would return: `000512` with the string padded to the left.
+// 
+// If you don't specify a direction it'll pad to both sides:
+// 
+// `pad('c64', 7, '*')`
+// 
+// Would return: `**c64**`
+func (self *Utils) Pad2O(str string, len int, pad string) string{
+    return self.Object.Call("pad", str, len, pad).String()
+}
+
+// Takes the given string and pads it out, to the length required, using the character
+// specified. For example if you need a string to be 6 characters long, you can call:
+// 
+// `pad('bob', 6, '-', 2)`
+// 
+// This would return: `bob---` as it has padded it out to 6 characters, using the `-` on the right.
+// 
+// You can also use it to pad numbers (they are always returned as strings):
+// 
+// `pad(512, 6, '0', 1)`
+// 
+// Would return: `000512` with the string padded to the left.
+// 
+// If you don't specify a direction it'll pad to both sides:
+// 
+// `pad('c64', 7, '*')`
+// 
+// Would return: `**c64**`
+func (self *Utils) Pad3O(str string, len int, pad string, dir int) string{
     return self.Object.Call("pad", str, len, pad, dir).String()
 }
 
@@ -154,7 +220,16 @@ func (self *Utils) ExtendI(args ...interface{}) interface{}{
 // Values in the mixin that have either `get` or `set` functions are created as properties via `defineProperty`
 // _except_ if they also define a `clone` method - if a clone method is defined that is called instead and
 // the result is assigned directly.
-func (self *Utils) MixinPrototype(target interface{}, mixin interface{}, replace bool) {
+func (self *Utils) MixinPrototype(target interface{}, mixin interface{}) {
+    self.Object.Call("mixinPrototype", target, mixin)
+}
+
+// Mixes in an existing mixin object with the target.
+// 
+// Values in the mixin that have either `get` or `set` functions are created as properties via `defineProperty`
+// _except_ if they also define a `clone` method - if a clone method is defined that is called instead and
+// the result is assigned directly.
+func (self *Utils) MixinPrototype1O(target interface{}, mixin interface{}, replace bool) {
     self.Object.Call("mixinPrototype", target, mixin, replace)
 }
 

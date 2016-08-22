@@ -148,7 +148,82 @@ func (self *Create) SetPALETTE_JAPANESE_MACHINEA(member int) {
 // 
 // The above will create a new texture called `bob`, which will look like a little man wearing a hat. You can then use it
 // for sprites the same way you use any other texture: `game.add.sprite(0, 0, 'bob');`
-func (self *Create) Texture(key string, data []interface{}, pixelWidth int, pixelHeight int, palette int) *Texture{
+func (self *Create) Texture(key string, data []interface{}) *Texture{
+    return &Texture{self.Object.Call("texture", key, data)}
+}
+
+// Generates a new PIXI.Texture from the given data, which can be applied to a Sprite.
+// 
+// This allows you to create game graphics quickly and easily, with no external files but that use actual proper images
+// rather than Phaser.Graphics objects, which are expensive to render and limited in scope.
+// 
+// Each element of the array is a string holding the pixel color values, as mapped to one of the Phaser.Create PALETTE consts.
+// 
+// For example:
+// 
+// `var data = [
+//   ' 333 ',
+//   ' 777 ',
+//   'E333E',
+//   ' 333 ',
+//   ' 3 3 '
+// ];`
+// 
+// `game.create.texture('bob', data);`
+// 
+// The above will create a new texture called `bob`, which will look like a little man wearing a hat. You can then use it
+// for sprites the same way you use any other texture: `game.add.sprite(0, 0, 'bob');`
+func (self *Create) Texture1O(key string, data []interface{}, pixelWidth int) *Texture{
+    return &Texture{self.Object.Call("texture", key, data, pixelWidth)}
+}
+
+// Generates a new PIXI.Texture from the given data, which can be applied to a Sprite.
+// 
+// This allows you to create game graphics quickly and easily, with no external files but that use actual proper images
+// rather than Phaser.Graphics objects, which are expensive to render and limited in scope.
+// 
+// Each element of the array is a string holding the pixel color values, as mapped to one of the Phaser.Create PALETTE consts.
+// 
+// For example:
+// 
+// `var data = [
+//   ' 333 ',
+//   ' 777 ',
+//   'E333E',
+//   ' 333 ',
+//   ' 3 3 '
+// ];`
+// 
+// `game.create.texture('bob', data);`
+// 
+// The above will create a new texture called `bob`, which will look like a little man wearing a hat. You can then use it
+// for sprites the same way you use any other texture: `game.add.sprite(0, 0, 'bob');`
+func (self *Create) Texture2O(key string, data []interface{}, pixelWidth int, pixelHeight int) *Texture{
+    return &Texture{self.Object.Call("texture", key, data, pixelWidth, pixelHeight)}
+}
+
+// Generates a new PIXI.Texture from the given data, which can be applied to a Sprite.
+// 
+// This allows you to create game graphics quickly and easily, with no external files but that use actual proper images
+// rather than Phaser.Graphics objects, which are expensive to render and limited in scope.
+// 
+// Each element of the array is a string holding the pixel color values, as mapped to one of the Phaser.Create PALETTE consts.
+// 
+// For example:
+// 
+// `var data = [
+//   ' 333 ',
+//   ' 777 ',
+//   'E333E',
+//   ' 333 ',
+//   ' 3 3 '
+// ];`
+// 
+// `game.create.texture('bob', data);`
+// 
+// The above will create a new texture called `bob`, which will look like a little man wearing a hat. You can then use it
+// for sprites the same way you use any other texture: `game.add.sprite(0, 0, 'bob');`
+func (self *Create) Texture3O(key string, data []interface{}, pixelWidth int, pixelHeight int, palette int) *Texture{
     return &Texture{self.Object.Call("texture", key, data, pixelWidth, pixelHeight, palette)}
 }
 

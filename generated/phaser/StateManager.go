@@ -157,7 +157,14 @@ func (self *StateManager) BootI(args ...interface{}) {
 // Adds a new State into the StateManager. You must give each State a unique key by which you'll identify it.
 // The State can be either a Phaser.State object (or an object that extends it), a plain JavaScript object or a function.
 // If a function is given a new state object will be created by calling it.
-func (self *StateManager) Add(key string, state interface{}, autoStart bool) {
+func (self *StateManager) Add(key string, state interface{}) {
+    self.Object.Call("add", key, state)
+}
+
+// Adds a new State into the StateManager. You must give each State a unique key by which you'll identify it.
+// The State can be either a Phaser.State object (or an object that extends it), a plain JavaScript object or a function.
+// If a function is given a new state object will be created by calling it.
+func (self *StateManager) Add1O(key string, state interface{}, autoStart bool) {
     self.Object.Call("add", key, state, autoStart)
 }
 

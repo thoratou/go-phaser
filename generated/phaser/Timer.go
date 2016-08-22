@@ -302,7 +302,12 @@ func (self *Timer) LoopI(args ...interface{}) *TimerEvent{
 }
 
 // Starts this Timer running.
-func (self *Timer) Start(delay int) {
+func (self *Timer) Start() {
+    self.Object.Call("start")
+}
+
+// Starts this Timer running.
+func (self *Timer) Start1O(delay int) {
     self.Object.Call("start", delay)
 }
 
@@ -312,7 +317,12 @@ func (self *Timer) StartI(args ...interface{}) {
 }
 
 // Stops this Timer from running. Does not cause it to be destroyed if autoDestroy is set to true.
-func (self *Timer) Stop(clearEvents bool) {
+func (self *Timer) Stop() {
+    self.Object.Call("stop")
+}
+
+// Stops this Timer from running. Does not cause it to be destroyed if autoDestroy is set to true.
+func (self *Timer) Stop1O(clearEvents bool) {
     self.Object.Call("stop", clearEvents)
 }
 

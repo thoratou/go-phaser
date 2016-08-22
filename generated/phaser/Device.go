@@ -847,7 +847,29 @@ func (self *Device) SetOnInitializedA(member *Signal) {
 // 
 // The handler is invoked when the device is considered "ready", which may be immediately
 // if the device is already "ready". See {@link Phaser.Device#deviceReadyAt deviceReadyAt}.
-func (self *Device) WhenReady(handler func(...interface{}), context interface{}, nonPrimer bool) {
+func (self *Device) WhenReady(handler func(...interface{})) {
+    self.Object.Call("whenReady", handler)
+}
+
+// Add a device-ready handler and ensure the device ready sequence is started.
+// 
+// Phaser.Device will _not_ activate or initialize until at least one `whenReady` handler is added,
+// which is normally done automatically be calling `new Phaser.Game(..)`.
+// 
+// The handler is invoked when the device is considered "ready", which may be immediately
+// if the device is already "ready". See {@link Phaser.Device#deviceReadyAt deviceReadyAt}.
+func (self *Device) WhenReady1O(handler func(...interface{}), context interface{}) {
+    self.Object.Call("whenReady", handler, context)
+}
+
+// Add a device-ready handler and ensure the device ready sequence is started.
+// 
+// Phaser.Device will _not_ activate or initialize until at least one `whenReady` handler is added,
+// which is normally done automatically be calling `new Phaser.Game(..)`.
+// 
+// The handler is invoked when the device is considered "ready", which may be immediately
+// if the device is already "ready". See {@link Phaser.Device#deviceReadyAt deviceReadyAt}.
+func (self *Device) WhenReady2O(handler func(...interface{}), context interface{}, nonPrimer bool) {
     self.Object.Call("whenReady", handler, context, nonPrimer)
 }
 

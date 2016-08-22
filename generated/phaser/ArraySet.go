@@ -167,7 +167,12 @@ func (self *ArraySet) CallAllI(args ...interface{}) {
 }
 
 // Removes every member from this ArraySet and optionally destroys it.
-func (self *ArraySet) RemoveAll(destroy bool) {
+func (self *ArraySet) RemoveAll() {
+    self.Object.Call("removeAll")
+}
+
+// Removes every member from this ArraySet and optionally destroys it.
+func (self *ArraySet) RemoveAll1O(destroy bool) {
     self.Object.Call("removeAll", destroy)
 }
 

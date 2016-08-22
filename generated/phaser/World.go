@@ -827,7 +827,47 @@ func (self *World) ShutdownI(args ...interface{}) {
 // 
 // Please understand there are limitations to this method. For example if you have scaled the World
 // then objects won't always be re-positioned correctly, and you'll need to employ your own wrapping function.
-func (self *World) Wrap(sprite interface{}, padding int, useBounds bool, horizontal bool, vertical bool) {
+func (self *World) Wrap(sprite interface{}) {
+    self.Object.Call("wrap", sprite)
+}
+
+// This will take the given game object and check if its x/y coordinates fall outside of the world bounds.
+// If they do it will reposition the object to the opposite side of the world, creating a wrap-around effect.
+// If sprite has a P2 body then the body (sprite.body) should be passed as first parameter to the function.
+// 
+// Please understand there are limitations to this method. For example if you have scaled the World
+// then objects won't always be re-positioned correctly, and you'll need to employ your own wrapping function.
+func (self *World) Wrap1O(sprite interface{}, padding int) {
+    self.Object.Call("wrap", sprite, padding)
+}
+
+// This will take the given game object and check if its x/y coordinates fall outside of the world bounds.
+// If they do it will reposition the object to the opposite side of the world, creating a wrap-around effect.
+// If sprite has a P2 body then the body (sprite.body) should be passed as first parameter to the function.
+// 
+// Please understand there are limitations to this method. For example if you have scaled the World
+// then objects won't always be re-positioned correctly, and you'll need to employ your own wrapping function.
+func (self *World) Wrap2O(sprite interface{}, padding int, useBounds bool) {
+    self.Object.Call("wrap", sprite, padding, useBounds)
+}
+
+// This will take the given game object and check if its x/y coordinates fall outside of the world bounds.
+// If they do it will reposition the object to the opposite side of the world, creating a wrap-around effect.
+// If sprite has a P2 body then the body (sprite.body) should be passed as first parameter to the function.
+// 
+// Please understand there are limitations to this method. For example if you have scaled the World
+// then objects won't always be re-positioned correctly, and you'll need to employ your own wrapping function.
+func (self *World) Wrap3O(sprite interface{}, padding int, useBounds bool, horizontal bool) {
+    self.Object.Call("wrap", sprite, padding, useBounds, horizontal)
+}
+
+// This will take the given game object and check if its x/y coordinates fall outside of the world bounds.
+// If they do it will reposition the object to the opposite side of the world, creating a wrap-around effect.
+// If sprite has a P2 body then the body (sprite.body) should be passed as first parameter to the function.
+// 
+// Please understand there are limitations to this method. For example if you have scaled the World
+// then objects won't always be re-positioned correctly, and you'll need to employ your own wrapping function.
+func (self *World) Wrap4O(sprite interface{}, padding int, useBounds bool, horizontal bool, vertical bool) {
     self.Object.Call("wrap", sprite, padding, useBounds, horizontal, vertical)
 }
 
@@ -855,7 +895,43 @@ func (self *World) WrapI(args ...interface{}) {
 // If `Group.inputEnableChildren` is set, then an Input Handler will be created on the object, so long as one does not already exist.
 // 
 // Use {@link Phaser.Group#addAt addAt} to control where a child is added. Use {@link Phaser.Group#create create} to create and add a new child.
-func (self *World) Add(child *DisplayObject, silent bool, index int) *DisplayObject{
+func (self *World) Add(child *DisplayObject) *DisplayObject{
+    return &DisplayObject{self.Object.Call("add", child)}
+}
+
+// Adds an existing object as the top child in this group.
+// 
+// The child is automatically added to the top of the group, and is displayed above every previous child.
+// 
+// Or if the _optional_ index is specified, the child is added at the location specified by the index value, 
+// this allows you to control child ordering.
+// 
+// If the child was already in this Group, it is simply returned, and nothing else happens to it.
+// 
+// If `Group.enableBody` is set, then a physics body will be created on the object, so long as one does not already exist.
+// 
+// If `Group.inputEnableChildren` is set, then an Input Handler will be created on the object, so long as one does not already exist.
+// 
+// Use {@link Phaser.Group#addAt addAt} to control where a child is added. Use {@link Phaser.Group#create create} to create and add a new child.
+func (self *World) Add1O(child *DisplayObject, silent bool) *DisplayObject{
+    return &DisplayObject{self.Object.Call("add", child, silent)}
+}
+
+// Adds an existing object as the top child in this group.
+// 
+// The child is automatically added to the top of the group, and is displayed above every previous child.
+// 
+// Or if the _optional_ index is specified, the child is added at the location specified by the index value, 
+// this allows you to control child ordering.
+// 
+// If the child was already in this Group, it is simply returned, and nothing else happens to it.
+// 
+// If `Group.enableBody` is set, then a physics body will be created on the object, so long as one does not already exist.
+// 
+// If `Group.inputEnableChildren` is set, then an Input Handler will be created on the object, so long as one does not already exist.
+// 
+// Use {@link Phaser.Group#addAt addAt} to control where a child is added. Use {@link Phaser.Group#create create} to create and add a new child.
+func (self *World) Add2O(child *DisplayObject, silent bool, index int) *DisplayObject{
     return &DisplayObject{self.Object.Call("add", child, silent, index)}
 }
 
@@ -884,7 +960,29 @@ func (self *World) AddI(args ...interface{}) *DisplayObject{
 // If `Group.enableBody` is set, then a physics body will be created on the object, so long as one does not already exist.
 // 
 // If `Group.inputEnableChildren` is set, then an Input Handler will be created on the object, so long as one does not already exist.
-func (self *World) AddAt(child *DisplayObject, index int, silent bool) *DisplayObject{
+func (self *World) AddAt(child *DisplayObject) *DisplayObject{
+    return &DisplayObject{self.Object.Call("addAt", child)}
+}
+
+// Adds an existing object to this group.
+// 
+// The child is added to the group at the location specified by the index value, this allows you to control child ordering.
+// 
+// If `Group.enableBody` is set, then a physics body will be created on the object, so long as one does not already exist.
+// 
+// If `Group.inputEnableChildren` is set, then an Input Handler will be created on the object, so long as one does not already exist.
+func (self *World) AddAt1O(child *DisplayObject, index int) *DisplayObject{
+    return &DisplayObject{self.Object.Call("addAt", child, index)}
+}
+
+// Adds an existing object to this group.
+// 
+// The child is added to the group at the location specified by the index value, this allows you to control child ordering.
+// 
+// If `Group.enableBody` is set, then a physics body will be created on the object, so long as one does not already exist.
+// 
+// If `Group.inputEnableChildren` is set, then an Input Handler will be created on the object, so long as one does not already exist.
+func (self *World) AddAt2O(child *DisplayObject, index int, silent bool) *DisplayObject{
     return &DisplayObject{self.Object.Call("addAt", child, index, silent)}
 }
 
@@ -933,7 +1031,21 @@ func (self *World) RemoveFromHashI(args ...interface{}) bool{
 // If `Group.enableBody` is set, then a physics body will be created on the objects, so long as one does not already exist.
 // 
 // If `Group.inputEnableChildren` is set, then an Input Handler will be created on the objects, so long as one does not already exist.
-func (self *World) AddMultiple(children interface{}, silent bool) interface{}{
+func (self *World) AddMultiple(children interface{}) interface{}{
+    return self.Object.Call("addMultiple", children)
+}
+
+// Adds an array of existing Display Objects to this Group.
+// 
+// The Display Objects are automatically added to the top of this Group, and will render on-top of everything already in this Group.
+// 
+// As well as an array you can also pass another Group as the first argument. In this case all of the children from that
+// Group will be removed from it and added into this Group.
+// 
+// If `Group.enableBody` is set, then a physics body will be created on the objects, so long as one does not already exist.
+// 
+// If `Group.inputEnableChildren` is set, then an Input Handler will be created on the objects, so long as one does not already exist.
+func (self *World) AddMultiple1O(children interface{}, silent bool) interface{}{
     return self.Object.Call("addMultiple", children, silent)
 }
 
@@ -973,7 +1085,71 @@ func (self *World) GetAtI(args ...interface{}) interface{}{
 // If `Group.enableBody` is set, then a physics body will be created on the object, so long as one does not already exist.
 // 
 // If `Group.inputEnableChildren` is set, then an Input Handler will be created on the object, so long as one does not already exist.
-func (self *World) Create(x int, y int, key interface{}, frame interface{}, exists bool, index int) *DisplayObject{
+func (self *World) Create(x int, y int) *DisplayObject{
+    return &DisplayObject{self.Object.Call("create", x, y)}
+}
+
+// Creates a new Phaser.Sprite object and adds it to the top of this group.
+// 
+// Use {@link Phaser.Group#classType classType} to change the type of object created.
+// 
+// The child is automatically added to the top of the group, and is displayed above every previous child.
+// 
+// Or if the _optional_ index is specified, the child is added at the location specified by the index value, 
+// this allows you to control child ordering.
+// 
+// If `Group.enableBody` is set, then a physics body will be created on the object, so long as one does not already exist.
+// 
+// If `Group.inputEnableChildren` is set, then an Input Handler will be created on the object, so long as one does not already exist.
+func (self *World) Create1O(x int, y int, key interface{}) *DisplayObject{
+    return &DisplayObject{self.Object.Call("create", x, y, key)}
+}
+
+// Creates a new Phaser.Sprite object and adds it to the top of this group.
+// 
+// Use {@link Phaser.Group#classType classType} to change the type of object created.
+// 
+// The child is automatically added to the top of the group, and is displayed above every previous child.
+// 
+// Or if the _optional_ index is specified, the child is added at the location specified by the index value, 
+// this allows you to control child ordering.
+// 
+// If `Group.enableBody` is set, then a physics body will be created on the object, so long as one does not already exist.
+// 
+// If `Group.inputEnableChildren` is set, then an Input Handler will be created on the object, so long as one does not already exist.
+func (self *World) Create2O(x int, y int, key interface{}, frame interface{}) *DisplayObject{
+    return &DisplayObject{self.Object.Call("create", x, y, key, frame)}
+}
+
+// Creates a new Phaser.Sprite object and adds it to the top of this group.
+// 
+// Use {@link Phaser.Group#classType classType} to change the type of object created.
+// 
+// The child is automatically added to the top of the group, and is displayed above every previous child.
+// 
+// Or if the _optional_ index is specified, the child is added at the location specified by the index value, 
+// this allows you to control child ordering.
+// 
+// If `Group.enableBody` is set, then a physics body will be created on the object, so long as one does not already exist.
+// 
+// If `Group.inputEnableChildren` is set, then an Input Handler will be created on the object, so long as one does not already exist.
+func (self *World) Create3O(x int, y int, key interface{}, frame interface{}, exists bool) *DisplayObject{
+    return &DisplayObject{self.Object.Call("create", x, y, key, frame, exists)}
+}
+
+// Creates a new Phaser.Sprite object and adds it to the top of this group.
+// 
+// Use {@link Phaser.Group#classType classType} to change the type of object created.
+// 
+// The child is automatically added to the top of the group, and is displayed above every previous child.
+// 
+// Or if the _optional_ index is specified, the child is added at the location specified by the index value, 
+// this allows you to control child ordering.
+// 
+// If `Group.enableBody` is set, then a physics body will be created on the object, so long as one does not already exist.
+// 
+// If `Group.inputEnableChildren` is set, then an Input Handler will be created on the object, so long as one does not already exist.
+func (self *World) Create4O(x int, y int, key interface{}, frame interface{}, exists bool, index int) *DisplayObject{
     return &DisplayObject{self.Object.Call("create", x, y, key, frame, exists, index)}
 }
 
@@ -1031,7 +1207,103 @@ func (self *World) CreateI(args ...interface{}) *DisplayObject{
 // If `Group.enableBody` is set, then a physics body will be created on the objects, so long as one does not already exist.
 // 
 // If `Group.inputEnableChildren` is set, then an Input Handler will be created on the objects, so long as one does not already exist.
-func (self *World) CreateMultiple(quantity int, key interface{}, frame interface{}, exists bool) []interface{}{
+func (self *World) CreateMultiple(quantity int, key interface{}) []interface{}{
+	array00 := self.Object.Call("createMultiple", quantity, key)
+	length00 := array00.Length()
+	out00 := make([]interface{}, length00, length00)
+	for i00 := 0; i00 < length00; i00++ {
+		out00[i00] = array00.Index(i00).Interface()
+	}
+	return out00
+}
+
+// Creates multiple Phaser.Sprite objects and adds them to the top of this Group.
+// 
+// This method is useful if you need to quickly generate a pool of sprites, such as bullets.
+// 
+// Use {@link Phaser.Group#classType classType} to change the type of object created.
+// 
+// You can provide an array as the `key` and / or `frame` arguments. When you do this
+// it will create `quantity` Sprites for every key (and frame) in the arrays.
+// 
+// For example:
+// 
+// `createMultiple(25, ['ball', 'carrot'])`
+// 
+// In the above code there are 2 keys (ball and carrot) which means that 50 sprites will be
+// created in total, 25 of each. You can also have the `frame` as an array:
+// 
+// `createMultiple(5, 'bricks', [0, 1, 2, 3])`
+// 
+// In the above there is one key (bricks), which is a sprite sheet. The frames array tells
+// this method to use frames 0, 1, 2 and 3. So in total it will create 20 sprites, because
+// the quantity was set to 5, so that is 5 brick sprites of frame 0, 5 brick sprites with
+// frame 1, and so on.
+// 
+// If you set both the key and frame arguments to be arrays then understand it will create
+// a total quantity of sprites equal to the size of both arrays times each other. I.e.:
+// 
+// `createMultiple(20, ['diamonds', 'balls'], [0, 1, 2])`
+// 
+// The above will create 20 'diamonds' of frame 0, 20 with frame 1 and 20 with frame 2.
+// It will then create 20 'balls' of frame 0, 20 with frame 1 and 20 with frame 2.
+// In total it will have created 120 sprites.
+// 
+// By default the Sprites will have their `exists` property set to `false`, and they will be 
+// positioned at 0x0, relative to the `Group.x / y` values.
+// 
+// If `Group.enableBody` is set, then a physics body will be created on the objects, so long as one does not already exist.
+// 
+// If `Group.inputEnableChildren` is set, then an Input Handler will be created on the objects, so long as one does not already exist.
+func (self *World) CreateMultiple1O(quantity int, key interface{}, frame interface{}) []interface{}{
+	array00 := self.Object.Call("createMultiple", quantity, key, frame)
+	length00 := array00.Length()
+	out00 := make([]interface{}, length00, length00)
+	for i00 := 0; i00 < length00; i00++ {
+		out00[i00] = array00.Index(i00).Interface()
+	}
+	return out00
+}
+
+// Creates multiple Phaser.Sprite objects and adds them to the top of this Group.
+// 
+// This method is useful if you need to quickly generate a pool of sprites, such as bullets.
+// 
+// Use {@link Phaser.Group#classType classType} to change the type of object created.
+// 
+// You can provide an array as the `key` and / or `frame` arguments. When you do this
+// it will create `quantity` Sprites for every key (and frame) in the arrays.
+// 
+// For example:
+// 
+// `createMultiple(25, ['ball', 'carrot'])`
+// 
+// In the above code there are 2 keys (ball and carrot) which means that 50 sprites will be
+// created in total, 25 of each. You can also have the `frame` as an array:
+// 
+// `createMultiple(5, 'bricks', [0, 1, 2, 3])`
+// 
+// In the above there is one key (bricks), which is a sprite sheet. The frames array tells
+// this method to use frames 0, 1, 2 and 3. So in total it will create 20 sprites, because
+// the quantity was set to 5, so that is 5 brick sprites of frame 0, 5 brick sprites with
+// frame 1, and so on.
+// 
+// If you set both the key and frame arguments to be arrays then understand it will create
+// a total quantity of sprites equal to the size of both arrays times each other. I.e.:
+// 
+// `createMultiple(20, ['diamonds', 'balls'], [0, 1, 2])`
+// 
+// The above will create 20 'diamonds' of frame 0, 20 with frame 1 and 20 with frame 2.
+// It will then create 20 'balls' of frame 0, 20 with frame 1 and 20 with frame 2.
+// In total it will have created 120 sprites.
+// 
+// By default the Sprites will have their `exists` property set to `false`, and they will be 
+// positioned at 0x0, relative to the `Group.x / y` values.
+// 
+// If `Group.enableBody` is set, then a physics body will be created on the objects, so long as one does not already exist.
+// 
+// If `Group.inputEnableChildren` is set, then an Input Handler will be created on the objects, so long as one does not already exist.
+func (self *World) CreateMultiple2O(quantity int, key interface{}, frame interface{}, exists bool) []interface{}{
 	array00 := self.Object.Call("createMultiple", quantity, key, frame, exists)
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
@@ -1144,7 +1416,97 @@ func (self *World) UpdateZI(args ...interface{}) {
 // `Phaser.BOTTOM_LEFT`, `Phaser.BOTTOM_CENTER` or `Phaser.BOTTOM_RIGHT`.
 // 
 // The final argument; `offset` lets you start the alignment from a specific child index.
-func (self *World) Align(rows int, columns int, cellWidth int, cellHeight int, position int, offset int) {
+func (self *World) Align(rows int, columns int, cellWidth int, cellHeight int) {
+    self.Object.Call("align", rows, columns, cellWidth, cellHeight)
+}
+
+// This method iterates through all children in the Group (regardless if they are visible or exist)
+// and then changes their position so they are arranged in a Grid formation. Children must have
+// the `alignTo` method in order to be positioned by this call. All default Phaser Game Objects have
+// this.
+// 
+// The grid dimensions are determined by the first four arguments. The `rows` and `columns` arguments
+// relate to the width and height of the grid respectively.
+// 
+// For example if the Group had 100 children in it:
+// 
+// `Group.align(10, 10, 32, 32)`
+// 
+// This will align all of the children into a grid formation of 10x10, using 32 pixels per
+// grid cell. If you want a wider grid, you could do:
+// 
+// `Group.align(25, 4, 32, 32)`
+// 
+// This will align the children into a grid of 25x4, again using 32 pixels per grid cell.
+// 
+// You can choose to set _either_ the `rows` or `columns` value to -1. Doing so tells the method
+// to keep on aligning children until there are no children left. For example if this Group had
+// 48 children in it, the following:
+// 
+// `Group.align(-1, 8, 32, 32)`
+// 
+// ... will align the children so that there are 8 columns vertically (the second argument), 
+// and each row will contain 6 sprites, except the last one, which will contain 5 (totaling 48)
+// 
+// You can also do:
+// 
+// `Group.align(10, -1, 32, 32)`
+// 
+// In this case it will create a grid 10 wide, and as tall as it needs to be in order to fit
+// all of the children in.
+// 
+// The `position` property allows you to control where in each grid cell the child is positioned.
+// This is a constant and can be one of `Phaser.TOP_LEFT` (default), `Phaser.TOP_CENTER`, 
+// `Phaser.TOP_RIGHT`, `Phaser.LEFT_CENTER`, `Phaser.CENTER`, `Phaser.RIGHT_CENTER`, 
+// `Phaser.BOTTOM_LEFT`, `Phaser.BOTTOM_CENTER` or `Phaser.BOTTOM_RIGHT`.
+// 
+// The final argument; `offset` lets you start the alignment from a specific child index.
+func (self *World) Align1O(rows int, columns int, cellWidth int, cellHeight int, position int) {
+    self.Object.Call("align", rows, columns, cellWidth, cellHeight, position)
+}
+
+// This method iterates through all children in the Group (regardless if they are visible or exist)
+// and then changes their position so they are arranged in a Grid formation. Children must have
+// the `alignTo` method in order to be positioned by this call. All default Phaser Game Objects have
+// this.
+// 
+// The grid dimensions are determined by the first four arguments. The `rows` and `columns` arguments
+// relate to the width and height of the grid respectively.
+// 
+// For example if the Group had 100 children in it:
+// 
+// `Group.align(10, 10, 32, 32)`
+// 
+// This will align all of the children into a grid formation of 10x10, using 32 pixels per
+// grid cell. If you want a wider grid, you could do:
+// 
+// `Group.align(25, 4, 32, 32)`
+// 
+// This will align the children into a grid of 25x4, again using 32 pixels per grid cell.
+// 
+// You can choose to set _either_ the `rows` or `columns` value to -1. Doing so tells the method
+// to keep on aligning children until there are no children left. For example if this Group had
+// 48 children in it, the following:
+// 
+// `Group.align(-1, 8, 32, 32)`
+// 
+// ... will align the children so that there are 8 columns vertically (the second argument), 
+// and each row will contain 6 sprites, except the last one, which will contain 5 (totaling 48)
+// 
+// You can also do:
+// 
+// `Group.align(10, -1, 32, 32)`
+// 
+// In this case it will create a grid 10 wide, and as tall as it needs to be in order to fit
+// all of the children in.
+// 
+// The `position` property allows you to control where in each grid cell the child is positioned.
+// This is a constant and can be one of `Phaser.TOP_LEFT` (default), `Phaser.TOP_CENTER`, 
+// `Phaser.TOP_RIGHT`, `Phaser.LEFT_CENTER`, `Phaser.CENTER`, `Phaser.RIGHT_CENTER`, 
+// `Phaser.BOTTOM_LEFT`, `Phaser.BOTTOM_CENTER` or `Phaser.BOTTOM_RIGHT`.
+// 
+// The final argument; `offset` lets you start the alignment from a specific child index.
+func (self *World) Align2O(rows int, columns int, cellWidth int, cellHeight int, position int, offset int) {
     self.Object.Call("align", rows, columns, cellWidth, cellHeight, position, offset)
 }
 
@@ -1196,7 +1558,14 @@ func (self *World) AlignI(args ...interface{}) {
 // Sets the group cursor to the first child in the group.
 // 
 // If the optional index parameter is given it sets the cursor to the object at that index instead.
-func (self *World) ResetCursor(index int) interface{}{
+func (self *World) ResetCursor() interface{}{
+    return self.Object.Call("resetCursor")
+}
+
+// Sets the group cursor to the first child in the group.
+// 
+// If the optional index parameter is given it sets the cursor to the object at that index instead.
+func (self *World) ResetCursor1O(index int) interface{}{
     return self.Object.Call("resetCursor", index)
 }
 
@@ -1377,7 +1746,31 @@ func (self *World) HasPropertyI(args ...interface{}) bool{
 // - 2: will subtract the given value from the value already present.
 // - 3: will multiply the value already present by the given value.
 // - 4: will divide the value already present by the given value.
-func (self *World) SetProperty(child interface{}, key []interface{}, value interface{}, operation int, force bool) bool{
+func (self *World) SetProperty(child interface{}, key []interface{}, value interface{}) bool{
+    return self.Object.Call("setProperty", child, key, value).Bool()
+}
+
+// Sets a property to the given value on the child. The operation parameter controls how the value is set.
+// 
+// The operations are:
+// - 0: set the existing value to the given value; if force is `true` a new property will be created if needed
+// - 1: will add the given value to the value already present.
+// - 2: will subtract the given value from the value already present.
+// - 3: will multiply the value already present by the given value.
+// - 4: will divide the value already present by the given value.
+func (self *World) SetProperty1O(child interface{}, key []interface{}, value interface{}, operation int) bool{
+    return self.Object.Call("setProperty", child, key, value, operation).Bool()
+}
+
+// Sets a property to the given value on the child. The operation parameter controls how the value is set.
+// 
+// The operations are:
+// - 0: set the existing value to the given value; if force is `true` a new property will be created if needed
+// - 1: will add the given value to the value already present.
+// - 2: will subtract the given value from the value already present.
+// - 3: will multiply the value already present by the given value.
+// - 4: will divide the value already present by the given value.
+func (self *World) SetProperty2O(child interface{}, key []interface{}, value interface{}, operation int, force bool) bool{
     return self.Object.Call("setProperty", child, key, value, operation, force).Bool()
 }
 
@@ -1394,7 +1787,12 @@ func (self *World) SetPropertyI(args ...interface{}) bool{
 }
 
 // Checks a property for the given value on the child.
-func (self *World) CheckProperty(child interface{}, key []interface{}, value interface{}, force bool) bool{
+func (self *World) CheckProperty(child interface{}, key []interface{}, value interface{}) bool{
+    return self.Object.Call("checkProperty", child, key, value).Bool()
+}
+
+// Checks a property for the given value on the child.
+func (self *World) CheckProperty1O(child interface{}, key []interface{}, value interface{}, force bool) bool{
     return self.Object.Call("checkProperty", child, key, value, force).Bool()
 }
 
@@ -1406,7 +1804,35 @@ func (self *World) CheckPropertyI(args ...interface{}) bool{
 // Quickly set a property on a single child of this group to a new value.
 // 
 // The operation parameter controls how the new value is assigned to the property, from simple replacement to addition and multiplication.
-func (self *World) Set(child *Sprite, key string, value interface{}, checkAlive bool, checkVisible bool, operation int, force bool) bool{
+func (self *World) Set(child *Sprite, key string, value interface{}) bool{
+    return self.Object.Call("set", child, key, value).Bool()
+}
+
+// Quickly set a property on a single child of this group to a new value.
+// 
+// The operation parameter controls how the new value is assigned to the property, from simple replacement to addition and multiplication.
+func (self *World) Set1O(child *Sprite, key string, value interface{}, checkAlive bool) bool{
+    return self.Object.Call("set", child, key, value, checkAlive).Bool()
+}
+
+// Quickly set a property on a single child of this group to a new value.
+// 
+// The operation parameter controls how the new value is assigned to the property, from simple replacement to addition and multiplication.
+func (self *World) Set2O(child *Sprite, key string, value interface{}, checkAlive bool, checkVisible bool) bool{
+    return self.Object.Call("set", child, key, value, checkAlive, checkVisible).Bool()
+}
+
+// Quickly set a property on a single child of this group to a new value.
+// 
+// The operation parameter controls how the new value is assigned to the property, from simple replacement to addition and multiplication.
+func (self *World) Set3O(child *Sprite, key string, value interface{}, checkAlive bool, checkVisible bool, operation int) bool{
+    return self.Object.Call("set", child, key, value, checkAlive, checkVisible, operation).Bool()
+}
+
+// Quickly set a property on a single child of this group to a new value.
+// 
+// The operation parameter controls how the new value is assigned to the property, from simple replacement to addition and multiplication.
+func (self *World) Set4O(child *Sprite, key string, value interface{}, checkAlive bool, checkVisible bool, operation int, force bool) bool{
     return self.Object.Call("set", child, key, value, checkAlive, checkVisible, operation, force).Bool()
 }
 
@@ -1423,7 +1849,47 @@ func (self *World) SetI(args ...interface{}) bool{
 // If you need that ability please see `Group.setAllChildren`.
 // 
 // The operation parameter controls how the new value is assigned to the property, from simple replacement to addition and multiplication.
-func (self *World) SetAll(key string, value interface{}, checkAlive bool, checkVisible bool, operation int, force bool) {
+func (self *World) SetAll(key string, value interface{}) {
+    self.Object.Call("setAll", key, value)
+}
+
+// Quickly set the same property across all children of this group to a new value.
+// 
+// This call doesn't descend down children, so if you have a Group inside of this group, the property will be set on the group but not its children.
+// If you need that ability please see `Group.setAllChildren`.
+// 
+// The operation parameter controls how the new value is assigned to the property, from simple replacement to addition and multiplication.
+func (self *World) SetAll1O(key string, value interface{}, checkAlive bool) {
+    self.Object.Call("setAll", key, value, checkAlive)
+}
+
+// Quickly set the same property across all children of this group to a new value.
+// 
+// This call doesn't descend down children, so if you have a Group inside of this group, the property will be set on the group but not its children.
+// If you need that ability please see `Group.setAllChildren`.
+// 
+// The operation parameter controls how the new value is assigned to the property, from simple replacement to addition and multiplication.
+func (self *World) SetAll2O(key string, value interface{}, checkAlive bool, checkVisible bool) {
+    self.Object.Call("setAll", key, value, checkAlive, checkVisible)
+}
+
+// Quickly set the same property across all children of this group to a new value.
+// 
+// This call doesn't descend down children, so if you have a Group inside of this group, the property will be set on the group but not its children.
+// If you need that ability please see `Group.setAllChildren`.
+// 
+// The operation parameter controls how the new value is assigned to the property, from simple replacement to addition and multiplication.
+func (self *World) SetAll3O(key string, value interface{}, checkAlive bool, checkVisible bool, operation int) {
+    self.Object.Call("setAll", key, value, checkAlive, checkVisible, operation)
+}
+
+// Quickly set the same property across all children of this group to a new value.
+// 
+// This call doesn't descend down children, so if you have a Group inside of this group, the property will be set on the group but not its children.
+// If you need that ability please see `Group.setAllChildren`.
+// 
+// The operation parameter controls how the new value is assigned to the property, from simple replacement to addition and multiplication.
+func (self *World) SetAll4O(key string, value interface{}, checkAlive bool, checkVisible bool, operation int, force bool) {
     self.Object.Call("setAll", key, value, checkAlive, checkVisible, operation, force)
 }
 
@@ -1443,7 +1909,47 @@ func (self *World) SetAllI(args ...interface{}) {
 // Unlike with `setAll` the property is NOT set on child Groups itself.
 // 
 // The operation parameter controls how the new value is assigned to the property, from simple replacement to addition and multiplication.
-func (self *World) SetAllChildren(key string, value interface{}, checkAlive bool, checkVisible bool, operation int, force bool) {
+func (self *World) SetAllChildren(key string, value interface{}) {
+    self.Object.Call("setAllChildren", key, value)
+}
+
+// Quickly set the same property across all children of this group, and any child Groups, to a new value.
+// 
+// If this group contains other Groups then the same property is set across their children as well, iterating down until it reaches the bottom.
+// Unlike with `setAll` the property is NOT set on child Groups itself.
+// 
+// The operation parameter controls how the new value is assigned to the property, from simple replacement to addition and multiplication.
+func (self *World) SetAllChildren1O(key string, value interface{}, checkAlive bool) {
+    self.Object.Call("setAllChildren", key, value, checkAlive)
+}
+
+// Quickly set the same property across all children of this group, and any child Groups, to a new value.
+// 
+// If this group contains other Groups then the same property is set across their children as well, iterating down until it reaches the bottom.
+// Unlike with `setAll` the property is NOT set on child Groups itself.
+// 
+// The operation parameter controls how the new value is assigned to the property, from simple replacement to addition and multiplication.
+func (self *World) SetAllChildren2O(key string, value interface{}, checkAlive bool, checkVisible bool) {
+    self.Object.Call("setAllChildren", key, value, checkAlive, checkVisible)
+}
+
+// Quickly set the same property across all children of this group, and any child Groups, to a new value.
+// 
+// If this group contains other Groups then the same property is set across their children as well, iterating down until it reaches the bottom.
+// Unlike with `setAll` the property is NOT set on child Groups itself.
+// 
+// The operation parameter controls how the new value is assigned to the property, from simple replacement to addition and multiplication.
+func (self *World) SetAllChildren3O(key string, value interface{}, checkAlive bool, checkVisible bool, operation int) {
+    self.Object.Call("setAllChildren", key, value, checkAlive, checkVisible, operation)
+}
+
+// Quickly set the same property across all children of this group, and any child Groups, to a new value.
+// 
+// If this group contains other Groups then the same property is set across their children as well, iterating down until it reaches the bottom.
+// Unlike with `setAll` the property is NOT set on child Groups itself.
+// 
+// The operation parameter controls how the new value is assigned to the property, from simple replacement to addition and multiplication.
+func (self *World) SetAllChildren4O(key string, value interface{}, checkAlive bool, checkVisible bool, operation int, force bool) {
     self.Object.Call("setAllChildren", key, value, checkAlive, checkVisible, operation, force)
 }
 
@@ -1460,7 +1966,28 @@ func (self *World) SetAllChildrenI(args ...interface{}) {
 // Quickly check that the same property across all children of this group is equal to the given value.
 // 
 // This call doesn't descend down children, so if you have a Group inside of this group, the property will be checked on the group but not its children.
-func (self *World) CheckAll(key string, value interface{}, checkAlive bool, checkVisible bool, force bool) {
+func (self *World) CheckAll(key string, value interface{}) {
+    self.Object.Call("checkAll", key, value)
+}
+
+// Quickly check that the same property across all children of this group is equal to the given value.
+// 
+// This call doesn't descend down children, so if you have a Group inside of this group, the property will be checked on the group but not its children.
+func (self *World) CheckAll1O(key string, value interface{}, checkAlive bool) {
+    self.Object.Call("checkAll", key, value, checkAlive)
+}
+
+// Quickly check that the same property across all children of this group is equal to the given value.
+// 
+// This call doesn't descend down children, so if you have a Group inside of this group, the property will be checked on the group but not its children.
+func (self *World) CheckAll2O(key string, value interface{}, checkAlive bool, checkVisible bool) {
+    self.Object.Call("checkAll", key, value, checkAlive, checkVisible)
+}
+
+// Quickly check that the same property across all children of this group is equal to the given value.
+// 
+// This call doesn't descend down children, so if you have a Group inside of this group, the property will be checked on the group but not its children.
+func (self *World) CheckAll3O(key string, value interface{}, checkAlive bool, checkVisible bool, force bool) {
     self.Object.Call("checkAll", key, value, checkAlive, checkVisible, force)
 }
 
@@ -1607,7 +2134,21 @@ func (self *World) PostUpdateI(args ...interface{}) {
 //     healthyList.callAll('attack');
 // 
 // Note: Currently this will skip any children which are Groups themselves.
-func (self *World) Filter(predicate func(...interface{}), checkExists bool) *ArraySet{
+func (self *World) Filter(predicate func(...interface{})) *ArraySet{
+    return &ArraySet{self.Object.Call("filter", predicate)}
+}
+
+// Find children matching a certain predicate.
+// 
+// For example:
+// 
+//     var healthyList = Group.filter(function(child, index, children) {
+//         return child.health > 10 ? true : false;
+//     }, true);
+//     healthyList.callAll('attack');
+// 
+// Note: Currently this will skip any children which are Groups themselves.
+func (self *World) Filter1O(predicate func(...interface{}), checkExists bool) *ArraySet{
     return &ArraySet{self.Object.Call("filter", predicate, checkExists)}
 }
 
@@ -1634,7 +2175,33 @@ func (self *World) FilterI(args ...interface{}) *ArraySet{
 // would invoke `awardBonusGold` function with the parameters `(child, 100, 500)`.
 // 
 // Note: This check will skip any children which are Groups themselves.
-func (self *World) ForEach(callback func(...interface{}), callbackContext interface{}, checkExists bool, args interface{}) {
+func (self *World) ForEach(callback func(...interface{}), callbackContext interface{}) {
+    self.Object.Call("forEach", callback, callbackContext)
+}
+
+// Call a function on each child in this group.
+// 
+// Additional arguments for the callback can be specified after the `checkExists` parameter. For example,
+// 
+//     Group.forEach(awardBonusGold, this, true, 100, 500)
+// 
+// would invoke `awardBonusGold` function with the parameters `(child, 100, 500)`.
+// 
+// Note: This check will skip any children which are Groups themselves.
+func (self *World) ForEach1O(callback func(...interface{}), callbackContext interface{}, checkExists bool) {
+    self.Object.Call("forEach", callback, callbackContext, checkExists)
+}
+
+// Call a function on each child in this group.
+// 
+// Additional arguments for the callback can be specified after the `checkExists` parameter. For example,
+// 
+//     Group.forEach(awardBonusGold, this, true, 100, 500)
+// 
+// would invoke `awardBonusGold` function with the parameters `(child, 100, 500)`.
+// 
+// Note: This check will skip any children which are Groups themselves.
+func (self *World) ForEach2O(callback func(...interface{}), callbackContext interface{}, checkExists bool, args interface{}) {
     self.Object.Call("forEach", callback, callbackContext, checkExists, args)
 }
 
@@ -1654,7 +2221,14 @@ func (self *World) ForEachI(args ...interface{}) {
 // Call a function on each existing child in this group.
 // 
 // See {@link Phaser.Group#forEach forEach} for details.
-func (self *World) ForEachExists(callback func(...interface{}), callbackContext interface{}, args interface{}) {
+func (self *World) ForEachExists(callback func(...interface{}), callbackContext interface{}) {
+    self.Object.Call("forEachExists", callback, callbackContext)
+}
+
+// Call a function on each existing child in this group.
+// 
+// See {@link Phaser.Group#forEach forEach} for details.
+func (self *World) ForEachExists1O(callback func(...interface{}), callbackContext interface{}, args interface{}) {
     self.Object.Call("forEachExists", callback, callbackContext, args)
 }
 
@@ -1668,7 +2242,14 @@ func (self *World) ForEachExistsI(args ...interface{}) {
 // Call a function on each alive child in this group.
 // 
 // See {@link Phaser.Group#forEach forEach} for details.
-func (self *World) ForEachAlive(callback func(...interface{}), callbackContext interface{}, args interface{}) {
+func (self *World) ForEachAlive(callback func(...interface{}), callbackContext interface{}) {
+    self.Object.Call("forEachAlive", callback, callbackContext)
+}
+
+// Call a function on each alive child in this group.
+// 
+// See {@link Phaser.Group#forEach forEach} for details.
+func (self *World) ForEachAlive1O(callback func(...interface{}), callbackContext interface{}, args interface{}) {
     self.Object.Call("forEachAlive", callback, callbackContext, args)
 }
 
@@ -1682,7 +2263,14 @@ func (self *World) ForEachAliveI(args ...interface{}) {
 // Call a function on each dead child in this group.
 // 
 // See {@link Phaser.Group#forEach forEach} for details.
-func (self *World) ForEachDead(callback func(...interface{}), callbackContext interface{}, args interface{}) {
+func (self *World) ForEachDead(callback func(...interface{}), callbackContext interface{}) {
+    self.Object.Call("forEachDead", callback, callbackContext)
+}
+
+// Call a function on each dead child in this group.
+// 
+// See {@link Phaser.Group#forEach forEach} for details.
+func (self *World) ForEachDead1O(callback func(...interface{}), callbackContext interface{}, args interface{}) {
     self.Object.Call("forEachDead", callback, callbackContext, args)
 }
 
@@ -1701,7 +2289,31 @@ func (self *World) ForEachDeadI(args ...interface{}) {
 // 
 // Internally this uses a standard JavaScript Array sort, so everything that applies there also applies here, including
 // alphabetical sorting, mixing strings and numbers, and Unicode sorting. See MDN for more details.
-func (self *World) Sort(key string, order int) {
+func (self *World) Sort() {
+    self.Object.Call("sort")
+}
+
+// Sort the children in the group according to a particular key and ordering.
+// 
+// Call this function to sort the group according to a particular key value and order.
+// 
+// For example to depth sort Sprites for Zelda-style game you might call `group.sort('y', Phaser.Group.SORT_ASCENDING)` at the bottom of your `State.update()`.
+// 
+// Internally this uses a standard JavaScript Array sort, so everything that applies there also applies here, including
+// alphabetical sorting, mixing strings and numbers, and Unicode sorting. See MDN for more details.
+func (self *World) Sort1O(key string) {
+    self.Object.Call("sort", key)
+}
+
+// Sort the children in the group according to a particular key and ordering.
+// 
+// Call this function to sort the group according to a particular key value and order.
+// 
+// For example to depth sort Sprites for Zelda-style game you might call `group.sort('y', Phaser.Group.SORT_ASCENDING)` at the bottom of your `State.update()`.
+// 
+// Internally this uses a standard JavaScript Array sort, so everything that applies there also applies here, including
+// alphabetical sorting, mixing strings and numbers, and Unicode sorting. See MDN for more details.
+func (self *World) Sort2O(key string, order int) {
     self.Object.Call("sort", key, order)
 }
 
@@ -1721,7 +2333,15 @@ func (self *World) SortI(args ...interface{}) {
 // 
 // The `sortHandler` is provided the two parameters: the two children involved in the comparison (a and b).
 // It should return -1 if `a > b`, 1 if `a < b` or 0 if `a === b`.
-func (self *World) CustomSort(sortHandler func(...interface{}), context interface{}) {
+func (self *World) CustomSort(sortHandler func(...interface{})) {
+    self.Object.Call("customSort", sortHandler)
+}
+
+// Sort the children in the group according to custom sort function.
+// 
+// The `sortHandler` is provided the two parameters: the two children involved in the comparison (a and b).
+// It should return -1 if `a > b`, 1 if `a < b` or 0 if `a === b`.
+func (self *World) CustomSort1O(sortHandler func(...interface{}), context interface{}) {
     self.Object.Call("customSort", sortHandler, context)
 }
 
@@ -1770,7 +2390,70 @@ func (self *World) DescendingSortHandlerI(args ...interface{}) {
 // 
 // If `args` is specified it must be an array. The matched child will be assigned to the first
 // element and the entire array will be applied to the callback function.
-func (self *World) Iterate(key string, value interface{}, returnType int, callback func(...interface{}), callbackContext interface{}, args []interface{}) interface{}{
+func (self *World) Iterate(key string, value interface{}, returnType int) interface{}{
+    return self.Object.Call("iterate", key, value, returnType)
+}
+
+// Iterates over the children of the group performing one of several actions for matched children.
+// 
+// A child is considered a match when it has a property, named `key`, whose value is equal to `value`
+// according to a strict equality comparison.
+// 
+// The result depends on the `returnType`:
+// 
+// - {@link Phaser.Group.RETURN_TOTAL RETURN_TOTAL}:
+//     The callback, if any, is applied to all matching children. The number of matched children is returned.
+// - {@link Phaser.Group.RETURN_NONE RETURN_NONE}:
+//     The callback, if any, is applied to all matching children. No value is returned.
+// - {@link Phaser.Group.RETURN_CHILD RETURN_CHILD}:
+//     The callback, if any, is applied to the *first* matching child and the *first* matched child is returned.
+//     If there is no matching child then null is returned.
+// 
+// If `args` is specified it must be an array. The matched child will be assigned to the first
+// element and the entire array will be applied to the callback function.
+func (self *World) Iterate1O(key string, value interface{}, returnType int, callback func(...interface{})) interface{}{
+    return self.Object.Call("iterate", key, value, returnType, callback)
+}
+
+// Iterates over the children of the group performing one of several actions for matched children.
+// 
+// A child is considered a match when it has a property, named `key`, whose value is equal to `value`
+// according to a strict equality comparison.
+// 
+// The result depends on the `returnType`:
+// 
+// - {@link Phaser.Group.RETURN_TOTAL RETURN_TOTAL}:
+//     The callback, if any, is applied to all matching children. The number of matched children is returned.
+// - {@link Phaser.Group.RETURN_NONE RETURN_NONE}:
+//     The callback, if any, is applied to all matching children. No value is returned.
+// - {@link Phaser.Group.RETURN_CHILD RETURN_CHILD}:
+//     The callback, if any, is applied to the *first* matching child and the *first* matched child is returned.
+//     If there is no matching child then null is returned.
+// 
+// If `args` is specified it must be an array. The matched child will be assigned to the first
+// element and the entire array will be applied to the callback function.
+func (self *World) Iterate2O(key string, value interface{}, returnType int, callback func(...interface{}), callbackContext interface{}) interface{}{
+    return self.Object.Call("iterate", key, value, returnType, callback, callbackContext)
+}
+
+// Iterates over the children of the group performing one of several actions for matched children.
+// 
+// A child is considered a match when it has a property, named `key`, whose value is equal to `value`
+// according to a strict equality comparison.
+// 
+// The result depends on the `returnType`:
+// 
+// - {@link Phaser.Group.RETURN_TOTAL RETURN_TOTAL}:
+//     The callback, if any, is applied to all matching children. The number of matched children is returned.
+// - {@link Phaser.Group.RETURN_NONE RETURN_NONE}:
+//     The callback, if any, is applied to all matching children. No value is returned.
+// - {@link Phaser.Group.RETURN_CHILD RETURN_CHILD}:
+//     The callback, if any, is applied to the *first* matching child and the *first* matched child is returned.
+//     If there is no matching child then null is returned.
+// 
+// If `args` is specified it must be an array. The matched child will be assigned to the first
+// element and the entire array will be applied to the callback function.
+func (self *World) Iterate3O(key string, value interface{}, returnType int, callback func(...interface{}), callbackContext interface{}, args []interface{}) interface{}{
     return self.Object.Call("iterate", key, value, returnType, callback, callbackContext, args)
 }
 
@@ -1803,7 +2486,79 @@ func (self *World) IterateI(args ...interface{}) interface{}{
 // 
 // If a child *was* found , `createIfNull` is `false` and you provided the additional arguments then the child
 // will be reset and/or have a new texture loaded on it. This is handled by `Group.resetChild`.
-func (self *World) GetFirstExists(exists bool, createIfNull bool, x int, y int, key interface{}, frame interface{}) *DisplayObject{
+func (self *World) GetFirstExists() *DisplayObject{
+    return &DisplayObject{self.Object.Call("getFirstExists")}
+}
+
+// Get the first display object that exists, or doesn't exist.
+// 
+// You can use the optional argument `createIfNull` to create a new Game Object if none matching your exists argument were found in this Group.
+// 
+// It works by calling `Group.create` passing it the parameters given to this method, and returning the new child.
+// 
+// If a child *was* found , `createIfNull` is `false` and you provided the additional arguments then the child
+// will be reset and/or have a new texture loaded on it. This is handled by `Group.resetChild`.
+func (self *World) GetFirstExists1O(exists bool) *DisplayObject{
+    return &DisplayObject{self.Object.Call("getFirstExists", exists)}
+}
+
+// Get the first display object that exists, or doesn't exist.
+// 
+// You can use the optional argument `createIfNull` to create a new Game Object if none matching your exists argument were found in this Group.
+// 
+// It works by calling `Group.create` passing it the parameters given to this method, and returning the new child.
+// 
+// If a child *was* found , `createIfNull` is `false` and you provided the additional arguments then the child
+// will be reset and/or have a new texture loaded on it. This is handled by `Group.resetChild`.
+func (self *World) GetFirstExists2O(exists bool, createIfNull bool) *DisplayObject{
+    return &DisplayObject{self.Object.Call("getFirstExists", exists, createIfNull)}
+}
+
+// Get the first display object that exists, or doesn't exist.
+// 
+// You can use the optional argument `createIfNull` to create a new Game Object if none matching your exists argument were found in this Group.
+// 
+// It works by calling `Group.create` passing it the parameters given to this method, and returning the new child.
+// 
+// If a child *was* found , `createIfNull` is `false` and you provided the additional arguments then the child
+// will be reset and/or have a new texture loaded on it. This is handled by `Group.resetChild`.
+func (self *World) GetFirstExists3O(exists bool, createIfNull bool, x int) *DisplayObject{
+    return &DisplayObject{self.Object.Call("getFirstExists", exists, createIfNull, x)}
+}
+
+// Get the first display object that exists, or doesn't exist.
+// 
+// You can use the optional argument `createIfNull` to create a new Game Object if none matching your exists argument were found in this Group.
+// 
+// It works by calling `Group.create` passing it the parameters given to this method, and returning the new child.
+// 
+// If a child *was* found , `createIfNull` is `false` and you provided the additional arguments then the child
+// will be reset and/or have a new texture loaded on it. This is handled by `Group.resetChild`.
+func (self *World) GetFirstExists4O(exists bool, createIfNull bool, x int, y int) *DisplayObject{
+    return &DisplayObject{self.Object.Call("getFirstExists", exists, createIfNull, x, y)}
+}
+
+// Get the first display object that exists, or doesn't exist.
+// 
+// You can use the optional argument `createIfNull` to create a new Game Object if none matching your exists argument were found in this Group.
+// 
+// It works by calling `Group.create` passing it the parameters given to this method, and returning the new child.
+// 
+// If a child *was* found , `createIfNull` is `false` and you provided the additional arguments then the child
+// will be reset and/or have a new texture loaded on it. This is handled by `Group.resetChild`.
+func (self *World) GetFirstExists5O(exists bool, createIfNull bool, x int, y int, key interface{}) *DisplayObject{
+    return &DisplayObject{self.Object.Call("getFirstExists", exists, createIfNull, x, y, key)}
+}
+
+// Get the first display object that exists, or doesn't exist.
+// 
+// You can use the optional argument `createIfNull` to create a new Game Object if none matching your exists argument were found in this Group.
+// 
+// It works by calling `Group.create` passing it the parameters given to this method, and returning the new child.
+// 
+// If a child *was* found , `createIfNull` is `false` and you provided the additional arguments then the child
+// will be reset and/or have a new texture loaded on it. This is handled by `Group.resetChild`.
+func (self *World) GetFirstExists6O(exists bool, createIfNull bool, x int, y int, key interface{}, frame interface{}) *DisplayObject{
     return &DisplayObject{self.Object.Call("getFirstExists", exists, createIfNull, x, y, key, frame)}
 }
 
@@ -1829,7 +2584,77 @@ func (self *World) GetFirstExistsI(args ...interface{}) *DisplayObject{
 // 
 // If a child *was* found , `createIfNull` is `false` and you provided the additional arguments then the child
 // will be reset and/or have a new texture loaded on it. This is handled by `Group.resetChild`.
-func (self *World) GetFirstAlive(createIfNull bool, x int, y int, key interface{}, frame interface{}) *DisplayObject{
+func (self *World) GetFirstAlive() *DisplayObject{
+    return &DisplayObject{self.Object.Call("getFirstAlive")}
+}
+
+// Get the first child that is alive (`child.alive === true`).
+// 
+// This is handy for choosing a squad leader, etc.
+// 
+// You can use the optional argument `createIfNull` to create a new Game Object if no alive ones were found in this Group.
+// 
+// It works by calling `Group.create` passing it the parameters given to this method, and returning the new child.
+// 
+// If a child *was* found , `createIfNull` is `false` and you provided the additional arguments then the child
+// will be reset and/or have a new texture loaded on it. This is handled by `Group.resetChild`.
+func (self *World) GetFirstAlive1O(createIfNull bool) *DisplayObject{
+    return &DisplayObject{self.Object.Call("getFirstAlive", createIfNull)}
+}
+
+// Get the first child that is alive (`child.alive === true`).
+// 
+// This is handy for choosing a squad leader, etc.
+// 
+// You can use the optional argument `createIfNull` to create a new Game Object if no alive ones were found in this Group.
+// 
+// It works by calling `Group.create` passing it the parameters given to this method, and returning the new child.
+// 
+// If a child *was* found , `createIfNull` is `false` and you provided the additional arguments then the child
+// will be reset and/or have a new texture loaded on it. This is handled by `Group.resetChild`.
+func (self *World) GetFirstAlive2O(createIfNull bool, x int) *DisplayObject{
+    return &DisplayObject{self.Object.Call("getFirstAlive", createIfNull, x)}
+}
+
+// Get the first child that is alive (`child.alive === true`).
+// 
+// This is handy for choosing a squad leader, etc.
+// 
+// You can use the optional argument `createIfNull` to create a new Game Object if no alive ones were found in this Group.
+// 
+// It works by calling `Group.create` passing it the parameters given to this method, and returning the new child.
+// 
+// If a child *was* found , `createIfNull` is `false` and you provided the additional arguments then the child
+// will be reset and/or have a new texture loaded on it. This is handled by `Group.resetChild`.
+func (self *World) GetFirstAlive3O(createIfNull bool, x int, y int) *DisplayObject{
+    return &DisplayObject{self.Object.Call("getFirstAlive", createIfNull, x, y)}
+}
+
+// Get the first child that is alive (`child.alive === true`).
+// 
+// This is handy for choosing a squad leader, etc.
+// 
+// You can use the optional argument `createIfNull` to create a new Game Object if no alive ones were found in this Group.
+// 
+// It works by calling `Group.create` passing it the parameters given to this method, and returning the new child.
+// 
+// If a child *was* found , `createIfNull` is `false` and you provided the additional arguments then the child
+// will be reset and/or have a new texture loaded on it. This is handled by `Group.resetChild`.
+func (self *World) GetFirstAlive4O(createIfNull bool, x int, y int, key interface{}) *DisplayObject{
+    return &DisplayObject{self.Object.Call("getFirstAlive", createIfNull, x, y, key)}
+}
+
+// Get the first child that is alive (`child.alive === true`).
+// 
+// This is handy for choosing a squad leader, etc.
+// 
+// You can use the optional argument `createIfNull` to create a new Game Object if no alive ones were found in this Group.
+// 
+// It works by calling `Group.create` passing it the parameters given to this method, and returning the new child.
+// 
+// If a child *was* found , `createIfNull` is `false` and you provided the additional arguments then the child
+// will be reset and/or have a new texture loaded on it. This is handled by `Group.resetChild`.
+func (self *World) GetFirstAlive5O(createIfNull bool, x int, y int, key interface{}, frame interface{}) *DisplayObject{
     return &DisplayObject{self.Object.Call("getFirstAlive", createIfNull, x, y, key, frame)}
 }
 
@@ -1857,7 +2682,77 @@ func (self *World) GetFirstAliveI(args ...interface{}) *DisplayObject{
 // 
 // If a child *was* found , `createIfNull` is `false` and you provided the additional arguments then the child
 // will be reset and/or have a new texture loaded on it. This is handled by `Group.resetChild`.
-func (self *World) GetFirstDead(createIfNull bool, x int, y int, key interface{}, frame interface{}) *DisplayObject{
+func (self *World) GetFirstDead() *DisplayObject{
+    return &DisplayObject{self.Object.Call("getFirstDead")}
+}
+
+// Get the first child that is dead (`child.alive === false`).
+// 
+// This is handy for checking if everything has been wiped out and adding to the pool as needed.
+// 
+// You can use the optional argument `createIfNull` to create a new Game Object if no dead ones were found in this Group.
+// 
+// It works by calling `Group.create` passing it the parameters given to this method, and returning the new child.
+// 
+// If a child *was* found , `createIfNull` is `false` and you provided the additional arguments then the child
+// will be reset and/or have a new texture loaded on it. This is handled by `Group.resetChild`.
+func (self *World) GetFirstDead1O(createIfNull bool) *DisplayObject{
+    return &DisplayObject{self.Object.Call("getFirstDead", createIfNull)}
+}
+
+// Get the first child that is dead (`child.alive === false`).
+// 
+// This is handy for checking if everything has been wiped out and adding to the pool as needed.
+// 
+// You can use the optional argument `createIfNull` to create a new Game Object if no dead ones were found in this Group.
+// 
+// It works by calling `Group.create` passing it the parameters given to this method, and returning the new child.
+// 
+// If a child *was* found , `createIfNull` is `false` and you provided the additional arguments then the child
+// will be reset and/or have a new texture loaded on it. This is handled by `Group.resetChild`.
+func (self *World) GetFirstDead2O(createIfNull bool, x int) *DisplayObject{
+    return &DisplayObject{self.Object.Call("getFirstDead", createIfNull, x)}
+}
+
+// Get the first child that is dead (`child.alive === false`).
+// 
+// This is handy for checking if everything has been wiped out and adding to the pool as needed.
+// 
+// You can use the optional argument `createIfNull` to create a new Game Object if no dead ones were found in this Group.
+// 
+// It works by calling `Group.create` passing it the parameters given to this method, and returning the new child.
+// 
+// If a child *was* found , `createIfNull` is `false` and you provided the additional arguments then the child
+// will be reset and/or have a new texture loaded on it. This is handled by `Group.resetChild`.
+func (self *World) GetFirstDead3O(createIfNull bool, x int, y int) *DisplayObject{
+    return &DisplayObject{self.Object.Call("getFirstDead", createIfNull, x, y)}
+}
+
+// Get the first child that is dead (`child.alive === false`).
+// 
+// This is handy for checking if everything has been wiped out and adding to the pool as needed.
+// 
+// You can use the optional argument `createIfNull` to create a new Game Object if no dead ones were found in this Group.
+// 
+// It works by calling `Group.create` passing it the parameters given to this method, and returning the new child.
+// 
+// If a child *was* found , `createIfNull` is `false` and you provided the additional arguments then the child
+// will be reset and/or have a new texture loaded on it. This is handled by `Group.resetChild`.
+func (self *World) GetFirstDead4O(createIfNull bool, x int, y int, key interface{}) *DisplayObject{
+    return &DisplayObject{self.Object.Call("getFirstDead", createIfNull, x, y, key)}
+}
+
+// Get the first child that is dead (`child.alive === false`).
+// 
+// This is handy for checking if everything has been wiped out and adding to the pool as needed.
+// 
+// You can use the optional argument `createIfNull` to create a new Game Object if no dead ones were found in this Group.
+// 
+// It works by calling `Group.create` passing it the parameters given to this method, and returning the new child.
+// 
+// If a child *was* found , `createIfNull` is `false` and you provided the additional arguments then the child
+// will be reset and/or have a new texture loaded on it. This is handled by `Group.resetChild`.
+func (self *World) GetFirstDead5O(createIfNull bool, x int, y int, key interface{}, frame interface{}) *DisplayObject{
     return &DisplayObject{self.Object.Call("getFirstDead", createIfNull, x, y, key, frame)}
 }
 
@@ -1880,7 +2775,43 @@ func (self *World) GetFirstDeadI(args ...interface{}) *DisplayObject{
 // If the `key` and optionally the `frame` arguments are given, it calls `child.loadTexture(key, frame)` on it.
 // 
 // The two operations are separate. For example if you just wish to load a new texture then pass `null` as the x and y values.
-func (self *World) ResetChild(child *DisplayObject, x int, y int, key interface{}, frame interface{}) *DisplayObject{
+func (self *World) ResetChild(child *DisplayObject) *DisplayObject{
+    return &DisplayObject{self.Object.Call("resetChild", child)}
+}
+
+// Takes a child and if the `x` and `y` arguments are given it calls `child.reset(x, y)` on it.
+// 
+// If the `key` and optionally the `frame` arguments are given, it calls `child.loadTexture(key, frame)` on it.
+// 
+// The two operations are separate. For example if you just wish to load a new texture then pass `null` as the x and y values.
+func (self *World) ResetChild1O(child *DisplayObject, x int) *DisplayObject{
+    return &DisplayObject{self.Object.Call("resetChild", child, x)}
+}
+
+// Takes a child and if the `x` and `y` arguments are given it calls `child.reset(x, y)` on it.
+// 
+// If the `key` and optionally the `frame` arguments are given, it calls `child.loadTexture(key, frame)` on it.
+// 
+// The two operations are separate. For example if you just wish to load a new texture then pass `null` as the x and y values.
+func (self *World) ResetChild2O(child *DisplayObject, x int, y int) *DisplayObject{
+    return &DisplayObject{self.Object.Call("resetChild", child, x, y)}
+}
+
+// Takes a child and if the `x` and `y` arguments are given it calls `child.reset(x, y)` on it.
+// 
+// If the `key` and optionally the `frame` arguments are given, it calls `child.loadTexture(key, frame)` on it.
+// 
+// The two operations are separate. For example if you just wish to load a new texture then pass `null` as the x and y values.
+func (self *World) ResetChild3O(child *DisplayObject, x int, y int, key interface{}) *DisplayObject{
+    return &DisplayObject{self.Object.Call("resetChild", child, x, y, key)}
+}
+
+// Takes a child and if the `x` and `y` arguments are given it calls `child.reset(x, y)` on it.
+// 
+// If the `key` and optionally the `frame` arguments are given, it calls `child.loadTexture(key, frame)` on it.
+// 
+// The two operations are separate. For example if you just wish to load a new texture then pass `null` as the x and y values.
+func (self *World) ResetChild4O(child *DisplayObject, x int, y int, key interface{}, frame interface{}) *DisplayObject{
     return &DisplayObject{self.Object.Call("resetChild", child, x, y, key, frame)}
 }
 
@@ -1931,7 +2862,35 @@ func (self *World) GetBottomI(args ...interface{}) interface{}{
 // If the child is closer then the previous child, it will be sent to `callback` as the first argument,
 // with the distance as the second. The callback should return `true` if it passes your 
 // filtering criteria, otherwise it should return `false`.
-func (self *World) GetClosestTo(object interface{}, callback func(...interface{}), callbackContext interface{}) interface{}{
+func (self *World) GetClosestTo(object interface{}) interface{}{
+    return self.Object.Call("getClosestTo", object)
+}
+
+// Get the closest child to given Object, with optional callback to filter children.
+// 
+// This can be a Sprite, Group, Image or any object with public x and y properties.
+// 
+// 'close' is determined by the distance from the objects `x` and `y` properties compared to the childs `x` and `y` properties.
+// 
+// You can use the optional `callback` argument to apply your own filter to the distance checks.
+// If the child is closer then the previous child, it will be sent to `callback` as the first argument,
+// with the distance as the second. The callback should return `true` if it passes your 
+// filtering criteria, otherwise it should return `false`.
+func (self *World) GetClosestTo1O(object interface{}, callback func(...interface{})) interface{}{
+    return self.Object.Call("getClosestTo", object, callback)
+}
+
+// Get the closest child to given Object, with optional callback to filter children.
+// 
+// This can be a Sprite, Group, Image or any object with public x and y properties.
+// 
+// 'close' is determined by the distance from the objects `x` and `y` properties compared to the childs `x` and `y` properties.
+// 
+// You can use the optional `callback` argument to apply your own filter to the distance checks.
+// If the child is closer then the previous child, it will be sent to `callback` as the first argument,
+// with the distance as the second. The callback should return `true` if it passes your 
+// filtering criteria, otherwise it should return `false`.
+func (self *World) GetClosestTo2O(object interface{}, callback func(...interface{}), callbackContext interface{}) interface{}{
     return self.Object.Call("getClosestTo", object, callback, callbackContext)
 }
 
@@ -1959,7 +2918,35 @@ func (self *World) GetClosestToI(args ...interface{}) interface{}{
 // If the child is closer then the previous child, it will be sent to `callback` as the first argument,
 // with the distance as the second. The callback should return `true` if it passes your 
 // filtering criteria, otherwise it should return `false`.
-func (self *World) GetFurthestFrom(object interface{}, callback func(...interface{}), callbackContext interface{}) interface{}{
+func (self *World) GetFurthestFrom(object interface{}) interface{}{
+    return self.Object.Call("getFurthestFrom", object)
+}
+
+// Get the child furthest away from the given Object, with optional callback to filter children.
+// 
+// This can be a Sprite, Group, Image or any object with public x and y properties.
+// 
+// 'furthest away' is determined by the distance from the objects `x` and `y` properties compared to the childs `x` and `y` properties.
+// 
+// You can use the optional `callback` argument to apply your own filter to the distance checks.
+// If the child is closer then the previous child, it will be sent to `callback` as the first argument,
+// with the distance as the second. The callback should return `true` if it passes your 
+// filtering criteria, otherwise it should return `false`.
+func (self *World) GetFurthestFrom1O(object interface{}, callback func(...interface{})) interface{}{
+    return self.Object.Call("getFurthestFrom", object, callback)
+}
+
+// Get the child furthest away from the given Object, with optional callback to filter children.
+// 
+// This can be a Sprite, Group, Image or any object with public x and y properties.
+// 
+// 'furthest away' is determined by the distance from the objects `x` and `y` properties compared to the childs `x` and `y` properties.
+// 
+// You can use the optional `callback` argument to apply your own filter to the distance checks.
+// If the child is closer then the previous child, it will be sent to `callback` as the first argument,
+// with the distance as the second. The callback should return `true` if it passes your 
+// filtering criteria, otherwise it should return `false`.
+func (self *World) GetFurthestFrom2O(object interface{}, callback func(...interface{}), callbackContext interface{}) interface{}{
     return self.Object.Call("getFurthestFrom", object, callback, callbackContext)
 }
 
@@ -1998,7 +2985,17 @@ func (self *World) CountDeadI(args ...interface{}) int{
 }
 
 // Returns a random child from the group.
-func (self *World) GetRandom(startIndex int, length int) interface{}{
+func (self *World) GetRandom() interface{}{
+    return self.Object.Call("getRandom")
+}
+
+// Returns a random child from the group.
+func (self *World) GetRandom1O(startIndex int) interface{}{
+    return self.Object.Call("getRandom", startIndex)
+}
+
+// Returns a random child from the group.
+func (self *World) GetRandom2O(startIndex int, length int) interface{}{
     return self.Object.Call("getRandom", startIndex, length)
 }
 
@@ -2012,7 +3009,25 @@ func (self *World) GetRandomI(args ...interface{}) interface{}{
 // This will dispatch an `onRemovedFromGroup` event from the child (if it has one), and optionally destroy the child.
 // 
 // If the group cursor was referring to the removed child it is updated to refer to the next child.
-func (self *World) Remove(child interface{}, destroy bool, silent bool) bool{
+func (self *World) Remove(child interface{}) bool{
+    return self.Object.Call("remove", child).Bool()
+}
+
+// Removes the given child from this group.
+// 
+// This will dispatch an `onRemovedFromGroup` event from the child (if it has one), and optionally destroy the child.
+// 
+// If the group cursor was referring to the removed child it is updated to refer to the next child.
+func (self *World) Remove1O(child interface{}, destroy bool) bool{
+    return self.Object.Call("remove", child, destroy).Bool()
+}
+
+// Removes the given child from this group.
+// 
+// This will dispatch an `onRemovedFromGroup` event from the child (if it has one), and optionally destroy the child.
+// 
+// If the group cursor was referring to the removed child it is updated to refer to the next child.
+func (self *World) Remove2O(child interface{}, destroy bool, silent bool) bool{
     return self.Object.Call("remove", child, destroy, silent).Bool()
 }
 
@@ -2026,7 +3041,12 @@ func (self *World) RemoveI(args ...interface{}) bool{
 }
 
 // Moves all children from this Group to the Group given.
-func (self *World) MoveAll(group *Group, silent bool) *Group{
+func (self *World) MoveAll(group *Group) *Group{
+    return &Group{self.Object.Call("moveAll", group)}
+}
+
+// Moves all children from this Group to the Group given.
+func (self *World) MoveAll1O(group *Group, silent bool) *Group{
     return &Group{self.Object.Call("moveAll", group, silent)}
 }
 
@@ -2041,7 +3061,37 @@ func (self *World) MoveAllI(args ...interface{}) *Group{
 // 
 // You can also optionally also destroy the BaseTexture the Child is using. Be careful if you've
 // more than one Game Object sharing the same BaseTexture.
-func (self *World) RemoveAll(destroy bool, silent bool, destroyTexture bool) {
+func (self *World) RemoveAll() {
+    self.Object.Call("removeAll")
+}
+
+// Removes all children from this Group, but does not remove the group from its parent.
+// 
+// The children can be optionally destroyed as they are removed.
+// 
+// You can also optionally also destroy the BaseTexture the Child is using. Be careful if you've
+// more than one Game Object sharing the same BaseTexture.
+func (self *World) RemoveAll1O(destroy bool) {
+    self.Object.Call("removeAll", destroy)
+}
+
+// Removes all children from this Group, but does not remove the group from its parent.
+// 
+// The children can be optionally destroyed as they are removed.
+// 
+// You can also optionally also destroy the BaseTexture the Child is using. Be careful if you've
+// more than one Game Object sharing the same BaseTexture.
+func (self *World) RemoveAll2O(destroy bool, silent bool) {
+    self.Object.Call("removeAll", destroy, silent)
+}
+
+// Removes all children from this Group, but does not remove the group from its parent.
+// 
+// The children can be optionally destroyed as they are removed.
+// 
+// You can also optionally also destroy the BaseTexture the Child is using. Be careful if you've
+// more than one Game Object sharing the same BaseTexture.
+func (self *World) RemoveAll3O(destroy bool, silent bool, destroyTexture bool) {
     self.Object.Call("removeAll", destroy, silent, destroyTexture)
 }
 
@@ -2056,7 +3106,22 @@ func (self *World) RemoveAllI(args ...interface{}) {
 }
 
 // Removes all children from this group whose index falls beteen the given startIndex and endIndex values.
-func (self *World) RemoveBetween(startIndex int, endIndex int, destroy bool, silent bool) {
+func (self *World) RemoveBetween(startIndex int) {
+    self.Object.Call("removeBetween", startIndex)
+}
+
+// Removes all children from this group whose index falls beteen the given startIndex and endIndex values.
+func (self *World) RemoveBetween1O(startIndex int, endIndex int) {
+    self.Object.Call("removeBetween", startIndex, endIndex)
+}
+
+// Removes all children from this group whose index falls beteen the given startIndex and endIndex values.
+func (self *World) RemoveBetween2O(startIndex int, endIndex int, destroy bool) {
+    self.Object.Call("removeBetween", startIndex, endIndex, destroy)
+}
+
+// Removes all children from this group whose index falls beteen the given startIndex and endIndex values.
+func (self *World) RemoveBetween3O(startIndex int, endIndex int, destroy bool, silent bool) {
     self.Object.Call("removeBetween", startIndex, endIndex, destroy, silent)
 }
 
@@ -2068,7 +3133,21 @@ func (self *World) RemoveBetweenI(args ...interface{}) {
 // Destroys this group.
 // 
 // Removes all children, then removes this group from its parent and nulls references.
-func (self *World) Destroy(destroyChildren bool, soft bool) {
+func (self *World) Destroy() {
+    self.Object.Call("destroy")
+}
+
+// Destroys this group.
+// 
+// Removes all children, then removes this group from its parent and nulls references.
+func (self *World) Destroy1O(destroyChildren bool) {
+    self.Object.Call("destroy", destroyChildren)
+}
+
+// Destroys this group.
+// 
+// Removes all children, then removes this group from its parent and nulls references.
+func (self *World) Destroy2O(destroyChildren bool, soft bool) {
     self.Object.Call("destroy", destroyChildren, soft)
 }
 
@@ -2109,7 +3188,109 @@ func (self *World) DestroyI(args ...interface{}) {
 // Think of the offsets as applying an adjustment to the containers bounds before the alignment takes place.
 // So providing a negative offset will 'shrink' the container bounds by that amount, and providing a positive
 // one expands it.
-func (self *World) AlignIn(container interface{}, position int, offsetX int, offsetY int) *Group{
+func (self *World) AlignIn(container interface{}) *Group{
+    return &Group{self.Object.Call("alignIn", container)}
+}
+
+// Aligns this Group within another Game Object, or Rectangle, known as the
+// 'container', to one of 9 possible positions.
+// 
+// The container must be a Game Object, or Phaser.Rectangle object. This can include properties
+// such as `World.bounds` or `Camera.view`, for aligning Groups within the world 
+// and camera bounds. Or it can include other Sprites, Images, Text objects, BitmapText,
+// TileSprites or Buttons.
+// 
+// Please note that aligning a Group to another Game Object does **not** make it a child of
+// the container. It simply modifies its position coordinates so it aligns with it.
+// 
+// The position constants you can use are:
+// 
+// `Phaser.TOP_LEFT`, `Phaser.TOP_CENTER`, `Phaser.TOP_RIGHT`, `Phaser.LEFT_CENTER`, 
+// `Phaser.CENTER`, `Phaser.RIGHT_CENTER`, `Phaser.BOTTOM_LEFT`, 
+// `Phaser.BOTTOM_CENTER` and `Phaser.BOTTOM_RIGHT`.
+// 
+// Groups are placed in such a way that their _bounds_ align with the
+// container, taking into consideration rotation and scale of its children.
+// This allows you to neatly align Groups, irrespective of their position value.
+// 
+// The optional `offsetX` and `offsetY` arguments allow you to apply extra spacing to the final
+// aligned position of the Group. For example:
+// 
+// `group.alignIn(background, Phaser.BOTTOM_RIGHT, -20, -20)`
+// 
+// Would align the `group` to the bottom-right, but moved 20 pixels in from the corner.
+// Think of the offsets as applying an adjustment to the containers bounds before the alignment takes place.
+// So providing a negative offset will 'shrink' the container bounds by that amount, and providing a positive
+// one expands it.
+func (self *World) AlignIn1O(container interface{}, position int) *Group{
+    return &Group{self.Object.Call("alignIn", container, position)}
+}
+
+// Aligns this Group within another Game Object, or Rectangle, known as the
+// 'container', to one of 9 possible positions.
+// 
+// The container must be a Game Object, or Phaser.Rectangle object. This can include properties
+// such as `World.bounds` or `Camera.view`, for aligning Groups within the world 
+// and camera bounds. Or it can include other Sprites, Images, Text objects, BitmapText,
+// TileSprites or Buttons.
+// 
+// Please note that aligning a Group to another Game Object does **not** make it a child of
+// the container. It simply modifies its position coordinates so it aligns with it.
+// 
+// The position constants you can use are:
+// 
+// `Phaser.TOP_LEFT`, `Phaser.TOP_CENTER`, `Phaser.TOP_RIGHT`, `Phaser.LEFT_CENTER`, 
+// `Phaser.CENTER`, `Phaser.RIGHT_CENTER`, `Phaser.BOTTOM_LEFT`, 
+// `Phaser.BOTTOM_CENTER` and `Phaser.BOTTOM_RIGHT`.
+// 
+// Groups are placed in such a way that their _bounds_ align with the
+// container, taking into consideration rotation and scale of its children.
+// This allows you to neatly align Groups, irrespective of their position value.
+// 
+// The optional `offsetX` and `offsetY` arguments allow you to apply extra spacing to the final
+// aligned position of the Group. For example:
+// 
+// `group.alignIn(background, Phaser.BOTTOM_RIGHT, -20, -20)`
+// 
+// Would align the `group` to the bottom-right, but moved 20 pixels in from the corner.
+// Think of the offsets as applying an adjustment to the containers bounds before the alignment takes place.
+// So providing a negative offset will 'shrink' the container bounds by that amount, and providing a positive
+// one expands it.
+func (self *World) AlignIn2O(container interface{}, position int, offsetX int) *Group{
+    return &Group{self.Object.Call("alignIn", container, position, offsetX)}
+}
+
+// Aligns this Group within another Game Object, or Rectangle, known as the
+// 'container', to one of 9 possible positions.
+// 
+// The container must be a Game Object, or Phaser.Rectangle object. This can include properties
+// such as `World.bounds` or `Camera.view`, for aligning Groups within the world 
+// and camera bounds. Or it can include other Sprites, Images, Text objects, BitmapText,
+// TileSprites or Buttons.
+// 
+// Please note that aligning a Group to another Game Object does **not** make it a child of
+// the container. It simply modifies its position coordinates so it aligns with it.
+// 
+// The position constants you can use are:
+// 
+// `Phaser.TOP_LEFT`, `Phaser.TOP_CENTER`, `Phaser.TOP_RIGHT`, `Phaser.LEFT_CENTER`, 
+// `Phaser.CENTER`, `Phaser.RIGHT_CENTER`, `Phaser.BOTTOM_LEFT`, 
+// `Phaser.BOTTOM_CENTER` and `Phaser.BOTTOM_RIGHT`.
+// 
+// Groups are placed in such a way that their _bounds_ align with the
+// container, taking into consideration rotation and scale of its children.
+// This allows you to neatly align Groups, irrespective of their position value.
+// 
+// The optional `offsetX` and `offsetY` arguments allow you to apply extra spacing to the final
+// aligned position of the Group. For example:
+// 
+// `group.alignIn(background, Phaser.BOTTOM_RIGHT, -20, -20)`
+// 
+// Would align the `group` to the bottom-right, but moved 20 pixels in from the corner.
+// Think of the offsets as applying an adjustment to the containers bounds before the alignment takes place.
+// So providing a negative offset will 'shrink' the container bounds by that amount, and providing a positive
+// one expands it.
+func (self *World) AlignIn3O(container interface{}, position int, offsetX int, offsetY int) *Group{
     return &Group{self.Object.Call("alignIn", container, position, offsetX, offsetY)}
 }
 
@@ -2178,7 +3359,112 @@ func (self *World) AlignInI(args ...interface{}) *Group{
 // Think of the offsets as applying an adjustment to the parents bounds before the alignment takes place.
 // So providing a negative offset will 'shrink' the parent bounds by that amount, and providing a positive
 // one expands it.
-func (self *World) AlignTo(parent interface{}, position int, offsetX int, offsetY int) *Group{
+func (self *World) AlignTo(parent interface{}) *Group{
+    return &Group{self.Object.Call("alignTo", parent)}
+}
+
+// Aligns this Group to the side of another Game Object, or Rectangle, known as the
+// 'parent', in one of 11 possible positions.
+// 
+// The parent must be a Game Object, or Phaser.Rectangle object. This can include properties
+// such as `World.bounds` or `Camera.view`, for aligning Groups within the world 
+// and camera bounds. Or it can include other Sprites, Images, Text objects, BitmapText,
+// TileSprites or Buttons.
+// 
+// Please note that aligning a Group to another Game Object does **not** make it a child of
+// the parent. It simply modifies its position coordinates so it aligns with it.
+// 
+// The position constants you can use are:
+// 
+// `Phaser.TOP_LEFT` (default), `Phaser.TOP_CENTER`, `Phaser.TOP_RIGHT`, `Phaser.LEFT_TOP`, 
+// `Phaser.LEFT_CENTER`, `Phaser.LEFT_BOTTOM`, `Phaser.RIGHT_TOP`, `Phaser.RIGHT_CENTER`, 
+// `Phaser.RIGHT_BOTTOM`, `Phaser.BOTTOM_LEFT`, `Phaser.BOTTOM_CENTER` 
+// and `Phaser.BOTTOM_RIGHT`.
+// 
+// Groups are placed in such a way that their _bounds_ align with the
+// parent, taking into consideration rotation and scale of the children.
+// This allows you to neatly align Groups, irrespective of their position value.
+// 
+// The optional `offsetX` and `offsetY` arguments allow you to apply extra spacing to the final
+// aligned position of the Group. For example:
+// 
+// `group.alignTo(background, Phaser.BOTTOM_RIGHT, -20, -20)`
+// 
+// Would align the `group` to the bottom-right, but moved 20 pixels in from the corner.
+// Think of the offsets as applying an adjustment to the parents bounds before the alignment takes place.
+// So providing a negative offset will 'shrink' the parent bounds by that amount, and providing a positive
+// one expands it.
+func (self *World) AlignTo1O(parent interface{}, position int) *Group{
+    return &Group{self.Object.Call("alignTo", parent, position)}
+}
+
+// Aligns this Group to the side of another Game Object, or Rectangle, known as the
+// 'parent', in one of 11 possible positions.
+// 
+// The parent must be a Game Object, or Phaser.Rectangle object. This can include properties
+// such as `World.bounds` or `Camera.view`, for aligning Groups within the world 
+// and camera bounds. Or it can include other Sprites, Images, Text objects, BitmapText,
+// TileSprites or Buttons.
+// 
+// Please note that aligning a Group to another Game Object does **not** make it a child of
+// the parent. It simply modifies its position coordinates so it aligns with it.
+// 
+// The position constants you can use are:
+// 
+// `Phaser.TOP_LEFT` (default), `Phaser.TOP_CENTER`, `Phaser.TOP_RIGHT`, `Phaser.LEFT_TOP`, 
+// `Phaser.LEFT_CENTER`, `Phaser.LEFT_BOTTOM`, `Phaser.RIGHT_TOP`, `Phaser.RIGHT_CENTER`, 
+// `Phaser.RIGHT_BOTTOM`, `Phaser.BOTTOM_LEFT`, `Phaser.BOTTOM_CENTER` 
+// and `Phaser.BOTTOM_RIGHT`.
+// 
+// Groups are placed in such a way that their _bounds_ align with the
+// parent, taking into consideration rotation and scale of the children.
+// This allows you to neatly align Groups, irrespective of their position value.
+// 
+// The optional `offsetX` and `offsetY` arguments allow you to apply extra spacing to the final
+// aligned position of the Group. For example:
+// 
+// `group.alignTo(background, Phaser.BOTTOM_RIGHT, -20, -20)`
+// 
+// Would align the `group` to the bottom-right, but moved 20 pixels in from the corner.
+// Think of the offsets as applying an adjustment to the parents bounds before the alignment takes place.
+// So providing a negative offset will 'shrink' the parent bounds by that amount, and providing a positive
+// one expands it.
+func (self *World) AlignTo2O(parent interface{}, position int, offsetX int) *Group{
+    return &Group{self.Object.Call("alignTo", parent, position, offsetX)}
+}
+
+// Aligns this Group to the side of another Game Object, or Rectangle, known as the
+// 'parent', in one of 11 possible positions.
+// 
+// The parent must be a Game Object, or Phaser.Rectangle object. This can include properties
+// such as `World.bounds` or `Camera.view`, for aligning Groups within the world 
+// and camera bounds. Or it can include other Sprites, Images, Text objects, BitmapText,
+// TileSprites or Buttons.
+// 
+// Please note that aligning a Group to another Game Object does **not** make it a child of
+// the parent. It simply modifies its position coordinates so it aligns with it.
+// 
+// The position constants you can use are:
+// 
+// `Phaser.TOP_LEFT` (default), `Phaser.TOP_CENTER`, `Phaser.TOP_RIGHT`, `Phaser.LEFT_TOP`, 
+// `Phaser.LEFT_CENTER`, `Phaser.LEFT_BOTTOM`, `Phaser.RIGHT_TOP`, `Phaser.RIGHT_CENTER`, 
+// `Phaser.RIGHT_BOTTOM`, `Phaser.BOTTOM_LEFT`, `Phaser.BOTTOM_CENTER` 
+// and `Phaser.BOTTOM_RIGHT`.
+// 
+// Groups are placed in such a way that their _bounds_ align with the
+// parent, taking into consideration rotation and scale of the children.
+// This allows you to neatly align Groups, irrespective of their position value.
+// 
+// The optional `offsetX` and `offsetY` arguments allow you to apply extra spacing to the final
+// aligned position of the Group. For example:
+// 
+// `group.alignTo(background, Phaser.BOTTOM_RIGHT, -20, -20)`
+// 
+// Would align the `group` to the bottom-right, but moved 20 pixels in from the corner.
+// Think of the offsets as applying an adjustment to the parents bounds before the alignment takes place.
+// So providing a negative offset will 'shrink' the parent bounds by that amount, and providing a positive
+// one expands it.
+func (self *World) AlignTo3O(parent interface{}, position int, offsetX int, offsetY int) *Group{
     return &Group{self.Object.Call("alignTo", parent, position, offsetX, offsetY)}
 }
 

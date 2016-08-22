@@ -90,7 +90,22 @@ func (self *QuadTree) SetNodesA(member []interface{}) {
 
 
 // Resets the QuadTree.
-func (self *QuadTree) Reset(x int, y int, width int, height int, maxObjects int, maxLevels int, level int) {
+func (self *QuadTree) Reset(x int, y int, width int, height int) {
+    self.Object.Call("reset", x, y, width, height)
+}
+
+// Resets the QuadTree.
+func (self *QuadTree) Reset1O(x int, y int, width int, height int, maxObjects int) {
+    self.Object.Call("reset", x, y, width, height, maxObjects)
+}
+
+// Resets the QuadTree.
+func (self *QuadTree) Reset2O(x int, y int, width int, height int, maxObjects int, maxLevels int) {
+    self.Object.Call("reset", x, y, width, height, maxObjects, maxLevels)
+}
+
+// Resets the QuadTree.
+func (self *QuadTree) Reset3O(x int, y int, width int, height int, maxObjects int, maxLevels int, level int) {
     self.Object.Call("reset", x, y, width, height, maxObjects, maxLevels, level)
 }
 

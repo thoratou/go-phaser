@@ -34,7 +34,29 @@ func (self *ComponentDestroy) SetDestroyPhaseA(member bool) {
 // 
 // You can optionally also destroy the BaseTexture this Game Object is using. Be careful if you've
 // more than one Game Object sharing the same BaseTexture.
-func (self *ComponentDestroy) Destroy(destroyChildren bool, destroyTexture bool) {
+func (self *ComponentDestroy) Destroy() {
+    self.Object.Call("destroy")
+}
+
+// Destroys the Game Object. This removes it from its parent group, destroys the input, event and animation handlers if present
+// and nulls its reference to `game`, freeing it up for garbage collection.
+// 
+// If this Game Object has the Events component it will also dispatch the `onDestroy` event.
+// 
+// You can optionally also destroy the BaseTexture this Game Object is using. Be careful if you've
+// more than one Game Object sharing the same BaseTexture.
+func (self *ComponentDestroy) Destroy1O(destroyChildren bool) {
+    self.Object.Call("destroy", destroyChildren)
+}
+
+// Destroys the Game Object. This removes it from its parent group, destroys the input, event and animation handlers if present
+// and nulls its reference to `game`, freeing it up for garbage collection.
+// 
+// If this Game Object has the Events component it will also dispatch the `onDestroy` event.
+// 
+// You can optionally also destroy the BaseTexture this Game Object is using. Be careful if you've
+// more than one Game Object sharing the same BaseTexture.
+func (self *ComponentDestroy) Destroy2O(destroyChildren bool, destroyTexture bool) {
     self.Object.Call("destroy", destroyChildren, destroyTexture)
 }
 

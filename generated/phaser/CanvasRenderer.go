@@ -175,7 +175,12 @@ func (self *CanvasRenderer) RenderI(args ...interface{}) {
 }
 
 // Removes everything from the renderer and optionally removes the Canvas DOM element.
-func (self *CanvasRenderer) Destroy(removeView bool) {
+func (self *CanvasRenderer) Destroy() {
+    self.Object.Call("destroy")
+}
+
+// Removes everything from the renderer and optionally removes the Canvas DOM element.
+func (self *CanvasRenderer) Destroy1O(removeView bool) {
     self.Object.Call("destroy", removeView)
 }
 
@@ -195,7 +200,12 @@ func (self *CanvasRenderer) ResizeI(args ...interface{}) {
 }
 
 // Renders a display object
-func (self *CanvasRenderer) RenderDisplayObject(displayObject *DisplayObject, context *dom.CanvasRenderingContext2D, matrix *Matrix) {
+func (self *CanvasRenderer) RenderDisplayObject(displayObject *DisplayObject, context *dom.CanvasRenderingContext2D) {
+    self.Object.Call("renderDisplayObject", displayObject, context)
+}
+
+// Renders a display object
+func (self *CanvasRenderer) RenderDisplayObject1O(displayObject *DisplayObject, context *dom.CanvasRenderingContext2D, matrix *Matrix) {
     self.Object.Call("renderDisplayObject", displayObject, context, matrix)
 }
 

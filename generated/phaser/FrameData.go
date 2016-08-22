@@ -76,7 +76,18 @@ func (self *FrameData) CloneI(args ...interface{}) *FrameData{
 }
 
 // Returns a range of frames based on the given start and end frame indexes and returns them in an Array.
-func (self *FrameData) GetFrameRange(start int, end int, output []interface{}) []interface{}{
+func (self *FrameData) GetFrameRange(start int, end int) []interface{}{
+	array00 := self.Object.Call("getFrameRange", start, end)
+	length00 := array00.Length()
+	out00 := make([]interface{}, length00, length00)
+	for i00 := 0; i00 < length00; i00++ {
+		out00[i00] = array00.Index(i00).Interface()
+	}
+	return out00
+}
+
+// Returns a range of frames based on the given start and end frame indexes and returns them in an Array.
+func (self *FrameData) GetFrameRange1O(start int, end int, output []interface{}) []interface{}{
 	array00 := self.Object.Call("getFrameRange", start, end, output)
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
@@ -99,7 +110,43 @@ func (self *FrameData) GetFrameRangeI(args ...interface{}) []interface{}{
 
 // Returns all of the Frames in this FrameData set where the frame index is found in the input array.
 // The frames are returned in the output array, or if none is provided in a new Array object.
-func (self *FrameData) GetFrames(frames []interface{}, useNumericIndex bool, output []interface{}) []interface{}{
+func (self *FrameData) GetFrames() []interface{}{
+	array00 := self.Object.Call("getFrames")
+	length00 := array00.Length()
+	out00 := make([]interface{}, length00, length00)
+	for i00 := 0; i00 < length00; i00++ {
+		out00[i00] = array00.Index(i00).Interface()
+	}
+	return out00
+}
+
+// Returns all of the Frames in this FrameData set where the frame index is found in the input array.
+// The frames are returned in the output array, or if none is provided in a new Array object.
+func (self *FrameData) GetFrames1O(frames []interface{}) []interface{}{
+	array00 := self.Object.Call("getFrames", frames)
+	length00 := array00.Length()
+	out00 := make([]interface{}, length00, length00)
+	for i00 := 0; i00 < length00; i00++ {
+		out00[i00] = array00.Index(i00).Interface()
+	}
+	return out00
+}
+
+// Returns all of the Frames in this FrameData set where the frame index is found in the input array.
+// The frames are returned in the output array, or if none is provided in a new Array object.
+func (self *FrameData) GetFrames2O(frames []interface{}, useNumericIndex bool) []interface{}{
+	array00 := self.Object.Call("getFrames", frames, useNumericIndex)
+	length00 := array00.Length()
+	out00 := make([]interface{}, length00, length00)
+	for i00 := 0; i00 < length00; i00++ {
+		out00[i00] = array00.Index(i00).Interface()
+	}
+	return out00
+}
+
+// Returns all of the Frames in this FrameData set where the frame index is found in the input array.
+// The frames are returned in the output array, or if none is provided in a new Array object.
+func (self *FrameData) GetFrames3O(frames []interface{}, useNumericIndex bool, output []interface{}) []interface{}{
 	array00 := self.Object.Call("getFrames", frames, useNumericIndex, output)
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
@@ -123,7 +170,43 @@ func (self *FrameData) GetFramesI(args ...interface{}) []interface{}{
 
 // Returns all of the Frame indexes in this FrameData set.
 // The frames indexes are returned in the output array, or if none is provided in a new Array object.
-func (self *FrameData) GetFrameIndexes(frames []interface{}, useNumericIndex bool, output []interface{}) []interface{}{
+func (self *FrameData) GetFrameIndexes() []interface{}{
+	array00 := self.Object.Call("getFrameIndexes")
+	length00 := array00.Length()
+	out00 := make([]interface{}, length00, length00)
+	for i00 := 0; i00 < length00; i00++ {
+		out00[i00] = array00.Index(i00).Interface()
+	}
+	return out00
+}
+
+// Returns all of the Frame indexes in this FrameData set.
+// The frames indexes are returned in the output array, or if none is provided in a new Array object.
+func (self *FrameData) GetFrameIndexes1O(frames []interface{}) []interface{}{
+	array00 := self.Object.Call("getFrameIndexes", frames)
+	length00 := array00.Length()
+	out00 := make([]interface{}, length00, length00)
+	for i00 := 0; i00 < length00; i00++ {
+		out00[i00] = array00.Index(i00).Interface()
+	}
+	return out00
+}
+
+// Returns all of the Frame indexes in this FrameData set.
+// The frames indexes are returned in the output array, or if none is provided in a new Array object.
+func (self *FrameData) GetFrameIndexes2O(frames []interface{}, useNumericIndex bool) []interface{}{
+	array00 := self.Object.Call("getFrameIndexes", frames, useNumericIndex)
+	length00 := array00.Length()
+	out00 := make([]interface{}, length00, length00)
+	for i00 := 0; i00 < length00; i00++ {
+		out00[i00] = array00.Index(i00).Interface()
+	}
+	return out00
+}
+
+// Returns all of the Frame indexes in this FrameData set.
+// The frames indexes are returned in the output array, or if none is provided in a new Array object.
+func (self *FrameData) GetFrameIndexes3O(frames []interface{}, useNumericIndex bool, output []interface{}) []interface{}{
 	array00 := self.Object.Call("getFrameIndexes", frames, useNumericIndex, output)
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)

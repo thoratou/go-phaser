@@ -78,7 +78,16 @@ func (self *ComponentLifeSpan) PreUpdateI(args ...interface{}) {
 // A resurrected Game Object has its `alive`, `exists` and `visible` properties all set to true.
 // 
 // It will dispatch the `onRevived` event. Listen to `events.onRevived` for the signal.
-func (self *ComponentLifeSpan) Revive(health int) *DisplayObject{
+func (self *ComponentLifeSpan) Revive() *DisplayObject{
+    return &DisplayObject{self.Object.Call("revive")}
+}
+
+// Brings a 'dead' Game Object back to life, optionally resetting its health value in the process.
+// 
+// A resurrected Game Object has its `alive`, `exists` and `visible` properties all set to true.
+// 
+// It will dispatch the `onRevived` event. Listen to `events.onRevived` for the signal.
+func (self *ComponentLifeSpan) Revive1O(health int) *DisplayObject{
     return &DisplayObject{self.Object.Call("revive", health)}
 }
 

@@ -291,7 +291,13 @@ func (self *TilingSprite) GetBoundsI(args ...interface{}) *Rectangle{
 
 // Sets the texture of the sprite. Be warned that this doesn't remove or destroy the previous
 // texture this Sprite was using.
-func (self *TilingSprite) SetTexture(texture *Texture, destroy bool) {
+func (self *TilingSprite) SetTexture(texture *Texture) {
+    self.Object.Call("setTexture", texture)
+}
+
+// Sets the texture of the sprite. Be warned that this doesn't remove or destroy the previous
+// texture this Sprite was using.
+func (self *TilingSprite) SetTexture1O(texture *Texture, destroy bool) {
     self.Object.Call("setTexture", texture, destroy)
 }
 

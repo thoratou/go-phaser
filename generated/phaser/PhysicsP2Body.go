@@ -497,7 +497,12 @@ func (self *PhysicsP2Body) GetCollisionMaskI(args ...interface{}) int{
 }
 
 // Updates the collisionMask.
-func (self *PhysicsP2Body) UpdateCollisionMask(shape *P2Shape) {
+func (self *PhysicsP2Body) UpdateCollisionMask() {
+    self.Object.Call("updateCollisionMask")
+}
+
+// Updates the collisionMask.
+func (self *PhysicsP2Body) UpdateCollisionMask1O(shape *P2Shape) {
     self.Object.Call("updateCollisionMask", shape)
 }
 
@@ -508,7 +513,13 @@ func (self *PhysicsP2Body) UpdateCollisionMaskI(args ...interface{}) {
 
 // Sets the given CollisionGroup to be the collision group for all shapes in this Body, unless a shape is specified.
 // This also resets the collisionMask.
-func (self *PhysicsP2Body) SetCollisionGroup(group *PhysicsCollisionGroup, shape *P2Shape) {
+func (self *PhysicsP2Body) SetCollisionGroup(group *PhysicsCollisionGroup) {
+    self.Object.Call("setCollisionGroup", group)
+}
+
+// Sets the given CollisionGroup to be the collision group for all shapes in this Body, unless a shape is specified.
+// This also resets the collisionMask.
+func (self *PhysicsP2Body) SetCollisionGroup1O(group *PhysicsCollisionGroup, shape *P2Shape) {
     self.Object.Call("setCollisionGroup", group, shape)
 }
 
@@ -519,7 +530,22 @@ func (self *PhysicsP2Body) SetCollisionGroupI(args ...interface{}) {
 }
 
 // Clears the collision data from the shapes in this Body. Optionally clears Group and/or Mask.
-func (self *PhysicsP2Body) ClearCollision(clearGroup bool, clearMask bool, shape *P2Shape) {
+func (self *PhysicsP2Body) ClearCollision() {
+    self.Object.Call("clearCollision")
+}
+
+// Clears the collision data from the shapes in this Body. Optionally clears Group and/or Mask.
+func (self *PhysicsP2Body) ClearCollision1O(clearGroup bool) {
+    self.Object.Call("clearCollision", clearGroup)
+}
+
+// Clears the collision data from the shapes in this Body. Optionally clears Group and/or Mask.
+func (self *PhysicsP2Body) ClearCollision2O(clearGroup bool, clearMask bool) {
+    self.Object.Call("clearCollision", clearGroup, clearMask)
+}
+
+// Clears the collision data from the shapes in this Body. Optionally clears Group and/or Mask.
+func (self *PhysicsP2Body) ClearCollision3O(clearGroup bool, clearMask bool, shape *P2Shape) {
     self.Object.Call("clearCollision", clearGroup, clearMask, shape)
 }
 
@@ -529,7 +555,17 @@ func (self *PhysicsP2Body) ClearCollisionI(args ...interface{}) {
 }
 
 // Removes the given CollisionGroup, or array of CollisionGroups, from the list of groups that this body will collide with and updates the collision masks.
-func (self *PhysicsP2Body) RemoveCollisionGroup(group interface{}, clearCallback bool, shape *P2Shape) {
+func (self *PhysicsP2Body) RemoveCollisionGroup(group interface{}) {
+    self.Object.Call("removeCollisionGroup", group)
+}
+
+// Removes the given CollisionGroup, or array of CollisionGroups, from the list of groups that this body will collide with and updates the collision masks.
+func (self *PhysicsP2Body) RemoveCollisionGroup1O(group interface{}, clearCallback bool) {
+    self.Object.Call("removeCollisionGroup", group, clearCallback)
+}
+
+// Removes the given CollisionGroup, or array of CollisionGroups, from the list of groups that this body will collide with and updates the collision masks.
+func (self *PhysicsP2Body) RemoveCollisionGroup2O(group interface{}, clearCallback bool, shape *P2Shape) {
     self.Object.Call("removeCollisionGroup", group, clearCallback, shape)
 }
 
@@ -539,7 +575,22 @@ func (self *PhysicsP2Body) RemoveCollisionGroupI(args ...interface{}) {
 }
 
 // Adds the given CollisionGroup, or array of CollisionGroups, to the list of groups that this body will collide with and updates the collision masks.
-func (self *PhysicsP2Body) Collides(group interface{}, callback func(...interface{}), callbackContext interface{}, shape *P2Shape) {
+func (self *PhysicsP2Body) Collides(group interface{}) {
+    self.Object.Call("collides", group)
+}
+
+// Adds the given CollisionGroup, or array of CollisionGroups, to the list of groups that this body will collide with and updates the collision masks.
+func (self *PhysicsP2Body) Collides1O(group interface{}, callback func(...interface{})) {
+    self.Object.Call("collides", group, callback)
+}
+
+// Adds the given CollisionGroup, or array of CollisionGroups, to the list of groups that this body will collide with and updates the collision masks.
+func (self *PhysicsP2Body) Collides2O(group interface{}, callback func(...interface{}), callbackContext interface{}) {
+    self.Object.Call("collides", group, callback, callbackContext)
+}
+
+// Adds the given CollisionGroup, or array of CollisionGroups, to the list of groups that this body will collide with and updates the collision masks.
+func (self *PhysicsP2Body) Collides3O(group interface{}, callback func(...interface{}), callbackContext interface{}, shape *P2Shape) {
     self.Object.Call("collides", group, callback, callbackContext, shape)
 }
 
@@ -857,7 +908,17 @@ func (self *PhysicsP2Body) PostUpdateI(args ...interface{}) {
 }
 
 // Resets the Body force, velocity (linear and angular) and rotation. Optionally resets damping and mass.
-func (self *PhysicsP2Body) Reset(x int, y int, resetDamping bool, resetMass bool) {
+func (self *PhysicsP2Body) Reset(x int, y int) {
+    self.Object.Call("reset", x, y)
+}
+
+// Resets the Body force, velocity (linear and angular) and rotation. Optionally resets damping and mass.
+func (self *PhysicsP2Body) Reset1O(x int, y int, resetDamping bool) {
+    self.Object.Call("reset", x, y, resetDamping)
+}
+
+// Resets the Body force, velocity (linear and angular) and rotation. Optionally resets damping and mass.
+func (self *PhysicsP2Body) Reset2O(x int, y int, resetDamping bool, resetMass bool) {
     self.Object.Call("reset", x, y, resetDamping, resetMass)
 }
 
@@ -909,7 +970,28 @@ func (self *PhysicsP2Body) ClearShapesI(args ...interface{}) {
 // Add a shape to the body. You can pass a local transform when adding a shape, so that the shape gets an offset and an angle relative to the body center of mass.
 // Will automatically update the mass properties and bounding radius.
 // If this Body had a previously set Collision Group you will need to re-apply it to the new Shape this creates.
-func (self *PhysicsP2Body) AddShape(shape *P2Shape, offsetX int, offsetY int, rotation int) *P2Shape{
+func (self *PhysicsP2Body) AddShape(shape *P2Shape) *P2Shape{
+    return &P2Shape{self.Object.Call("addShape", shape)}
+}
+
+// Add a shape to the body. You can pass a local transform when adding a shape, so that the shape gets an offset and an angle relative to the body center of mass.
+// Will automatically update the mass properties and bounding radius.
+// If this Body had a previously set Collision Group you will need to re-apply it to the new Shape this creates.
+func (self *PhysicsP2Body) AddShape1O(shape *P2Shape, offsetX int) *P2Shape{
+    return &P2Shape{self.Object.Call("addShape", shape, offsetX)}
+}
+
+// Add a shape to the body. You can pass a local transform when adding a shape, so that the shape gets an offset and an angle relative to the body center of mass.
+// Will automatically update the mass properties and bounding radius.
+// If this Body had a previously set Collision Group you will need to re-apply it to the new Shape this creates.
+func (self *PhysicsP2Body) AddShape2O(shape *P2Shape, offsetX int, offsetY int) *P2Shape{
+    return &P2Shape{self.Object.Call("addShape", shape, offsetX, offsetY)}
+}
+
+// Add a shape to the body. You can pass a local transform when adding a shape, so that the shape gets an offset and an angle relative to the body center of mass.
+// Will automatically update the mass properties and bounding radius.
+// If this Body had a previously set Collision Group you will need to re-apply it to the new Shape this creates.
+func (self *PhysicsP2Body) AddShape3O(shape *P2Shape, offsetX int, offsetY int, rotation int) *P2Shape{
     return &P2Shape{self.Object.Call("addShape", shape, offsetX, offsetY, rotation)}
 }
 
@@ -921,7 +1003,22 @@ func (self *PhysicsP2Body) AddShapeI(args ...interface{}) *P2Shape{
 }
 
 // Adds a Circle shape to this Body. You can control the offset from the center of the body and the rotation.
-func (self *PhysicsP2Body) AddCircle(radius int, offsetX int, offsetY int, rotation int) *P2Circle{
+func (self *PhysicsP2Body) AddCircle(radius int) *P2Circle{
+    return &P2Circle{self.Object.Call("addCircle", radius)}
+}
+
+// Adds a Circle shape to this Body. You can control the offset from the center of the body and the rotation.
+func (self *PhysicsP2Body) AddCircle1O(radius int, offsetX int) *P2Circle{
+    return &P2Circle{self.Object.Call("addCircle", radius, offsetX)}
+}
+
+// Adds a Circle shape to this Body. You can control the offset from the center of the body and the rotation.
+func (self *PhysicsP2Body) AddCircle2O(radius int, offsetX int, offsetY int) *P2Circle{
+    return &P2Circle{self.Object.Call("addCircle", radius, offsetX, offsetY)}
+}
+
+// Adds a Circle shape to this Body. You can control the offset from the center of the body and the rotation.
+func (self *PhysicsP2Body) AddCircle3O(radius int, offsetX int, offsetY int, rotation int) *P2Circle{
     return &P2Circle{self.Object.Call("addCircle", radius, offsetX, offsetY, rotation)}
 }
 
@@ -931,7 +1028,22 @@ func (self *PhysicsP2Body) AddCircleI(args ...interface{}) *P2Circle{
 }
 
 // Adds a Rectangle shape to this Body. You can control the offset from the center of the body and the rotation.
-func (self *PhysicsP2Body) AddRectangle(width int, height int, offsetX int, offsetY int, rotation int) *P2Box{
+func (self *PhysicsP2Body) AddRectangle(width int, height int) *P2Box{
+    return &P2Box{self.Object.Call("addRectangle", width, height)}
+}
+
+// Adds a Rectangle shape to this Body. You can control the offset from the center of the body and the rotation.
+func (self *PhysicsP2Body) AddRectangle1O(width int, height int, offsetX int) *P2Box{
+    return &P2Box{self.Object.Call("addRectangle", width, height, offsetX)}
+}
+
+// Adds a Rectangle shape to this Body. You can control the offset from the center of the body and the rotation.
+func (self *PhysicsP2Body) AddRectangle2O(width int, height int, offsetX int, offsetY int) *P2Box{
+    return &P2Box{self.Object.Call("addRectangle", width, height, offsetX, offsetY)}
+}
+
+// Adds a Rectangle shape to this Body. You can control the offset from the center of the body and the rotation.
+func (self *PhysicsP2Body) AddRectangle3O(width int, height int, offsetX int, offsetY int, rotation int) *P2Box{
     return &P2Box{self.Object.Call("addRectangle", width, height, offsetX, offsetY, rotation)}
 }
 
@@ -941,7 +1053,22 @@ func (self *PhysicsP2Body) AddRectangleI(args ...interface{}) *P2Box{
 }
 
 // Adds a Plane shape to this Body. The plane is facing in the Y direction. You can control the offset from the center of the body and the rotation.
-func (self *PhysicsP2Body) AddPlane(offsetX int, offsetY int, rotation int) *P2Plane{
+func (self *PhysicsP2Body) AddPlane() *P2Plane{
+    return &P2Plane{self.Object.Call("addPlane")}
+}
+
+// Adds a Plane shape to this Body. The plane is facing in the Y direction. You can control the offset from the center of the body and the rotation.
+func (self *PhysicsP2Body) AddPlane1O(offsetX int) *P2Plane{
+    return &P2Plane{self.Object.Call("addPlane", offsetX)}
+}
+
+// Adds a Plane shape to this Body. The plane is facing in the Y direction. You can control the offset from the center of the body and the rotation.
+func (self *PhysicsP2Body) AddPlane2O(offsetX int, offsetY int) *P2Plane{
+    return &P2Plane{self.Object.Call("addPlane", offsetX, offsetY)}
+}
+
+// Adds a Plane shape to this Body. The plane is facing in the Y direction. You can control the offset from the center of the body and the rotation.
+func (self *PhysicsP2Body) AddPlane3O(offsetX int, offsetY int, rotation int) *P2Plane{
     return &P2Plane{self.Object.Call("addPlane", offsetX, offsetY, rotation)}
 }
 
@@ -951,7 +1078,22 @@ func (self *PhysicsP2Body) AddPlaneI(args ...interface{}) *P2Plane{
 }
 
 // Adds a Particle shape to this Body. You can control the offset from the center of the body and the rotation.
-func (self *PhysicsP2Body) AddParticle(offsetX int, offsetY int, rotation int) *P2Particle{
+func (self *PhysicsP2Body) AddParticle() *P2Particle{
+    return &P2Particle{self.Object.Call("addParticle")}
+}
+
+// Adds a Particle shape to this Body. You can control the offset from the center of the body and the rotation.
+func (self *PhysicsP2Body) AddParticle1O(offsetX int) *P2Particle{
+    return &P2Particle{self.Object.Call("addParticle", offsetX)}
+}
+
+// Adds a Particle shape to this Body. You can control the offset from the center of the body and the rotation.
+func (self *PhysicsP2Body) AddParticle2O(offsetX int, offsetY int) *P2Particle{
+    return &P2Particle{self.Object.Call("addParticle", offsetX, offsetY)}
+}
+
+// Adds a Particle shape to this Body. You can control the offset from the center of the body and the rotation.
+func (self *PhysicsP2Body) AddParticle3O(offsetX int, offsetY int, rotation int) *P2Particle{
     return &P2Particle{self.Object.Call("addParticle", offsetX, offsetY, rotation)}
 }
 
@@ -963,7 +1105,28 @@ func (self *PhysicsP2Body) AddParticleI(args ...interface{}) *P2Particle{
 // Adds a Line shape to this Body.
 // The line shape is along the x direction, and stretches from [-length/2, 0] to [length/2,0].
 // You can control the offset from the center of the body and the rotation.
-func (self *PhysicsP2Body) AddLine(length int, offsetX int, offsetY int, rotation int) *P2Line{
+func (self *PhysicsP2Body) AddLine(length int) *P2Line{
+    return &P2Line{self.Object.Call("addLine", length)}
+}
+
+// Adds a Line shape to this Body.
+// The line shape is along the x direction, and stretches from [-length/2, 0] to [length/2,0].
+// You can control the offset from the center of the body and the rotation.
+func (self *PhysicsP2Body) AddLine1O(length int, offsetX int) *P2Line{
+    return &P2Line{self.Object.Call("addLine", length, offsetX)}
+}
+
+// Adds a Line shape to this Body.
+// The line shape is along the x direction, and stretches from [-length/2, 0] to [length/2,0].
+// You can control the offset from the center of the body and the rotation.
+func (self *PhysicsP2Body) AddLine2O(length int, offsetX int, offsetY int) *P2Line{
+    return &P2Line{self.Object.Call("addLine", length, offsetX, offsetY)}
+}
+
+// Adds a Line shape to this Body.
+// The line shape is along the x direction, and stretches from [-length/2, 0] to [length/2,0].
+// You can control the offset from the center of the body and the rotation.
+func (self *PhysicsP2Body) AddLine3O(length int, offsetX int, offsetY int, rotation int) *P2Line{
     return &P2Line{self.Object.Call("addLine", length, offsetX, offsetY, rotation)}
 }
 
@@ -976,7 +1139,25 @@ func (self *PhysicsP2Body) AddLineI(args ...interface{}) *P2Line{
 
 // Adds a Capsule shape to this Body.
 // You can control the offset from the center of the body and the rotation.
-func (self *PhysicsP2Body) AddCapsule(length int, radius int, offsetX int, offsetY int, rotation int) *P2Capsule{
+func (self *PhysicsP2Body) AddCapsule(length int, radius int) *P2Capsule{
+    return &P2Capsule{self.Object.Call("addCapsule", length, radius)}
+}
+
+// Adds a Capsule shape to this Body.
+// You can control the offset from the center of the body and the rotation.
+func (self *PhysicsP2Body) AddCapsule1O(length int, radius int, offsetX int) *P2Capsule{
+    return &P2Capsule{self.Object.Call("addCapsule", length, radius, offsetX)}
+}
+
+// Adds a Capsule shape to this Body.
+// You can control the offset from the center of the body and the rotation.
+func (self *PhysicsP2Body) AddCapsule2O(length int, radius int, offsetX int, offsetY int) *P2Capsule{
+    return &P2Capsule{self.Object.Call("addCapsule", length, radius, offsetX, offsetY)}
+}
+
+// Adds a Capsule shape to this Body.
+// You can control the offset from the center of the body and the rotation.
+func (self *PhysicsP2Body) AddCapsule3O(length int, radius int, offsetX int, offsetY int, rotation int) *P2Capsule{
     return &P2Capsule{self.Object.Call("addCapsule", length, radius, offsetX, offsetY, rotation)}
 }
 
@@ -1010,7 +1191,25 @@ func (self *PhysicsP2Body) RemoveShapeI(args ...interface{}) bool{
 
 // Clears any previously set shapes. Then creates a new Circle shape and adds it to this Body.
 // If this Body had a previously set Collision Group you will need to re-apply it to the new Shape this creates.
-func (self *PhysicsP2Body) SetCircle(radius int, offsetX int, offsetY int, rotation int) {
+func (self *PhysicsP2Body) SetCircle(radius int) {
+    self.Object.Call("setCircle", radius)
+}
+
+// Clears any previously set shapes. Then creates a new Circle shape and adds it to this Body.
+// If this Body had a previously set Collision Group you will need to re-apply it to the new Shape this creates.
+func (self *PhysicsP2Body) SetCircle1O(radius int, offsetX int) {
+    self.Object.Call("setCircle", radius, offsetX)
+}
+
+// Clears any previously set shapes. Then creates a new Circle shape and adds it to this Body.
+// If this Body had a previously set Collision Group you will need to re-apply it to the new Shape this creates.
+func (self *PhysicsP2Body) SetCircle2O(radius int, offsetX int, offsetY int) {
+    self.Object.Call("setCircle", radius, offsetX, offsetY)
+}
+
+// Clears any previously set shapes. Then creates a new Circle shape and adds it to this Body.
+// If this Body had a previously set Collision Group you will need to re-apply it to the new Shape this creates.
+func (self *PhysicsP2Body) SetCircle3O(radius int, offsetX int, offsetY int, rotation int) {
     self.Object.Call("setCircle", radius, offsetX, offsetY, rotation)
 }
 
@@ -1023,7 +1222,42 @@ func (self *PhysicsP2Body) SetCircleI(args ...interface{}) {
 // Clears any previously set shapes. The creates a new Rectangle shape at the given size and offset, and adds it to this Body.
 // If you wish to create a Rectangle to match the size of a Sprite or Image see Body.setRectangleFromSprite.
 // If this Body had a previously set Collision Group you will need to re-apply it to the new Shape this creates.
-func (self *PhysicsP2Body) SetRectangle(width int, height int, offsetX int, offsetY int, rotation int) *P2Rectangle{
+func (self *PhysicsP2Body) SetRectangle() *P2Rectangle{
+    return &P2Rectangle{self.Object.Call("setRectangle")}
+}
+
+// Clears any previously set shapes. The creates a new Rectangle shape at the given size and offset, and adds it to this Body.
+// If you wish to create a Rectangle to match the size of a Sprite or Image see Body.setRectangleFromSprite.
+// If this Body had a previously set Collision Group you will need to re-apply it to the new Shape this creates.
+func (self *PhysicsP2Body) SetRectangle1O(width int) *P2Rectangle{
+    return &P2Rectangle{self.Object.Call("setRectangle", width)}
+}
+
+// Clears any previously set shapes. The creates a new Rectangle shape at the given size and offset, and adds it to this Body.
+// If you wish to create a Rectangle to match the size of a Sprite or Image see Body.setRectangleFromSprite.
+// If this Body had a previously set Collision Group you will need to re-apply it to the new Shape this creates.
+func (self *PhysicsP2Body) SetRectangle2O(width int, height int) *P2Rectangle{
+    return &P2Rectangle{self.Object.Call("setRectangle", width, height)}
+}
+
+// Clears any previously set shapes. The creates a new Rectangle shape at the given size and offset, and adds it to this Body.
+// If you wish to create a Rectangle to match the size of a Sprite or Image see Body.setRectangleFromSprite.
+// If this Body had a previously set Collision Group you will need to re-apply it to the new Shape this creates.
+func (self *PhysicsP2Body) SetRectangle3O(width int, height int, offsetX int) *P2Rectangle{
+    return &P2Rectangle{self.Object.Call("setRectangle", width, height, offsetX)}
+}
+
+// Clears any previously set shapes. The creates a new Rectangle shape at the given size and offset, and adds it to this Body.
+// If you wish to create a Rectangle to match the size of a Sprite or Image see Body.setRectangleFromSprite.
+// If this Body had a previously set Collision Group you will need to re-apply it to the new Shape this creates.
+func (self *PhysicsP2Body) SetRectangle4O(width int, height int, offsetX int, offsetY int) *P2Rectangle{
+    return &P2Rectangle{self.Object.Call("setRectangle", width, height, offsetX, offsetY)}
+}
+
+// Clears any previously set shapes. The creates a new Rectangle shape at the given size and offset, and adds it to this Body.
+// If you wish to create a Rectangle to match the size of a Sprite or Image see Body.setRectangleFromSprite.
+// If this Body had a previously set Collision Group you will need to re-apply it to the new Shape this creates.
+func (self *PhysicsP2Body) SetRectangle5O(width int, height int, offsetX int, offsetY int, rotation int) *P2Rectangle{
     return &P2Rectangle{self.Object.Call("setRectangle", width, height, offsetX, offsetY, rotation)}
 }
 
@@ -1038,7 +1272,15 @@ func (self *PhysicsP2Body) SetRectangleI(args ...interface{}) *P2Rectangle{
 // Then creates a Rectangle shape sized to match the dimensions and orientation of the Sprite given.
 // If no Sprite is given it defaults to using the parent of this Body.
 // If this Body had a previously set Collision Group you will need to re-apply it to the new Shape this creates.
-func (self *PhysicsP2Body) SetRectangleFromSprite(sprite interface{}) *P2Rectangle{
+func (self *PhysicsP2Body) SetRectangleFromSprite() *P2Rectangle{
+    return &P2Rectangle{self.Object.Call("setRectangleFromSprite")}
+}
+
+// Clears any previously set shapes.
+// Then creates a Rectangle shape sized to match the dimensions and orientation of the Sprite given.
+// If no Sprite is given it defaults to using the parent of this Body.
+// If this Body had a previously set Collision Group you will need to re-apply it to the new Shape this creates.
+func (self *PhysicsP2Body) SetRectangleFromSprite1O(sprite interface{}) *P2Rectangle{
     return &P2Rectangle{self.Object.Call("setRectangleFromSprite", sprite)}
 }
 
@@ -1052,7 +1294,13 @@ func (self *PhysicsP2Body) SetRectangleFromSpriteI(args ...interface{}) *P2Recta
 
 // Adds the given Material to all Shapes that belong to this Body.
 // If you only wish to apply it to a specific Shape in this Body then provide that as the 2nd parameter.
-func (self *PhysicsP2Body) SetMaterial(material *PhysicsP2Material, shape *P2Shape) {
+func (self *PhysicsP2Body) SetMaterial(material *PhysicsP2Material) {
+    self.Object.Call("setMaterial", material)
+}
+
+// Adds the given Material to all Shapes that belong to this Body.
+// If you only wish to apply it to a specific Shape in this Body then provide that as the 2nd parameter.
+func (self *PhysicsP2Body) SetMaterial1O(material *PhysicsP2Material, shape *P2Shape) {
     self.Object.Call("setMaterial", material, shape)
 }
 

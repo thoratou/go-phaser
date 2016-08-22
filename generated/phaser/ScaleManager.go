@@ -910,7 +910,31 @@ func (self *ScaleManager) SetGameSizeI(args ...interface{}) {
 //     canvas.height = (game.height * vScale) - vTrim
 // 
 // This method can be used in the {@link Phaser.ScaleManager#setResizeCallback resize callback}.
-func (self *ScaleManager) SetUserScale(hScale int, vScale float64, hTrim int, vTrim int) {
+func (self *ScaleManager) SetUserScale(hScale int, vScale float64) {
+    self.Object.Call("setUserScale", hScale, vScale)
+}
+
+// Set a User scaling factor used in the USER_SCALE scaling mode.
+// 
+// The target canvas size is computed by:
+// 
+//     canvas.width = (game.width * hScale) - hTrim
+//     canvas.height = (game.height * vScale) - vTrim
+// 
+// This method can be used in the {@link Phaser.ScaleManager#setResizeCallback resize callback}.
+func (self *ScaleManager) SetUserScale1O(hScale int, vScale float64, hTrim int) {
+    self.Object.Call("setUserScale", hScale, vScale, hTrim)
+}
+
+// Set a User scaling factor used in the USER_SCALE scaling mode.
+// 
+// The target canvas size is computed by:
+// 
+//     canvas.width = (game.width * hScale) - hTrim
+//     canvas.height = (game.height * vScale) - vTrim
+// 
+// This method can be used in the {@link Phaser.ScaleManager#setResizeCallback resize callback}.
+func (self *ScaleManager) SetUserScale2O(hScale int, vScale float64, hTrim int, vTrim int) {
     self.Object.Call("setUserScale", hScale, vScale, hTrim, vTrim)
 }
 
@@ -979,7 +1003,25 @@ func (self *ScaleManager) SignalSizeChangeI(args ...interface{}) {
 // _Note:_ The min/max dimensions are only applied in some cases
 // - When the device is not in an incorrect orientation; or
 // - The scale mode is EXACT_FIT when not in fullscreen
-func (self *ScaleManager) SetMinMax(minWidth int, minHeight int, maxWidth int, maxHeight int) {
+func (self *ScaleManager) SetMinMax(minWidth int, minHeight int) {
+    self.Object.Call("setMinMax", minWidth, minHeight)
+}
+
+// Set the min and max dimensions for the Display canvas.
+// 
+// _Note:_ The min/max dimensions are only applied in some cases
+// - When the device is not in an incorrect orientation; or
+// - The scale mode is EXACT_FIT when not in fullscreen
+func (self *ScaleManager) SetMinMax1O(minWidth int, minHeight int, maxWidth int) {
+    self.Object.Call("setMinMax", minWidth, minHeight, maxWidth)
+}
+
+// Set the min and max dimensions for the Display canvas.
+// 
+// _Note:_ The min/max dimensions are only applied in some cases
+// - When the device is not in an incorrect orientation; or
+// - The scale mode is EXACT_FIT when not in fullscreen
+func (self *ScaleManager) SetMinMax2O(minWidth int, minHeight int, maxWidth int, maxHeight int) {
     self.Object.Call("setMinMax", minWidth, minHeight, maxWidth, maxHeight)
 }
 
@@ -1041,7 +1083,18 @@ func (self *ScaleManager) UpdateScalingAndBoundsI(args ...interface{}) {
 // Orientation checks are performed via the Screen Orientation API, if available in browser. This means it will check your monitor
 // orientation on desktop, or your device orientation on mobile, rather than comparing actual game dimensions. If you need to check the 
 // viewport dimensions instead and bypass the Screen Orientation API then set: `ScaleManager.compatibility.orientationFallback = 'viewport'`
-func (self *ScaleManager) ForceOrientation(forceLandscape bool, forcePortrait bool) {
+func (self *ScaleManager) ForceOrientation(forceLandscape bool) {
+    self.Object.Call("forceOrientation", forceLandscape)
+}
+
+// Force the game to run in only one orientation.
+// 
+// This enables generation of incorrect orientation signals and affects resizing but does not otherwise rotate or lock the orientation.
+// 
+// Orientation checks are performed via the Screen Orientation API, if available in browser. This means it will check your monitor
+// orientation on desktop, or your device orientation on mobile, rather than comparing actual game dimensions. If you need to check the 
+// viewport dimensions instead and bypass the Screen Orientation API then set: `ScaleManager.compatibility.orientationFallback = 'viewport'`
+func (self *ScaleManager) ForceOrientation1O(forceLandscape bool, forcePortrait bool) {
     self.Object.Call("forceOrientation", forceLandscape, forcePortrait)
 }
 
@@ -1163,7 +1216,20 @@ func (self *ScaleManager) UpdateLayoutI(args ...interface{}) {
 // the viewport then this function may return a smaller than expected size.
 // 
 // Values are rounded to the nearest pixel.
-func (self *ScaleManager) GetParentBounds(target *Rectangle) *Rectangle{
+func (self *ScaleManager) GetParentBounds() *Rectangle{
+    return &Rectangle{self.Object.Call("getParentBounds")}
+}
+
+// Returns the computed Parent size/bounds that the Display canvas is allowed/expected to fill.
+// 
+// If in fullscreen mode or without parent (see {@link Phaser.ScaleManager#parentIsWindow parentIsWindow}),
+// this will be the bounds of the visual viewport itself.
+// 
+// This function takes the {@link Phaser.ScaleManager#windowConstraints windowConstraints} into consideration - if the parent is partially outside
+// the viewport then this function may return a smaller than expected size.
+// 
+// Values are rounded to the nearest pixel.
+func (self *ScaleManager) GetParentBounds1O(target *Rectangle) *Rectangle{
     return &Rectangle{self.Object.Call("getParentBounds", target)}
 }
 
@@ -1223,7 +1289,17 @@ func (self *ScaleManager) ReflowCanvasI(args ...interface{}) {
 }
 
 // "Reset" the Display canvas and set the specified width/height.
-func (self *ScaleManager) ResetCanvas(cssWidth string, cssHeight string) {
+func (self *ScaleManager) ResetCanvas() {
+    self.Object.Call("resetCanvas")
+}
+
+// "Reset" the Display canvas and set the specified width/height.
+func (self *ScaleManager) ResetCanvas1O(cssWidth string) {
+    self.Object.Call("resetCanvas", cssWidth)
+}
+
+// "Reset" the Display canvas and set the specified width/height.
+func (self *ScaleManager) ResetCanvas2O(cssWidth string, cssHeight string) {
     self.Object.Call("resetCanvas", cssWidth, cssHeight)
 }
 
@@ -1307,7 +1383,29 @@ func (self *ScaleManager) CreateFullScreenTargetI(args ...interface{}) {
 // device is reported to support fullscreen mode.
 // 
 // The {@link Phaser.ScaleManager#fullScreenFailed fullScreenFailed} signal will be dispatched if the fullscreen change request failed or the game does not support the Fullscreen API.
-func (self *ScaleManager) StartFullScreen(antialias bool, allowTrampoline bool) bool{
+func (self *ScaleManager) StartFullScreen() bool{
+    return self.Object.Call("startFullScreen").Bool()
+}
+
+// Start the browsers fullscreen mode - this _must_ be called from a user input Pointer or Mouse event.
+// 
+// The Fullscreen API must be supported by the browser for this to work - it is not the same as setting
+// the game size to fill the browser window. See {@link Phaser.ScaleManager#compatibility compatibility.supportsFullScreen} to check if the current
+// device is reported to support fullscreen mode.
+// 
+// The {@link Phaser.ScaleManager#fullScreenFailed fullScreenFailed} signal will be dispatched if the fullscreen change request failed or the game does not support the Fullscreen API.
+func (self *ScaleManager) StartFullScreen1O(antialias bool) bool{
+    return self.Object.Call("startFullScreen", antialias).Bool()
+}
+
+// Start the browsers fullscreen mode - this _must_ be called from a user input Pointer or Mouse event.
+// 
+// The Fullscreen API must be supported by the browser for this to work - it is not the same as setting
+// the game size to fill the browser window. See {@link Phaser.ScaleManager#compatibility compatibility.supportsFullScreen} to check if the current
+// device is reported to support fullscreen mode.
+// 
+// The {@link Phaser.ScaleManager#fullScreenFailed fullScreenFailed} signal will be dispatched if the fullscreen change request failed or the game does not support the Fullscreen API.
+func (self *ScaleManager) StartFullScreen2O(antialias bool, allowTrampoline bool) bool{
     return self.Object.Call("startFullScreen", antialias, allowTrampoline).Bool()
 }
 
@@ -1357,7 +1455,12 @@ func (self *ScaleManager) PrepScreenModeI(args ...interface{}) {
 }
 
 // Called automatically when the browser enters of leaves fullscreen mode.
-func (self *ScaleManager) FullScreenChange(event *Event) {
+func (self *ScaleManager) FullScreenChange() {
+    self.Object.Call("fullScreenChange")
+}
+
+// Called automatically when the browser enters of leaves fullscreen mode.
+func (self *ScaleManager) FullScreenChange1O(event *Event) {
     self.Object.Call("fullScreenChange", event)
 }
 
@@ -1368,7 +1471,13 @@ func (self *ScaleManager) FullScreenChangeI(args ...interface{}) {
 
 // Called automatically when the browser fullscreen request fails;
 // or called when a fullscreen request is made on a device for which it is not supported.
-func (self *ScaleManager) FullScreenError(event *Event) {
+func (self *ScaleManager) FullScreenError() {
+    self.Object.Call("fullScreenError")
+}
+
+// Called automatically when the browser fullscreen request fails;
+// or called when a fullscreen request is made on a device for which it is not supported.
+func (self *ScaleManager) FullScreenError1O(event *Event) {
     self.Object.Call("fullScreenError", event)
 }
 
@@ -1383,7 +1492,34 @@ func (self *ScaleManager) FullScreenErrorI(args ...interface{}) {
 // The letterBox parameter controls if scaling will produce a letter-box effect or zoom the
 // sprite until it fills the given values. Note that with letterBox set to false the scaled sprite may spill out over either
 // the horizontal or vertical sides of the target dimensions. If you wish to stop this you can crop the Sprite.
-func (self *ScaleManager) ScaleSprite(sprite interface{}, width int, height int, letterBox bool) interface{}{
+func (self *ScaleManager) ScaleSprite(sprite interface{}) interface{}{
+    return self.Object.Call("scaleSprite", sprite)
+}
+
+// Takes a Sprite or Image object and scales it to fit the given dimensions.
+// Scaling happens proportionally without distortion to the sprites texture.
+// The letterBox parameter controls if scaling will produce a letter-box effect or zoom the
+// sprite until it fills the given values. Note that with letterBox set to false the scaled sprite may spill out over either
+// the horizontal or vertical sides of the target dimensions. If you wish to stop this you can crop the Sprite.
+func (self *ScaleManager) ScaleSprite1O(sprite interface{}, width int) interface{}{
+    return self.Object.Call("scaleSprite", sprite, width)
+}
+
+// Takes a Sprite or Image object and scales it to fit the given dimensions.
+// Scaling happens proportionally without distortion to the sprites texture.
+// The letterBox parameter controls if scaling will produce a letter-box effect or zoom the
+// sprite until it fills the given values. Note that with letterBox set to false the scaled sprite may spill out over either
+// the horizontal or vertical sides of the target dimensions. If you wish to stop this you can crop the Sprite.
+func (self *ScaleManager) ScaleSprite2O(sprite interface{}, width int, height int) interface{}{
+    return self.Object.Call("scaleSprite", sprite, width, height)
+}
+
+// Takes a Sprite or Image object and scales it to fit the given dimensions.
+// Scaling happens proportionally without distortion to the sprites texture.
+// The letterBox parameter controls if scaling will produce a letter-box effect or zoom the
+// sprite until it fills the given values. Note that with letterBox set to false the scaled sprite may spill out over either
+// the horizontal or vertical sides of the target dimensions. If you wish to stop this you can crop the Sprite.
+func (self *ScaleManager) ScaleSprite3O(sprite interface{}, width int, height int, letterBox bool) interface{}{
     return self.Object.Call("scaleSprite", sprite, width, height, letterBox)
 }
 

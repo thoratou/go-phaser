@@ -244,7 +244,12 @@ func (self *SoundManager) ResumeAllI(args ...interface{}) {
 }
 
 // Decode a sound by its asset key.
-func (self *SoundManager) Decode(key string, sound *Sound) {
+func (self *SoundManager) Decode(key string) {
+    self.Object.Call("decode", key)
+}
+
+// Decode a sound by its asset key.
+func (self *SoundManager) Decode1O(key string, sound *Sound) {
     self.Object.Call("decode", key, sound)
 }
 
@@ -280,7 +285,22 @@ func (self *SoundManager) UpdateI(args ...interface{}) {
 }
 
 // Adds a new Sound into the SoundManager.
-func (self *SoundManager) Add(key string, volume int, loop bool, connect bool) *Sound{
+func (self *SoundManager) Add(key string) *Sound{
+    return &Sound{self.Object.Call("add", key)}
+}
+
+// Adds a new Sound into the SoundManager.
+func (self *SoundManager) Add1O(key string, volume int) *Sound{
+    return &Sound{self.Object.Call("add", key, volume)}
+}
+
+// Adds a new Sound into the SoundManager.
+func (self *SoundManager) Add2O(key string, volume int, loop bool) *Sound{
+    return &Sound{self.Object.Call("add", key, volume, loop)}
+}
+
+// Adds a new Sound into the SoundManager.
+func (self *SoundManager) Add3O(key string, volume int, loop bool, connect bool) *Sound{
     return &Sound{self.Object.Call("add", key, volume, loop, connect)}
 }
 
@@ -322,7 +342,17 @@ func (self *SoundManager) RemoveByKeyI(args ...interface{}) int{
 }
 
 // Adds a new Sound into the SoundManager and starts it playing.
-func (self *SoundManager) Play(key string, volume int, loop bool) *Sound{
+func (self *SoundManager) Play(key string) *Sound{
+    return &Sound{self.Object.Call("play", key)}
+}
+
+// Adds a new Sound into the SoundManager and starts it playing.
+func (self *SoundManager) Play1O(key string, volume int) *Sound{
+    return &Sound{self.Object.Call("play", key, volume)}
+}
+
+// Adds a new Sound into the SoundManager and starts it playing.
+func (self *SoundManager) Play2O(key string, volume int, loop bool) *Sound{
     return &Sound{self.Object.Call("play", key, volume, loop)}
 }
 

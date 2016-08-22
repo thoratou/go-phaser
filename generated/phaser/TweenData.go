@@ -249,7 +249,37 @@ func (self *TweenData) SetCOMPLETEA(member int) {
 
 // Sets this tween to be a `to` tween on the properties given. A `to` tween starts at the current value and tweens to the destination value given.
 // For example a Sprite with an `x` coordinate of 100 could be tweened to `x` 200 by giving a properties object of `{ x: 200 }`.
-func (self *TweenData) To(properties interface{}, duration int, ease func(...interface{}), delay int, repeat int, yoyo bool) *TweenData{
+func (self *TweenData) To(properties interface{}) *TweenData{
+    return &TweenData{self.Object.Call("to", properties)}
+}
+
+// Sets this tween to be a `to` tween on the properties given. A `to` tween starts at the current value and tweens to the destination value given.
+// For example a Sprite with an `x` coordinate of 100 could be tweened to `x` 200 by giving a properties object of `{ x: 200 }`.
+func (self *TweenData) To1O(properties interface{}, duration int) *TweenData{
+    return &TweenData{self.Object.Call("to", properties, duration)}
+}
+
+// Sets this tween to be a `to` tween on the properties given. A `to` tween starts at the current value and tweens to the destination value given.
+// For example a Sprite with an `x` coordinate of 100 could be tweened to `x` 200 by giving a properties object of `{ x: 200 }`.
+func (self *TweenData) To2O(properties interface{}, duration int, ease func(...interface{})) *TweenData{
+    return &TweenData{self.Object.Call("to", properties, duration, ease)}
+}
+
+// Sets this tween to be a `to` tween on the properties given. A `to` tween starts at the current value and tweens to the destination value given.
+// For example a Sprite with an `x` coordinate of 100 could be tweened to `x` 200 by giving a properties object of `{ x: 200 }`.
+func (self *TweenData) To3O(properties interface{}, duration int, ease func(...interface{}), delay int) *TweenData{
+    return &TweenData{self.Object.Call("to", properties, duration, ease, delay)}
+}
+
+// Sets this tween to be a `to` tween on the properties given. A `to` tween starts at the current value and tweens to the destination value given.
+// For example a Sprite with an `x` coordinate of 100 could be tweened to `x` 200 by giving a properties object of `{ x: 200 }`.
+func (self *TweenData) To4O(properties interface{}, duration int, ease func(...interface{}), delay int, repeat int) *TweenData{
+    return &TweenData{self.Object.Call("to", properties, duration, ease, delay, repeat)}
+}
+
+// Sets this tween to be a `to` tween on the properties given. A `to` tween starts at the current value and tweens to the destination value given.
+// For example a Sprite with an `x` coordinate of 100 could be tweened to `x` 200 by giving a properties object of `{ x: 200 }`.
+func (self *TweenData) To5O(properties interface{}, duration int, ease func(...interface{}), delay int, repeat int, yoyo bool) *TweenData{
     return &TweenData{self.Object.Call("to", properties, duration, ease, delay, repeat, yoyo)}
 }
 
@@ -261,7 +291,37 @@ func (self *TweenData) ToI(args ...interface{}) *TweenData{
 
 // Sets this tween to be a `from` tween on the properties given. A `from` tween sets the target to the destination value and tweens to its current value.
 // For example a Sprite with an `x` coordinate of 100 tweened from `x` 500 would be set to `x` 500 and then tweened to `x` 100 by giving a properties object of `{ x: 500 }`.
-func (self *TweenData) From(properties interface{}, duration int, ease func(...interface{}), delay int, repeat int, yoyo bool) *TweenData{
+func (self *TweenData) From(properties interface{}) *TweenData{
+    return &TweenData{self.Object.Call("from", properties)}
+}
+
+// Sets this tween to be a `from` tween on the properties given. A `from` tween sets the target to the destination value and tweens to its current value.
+// For example a Sprite with an `x` coordinate of 100 tweened from `x` 500 would be set to `x` 500 and then tweened to `x` 100 by giving a properties object of `{ x: 500 }`.
+func (self *TweenData) From1O(properties interface{}, duration int) *TweenData{
+    return &TweenData{self.Object.Call("from", properties, duration)}
+}
+
+// Sets this tween to be a `from` tween on the properties given. A `from` tween sets the target to the destination value and tweens to its current value.
+// For example a Sprite with an `x` coordinate of 100 tweened from `x` 500 would be set to `x` 500 and then tweened to `x` 100 by giving a properties object of `{ x: 500 }`.
+func (self *TweenData) From2O(properties interface{}, duration int, ease func(...interface{})) *TweenData{
+    return &TweenData{self.Object.Call("from", properties, duration, ease)}
+}
+
+// Sets this tween to be a `from` tween on the properties given. A `from` tween sets the target to the destination value and tweens to its current value.
+// For example a Sprite with an `x` coordinate of 100 tweened from `x` 500 would be set to `x` 500 and then tweened to `x` 100 by giving a properties object of `{ x: 500 }`.
+func (self *TweenData) From3O(properties interface{}, duration int, ease func(...interface{}), delay int) *TweenData{
+    return &TweenData{self.Object.Call("from", properties, duration, ease, delay)}
+}
+
+// Sets this tween to be a `from` tween on the properties given. A `from` tween sets the target to the destination value and tweens to its current value.
+// For example a Sprite with an `x` coordinate of 100 tweened from `x` 500 would be set to `x` 500 and then tweened to `x` 100 by giving a properties object of `{ x: 500 }`.
+func (self *TweenData) From4O(properties interface{}, duration int, ease func(...interface{}), delay int, repeat int) *TweenData{
+    return &TweenData{self.Object.Call("from", properties, duration, ease, delay, repeat)}
+}
+
+// Sets this tween to be a `from` tween on the properties given. A `from` tween sets the target to the destination value and tweens to its current value.
+// For example a Sprite with an `x` coordinate of 100 tweened from `x` 500 would be set to `x` 500 and then tweened to `x` 100 by giving a properties object of `{ x: 500 }`.
+func (self *TweenData) From5O(properties interface{}, duration int, ease func(...interface{}), delay int, repeat int, yoyo bool) *TweenData{
     return &TweenData{self.Object.Call("from", properties, duration, ease, delay, repeat, yoyo)}
 }
 
@@ -304,7 +364,20 @@ func (self *TweenData) UpdateI(args ...interface{}) int{
 // This will generate an array populated with the tweened object values from start to end.
 // It works by running the tween simulation at the given frame rate based on the values set-up in Tween.to and Tween.from.
 // Just one play through of the tween data is returned, including yoyo if set.
-func (self *TweenData) GenerateData(frameRate int) []interface{}{
+func (self *TweenData) GenerateData() []interface{}{
+	array00 := self.Object.Call("generateData")
+	length00 := array00.Length()
+	out00 := make([]interface{}, length00, length00)
+	for i00 := 0; i00 < length00; i00++ {
+		out00[i00] = array00.Index(i00).Interface()
+	}
+	return out00
+}
+
+// This will generate an array populated with the tweened object values from start to end.
+// It works by running the tween simulation at the given frame rate based on the values set-up in Tween.to and Tween.from.
+// Just one play through of the tween data is returned, including yoyo if set.
+func (self *TweenData) GenerateData1O(frameRate int) []interface{}{
 	array00 := self.Object.Call("generateData", frameRate)
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)

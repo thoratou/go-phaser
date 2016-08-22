@@ -352,7 +352,17 @@ func (self *InputHandler) SetSnapPointA(member *Point) {
 
 
 // Starts the Input Handler running. This is called automatically when you enable input on a Sprite, or can be called directly if you need to set a specific priority.
-func (self *InputHandler) Start(priority int, useHandCursor bool) *Sprite{
+func (self *InputHandler) Start() *Sprite{
+    return &Sprite{self.Object.Call("start")}
+}
+
+// Starts the Input Handler running. This is called automatically when you enable input on a Sprite, or can be called directly if you need to set a specific priority.
+func (self *InputHandler) Start1O(priority int) *Sprite{
+    return &Sprite{self.Object.Call("start", priority)}
+}
+
+// Starts the Input Handler running. This is called automatically when you enable input on a Sprite, or can be called directly if you need to set a specific priority.
+func (self *InputHandler) Start2O(priority int, useHandCursor bool) *Sprite{
     return &Sprite{self.Object.Call("start", priority, useHandCursor)}
 }
 
@@ -413,7 +423,13 @@ func (self *InputHandler) DestroyI(args ...interface{}) {
 
 // Checks if the object this InputHandler is bound to is valid for consideration in the Pointer move event.
 // This is called by Phaser.Pointer and shouldn't typically be called directly.
-func (self *InputHandler) ValidForInput(highestID int, highestRenderID int, includePixelPerfect bool) bool{
+func (self *InputHandler) ValidForInput(highestID int, highestRenderID int) bool{
+    return self.Object.Call("validForInput", highestID, highestRenderID).Bool()
+}
+
+// Checks if the object this InputHandler is bound to is valid for consideration in the Pointer move event.
+// This is called by Phaser.Pointer and shouldn't typically be called directly.
+func (self *InputHandler) ValidForInput1O(highestID int, highestRenderID int, includePixelPerfect bool) bool{
     return self.Object.Call("validForInput", highestID, highestRenderID, includePixelPerfect).Bool()
 }
 
@@ -435,7 +451,13 @@ func (self *InputHandler) IsPixelPerfectI(args ...interface{}) bool{
 
 // The x coordinate of the Input pointer, relative to the top-left of the parent Sprite.
 // This value is only set when the pointer is over this Sprite.
-func (self *InputHandler) PointerX(pointerId int) int{
+func (self *InputHandler) PointerX() int{
+    return self.Object.Call("pointerX").Int()
+}
+
+// The x coordinate of the Input pointer, relative to the top-left of the parent Sprite.
+// This value is only set when the pointer is over this Sprite.
+func (self *InputHandler) PointerX1O(pointerId int) int{
     return self.Object.Call("pointerX", pointerId).Int()
 }
 
@@ -447,7 +469,13 @@ func (self *InputHandler) PointerXI(args ...interface{}) int{
 
 // The y coordinate of the Input pointer, relative to the top-left of the parent Sprite
 // This value is only set when the pointer is over this Sprite.
-func (self *InputHandler) PointerY(pointerId int) int{
+func (self *InputHandler) PointerY() int{
+    return self.Object.Call("pointerY").Int()
+}
+
+// The y coordinate of the Input pointer, relative to the top-left of the parent Sprite
+// This value is only set when the pointer is over this Sprite.
+func (self *InputHandler) PointerY1O(pointerId int) int{
     return self.Object.Call("pointerY", pointerId).Int()
 }
 
@@ -459,7 +487,13 @@ func (self *InputHandler) PointerYI(args ...interface{}) int{
 
 // If the Pointer is down this returns true.
 // This *only* checks if the Pointer is down, not if it's down over any specific Sprite.
-func (self *InputHandler) PointerDown(pointerId int) bool{
+func (self *InputHandler) PointerDown() bool{
+    return self.Object.Call("pointerDown").Bool()
+}
+
+// If the Pointer is down this returns true.
+// This *only* checks if the Pointer is down, not if it's down over any specific Sprite.
+func (self *InputHandler) PointerDown1O(pointerId int) bool{
     return self.Object.Call("pointerDown", pointerId).Bool()
 }
 
@@ -471,7 +505,13 @@ func (self *InputHandler) PointerDownI(args ...interface{}) bool{
 
 // If the Pointer is up this returns true.
 // This *only* checks if the Pointer is up, not if it's up over any specific Sprite.
-func (self *InputHandler) PointerUp(pointerId int) bool{
+func (self *InputHandler) PointerUp() bool{
+    return self.Object.Call("pointerUp").Bool()
+}
+
+// If the Pointer is up this returns true.
+// This *only* checks if the Pointer is up, not if it's up over any specific Sprite.
+func (self *InputHandler) PointerUp1O(pointerId int) bool{
     return self.Object.Call("pointerUp", pointerId).Bool()
 }
 
@@ -482,7 +522,12 @@ func (self *InputHandler) PointerUpI(args ...interface{}) bool{
 }
 
 // A timestamp representing when the Pointer first touched the touchscreen.
-func (self *InputHandler) PointerTimeDown(pointerId int) int{
+func (self *InputHandler) PointerTimeDown() int{
+    return self.Object.Call("pointerTimeDown").Int()
+}
+
+// A timestamp representing when the Pointer first touched the touchscreen.
+func (self *InputHandler) PointerTimeDown1O(pointerId int) int{
     return self.Object.Call("pointerTimeDown", pointerId).Int()
 }
 
@@ -492,7 +537,12 @@ func (self *InputHandler) PointerTimeDownI(args ...interface{}) int{
 }
 
 // A timestamp representing when the Pointer left the touchscreen.
-func (self *InputHandler) PointerTimeUp(pointerId int) int{
+func (self *InputHandler) PointerTimeUp() int{
+    return self.Object.Call("pointerTimeUp").Int()
+}
+
+// A timestamp representing when the Pointer left the touchscreen.
+func (self *InputHandler) PointerTimeUp1O(pointerId int) int{
     return self.Object.Call("pointerTimeUp", pointerId).Int()
 }
 
@@ -502,7 +552,12 @@ func (self *InputHandler) PointerTimeUpI(args ...interface{}) int{
 }
 
 // Is the Pointer over this Sprite?
-func (self *InputHandler) PointerOver(pointerId int) bool{
+func (self *InputHandler) PointerOver() bool{
+    return self.Object.Call("pointerOver").Bool()
+}
+
+// Is the Pointer over this Sprite?
+func (self *InputHandler) PointerOver1O(pointerId int) bool{
     return self.Object.Call("pointerOver", pointerId).Bool()
 }
 
@@ -512,7 +567,12 @@ func (self *InputHandler) PointerOverI(args ...interface{}) bool{
 }
 
 // Is the Pointer outside of this Sprite?
-func (self *InputHandler) PointerOut(pointerId int) bool{
+func (self *InputHandler) PointerOut() bool{
+    return self.Object.Call("pointerOut").Bool()
+}
+
+// Is the Pointer outside of this Sprite?
+func (self *InputHandler) PointerOut1O(pointerId int) bool{
     return self.Object.Call("pointerOut", pointerId).Bool()
 }
 
@@ -522,7 +582,12 @@ func (self *InputHandler) PointerOutI(args ...interface{}) bool{
 }
 
 // A timestamp representing when the Pointer first touched the touchscreen.
-func (self *InputHandler) PointerTimeOver(pointerId int) int{
+func (self *InputHandler) PointerTimeOver() int{
+    return self.Object.Call("pointerTimeOver").Int()
+}
+
+// A timestamp representing when the Pointer first touched the touchscreen.
+func (self *InputHandler) PointerTimeOver1O(pointerId int) int{
     return self.Object.Call("pointerTimeOver", pointerId).Int()
 }
 
@@ -532,7 +597,12 @@ func (self *InputHandler) PointerTimeOverI(args ...interface{}) int{
 }
 
 // A timestamp representing when the Pointer left the touchscreen.
-func (self *InputHandler) PointerTimeOut(pointerId int) int{
+func (self *InputHandler) PointerTimeOut() int{
+    return self.Object.Call("pointerTimeOut").Int()
+}
+
+// A timestamp representing when the Pointer left the touchscreen.
+func (self *InputHandler) PointerTimeOut1O(pointerId int) int{
     return self.Object.Call("pointerTimeOut", pointerId).Int()
 }
 
@@ -542,7 +612,12 @@ func (self *InputHandler) PointerTimeOutI(args ...interface{}) int{
 }
 
 // Is this sprite being dragged by the mouse or not?
-func (self *InputHandler) PointerDragged(pointerId int) bool{
+func (self *InputHandler) PointerDragged() bool{
+    return self.Object.Call("pointerDragged").Bool()
+}
+
+// Is this sprite being dragged by the mouse or not?
+func (self *InputHandler) PointerDragged1O(pointerId int) bool{
     return self.Object.Call("pointerDragged", pointerId).Bool()
 }
 
@@ -553,7 +628,13 @@ func (self *InputHandler) PointerDraggedI(args ...interface{}) bool{
 
 // Checks if the given pointer is both down and over the Sprite this InputHandler belongs to.
 // Use the `fastTest` flag is to quickly check just the bounding hit area even if `InputHandler.pixelPerfectOver` is `true`.
-func (self *InputHandler) CheckPointerDown(pointer *Pointer, fastTest bool) bool{
+func (self *InputHandler) CheckPointerDown(pointer *Pointer) bool{
+    return self.Object.Call("checkPointerDown", pointer).Bool()
+}
+
+// Checks if the given pointer is both down and over the Sprite this InputHandler belongs to.
+// Use the `fastTest` flag is to quickly check just the bounding hit area even if `InputHandler.pixelPerfectOver` is `true`.
+func (self *InputHandler) CheckPointerDown1O(pointer *Pointer, fastTest bool) bool{
     return self.Object.Call("checkPointerDown", pointer, fastTest).Bool()
 }
 
@@ -565,7 +646,13 @@ func (self *InputHandler) CheckPointerDownI(args ...interface{}) bool{
 
 // Checks if the given pointer is over the Sprite this InputHandler belongs to.
 // Use the `fastTest` flag is to quickly check just the bounding hit area even if `InputHandler.pixelPerfectOver` is `true`.
-func (self *InputHandler) CheckPointerOver(pointer *Pointer, fastTest bool) bool{
+func (self *InputHandler) CheckPointerOver(pointer *Pointer) bool{
+    return self.Object.Call("checkPointerOver", pointer).Bool()
+}
+
+// Checks if the given pointer is over the Sprite this InputHandler belongs to.
+// Use the `fastTest` flag is to quickly check just the bounding hit area even if `InputHandler.pixelPerfectOver` is `true`.
+func (self *InputHandler) CheckPointerOver1O(pointer *Pointer, fastTest bool) bool{
     return self.Object.Call("checkPointerOver", pointer, fastTest).Bool()
 }
 
@@ -577,7 +664,13 @@ func (self *InputHandler) CheckPointerOverI(args ...interface{}) bool{
 
 // Runs a pixel perfect check against the given x/y coordinates of the Sprite this InputHandler is bound to.
 // It compares the alpha value of the pixel and if >= InputHandler.pixelPerfectAlpha it returns true.
-func (self *InputHandler) CheckPixel(x int, y int, pointer *Pointer) bool{
+func (self *InputHandler) CheckPixel(x int, y int) bool{
+    return self.Object.Call("checkPixel", x, y).Bool()
+}
+
+// Runs a pixel perfect check against the given x/y coordinates of the Sprite this InputHandler is bound to.
+// It compares the alpha value of the pixel and if >= InputHandler.pixelPerfectAlpha it returns true.
+func (self *InputHandler) CheckPixel1O(x int, y int, pointer *Pointer) bool{
     return self.Object.Call("checkPixel", x, y, pointer).Bool()
 }
 
@@ -600,7 +693,12 @@ func (self *InputHandler) UpdateI(args ...interface{}) bool{
 }
 
 // Internal method handling the pointer over event.
-func (self *InputHandler) _pointerOverHandler(pointer *Pointer, silent bool) {
+func (self *InputHandler) _pointerOverHandler(pointer *Pointer) {
+    self.Object.Call("_pointerOverHandler", pointer)
+}
+
+// Internal method handling the pointer over event.
+func (self *InputHandler) _pointerOverHandler1O(pointer *Pointer, silent bool) {
     self.Object.Call("_pointerOverHandler", pointer, silent)
 }
 
@@ -610,7 +708,12 @@ func (self *InputHandler) _pointerOverHandlerI(args ...interface{}) {
 }
 
 // Internal method handling the pointer out event.
-func (self *InputHandler) _pointerOutHandler(pointer *Pointer, silent bool) {
+func (self *InputHandler) _pointerOutHandler(pointer *Pointer) {
+    self.Object.Call("_pointerOutHandler", pointer)
+}
+
+// Internal method handling the pointer out event.
+func (self *InputHandler) _pointerOutHandler1O(pointer *Pointer, silent bool) {
     self.Object.Call("_pointerOutHandler", pointer, silent)
 }
 
@@ -700,7 +803,12 @@ func (self *InputHandler) JustReleasedI(args ...interface{}) bool{
 }
 
 // If the pointer is currently over this Sprite this returns how long it has been there for in milliseconds.
-func (self *InputHandler) OverDuration(pointerId int) int{
+func (self *InputHandler) OverDuration() int{
+    return self.Object.Call("overDuration").Int()
+}
+
+// If the pointer is currently over this Sprite this returns how long it has been there for in milliseconds.
+func (self *InputHandler) OverDuration1O(pointerId int) int{
     return self.Object.Call("overDuration", pointerId).Int()
 }
 
@@ -710,7 +818,12 @@ func (self *InputHandler) OverDurationI(args ...interface{}) int{
 }
 
 // If the pointer is currently over this Sprite this returns how long it has been there for in milliseconds.
-func (self *InputHandler) DownDuration(pointerId int) int{
+func (self *InputHandler) DownDuration() int{
+    return self.Object.Call("downDuration").Int()
+}
+
+// If the pointer is currently over this Sprite this returns how long it has been there for in milliseconds.
+func (self *InputHandler) DownDuration1O(pointerId int) int{
     return self.Object.Call("downDuration", pointerId).Int()
 }
 
@@ -737,7 +850,139 @@ func (self *InputHandler) DownDurationI(args ...interface{}) int{
 // 
 // For the duration of the drag the Sprite.events.onDragUpdate event is dispatched. This event is only dispatched when the pointer actually
 // changes position and moves. The event sends 5 parameters: `sprite`, `pointer`, `dragX`, `dragY` and `snapPoint`.
-func (self *InputHandler) EnableDrag(lockCenter bool, bringToTop bool, pixelPerfect bool, alphaThreshold bool, boundsRect *Rectangle, boundsSprite *Sprite) {
+func (self *InputHandler) EnableDrag() {
+    self.Object.Call("enableDrag")
+}
+
+// Allow this Sprite to be dragged by any valid pointer.
+// 
+// When the drag begins the Sprite.events.onDragStart event will be dispatched.
+// 
+// When the drag completes by way of the user letting go of the pointer that was dragging the sprite, the Sprite.events.onDragStop event is dispatched.
+// 
+// You can control the thresholds over when a drag starts via the properties:
+// 
+// `Pointer.dragDistanceThreshold` the distance, in pixels, that the pointer has to move
+// before the drag will start.
+// 
+// `Pointer.dragTimeThreshold` the time, in ms, that the pointer must be held down on
+// the Sprite before the drag will start.
+// 
+// You can set either (or both) of these properties after enabling a Sprite for drag.
+// 
+// For the duration of the drag the Sprite.events.onDragUpdate event is dispatched. This event is only dispatched when the pointer actually
+// changes position and moves. The event sends 5 parameters: `sprite`, `pointer`, `dragX`, `dragY` and `snapPoint`.
+func (self *InputHandler) EnableDrag1O(lockCenter bool) {
+    self.Object.Call("enableDrag", lockCenter)
+}
+
+// Allow this Sprite to be dragged by any valid pointer.
+// 
+// When the drag begins the Sprite.events.onDragStart event will be dispatched.
+// 
+// When the drag completes by way of the user letting go of the pointer that was dragging the sprite, the Sprite.events.onDragStop event is dispatched.
+// 
+// You can control the thresholds over when a drag starts via the properties:
+// 
+// `Pointer.dragDistanceThreshold` the distance, in pixels, that the pointer has to move
+// before the drag will start.
+// 
+// `Pointer.dragTimeThreshold` the time, in ms, that the pointer must be held down on
+// the Sprite before the drag will start.
+// 
+// You can set either (or both) of these properties after enabling a Sprite for drag.
+// 
+// For the duration of the drag the Sprite.events.onDragUpdate event is dispatched. This event is only dispatched when the pointer actually
+// changes position and moves. The event sends 5 parameters: `sprite`, `pointer`, `dragX`, `dragY` and `snapPoint`.
+func (self *InputHandler) EnableDrag2O(lockCenter bool, bringToTop bool) {
+    self.Object.Call("enableDrag", lockCenter, bringToTop)
+}
+
+// Allow this Sprite to be dragged by any valid pointer.
+// 
+// When the drag begins the Sprite.events.onDragStart event will be dispatched.
+// 
+// When the drag completes by way of the user letting go of the pointer that was dragging the sprite, the Sprite.events.onDragStop event is dispatched.
+// 
+// You can control the thresholds over when a drag starts via the properties:
+// 
+// `Pointer.dragDistanceThreshold` the distance, in pixels, that the pointer has to move
+// before the drag will start.
+// 
+// `Pointer.dragTimeThreshold` the time, in ms, that the pointer must be held down on
+// the Sprite before the drag will start.
+// 
+// You can set either (or both) of these properties after enabling a Sprite for drag.
+// 
+// For the duration of the drag the Sprite.events.onDragUpdate event is dispatched. This event is only dispatched when the pointer actually
+// changes position and moves. The event sends 5 parameters: `sprite`, `pointer`, `dragX`, `dragY` and `snapPoint`.
+func (self *InputHandler) EnableDrag3O(lockCenter bool, bringToTop bool, pixelPerfect bool) {
+    self.Object.Call("enableDrag", lockCenter, bringToTop, pixelPerfect)
+}
+
+// Allow this Sprite to be dragged by any valid pointer.
+// 
+// When the drag begins the Sprite.events.onDragStart event will be dispatched.
+// 
+// When the drag completes by way of the user letting go of the pointer that was dragging the sprite, the Sprite.events.onDragStop event is dispatched.
+// 
+// You can control the thresholds over when a drag starts via the properties:
+// 
+// `Pointer.dragDistanceThreshold` the distance, in pixels, that the pointer has to move
+// before the drag will start.
+// 
+// `Pointer.dragTimeThreshold` the time, in ms, that the pointer must be held down on
+// the Sprite before the drag will start.
+// 
+// You can set either (or both) of these properties after enabling a Sprite for drag.
+// 
+// For the duration of the drag the Sprite.events.onDragUpdate event is dispatched. This event is only dispatched when the pointer actually
+// changes position and moves. The event sends 5 parameters: `sprite`, `pointer`, `dragX`, `dragY` and `snapPoint`.
+func (self *InputHandler) EnableDrag4O(lockCenter bool, bringToTop bool, pixelPerfect bool, alphaThreshold bool) {
+    self.Object.Call("enableDrag", lockCenter, bringToTop, pixelPerfect, alphaThreshold)
+}
+
+// Allow this Sprite to be dragged by any valid pointer.
+// 
+// When the drag begins the Sprite.events.onDragStart event will be dispatched.
+// 
+// When the drag completes by way of the user letting go of the pointer that was dragging the sprite, the Sprite.events.onDragStop event is dispatched.
+// 
+// You can control the thresholds over when a drag starts via the properties:
+// 
+// `Pointer.dragDistanceThreshold` the distance, in pixels, that the pointer has to move
+// before the drag will start.
+// 
+// `Pointer.dragTimeThreshold` the time, in ms, that the pointer must be held down on
+// the Sprite before the drag will start.
+// 
+// You can set either (or both) of these properties after enabling a Sprite for drag.
+// 
+// For the duration of the drag the Sprite.events.onDragUpdate event is dispatched. This event is only dispatched when the pointer actually
+// changes position and moves. The event sends 5 parameters: `sprite`, `pointer`, `dragX`, `dragY` and `snapPoint`.
+func (self *InputHandler) EnableDrag5O(lockCenter bool, bringToTop bool, pixelPerfect bool, alphaThreshold bool, boundsRect *Rectangle) {
+    self.Object.Call("enableDrag", lockCenter, bringToTop, pixelPerfect, alphaThreshold, boundsRect)
+}
+
+// Allow this Sprite to be dragged by any valid pointer.
+// 
+// When the drag begins the Sprite.events.onDragStart event will be dispatched.
+// 
+// When the drag completes by way of the user letting go of the pointer that was dragging the sprite, the Sprite.events.onDragStop event is dispatched.
+// 
+// You can control the thresholds over when a drag starts via the properties:
+// 
+// `Pointer.dragDistanceThreshold` the distance, in pixels, that the pointer has to move
+// before the drag will start.
+// 
+// `Pointer.dragTimeThreshold` the time, in ms, that the pointer must be held down on
+// the Sprite before the drag will start.
+// 
+// You can set either (or both) of these properties after enabling a Sprite for drag.
+// 
+// For the duration of the drag the Sprite.events.onDragUpdate event is dispatched. This event is only dispatched when the pointer actually
+// changes position and moves. The event sends 5 parameters: `sprite`, `pointer`, `dragX`, `dragY` and `snapPoint`.
+func (self *InputHandler) EnableDrag6O(lockCenter bool, bringToTop bool, pixelPerfect bool, alphaThreshold bool, boundsRect *Rectangle, boundsSprite *Sprite) {
     self.Object.Call("enableDrag", lockCenter, bringToTop, pixelPerfect, alphaThreshold, boundsRect, boundsSprite)
 }
 
@@ -816,7 +1061,17 @@ func (self *InputHandler) StopDragI(args ...interface{}) {
 }
 
 // Restricts this sprite to drag movement only on the given axis. Note: If both are set to false the sprite will never move!
-func (self *InputHandler) SetDragLock(allowHorizontal bool, allowVertical bool) {
+func (self *InputHandler) SetDragLock() {
+    self.Object.Call("setDragLock")
+}
+
+// Restricts this sprite to drag movement only on the given axis. Note: If both are set to false the sprite will never move!
+func (self *InputHandler) SetDragLock1O(allowHorizontal bool) {
+    self.Object.Call("setDragLock", allowHorizontal)
+}
+
+// Restricts this sprite to drag movement only on the given axis. Note: If both are set to false the sprite will never move!
+func (self *InputHandler) SetDragLock2O(allowHorizontal bool, allowVertical bool) {
     self.Object.Call("setDragLock", allowHorizontal, allowVertical)
 }
 
@@ -827,7 +1082,31 @@ func (self *InputHandler) SetDragLockI(args ...interface{}) {
 
 // Make this Sprite snap to the given grid either during drag or when it's released.
 // For example 16x16 as the snapX and snapY would make the sprite snap to every 16 pixels.
-func (self *InputHandler) EnableSnap(snapX int, snapY int, onDrag bool, onRelease bool, snapOffsetX int, snapOffsetY int) {
+func (self *InputHandler) EnableSnap(snapX int, snapY int) {
+    self.Object.Call("enableSnap", snapX, snapY)
+}
+
+// Make this Sprite snap to the given grid either during drag or when it's released.
+// For example 16x16 as the snapX and snapY would make the sprite snap to every 16 pixels.
+func (self *InputHandler) EnableSnap1O(snapX int, snapY int, onDrag bool) {
+    self.Object.Call("enableSnap", snapX, snapY, onDrag)
+}
+
+// Make this Sprite snap to the given grid either during drag or when it's released.
+// For example 16x16 as the snapX and snapY would make the sprite snap to every 16 pixels.
+func (self *InputHandler) EnableSnap2O(snapX int, snapY int, onDrag bool, onRelease bool) {
+    self.Object.Call("enableSnap", snapX, snapY, onDrag, onRelease)
+}
+
+// Make this Sprite snap to the given grid either during drag or when it's released.
+// For example 16x16 as the snapX and snapY would make the sprite snap to every 16 pixels.
+func (self *InputHandler) EnableSnap3O(snapX int, snapY int, onDrag bool, onRelease bool, snapOffsetX int) {
+    self.Object.Call("enableSnap", snapX, snapY, onDrag, onRelease, snapOffsetX)
+}
+
+// Make this Sprite snap to the given grid either during drag or when it's released.
+// For example 16x16 as the snapX and snapY would make the sprite snap to every 16 pixels.
+func (self *InputHandler) EnableSnap4O(snapX int, snapY int, onDrag bool, onRelease bool, snapOffsetX int, snapOffsetY int) {
     self.Object.Call("enableSnap", snapX, snapY, onDrag, onRelease, snapOffsetX, snapOffsetY)
 }
 

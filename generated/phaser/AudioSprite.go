@@ -77,7 +77,17 @@ func (self *AudioSprite) SetSoundsA(member interface{}) {
 
 
 // Play a sound with the given name.
-func (self *AudioSprite) Play(marker string, volume int) *Sound{
+func (self *AudioSprite) Play() *Sound{
+    return &Sound{self.Object.Call("play")}
+}
+
+// Play a sound with the given name.
+func (self *AudioSprite) Play1O(marker string) *Sound{
+    return &Sound{self.Object.Call("play", marker)}
+}
+
+// Play a sound with the given name.
+func (self *AudioSprite) Play2O(marker string, volume int) *Sound{
     return &Sound{self.Object.Call("play", marker, volume)}
 }
 
@@ -87,7 +97,12 @@ func (self *AudioSprite) PlayI(args ...interface{}) *Sound{
 }
 
 // Stop a sound with the given name.
-func (self *AudioSprite) Stop(marker string) {
+func (self *AudioSprite) Stop() {
+    self.Object.Call("stop")
+}
+
+// Stop a sound with the given name.
+func (self *AudioSprite) Stop1O(marker string) {
     self.Object.Call("stop", marker)
 }
 

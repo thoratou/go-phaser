@@ -222,7 +222,41 @@ func (self *Physics) StartSystemI(args ...interface{}) {
 // 
 // If you require more control over what type of body is created, for example to create a Ninja Physics Circle instead of the default AABB, then see the
 // individual physics systems `enable` methods instead of using this generic one.
-func (self *Physics) Enable(object interface{}, system int, debug bool) {
+func (self *Physics) Enable(object interface{}) {
+    self.Object.Call("enable", object)
+}
+
+// This will create a default physics body on the given game object or array of objects.
+// A game object can only have 1 physics body active at any one time, and it can't be changed until the object is destroyed.
+// It can be for any of the physics systems that have been started:
+// 
+// Phaser.Physics.Arcade - A light weight AABB based collision system with basic separation.
+// Phaser.Physics.P2JS - A full-body advanced physics system supporting multiple object shapes, polygon loading, contact materials, springs and constraints.
+// Phaser.Physics.NINJA - A port of Metanet Softwares N+ physics system. Advanced AABB and Circle vs. Tile collision.
+// Phaser.Physics.BOX2D - A port of https://code.google.com/p/box2d-html5
+// Phaser.Physics.MATTER - A full-body and light-weight advanced physics system (still in development)
+// Phaser.Physics.CHIPMUNK is still in development.
+// 
+// If you require more control over what type of body is created, for example to create a Ninja Physics Circle instead of the default AABB, then see the
+// individual physics systems `enable` methods instead of using this generic one.
+func (self *Physics) Enable1O(object interface{}, system int) {
+    self.Object.Call("enable", object, system)
+}
+
+// This will create a default physics body on the given game object or array of objects.
+// A game object can only have 1 physics body active at any one time, and it can't be changed until the object is destroyed.
+// It can be for any of the physics systems that have been started:
+// 
+// Phaser.Physics.Arcade - A light weight AABB based collision system with basic separation.
+// Phaser.Physics.P2JS - A full-body advanced physics system supporting multiple object shapes, polygon loading, contact materials, springs and constraints.
+// Phaser.Physics.NINJA - A port of Metanet Softwares N+ physics system. Advanced AABB and Circle vs. Tile collision.
+// Phaser.Physics.BOX2D - A port of https://code.google.com/p/box2d-html5
+// Phaser.Physics.MATTER - A full-body and light-weight advanced physics system (still in development)
+// Phaser.Physics.CHIPMUNK is still in development.
+// 
+// If you require more control over what type of body is created, for example to create a Ninja Physics Circle instead of the default AABB, then see the
+// individual physics systems `enable` methods instead of using this generic one.
+func (self *Physics) Enable2O(object interface{}, system int, debug bool) {
     self.Object.Call("enable", object, system, debug)
 }
 

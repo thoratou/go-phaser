@@ -88,7 +88,12 @@ func (self *TweenManager) RemoveAllI(args ...interface{}) {
 }
 
 // Remove all tweens from a specific object, array of objects or Group.
-func (self *TweenManager) RemoveFrom(obj interface{}, children bool) {
+func (self *TweenManager) RemoveFrom(obj interface{}) {
+    self.Object.Call("removeFrom", obj)
+}
+
+// Remove all tweens from a specific object, array of objects or Group.
+func (self *TweenManager) RemoveFrom1O(obj interface{}, children bool) {
     self.Object.Call("removeFrom", obj, children)
 }
 

@@ -671,7 +671,12 @@ func (self *Creature) SetAnimationI(args ...interface{}) {
 }
 
 // Plays the currently set animation.
-func (self *Creature) Play(loop bool) {
+func (self *Creature) Play() {
+    self.Object.Call("play")
+}
+
+// Plays the currently set animation.
+func (self *Creature) Play1O(loop bool) {
     self.Object.Call("play", loop)
 }
 
@@ -933,7 +938,29 @@ func (self *Creature) MoveDownI(args ...interface{}) *DisplayObject{
 // 
 // You can optionally also destroy the BaseTexture this Game Object is using. Be careful if you've
 // more than one Game Object sharing the same BaseTexture.
-func (self *Creature) Destroy(destroyChildren bool, destroyTexture bool) {
+func (self *Creature) Destroy() {
+    self.Object.Call("destroy")
+}
+
+// Destroys the Game Object. This removes it from its parent group, destroys the input, event and animation handlers if present
+// and nulls its reference to `game`, freeing it up for garbage collection.
+// 
+// If this Game Object has the Events component it will also dispatch the `onDestroy` event.
+// 
+// You can optionally also destroy the BaseTexture this Game Object is using. Be careful if you've
+// more than one Game Object sharing the same BaseTexture.
+func (self *Creature) Destroy1O(destroyChildren bool) {
+    self.Object.Call("destroy", destroyChildren)
+}
+
+// Destroys the Game Object. This removes it from its parent group, destroys the input, event and animation handlers if present
+// and nulls its reference to `game`, freeing it up for garbage collection.
+// 
+// If this Game Object has the Events component it will also dispatch the `onDestroy` event.
+// 
+// You can optionally also destroy the BaseTexture this Game Object is using. Be careful if you've
+// more than one Game Object sharing the same BaseTexture.
+func (self *Creature) Destroy2O(destroyChildren bool, destroyTexture bool) {
     self.Object.Call("destroy", destroyChildren, destroyTexture)
 }
 
@@ -953,7 +980,16 @@ func (self *Creature) DestroyI(args ...interface{}) {
 // A resurrected Game Object has its `alive`, `exists` and `visible` properties all set to true.
 // 
 // It will dispatch the `onRevived` event. Listen to `events.onRevived` for the signal.
-func (self *Creature) Revive(health int) *DisplayObject{
+func (self *Creature) Revive() *DisplayObject{
+    return &DisplayObject{self.Object.Call("revive")}
+}
+
+// Brings a 'dead' Game Object back to life, optionally resetting its health value in the process.
+// 
+// A resurrected Game Object has its `alive`, `exists` and `visible` properties all set to true.
+// 
+// It will dispatch the `onRevived` event. Listen to `events.onRevived` for the signal.
+func (self *Creature) Revive1O(health int) *DisplayObject{
     return &DisplayObject{self.Object.Call("revive", health)}
 }
 
@@ -998,7 +1034,19 @@ func (self *Creature) KillI(args ...interface{}) *DisplayObject{
 // If this Game Object has the LifeSpan component it will also set `alive` to true and `health` to the given value.
 // 
 // If this Game Object has a Physics Body it will reset the Body.
-func (self *Creature) Reset(x int, y int, health int) *DisplayObject{
+func (self *Creature) Reset(x int, y int) *DisplayObject{
+    return &DisplayObject{self.Object.Call("reset", x, y)}
+}
+
+// Resets the Game Object.
+// 
+// This moves the Game Object to the given x/y world coordinates and sets `fresh`, `exists`, 
+// `visible` and `renderable` to true.
+// 
+// If this Game Object has the LifeSpan component it will also set `alive` to true and `health` to the given value.
+// 
+// If this Game Object has a Physics Body it will reset the Body.
+func (self *Creature) Reset1O(x int, y int, health int) *DisplayObject{
     return &DisplayObject{self.Object.Call("reset", x, y, health)}
 }
 

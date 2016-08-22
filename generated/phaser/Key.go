@@ -206,7 +206,15 @@ func (self *Key) ProcessKeyUpI(args ...interface{}) {
 // 
 // This sets isDown to false, isUp to true, resets the time to be the current time, and _enables_ the key.
 // In addition, if it is a "hard reset", it clears clears any callbacks associated with the onDown and onUp events and removes the onHoldCallback.
-func (self *Key) Reset(hard bool) {
+func (self *Key) Reset() {
+    self.Object.Call("reset")
+}
+
+// Resets the state of this Key.
+// 
+// This sets isDown to false, isUp to true, resets the time to be the current time, and _enables_ the key.
+// In addition, if it is a "hard reset", it clears clears any callbacks associated with the onDown and onUp events and removes the onHoldCallback.
+func (self *Key) Reset1O(hard bool) {
     self.Object.Call("reset", hard)
 }
 
@@ -220,7 +228,13 @@ func (self *Key) ResetI(args ...interface{}) {
 
 // Returns `true` if the Key was pressed down within the `duration` value given, or `false` if it either isn't down,
 // or was pressed down longer ago than then given duration.
-func (self *Key) DownDuration(duration int) bool{
+func (self *Key) DownDuration() bool{
+    return self.Object.Call("downDuration").Bool()
+}
+
+// Returns `true` if the Key was pressed down within the `duration` value given, or `false` if it either isn't down,
+// or was pressed down longer ago than then given duration.
+func (self *Key) DownDuration1O(duration int) bool{
     return self.Object.Call("downDuration", duration).Bool()
 }
 
@@ -232,7 +246,13 @@ func (self *Key) DownDurationI(args ...interface{}) bool{
 
 // Returns `true` if the Key was pressed down within the `duration` value given, or `false` if it either isn't down,
 // or was pressed down longer ago than then given duration.
-func (self *Key) UpDuration(duration int) bool{
+func (self *Key) UpDuration() bool{
+    return self.Object.Call("upDuration").Bool()
+}
+
+// Returns `true` if the Key was pressed down within the `duration` value given, or `false` if it either isn't down,
+// or was pressed down longer ago than then given duration.
+func (self *Key) UpDuration1O(duration int) bool{
     return self.Object.Call("upDuration", duration).Bool()
 }
 

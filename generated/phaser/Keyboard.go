@@ -108,7 +108,22 @@ func (self *Keyboard) SetLastKeyA(member *Key) {
 
 
 // Add callbacks to the Keyboard handler so that each time a key is pressed down or released the callbacks are activated.
-func (self *Keyboard) AddCallbacks(context interface{}, onDown func(...interface{}), onUp func(...interface{}), onPress func(...interface{})) {
+func (self *Keyboard) AddCallbacks(context interface{}) {
+    self.Object.Call("addCallbacks", context)
+}
+
+// Add callbacks to the Keyboard handler so that each time a key is pressed down or released the callbacks are activated.
+func (self *Keyboard) AddCallbacks1O(context interface{}, onDown func(...interface{})) {
+    self.Object.Call("addCallbacks", context, onDown)
+}
+
+// Add callbacks to the Keyboard handler so that each time a key is pressed down or released the callbacks are activated.
+func (self *Keyboard) AddCallbacks2O(context interface{}, onDown func(...interface{}), onUp func(...interface{})) {
+    self.Object.Call("addCallbacks", context, onDown, onUp)
+}
+
+// Add callbacks to the Keyboard handler so that each time a key is pressed down or released the callbacks are activated.
+func (self *Keyboard) AddCallbacks3O(context interface{}, onDown func(...interface{}), onUp func(...interface{}), onPress func(...interface{})) {
     self.Object.Call("addCallbacks", context, onDown, onUp, onPress)
 }
 
@@ -288,7 +303,12 @@ func (self *Keyboard) ProcessKeyUpI(args ...interface{}) {
 }
 
 // Resets all Keys.
-func (self *Keyboard) Reset(hard bool) {
+func (self *Keyboard) Reset() {
+    self.Object.Call("reset")
+}
+
+// Resets all Keys.
+func (self *Keyboard) Reset1O(hard bool) {
     self.Object.Call("reset", hard)
 }
 
@@ -299,7 +319,13 @@ func (self *Keyboard) ResetI(args ...interface{}) {
 
 // Returns `true` if the Key was pressed down within the `duration` value given, or `false` if it either isn't down,
 // or was pressed down longer ago than then given duration.
-func (self *Keyboard) DownDuration(keycode int, duration int) bool{
+func (self *Keyboard) DownDuration(keycode int) bool{
+    return self.Object.Call("downDuration", keycode).Bool()
+}
+
+// Returns `true` if the Key was pressed down within the `duration` value given, or `false` if it either isn't down,
+// or was pressed down longer ago than then given duration.
+func (self *Keyboard) DownDuration1O(keycode int, duration int) bool{
     return self.Object.Call("downDuration", keycode, duration).Bool()
 }
 
@@ -311,7 +337,13 @@ func (self *Keyboard) DownDurationI(args ...interface{}) bool{
 
 // Returns `true` if the Key was pressed down within the `duration` value given, or `false` if it either isn't down,
 // or was pressed down longer ago than then given duration.
-func (self *Keyboard) UpDuration(keycode interface{}, duration int) bool{
+func (self *Keyboard) UpDuration(keycode interface{}) bool{
+    return self.Object.Call("upDuration", keycode).Bool()
+}
+
+// Returns `true` if the Key was pressed down within the `duration` value given, or `false` if it either isn't down,
+// or was pressed down longer ago than then given duration.
+func (self *Keyboard) UpDuration1O(keycode interface{}, duration int) bool{
     return self.Object.Call("upDuration", keycode, duration).Bool()
 }
 

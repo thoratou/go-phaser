@@ -838,7 +838,16 @@ func (self *PhysicsArcadeBody) UpdateMovementI(args ...interface{}) {
 // either the duration or distance counters expire.
 // 
 // The `onMoveComplete` signal is dispatched.
-func (self *PhysicsArcadeBody) StopMovement(stopVelocity bool) {
+func (self *PhysicsArcadeBody) StopMovement() {
+    self.Object.Call("stopMovement")
+}
+
+// If this Body is moving as a result of a call to `moveTo` or `moveFrom` (i.e. it
+// has Body.isMoving true), then calling this method will stop the movement before
+// either the duration or distance counters expire.
+// 
+// The `onMoveComplete` signal is dispatched.
+func (self *PhysicsArcadeBody) StopMovement1O(stopVelocity bool) {
     self.Object.Call("stopMovement", stopVelocity)
 }
 
@@ -893,7 +902,59 @@ func (self *PhysicsArcadeBody) CheckWorldBoundsI(args ...interface{}) bool{
 // +- 50ms. Also this method doesn't take into consideration any other forces acting
 // on the Body, such as Gravity, drag or maxVelocity, all of which may impact the
 // movement.
-func (self *PhysicsArcadeBody) MoveFrom(duration int, speed int, direction int) bool{
+func (self *PhysicsArcadeBody) MoveFrom(duration int) bool{
+    return self.Object.Call("moveFrom", duration).Bool()
+}
+
+// Note: This method is experimental, and may be changed or removed in a future release.
+// 
+// This method moves the Body in the given direction, for the duration specified.
+// It works by setting the velocity on the Body, and an internal timer, and then
+// monitoring the duration each frame. When the duration is up the movement is
+// stopped and the `Body.onMoveComplete` signal is dispatched.
+// 
+// Movement also stops if the Body collides or overlaps with any other Body.
+// 
+// You can control if the velocity should be reset to zero on collision, by using
+// the property `Body.stopVelocityOnCollide`.
+// 
+// Stop the movement at any time by calling `Body.stopMovement`.
+// 
+// You can optionally set a speed in pixels per second. If not specified it
+// will use the current `Body.speed` value. If this is zero, the function will return false.
+// 
+// Please note that due to browser timings you should allow for a variance in 
+// when the duration will actually expire. Depending on system it may be as much as
+// +- 50ms. Also this method doesn't take into consideration any other forces acting
+// on the Body, such as Gravity, drag or maxVelocity, all of which may impact the
+// movement.
+func (self *PhysicsArcadeBody) MoveFrom1O(duration int, speed int) bool{
+    return self.Object.Call("moveFrom", duration, speed).Bool()
+}
+
+// Note: This method is experimental, and may be changed or removed in a future release.
+// 
+// This method moves the Body in the given direction, for the duration specified.
+// It works by setting the velocity on the Body, and an internal timer, and then
+// monitoring the duration each frame. When the duration is up the movement is
+// stopped and the `Body.onMoveComplete` signal is dispatched.
+// 
+// Movement also stops if the Body collides or overlaps with any other Body.
+// 
+// You can control if the velocity should be reset to zero on collision, by using
+// the property `Body.stopVelocityOnCollide`.
+// 
+// Stop the movement at any time by calling `Body.stopMovement`.
+// 
+// You can optionally set a speed in pixels per second. If not specified it
+// will use the current `Body.speed` value. If this is zero, the function will return false.
+// 
+// Please note that due to browser timings you should allow for a variance in 
+// when the duration will actually expire. Depending on system it may be as much as
+// +- 50ms. Also this method doesn't take into consideration any other forces acting
+// on the Body, such as Gravity, drag or maxVelocity, all of which may impact the
+// movement.
+func (self *PhysicsArcadeBody) MoveFrom2O(duration int, speed int, direction int) bool{
     return self.Object.Call("moveFrom", duration, speed, direction).Bool()
 }
 
@@ -944,7 +1005,32 @@ func (self *PhysicsArcadeBody) MoveFromI(args ...interface{}) bool{
 // Note: This method doesn't take into consideration any other forces acting
 // on the Body, such as Gravity, drag or maxVelocity, all of which may impact the
 // movement.
-func (self *PhysicsArcadeBody) MoveTo(duration int, distance int, direction int) bool{
+func (self *PhysicsArcadeBody) MoveTo(duration int, distance int) bool{
+    return self.Object.Call("moveTo", duration, distance).Bool()
+}
+
+// Note: This method is experimental, and may be changed or removed in a future release.
+// 
+// This method moves the Body in the given direction, for the duration specified.
+// It works by setting the velocity on the Body, and an internal distance counter.
+// The distance is monitored each frame. When the distance equals the distance
+// specified in this call, the movement is stopped, and the `Body.onMoveComplete` 
+// signal is dispatched.
+// 
+// Movement also stops if the Body collides or overlaps with any other Body.
+// 
+// You can control if the velocity should be reset to zero on collision, by using
+// the property `Body.stopVelocityOnCollide`.
+// 
+// Stop the movement at any time by calling `Body.stopMovement`.
+// 
+// Please note that due to browser timings you should allow for a variance in 
+// when the distance will actually expire.
+// 
+// Note: This method doesn't take into consideration any other forces acting
+// on the Body, such as Gravity, drag or maxVelocity, all of which may impact the
+// movement.
+func (self *PhysicsArcadeBody) MoveTo1O(duration int, distance int, direction int) bool{
     return self.Object.Call("moveTo", duration, distance, direction).Bool()
 }
 
@@ -989,7 +1075,47 @@ func (self *PhysicsArcadeBody) MoveToI(args ...interface{}) bool{
 // 
 // Calling `setSize` on a Body that has already had `setCircle` will reset all of the Circle
 // properties, making this Body rectangular again.
-func (self *PhysicsArcadeBody) SetSize(width int, height int, offsetX int, offsetY int) {
+func (self *PhysicsArcadeBody) SetSize(width int, height int) {
+    self.Object.Call("setSize", width, height)
+}
+
+// You can modify the size of the physics Body to be any dimension you need.
+// This allows you to make it smaller, or larger, than the parent Sprite.
+// You can also control the x and y offset of the Body. This is the position of the
+// Body relative to the top-left of the Sprite _texture_.
+// 
+// For example: If you have a Sprite with a texture that is 80x100 in size,
+// and you want the physics body to be 32x32 pixels in the middle of the texture, you would do:
+// 
+// `setSize(32, 32, 24, 34)`
+// 
+// Where the first two parameters is the new Body size (32x32 pixels).
+// 24 is the horizontal offset of the Body from the top-left of the Sprites texture, and 34
+// is the vertical offset.
+// 
+// Calling `setSize` on a Body that has already had `setCircle` will reset all of the Circle
+// properties, making this Body rectangular again.
+func (self *PhysicsArcadeBody) SetSize1O(width int, height int, offsetX int) {
+    self.Object.Call("setSize", width, height, offsetX)
+}
+
+// You can modify the size of the physics Body to be any dimension you need.
+// This allows you to make it smaller, or larger, than the parent Sprite.
+// You can also control the x and y offset of the Body. This is the position of the
+// Body relative to the top-left of the Sprite _texture_.
+// 
+// For example: If you have a Sprite with a texture that is 80x100 in size,
+// and you want the physics body to be 32x32 pixels in the middle of the texture, you would do:
+// 
+// `setSize(32, 32, 24, 34)`
+// 
+// Where the first two parameters is the new Body size (32x32 pixels).
+// 24 is the horizontal offset of the Body from the top-left of the Sprites texture, and 34
+// is the vertical offset.
+// 
+// Calling `setSize` on a Body that has already had `setCircle` will reset all of the Circle
+// properties, making this Body rectangular again.
+func (self *PhysicsArcadeBody) SetSize2O(width int, height int, offsetX int, offsetY int) {
     self.Object.Call("setSize", width, height, offsetX, offsetY)
 }
 
@@ -1022,7 +1148,46 @@ func (self *PhysicsArcadeBody) SetSizeI(args ...interface{}) {
 // 
 // Note: Circular collision only happens with other Arcade Physics bodies, it does not
 // work against tile maps, where rectangular collision is the only method supported.
-func (self *PhysicsArcadeBody) SetCircle(radius int, offsetX int, offsetY int) {
+func (self *PhysicsArcadeBody) SetCircle() {
+    self.Object.Call("setCircle")
+}
+
+// Sets this Body as using a circle, of the given radius, for all collision detection instead of a rectangle.
+// The radius is given in pixels and is the distance from the center of the circle to the edge.
+// 
+// You can also control the x and y offset, which is the position of the Body relative to the top-left of the Sprite.
+// 
+// To change a Body back to being rectangular again call `Body.setSize`.
+// 
+// Note: Circular collision only happens with other Arcade Physics bodies, it does not
+// work against tile maps, where rectangular collision is the only method supported.
+func (self *PhysicsArcadeBody) SetCircle1O(radius int) {
+    self.Object.Call("setCircle", radius)
+}
+
+// Sets this Body as using a circle, of the given radius, for all collision detection instead of a rectangle.
+// The radius is given in pixels and is the distance from the center of the circle to the edge.
+// 
+// You can also control the x and y offset, which is the position of the Body relative to the top-left of the Sprite.
+// 
+// To change a Body back to being rectangular again call `Body.setSize`.
+// 
+// Note: Circular collision only happens with other Arcade Physics bodies, it does not
+// work against tile maps, where rectangular collision is the only method supported.
+func (self *PhysicsArcadeBody) SetCircle2O(radius int, offsetX int) {
+    self.Object.Call("setCircle", radius, offsetX)
+}
+
+// Sets this Body as using a circle, of the given radius, for all collision detection instead of a rectangle.
+// The radius is given in pixels and is the distance from the center of the circle to the edge.
+// 
+// You can also control the x and y offset, which is the position of the Body relative to the top-left of the Sprite.
+// 
+// To change a Body back to being rectangular again call `Body.setSize`.
+// 
+// Note: Circular collision only happens with other Arcade Physics bodies, it does not
+// work against tile maps, where rectangular collision is the only method supported.
+func (self *PhysicsArcadeBody) SetCircle3O(radius int, offsetX int, offsetY int) {
     self.Object.Call("setCircle", radius, offsetX, offsetY)
 }
 
@@ -1170,7 +1335,17 @@ func (self *PhysicsArcadeBody) DestroyI(args ...interface{}) {
 }
 
 // Render Sprite Body.
-func (self *PhysicsArcadeBody) Render(context interface{}, body *PhysicsArcadeBody, color string, filled bool) {
+func (self *PhysicsArcadeBody) Render(context interface{}, body *PhysicsArcadeBody) {
+    self.Object.Call("render", context, body)
+}
+
+// Render Sprite Body.
+func (self *PhysicsArcadeBody) Render1O(context interface{}, body *PhysicsArcadeBody, color string) {
+    self.Object.Call("render", context, body, color)
+}
+
+// Render Sprite Body.
+func (self *PhysicsArcadeBody) Render2O(context interface{}, body *PhysicsArcadeBody, color string, filled bool) {
     self.Object.Call("render", context, body, color, filled)
 }
 
@@ -1180,7 +1355,12 @@ func (self *PhysicsArcadeBody) RenderI(args ...interface{}) {
 }
 
 // Render Sprite Body Physics Data as text.
-func (self *PhysicsArcadeBody) RenderBodyInfo(body *PhysicsArcadeBody, x int, y int, color string) {
+func (self *PhysicsArcadeBody) RenderBodyInfo(body *PhysicsArcadeBody, x int, y int) {
+    self.Object.Call("renderBodyInfo", body, x, y)
+}
+
+// Render Sprite Body Physics Data as text.
+func (self *PhysicsArcadeBody) RenderBodyInfo1O(body *PhysicsArcadeBody, x int, y int, color string) {
     self.Object.Call("renderBodyInfo", body, x, y, color)
 }
 

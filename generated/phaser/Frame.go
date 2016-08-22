@@ -248,7 +248,12 @@ func (self *Frame) CloneI(args ...interface{}) *Frame{
 }
 
 // Returns a Rectangle set to the dimensions of this Frame.
-func (self *Frame) GetRect(out *Rectangle) *Rectangle{
+func (self *Frame) GetRect() *Rectangle{
+    return &Rectangle{self.Object.Call("getRect")}
+}
+
+// Returns a Rectangle set to the dimensions of this Frame.
+func (self *Frame) GetRect1O(out *Rectangle) *Rectangle{
     return &Rectangle{self.Object.Call("getRect", out)}
 }
 

@@ -59,7 +59,13 @@ func (self *Net) UpdateQueryStringI(args ...interface{}) string{
 
 // Returns the Query String as an object.
 // If you specify a parameter it will return just the value of that parameter, should it exist.
-func (self *Net) GetQueryString(parameter string) interface{}{
+func (self *Net) GetQueryString() interface{}{
+    return self.Object.Call("getQueryString")
+}
+
+// Returns the Query String as an object.
+// If you specify a parameter it will return just the value of that parameter, should it exist.
+func (self *Net) GetQueryString1O(parameter string) interface{}{
     return self.Object.Call("getQueryString", parameter)
 }
 

@@ -54,7 +54,12 @@ func (self *PluginManager) AddI(args ...interface{}) *Plugin{
 }
 
 // Remove a Plugin from the PluginManager. It calls Plugin.destroy on the plugin before removing it from the manager.
-func (self *PluginManager) Remove(plugin *Plugin, destroy bool) {
+func (self *PluginManager) Remove(plugin *Plugin) {
+    self.Object.Call("remove", plugin)
+}
+
+// Remove a Plugin from the PluginManager. It calls Plugin.destroy on the plugin before removing it from the manager.
+func (self *PluginManager) Remove1O(plugin *Plugin, destroy bool) {
     self.Object.Call("remove", plugin, destroy)
 }
 

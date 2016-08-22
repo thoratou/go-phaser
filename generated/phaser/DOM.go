@@ -117,7 +117,14 @@ func (self *DOM) SetScrollYA(member int) {
 // Get the [absolute] position of the element relative to the Document.
 // 
 // The value may vary slightly as the page is scrolled due to rounding errors.
-func (self *DOM) GetOffset(element *DOMElement, point *Point) *Point{
+func (self *DOM) GetOffset(element *DOMElement) *Point{
+    return &Point{self.Object.Call("getOffset", element)}
+}
+
+// Get the [absolute] position of the element relative to the Document.
+// 
+// The value may vary slightly as the page is scrolled due to rounding errors.
+func (self *DOM) GetOffset1O(element *DOMElement, point *Point) *Point{
     return &Point{self.Object.Call("getOffset", element, point)}
 }
 
@@ -134,7 +141,17 @@ func (self *DOM) GetOffsetI(args ...interface{}) *Point{
 // Its properties match the native rectangle.
 // The cushion parameter is an amount of pixels (+/-) to cushion the element.
 // It adjusts the measurements such that it is possible to detect when an element is near the viewport.
-func (self *DOM) GetBounds(element interface{}, cushion int) interface{}{
+func (self *DOM) GetBounds(element interface{}) interface{}{
+    return self.Object.Call("getBounds", element)
+}
+
+// A cross-browser element.getBoundingClientRect method with optional cushion.
+// 
+// Returns a plain object containing the properties `top/bottom/left/right/width/height` with respect to the top-left corner of the current viewport.
+// Its properties match the native rectangle.
+// The cushion parameter is an amount of pixels (+/-) to cushion the element.
+// It adjusts the measurements such that it is possible to detect when an element is near the viewport.
+func (self *DOM) GetBounds1O(element interface{}, cushion int) interface{}{
     return self.Object.Call("getBounds", element, cushion)
 }
 
@@ -149,7 +166,12 @@ func (self *DOM) GetBoundsI(args ...interface{}) interface{}{
 }
 
 // Calibrates element coordinates for `inLayoutViewport` checks.
-func (self *DOM) Calibrate(coords interface{}, cushion int) interface{}{
+func (self *DOM) Calibrate(coords interface{}) interface{}{
+    return self.Object.Call("calibrate", coords)
+}
+
+// Calibrates element coordinates for `inLayoutViewport` checks.
+func (self *DOM) Calibrate1O(coords interface{}, cushion int) interface{}{
     return self.Object.Call("calibrate", coords, cushion)
 }
 
@@ -159,7 +181,12 @@ func (self *DOM) CalibrateI(args ...interface{}) interface{}{
 }
 
 // Get the Visual viewport aspect ratio (or the aspect ratio of an object or element)
-func (self *DOM) GetAspectRatio(object interface{}) int{
+func (self *DOM) GetAspectRatio() int{
+    return self.Object.Call("getAspectRatio").Int()
+}
+
+// Get the Visual viewport aspect ratio (or the aspect ratio of an object or element)
+func (self *DOM) GetAspectRatio1O(object interface{}) int{
     return self.Object.Call("getAspectRatio", object).Int()
 }
 
@@ -174,7 +201,17 @@ func (self *DOM) GetAspectRatioI(args ...interface{}) int{
 // 
 // inLayoutViewport(element, 100) is `true` if the element is in the viewport or 100px near it.
 // inLayoutViewport(element, -100) is `true` if the element is in the viewport or at least 100px near it.
-func (self *DOM) InLayoutViewport(element interface{}, cushion int) bool{
+func (self *DOM) InLayoutViewport(element interface{}) bool{
+    return self.Object.Call("inLayoutViewport", element).Bool()
+}
+
+// Tests if the given DOM element is within the Layout viewport.
+// 
+// The optional cushion parameter allows you to specify a distance.
+// 
+// inLayoutViewport(element, 100) is `true` if the element is in the viewport or 100px near it.
+// inLayoutViewport(element, -100) is `true` if the element is in the viewport or at least 100px near it.
+func (self *DOM) InLayoutViewport1O(element interface{}, cushion int) bool{
     return self.Object.Call("inLayoutViewport", element, cushion).Bool()
 }
 
@@ -207,7 +244,30 @@ func (self *DOM) InLayoutViewportI(args ...interface{}) bool{
 // - https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Testing_media_queries
 // - http://stackoverflow.com/questions/4917664/detect-viewport-orientation
 // - http://www.matthewgifford.com/blog/2011/12/22/a-misconception-about-window-orientation
-func (self *DOM) GetScreenOrientation(primaryFallback string) {
+func (self *DOM) GetScreenOrientation() {
+    self.Object.Call("getScreenOrientation")
+}
+
+// Returns the device screen orientation.
+// 
+// Orientation values: 'portrait-primary', 'landscape-primary', 'portrait-secondary', 'landscape-secondary'.
+// 
+// Order of resolving:
+// - Screen Orientation API, or variation of - Future track. Most desktop and mobile browsers.
+// - Screen size ratio check - If fallback is 'screen', suited for desktops.
+// - Viewport size ratio check - If fallback is 'viewport', suited for mobile.
+// - window.orientation - If fallback is 'window.orientation', works iOS and probably most Android; non-recommended track.
+// - Media query
+// - Viewport size ratio check (probably only IE9 and legacy mobile gets here..)
+// 
+// See
+// - https://w3c.github.io/screen-orientation/ (conflicts with mozOrientation/msOrientation)
+// - https://developer.mozilla.org/en-US/docs/Web/API/Screen.orientation (mozOrientation)
+// - http://msdn.microsoft.com/en-us/library/ie/dn342934(v=vs.85).aspx
+// - https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Testing_media_queries
+// - http://stackoverflow.com/questions/4917664/detect-viewport-orientation
+// - http://www.matthewgifford.com/blog/2011/12/22/a-misconception-about-window-orientation
+func (self *DOM) GetScreenOrientation1O(primaryFallback string) {
     self.Object.Call("getScreenOrientation", primaryFallback)
 }
 

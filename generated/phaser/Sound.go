@@ -437,7 +437,25 @@ func (self *Sound) SoundHasUnlockedI(args ...interface{}) {
 
 // Adds a marker into the current Sound. A marker is represented by a unique key and a start time and duration.
 // This allows you to bundle multiple sounds together into a single audio file and use markers to jump between them for playback.
-func (self *Sound) AddMarker(name string, start int, duration int, volume int, loop bool) {
+func (self *Sound) AddMarker(name string, start int) {
+    self.Object.Call("addMarker", name, start)
+}
+
+// Adds a marker into the current Sound. A marker is represented by a unique key and a start time and duration.
+// This allows you to bundle multiple sounds together into a single audio file and use markers to jump between them for playback.
+func (self *Sound) AddMarker1O(name string, start int, duration int) {
+    self.Object.Call("addMarker", name, start, duration)
+}
+
+// Adds a marker into the current Sound. A marker is represented by a unique key and a start time and duration.
+// This allows you to bundle multiple sounds together into a single audio file and use markers to jump between them for playback.
+func (self *Sound) AddMarker2O(name string, start int, duration int, volume int) {
+    self.Object.Call("addMarker", name, start, duration, volume)
+}
+
+// Adds a marker into the current Sound. A marker is represented by a unique key and a start time and duration.
+// This allows you to bundle multiple sounds together into a single audio file and use markers to jump between them for playback.
+func (self *Sound) AddMarker3O(name string, start int, duration int, volume int, loop bool) {
     self.Object.Call("addMarker", name, start, duration, volume, loop)
 }
 
@@ -480,7 +498,12 @@ func (self *Sound) UpdateI(args ...interface{}) {
 }
 
 // Loops this entire sound. If you need to loop a section of it then use Sound.play and the marker and loop parameters.
-func (self *Sound) LoopFull(volume int) *Sound{
+func (self *Sound) LoopFull() *Sound{
+    return &Sound{self.Object.Call("loopFull")}
+}
+
+// Loops this entire sound. If you need to loop a section of it then use Sound.play and the marker and loop parameters.
+func (self *Sound) LoopFull1O(volume int) *Sound{
     return &Sound{self.Object.Call("loopFull", volume)}
 }
 
@@ -490,7 +513,32 @@ func (self *Sound) LoopFullI(args ...interface{}) *Sound{
 }
 
 // Play this sound, or a marked section of it.
-func (self *Sound) Play(marker string, position int, volume int, loop bool, forceRestart bool) *Sound{
+func (self *Sound) Play() *Sound{
+    return &Sound{self.Object.Call("play")}
+}
+
+// Play this sound, or a marked section of it.
+func (self *Sound) Play1O(marker string) *Sound{
+    return &Sound{self.Object.Call("play", marker)}
+}
+
+// Play this sound, or a marked section of it.
+func (self *Sound) Play2O(marker string, position int) *Sound{
+    return &Sound{self.Object.Call("play", marker, position)}
+}
+
+// Play this sound, or a marked section of it.
+func (self *Sound) Play3O(marker string, position int, volume int) *Sound{
+    return &Sound{self.Object.Call("play", marker, position, volume)}
+}
+
+// Play this sound, or a marked section of it.
+func (self *Sound) Play4O(marker string, position int, volume int, loop bool) *Sound{
+    return &Sound{self.Object.Call("play", marker, position, volume, loop)}
+}
+
+// Play this sound, or a marked section of it.
+func (self *Sound) Play5O(marker string, position int, volume int, loop bool, forceRestart bool) *Sound{
     return &Sound{self.Object.Call("play", marker, position, volume, loop, forceRestart)}
 }
 
@@ -500,7 +548,27 @@ func (self *Sound) PlayI(args ...interface{}) *Sound{
 }
 
 // Restart the sound, or a marked section of it.
-func (self *Sound) Restart(marker string, position int, volume int, loop bool) {
+func (self *Sound) Restart() {
+    self.Object.Call("restart")
+}
+
+// Restart the sound, or a marked section of it.
+func (self *Sound) Restart1O(marker string) {
+    self.Object.Call("restart", marker)
+}
+
+// Restart the sound, or a marked section of it.
+func (self *Sound) Restart2O(marker string, position int) {
+    self.Object.Call("restart", marker, position)
+}
+
+// Restart the sound, or a marked section of it.
+func (self *Sound) Restart3O(marker string, position int, volume int) {
+    self.Object.Call("restart", marker, position, volume)
+}
+
+// Restart the sound, or a marked section of it.
+func (self *Sound) Restart4O(marker string, position int, volume int, loop bool) {
     self.Object.Call("restart", marker, position, volume, loop)
 }
 
@@ -544,7 +612,34 @@ func (self *Sound) StopI(args ...interface{}) {
 // 
 // At the end of the fade Sound.onFadeComplete is dispatched with this Sound object as the first parameter,
 // and the final volume (1) as the second parameter.
-func (self *Sound) FadeIn(duration int, loop bool, marker string) {
+func (self *Sound) FadeIn() {
+    self.Object.Call("fadeIn")
+}
+
+// Starts this sound playing (or restarts it if already doing so) and sets the volume to zero.
+// Then increases the volume from 0 to 1 over the duration specified.
+// 
+// At the end of the fade Sound.onFadeComplete is dispatched with this Sound object as the first parameter,
+// and the final volume (1) as the second parameter.
+func (self *Sound) FadeIn1O(duration int) {
+    self.Object.Call("fadeIn", duration)
+}
+
+// Starts this sound playing (or restarts it if already doing so) and sets the volume to zero.
+// Then increases the volume from 0 to 1 over the duration specified.
+// 
+// At the end of the fade Sound.onFadeComplete is dispatched with this Sound object as the first parameter,
+// and the final volume (1) as the second parameter.
+func (self *Sound) FadeIn2O(duration int, loop bool) {
+    self.Object.Call("fadeIn", duration, loop)
+}
+
+// Starts this sound playing (or restarts it if already doing so) and sets the volume to zero.
+// Then increases the volume from 0 to 1 over the duration specified.
+// 
+// At the end of the fade Sound.onFadeComplete is dispatched with this Sound object as the first parameter,
+// and the final volume (1) as the second parameter.
+func (self *Sound) FadeIn3O(duration int, loop bool, marker string) {
     self.Object.Call("fadeIn", duration, loop, marker)
 }
 
@@ -560,7 +655,14 @@ func (self *Sound) FadeInI(args ...interface{}) {
 // Decreases the volume of this Sound from its current value to 0 over the duration specified.
 // At the end of the fade Sound.onFadeComplete is dispatched with this Sound object as the first parameter,
 // and the final volume (0) as the second parameter.
-func (self *Sound) FadeOut(duration int) {
+func (self *Sound) FadeOut() {
+    self.Object.Call("fadeOut")
+}
+
+// Decreases the volume of this Sound from its current value to 0 over the duration specified.
+// At the end of the fade Sound.onFadeComplete is dispatched with this Sound object as the first parameter,
+// and the final volume (0) as the second parameter.
+func (self *Sound) FadeOut1O(duration int) {
     self.Object.Call("fadeOut", duration)
 }
 
@@ -574,7 +676,21 @@ func (self *Sound) FadeOutI(args ...interface{}) {
 // Fades the volume of this Sound from its current value to the given volume over the duration specified.
 // At the end of the fade Sound.onFadeComplete is dispatched with this Sound object as the first parameter, 
 // and the final volume (volume) as the second parameter.
-func (self *Sound) FadeTo(duration int, volume int) {
+func (self *Sound) FadeTo() {
+    self.Object.Call("fadeTo")
+}
+
+// Fades the volume of this Sound from its current value to the given volume over the duration specified.
+// At the end of the fade Sound.onFadeComplete is dispatched with this Sound object as the first parameter, 
+// and the final volume (volume) as the second parameter.
+func (self *Sound) FadeTo1O(duration int) {
+    self.Object.Call("fadeTo", duration)
+}
+
+// Fades the volume of this Sound from its current value to the given volume over the duration specified.
+// At the end of the fade Sound.onFadeComplete is dispatched with this Sound object as the first parameter, 
+// and the final volume (volume) as the second parameter.
+func (self *Sound) FadeTo2O(duration int, volume int) {
     self.Object.Call("fadeTo", duration, volume)
 }
 
@@ -614,7 +730,12 @@ func (self *Sound) UpdateGlobalVolumeI(args ...interface{}) {
 }
 
 // Destroys this sound and all associated events and removes it from the SoundManager.
-func (self *Sound) Destroy(remove bool) {
+func (self *Sound) Destroy() {
+    self.Object.Call("destroy")
+}
+
+// Destroys this sound and all associated events and removes it from the SoundManager.
+func (self *Sound) Destroy1O(remove bool) {
     self.Object.Call("destroy", remove)
 }
 

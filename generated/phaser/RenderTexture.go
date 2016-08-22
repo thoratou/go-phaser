@@ -185,7 +185,16 @@ func (self *RenderTexture) SetRequiresReTintA(member bool) {
 // When the display object is drawn it takes into account scale and rotation.
 // 
 // If you don't want those then use RenderTexture.renderRawXY instead.
-func (self *RenderTexture) RenderXY(displayObject interface{}, x int, y int, clear bool) {
+func (self *RenderTexture) RenderXY(displayObject interface{}, x int, y int) {
+    self.Object.Call("renderXY", displayObject, x, y)
+}
+
+// This function will draw the display object to the RenderTexture at the given coordinates.
+// 
+// When the display object is drawn it takes into account scale and rotation.
+// 
+// If you don't want those then use RenderTexture.renderRawXY instead.
+func (self *RenderTexture) RenderXY1O(displayObject interface{}, x int, y int, clear bool) {
     self.Object.Call("renderXY", displayObject, x, y, clear)
 }
 
@@ -203,7 +212,16 @@ func (self *RenderTexture) RenderXYI(args ...interface{}) {
 // When the display object is drawn it doesn't take into account scale, rotation or translation.
 // 
 // If you need those then use RenderTexture.renderXY instead.
-func (self *RenderTexture) RenderRawXY(displayObject interface{}, x int, y int, clear bool) {
+func (self *RenderTexture) RenderRawXY(displayObject interface{}, x int, y int) {
+    self.Object.Call("renderRawXY", displayObject, x, y)
+}
+
+// This function will draw the display object to the RenderTexture at the given coordinates.
+// 
+// When the display object is drawn it doesn't take into account scale, rotation or translation.
+// 
+// If you need those then use RenderTexture.renderXY instead.
+func (self *RenderTexture) RenderRawXY1O(displayObject interface{}, x int, y int, clear bool) {
     self.Object.Call("renderRawXY", displayObject, x, y, clear)
 }
 
@@ -224,7 +242,31 @@ func (self *RenderTexture) RenderRawXYI(args ...interface{}) {
 // 
 // If you wish for the displayObject to be rendered taking its current scale, rotation and translation into account then either
 // pass `null`, leave it undefined or pass `displayObject.worldTransform` as the matrix value.
-func (self *RenderTexture) Render(displayObject interface{}, matrix *Matrix, clear bool) {
+func (self *RenderTexture) Render(displayObject interface{}) {
+    self.Object.Call("render", displayObject)
+}
+
+// This function will draw the display object to the RenderTexture.
+// 
+// In versions of Phaser prior to 2.4.0 the second parameter was a Phaser.Point object. 
+// This is now a Matrix allowing you much more control over how the Display Object is rendered.
+// If you need to replicate the earlier behavior please use Phaser.RenderTexture.renderXY instead.
+// 
+// If you wish for the displayObject to be rendered taking its current scale, rotation and translation into account then either
+// pass `null`, leave it undefined or pass `displayObject.worldTransform` as the matrix value.
+func (self *RenderTexture) Render1O(displayObject interface{}, matrix *Matrix) {
+    self.Object.Call("render", displayObject, matrix)
+}
+
+// This function will draw the display object to the RenderTexture.
+// 
+// In versions of Phaser prior to 2.4.0 the second parameter was a Phaser.Point object. 
+// This is now a Matrix allowing you much more control over how the Display Object is rendered.
+// If you need to replicate the earlier behavior please use Phaser.RenderTexture.renderXY instead.
+// 
+// If you wish for the displayObject to be rendered taking its current scale, rotation and translation into account then either
+// pass `null`, leave it undefined or pass `displayObject.worldTransform` as the matrix value.
+func (self *RenderTexture) Render2O(displayObject interface{}, matrix *Matrix, clear bool) {
     self.Object.Call("render", displayObject, matrix, clear)
 }
 
@@ -261,7 +303,17 @@ func (self *RenderTexture) ClearI(args ...interface{}) {
 }
 
 // This function will draw the display object to the texture.
-func (self *RenderTexture) RenderWebGL(displayObject *DisplayObject, matrix *Matrix, clear bool) {
+func (self *RenderTexture) RenderWebGL(displayObject *DisplayObject) {
+    self.Object.Call("renderWebGL", displayObject)
+}
+
+// This function will draw the display object to the texture.
+func (self *RenderTexture) RenderWebGL1O(displayObject *DisplayObject, matrix *Matrix) {
+    self.Object.Call("renderWebGL", displayObject, matrix)
+}
+
+// This function will draw the display object to the texture.
+func (self *RenderTexture) RenderWebGL2O(displayObject *DisplayObject, matrix *Matrix, clear bool) {
     self.Object.Call("renderWebGL", displayObject, matrix, clear)
 }
 
@@ -271,7 +323,17 @@ func (self *RenderTexture) RenderWebGLI(args ...interface{}) {
 }
 
 // This function will draw the display object to the texture.
-func (self *RenderTexture) RenderCanvas(displayObject *DisplayObject, matrix *Matrix, clear bool) {
+func (self *RenderTexture) RenderCanvas(displayObject *DisplayObject) {
+    self.Object.Call("renderCanvas", displayObject)
+}
+
+// This function will draw the display object to the texture.
+func (self *RenderTexture) RenderCanvas1O(displayObject *DisplayObject, matrix *Matrix) {
+    self.Object.Call("renderCanvas", displayObject, matrix)
+}
+
+// This function will draw the display object to the texture.
+func (self *RenderTexture) RenderCanvas2O(displayObject *DisplayObject, matrix *Matrix, clear bool) {
     self.Object.Call("renderCanvas", displayObject, matrix, clear)
 }
 
