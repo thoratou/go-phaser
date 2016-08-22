@@ -5,6 +5,8 @@ package phaser
 import (
 	"github.com/gopherjs/gopherjs/js"
 
+	dom "honnef.co/go/js/dom"
+
 )
 
 // Phaser has one single cache in which it stores all assets.
@@ -34,216 +36,235 @@ type Cache struct {
 
 
 // Local reference to game.
-func (self *Cache) GetGame() *Game{
-    return &Game{self.Get("game")}
+func (self *Cache) GetGameA() *Game{
+    return &Game{self.Object.Get("game")}
 }
 
 // Local reference to game.
-func (self *Cache) SetGame(member *Game) {
-    self.Set("game", member)
+func (self *Cache) SetGameA(member *Game) {
+    self.Object.Set("game", member)
 }
 
 // Automatically resolve resource URLs to absolute paths for use with the Cache.getURL method.
-func (self *Cache) GetAutoResolveURL() bool{
-    return self.Get("autoResolveURL").Bool()
+func (self *Cache) GetAutoResolveURLA() bool{
+    return self.Object.Get("autoResolveURL").Bool()
 }
 
 // Automatically resolve resource URLs to absolute paths for use with the Cache.getURL method.
-func (self *Cache) SetAutoResolveURL(member bool) {
-    self.Set("autoResolveURL", member)
+func (self *Cache) SetAutoResolveURLA(member bool) {
+    self.Object.Set("autoResolveURL", member)
 }
 
 // This event is dispatched when the sound system is unlocked via a touch event on cellular devices.
-func (self *Cache) GetOnSoundUnlock() *Signal{
-    return &Signal{self.Get("onSoundUnlock")}
+func (self *Cache) GetOnSoundUnlockA() *Signal{
+    return &Signal{self.Object.Get("onSoundUnlock")}
 }
 
 // This event is dispatched when the sound system is unlocked via a touch event on cellular devices.
-func (self *Cache) SetOnSoundUnlock(member *Signal) {
-    self.Set("onSoundUnlock", member)
+func (self *Cache) SetOnSoundUnlockA(member *Signal) {
+    self.Object.Set("onSoundUnlock", member)
 }
 
 // 
-func (self *Cache) GetCANVAS() int{
-    return self.Get("CANVAS").Int()
+func (self *Cache) GetCANVASA() int{
+    return self.Object.Get("CANVAS").Int()
 }
 
 // 
-func (self *Cache) SetCANVAS(member int) {
-    self.Set("CANVAS", member)
+func (self *Cache) SetCANVASA(member int) {
+    self.Object.Set("CANVAS", member)
 }
 
 // 
-func (self *Cache) GetIMAGE() int{
-    return self.Get("IMAGE").Int()
+func (self *Cache) GetIMAGEA() int{
+    return self.Object.Get("IMAGE").Int()
 }
 
 // 
-func (self *Cache) SetIMAGE(member int) {
-    self.Set("IMAGE", member)
+func (self *Cache) SetIMAGEA(member int) {
+    self.Object.Set("IMAGE", member)
 }
 
 // 
-func (self *Cache) GetTEXTURE() int{
-    return self.Get("TEXTURE").Int()
+func (self *Cache) GetTEXTUREA() int{
+    return self.Object.Get("TEXTURE").Int()
 }
 
 // 
-func (self *Cache) SetTEXTURE(member int) {
-    self.Set("TEXTURE", member)
+func (self *Cache) SetTEXTUREA(member int) {
+    self.Object.Set("TEXTURE", member)
 }
 
 // 
-func (self *Cache) GetSOUND() int{
-    return self.Get("SOUND").Int()
+func (self *Cache) GetSOUNDA() int{
+    return self.Object.Get("SOUND").Int()
 }
 
 // 
-func (self *Cache) SetSOUND(member int) {
-    self.Set("SOUND", member)
+func (self *Cache) SetSOUNDA(member int) {
+    self.Object.Set("SOUND", member)
 }
 
 // 
-func (self *Cache) GetTEXT() int{
-    return self.Get("TEXT").Int()
+func (self *Cache) GetTEXTA() int{
+    return self.Object.Get("TEXT").Int()
 }
 
 // 
-func (self *Cache) SetTEXT(member int) {
-    self.Set("TEXT", member)
+func (self *Cache) SetTEXTA(member int) {
+    self.Object.Set("TEXT", member)
 }
 
 // 
-func (self *Cache) GetPHYSICS() int{
-    return self.Get("PHYSICS").Int()
+func (self *Cache) GetPHYSICSA() int{
+    return self.Object.Get("PHYSICS").Int()
 }
 
 // 
-func (self *Cache) SetPHYSICS(member int) {
-    self.Set("PHYSICS", member)
+func (self *Cache) SetPHYSICSA(member int) {
+    self.Object.Set("PHYSICS", member)
 }
 
 // 
-func (self *Cache) GetTILEMAP() int{
-    return self.Get("TILEMAP").Int()
+func (self *Cache) GetTILEMAPA() int{
+    return self.Object.Get("TILEMAP").Int()
 }
 
 // 
-func (self *Cache) SetTILEMAP(member int) {
-    self.Set("TILEMAP", member)
+func (self *Cache) SetTILEMAPA(member int) {
+    self.Object.Set("TILEMAP", member)
 }
 
 // 
-func (self *Cache) GetBINARY() int{
-    return self.Get("BINARY").Int()
+func (self *Cache) GetBINARYA() int{
+    return self.Object.Get("BINARY").Int()
 }
 
 // 
-func (self *Cache) SetBINARY(member int) {
-    self.Set("BINARY", member)
+func (self *Cache) SetBINARYA(member int) {
+    self.Object.Set("BINARY", member)
 }
 
 // 
-func (self *Cache) GetBITMAPDATA() int{
-    return self.Get("BITMAPDATA").Int()
+func (self *Cache) GetBITMAPDATAA() int{
+    return self.Object.Get("BITMAPDATA").Int()
 }
 
 // 
-func (self *Cache) SetBITMAPDATA(member int) {
-    self.Set("BITMAPDATA", member)
+func (self *Cache) SetBITMAPDATAA(member int) {
+    self.Object.Set("BITMAPDATA", member)
 }
 
 // 
-func (self *Cache) GetBITMAPFONT() int{
-    return self.Get("BITMAPFONT").Int()
+func (self *Cache) GetBITMAPFONTA() int{
+    return self.Object.Get("BITMAPFONT").Int()
 }
 
 // 
-func (self *Cache) SetBITMAPFONT(member int) {
-    self.Set("BITMAPFONT", member)
+func (self *Cache) SetBITMAPFONTA(member int) {
+    self.Object.Set("BITMAPFONT", member)
 }
 
 // 
-func (self *Cache) GetJSON() int{
-    return self.Get("JSON").Int()
+func (self *Cache) GetJSONA() int{
+    return self.Object.Get("JSON").Int()
 }
 
 // 
-func (self *Cache) SetJSON(member int) {
-    self.Set("JSON", member)
+func (self *Cache) SetJSONA(member int) {
+    self.Object.Set("JSON", member)
 }
 
 // 
-func (self *Cache) GetXML() int{
-    return self.Get("XML").Int()
+func (self *Cache) GetXMLA() int{
+    return self.Object.Get("XML").Int()
 }
 
 // 
-func (self *Cache) SetXML(member int) {
-    self.Set("XML", member)
+func (self *Cache) SetXMLA(member int) {
+    self.Object.Set("XML", member)
 }
 
 // 
-func (self *Cache) GetVIDEO() int{
-    return self.Get("VIDEO").Int()
+func (self *Cache) GetVIDEOA() int{
+    return self.Object.Get("VIDEO").Int()
 }
 
 // 
-func (self *Cache) SetVIDEO(member int) {
-    self.Set("VIDEO", member)
+func (self *Cache) SetVIDEOA(member int) {
+    self.Object.Set("VIDEO", member)
 }
 
 // 
-func (self *Cache) GetSHADER() int{
-    return self.Get("SHADER").Int()
+func (self *Cache) GetSHADERA() int{
+    return self.Object.Get("SHADER").Int()
 }
 
 // 
-func (self *Cache) SetSHADER(member int) {
-    self.Set("SHADER", member)
+func (self *Cache) SetSHADERA(member int) {
+    self.Object.Set("SHADER", member)
 }
 
 // 
-func (self *Cache) GetRENDER_TEXTURE() int{
-    return self.Get("RENDER_TEXTURE").Int()
+func (self *Cache) GetRENDER_TEXTUREA() int{
+    return self.Object.Get("RENDER_TEXTURE").Int()
 }
 
 // 
-func (self *Cache) SetRENDER_TEXTURE(member int) {
-    self.Set("RENDER_TEXTURE", member)
+func (self *Cache) SetRENDER_TEXTUREA(member int) {
+    self.Object.Set("RENDER_TEXTURE", member)
 }
 
 // The default image used for a texture when no other is specified.
-func (self *Cache) GetDEFAULT() *Texture{
-    return &Texture{self.Get("DEFAULT")}
+func (self *Cache) GetDEFAULTA() *Texture{
+    return &Texture{self.Object.Get("DEFAULT")}
 }
 
 // The default image used for a texture when no other is specified.
-func (self *Cache) SetDEFAULT(member *Texture) {
-    self.Set("DEFAULT", member)
+func (self *Cache) SetDEFAULTA(member *Texture) {
+    self.Object.Set("DEFAULT", member)
 }
 
 // The default image used for a texture when the source image is missing.
-func (self *Cache) GetMISSING() *Texture{
-    return &Texture{self.Get("MISSING")}
+func (self *Cache) GetMISSINGA() *Texture{
+    return &Texture{self.Object.Get("MISSING")}
 }
 
 // The default image used for a texture when the source image is missing.
-func (self *Cache) SetMISSING(member *Texture) {
-    self.Set("MISSING", member)
+func (self *Cache) SetMISSINGA(member *Texture) {
+    self.Object.Set("MISSING", member)
 }
 
 
 
 // Add a new canvas object in to the cache.
+func (self *Cache) AddCanvas(key string, canvas *dom.HTMLCanvasElement, context *dom.CanvasRenderingContext2D) {
+    self.Object.Call("addCanvas", key, canvas, context)
+}
+
+// Add a new canvas object in to the cache.
 func (self *Cache) AddCanvasI(args ...interface{}) {
-    self.Call("addCanvas", args)
+    self.Object.Call("addCanvas", args)
+}
+
+// Adds an Image file into the Cache. The file must have already been loaded, typically via Phaser.Loader, but can also have been loaded into the DOM.
+// If an image already exists in the cache with the same key then it is removed and destroyed, and the new image inserted in its place.
+func (self *Cache) AddImage(key string, url string, data interface{}) interface{}{
+    return self.Object.Call("addImage", key, url, data)
 }
 
 // Adds an Image file into the Cache. The file must have already been loaded, typically via Phaser.Loader, but can also have been loaded into the DOM.
 // If an image already exists in the cache with the same key then it is removed and destroyed, and the new image inserted in its place.
 func (self *Cache) AddImageI(args ...interface{}) interface{}{
-    return self.Call("addImage", args)
+    return self.Object.Call("addImage", args)
+}
+
+// Adds a default image to be used in special cases such as WebGL Filters.
+// It uses the special reserved key of `__default`.
+// This method is called automatically when the Cache is created.
+// This image is skipped when `Cache.destroy` is called due to its internal requirements.
+func (self *Cache) AddDefaultImage() {
+    self.Object.Call("addDefaultImage")
 }
 
 // Adds a default image to be used in special cases such as WebGL Filters.
@@ -251,7 +272,15 @@ func (self *Cache) AddImageI(args ...interface{}) interface{}{
 // This method is called automatically when the Cache is created.
 // This image is skipped when `Cache.destroy` is called due to its internal requirements.
 func (self *Cache) AddDefaultImageI(args ...interface{}) {
-    self.Call("addDefaultImage", args)
+    self.Object.Call("addDefaultImage", args)
+}
+
+// Adds an image to be used when a key is wrong / missing.
+// It uses the special reserved key of `__missing`.
+// This method is called automatically when the Cache is created.
+// This image is skipped when `Cache.destroy` is called due to its internal requirements.
+func (self *Cache) AddMissingImage() {
+    self.Object.Call("addMissingImage")
 }
 
 // Adds an image to be used when a key is wrong / missing.
@@ -259,113 +288,227 @@ func (self *Cache) AddDefaultImageI(args ...interface{}) {
 // This method is called automatically when the Cache is created.
 // This image is skipped when `Cache.destroy` is called due to its internal requirements.
 func (self *Cache) AddMissingImageI(args ...interface{}) {
-    self.Call("addMissingImage", args)
+    self.Object.Call("addMissingImage", args)
+}
+
+// Adds a Sound file into the Cache. The file must have already been loaded, typically via Phaser.Loader.
+func (self *Cache) AddSound(key string, url string, data interface{}, webAudio bool, audioTag bool) {
+    self.Object.Call("addSound", key, url, data, webAudio, audioTag)
 }
 
 // Adds a Sound file into the Cache. The file must have already been loaded, typically via Phaser.Loader.
 func (self *Cache) AddSoundI(args ...interface{}) {
-    self.Call("addSound", args)
+    self.Object.Call("addSound", args)
+}
+
+// Add a new text data.
+func (self *Cache) AddText(key string, url string, data interface{}) {
+    self.Object.Call("addText", key, url, data)
 }
 
 // Add a new text data.
 func (self *Cache) AddTextI(args ...interface{}) {
-    self.Call("addText", args)
+    self.Object.Call("addText", args)
+}
+
+// Add a new physics data object to the Cache.
+func (self *Cache) AddPhysicsData(key string, url string, JSONData interface{}, format int) {
+    self.Object.Call("addPhysicsData", key, url, JSONData, format)
 }
 
 // Add a new physics data object to the Cache.
 func (self *Cache) AddPhysicsDataI(args ...interface{}) {
-    self.Call("addPhysicsData", args)
+    self.Object.Call("addPhysicsData", args)
+}
+
+// Add a new tilemap to the Cache.
+func (self *Cache) AddTilemap(key string, url string, mapData interface{}, format int) {
+    self.Object.Call("addTilemap", key, url, mapData, format)
 }
 
 // Add a new tilemap to the Cache.
 func (self *Cache) AddTilemapI(args ...interface{}) {
-    self.Call("addTilemap", args)
+    self.Object.Call("addTilemap", args)
+}
+
+// Add a binary object in to the cache.
+func (self *Cache) AddBinary(key string, binaryData interface{}) {
+    self.Object.Call("addBinary", key, binaryData)
 }
 
 // Add a binary object in to the cache.
 func (self *Cache) AddBinaryI(args ...interface{}) {
-    self.Call("addBinary", args)
+    self.Object.Call("addBinary", args)
+}
+
+// Add a BitmapData object to the cache.
+func (self *Cache) AddBitmapData(key string, bitmapData *BitmapData, frameData interface{}) *BitmapData{
+    return &BitmapData{self.Object.Call("addBitmapData", key, bitmapData, frameData)}
 }
 
 // Add a BitmapData object to the cache.
 func (self *Cache) AddBitmapDataI(args ...interface{}) *BitmapData{
-    return &BitmapData{self.Call("addBitmapData", args)}
+    return &BitmapData{self.Object.Call("addBitmapData", args)}
+}
+
+// Add a new Bitmap Font to the Cache.
+func (self *Cache) AddBitmapFont(key string, url string, data interface{}, atlasData interface{}, atlasType string, xSpacing int, ySpacing int) {
+    self.Object.Call("addBitmapFont", key, url, data, atlasData, atlasType, xSpacing, ySpacing)
 }
 
 // Add a new Bitmap Font to the Cache.
 func (self *Cache) AddBitmapFontI(args ...interface{}) {
-    self.Call("addBitmapFont", args)
+    self.Object.Call("addBitmapFont", args)
+}
+
+// Add a new json object into the cache.
+func (self *Cache) AddJSON(key string, url string, data interface{}) {
+    self.Object.Call("addJSON", key, url, data)
 }
 
 // Add a new json object into the cache.
 func (self *Cache) AddJSONI(args ...interface{}) {
-    self.Call("addJSON", args)
+    self.Object.Call("addJSON", args)
+}
+
+// Add a new xml object into the cache.
+func (self *Cache) AddXML(key string, url string, data interface{}) {
+    self.Object.Call("addXML", key, url, data)
 }
 
 // Add a new xml object into the cache.
 func (self *Cache) AddXMLI(args ...interface{}) {
-    self.Call("addXML", args)
+    self.Object.Call("addXML", args)
+}
+
+// Adds a Video file into the Cache. The file must have already been loaded, typically via Phaser.Loader.
+func (self *Cache) AddVideo(key string, url string, data interface{}, isBlob bool) {
+    self.Object.Call("addVideo", key, url, data, isBlob)
 }
 
 // Adds a Video file into the Cache. The file must have already been loaded, typically via Phaser.Loader.
 func (self *Cache) AddVideoI(args ...interface{}) {
-    self.Call("addVideo", args)
+    self.Object.Call("addVideo", args)
+}
+
+// Adds a Fragment Shader in to the Cache. The file must have already been loaded, typically via Phaser.Loader.
+func (self *Cache) AddShader(key string, url string, data interface{}) {
+    self.Object.Call("addShader", key, url, data)
 }
 
 // Adds a Fragment Shader in to the Cache. The file must have already been loaded, typically via Phaser.Loader.
 func (self *Cache) AddShaderI(args ...interface{}) {
-    self.Call("addShader", args)
+    self.Object.Call("addShader", args)
+}
+
+// Add a new Phaser.RenderTexture in to the cache.
+func (self *Cache) AddRenderTexture(key string, texture *RenderTexture) {
+    self.Object.Call("addRenderTexture", key, texture)
 }
 
 // Add a new Phaser.RenderTexture in to the cache.
 func (self *Cache) AddRenderTextureI(args ...interface{}) {
-    self.Call("addRenderTexture", args)
+    self.Object.Call("addRenderTexture", args)
+}
+
+// Add a new sprite sheet in to the cache.
+func (self *Cache) AddSpriteSheet(key string, url string, data interface{}, frameWidth int, frameHeight int, frameMax int, margin int, spacing int) {
+    self.Object.Call("addSpriteSheet", key, url, data, frameWidth, frameHeight, frameMax, margin, spacing)
 }
 
 // Add a new sprite sheet in to the cache.
 func (self *Cache) AddSpriteSheetI(args ...interface{}) {
-    self.Call("addSpriteSheet", args)
+    self.Object.Call("addSpriteSheet", args)
+}
+
+// Add a new texture atlas to the Cache.
+func (self *Cache) AddTextureAtlas(key string, url string, data interface{}, atlasData interface{}, format int) {
+    self.Object.Call("addTextureAtlas", key, url, data, atlasData, format)
 }
 
 // Add a new texture atlas to the Cache.
 func (self *Cache) AddTextureAtlasI(args ...interface{}) {
-    self.Call("addTextureAtlas", args)
+    self.Object.Call("addTextureAtlas", args)
+}
+
+// Reload a Sound file from the server.
+func (self *Cache) ReloadSound(key string) {
+    self.Object.Call("reloadSound", key)
 }
 
 // Reload a Sound file from the server.
 func (self *Cache) ReloadSoundI(args ...interface{}) {
-    self.Call("reloadSound", args)
+    self.Object.Call("reloadSound", args)
+}
+
+// Fires the onSoundUnlock event when the sound has completed reloading.
+func (self *Cache) ReloadSoundComplete(key string) {
+    self.Object.Call("reloadSoundComplete", key)
 }
 
 // Fires the onSoundUnlock event when the sound has completed reloading.
 func (self *Cache) ReloadSoundCompleteI(args ...interface{}) {
-    self.Call("reloadSoundComplete", args)
+    self.Object.Call("reloadSoundComplete", args)
+}
+
+// Updates the sound object in the cache.
+func (self *Cache) UpdateSound(key string) {
+    self.Object.Call("updateSound", key)
 }
 
 // Updates the sound object in the cache.
 func (self *Cache) UpdateSoundI(args ...interface{}) {
-    self.Call("updateSound", args)
+    self.Object.Call("updateSound", args)
+}
+
+// Add a new decoded sound.
+func (self *Cache) DecodedSound(key string, data interface{}) {
+    self.Object.Call("decodedSound", key, data)
 }
 
 // Add a new decoded sound.
 func (self *Cache) DecodedSoundI(args ...interface{}) {
-    self.Call("decodedSound", args)
+    self.Object.Call("decodedSound", args)
+}
+
+// Check if the given sound has finished decoding.
+func (self *Cache) IsSoundDecoded(key string) bool{
+    return self.Object.Call("isSoundDecoded", key).Bool()
 }
 
 // Check if the given sound has finished decoding.
 func (self *Cache) IsSoundDecodedI(args ...interface{}) bool{
-    return self.Call("isSoundDecoded", args).Bool()
+    return self.Object.Call("isSoundDecoded", args).Bool()
+}
+
+// Check if the given sound is ready for playback.
+// A sound is considered ready when it has finished decoding and the device is no longer touch locked.
+func (self *Cache) IsSoundReady(key string) bool{
+    return self.Object.Call("isSoundReady", key).Bool()
 }
 
 // Check if the given sound is ready for playback.
 // A sound is considered ready when it has finished decoding and the device is no longer touch locked.
 func (self *Cache) IsSoundReadyI(args ...interface{}) bool{
-    return self.Call("isSoundReady", args).Bool()
+    return self.Object.Call("isSoundReady", args).Bool()
+}
+
+// Checks if a key for the given cache object type exists.
+func (self *Cache) CheckKey(cache int, key string) bool{
+    return self.Object.Call("checkKey", cache, key).Bool()
 }
 
 // Checks if a key for the given cache object type exists.
 func (self *Cache) CheckKeyI(args ...interface{}) bool{
-    return self.Call("checkKey", args).Bool()
+    return self.Object.Call("checkKey", args).Bool()
+}
+
+// Checks if the given URL has been loaded into the Cache.
+// This method will only work if Cache.autoResolveURL was set to `true` before any preloading took place.
+// The method will make a DOM src call to the URL given, so please be aware of this for certain file types, such as Sound files on Firefox
+// which may cause double-load instances.
+func (self *Cache) CheckURL(url string) bool{
+    return self.Object.Call("checkURL", url).Bool()
 }
 
 // Checks if the given URL has been loaded into the Cache.
@@ -373,82 +516,165 @@ func (self *Cache) CheckKeyI(args ...interface{}) bool{
 // The method will make a DOM src call to the URL given, so please be aware of this for certain file types, such as Sound files on Firefox
 // which may cause double-load instances.
 func (self *Cache) CheckURLI(args ...interface{}) bool{
-    return self.Call("checkURL", args).Bool()
+    return self.Object.Call("checkURL", args).Bool()
+}
+
+// Checks if the given key exists in the Canvas Cache.
+func (self *Cache) CheckCanvasKey(key string) bool{
+    return self.Object.Call("checkCanvasKey", key).Bool()
 }
 
 // Checks if the given key exists in the Canvas Cache.
 func (self *Cache) CheckCanvasKeyI(args ...interface{}) bool{
-    return self.Call("checkCanvasKey", args).Bool()
+    return self.Object.Call("checkCanvasKey", args).Bool()
+}
+
+// Checks if the given key exists in the Image Cache. Note that this also includes Texture Atlases, Sprite Sheets and Retro Fonts.
+func (self *Cache) CheckImageKey(key string) bool{
+    return self.Object.Call("checkImageKey", key).Bool()
 }
 
 // Checks if the given key exists in the Image Cache. Note that this also includes Texture Atlases, Sprite Sheets and Retro Fonts.
 func (self *Cache) CheckImageKeyI(args ...interface{}) bool{
-    return self.Call("checkImageKey", args).Bool()
+    return self.Object.Call("checkImageKey", args).Bool()
+}
+
+// Checks if the given key exists in the Texture Cache.
+func (self *Cache) CheckTextureKey(key string) bool{
+    return self.Object.Call("checkTextureKey", key).Bool()
 }
 
 // Checks if the given key exists in the Texture Cache.
 func (self *Cache) CheckTextureKeyI(args ...interface{}) bool{
-    return self.Call("checkTextureKey", args).Bool()
+    return self.Object.Call("checkTextureKey", args).Bool()
+}
+
+// Checks if the given key exists in the Sound Cache.
+func (self *Cache) CheckSoundKey(key string) bool{
+    return self.Object.Call("checkSoundKey", key).Bool()
 }
 
 // Checks if the given key exists in the Sound Cache.
 func (self *Cache) CheckSoundKeyI(args ...interface{}) bool{
-    return self.Call("checkSoundKey", args).Bool()
+    return self.Object.Call("checkSoundKey", args).Bool()
+}
+
+// Checks if the given key exists in the Text Cache.
+func (self *Cache) CheckTextKey(key string) bool{
+    return self.Object.Call("checkTextKey", key).Bool()
 }
 
 // Checks if the given key exists in the Text Cache.
 func (self *Cache) CheckTextKeyI(args ...interface{}) bool{
-    return self.Call("checkTextKey", args).Bool()
+    return self.Object.Call("checkTextKey", args).Bool()
+}
+
+// Checks if the given key exists in the Physics Cache.
+func (self *Cache) CheckPhysicsKey(key string) bool{
+    return self.Object.Call("checkPhysicsKey", key).Bool()
 }
 
 // Checks if the given key exists in the Physics Cache.
 func (self *Cache) CheckPhysicsKeyI(args ...interface{}) bool{
-    return self.Call("checkPhysicsKey", args).Bool()
+    return self.Object.Call("checkPhysicsKey", args).Bool()
+}
+
+// Checks if the given key exists in the Tilemap Cache.
+func (self *Cache) CheckTilemapKey(key string) bool{
+    return self.Object.Call("checkTilemapKey", key).Bool()
 }
 
 // Checks if the given key exists in the Tilemap Cache.
 func (self *Cache) CheckTilemapKeyI(args ...interface{}) bool{
-    return self.Call("checkTilemapKey", args).Bool()
+    return self.Object.Call("checkTilemapKey", args).Bool()
+}
+
+// Checks if the given key exists in the Binary Cache.
+func (self *Cache) CheckBinaryKey(key string) bool{
+    return self.Object.Call("checkBinaryKey", key).Bool()
 }
 
 // Checks if the given key exists in the Binary Cache.
 func (self *Cache) CheckBinaryKeyI(args ...interface{}) bool{
-    return self.Call("checkBinaryKey", args).Bool()
+    return self.Object.Call("checkBinaryKey", args).Bool()
+}
+
+// Checks if the given key exists in the BitmapData Cache.
+func (self *Cache) CheckBitmapDataKey(key string) bool{
+    return self.Object.Call("checkBitmapDataKey", key).Bool()
 }
 
 // Checks if the given key exists in the BitmapData Cache.
 func (self *Cache) CheckBitmapDataKeyI(args ...interface{}) bool{
-    return self.Call("checkBitmapDataKey", args).Bool()
+    return self.Object.Call("checkBitmapDataKey", args).Bool()
+}
+
+// Checks if the given key exists in the BitmapFont Cache.
+func (self *Cache) CheckBitmapFontKey(key string) bool{
+    return self.Object.Call("checkBitmapFontKey", key).Bool()
 }
 
 // Checks if the given key exists in the BitmapFont Cache.
 func (self *Cache) CheckBitmapFontKeyI(args ...interface{}) bool{
-    return self.Call("checkBitmapFontKey", args).Bool()
+    return self.Object.Call("checkBitmapFontKey", args).Bool()
+}
+
+// Checks if the given key exists in the JSON Cache.
+func (self *Cache) CheckJSONKey(key string) bool{
+    return self.Object.Call("checkJSONKey", key).Bool()
 }
 
 // Checks if the given key exists in the JSON Cache.
 func (self *Cache) CheckJSONKeyI(args ...interface{}) bool{
-    return self.Call("checkJSONKey", args).Bool()
+    return self.Object.Call("checkJSONKey", args).Bool()
+}
+
+// Checks if the given key exists in the XML Cache.
+func (self *Cache) CheckXMLKey(key string) bool{
+    return self.Object.Call("checkXMLKey", key).Bool()
 }
 
 // Checks if the given key exists in the XML Cache.
 func (self *Cache) CheckXMLKeyI(args ...interface{}) bool{
-    return self.Call("checkXMLKey", args).Bool()
+    return self.Object.Call("checkXMLKey", args).Bool()
+}
+
+// Checks if the given key exists in the Video Cache.
+func (self *Cache) CheckVideoKey(key string) bool{
+    return self.Object.Call("checkVideoKey", key).Bool()
 }
 
 // Checks if the given key exists in the Video Cache.
 func (self *Cache) CheckVideoKeyI(args ...interface{}) bool{
-    return self.Call("checkVideoKey", args).Bool()
+    return self.Object.Call("checkVideoKey", args).Bool()
+}
+
+// Checks if the given key exists in the Fragment Shader Cache.
+func (self *Cache) CheckShaderKey(key string) bool{
+    return self.Object.Call("checkShaderKey", key).Bool()
 }
 
 // Checks if the given key exists in the Fragment Shader Cache.
 func (self *Cache) CheckShaderKeyI(args ...interface{}) bool{
-    return self.Call("checkShaderKey", args).Bool()
+    return self.Object.Call("checkShaderKey", args).Bool()
+}
+
+// Checks if the given key exists in the Render Texture Cache.
+func (self *Cache) CheckRenderTextureKey(key string) bool{
+    return self.Object.Call("checkRenderTextureKey", key).Bool()
 }
 
 // Checks if the given key exists in the Render Texture Cache.
 func (self *Cache) CheckRenderTextureKeyI(args ...interface{}) bool{
-    return self.Call("checkRenderTextureKey", args).Bool()
+    return self.Object.Call("checkRenderTextureKey", args).Bool()
+}
+
+// Get an item from a cache based on the given key and property.
+// 
+// This method is mostly used internally by other Cache methods such as `getImage` but is exposed
+// publicly for your own use as well.
+func (self *Cache) GetItem(key string, cache int, method string, property string) interface{}{
+    return self.Object.Call("getItem", key, cache, method, property)
 }
 
 // Get an item from a cache based on the given key and property.
@@ -456,7 +682,16 @@ func (self *Cache) CheckRenderTextureKeyI(args ...interface{}) bool{
 // This method is mostly used internally by other Cache methods such as `getImage` but is exposed
 // publicly for your own use as well.
 func (self *Cache) GetItemI(args ...interface{}) interface{}{
-    return self.Call("getItem", args)
+    return self.Object.Call("getItem", args)
+}
+
+// Gets a Canvas object from the cache.
+// 
+// The object is looked-up based on the key given.
+// 
+// Note: If the object cannot be found a `console.warn` message is displayed.
+func (self *Cache) GetCanvas(key string) interface{}{
+    return self.Object.Call("getCanvas", key)
 }
 
 // Gets a Canvas object from the cache.
@@ -465,7 +700,20 @@ func (self *Cache) GetItemI(args ...interface{}) interface{}{
 // 
 // Note: If the object cannot be found a `console.warn` message is displayed.
 func (self *Cache) GetCanvasI(args ...interface{}) interface{}{
-    return self.Call("getCanvas", args)
+    return self.Object.Call("getCanvas", args)
+}
+
+// Gets a Image object from the cache. This returns a DOM Image object, not a Phaser.Image object.
+// 
+// The object is looked-up based on the key given.
+// 
+// Note: If the object cannot be found a `console.warn` message is displayed.
+// 
+// Only the Image cache is searched, which covers images loaded via Loader.image, Sprite Sheets and Texture Atlases.
+// 
+// If you need the image used by a bitmap font or similar then please use those respective 'get' methods.
+func (self *Cache) GetImage(key string, full bool) *Image{
+    return &Image{self.Object.Call("getImage", key, full)}
 }
 
 // Gets a Image object from the cache. This returns a DOM Image object, not a Phaser.Image object.
@@ -478,14 +726,30 @@ func (self *Cache) GetCanvasI(args ...interface{}) interface{}{
 // 
 // If you need the image used by a bitmap font or similar then please use those respective 'get' methods.
 func (self *Cache) GetImageI(args ...interface{}) *Image{
-    return &Image{self.Call("getImage", args)}
+    return &Image{self.Object.Call("getImage", args)}
+}
+
+// Get a single texture frame by key.
+// 
+// You'd only do this to get the default Frame created for a non-atlas / spritesheet image.
+func (self *Cache) GetTextureFrame(key string) *Frame{
+    return &Frame{self.Object.Call("getTextureFrame", key)}
 }
 
 // Get a single texture frame by key.
 // 
 // You'd only do this to get the default Frame created for a non-atlas / spritesheet image.
 func (self *Cache) GetTextureFrameI(args ...interface{}) *Frame{
-    return &Frame{self.Call("getTextureFrame", args)}
+    return &Frame{self.Object.Call("getTextureFrame", args)}
+}
+
+// Gets a Phaser.Sound object from the cache.
+// 
+// The object is looked-up based on the key given.
+// 
+// Note: If the object cannot be found a `console.warn` message is displayed.
+func (self *Cache) GetSound(key string) *Sound{
+    return &Sound{self.Object.Call("getSound", key)}
 }
 
 // Gets a Phaser.Sound object from the cache.
@@ -494,7 +758,16 @@ func (self *Cache) GetTextureFrameI(args ...interface{}) *Frame{
 // 
 // Note: If the object cannot be found a `console.warn` message is displayed.
 func (self *Cache) GetSoundI(args ...interface{}) *Sound{
-    return &Sound{self.Call("getSound", args)}
+    return &Sound{self.Object.Call("getSound", args)}
+}
+
+// Gets a raw Sound data object from the cache.
+// 
+// The object is looked-up based on the key given.
+// 
+// Note: If the object cannot be found a `console.warn` message is displayed.
+func (self *Cache) GetSoundData(key string) interface{}{
+    return self.Object.Call("getSoundData", key)
 }
 
 // Gets a raw Sound data object from the cache.
@@ -503,7 +776,16 @@ func (self *Cache) GetSoundI(args ...interface{}) *Sound{
 // 
 // Note: If the object cannot be found a `console.warn` message is displayed.
 func (self *Cache) GetSoundDataI(args ...interface{}) interface{}{
-    return self.Call("getSoundData", args)
+    return self.Object.Call("getSoundData", args)
+}
+
+// Gets a Text object from the cache.
+// 
+// The object is looked-up based on the key given.
+// 
+// Note: If the object cannot be found a `console.warn` message is displayed.
+func (self *Cache) GetText(key string) interface{}{
+    return self.Object.Call("getText", key)
 }
 
 // Gets a Text object from the cache.
@@ -512,7 +794,18 @@ func (self *Cache) GetSoundDataI(args ...interface{}) interface{}{
 // 
 // Note: If the object cannot be found a `console.warn` message is displayed.
 func (self *Cache) GetTextI(args ...interface{}) interface{}{
-    return self.Call("getText", args)
+    return self.Object.Call("getText", args)
+}
+
+// Gets a Physics Data object from the cache.
+// 
+// The object is looked-up based on the key given.
+// 
+// Note: If the object cannot be found a `console.warn` message is displayed.
+// 
+// You can get either the entire data set, a single object or a single fixture of an object from it.
+func (self *Cache) GetPhysicsData(key string, object string, fixtureKey string) interface{}{
+    return self.Object.Call("getPhysicsData", key, object, fixtureKey)
 }
 
 // Gets a Physics Data object from the cache.
@@ -523,7 +816,16 @@ func (self *Cache) GetTextI(args ...interface{}) interface{}{
 // 
 // You can get either the entire data set, a single object or a single fixture of an object from it.
 func (self *Cache) GetPhysicsDataI(args ...interface{}) interface{}{
-    return self.Call("getPhysicsData", args)
+    return self.Object.Call("getPhysicsData", args)
+}
+
+// Gets a raw Tilemap data object from the cache. This will be in either CSV or JSON format.
+// 
+// The object is looked-up based on the key given.
+// 
+// Note: If the object cannot be found a `console.warn` message is displayed.
+func (self *Cache) GetTilemapData(key string) interface{}{
+    return self.Object.Call("getTilemapData", key)
 }
 
 // Gets a raw Tilemap data object from the cache. This will be in either CSV or JSON format.
@@ -532,7 +834,16 @@ func (self *Cache) GetPhysicsDataI(args ...interface{}) interface{}{
 // 
 // Note: If the object cannot be found a `console.warn` message is displayed.
 func (self *Cache) GetTilemapDataI(args ...interface{}) interface{}{
-    return self.Call("getTilemapData", args)
+    return self.Object.Call("getTilemapData", args)
+}
+
+// Gets a binary object from the cache.
+// 
+// The object is looked-up based on the key given.
+// 
+// Note: If the object cannot be found a `console.warn` message is displayed.
+func (self *Cache) GetBinary(key string) interface{}{
+    return self.Object.Call("getBinary", key)
 }
 
 // Gets a binary object from the cache.
@@ -541,7 +852,16 @@ func (self *Cache) GetTilemapDataI(args ...interface{}) interface{}{
 // 
 // Note: If the object cannot be found a `console.warn` message is displayed.
 func (self *Cache) GetBinaryI(args ...interface{}) interface{}{
-    return self.Call("getBinary", args)
+    return self.Object.Call("getBinary", args)
+}
+
+// Gets a BitmapData object from the cache.
+// 
+// The object is looked-up based on the key given.
+// 
+// Note: If the object cannot be found a `console.warn` message is displayed.
+func (self *Cache) GetBitmapData(key string) *BitmapData{
+    return &BitmapData{self.Object.Call("getBitmapData", key)}
 }
 
 // Gets a BitmapData object from the cache.
@@ -550,7 +870,16 @@ func (self *Cache) GetBinaryI(args ...interface{}) interface{}{
 // 
 // Note: If the object cannot be found a `console.warn` message is displayed.
 func (self *Cache) GetBitmapDataI(args ...interface{}) *BitmapData{
-    return &BitmapData{self.Call("getBitmapData", args)}
+    return &BitmapData{self.Object.Call("getBitmapData", args)}
+}
+
+// Gets a Bitmap Font object from the cache.
+// 
+// The object is looked-up based on the key given.
+// 
+// Note: If the object cannot be found a `console.warn` message is displayed.
+func (self *Cache) GetBitmapFont(key string) *BitmapFont{
+    return &BitmapFont{self.Object.Call("getBitmapFont", key)}
 }
 
 // Gets a Bitmap Font object from the cache.
@@ -559,7 +888,19 @@ func (self *Cache) GetBitmapDataI(args ...interface{}) *BitmapData{
 // 
 // Note: If the object cannot be found a `console.warn` message is displayed.
 func (self *Cache) GetBitmapFontI(args ...interface{}) *BitmapFont{
-    return &BitmapFont{self.Call("getBitmapFont", args)}
+    return &BitmapFont{self.Object.Call("getBitmapFont", args)}
+}
+
+// Gets a JSON object from the cache.
+// 
+// The object is looked-up based on the key given.
+// 
+// Note: If the object cannot be found a `console.warn` message is displayed.
+// 
+// You can either return the object by reference (the default), or return a clone
+// of it by setting the `clone` argument to `true`.
+func (self *Cache) GetJSON(key string, clone bool) interface{}{
+    return self.Object.Call("getJSON", key, clone)
 }
 
 // Gets a JSON object from the cache.
@@ -571,7 +912,16 @@ func (self *Cache) GetBitmapFontI(args ...interface{}) *BitmapFont{
 // You can either return the object by reference (the default), or return a clone
 // of it by setting the `clone` argument to `true`.
 func (self *Cache) GetJSONI(args ...interface{}) interface{}{
-    return self.Call("getJSON", args)
+    return self.Object.Call("getJSON", args)
+}
+
+// Gets an XML object from the cache.
+// 
+// The object is looked-up based on the key given.
+// 
+// Note: If the object cannot be found a `console.warn` message is displayed.
+func (self *Cache) GetXML(key string) interface{}{
+    return self.Object.Call("getXML", key)
 }
 
 // Gets an XML object from the cache.
@@ -580,7 +930,16 @@ func (self *Cache) GetJSONI(args ...interface{}) interface{}{
 // 
 // Note: If the object cannot be found a `console.warn` message is displayed.
 func (self *Cache) GetXMLI(args ...interface{}) interface{}{
-    return self.Call("getXML", args)
+    return self.Object.Call("getXML", args)
+}
+
+// Gets a Phaser.Video object from the cache.
+// 
+// The object is looked-up based on the key given.
+// 
+// Note: If the object cannot be found a `console.warn` message is displayed.
+func (self *Cache) GetVideo(key string) *Video{
+    return &Video{self.Object.Call("getVideo", key)}
 }
 
 // Gets a Phaser.Video object from the cache.
@@ -589,7 +948,16 @@ func (self *Cache) GetXMLI(args ...interface{}) interface{}{
 // 
 // Note: If the object cannot be found a `console.warn` message is displayed.
 func (self *Cache) GetVideoI(args ...interface{}) *Video{
-    return &Video{self.Call("getVideo", args)}
+    return &Video{self.Object.Call("getVideo", args)}
+}
+
+// Gets a fragment shader object from the cache.
+// 
+// The object is looked-up based on the key given.
+// 
+// Note: If the object cannot be found a `console.warn` message is displayed.
+func (self *Cache) GetShader(key string) string{
+    return self.Object.Call("getShader", key).String()
 }
 
 // Gets a fragment shader object from the cache.
@@ -598,7 +966,16 @@ func (self *Cache) GetVideoI(args ...interface{}) *Video{
 // 
 // Note: If the object cannot be found a `console.warn` message is displayed.
 func (self *Cache) GetShaderI(args ...interface{}) string{
-    return self.Call("getShader", args).String()
+    return self.Object.Call("getShader", args).String()
+}
+
+// Gets a RenderTexture object from the cache.
+// 
+// The object is looked-up based on the key given.
+// 
+// Note: If the object cannot be found a `console.warn` message is displayed.
+func (self *Cache) GetRenderTexture(key string) interface{}{
+    return self.Object.Call("getRenderTexture", key)
 }
 
 // Gets a RenderTexture object from the cache.
@@ -607,22 +984,46 @@ func (self *Cache) GetShaderI(args ...interface{}) string{
 // 
 // Note: If the object cannot be found a `console.warn` message is displayed.
 func (self *Cache) GetRenderTextureI(args ...interface{}) interface{}{
-    return self.Call("getRenderTexture", args)
+    return self.Object.Call("getRenderTexture", args)
+}
+
+// Gets a PIXI.BaseTexture by key from the given Cache.
+func (self *Cache) GetBaseTexture(key string, cache int) *BaseTexture{
+    return &BaseTexture{self.Object.Call("getBaseTexture", key, cache)}
 }
 
 // Gets a PIXI.BaseTexture by key from the given Cache.
 func (self *Cache) GetBaseTextureI(args ...interface{}) *BaseTexture{
-    return &BaseTexture{self.Call("getBaseTexture", args)}
+    return &BaseTexture{self.Object.Call("getBaseTexture", args)}
+}
+
+// Get a single frame by key. You'd only do this to get the default Frame created for a non-atlas/spritesheet image.
+func (self *Cache) GetFrame(key string, cache int) *Frame{
+    return &Frame{self.Object.Call("getFrame", key, cache)}
 }
 
 // Get a single frame by key. You'd only do this to get the default Frame created for a non-atlas/spritesheet image.
 func (self *Cache) GetFrameI(args ...interface{}) *Frame{
-    return &Frame{self.Call("getFrame", args)}
+    return &Frame{self.Object.Call("getFrame", args)}
+}
+
+// Get the total number of frames contained in the FrameData object specified by the given key.
+func (self *Cache) GetFrameCount(key string, cache int) int{
+    return self.Object.Call("getFrameCount", key, cache).Int()
 }
 
 // Get the total number of frames contained in the FrameData object specified by the given key.
 func (self *Cache) GetFrameCountI(args ...interface{}) int{
-    return self.Call("getFrameCount", args).Int()
+    return self.Object.Call("getFrameCount", args).Int()
+}
+
+// Gets a Phaser.FrameData object from the Image Cache.
+// 
+// The object is looked-up based on the key given.
+// 
+// Note: If the object cannot be found a `console.warn` message is displayed.
+func (self *Cache) GetFrameData(key string, cache int) *FrameData{
+    return &FrameData{self.Object.Call("getFrameData", key, cache)}
 }
 
 // Gets a Phaser.FrameData object from the Image Cache.
@@ -631,45 +1032,91 @@ func (self *Cache) GetFrameCountI(args ...interface{}) int{
 // 
 // Note: If the object cannot be found a `console.warn` message is displayed.
 func (self *Cache) GetFrameDataI(args ...interface{}) *FrameData{
-    return &FrameData{self.Call("getFrameData", args)}
+    return &FrameData{self.Object.Call("getFrameData", args)}
+}
+
+// Check if the FrameData for the given key exists in the Image Cache.
+func (self *Cache) HasFrameData(key string, cache int) bool{
+    return self.Object.Call("hasFrameData", key, cache).Bool()
 }
 
 // Check if the FrameData for the given key exists in the Image Cache.
 func (self *Cache) HasFrameDataI(args ...interface{}) bool{
-    return self.Call("hasFrameData", args).Bool()
+    return self.Object.Call("hasFrameData", args).Bool()
+}
+
+// Replaces a set of frameData with a new Phaser.FrameData object.
+func (self *Cache) UpdateFrameData(key string, frameData int, cache int) {
+    self.Object.Call("updateFrameData", key, frameData, cache)
 }
 
 // Replaces a set of frameData with a new Phaser.FrameData object.
 func (self *Cache) UpdateFrameDataI(args ...interface{}) {
-    self.Call("updateFrameData", args)
+    self.Object.Call("updateFrameData", args)
+}
+
+// Get a single frame out of a frameData set by key.
+func (self *Cache) GetFrameByIndex(key string, index int, cache int) *Frame{
+    return &Frame{self.Object.Call("getFrameByIndex", key, index, cache)}
 }
 
 // Get a single frame out of a frameData set by key.
 func (self *Cache) GetFrameByIndexI(args ...interface{}) *Frame{
-    return &Frame{self.Call("getFrameByIndex", args)}
+    return &Frame{self.Object.Call("getFrameByIndex", args)}
+}
+
+// Get a single frame out of a frameData set by key.
+func (self *Cache) GetFrameByName(key string, name string, cache int) *Frame{
+    return &Frame{self.Object.Call("getFrameByName", key, name, cache)}
 }
 
 // Get a single frame out of a frameData set by key.
 func (self *Cache) GetFrameByNameI(args ...interface{}) *Frame{
-    return &Frame{self.Call("getFrameByName", args)}
+    return &Frame{self.Object.Call("getFrameByName", args)}
+}
+
+// Get a cached object by the URL.
+// This only returns a value if you set Cache.autoResolveURL to `true` *before* starting the preload of any assets.
+// Be aware that every call to this function makes a DOM src query, so use carefully and double-check for implications in your target browsers/devices.
+func (self *Cache) GetURL(url string) interface{}{
+    return self.Object.Call("getURL", url)
 }
 
 // Get a cached object by the URL.
 // This only returns a value if you set Cache.autoResolveURL to `true` *before* starting the preload of any assets.
 // Be aware that every call to this function makes a DOM src query, so use carefully and double-check for implications in your target browsers/devices.
 func (self *Cache) GetURLI(args ...interface{}) interface{}{
-    return self.Call("getURL", args)
+    return self.Object.Call("getURL", args)
+}
+
+// Gets all keys used in the requested Cache.
+func (self *Cache) GetKeys(cache int) []interface{}{
+	array00 := self.Object.Call("getKeys", cache)
+	length00 := array00.Length()
+	out00 := make([]interface{}, length00, length00)
+	for i00 := 0; i00 < length00; i00++ {
+		out00[i00] = array00.Index(i00).Interface()
+	}
+	return out00
 }
 
 // Gets all keys used in the requested Cache.
 func (self *Cache) GetKeysI(args ...interface{}) []interface{}{
-	array := self.Call("getKeys", args)
-	length := array.Length()
-	out := make([]interface{}, length, length)
-	for i := 0; i < length; i++ {
-		out[i] = array.Index(i).Interface()
+	array00 := self.Object.Call("getKeys", args)
+	length00 := array00.Length()
+	out00 := make([]interface{}, length00, length00)
+	for i00 := 0; i00 < length00; i00++ {
+		out00[i00] = array00.Index(i00).Interface()
 	}
-	return out
+	return out00
+}
+
+// Removes a canvas from the cache.
+// 
+// Note that this only removes it from the Phaser.Cache. If you still have references to the data elsewhere
+// then it will persist in memory.
+func (self *Cache) RemoveCanvas(key string) {
+    self.Object.Call("removeCanvas", key)
 }
 
 // Removes a canvas from the cache.
@@ -677,7 +1124,17 @@ func (self *Cache) GetKeysI(args ...interface{}) []interface{}{
 // Note that this only removes it from the Phaser.Cache. If you still have references to the data elsewhere
 // then it will persist in memory.
 func (self *Cache) RemoveCanvasI(args ...interface{}) {
-    self.Call("removeCanvas", args)
+    self.Object.Call("removeCanvas", args)
+}
+
+// Removes an image from the cache.
+// 
+// You can optionally elect to destroy it as well. This calls BaseTexture.destroy on it.
+// 
+// Note that this only removes it from the Phaser Cache. If you still have references to the data elsewhere
+// then it will persist in memory.
+func (self *Cache) RemoveImage(key string, destroyBaseTexture bool) {
+    self.Object.Call("removeImage", key, destroyBaseTexture)
 }
 
 // Removes an image from the cache.
@@ -687,7 +1144,19 @@ func (self *Cache) RemoveCanvasI(args ...interface{}) {
 // Note that this only removes it from the Phaser Cache. If you still have references to the data elsewhere
 // then it will persist in memory.
 func (self *Cache) RemoveImageI(args ...interface{}) {
-    self.Call("removeImage", args)
+    self.Object.Call("removeImage", args)
+}
+
+// Removes a sound from the cache.
+// 
+// If any `Phaser.Sound` objects use the audio file in the cache that you remove with this method, they will
+// _automatically_ destroy themselves. If you wish to have full control over when Sounds are destroyed then
+// you must finish your house-keeping and destroy them all yourself first, before calling this method.
+// 
+// Note that this only removes it from the Phaser.Cache. If you still have references to the data elsewhere
+// then it will persist in memory.
+func (self *Cache) RemoveSound(key string) {
+    self.Object.Call("removeSound", key)
 }
 
 // Removes a sound from the cache.
@@ -699,7 +1168,15 @@ func (self *Cache) RemoveImageI(args ...interface{}) {
 // Note that this only removes it from the Phaser.Cache. If you still have references to the data elsewhere
 // then it will persist in memory.
 func (self *Cache) RemoveSoundI(args ...interface{}) {
-    self.Call("removeSound", args)
+    self.Object.Call("removeSound", args)
+}
+
+// Removes a text file from the cache.
+// 
+// Note that this only removes it from the Phaser.Cache. If you still have references to the data elsewhere
+// then it will persist in memory.
+func (self *Cache) RemoveText(key string) {
+    self.Object.Call("removeText", key)
 }
 
 // Removes a text file from the cache.
@@ -707,7 +1184,15 @@ func (self *Cache) RemoveSoundI(args ...interface{}) {
 // Note that this only removes it from the Phaser.Cache. If you still have references to the data elsewhere
 // then it will persist in memory.
 func (self *Cache) RemoveTextI(args ...interface{}) {
-    self.Call("removeText", args)
+    self.Object.Call("removeText", args)
+}
+
+// Removes a physics data file from the cache.
+// 
+// Note that this only removes it from the Phaser.Cache. If you still have references to the data elsewhere
+// then it will persist in memory.
+func (self *Cache) RemovePhysics(key string) {
+    self.Object.Call("removePhysics", key)
 }
 
 // Removes a physics data file from the cache.
@@ -715,7 +1200,15 @@ func (self *Cache) RemoveTextI(args ...interface{}) {
 // Note that this only removes it from the Phaser.Cache. If you still have references to the data elsewhere
 // then it will persist in memory.
 func (self *Cache) RemovePhysicsI(args ...interface{}) {
-    self.Call("removePhysics", args)
+    self.Object.Call("removePhysics", args)
+}
+
+// Removes a tilemap from the cache.
+// 
+// Note that this only removes it from the Phaser.Cache. If you still have references to the data elsewhere
+// then it will persist in memory.
+func (self *Cache) RemoveTilemap(key string) {
+    self.Object.Call("removeTilemap", key)
 }
 
 // Removes a tilemap from the cache.
@@ -723,7 +1216,15 @@ func (self *Cache) RemovePhysicsI(args ...interface{}) {
 // Note that this only removes it from the Phaser.Cache. If you still have references to the data elsewhere
 // then it will persist in memory.
 func (self *Cache) RemoveTilemapI(args ...interface{}) {
-    self.Call("removeTilemap", args)
+    self.Object.Call("removeTilemap", args)
+}
+
+// Removes a binary file from the cache.
+// 
+// Note that this only removes it from the Phaser.Cache. If you still have references to the data elsewhere
+// then it will persist in memory.
+func (self *Cache) RemoveBinary(key string) {
+    self.Object.Call("removeBinary", key)
 }
 
 // Removes a binary file from the cache.
@@ -731,7 +1232,15 @@ func (self *Cache) RemoveTilemapI(args ...interface{}) {
 // Note that this only removes it from the Phaser.Cache. If you still have references to the data elsewhere
 // then it will persist in memory.
 func (self *Cache) RemoveBinaryI(args ...interface{}) {
-    self.Call("removeBinary", args)
+    self.Object.Call("removeBinary", args)
+}
+
+// Removes a bitmap data from the cache.
+// 
+// Note that this only removes it from the Phaser.Cache. If you still have references to the data elsewhere
+// then it will persist in memory.
+func (self *Cache) RemoveBitmapData(key string) {
+    self.Object.Call("removeBitmapData", key)
 }
 
 // Removes a bitmap data from the cache.
@@ -739,7 +1248,15 @@ func (self *Cache) RemoveBinaryI(args ...interface{}) {
 // Note that this only removes it from the Phaser.Cache. If you still have references to the data elsewhere
 // then it will persist in memory.
 func (self *Cache) RemoveBitmapDataI(args ...interface{}) {
-    self.Call("removeBitmapData", args)
+    self.Object.Call("removeBitmapData", args)
+}
+
+// Removes a bitmap font from the cache.
+// 
+// Note that this only removes it from the Phaser.Cache. If you still have references to the data elsewhere
+// then it will persist in memory.
+func (self *Cache) RemoveBitmapFont(key string) {
+    self.Object.Call("removeBitmapFont", key)
 }
 
 // Removes a bitmap font from the cache.
@@ -747,7 +1264,15 @@ func (self *Cache) RemoveBitmapDataI(args ...interface{}) {
 // Note that this only removes it from the Phaser.Cache. If you still have references to the data elsewhere
 // then it will persist in memory.
 func (self *Cache) RemoveBitmapFontI(args ...interface{}) {
-    self.Call("removeBitmapFont", args)
+    self.Object.Call("removeBitmapFont", args)
+}
+
+// Removes a json object from the cache.
+// 
+// Note that this only removes it from the Phaser.Cache. If you still have references to the data elsewhere
+// then it will persist in memory.
+func (self *Cache) RemoveJSON(key string) {
+    self.Object.Call("removeJSON", key)
 }
 
 // Removes a json object from the cache.
@@ -755,7 +1280,15 @@ func (self *Cache) RemoveBitmapFontI(args ...interface{}) {
 // Note that this only removes it from the Phaser.Cache. If you still have references to the data elsewhere
 // then it will persist in memory.
 func (self *Cache) RemoveJSONI(args ...interface{}) {
-    self.Call("removeJSON", args)
+    self.Object.Call("removeJSON", args)
+}
+
+// Removes a xml object from the cache.
+// 
+// Note that this only removes it from the Phaser.Cache. If you still have references to the data elsewhere
+// then it will persist in memory.
+func (self *Cache) RemoveXML(key string) {
+    self.Object.Call("removeXML", key)
 }
 
 // Removes a xml object from the cache.
@@ -763,7 +1296,15 @@ func (self *Cache) RemoveJSONI(args ...interface{}) {
 // Note that this only removes it from the Phaser.Cache. If you still have references to the data elsewhere
 // then it will persist in memory.
 func (self *Cache) RemoveXMLI(args ...interface{}) {
-    self.Call("removeXML", args)
+    self.Object.Call("removeXML", args)
+}
+
+// Removes a video from the cache.
+// 
+// Note that this only removes it from the Phaser.Cache. If you still have references to the data elsewhere
+// then it will persist in memory.
+func (self *Cache) RemoveVideo(key string) {
+    self.Object.Call("removeVideo", key)
 }
 
 // Removes a video from the cache.
@@ -771,7 +1312,15 @@ func (self *Cache) RemoveXMLI(args ...interface{}) {
 // Note that this only removes it from the Phaser.Cache. If you still have references to the data elsewhere
 // then it will persist in memory.
 func (self *Cache) RemoveVideoI(args ...interface{}) {
-    self.Call("removeVideo", args)
+    self.Object.Call("removeVideo", args)
+}
+
+// Removes a shader from the cache.
+// 
+// Note that this only removes it from the Phaser.Cache. If you still have references to the data elsewhere
+// then it will persist in memory.
+func (self *Cache) RemoveShader(key string) {
+    self.Object.Call("removeShader", key)
 }
 
 // Removes a shader from the cache.
@@ -779,7 +1328,15 @@ func (self *Cache) RemoveVideoI(args ...interface{}) {
 // Note that this only removes it from the Phaser.Cache. If you still have references to the data elsewhere
 // then it will persist in memory.
 func (self *Cache) RemoveShaderI(args ...interface{}) {
-    self.Call("removeShader", args)
+    self.Object.Call("removeShader", args)
+}
+
+// Removes a Render Texture from the cache.
+// 
+// Note that this only removes it from the Phaser.Cache. If you still have references to the data elsewhere
+// then it will persist in memory.
+func (self *Cache) RemoveRenderTexture(key string) {
+    self.Object.Call("removeRenderTexture", key)
 }
 
 // Removes a Render Texture from the cache.
@@ -787,7 +1344,15 @@ func (self *Cache) RemoveShaderI(args ...interface{}) {
 // Note that this only removes it from the Phaser.Cache. If you still have references to the data elsewhere
 // then it will persist in memory.
 func (self *Cache) RemoveRenderTextureI(args ...interface{}) {
-    self.Call("removeRenderTexture", args)
+    self.Object.Call("removeRenderTexture", args)
+}
+
+// Removes a Sprite Sheet from the cache.
+// 
+// Note that this only removes it from the Phaser.Cache. If you still have references to the data elsewhere
+// then it will persist in memory.
+func (self *Cache) RemoveSpriteSheet(key string) {
+    self.Object.Call("removeSpriteSheet", key)
 }
 
 // Removes a Sprite Sheet from the cache.
@@ -795,7 +1360,15 @@ func (self *Cache) RemoveRenderTextureI(args ...interface{}) {
 // Note that this only removes it from the Phaser.Cache. If you still have references to the data elsewhere
 // then it will persist in memory.
 func (self *Cache) RemoveSpriteSheetI(args ...interface{}) {
-    self.Call("removeSpriteSheet", args)
+    self.Object.Call("removeSpriteSheet", args)
+}
+
+// Removes a Texture Atlas from the cache.
+// 
+// Note that this only removes it from the Phaser.Cache. If you still have references to the data elsewhere
+// then it will persist in memory.
+func (self *Cache) RemoveTextureAtlas(key string) {
+    self.Object.Call("removeTextureAtlas", key)
 }
 
 // Removes a Texture Atlas from the cache.
@@ -803,23 +1376,41 @@ func (self *Cache) RemoveSpriteSheetI(args ...interface{}) {
 // Note that this only removes it from the Phaser.Cache. If you still have references to the data elsewhere
 // then it will persist in memory.
 func (self *Cache) RemoveTextureAtlasI(args ...interface{}) {
-    self.Call("removeTextureAtlas", args)
+    self.Object.Call("removeTextureAtlas", args)
+}
+
+// Empties out all of the GL Textures from Images stored in the cache.
+// This is called automatically when the WebGL context is lost and then restored.
+func (self *Cache) ClearGLTextures() {
+    self.Object.Call("clearGLTextures")
 }
 
 // Empties out all of the GL Textures from Images stored in the cache.
 // This is called automatically when the WebGL context is lost and then restored.
 func (self *Cache) ClearGLTexturesI(args ...interface{}) {
-    self.Call("clearGLTextures", args)
+    self.Object.Call("clearGLTextures", args)
+}
+
+// Resolves a URL to its absolute form and stores it in Cache._urlMap as long as Cache.autoResolveURL is set to `true`.
+// This is then looked-up by the Cache.getURL and Cache.checkURL calls.
+func (self *Cache) _resolveURL(url string, data interface{}) string{
+    return self.Object.Call("_resolveURL", url, data).String()
 }
 
 // Resolves a URL to its absolute form and stores it in Cache._urlMap as long as Cache.autoResolveURL is set to `true`.
 // This is then looked-up by the Cache.getURL and Cache.checkURL calls.
 func (self *Cache) _resolveURLI(args ...interface{}) string{
-    return self.Call("_resolveURL", args).String()
+    return self.Object.Call("_resolveURL", args).String()
+}
+
+// Clears the cache. Removes every local cache object reference.
+// If an object in the cache has a `destroy` method it will also be called.
+func (self *Cache) Destroy() {
+    self.Object.Call("destroy")
 }
 
 // Clears the cache. Removes every local cache object reference.
 // If an object in the cache has a `destroy` method it will also be called.
 func (self *Cache) DestroyI(args ...interface{}) {
-    self.Call("destroy", args)
+    self.Object.Call("destroy", args)
 }

@@ -21,6 +21,16 @@ type ComponentAnimation struct {
 // 
 // If the animation is already playing calling this again won't do anything.
 // If you need to reset an already running animation do so directly on the Animation object itself or via `AnimationManager.stop`.
+func (self *ComponentAnimation) Play(name string, frameRate int, loop bool, killOnComplete bool) *Animation{
+    return &Animation{self.Object.Call("play", name, frameRate, loop, killOnComplete)}
+}
+
+// Plays an Animation.
+// 
+// The animation should have previously been created via `animations.add`.
+// 
+// If the animation is already playing calling this again won't do anything.
+// If you need to reset an already running animation do so directly on the Animation object itself or via `AnimationManager.stop`.
 func (self *ComponentAnimation) PlayI(args ...interface{}) *Animation{
-    return &Animation{self.Call("play", args)}
+    return &Animation{self.Object.Call("play", args)}
 }

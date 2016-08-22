@@ -21,88 +21,88 @@ type TimerEvent struct {
 
 
 // The Timer object that this TimerEvent belongs to.
-func (self *TimerEvent) GetTimer() *Timer{
-    return &Timer{self.Get("timer")}
+func (self *TimerEvent) GetTimerA() *Timer{
+    return &Timer{self.Object.Get("timer")}
 }
 
 // The Timer object that this TimerEvent belongs to.
-func (self *TimerEvent) SetTimer(member *Timer) {
-    self.Set("timer", member)
+func (self *TimerEvent) SetTimerA(member *Timer) {
+    self.Object.Set("timer", member)
 }
 
 // The delay in ms at which this TimerEvent fires.
-func (self *TimerEvent) GetDelay() int{
-    return self.Get("delay").Int()
+func (self *TimerEvent) GetDelayA() int{
+    return self.Object.Get("delay").Int()
 }
 
 // The delay in ms at which this TimerEvent fires.
-func (self *TimerEvent) SetDelay(member int) {
-    self.Set("delay", member)
+func (self *TimerEvent) SetDelayA(member int) {
+    self.Object.Set("delay", member)
 }
 
 // The tick is the next game clock time that this event will fire at.
-func (self *TimerEvent) GetTick() int{
-    return self.Get("tick").Int()
+func (self *TimerEvent) GetTickA() int{
+    return self.Object.Get("tick").Int()
 }
 
 // The tick is the next game clock time that this event will fire at.
-func (self *TimerEvent) SetTick(member int) {
-    self.Set("tick", member)
+func (self *TimerEvent) SetTickA(member int) {
+    self.Object.Set("tick", member)
 }
 
 // If this TimerEvent repeats it will do so this many times.
-func (self *TimerEvent) GetRepeatCount() int{
-    return self.Get("repeatCount").Int()
+func (self *TimerEvent) GetRepeatCountA() int{
+    return self.Object.Get("repeatCount").Int()
 }
 
 // If this TimerEvent repeats it will do so this many times.
-func (self *TimerEvent) SetRepeatCount(member int) {
-    self.Set("repeatCount", member)
+func (self *TimerEvent) SetRepeatCountA(member int) {
+    self.Object.Set("repeatCount", member)
 }
 
 // True if this TimerEvent loops, otherwise false.
-func (self *TimerEvent) GetLoop() bool{
-    return self.Get("loop").Bool()
+func (self *TimerEvent) GetLoopA() bool{
+    return self.Object.Get("loop").Bool()
 }
 
 // True if this TimerEvent loops, otherwise false.
-func (self *TimerEvent) SetLoop(member bool) {
-    self.Set("loop", member)
+func (self *TimerEvent) SetLoopA(member bool) {
+    self.Object.Set("loop", member)
 }
 
 // The callback that will be called when the TimerEvent occurs.
-func (self *TimerEvent) SetCallback(member func(...interface{})) {
-    self.Set("callback", member)
+func (self *TimerEvent) SetCallbackA(member func(...interface{})) {
+    self.Object.Set("callback", member)
 }
 
 // The context in which the callback will be called.
-func (self *TimerEvent) GetCallbackContext() interface{}{
-    return self.Get("callbackContext")
+func (self *TimerEvent) GetCallbackContextA() interface{}{
+    return self.Object.Get("callbackContext")
 }
 
 // The context in which the callback will be called.
-func (self *TimerEvent) SetCallbackContext(member interface{}) {
-    self.Set("callbackContext", member)
+func (self *TimerEvent) SetCallbackContextA(member interface{}) {
+    self.Object.Set("callbackContext", member)
 }
 
 // Additional arguments to be passed to the callback.
-func (self *TimerEvent) GetArgs() interface{}{
-    return self.Get("args")
+func (self *TimerEvent) GetArgsA() interface{}{
+    return self.Object.Get("args")
 }
 
 // Additional arguments to be passed to the callback.
-func (self *TimerEvent) SetArgs(member interface{}) {
-    self.Set("args", member)
+func (self *TimerEvent) SetArgsA(member interface{}) {
+    self.Object.Set("args", member)
 }
 
 // A flag that controls if the TimerEvent is pending deletion.
-func (self *TimerEvent) GetPendingDelete() bool{
-    return self.Get("pendingDelete").Bool()
+func (self *TimerEvent) GetPendingDeleteA() bool{
+    return self.Object.Get("pendingDelete").Bool()
 }
 
 // A flag that controls if the TimerEvent is pending deletion.
-func (self *TimerEvent) SetPendingDelete(member bool) {
-    self.Set("pendingDelete", member)
+func (self *TimerEvent) SetPendingDeleteA(member bool) {
+    self.Object.Set("pendingDelete", member)
 }
 
 

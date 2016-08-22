@@ -18,8 +18,8 @@ type ComponentSmoothed struct {
 // It only takes effect if the Game Object is using an image based texture.
 // 
 // Smoothing is enabled by default.
-func (self *ComponentSmoothed) GetSmoothed() bool{
-    return self.Get("smoothed").Bool()
+func (self *ComponentSmoothed) GetSmoothedA() bool{
+    return self.Object.Get("smoothed").Bool()
 }
 
 // Enable or disable texture smoothing for this Game Object.
@@ -27,8 +27,8 @@ func (self *ComponentSmoothed) GetSmoothed() bool{
 // It only takes effect if the Game Object is using an image based texture.
 // 
 // Smoothing is enabled by default.
-func (self *ComponentSmoothed) SetSmoothed(member bool) {
-    self.Set("smoothed", member)
+func (self *ComponentSmoothed) SetSmoothedA(member bool) {
+    self.Object.Set("smoothed", member)
 }
 
 

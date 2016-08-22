@@ -18,16 +18,31 @@ type PolyK struct {
 
 
 // Triangulates shapes for webGL graphic fills.
+func (self *PolyK) Triangulate() {
+    self.Object.Call("Triangulate")
+}
+
+// Triangulates shapes for webGL graphic fills.
 func (self *PolyK) TriangulateI(args ...interface{}) {
-    self.Call("Triangulate", args)
+    self.Object.Call("Triangulate", args)
+}
+
+// Checks whether a point is within a triangle
+func (self *PolyK) _PointInTriangle(px int, py int, ax int, ay int, bx int, by int, cx int, cy int) bool{
+    return self.Object.Call("_PointInTriangle", px, py, ax, ay, bx, by, cx, cy).Bool()
 }
 
 // Checks whether a point is within a triangle
 func (self *PolyK) _PointInTriangleI(args ...interface{}) bool{
-    return self.Call("_PointInTriangle", args).Bool()
+    return self.Object.Call("_PointInTriangle", args).Bool()
+}
+
+// Checks whether a shape is convex
+func (self *PolyK) _convex() bool{
+    return self.Object.Call("_convex").Bool()
 }
 
 // Checks whether a shape is convex
 func (self *PolyK) _convexI(args ...interface{}) bool{
-    return self.Call("_convex", args).Bool()
+    return self.Object.Call("_convex", args).Bool()
 }

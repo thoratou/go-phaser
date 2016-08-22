@@ -17,49 +17,74 @@ type CanvasTinter struct {
 
 // If the browser isn't capable of handling tinting with alpha this will be false.
 // This property is only applicable if using tintWithPerPixel.
-func (self *CanvasTinter) GetCanHandleAlpha() bool{
-    return self.Get("canHandleAlpha").Bool()
+func (self *CanvasTinter) GetCanHandleAlphaA() bool{
+    return self.Object.Get("canHandleAlpha").Bool()
 }
 
 // If the browser isn't capable of handling tinting with alpha this will be false.
 // This property is only applicable if using tintWithPerPixel.
-func (self *CanvasTinter) SetCanHandleAlpha(member bool) {
-    self.Set("canHandleAlpha", member)
+func (self *CanvasTinter) SetCanHandleAlphaA(member bool) {
+    self.Object.Set("canHandleAlpha", member)
 }
 
 // Whether or not the Canvas BlendModes are supported, consequently the ability to tint using the multiply method.
-func (self *CanvasTinter) GetCanUseMultiply() bool{
-    return self.Get("canUseMultiply").Bool()
+func (self *CanvasTinter) GetCanUseMultiplyA() bool{
+    return self.Object.Get("canUseMultiply").Bool()
 }
 
 // Whether or not the Canvas BlendModes are supported, consequently the ability to tint using the multiply method.
-func (self *CanvasTinter) SetCanUseMultiply(member bool) {
-    self.Set("canUseMultiply", member)
+func (self *CanvasTinter) SetCanUseMultiplyA(member bool) {
+    self.Object.Set("canUseMultiply", member)
 }
 
 
 
 // Basically this method just needs a sprite and a color and tints the sprite with the given color.
+func (self *CanvasTinter) GetTintedTexture(sprite *Sprite, color int) dom.HTMLCanvasElement{
+    return WrapHTMLCanvasElement(self.Object.Call("getTintedTexture", sprite, color))
+}
+
+// Basically this method just needs a sprite and a color and tints the sprite with the given color.
 func (self *CanvasTinter) GetTintedTextureI(args ...interface{}) dom.HTMLCanvasElement{
-    return WrapHTMLCanvasElement(self.Call("getTintedTexture", args))
+    return WrapHTMLCanvasElement(self.Object.Call("getTintedTexture", args))
+}
+
+// Tint a texture using the "multiply" operation.
+func (self *CanvasTinter) TintWithMultiply(texture *Texture, color int, canvas *dom.HTMLCanvasElement) {
+    self.Object.Call("tintWithMultiply", texture, color, canvas)
 }
 
 // Tint a texture using the "multiply" operation.
 func (self *CanvasTinter) TintWithMultiplyI(args ...interface{}) {
-    self.Call("tintWithMultiply", args)
+    self.Object.Call("tintWithMultiply", args)
+}
+
+// Tint a texture pixel per pixel.
+func (self *CanvasTinter) TintPerPixel(texture *Texture, color int, canvas *dom.HTMLCanvasElement) {
+    self.Object.Call("tintPerPixel", texture, color, canvas)
 }
 
 // Tint a texture pixel per pixel.
 func (self *CanvasTinter) TintPerPixelI(args ...interface{}) {
-    self.Call("tintPerPixel", args)
+    self.Object.Call("tintPerPixel", args)
+}
+
+// Checks if the browser correctly supports putImageData alpha channels.
+func (self *CanvasTinter) CheckInverseAlpha() {
+    self.Object.Call("checkInverseAlpha")
 }
 
 // Checks if the browser correctly supports putImageData alpha channels.
 func (self *CanvasTinter) CheckInverseAlphaI(args ...interface{}) {
-    self.Call("checkInverseAlpha", args)
+    self.Object.Call("checkInverseAlpha", args)
+}
+
+// The tinting method that will be used.
+func (self *CanvasTinter) TintMethod() {
+    self.Object.Call("tintMethod")
 }
 
 // The tinting method that will be used.
 func (self *CanvasTinter) TintMethodI(args ...interface{}) {
-    self.Call("tintMethod", args)
+    self.Object.Call("tintMethod", args)
 }

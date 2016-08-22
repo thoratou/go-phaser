@@ -16,21 +16,41 @@ type LoaderParser struct {
 
 
 // Alias for xmlBitmapFont, for backwards compatibility.
+func (self *LoaderParser) BitmapFont(xml interface{}, baseTexture *BaseTexture, xSpacing int, ySpacing int) interface{}{
+    return self.Object.Call("bitmapFont", xml, baseTexture, xSpacing, ySpacing)
+}
+
+// Alias for xmlBitmapFont, for backwards compatibility.
 func (self *LoaderParser) BitmapFontI(args ...interface{}) interface{}{
-    return self.Call("bitmapFont", args)
+    return self.Object.Call("bitmapFont", args)
+}
+
+// Parse a Bitmap Font from an XML file.
+func (self *LoaderParser) XmlBitmapFont(xml interface{}, baseTexture *BaseTexture, xSpacing int, ySpacing int) interface{}{
+    return self.Object.Call("xmlBitmapFont", xml, baseTexture, xSpacing, ySpacing)
 }
 
 // Parse a Bitmap Font from an XML file.
 func (self *LoaderParser) XmlBitmapFontI(args ...interface{}) interface{}{
-    return self.Call("xmlBitmapFont", args)
+    return self.Object.Call("xmlBitmapFont", args)
+}
+
+// Parse a Bitmap Font from a JSON file.
+func (self *LoaderParser) JsonBitmapFont(json interface{}, baseTexture *BaseTexture, xSpacing int, ySpacing int) interface{}{
+    return self.Object.Call("jsonBitmapFont", json, baseTexture, xSpacing, ySpacing)
 }
 
 // Parse a Bitmap Font from a JSON file.
 func (self *LoaderParser) JsonBitmapFontI(args ...interface{}) interface{}{
-    return self.Call("jsonBitmapFont", args)
+    return self.Object.Call("jsonBitmapFont", args)
+}
+
+// Finalize Bitmap Font parsing.
+func (self *LoaderParser) FinalizeBitmapFont(baseTexture *BaseTexture, bitmapFontData interface{}) interface{}{
+    return self.Object.Call("finalizeBitmapFont", baseTexture, bitmapFontData)
 }
 
 // Finalize Bitmap Font parsing.
 func (self *LoaderParser) FinalizeBitmapFontI(args ...interface{}) interface{}{
-    return self.Call("finalizeBitmapFont", args)
+    return self.Object.Call("finalizeBitmapFont", args)
 }

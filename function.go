@@ -20,11 +20,13 @@ func (f *Function) GetParameterFullString() string {
 	result := ""
 	firstParameter := true
 	for _, parameter := range f.Parameters {
-		if firstParameter {
-			result = result + parameter.Name + " " + parameter.Type.GetTypeOptionalPointer()
-			firstParameter = false
-		} else {
-			result = result + ", " + parameter.Name + " " + parameter.Type.GetTypeOptionalPointer()
+		if !IsBugParameter(parameter.Name) {
+			if firstParameter {
+				result = result + ConvertGoReserveNames(parameter.Name) + " " + parameter.Type.GetTypeOptionalPointer()
+				firstParameter = false
+			} else {
+				result = result + ", " + ConvertGoReserveNames(parameter.Name) + " " + parameter.Type.GetTypeOptionalPointer()
+			}
 		}
 	}
 	return result
@@ -33,7 +35,9 @@ func (f *Function) GetParameterFullString() string {
 func (f *Function) GetParameterCallString() string {
 	result := ""
 	for _, parameter := range f.Parameters {
-		result = result + ", " + parameter.Name
+		if !IsBugParameter(parameter.Name) {
+			result = result + ", " + ConvertGoReserveNames(parameter.Name)
+		}
 	}
 	return result
 }

@@ -16,11 +16,21 @@ type CanvasMaskManager struct {
 
 
 // This method adds it to the current stack of masks.
+func (self *CanvasMaskManager) PushMask(maskData interface{}, renderSession interface{}) {
+    self.Object.Call("pushMask", maskData, renderSession)
+}
+
+// This method adds it to the current stack of masks.
 func (self *CanvasMaskManager) PushMaskI(args ...interface{}) {
-    self.Call("pushMask", args)
+    self.Object.Call("pushMask", args)
+}
+
+// Restores the current drawing context to the state it was before the mask was applied.
+func (self *CanvasMaskManager) PopMask(renderSession interface{}) {
+    self.Object.Call("popMask", renderSession)
 }
 
 // Restores the current drawing context to the state it was before the mask was applied.
 func (self *CanvasMaskManager) PopMaskI(args ...interface{}) {
-    self.Call("popMask", args)
+    self.Object.Call("popMask", args)
 }

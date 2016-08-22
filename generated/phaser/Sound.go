@@ -14,472 +14,538 @@ type Sound struct {
 
 
 // A reference to the currently running Game.
-func (self *Sound) GetGame() *Game{
-    return &Game{self.Get("game")}
+func (self *Sound) GetGameA() *Game{
+    return &Game{self.Object.Get("game")}
 }
 
 // A reference to the currently running Game.
-func (self *Sound) SetGame(member *Game) {
-    self.Set("game", member)
+func (self *Sound) SetGameA(member *Game) {
+    self.Object.Set("game", member)
 }
 
 // Name of the sound.
-func (self *Sound) GetName() string{
-    return self.Get("name").String()
+func (self *Sound) GetNameA() string{
+    return self.Object.Get("name").String()
 }
 
 // Name of the sound.
-func (self *Sound) SetName(member string) {
-    self.Set("name", member)
+func (self *Sound) SetNameA(member string) {
+    self.Object.Set("name", member)
 }
 
 // Asset key for the sound.
-func (self *Sound) GetKey() string{
-    return self.Get("key").String()
+func (self *Sound) GetKeyA() string{
+    return self.Object.Get("key").String()
 }
 
 // Asset key for the sound.
-func (self *Sound) SetKey(member string) {
-    self.Set("key", member)
+func (self *Sound) SetKeyA(member string) {
+    self.Object.Set("key", member)
 }
 
 // Whether or not the sound or current sound marker will loop.
-func (self *Sound) GetLoop() bool{
-    return self.Get("loop").Bool()
+func (self *Sound) GetLoopA() bool{
+    return self.Object.Get("loop").Bool()
 }
 
 // Whether or not the sound or current sound marker will loop.
-func (self *Sound) SetLoop(member bool) {
-    self.Set("loop", member)
+func (self *Sound) SetLoopA(member bool) {
+    self.Object.Set("loop", member)
 }
 
 // The sound markers.
-func (self *Sound) GetMarkers() interface{}{
-    return self.Get("markers")
+func (self *Sound) GetMarkersA() interface{}{
+    return self.Object.Get("markers")
 }
 
 // The sound markers.
-func (self *Sound) SetMarkers(member interface{}) {
-    self.Set("markers", member)
+func (self *Sound) SetMarkersA(member interface{}) {
+    self.Object.Set("markers", member)
 }
 
 // Reference to the AudioContext instance.
-func (self *Sound) GetContext() *AudioContext{
-    return &AudioContext{self.Get("context")}
+func (self *Sound) GetContextA() *AudioContext{
+    return &AudioContext{self.Object.Get("context")}
 }
 
 // Reference to the AudioContext instance.
-func (self *Sound) SetContext(member *AudioContext) {
-    self.Set("context", member)
+func (self *Sound) SetContextA(member *AudioContext) {
+    self.Object.Set("context", member)
 }
 
 // Boolean indicating whether the sound should start automatically.
-func (self *Sound) GetAutoplay() bool{
-    return self.Get("autoplay").Bool()
+func (self *Sound) GetAutoplayA() bool{
+    return self.Object.Get("autoplay").Bool()
 }
 
 // Boolean indicating whether the sound should start automatically.
-func (self *Sound) SetAutoplay(member bool) {
-    self.Set("autoplay", member)
+func (self *Sound) SetAutoplayA(member bool) {
+    self.Object.Set("autoplay", member)
 }
 
 // The total duration of the sound in seconds.
-func (self *Sound) GetTotalDuration() int{
-    return self.Get("totalDuration").Int()
+func (self *Sound) GetTotalDurationA() int{
+    return self.Object.Get("totalDuration").Int()
 }
 
 // The total duration of the sound in seconds.
-func (self *Sound) SetTotalDuration(member int) {
-    self.Set("totalDuration", member)
+func (self *Sound) SetTotalDurationA(member int) {
+    self.Object.Set("totalDuration", member)
 }
 
 // The time the Sound starts at (typically 0 unless starting from a marker)
-func (self *Sound) GetStartTime() int{
-    return self.Get("startTime").Int()
+func (self *Sound) GetStartTimeA() int{
+    return self.Object.Get("startTime").Int()
 }
 
 // The time the Sound starts at (typically 0 unless starting from a marker)
-func (self *Sound) SetStartTime(member int) {
-    self.Set("startTime", member)
+func (self *Sound) SetStartTimeA(member int) {
+    self.Object.Set("startTime", member)
 }
 
 // The current time the sound is at.
-func (self *Sound) GetCurrentTime() int{
-    return self.Get("currentTime").Int()
+func (self *Sound) GetCurrentTimeA() int{
+    return self.Object.Get("currentTime").Int()
 }
 
 // The current time the sound is at.
-func (self *Sound) SetCurrentTime(member int) {
-    self.Set("currentTime", member)
+func (self *Sound) SetCurrentTimeA(member int) {
+    self.Object.Set("currentTime", member)
 }
 
 // The duration of the current sound marker in seconds.
-func (self *Sound) GetDuration() int{
-    return self.Get("duration").Int()
+func (self *Sound) GetDurationA() int{
+    return self.Object.Get("duration").Int()
 }
 
 // The duration of the current sound marker in seconds.
-func (self *Sound) SetDuration(member int) {
-    self.Set("duration", member)
+func (self *Sound) SetDurationA(member int) {
+    self.Object.Set("duration", member)
 }
 
 // The duration of the current sound marker in ms.
-func (self *Sound) GetDurationMS() int{
-    return self.Get("durationMS").Int()
+func (self *Sound) GetDurationMSA() int{
+    return self.Object.Get("durationMS").Int()
 }
 
 // The duration of the current sound marker in ms.
-func (self *Sound) SetDurationMS(member int) {
-    self.Set("durationMS", member)
+func (self *Sound) SetDurationMSA(member int) {
+    self.Object.Set("durationMS", member)
 }
 
 // The position of the current sound marker.
-func (self *Sound) GetPosition() int{
-    return self.Get("position").Int()
+func (self *Sound) GetPositionA() int{
+    return self.Object.Get("position").Int()
 }
 
 // The position of the current sound marker.
-func (self *Sound) SetPosition(member int) {
-    self.Set("position", member)
+func (self *Sound) SetPositionA(member int) {
+    self.Object.Set("position", member)
 }
 
 // The time the sound stopped.
-func (self *Sound) GetStopTime() int{
-    return self.Get("stopTime").Int()
+func (self *Sound) GetStopTimeA() int{
+    return self.Object.Get("stopTime").Int()
 }
 
 // The time the sound stopped.
-func (self *Sound) SetStopTime(member int) {
-    self.Set("stopTime", member)
+func (self *Sound) SetStopTimeA(member int) {
+    self.Object.Set("stopTime", member)
 }
 
 // true if the sound is paused, otherwise false.
-func (self *Sound) GetPaused() bool{
-    return self.Get("paused").Bool()
+func (self *Sound) GetPausedA() bool{
+    return self.Object.Get("paused").Bool()
 }
 
 // true if the sound is paused, otherwise false.
-func (self *Sound) SetPaused(member bool) {
-    self.Set("paused", member)
+func (self *Sound) SetPausedA(member bool) {
+    self.Object.Set("paused", member)
 }
 
 // The position the sound had reached when it was paused.
-func (self *Sound) GetPausedPosition() int{
-    return self.Get("pausedPosition").Int()
+func (self *Sound) GetPausedPositionA() int{
+    return self.Object.Get("pausedPosition").Int()
 }
 
 // The position the sound had reached when it was paused.
-func (self *Sound) SetPausedPosition(member int) {
-    self.Set("pausedPosition", member)
+func (self *Sound) SetPausedPositionA(member int) {
+    self.Object.Set("pausedPosition", member)
 }
 
 // The game time at which the sound was paused.
-func (self *Sound) GetPausedTime() int{
-    return self.Get("pausedTime").Int()
+func (self *Sound) GetPausedTimeA() int{
+    return self.Object.Get("pausedTime").Int()
 }
 
 // The game time at which the sound was paused.
-func (self *Sound) SetPausedTime(member int) {
-    self.Set("pausedTime", member)
+func (self *Sound) SetPausedTimeA(member int) {
+    self.Object.Set("pausedTime", member)
 }
 
 // true if the sound is currently playing, otherwise false.
-func (self *Sound) GetIsPlaying() bool{
-    return self.Get("isPlaying").Bool()
+func (self *Sound) GetIsPlayingA() bool{
+    return self.Object.Get("isPlaying").Bool()
 }
 
 // true if the sound is currently playing, otherwise false.
-func (self *Sound) SetIsPlaying(member bool) {
-    self.Set("isPlaying", member)
+func (self *Sound) SetIsPlayingA(member bool) {
+    self.Object.Set("isPlaying", member)
 }
 
 // The string ID of the currently playing marker, if any.
-func (self *Sound) GetCurrentMarker() string{
-    return self.Get("currentMarker").String()
+func (self *Sound) GetCurrentMarkerA() string{
+    return self.Object.Get("currentMarker").String()
 }
 
 // The string ID of the currently playing marker, if any.
-func (self *Sound) SetCurrentMarker(member string) {
-    self.Set("currentMarker", member)
+func (self *Sound) SetCurrentMarkerA(member string) {
+    self.Object.Set("currentMarker", member)
 }
 
 // The tween that fades the audio, set via Sound.fadeIn and Sound.fadeOut.
-func (self *Sound) GetFadeTween() *Tween{
-    return &Tween{self.Get("fadeTween")}
+func (self *Sound) GetFadeTweenA() *Tween{
+    return &Tween{self.Object.Get("fadeTween")}
 }
 
 // The tween that fades the audio, set via Sound.fadeIn and Sound.fadeOut.
-func (self *Sound) SetFadeTween(member *Tween) {
-    self.Set("fadeTween", member)
+func (self *Sound) SetFadeTweenA(member *Tween) {
+    self.Object.Set("fadeTween", member)
 }
 
 // true if the sound file is pending playback
-func (self *Sound) GetPendingPlayback() bool{
-    return self.Get("pendingPlayback").Bool()
+func (self *Sound) GetPendingPlaybackA() bool{
+    return self.Object.Get("pendingPlayback").Bool()
 }
 
 // true if the sound file is pending playback
-func (self *Sound) SetPendingPlayback(member bool) {
-    self.Set("pendingPlayback", member)
+func (self *Sound) SetPendingPlaybackA(member bool) {
+    self.Object.Set("pendingPlayback", member)
 }
 
 // if true when you play this sound it will always start from the beginning.
-func (self *Sound) GetOverride() bool{
-    return self.Get("override").Bool()
+func (self *Sound) GetOverrideA() bool{
+    return self.Object.Get("override").Bool()
 }
 
 // if true when you play this sound it will always start from the beginning.
-func (self *Sound) SetOverride(member bool) {
-    self.Set("override", member)
+func (self *Sound) SetOverrideA(member bool) {
+    self.Object.Set("override", member)
 }
 
 // This will allow you to have multiple instances of this Sound playing at once. This is only useful when running under Web Audio, and we recommend you implement a local pooling system to not flood the sound channels.
-func (self *Sound) GetAllowMultiple() bool{
-    return self.Get("allowMultiple").Bool()
+func (self *Sound) GetAllowMultipleA() bool{
+    return self.Object.Get("allowMultiple").Bool()
 }
 
 // This will allow you to have multiple instances of this Sound playing at once. This is only useful when running under Web Audio, and we recommend you implement a local pooling system to not flood the sound channels.
-func (self *Sound) SetAllowMultiple(member bool) {
-    self.Set("allowMultiple", member)
+func (self *Sound) SetAllowMultipleA(member bool) {
+    self.Object.Set("allowMultiple", member)
 }
 
 // true if this sound is being played with Web Audio.
-func (self *Sound) GetUsingWebAudio() bool{
-    return self.Get("usingWebAudio").Bool()
+func (self *Sound) GetUsingWebAudioA() bool{
+    return self.Object.Get("usingWebAudio").Bool()
 }
 
 // true if this sound is being played with Web Audio.
-func (self *Sound) SetUsingWebAudio(member bool) {
-    self.Set("usingWebAudio", member)
+func (self *Sound) SetUsingWebAudioA(member bool) {
+    self.Object.Set("usingWebAudio", member)
 }
 
 // true if the sound is being played via the Audio tag.
-func (self *Sound) GetUsingAudioTag() bool{
-    return self.Get("usingAudioTag").Bool()
+func (self *Sound) GetUsingAudioTagA() bool{
+    return self.Object.Get("usingAudioTag").Bool()
 }
 
 // true if the sound is being played via the Audio tag.
-func (self *Sound) SetUsingAudioTag(member bool) {
-    self.Set("usingAudioTag", member)
+func (self *Sound) SetUsingAudioTagA(member bool) {
+    self.Object.Set("usingAudioTag", member)
 }
 
 // If defined this Sound won't connect to the SoundManager master gain node, but will instead connect to externalNode.
-func (self *Sound) GetExternalNode() interface{}{
-    return self.Get("externalNode")
+func (self *Sound) GetExternalNodeA() interface{}{
+    return self.Object.Get("externalNode")
 }
 
 // If defined this Sound won't connect to the SoundManager master gain node, but will instead connect to externalNode.
-func (self *Sound) SetExternalNode(member interface{}) {
-    self.Set("externalNode", member)
+func (self *Sound) SetExternalNodeA(member interface{}) {
+    self.Object.Set("externalNode", member)
 }
 
 // The master gain node in a Web Audio system.
-func (self *Sound) GetMasterGainNode() interface{}{
-    return self.Get("masterGainNode")
+func (self *Sound) GetMasterGainNodeA() interface{}{
+    return self.Object.Get("masterGainNode")
 }
 
 // The master gain node in a Web Audio system.
-func (self *Sound) SetMasterGainNode(member interface{}) {
-    self.Set("masterGainNode", member)
+func (self *Sound) SetMasterGainNodeA(member interface{}) {
+    self.Object.Set("masterGainNode", member)
 }
 
 // The gain node in a Web Audio system.
-func (self *Sound) GetGainNode() interface{}{
-    return self.Get("gainNode")
+func (self *Sound) GetGainNodeA() interface{}{
+    return self.Object.Get("gainNode")
 }
 
 // The gain node in a Web Audio system.
-func (self *Sound) SetGainNode(member interface{}) {
-    self.Set("gainNode", member)
+func (self *Sound) SetGainNodeA(member interface{}) {
+    self.Object.Set("gainNode", member)
 }
 
 // The onDecoded event is dispatched when the sound has finished decoding (typically for mp3 files)
-func (self *Sound) GetOnDecoded() *Signal{
-    return &Signal{self.Get("onDecoded")}
+func (self *Sound) GetOnDecodedA() *Signal{
+    return &Signal{self.Object.Get("onDecoded")}
 }
 
 // The onDecoded event is dispatched when the sound has finished decoding (typically for mp3 files)
-func (self *Sound) SetOnDecoded(member *Signal) {
-    self.Set("onDecoded", member)
+func (self *Sound) SetOnDecodedA(member *Signal) {
+    self.Object.Set("onDecoded", member)
 }
 
 // The onPlay event is dispatched each time this sound is played.
-func (self *Sound) GetOnPlay() *Signal{
-    return &Signal{self.Get("onPlay")}
+func (self *Sound) GetOnPlayA() *Signal{
+    return &Signal{self.Object.Get("onPlay")}
 }
 
 // The onPlay event is dispatched each time this sound is played.
-func (self *Sound) SetOnPlay(member *Signal) {
-    self.Set("onPlay", member)
+func (self *Sound) SetOnPlayA(member *Signal) {
+    self.Object.Set("onPlay", member)
 }
 
 // The onPause event is dispatched when this sound is paused.
-func (self *Sound) GetOnPause() *Signal{
-    return &Signal{self.Get("onPause")}
+func (self *Sound) GetOnPauseA() *Signal{
+    return &Signal{self.Object.Get("onPause")}
 }
 
 // The onPause event is dispatched when this sound is paused.
-func (self *Sound) SetOnPause(member *Signal) {
-    self.Set("onPause", member)
+func (self *Sound) SetOnPauseA(member *Signal) {
+    self.Object.Set("onPause", member)
 }
 
 // The onResume event is dispatched when this sound is resumed from a paused state.
-func (self *Sound) GetOnResume() *Signal{
-    return &Signal{self.Get("onResume")}
+func (self *Sound) GetOnResumeA() *Signal{
+    return &Signal{self.Object.Get("onResume")}
 }
 
 // The onResume event is dispatched when this sound is resumed from a paused state.
-func (self *Sound) SetOnResume(member *Signal) {
-    self.Set("onResume", member)
+func (self *Sound) SetOnResumeA(member *Signal) {
+    self.Object.Set("onResume", member)
 }
 
 // The onLoop event is dispatched when this sound loops during playback.
-func (self *Sound) GetOnLoop() *Signal{
-    return &Signal{self.Get("onLoop")}
+func (self *Sound) GetOnLoopA() *Signal{
+    return &Signal{self.Object.Get("onLoop")}
 }
 
 // The onLoop event is dispatched when this sound loops during playback.
-func (self *Sound) SetOnLoop(member *Signal) {
-    self.Set("onLoop", member)
+func (self *Sound) SetOnLoopA(member *Signal) {
+    self.Object.Set("onLoop", member)
 }
 
 // The onStop event is dispatched when this sound stops playback.
-func (self *Sound) GetOnStop() *Signal{
-    return &Signal{self.Get("onStop")}
+func (self *Sound) GetOnStopA() *Signal{
+    return &Signal{self.Object.Get("onStop")}
 }
 
 // The onStop event is dispatched when this sound stops playback.
-func (self *Sound) SetOnStop(member *Signal) {
-    self.Set("onStop", member)
+func (self *Sound) SetOnStopA(member *Signal) {
+    self.Object.Set("onStop", member)
 }
 
 // The onMute event is dispatched when this sound is muted.
-func (self *Sound) GetOnMute() *Signal{
-    return &Signal{self.Get("onMute")}
+func (self *Sound) GetOnMuteA() *Signal{
+    return &Signal{self.Object.Get("onMute")}
 }
 
 // The onMute event is dispatched when this sound is muted.
-func (self *Sound) SetOnMute(member *Signal) {
-    self.Set("onMute", member)
+func (self *Sound) SetOnMuteA(member *Signal) {
+    self.Object.Set("onMute", member)
 }
 
 // The onMarkerComplete event is dispatched when a marker within this sound completes playback.
-func (self *Sound) GetOnMarkerComplete() *Signal{
-    return &Signal{self.Get("onMarkerComplete")}
+func (self *Sound) GetOnMarkerCompleteA() *Signal{
+    return &Signal{self.Object.Get("onMarkerComplete")}
 }
 
 // The onMarkerComplete event is dispatched when a marker within this sound completes playback.
-func (self *Sound) SetOnMarkerComplete(member *Signal) {
-    self.Set("onMarkerComplete", member)
+func (self *Sound) SetOnMarkerCompleteA(member *Signal) {
+    self.Object.Set("onMarkerComplete", member)
 }
 
 // The onFadeComplete event is dispatched when this sound finishes fading either in or out.
-func (self *Sound) GetOnFadeComplete() *Signal{
-    return &Signal{self.Get("onFadeComplete")}
+func (self *Sound) GetOnFadeCompleteA() *Signal{
+    return &Signal{self.Object.Get("onFadeComplete")}
 }
 
 // The onFadeComplete event is dispatched when this sound finishes fading either in or out.
-func (self *Sound) SetOnFadeComplete(member *Signal) {
-    self.Set("onFadeComplete", member)
+func (self *Sound) SetOnFadeCompleteA(member *Signal) {
+    self.Object.Set("onFadeComplete", member)
 }
 
 // Returns true if the sound file is still decoding.
-func (self *Sound) GetIsDecoding() bool{
-    return self.Get("isDecoding").Bool()
+func (self *Sound) GetIsDecodingA() bool{
+    return self.Object.Get("isDecoding").Bool()
 }
 
 // Returns true if the sound file is still decoding.
-func (self *Sound) SetIsDecoding(member bool) {
-    self.Set("isDecoding", member)
+func (self *Sound) SetIsDecodingA(member bool) {
+    self.Object.Set("isDecoding", member)
 }
 
 // Returns true if the sound file has decoded.
-func (self *Sound) GetIsDecoded() bool{
-    return self.Get("isDecoded").Bool()
+func (self *Sound) GetIsDecodedA() bool{
+    return self.Object.Get("isDecoded").Bool()
 }
 
 // Returns true if the sound file has decoded.
-func (self *Sound) SetIsDecoded(member bool) {
-    self.Set("isDecoded", member)
+func (self *Sound) SetIsDecodedA(member bool) {
+    self.Object.Set("isDecoded", member)
 }
 
 // Gets or sets the muted state of this sound.
-func (self *Sound) GetMute() bool{
-    return self.Get("mute").Bool()
+func (self *Sound) GetMuteA() bool{
+    return self.Object.Get("mute").Bool()
 }
 
 // Gets or sets the muted state of this sound.
-func (self *Sound) SetMute(member bool) {
-    self.Set("mute", member)
+func (self *Sound) SetMuteA(member bool) {
+    self.Object.Set("mute", member)
 }
 
 // Gets or sets the volume of this sound, a value between 0 and 1.
-func (self *Sound) GetVolume() int{
-    return self.Get("volume").Int()
+func (self *Sound) GetVolumeA() int{
+    return self.Object.Get("volume").Int()
 }
 
 // Gets or sets the volume of this sound, a value between 0 and 1.
-func (self *Sound) SetVolume(member int) {
-    self.Set("volume", member)
+func (self *Sound) SetVolumeA(member int) {
+    self.Object.Set("volume", member)
 }
 
 
 
 // Called automatically when this sound is unlocked.
+func (self *Sound) SoundHasUnlocked(key string) {
+    self.Object.Call("soundHasUnlocked", key)
+}
+
+// Called automatically when this sound is unlocked.
 func (self *Sound) SoundHasUnlockedI(args ...interface{}) {
-    self.Call("soundHasUnlocked", args)
+    self.Object.Call("soundHasUnlocked", args)
+}
+
+// Adds a marker into the current Sound. A marker is represented by a unique key and a start time and duration.
+// This allows you to bundle multiple sounds together into a single audio file and use markers to jump between them for playback.
+func (self *Sound) AddMarker(name string, start int, duration int, volume int, loop bool) {
+    self.Object.Call("addMarker", name, start, duration, volume, loop)
 }
 
 // Adds a marker into the current Sound. A marker is represented by a unique key and a start time and duration.
 // This allows you to bundle multiple sounds together into a single audio file and use markers to jump between them for playback.
 func (self *Sound) AddMarkerI(args ...interface{}) {
-    self.Call("addMarker", args)
+    self.Object.Call("addMarker", args)
+}
+
+// Removes a marker from the sound.
+func (self *Sound) RemoveMarker(name string) {
+    self.Object.Call("removeMarker", name)
 }
 
 // Removes a marker from the sound.
 func (self *Sound) RemoveMarkerI(args ...interface{}) {
-    self.Call("removeMarker", args)
+    self.Object.Call("removeMarker", args)
+}
+
+// Called automatically by the AudioContext when the sound stops playing.
+// Doesn't get called if the sound is set to loop or is a section of an Audio Sprite.
+func (self *Sound) OnEndedHandler() {
+    self.Object.Call("onEndedHandler")
 }
 
 // Called automatically by the AudioContext when the sound stops playing.
 // Doesn't get called if the sound is set to loop or is a section of an Audio Sprite.
 func (self *Sound) OnEndedHandlerI(args ...interface{}) {
-    self.Call("onEndedHandler", args)
+    self.Object.Call("onEndedHandler", args)
+}
+
+// Called automatically by Phaser.SoundManager.
+func (self *Sound) Update() {
+    self.Object.Call("update")
 }
 
 // Called automatically by Phaser.SoundManager.
 func (self *Sound) UpdateI(args ...interface{}) {
-    self.Call("update", args)
+    self.Object.Call("update", args)
+}
+
+// Loops this entire sound. If you need to loop a section of it then use Sound.play and the marker and loop parameters.
+func (self *Sound) LoopFull(volume int) *Sound{
+    return &Sound{self.Object.Call("loopFull", volume)}
 }
 
 // Loops this entire sound. If you need to loop a section of it then use Sound.play and the marker and loop parameters.
 func (self *Sound) LoopFullI(args ...interface{}) *Sound{
-    return &Sound{self.Call("loopFull", args)}
+    return &Sound{self.Object.Call("loopFull", args)}
+}
+
+// Play this sound, or a marked section of it.
+func (self *Sound) Play(marker string, position int, volume int, loop bool, forceRestart bool) *Sound{
+    return &Sound{self.Object.Call("play", marker, position, volume, loop, forceRestart)}
 }
 
 // Play this sound, or a marked section of it.
 func (self *Sound) PlayI(args ...interface{}) *Sound{
-    return &Sound{self.Call("play", args)}
+    return &Sound{self.Object.Call("play", args)}
+}
+
+// Restart the sound, or a marked section of it.
+func (self *Sound) Restart(marker string, position int, volume int, loop bool) {
+    self.Object.Call("restart", marker, position, volume, loop)
 }
 
 // Restart the sound, or a marked section of it.
 func (self *Sound) RestartI(args ...interface{}) {
-    self.Call("restart", args)
+    self.Object.Call("restart", args)
+}
+
+// Pauses the sound.
+func (self *Sound) Pause() {
+    self.Object.Call("pause")
 }
 
 // Pauses the sound.
 func (self *Sound) PauseI(args ...interface{}) {
-    self.Call("pause", args)
+    self.Object.Call("pause", args)
+}
+
+// Resumes the sound.
+func (self *Sound) Resume() {
+    self.Object.Call("resume")
 }
 
 // Resumes the sound.
 func (self *Sound) ResumeI(args ...interface{}) {
-    self.Call("resume", args)
+    self.Object.Call("resume", args)
+}
+
+// Stop playing this sound.
+func (self *Sound) Stop() {
+    self.Object.Call("stop")
 }
 
 // Stop playing this sound.
 func (self *Sound) StopI(args ...interface{}) {
-    self.Call("stop", args)
+    self.Object.Call("stop", args)
+}
+
+// Starts this sound playing (or restarts it if already doing so) and sets the volume to zero.
+// Then increases the volume from 0 to 1 over the duration specified.
+// 
+// At the end of the fade Sound.onFadeComplete is dispatched with this Sound object as the first parameter,
+// and the final volume (1) as the second parameter.
+func (self *Sound) FadeIn(duration int, loop bool, marker string) {
+    self.Object.Call("fadeIn", duration, loop, marker)
 }
 
 // Starts this sound playing (or restarts it if already doing so) and sets the volume to zero.
@@ -488,26 +554,54 @@ func (self *Sound) StopI(args ...interface{}) {
 // At the end of the fade Sound.onFadeComplete is dispatched with this Sound object as the first parameter,
 // and the final volume (1) as the second parameter.
 func (self *Sound) FadeInI(args ...interface{}) {
-    self.Call("fadeIn", args)
+    self.Object.Call("fadeIn", args)
+}
+
+// Decreases the volume of this Sound from its current value to 0 over the duration specified.
+// At the end of the fade Sound.onFadeComplete is dispatched with this Sound object as the first parameter,
+// and the final volume (0) as the second parameter.
+func (self *Sound) FadeOut(duration int) {
+    self.Object.Call("fadeOut", duration)
 }
 
 // Decreases the volume of this Sound from its current value to 0 over the duration specified.
 // At the end of the fade Sound.onFadeComplete is dispatched with this Sound object as the first parameter,
 // and the final volume (0) as the second parameter.
 func (self *Sound) FadeOutI(args ...interface{}) {
-    self.Call("fadeOut", args)
+    self.Object.Call("fadeOut", args)
+}
+
+// Fades the volume of this Sound from its current value to the given volume over the duration specified.
+// At the end of the fade Sound.onFadeComplete is dispatched with this Sound object as the first parameter, 
+// and the final volume (volume) as the second parameter.
+func (self *Sound) FadeTo(duration int, volume int) {
+    self.Object.Call("fadeTo", duration, volume)
 }
 
 // Fades the volume of this Sound from its current value to the given volume over the duration specified.
 // At the end of the fade Sound.onFadeComplete is dispatched with this Sound object as the first parameter, 
 // and the final volume (volume) as the second parameter.
 func (self *Sound) FadeToI(args ...interface{}) {
-    self.Call("fadeTo", args)
+    self.Object.Call("fadeTo", args)
+}
+
+// Internal handler for Sound.fadeIn, Sound.fadeOut and Sound.fadeTo.
+func (self *Sound) FadeComplete() {
+    self.Object.Call("fadeComplete")
 }
 
 // Internal handler for Sound.fadeIn, Sound.fadeOut and Sound.fadeTo.
 func (self *Sound) FadeCompleteI(args ...interface{}) {
-    self.Call("fadeComplete", args)
+    self.Object.Call("fadeComplete", args)
+}
+
+// Called automatically by SoundManager.volume.
+// 
+// Sets the volume of AudioTag Sounds as a percentage of the Global Volume.
+// 
+// You should not normally call this directly.
+func (self *Sound) UpdateGlobalVolume(globalVolume float64) {
+    self.Object.Call("updateGlobalVolume", globalVolume)
 }
 
 // Called automatically by SoundManager.volume.
@@ -516,10 +610,15 @@ func (self *Sound) FadeCompleteI(args ...interface{}) {
 // 
 // You should not normally call this directly.
 func (self *Sound) UpdateGlobalVolumeI(args ...interface{}) {
-    self.Call("updateGlobalVolume", args)
+    self.Object.Call("updateGlobalVolume", args)
+}
+
+// Destroys this sound and all associated events and removes it from the SoundManager.
+func (self *Sound) Destroy(remove bool) {
+    self.Object.Call("destroy", remove)
 }
 
 // Destroys this sound and all associated events and removes it from the SoundManager.
 func (self *Sound) DestroyI(args ...interface{}) {
-    self.Call("destroy", args)
+    self.Object.Call("destroy", args)
 }

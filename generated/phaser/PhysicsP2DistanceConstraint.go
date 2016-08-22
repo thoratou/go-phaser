@@ -14,23 +14,23 @@ type PhysicsP2DistanceConstraint struct {
 
 
 // Local reference to game.
-func (self *PhysicsP2DistanceConstraint) GetGame() *Game{
-    return &Game{self.Get("game")}
+func (self *PhysicsP2DistanceConstraint) GetGameA() *Game{
+    return &Game{self.Object.Get("game")}
 }
 
 // Local reference to game.
-func (self *PhysicsP2DistanceConstraint) SetGame(member *Game) {
-    self.Set("game", member)
+func (self *PhysicsP2DistanceConstraint) SetGameA(member *Game) {
+    self.Object.Set("game", member)
 }
 
 // Local reference to P2 World.
-func (self *PhysicsP2DistanceConstraint) GetWorld() *PhysicsP2{
-    return &PhysicsP2{self.Get("world")}
+func (self *PhysicsP2DistanceConstraint) GetWorldA() *PhysicsP2{
+    return &PhysicsP2{self.Object.Get("world")}
 }
 
 // Local reference to P2 World.
-func (self *PhysicsP2DistanceConstraint) SetWorld(member *PhysicsP2) {
-    self.Set("world", member)
+func (self *PhysicsP2DistanceConstraint) SetWorldA(member *PhysicsP2) {
+    self.Object.Set("world", member)
 }
 
 

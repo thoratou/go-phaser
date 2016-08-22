@@ -28,8 +28,8 @@ type ComponentPhysicsBody struct {
 // so the physics body is centered on the Game Object.
 // 
 // If you need a different result then adjust or re-create the Body shape offsets manually or reset the anchor after enabling physics.
-func (self *ComponentPhysicsBody) GetBody() interface{}{
-    return self.Get("body")
+func (self *ComponentPhysicsBody) GetBodyA() interface{}{
+    return self.Object.Get("body")
 }
 
 // `body` is the Game Objects physics body. Once a Game Object is enabled for physics you access all associated 
@@ -46,40 +46,52 @@ func (self *ComponentPhysicsBody) GetBody() interface{}{
 // so the physics body is centered on the Game Object.
 // 
 // If you need a different result then adjust or re-create the Body shape offsets manually or reset the anchor after enabling physics.
-func (self *ComponentPhysicsBody) SetBody(member interface{}) {
-    self.Set("body", member)
+func (self *ComponentPhysicsBody) SetBodyA(member interface{}) {
+    self.Object.Set("body", member)
 }
 
 // The position of the Game Object on the x axis relative to the local coordinates of the parent.
-func (self *ComponentPhysicsBody) GetX() int{
-    return self.Get("x").Int()
+func (self *ComponentPhysicsBody) GetXA() int{
+    return self.Object.Get("x").Int()
 }
 
 // The position of the Game Object on the x axis relative to the local coordinates of the parent.
-func (self *ComponentPhysicsBody) SetX(member int) {
-    self.Set("x", member)
+func (self *ComponentPhysicsBody) SetXA(member int) {
+    self.Object.Set("x", member)
 }
 
 // The position of the Game Object on the y axis relative to the local coordinates of the parent.
-func (self *ComponentPhysicsBody) GetY() int{
-    return self.Get("y").Int()
+func (self *ComponentPhysicsBody) GetYA() int{
+    return self.Object.Get("y").Int()
 }
 
 // The position of the Game Object on the y axis relative to the local coordinates of the parent.
-func (self *ComponentPhysicsBody) SetY(member int) {
-    self.Set("y", member)
+func (self *ComponentPhysicsBody) SetYA(member int) {
+    self.Object.Set("y", member)
 }
 
 
 
 // The PhysicsBody component preUpdate handler.
 // Called automatically by the Game Object.
+func (self *ComponentPhysicsBody) PreUpdate() {
+    self.Object.Call("preUpdate")
+}
+
+// The PhysicsBody component preUpdate handler.
+// Called automatically by the Game Object.
 func (self *ComponentPhysicsBody) PreUpdateI(args ...interface{}) {
-    self.Call("preUpdate", args)
+    self.Object.Call("preUpdate", args)
+}
+
+// The PhysicsBody component postUpdate handler.
+// Called automatically by the Game Object.
+func (self *ComponentPhysicsBody) PostUpdate() {
+    self.Object.Call("postUpdate")
 }
 
 // The PhysicsBody component postUpdate handler.
 // Called automatically by the Game Object.
 func (self *ComponentPhysicsBody) PostUpdateI(args ...interface{}) {
-    self.Call("postUpdate", args)
+    self.Object.Call("postUpdate", args)
 }

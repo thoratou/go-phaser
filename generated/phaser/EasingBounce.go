@@ -16,16 +16,31 @@ type EasingBounce struct {
 
 
 // Bounce ease-in.
+func (self *EasingBounce) In(k int) int{
+    return self.Object.Call("In", k).Int()
+}
+
+// Bounce ease-in.
 func (self *EasingBounce) InI(args ...interface{}) int{
-    return self.Call("In", args).Int()
+    return self.Object.Call("In", args).Int()
+}
+
+// Bounce ease-out.
+func (self *EasingBounce) Out(k int) int{
+    return self.Object.Call("Out", k).Int()
 }
 
 // Bounce ease-out.
 func (self *EasingBounce) OutI(args ...interface{}) int{
-    return self.Call("Out", args).Int()
+    return self.Object.Call("Out", args).Int()
+}
+
+// Bounce ease-in/out.
+func (self *EasingBounce) InOut(k int) int{
+    return self.Object.Call("InOut", k).Int()
 }
 
 // Bounce ease-in/out.
 func (self *EasingBounce) InOutI(args ...interface{}) int{
-    return self.Call("InOut", args).Int()
+    return self.Object.Call("InOut", args).Int()
 }

@@ -15,78 +15,93 @@ type AudioSprite struct {
 
 
 // A reference to the currently running Game.
-func (self *AudioSprite) GetGame() *Game{
-    return &Game{self.Get("game")}
+func (self *AudioSprite) GetGameA() *Game{
+    return &Game{self.Object.Get("game")}
 }
 
 // A reference to the currently running Game.
-func (self *AudioSprite) SetGame(member *Game) {
-    self.Set("game", member)
+func (self *AudioSprite) SetGameA(member *Game) {
+    self.Object.Set("game", member)
 }
 
 // Asset key for the Audio Sprite.
-func (self *AudioSprite) GetKey() string{
-    return self.Get("key").String()
+func (self *AudioSprite) GetKeyA() string{
+    return self.Object.Get("key").String()
 }
 
 // Asset key for the Audio Sprite.
-func (self *AudioSprite) SetKey(member string) {
-    self.Set("key", member)
+func (self *AudioSprite) SetKeyA(member string) {
+    self.Object.Set("key", member)
 }
 
 // JSON audio atlas object.
-func (self *AudioSprite) GetConfig() interface{}{
-    return self.Get("config")
+func (self *AudioSprite) GetConfigA() interface{}{
+    return self.Object.Get("config")
 }
 
 // JSON audio atlas object.
-func (self *AudioSprite) SetConfig(member interface{}) {
-    self.Set("config", member)
+func (self *AudioSprite) SetConfigA(member interface{}) {
+    self.Object.Set("config", member)
 }
 
 // If a sound is set to auto play, this holds the marker key of it.
-func (self *AudioSprite) GetAutoplayKey() string{
-    return self.Get("autoplayKey").String()
+func (self *AudioSprite) GetAutoplayKeyA() string{
+    return self.Object.Get("autoplayKey").String()
 }
 
 // If a sound is set to auto play, this holds the marker key of it.
-func (self *AudioSprite) SetAutoplayKey(member string) {
-    self.Set("autoplayKey", member)
+func (self *AudioSprite) SetAutoplayKeyA(member string) {
+    self.Object.Set("autoplayKey", member)
 }
 
 // Is a sound set to autoplay or not?
-func (self *AudioSprite) GetAutoplay() bool{
-    return self.Get("autoplay").Bool()
+func (self *AudioSprite) GetAutoplayA() bool{
+    return self.Object.Get("autoplay").Bool()
 }
 
 // Is a sound set to autoplay or not?
-func (self *AudioSprite) SetAutoplay(member bool) {
-    self.Set("autoplay", member)
+func (self *AudioSprite) SetAutoplayA(member bool) {
+    self.Object.Set("autoplay", member)
 }
 
 // An object containing the Phaser.Sound objects for the Audio Sprite.
-func (self *AudioSprite) GetSounds() interface{}{
-    return self.Get("sounds")
+func (self *AudioSprite) GetSoundsA() interface{}{
+    return self.Object.Get("sounds")
 }
 
 // An object containing the Phaser.Sound objects for the Audio Sprite.
-func (self *AudioSprite) SetSounds(member interface{}) {
-    self.Set("sounds", member)
+func (self *AudioSprite) SetSoundsA(member interface{}) {
+    self.Object.Set("sounds", member)
 }
 
 
 
 // Play a sound with the given name.
+func (self *AudioSprite) Play(marker string, volume int) *Sound{
+    return &Sound{self.Object.Call("play", marker, volume)}
+}
+
+// Play a sound with the given name.
 func (self *AudioSprite) PlayI(args ...interface{}) *Sound{
-    return &Sound{self.Call("play", args)}
+    return &Sound{self.Object.Call("play", args)}
+}
+
+// Stop a sound with the given name.
+func (self *AudioSprite) Stop(marker string) {
+    self.Object.Call("stop", marker)
 }
 
 // Stop a sound with the given name.
 func (self *AudioSprite) StopI(args ...interface{}) {
-    self.Call("stop", args)
+    self.Object.Call("stop", args)
+}
+
+// Get a sound with the given name.
+func (self *AudioSprite) Get(marker string) *Sound{
+    return &Sound{self.Object.Call("get", marker)}
 }
 
 // Get a sound with the given name.
 func (self *AudioSprite) GetI(args ...interface{}) *Sound{
-    return &Sound{self.Call("get", args)}
+    return &Sound{self.Object.Call("get", args)}
 }

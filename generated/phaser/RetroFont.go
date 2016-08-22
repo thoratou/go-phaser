@@ -17,528 +17,576 @@ type RetroFont struct {
 
 
 // The width of each character in the font set.
-func (self *RetroFont) GetCharacterWidth() int{
-    return self.Get("characterWidth").Int()
+func (self *RetroFont) GetCharacterWidthA() int{
+    return self.Object.Get("characterWidth").Int()
 }
 
 // The width of each character in the font set.
-func (self *RetroFont) SetCharacterWidth(member int) {
-    self.Set("characterWidth", member)
+func (self *RetroFont) SetCharacterWidthA(member int) {
+    self.Object.Set("characterWidth", member)
 }
 
 // The height of each character in the font set.
-func (self *RetroFont) GetCharacterHeight() int{
-    return self.Get("characterHeight").Int()
+func (self *RetroFont) GetCharacterHeightA() int{
+    return self.Object.Get("characterHeight").Int()
 }
 
 // The height of each character in the font set.
-func (self *RetroFont) SetCharacterHeight(member int) {
-    self.Set("characterHeight", member)
+func (self *RetroFont) SetCharacterHeightA(member int) {
+    self.Object.Set("characterHeight", member)
 }
 
 // If the characters in the font set have horizontal spacing between them set the required amount here.
-func (self *RetroFont) GetCharacterSpacingX() int{
-    return self.Get("characterSpacingX").Int()
+func (self *RetroFont) GetCharacterSpacingXA() int{
+    return self.Object.Get("characterSpacingX").Int()
 }
 
 // If the characters in the font set have horizontal spacing between them set the required amount here.
-func (self *RetroFont) SetCharacterSpacingX(member int) {
-    self.Set("characterSpacingX", member)
+func (self *RetroFont) SetCharacterSpacingXA(member int) {
+    self.Object.Set("characterSpacingX", member)
 }
 
 // If the characters in the font set have vertical spacing between them set the required amount here.
-func (self *RetroFont) GetCharacterSpacingY() int{
-    return self.Get("characterSpacingY").Int()
+func (self *RetroFont) GetCharacterSpacingYA() int{
+    return self.Object.Get("characterSpacingY").Int()
 }
 
 // If the characters in the font set have vertical spacing between them set the required amount here.
-func (self *RetroFont) SetCharacterSpacingY(member int) {
-    self.Set("characterSpacingY", member)
+func (self *RetroFont) SetCharacterSpacingYA(member int) {
+    self.Object.Set("characterSpacingY", member)
 }
 
 // The number of characters per row in the font set.
-func (self *RetroFont) GetCharacterPerRow() int{
-    return self.Get("characterPerRow").Int()
+func (self *RetroFont) GetCharacterPerRowA() int{
+    return self.Object.Get("characterPerRow").Int()
 }
 
 // The number of characters per row in the font set.
-func (self *RetroFont) SetCharacterPerRow(member int) {
-    self.Set("characterPerRow", member)
+func (self *RetroFont) SetCharacterPerRowA(member int) {
+    self.Object.Set("characterPerRow", member)
 }
 
 // If the font set doesn't start at the top left of the given image, specify the X coordinate offset here.
-func (self *RetroFont) GetOffsetX() int{
-    return self.Get("offsetX").Int()
+func (self *RetroFont) GetOffsetXA() int{
+    return self.Object.Get("offsetX").Int()
 }
 
 // If the font set doesn't start at the top left of the given image, specify the X coordinate offset here.
-func (self *RetroFont) SetOffsetX(member int) {
-    self.Set("offsetX", member)
+func (self *RetroFont) SetOffsetXA(member int) {
+    self.Object.Set("offsetX", member)
 }
 
 // If the font set doesn't start at the top left of the given image, specify the Y coordinate offset here.
-func (self *RetroFont) GetOffsetY() int{
-    return self.Get("offsetY").Int()
+func (self *RetroFont) GetOffsetYA() int{
+    return self.Object.Get("offsetY").Int()
 }
 
 // If the font set doesn't start at the top left of the given image, specify the Y coordinate offset here.
-func (self *RetroFont) SetOffsetY(member int) {
-    self.Set("offsetY", member)
+func (self *RetroFont) SetOffsetYA(member int) {
+    self.Object.Set("offsetY", member)
 }
 
 // Alignment of the text when multiLine = true or a fixedWidth is set. Set to RetroFont.ALIGN_LEFT (default), RetroFont.ALIGN_RIGHT or RetroFont.ALIGN_CENTER.
-func (self *RetroFont) GetAlign() string{
-    return self.Get("align").String()
+func (self *RetroFont) GetAlignA() string{
+    return self.Object.Get("align").String()
 }
 
 // Alignment of the text when multiLine = true or a fixedWidth is set. Set to RetroFont.ALIGN_LEFT (default), RetroFont.ALIGN_RIGHT or RetroFont.ALIGN_CENTER.
-func (self *RetroFont) SetAlign(member string) {
-    self.Set("align", member)
+func (self *RetroFont) SetAlignA(member string) {
+    self.Object.Set("align", member)
 }
 
 // If set to true all carriage-returns in text will form new lines (see align). If false the font will only contain one single line of text (the default)
-func (self *RetroFont) GetMultiLine() bool{
-    return self.Get("multiLine").Bool()
+func (self *RetroFont) GetMultiLineA() bool{
+    return self.Object.Get("multiLine").Bool()
 }
 
 // If set to true all carriage-returns in text will form new lines (see align). If false the font will only contain one single line of text (the default)
-func (self *RetroFont) SetMultiLine(member bool) {
-    self.Set("multiLine", member)
+func (self *RetroFont) SetMultiLineA(member bool) {
+    self.Object.Set("multiLine", member)
 }
 
 // Automatically convert any text to upper case. Lots of old bitmap fonts only contain upper-case characters, so the default is true.
-func (self *RetroFont) GetAutoUpperCase() bool{
-    return self.Get("autoUpperCase").Bool()
+func (self *RetroFont) GetAutoUpperCaseA() bool{
+    return self.Object.Get("autoUpperCase").Bool()
 }
 
 // Automatically convert any text to upper case. Lots of old bitmap fonts only contain upper-case characters, so the default is true.
-func (self *RetroFont) SetAutoUpperCase(member bool) {
-    self.Set("autoUpperCase", member)
+func (self *RetroFont) SetAutoUpperCaseA(member bool) {
+    self.Object.Set("autoUpperCase", member)
 }
 
 // Adds horizontal spacing between each character of the font, in pixels.
-func (self *RetroFont) GetCustomSpacingX() int{
-    return self.Get("customSpacingX").Int()
+func (self *RetroFont) GetCustomSpacingXA() int{
+    return self.Object.Get("customSpacingX").Int()
 }
 
 // Adds horizontal spacing between each character of the font, in pixels.
-func (self *RetroFont) SetCustomSpacingX(member int) {
-    self.Set("customSpacingX", member)
+func (self *RetroFont) SetCustomSpacingXA(member int) {
+    self.Object.Set("customSpacingX", member)
 }
 
 // Adds vertical spacing between each line of multi-line text, set in pixels.
-func (self *RetroFont) GetCustomSpacingY() int{
-    return self.Get("customSpacingY").Int()
+func (self *RetroFont) GetCustomSpacingYA() int{
+    return self.Object.Get("customSpacingY").Int()
 }
 
 // Adds vertical spacing between each line of multi-line text, set in pixels.
-func (self *RetroFont) SetCustomSpacingY(member int) {
-    self.Set("customSpacingY", member)
+func (self *RetroFont) SetCustomSpacingYA(member int) {
+    self.Object.Set("customSpacingY", member)
 }
 
 // If you need this RetroFont image to have a fixed width you can set the width in this value.
 // If text is wider than the width specified it will be cropped off.
-func (self *RetroFont) GetFixedWidth() int{
-    return self.Get("fixedWidth").Int()
+func (self *RetroFont) GetFixedWidthA() int{
+    return self.Object.Get("fixedWidth").Int()
 }
 
 // If you need this RetroFont image to have a fixed width you can set the width in this value.
 // If text is wider than the width specified it will be cropped off.
-func (self *RetroFont) SetFixedWidth(member int) {
-    self.Set("fixedWidth", member)
+func (self *RetroFont) SetFixedWidthA(member int) {
+    self.Object.Set("fixedWidth", member)
 }
 
 // A reference to the image stored in the Game.Cache that contains the font.
-func (self *RetroFont) GetFontSet() *Image{
-    return &Image{self.Get("fontSet")}
+func (self *RetroFont) GetFontSetA() *Image{
+    return &Image{self.Object.Get("fontSet")}
 }
 
 // A reference to the image stored in the Game.Cache that contains the font.
-func (self *RetroFont) SetFontSet(member *Image) {
-    self.Set("fontSet", member)
+func (self *RetroFont) SetFontSetA(member *Image) {
+    self.Object.Set("fontSet", member)
 }
 
 // The FrameData representing this Retro Font.
-func (self *RetroFont) GetFrameData() *FrameData{
-    return &FrameData{self.Get("frameData")}
+func (self *RetroFont) GetFrameDataA() *FrameData{
+    return &FrameData{self.Object.Get("frameData")}
 }
 
 // The FrameData representing this Retro Font.
-func (self *RetroFont) SetFrameData(member *FrameData) {
-    self.Set("frameData", member)
+func (self *RetroFont) SetFrameDataA(member *FrameData) {
+    self.Object.Set("frameData", member)
 }
 
 // The image that is stamped to the RenderTexture for each character in the font.
-func (self *RetroFont) GetStamp() *Image{
-    return &Image{self.Get("stamp")}
+func (self *RetroFont) GetStampA() *Image{
+    return &Image{self.Object.Get("stamp")}
 }
 
 // The image that is stamped to the RenderTexture for each character in the font.
-func (self *RetroFont) SetStamp(member *Image) {
-    self.Set("stamp", member)
+func (self *RetroFont) SetStampA(member *Image) {
+    self.Object.Set("stamp", member)
 }
 
 // Base Phaser object type.
-func (self *RetroFont) GetType() int{
-    return self.Get("type").Int()
+func (self *RetroFont) GetTypeA() int{
+    return self.Object.Get("type").Int()
 }
 
 // Base Phaser object type.
-func (self *RetroFont) SetType(member int) {
-    self.Set("type", member)
+func (self *RetroFont) SetTypeA(member int) {
+    self.Object.Set("type", member)
 }
 
 // Align each line of multi-line text to the left.
-func (self *RetroFont) GetALIGN_LEFT() string{
-    return self.Get("ALIGN_LEFT").String()
+func (self *RetroFont) GetALIGN_LEFTA() string{
+    return self.Object.Get("ALIGN_LEFT").String()
 }
 
 // Align each line of multi-line text to the left.
-func (self *RetroFont) SetALIGN_LEFT(member string) {
-    self.Set("ALIGN_LEFT", member)
+func (self *RetroFont) SetALIGN_LEFTA(member string) {
+    self.Object.Set("ALIGN_LEFT", member)
 }
 
 // Align each line of multi-line text to the right.
-func (self *RetroFont) GetALIGN_RIGHT() string{
-    return self.Get("ALIGN_RIGHT").String()
+func (self *RetroFont) GetALIGN_RIGHTA() string{
+    return self.Object.Get("ALIGN_RIGHT").String()
 }
 
 // Align each line of multi-line text to the right.
-func (self *RetroFont) SetALIGN_RIGHT(member string) {
-    self.Set("ALIGN_RIGHT", member)
+func (self *RetroFont) SetALIGN_RIGHTA(member string) {
+    self.Object.Set("ALIGN_RIGHT", member)
 }
 
 // Align each line of multi-line text in the center.
-func (self *RetroFont) GetALIGN_CENTER() string{
-    return self.Get("ALIGN_CENTER").String()
+func (self *RetroFont) GetALIGN_CENTERA() string{
+    return self.Object.Get("ALIGN_CENTER").String()
 }
 
 // Align each line of multi-line text in the center.
-func (self *RetroFont) SetALIGN_CENTER(member string) {
-    self.Set("ALIGN_CENTER", member)
+func (self *RetroFont) SetALIGN_CENTERA(member string) {
+    self.Object.Set("ALIGN_CENTER", member)
 }
 
 // Text Set 1 =  !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
-func (self *RetroFont) GetTEXT_SET1() string{
-    return self.Get("TEXT_SET1").String()
+func (self *RetroFont) GetTEXT_SET1A() string{
+    return self.Object.Get("TEXT_SET1").String()
 }
 
 // Text Set 1 =  !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
-func (self *RetroFont) SetTEXT_SET1(member string) {
-    self.Set("TEXT_SET1", member)
+func (self *RetroFont) SetTEXT_SET1A(member string) {
+    self.Object.Set("TEXT_SET1", member)
 }
 
 // Text Set 2 =  !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ
-func (self *RetroFont) GetTEXT_SET2() string{
-    return self.Get("TEXT_SET2").String()
+func (self *RetroFont) GetTEXT_SET2A() string{
+    return self.Object.Get("TEXT_SET2").String()
 }
 
 // Text Set 2 =  !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ
-func (self *RetroFont) SetTEXT_SET2(member string) {
-    self.Set("TEXT_SET2", member)
+func (self *RetroFont) SetTEXT_SET2A(member string) {
+    self.Object.Set("TEXT_SET2", member)
 }
 
 // Text Set 3 = ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789
-func (self *RetroFont) GetTEXT_SET3() string{
-    return self.Get("TEXT_SET3").String()
+func (self *RetroFont) GetTEXT_SET3A() string{
+    return self.Object.Get("TEXT_SET3").String()
 }
 
 // Text Set 3 = ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789
-func (self *RetroFont) SetTEXT_SET3(member string) {
-    self.Set("TEXT_SET3", member)
+func (self *RetroFont) SetTEXT_SET3A(member string) {
+    self.Object.Set("TEXT_SET3", member)
 }
 
 // Text Set 4 = ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789
-func (self *RetroFont) GetTEXT_SET4() string{
-    return self.Get("TEXT_SET4").String()
+func (self *RetroFont) GetTEXT_SET4A() string{
+    return self.Object.Get("TEXT_SET4").String()
 }
 
 // Text Set 4 = ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789
-func (self *RetroFont) SetTEXT_SET4(member string) {
-    self.Set("TEXT_SET4", member)
+func (self *RetroFont) SetTEXT_SET4A(member string) {
+    self.Object.Set("TEXT_SET4", member)
 }
 
 // Text Set 5 = ABCDEFGHIJKLMNOPQRSTUVWXYZ.,/() '!?-*:0123456789
-func (self *RetroFont) GetTEXT_SET5() string{
-    return self.Get("TEXT_SET5").String()
+func (self *RetroFont) GetTEXT_SET5A() string{
+    return self.Object.Get("TEXT_SET5").String()
 }
 
 // Text Set 5 = ABCDEFGHIJKLMNOPQRSTUVWXYZ.,/() '!?-*:0123456789
-func (self *RetroFont) SetTEXT_SET5(member string) {
-    self.Set("TEXT_SET5", member)
+func (self *RetroFont) SetTEXT_SET5A(member string) {
+    self.Object.Set("TEXT_SET5", member)
 }
 
 // Text Set 6 = ABCDEFGHIJKLMNOPQRSTUVWXYZ!?:;0123456789"(),-.'
-func (self *RetroFont) GetTEXT_SET6() string{
-    return self.Get("TEXT_SET6").String()
+func (self *RetroFont) GetTEXT_SET6A() string{
+    return self.Object.Get("TEXT_SET6").String()
 }
 
 // Text Set 6 = ABCDEFGHIJKLMNOPQRSTUVWXYZ!?:;0123456789"(),-.'
-func (self *RetroFont) SetTEXT_SET6(member string) {
-    self.Set("TEXT_SET6", member)
+func (self *RetroFont) SetTEXT_SET6A(member string) {
+    self.Object.Set("TEXT_SET6", member)
 }
 
 // Text Set 7 = AGMSY+:4BHNTZ!;5CIOU.?06DJPV,(17EKQW")28FLRX-'39
-func (self *RetroFont) GetTEXT_SET7() string{
-    return self.Get("TEXT_SET7").String()
+func (self *RetroFont) GetTEXT_SET7A() string{
+    return self.Object.Get("TEXT_SET7").String()
 }
 
 // Text Set 7 = AGMSY+:4BHNTZ!;5CIOU.?06DJPV,(17EKQW")28FLRX-'39
-func (self *RetroFont) SetTEXT_SET7(member string) {
-    self.Set("TEXT_SET7", member)
+func (self *RetroFont) SetTEXT_SET7A(member string) {
+    self.Object.Set("TEXT_SET7", member)
 }
 
 // Text Set 8 = 0123456789 .ABCDEFGHIJKLMNOPQRSTUVWXYZ
-func (self *RetroFont) GetTEXT_SET8() string{
-    return self.Get("TEXT_SET8").String()
+func (self *RetroFont) GetTEXT_SET8A() string{
+    return self.Object.Get("TEXT_SET8").String()
 }
 
 // Text Set 8 = 0123456789 .ABCDEFGHIJKLMNOPQRSTUVWXYZ
-func (self *RetroFont) SetTEXT_SET8(member string) {
-    self.Set("TEXT_SET8", member)
+func (self *RetroFont) SetTEXT_SET8A(member string) {
+    self.Object.Set("TEXT_SET8", member)
 }
 
 // Text Set 9 = ABCDEFGHIJKLMNOPQRSTUVWXYZ()-0123456789.:,'"?!
-func (self *RetroFont) GetTEXT_SET9() string{
-    return self.Get("TEXT_SET9").String()
+func (self *RetroFont) GetTEXT_SET9A() string{
+    return self.Object.Get("TEXT_SET9").String()
 }
 
 // Text Set 9 = ABCDEFGHIJKLMNOPQRSTUVWXYZ()-0123456789.:,'"?!
-func (self *RetroFont) SetTEXT_SET9(member string) {
-    self.Set("TEXT_SET9", member)
+func (self *RetroFont) SetTEXT_SET9A(member string) {
+    self.Object.Set("TEXT_SET9", member)
 }
 
 // Text Set 10 = ABCDEFGHIJKLMNOPQRSTUVWXYZ
-func (self *RetroFont) GetTEXT_SET10() string{
-    return self.Get("TEXT_SET10").String()
+func (self *RetroFont) GetTEXT_SET10A() string{
+    return self.Object.Get("TEXT_SET10").String()
 }
 
 // Text Set 10 = ABCDEFGHIJKLMNOPQRSTUVWXYZ
-func (self *RetroFont) SetTEXT_SET10(member string) {
-    self.Set("TEXT_SET10", member)
+func (self *RetroFont) SetTEXT_SET10A(member string) {
+    self.Object.Set("TEXT_SET10", member)
 }
 
 // Text Set 11 = ABCDEFGHIJKLMNOPQRSTUVWXYZ.,"-+!?()':;0123456789
-func (self *RetroFont) GetTEXT_SET11() string{
-    return self.Get("TEXT_SET11").String()
+func (self *RetroFont) GetTEXT_SET11A() string{
+    return self.Object.Get("TEXT_SET11").String()
 }
 
 // Text Set 11 = ABCDEFGHIJKLMNOPQRSTUVWXYZ.,"-+!?()':;0123456789
-func (self *RetroFont) SetTEXT_SET11(member string) {
-    self.Set("TEXT_SET11", member)
+func (self *RetroFont) SetTEXT_SET11A(member string) {
+    self.Object.Set("TEXT_SET11", member)
 }
 
 // Set this value to update the text in this sprite. Carriage returns are automatically stripped out if multiLine is false. Text is converted to upper case if autoUpperCase is true.
-func (self *RetroFont) GetText() string{
-    return self.Get("text").String()
+func (self *RetroFont) GetTextA() string{
+    return self.Object.Get("text").String()
 }
 
 // Set this value to update the text in this sprite. Carriage returns are automatically stripped out if multiLine is false. Text is converted to upper case if autoUpperCase is true.
-func (self *RetroFont) SetText(member string) {
-    self.Set("text", member)
+func (self *RetroFont) SetTextA(member string) {
+    self.Object.Set("text", member)
 }
 
 // Sets if the stamp is smoothed or not.
-func (self *RetroFont) GetSmoothed() bool{
-    return self.Get("smoothed").Bool()
+func (self *RetroFont) GetSmoothedA() bool{
+    return self.Object.Get("smoothed").Bool()
 }
 
 // Sets if the stamp is smoothed or not.
-func (self *RetroFont) SetSmoothed(member bool) {
-    self.Set("smoothed", member)
+func (self *RetroFont) SetSmoothedA(member bool) {
+    self.Object.Set("smoothed", member)
 }
 
 // A reference to the currently running game.
-func (self *RetroFont) GetGame() *Game{
-    return &Game{self.Get("game")}
+func (self *RetroFont) GetGameA() *Game{
+    return &Game{self.Object.Get("game")}
 }
 
 // A reference to the currently running game.
-func (self *RetroFont) SetGame(member *Game) {
-    self.Set("game", member)
+func (self *RetroFont) SetGameA(member *Game) {
+    self.Object.Set("game", member)
 }
 
 // The key of the RenderTexture in the Cache, if stored there.
-func (self *RetroFont) GetKey() string{
-    return self.Get("key").String()
+func (self *RetroFont) GetKeyA() string{
+    return self.Object.Get("key").String()
 }
 
 // The key of the RenderTexture in the Cache, if stored there.
-func (self *RetroFont) SetKey(member string) {
-    self.Set("key", member)
+func (self *RetroFont) SetKeyA(member string) {
+    self.Object.Set("key", member)
 }
 
 // The with of the render texture
-func (self *RetroFont) GetWidth() int{
-    return self.Get("width").Int()
+func (self *RetroFont) GetWidthA() int{
+    return self.Object.Get("width").Int()
 }
 
 // The with of the render texture
-func (self *RetroFont) SetWidth(member int) {
-    self.Set("width", member)
+func (self *RetroFont) SetWidthA(member int) {
+    self.Object.Set("width", member)
 }
 
 // The height of the render texture
-func (self *RetroFont) GetHeight() int{
-    return self.Get("height").Int()
+func (self *RetroFont) GetHeightA() int{
+    return self.Object.Get("height").Int()
 }
 
 // The height of the render texture
-func (self *RetroFont) SetHeight(member int) {
-    self.Set("height", member)
+func (self *RetroFont) SetHeightA(member int) {
+    self.Object.Set("height", member)
 }
 
 // The Resolution of the texture.
-func (self *RetroFont) GetResolution() int{
-    return self.Get("resolution").Int()
+func (self *RetroFont) GetResolutionA() int{
+    return self.Object.Get("resolution").Int()
 }
 
 // The Resolution of the texture.
-func (self *RetroFont) SetResolution(member int) {
-    self.Set("resolution", member)
+func (self *RetroFont) SetResolutionA(member int) {
+    self.Object.Set("resolution", member)
 }
 
 // The framing rectangle of the render texture
-func (self *RetroFont) GetFrame() *Rectangle{
-    return &Rectangle{self.Get("frame")}
+func (self *RetroFont) GetFrameA() *Rectangle{
+    return &Rectangle{self.Object.Get("frame")}
 }
 
 // The framing rectangle of the render texture
-func (self *RetroFont) SetFrame(member *Rectangle) {
-    self.Set("frame", member)
+func (self *RetroFont) SetFrameA(member *Rectangle) {
+    self.Object.Set("frame", member)
 }
 
 // This is the area of the BaseTexture image to actually copy to the Canvas / WebGL when rendering,
 // irrespective of the actual frame size or placement (which can be influenced by trimmed texture atlases)
-func (self *RetroFont) GetCrop() *Rectangle{
-    return &Rectangle{self.Get("crop")}
+func (self *RetroFont) GetCropA() *Rectangle{
+    return &Rectangle{self.Object.Get("crop")}
 }
 
 // This is the area of the BaseTexture image to actually copy to the Canvas / WebGL when rendering,
 // irrespective of the actual frame size or placement (which can be influenced by trimmed texture atlases)
-func (self *RetroFont) SetCrop(member *Rectangle) {
-    self.Set("crop", member)
+func (self *RetroFont) SetCropA(member *Rectangle) {
+    self.Object.Set("crop", member)
 }
 
 // The base texture object that this texture uses
-func (self *RetroFont) GetBaseTexture() *BaseTexture{
-    return &BaseTexture{self.Get("baseTexture")}
+func (self *RetroFont) GetBaseTextureA() *BaseTexture{
+    return &BaseTexture{self.Object.Get("baseTexture")}
 }
 
 // The base texture object that this texture uses
-func (self *RetroFont) SetBaseTexture(member *BaseTexture) {
-    self.Set("baseTexture", member)
+func (self *RetroFont) SetBaseTextureA(member *BaseTexture) {
+    self.Object.Set("baseTexture", member)
 }
 
 // The renderer this RenderTexture uses. A RenderTexture can only belong to one renderer at the moment if its webGL.
-func (self *RetroFont) GetRenderer() interface{}{
-    return self.Get("renderer")
+func (self *RetroFont) GetRendererA() interface{}{
+    return self.Object.Get("renderer")
 }
 
 // The renderer this RenderTexture uses. A RenderTexture can only belong to one renderer at the moment if its webGL.
-func (self *RetroFont) SetRenderer(member interface{}) {
-    self.Set("renderer", member)
+func (self *RetroFont) SetRendererA(member interface{}) {
+    self.Object.Set("renderer", member)
 }
 
 // 
-func (self *RetroFont) GetValid() bool{
-    return self.Get("valid").Bool()
+func (self *RetroFont) GetValidA() bool{
+    return self.Object.Get("valid").Bool()
 }
 
 // 
-func (self *RetroFont) SetValid(member bool) {
-    self.Set("valid", member)
+func (self *RetroFont) SetValidA(member bool) {
+    self.Object.Set("valid", member)
 }
 
 // Does this Texture have any frame data assigned to it?
-func (self *RetroFont) GetNoFrame() bool{
-    return self.Get("noFrame").Bool()
+func (self *RetroFont) GetNoFrameA() bool{
+    return self.Object.Get("noFrame").Bool()
 }
 
 // Does this Texture have any frame data assigned to it?
-func (self *RetroFont) SetNoFrame(member bool) {
-    self.Set("noFrame", member)
+func (self *RetroFont) SetNoFrameA(member bool) {
+    self.Object.Set("noFrame", member)
 }
 
 // The texture trim data.
-func (self *RetroFont) GetTrim() *Rectangle{
-    return &Rectangle{self.Get("trim")}
+func (self *RetroFont) GetTrimA() *Rectangle{
+    return &Rectangle{self.Object.Get("trim")}
 }
 
 // The texture trim data.
-func (self *RetroFont) SetTrim(member *Rectangle) {
-    self.Set("trim", member)
+func (self *RetroFont) SetTrimA(member *Rectangle) {
+    self.Object.Set("trim", member)
 }
 
 // Is this a tiling texture? As used by the likes of a TilingSprite.
-func (self *RetroFont) GetIsTiling() bool{
-    return self.Get("isTiling").Bool()
+func (self *RetroFont) GetIsTilingA() bool{
+    return self.Object.Get("isTiling").Bool()
 }
 
 // Is this a tiling texture? As used by the likes of a TilingSprite.
-func (self *RetroFont) SetIsTiling(member bool) {
-    self.Set("isTiling", member)
+func (self *RetroFont) SetIsTilingA(member bool) {
+    self.Object.Set("isTiling", member)
 }
 
 // This will let a renderer know that a texture has been updated (used mainly for webGL uv updates)
-func (self *RetroFont) GetRequiresUpdate() bool{
-    return self.Get("requiresUpdate").Bool()
+func (self *RetroFont) GetRequiresUpdateA() bool{
+    return self.Object.Get("requiresUpdate").Bool()
 }
 
 // This will let a renderer know that a texture has been updated (used mainly for webGL uv updates)
-func (self *RetroFont) SetRequiresUpdate(member bool) {
-    self.Set("requiresUpdate", member)
+func (self *RetroFont) SetRequiresUpdateA(member bool) {
+    self.Object.Set("requiresUpdate", member)
 }
 
 // This will let a renderer know that a tinted parent has updated its texture.
-func (self *RetroFont) GetRequiresReTint() bool{
-    return self.Get("requiresReTint").Bool()
+func (self *RetroFont) GetRequiresReTintA() bool{
+    return self.Object.Get("requiresReTint").Bool()
 }
 
 // This will let a renderer know that a tinted parent has updated its texture.
-func (self *RetroFont) SetRequiresReTint(member bool) {
-    self.Set("requiresReTint", member)
+func (self *RetroFont) SetRequiresReTintA(member bool) {
+    self.Object.Set("requiresReTint", member)
 }
 
 
 
 // If you need this RetroFont to have a fixed width and custom alignment you can set the width here.
 // If text is wider than the width specified it will be cropped off.
+func (self *RetroFont) SetFixedWidth(width int, lineAlignment string) {
+    self.Object.Call("setFixedWidth", width, lineAlignment)
+}
+
+// If you need this RetroFont to have a fixed width and custom alignment you can set the width here.
+// If text is wider than the width specified it will be cropped off.
 func (self *RetroFont) SetFixedWidthI(args ...interface{}) {
-    self.Call("setFixedWidth", args)
+    self.Object.Call("setFixedWidth", args)
+}
+
+// A helper function that quickly sets lots of variables at once, and then updates the text.
+func (self *RetroFont) SetText(content string, multiLine bool, characterSpacing int, lineSpacing int, lineAlignment string, allowLowerCase bool) {
+    self.Object.Call("setText", content, multiLine, characterSpacing, lineSpacing, lineAlignment, allowLowerCase)
 }
 
 // A helper function that quickly sets lots of variables at once, and then updates the text.
 func (self *RetroFont) SetTextI(args ...interface{}) {
-    self.Call("setText", args)
+    self.Object.Call("setText", args)
+}
+
+// Updates the texture with the new text.
+func (self *RetroFont) BuildRetroFontText() {
+    self.Object.Call("buildRetroFontText")
 }
 
 // Updates the texture with the new text.
 func (self *RetroFont) BuildRetroFontTextI(args ...interface{}) {
-    self.Call("buildRetroFontText", args)
+    self.Object.Call("buildRetroFontText", args)
+}
+
+// Internal function that takes a single line of text (2nd parameter) and pastes it into the BitmapData at the given coordinates.
+// Used by getLine and getMultiLine
+func (self *RetroFont) PasteLine(line string, x int, y int, customSpacingX int) {
+    self.Object.Call("pasteLine", line, x, y, customSpacingX)
 }
 
 // Internal function that takes a single line of text (2nd parameter) and pastes it into the BitmapData at the given coordinates.
 // Used by getLine and getMultiLine
 func (self *RetroFont) PasteLineI(args ...interface{}) {
-    self.Call("pasteLine", args)
+    self.Object.Call("pasteLine", args)
+}
+
+// Works out the longest line of text in _text and returns its length
+func (self *RetroFont) GetLongestLine() int{
+    return self.Object.Call("getLongestLine").Int()
 }
 
 // Works out the longest line of text in _text and returns its length
 func (self *RetroFont) GetLongestLineI(args ...interface{}) int{
-    return self.Call("getLongestLine", args).Int()
+    return self.Object.Call("getLongestLine", args).Int()
+}
+
+// Internal helper function that removes all unsupported characters from the _text String, leaving only characters contained in the font set.
+func (self *RetroFont) RemoveUnsupportedCharacters(stripCR bool) string{
+    return self.Object.Call("removeUnsupportedCharacters", stripCR).String()
 }
 
 // Internal helper function that removes all unsupported characters from the _text String, leaving only characters contained in the font set.
 func (self *RetroFont) RemoveUnsupportedCharactersI(args ...interface{}) string{
-    return self.Call("removeUnsupportedCharacters", args).String()
+    return self.Object.Call("removeUnsupportedCharacters", args).String()
+}
+
+// Updates the x and/or y offset that the font is rendered from. This updates all of the texture frames, so be careful how often it is called.
+// Note that the values given for the x and y properties are either ADDED to or SUBTRACTED from (if negative) the existing offsetX/Y values of the characters.
+// So if the current offsetY is 8 and you want it to start rendering from y16 you would call updateOffset(0, 8) to add 8 to the current y offset.
+func (self *RetroFont) UpdateOffset(xOffset int, yOffset int) {
+    self.Object.Call("updateOffset", xOffset, yOffset)
 }
 
 // Updates the x and/or y offset that the font is rendered from. This updates all of the texture frames, so be careful how often it is called.
 // Note that the values given for the x and y properties are either ADDED to or SUBTRACTED from (if negative) the existing offsetX/Y values of the characters.
 // So if the current offsetY is 8 and you want it to start rendering from y16 you would call updateOffset(0, 8) to add 8 to the current y offset.
 func (self *RetroFont) UpdateOffsetI(args ...interface{}) {
-    self.Call("updateOffset", args)
+    self.Object.Call("updateOffset", args)
+}
+
+// This function will draw the display object to the RenderTexture at the given coordinates.
+// 
+// When the display object is drawn it takes into account scale and rotation.
+// 
+// If you don't want those then use RenderTexture.renderRawXY instead.
+func (self *RetroFont) RenderXY(displayObject interface{}, x int, y int, clear bool) {
+    self.Object.Call("renderXY", displayObject, x, y, clear)
 }
 
 // This function will draw the display object to the RenderTexture at the given coordinates.
@@ -547,7 +595,16 @@ func (self *RetroFont) UpdateOffsetI(args ...interface{}) {
 // 
 // If you don't want those then use RenderTexture.renderRawXY instead.
 func (self *RetroFont) RenderXYI(args ...interface{}) {
-    self.Call("renderXY", args)
+    self.Object.Call("renderXY", args)
+}
+
+// This function will draw the display object to the RenderTexture at the given coordinates.
+// 
+// When the display object is drawn it doesn't take into account scale, rotation or translation.
+// 
+// If you need those then use RenderTexture.renderXY instead.
+func (self *RetroFont) RenderRawXY(displayObject interface{}, x int, y int, clear bool) {
+    self.Object.Call("renderRawXY", displayObject, x, y, clear)
 }
 
 // This function will draw the display object to the RenderTexture at the given coordinates.
@@ -556,7 +613,19 @@ func (self *RetroFont) RenderXYI(args ...interface{}) {
 // 
 // If you need those then use RenderTexture.renderXY instead.
 func (self *RetroFont) RenderRawXYI(args ...interface{}) {
-    self.Call("renderRawXY", args)
+    self.Object.Call("renderRawXY", args)
+}
+
+// This function will draw the display object to the RenderTexture.
+// 
+// In versions of Phaser prior to 2.4.0 the second parameter was a Phaser.Point object. 
+// This is now a Matrix allowing you much more control over how the Display Object is rendered.
+// If you need to replicate the earlier behavior please use Phaser.RenderTexture.renderXY instead.
+// 
+// If you wish for the displayObject to be rendered taking its current scale, rotation and translation into account then either
+// pass `null`, leave it undefined or pass `displayObject.worldTransform` as the matrix value.
+func (self *RetroFont) Render(displayObject interface{}, matrix *Matrix, clear bool) {
+    self.Object.Call("render", displayObject, matrix, clear)
 }
 
 // This function will draw the display object to the RenderTexture.
@@ -568,60 +637,115 @@ func (self *RetroFont) RenderRawXYI(args ...interface{}) {
 // If you wish for the displayObject to be rendered taking its current scale, rotation and translation into account then either
 // pass `null`, leave it undefined or pass `displayObject.worldTransform` as the matrix value.
 func (self *RetroFont) RenderI(args ...interface{}) {
-    self.Call("render", args)
+    self.Object.Call("render", args)
+}
+
+// Resizes the RenderTexture.
+func (self *RetroFont) Resize(width int, height int, updateBase bool) {
+    self.Object.Call("resize", width, height, updateBase)
 }
 
 // Resizes the RenderTexture.
 func (self *RetroFont) ResizeI(args ...interface{}) {
-    self.Call("resize", args)
+    self.Object.Call("resize", args)
+}
+
+// Clears the RenderTexture.
+func (self *RetroFont) Clear() {
+    self.Object.Call("clear")
 }
 
 // Clears the RenderTexture.
 func (self *RetroFont) ClearI(args ...interface{}) {
-    self.Call("clear", args)
+    self.Object.Call("clear", args)
+}
+
+// This function will draw the display object to the texture.
+func (self *RetroFont) RenderWebGL(displayObject *DisplayObject, matrix *Matrix, clear bool) {
+    self.Object.Call("renderWebGL", displayObject, matrix, clear)
 }
 
 // This function will draw the display object to the texture.
 func (self *RetroFont) RenderWebGLI(args ...interface{}) {
-    self.Call("renderWebGL", args)
+    self.Object.Call("renderWebGL", args)
+}
+
+// This function will draw the display object to the texture.
+func (self *RetroFont) RenderCanvas(displayObject *DisplayObject, matrix *Matrix, clear bool) {
+    self.Object.Call("renderCanvas", displayObject, matrix, clear)
 }
 
 // This function will draw the display object to the texture.
 func (self *RetroFont) RenderCanvasI(args ...interface{}) {
-    self.Call("renderCanvas", args)
+    self.Object.Call("renderCanvas", args)
+}
+
+// Will return a HTML Image of the texture
+func (self *RetroFont) GetImage() *Image{
+    return &Image{self.Object.Call("getImage")}
 }
 
 // Will return a HTML Image of the texture
 func (self *RetroFont) GetImageI(args ...interface{}) *Image{
-    return &Image{self.Call("getImage", args)}
+    return &Image{self.Object.Call("getImage", args)}
+}
+
+// Will return a base64 encoded string of this texture. It works by calling RenderTexture.getCanvas and then running toDataURL on that.
+func (self *RetroFont) GetBase64() string{
+    return self.Object.Call("getBase64").String()
 }
 
 // Will return a base64 encoded string of this texture. It works by calling RenderTexture.getCanvas and then running toDataURL on that.
 func (self *RetroFont) GetBase64I(args ...interface{}) string{
-    return self.Call("getBase64", args).String()
+    return self.Object.Call("getBase64", args).String()
+}
+
+// Creates a Canvas element, renders this RenderTexture to it and then returns it.
+func (self *RetroFont) GetCanvas() dom.HTMLCanvasElement{
+    return WrapHTMLCanvasElement(self.Object.Call("getCanvas"))
 }
 
 // Creates a Canvas element, renders this RenderTexture to it and then returns it.
 func (self *RetroFont) GetCanvasI(args ...interface{}) dom.HTMLCanvasElement{
-    return WrapHTMLCanvasElement(self.Call("getCanvas", args))
+    return WrapHTMLCanvasElement(self.Object.Call("getCanvas", args))
+}
+
+// Called when the base texture is loaded
+func (self *RetroFont) OnBaseTextureLoaded() {
+    self.Object.Call("onBaseTextureLoaded")
 }
 
 // Called when the base texture is loaded
 func (self *RetroFont) OnBaseTextureLoadedI(args ...interface{}) {
-    self.Call("onBaseTextureLoaded", args)
+    self.Object.Call("onBaseTextureLoaded", args)
+}
+
+// Destroys this texture
+func (self *RetroFont) Destroy(destroyBase bool) {
+    self.Object.Call("destroy", destroyBase)
 }
 
 // Destroys this texture
 func (self *RetroFont) DestroyI(args ...interface{}) {
-    self.Call("destroy", args)
+    self.Object.Call("destroy", args)
+}
+
+// Specifies the region of the baseTexture that this texture will use.
+func (self *RetroFont) SetFrame(frame *Rectangle) {
+    self.Object.Call("setFrame", frame)
 }
 
 // Specifies the region of the baseTexture that this texture will use.
 func (self *RetroFont) SetFrameI(args ...interface{}) {
-    self.Call("setFrame", args)
+    self.Object.Call("setFrame", args)
+}
+
+// Updates the internal WebGL UV cache.
+func (self *RetroFont) _updateUvs() {
+    self.Object.Call("_updateUvs")
 }
 
 // Updates the internal WebGL UV cache.
 func (self *RetroFont) _updateUvsI(args ...interface{}) {
-    self.Call("_updateUvs", args)
+    self.Object.Call("_updateUvs", args)
 }

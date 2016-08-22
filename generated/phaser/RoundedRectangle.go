@@ -15,74 +15,85 @@ type RoundedRectangle struct {
 
 
 // The x coordinate of the top-left corner of the Rectangle.
-func (self *RoundedRectangle) GetX() int{
-    return self.Get("x").Int()
+func (self *RoundedRectangle) GetXA() int{
+    return self.Object.Get("x").Int()
 }
 
 // The x coordinate of the top-left corner of the Rectangle.
-func (self *RoundedRectangle) SetX(member int) {
-    self.Set("x", member)
+func (self *RoundedRectangle) SetXA(member int) {
+    self.Object.Set("x", member)
 }
 
 // The y coordinate of the top-left corner of the Rectangle.
-func (self *RoundedRectangle) GetY() int{
-    return self.Get("y").Int()
+func (self *RoundedRectangle) GetYA() int{
+    return self.Object.Get("y").Int()
 }
 
 // The y coordinate of the top-left corner of the Rectangle.
-func (self *RoundedRectangle) SetY(member int) {
-    self.Set("y", member)
+func (self *RoundedRectangle) SetYA(member int) {
+    self.Object.Set("y", member)
 }
 
 // The width of the Rectangle. This value should never be set to a negative.
-func (self *RoundedRectangle) GetWidth() int{
-    return self.Get("width").Int()
+func (self *RoundedRectangle) GetWidthA() int{
+    return self.Object.Get("width").Int()
 }
 
 // The width of the Rectangle. This value should never be set to a negative.
-func (self *RoundedRectangle) SetWidth(member int) {
-    self.Set("width", member)
+func (self *RoundedRectangle) SetWidthA(member int) {
+    self.Object.Set("width", member)
 }
 
 // The height of the Rectangle. This value should never be set to a negative.
-func (self *RoundedRectangle) GetHeight() int{
-    return self.Get("height").Int()
+func (self *RoundedRectangle) GetHeightA() int{
+    return self.Object.Get("height").Int()
 }
 
 // The height of the Rectangle. This value should never be set to a negative.
-func (self *RoundedRectangle) SetHeight(member int) {
-    self.Set("height", member)
+func (self *RoundedRectangle) SetHeightA(member int) {
+    self.Object.Set("height", member)
 }
 
 // The radius of the rounded corners.
-func (self *RoundedRectangle) GetRadius() int{
-    return self.Get("radius").Int()
+func (self *RoundedRectangle) GetRadiusA() int{
+    return self.Object.Get("radius").Int()
 }
 
 // The radius of the rounded corners.
-func (self *RoundedRectangle) SetRadius(member int) {
-    self.Set("radius", member)
+func (self *RoundedRectangle) SetRadiusA(member int) {
+    self.Object.Set("radius", member)
 }
 
 // The const type of this object.
-func (self *RoundedRectangle) GetType() int{
-    return self.Get("type").Int()
+func (self *RoundedRectangle) GetTypeA() int{
+    return self.Object.Get("type").Int()
 }
 
 // The const type of this object.
-func (self *RoundedRectangle) SetType(member int) {
-    self.Set("type", member)
+func (self *RoundedRectangle) SetTypeA(member int) {
+    self.Object.Set("type", member)
 }
 
 
 
 // Returns a new RoundedRectangle object with the same values for the x, y, width, height and
 // radius properties as this RoundedRectangle object.
+func (self *RoundedRectangle) Clone() *RoundedRectangle{
+    return &RoundedRectangle{self.Object.Call("clone")}
+}
+
+// Returns a new RoundedRectangle object with the same values for the x, y, width, height and
+// radius properties as this RoundedRectangle object.
 func (self *RoundedRectangle) CloneI(args ...interface{}) *RoundedRectangle{
-    return &RoundedRectangle{self.Call("clone", args)}
+    return &RoundedRectangle{self.Object.Call("clone", args)}
+}
+
+// Determines whether the specified coordinates are contained within the region defined by this Rounded Rectangle object.
+func (self *RoundedRectangle) Contains(x int, y int) bool{
+    return self.Object.Call("contains", x, y).Bool()
 }
 
 // Determines whether the specified coordinates are contained within the region defined by this Rounded Rectangle object.
 func (self *RoundedRectangle) ContainsI(args ...interface{}) bool{
-    return self.Call("contains", args).Bool()
+    return self.Object.Call("contains", args).Bool()
 }

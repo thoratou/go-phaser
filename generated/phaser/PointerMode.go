@@ -23,26 +23,26 @@ type PointerMode struct {
 // 
 // It has the property that a cursor is passively moved without activating the input.
 // This currently corresponds with {@link Phaser.Pointer#isMouse} property.
-func (self *PointerMode) GetCURSOR() interface{}{
-    return self.Get("CURSOR")
+func (self *PointerMode) GetCURSORA() interface{}{
+    return self.Object.Get("CURSOR")
 }
 
 // A 'CURSOR' is a pointer with a *passive cursor* such as a mouse, touchpad, watcom stylus, or even TV-control arrow-pad.
 // 
 // It has the property that a cursor is passively moved without activating the input.
 // This currently corresponds with {@link Phaser.Pointer#isMouse} property.
-func (self *PointerMode) SetCURSOR(member interface{}) {
-    self.Set("CURSOR", member)
+func (self *PointerMode) SetCURSORA(member interface{}) {
+    self.Object.Set("CURSOR", member)
 }
 
 // A 'CONTACT' pointer has an *active cursor* that only tracks movement when actived; notably this is a touch-style input.
-func (self *PointerMode) GetCONTACT() interface{}{
-    return self.Get("CONTACT")
+func (self *PointerMode) GetCONTACTA() interface{}{
+    return self.Object.Get("CONTACT")
 }
 
 // A 'CONTACT' pointer has an *active cursor* that only tracks movement when actived; notably this is a touch-style input.
-func (self *PointerMode) SetCONTACT(member interface{}) {
-    self.Set("CONTACT", member)
+func (self *PointerMode) SetCONTACTA(member interface{}) {
+    self.Object.Set("CONTACT", member)
 }
 
 

@@ -18,8 +18,8 @@ type ComponentInCamera struct {
 // It will be `true` if they intersect, or `false` if the Game Object is fully outside of the Cameras bounds.
 // 
 // An object outside the bounds can be considered for camera culling if it has the AutoCull component.
-func (self *ComponentInCamera) GetInCamera() bool{
-    return self.Get("inCamera").Bool()
+func (self *ComponentInCamera) GetInCameraA() bool{
+    return self.Object.Get("inCamera").Bool()
 }
 
 // Checks if this Game Objects bounds intersects with the Game Cameras bounds.
@@ -27,8 +27,8 @@ func (self *ComponentInCamera) GetInCamera() bool{
 // It will be `true` if they intersect, or `false` if the Game Object is fully outside of the Cameras bounds.
 // 
 // An object outside the bounds can be considered for camera culling if it has the AutoCull component.
-func (self *ComponentInCamera) SetInCamera(member bool) {
-    self.Set("inCamera", member)
+func (self *ComponentInCamera) SetInCameraA(member bool) {
+    self.Object.Set("inCamera", member)
 }
 
 

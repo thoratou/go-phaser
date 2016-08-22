@@ -19,93 +19,143 @@ type FlexGrid struct {
 
 
 // A reference to the currently running Game.
-func (self *FlexGrid) GetGame() *Game{
-    return &Game{self.Get("game")}
+func (self *FlexGrid) GetGameA() *Game{
+    return &Game{self.Object.Get("game")}
 }
 
 // A reference to the currently running Game.
-func (self *FlexGrid) SetGame(member *Game) {
-    self.Set("game", member)
+func (self *FlexGrid) SetGameA(member *Game) {
+    self.Object.Set("game", member)
 }
 
 // A reference to the ScaleManager.
-func (self *FlexGrid) GetManager() *ScaleManager{
-    return &ScaleManager{self.Get("manager")}
+func (self *FlexGrid) GetManagerA() *ScaleManager{
+    return &ScaleManager{self.Object.Get("manager")}
 }
 
 // A reference to the ScaleManager.
-func (self *FlexGrid) SetManager(member *ScaleManager) {
-    self.Set("manager", member)
+func (self *FlexGrid) SetManagerA(member *ScaleManager) {
+    self.Object.Set("manager", member)
 }
 
 // -
-func (self *FlexGrid) GetPositionCustom() interface{}{
-    return self.Get("positionCustom")
+func (self *FlexGrid) GetPositionCustomA() interface{}{
+    return self.Object.Get("positionCustom")
 }
 
 // -
-func (self *FlexGrid) SetPositionCustom(member interface{}) {
-    self.Set("positionCustom", member)
+func (self *FlexGrid) SetPositionCustomA(member interface{}) {
+    self.Object.Set("positionCustom", member)
 }
 
 // The scale factor based on the game dimensions vs. the scaled dimensions.
-func (self *FlexGrid) GetScaleCustom() interface{}{
-    return self.Get("scaleCustom")
+func (self *FlexGrid) GetScaleCustomA() interface{}{
+    return self.Object.Get("scaleCustom")
 }
 
 // The scale factor based on the game dimensions vs. the scaled dimensions.
-func (self *FlexGrid) SetScaleCustom(member interface{}) {
-    self.Set("scaleCustom", member)
+func (self *FlexGrid) SetScaleCustomA(member interface{}) {
+    self.Object.Set("scaleCustom", member)
 }
 
 
 
 // Sets the core game size. This resets the w/h parameters and bounds.
+func (self *FlexGrid) SetSize(width int, height int) {
+    self.Object.Call("setSize", width, height)
+}
+
+// Sets the core game size. This resets the w/h parameters and bounds.
 func (self *FlexGrid) SetSizeI(args ...interface{}) {
-    self.Call("setSize", args)
+    self.Object.Call("setSize", args)
+}
+
+// A custom layer is centered on the game and maintains its aspect ratio as it scales up and down.
+func (self *FlexGrid) CreateCustomLayer(width int, height int, children []DisplayObject) *FlexLayer{
+    return &FlexLayer{self.Object.Call("createCustomLayer", width, height, children)}
 }
 
 // A custom layer is centered on the game and maintains its aspect ratio as it scales up and down.
 func (self *FlexGrid) CreateCustomLayerI(args ...interface{}) *FlexLayer{
-    return &FlexLayer{self.Call("createCustomLayer", args)}
+    return &FlexLayer{self.Object.Call("createCustomLayer", args)}
+}
+
+// A fluid layer is centered on the game and maintains its aspect ratio as it scales up and down.
+func (self *FlexGrid) CreateFluidLayer(children []interface{}) *FlexLayer{
+    return &FlexLayer{self.Object.Call("createFluidLayer", children)}
 }
 
 // A fluid layer is centered on the game and maintains its aspect ratio as it scales up and down.
 func (self *FlexGrid) CreateFluidLayerI(args ...interface{}) *FlexLayer{
-    return &FlexLayer{self.Call("createFluidLayer", args)}
+    return &FlexLayer{self.Object.Call("createFluidLayer", args)}
+}
+
+// A full layer is placed at 0,0 and extends to the full size of the game. Children are scaled according to the fluid ratios.
+func (self *FlexGrid) CreateFullLayer(children []interface{}) *FlexLayer{
+    return &FlexLayer{self.Object.Call("createFullLayer", children)}
 }
 
 // A full layer is placed at 0,0 and extends to the full size of the game. Children are scaled according to the fluid ratios.
 func (self *FlexGrid) CreateFullLayerI(args ...interface{}) *FlexLayer{
-    return &FlexLayer{self.Call("createFullLayer", args)}
+    return &FlexLayer{self.Object.Call("createFullLayer", args)}
+}
+
+// A fixed layer is centered on the game and is the size of the required dimensions and is never scaled.
+func (self *FlexGrid) CreateFixedLayer(children []DisplayObject) *FlexLayer{
+    return &FlexLayer{self.Object.Call("createFixedLayer", children)}
 }
 
 // A fixed layer is centered on the game and is the size of the required dimensions and is never scaled.
 func (self *FlexGrid) CreateFixedLayerI(args ...interface{}) *FlexLayer{
-    return &FlexLayer{self.Call("createFixedLayer", args)}
+    return &FlexLayer{self.Object.Call("createFixedLayer", args)}
+}
+
+// Resets the layer children references
+func (self *FlexGrid) Reset() {
+    self.Object.Call("reset")
 }
 
 // Resets the layer children references
 func (self *FlexGrid) ResetI(args ...interface{}) {
-    self.Call("reset", args)
+    self.Object.Call("reset", args)
+}
+
+// Called when the game container changes dimensions.
+func (self *FlexGrid) OnResize(width int, height int) {
+    self.Object.Call("onResize", width, height)
 }
 
 // Called when the game container changes dimensions.
 func (self *FlexGrid) OnResizeI(args ...interface{}) {
-    self.Call("onResize", args)
+    self.Object.Call("onResize", args)
+}
+
+// Updates all internal vars such as the bounds and scale values.
+func (self *FlexGrid) Refresh() {
+    self.Object.Call("refresh")
 }
 
 // Updates all internal vars such as the bounds and scale values.
 func (self *FlexGrid) RefreshI(args ...interface{}) {
-    self.Call("refresh", args)
+    self.Object.Call("refresh", args)
+}
+
+// Fits a sprites width to the bounds.
+func (self *FlexGrid) FitSprite(sprite *Sprite) {
+    self.Object.Call("fitSprite", sprite)
 }
 
 // Fits a sprites width to the bounds.
 func (self *FlexGrid) FitSpriteI(args ...interface{}) {
-    self.Call("fitSprite", args)
+    self.Object.Call("fitSprite", args)
+}
+
+// Call in the render function to output the bounds rects.
+func (self *FlexGrid) Debug() {
+    self.Object.Call("debug")
 }
 
 // Call in the render function to output the bounds rects.
 func (self *FlexGrid) DebugI(args ...interface{}) {
-    self.Call("debug", args)
+    self.Object.Call("debug", args)
 }

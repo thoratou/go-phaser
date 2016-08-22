@@ -21,51 +21,101 @@ type PhysicsP2FixtureList struct {
 
 
 // 
+func (self *PhysicsP2FixtureList) Init() {
+    self.Object.Call("init")
+}
+
+// 
 func (self *PhysicsP2FixtureList) InitI(args ...interface{}) {
-    self.Call("init", args)
+    self.Object.Call("init", args)
+}
+
+// 
+func (self *PhysicsP2FixtureList) SetCategory(bit int, fixtureKey string) {
+    self.Object.Call("setCategory", bit, fixtureKey)
 }
 
 // 
 func (self *PhysicsP2FixtureList) SetCategoryI(args ...interface{}) {
-    self.Call("setCategory", args)
+    self.Object.Call("setCategory", args)
+}
+
+// 
+func (self *PhysicsP2FixtureList) SetMask(bit int, fixtureKey string) {
+    self.Object.Call("setMask", bit, fixtureKey)
 }
 
 // 
 func (self *PhysicsP2FixtureList) SetMaskI(args ...interface{}) {
-    self.Call("setMask", args)
+    self.Object.Call("setMask", args)
+}
+
+// 
+func (self *PhysicsP2FixtureList) SetSensor(value bool, fixtureKey string) {
+    self.Object.Call("setSensor", value, fixtureKey)
 }
 
 // 
 func (self *PhysicsP2FixtureList) SetSensorI(args ...interface{}) {
-    self.Call("setSensor", args)
+    self.Object.Call("setSensor", args)
+}
+
+// 
+func (self *PhysicsP2FixtureList) SetMaterial(material interface{}, fixtureKey string) {
+    self.Object.Call("setMaterial", material, fixtureKey)
 }
 
 // 
 func (self *PhysicsP2FixtureList) SetMaterialI(args ...interface{}) {
-    self.Call("setMaterial", args)
+    self.Object.Call("setMaterial", args)
+}
+
+// Accessor to get either a list of specified fixtures by key or the whole fixture list
+func (self *PhysicsP2FixtureList) GetFixtures(keys []interface{}) {
+    self.Object.Call("getFixtures", keys)
 }
 
 // Accessor to get either a list of specified fixtures by key or the whole fixture list
 func (self *PhysicsP2FixtureList) GetFixturesI(args ...interface{}) {
-    self.Call("getFixtures", args)
+    self.Object.Call("getFixtures", args)
+}
+
+// Accessor to get either a single fixture by its key.
+func (self *PhysicsP2FixtureList) GetFixtureByKey(key string) {
+    self.Object.Call("getFixtureByKey", key)
 }
 
 // Accessor to get either a single fixture by its key.
 func (self *PhysicsP2FixtureList) GetFixtureByKeyI(args ...interface{}) {
-    self.Call("getFixtureByKey", args)
+    self.Object.Call("getFixtureByKey", args)
+}
+
+// Accessor to get a group of fixtures by its group index.
+func (self *PhysicsP2FixtureList) GetGroup(groupID int) {
+    self.Object.Call("getGroup", groupID)
 }
 
 // Accessor to get a group of fixtures by its group index.
 func (self *PhysicsP2FixtureList) GetGroupI(args ...interface{}) {
-    self.Call("getGroup", args)
+    self.Object.Call("getGroup", args)
+}
+
+// Parser for the output of Phaser.Physics.P2.Body#addPhaserPolygon
+func (self *PhysicsP2FixtureList) Parse() {
+    self.Object.Call("parse")
 }
 
 // Parser for the output of Phaser.Physics.P2.Body#addPhaserPolygon
 func (self *PhysicsP2FixtureList) ParseI(args ...interface{}) {
-    self.Call("parse", args)
+    self.Object.Call("parse", args)
+}
+
+// A helper to flatten arrays. This is very useful as the fixtures are nested from time to time due to the way P2 creates and splits polygons.
+func (self *PhysicsP2FixtureList) Flatten(array []interface{}) {
+    self.Object.Call("flatten", array)
 }
 
 // A helper to flatten arrays. This is very useful as the fixtures are nested from time to time due to the way P2 creates and splits polygons.
 func (self *PhysicsP2FixtureList) FlattenI(args ...interface{}) {
-    self.Call("flatten", args)
+    self.Object.Call("flatten", args)
 }

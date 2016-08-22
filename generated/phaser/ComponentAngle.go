@@ -22,8 +22,8 @@ type ComponentAngle struct {
 // 
 // If you wish to work in radians instead of degrees you can use the property `rotation` instead. 
 // Working in radians is slightly faster as it doesn't have to perform any calculations.
-func (self *ComponentAngle) GetAngle() int{
-    return self.Get("angle").Int()
+func (self *ComponentAngle) GetAngleA() int{
+    return self.Object.Get("angle").Int()
 }
 
 // The angle property is the rotation of the Game Object in *degrees* from its original orientation.
@@ -35,8 +35,8 @@ func (self *ComponentAngle) GetAngle() int{
 // 
 // If you wish to work in radians instead of degrees you can use the property `rotation` instead. 
 // Working in radians is slightly faster as it doesn't have to perform any calculations.
-func (self *ComponentAngle) SetAngle(member int) {
-    self.Set("angle", member)
+func (self *ComponentAngle) SetAngleA(member int) {
+    self.Object.Set("angle", member)
 }
 
 

@@ -19,8 +19,8 @@ type TilemapParser struct {
 // data doesn't need to change then setting this value to `true` will help with memory consumption.
 // However if your map is small, or you need to update the tiles (perhaps the map dynamically changes
 // during the game) then leave the default value set.
-func (self *TilemapParser) GetINSERT_NULL() bool{
-    return self.Get("INSERT_NULL").Bool()
+func (self *TilemapParser) GetINSERT_NULLA() bool{
+    return self.Object.Get("INSERT_NULL").Bool()
 }
 
 // When scanning the Tiled map data the TilemapParser can either insert a null value (true) or
@@ -29,64 +29,84 @@ func (self *TilemapParser) GetINSERT_NULL() bool{
 // data doesn't need to change then setting this value to `true` will help with memory consumption.
 // However if your map is small, or you need to update the tiles (perhaps the map dynamically changes
 // during the game) then leave the default value set.
-func (self *TilemapParser) SetINSERT_NULL(member bool) {
-    self.Set("INSERT_NULL", member)
+func (self *TilemapParser) SetINSERT_NULLA(member bool) {
+    self.Object.Set("INSERT_NULL", member)
 }
 
 // A tiled flag that resides within the 32 bit of the object gid and
 // indicates whether the tiled/object is flipped horizontally.
-func (self *TilemapParser) GetFLIPPED_HORIZONTALLY_FLAG() int{
-    return self.Get("FLIPPED_HORIZONTALLY_FLAG").Int()
+func (self *TilemapParser) GetFLIPPED_HORIZONTALLY_FLAGA() int{
+    return self.Object.Get("FLIPPED_HORIZONTALLY_FLAG").Int()
 }
 
 // A tiled flag that resides within the 32 bit of the object gid and
 // indicates whether the tiled/object is flipped horizontally.
-func (self *TilemapParser) SetFLIPPED_HORIZONTALLY_FLAG(member int) {
-    self.Set("FLIPPED_HORIZONTALLY_FLAG", member)
+func (self *TilemapParser) SetFLIPPED_HORIZONTALLY_FLAGA(member int) {
+    self.Object.Set("FLIPPED_HORIZONTALLY_FLAG", member)
 }
 
 // A tiled flag that resides within the 31 bit of the object gid and
 // indicates whether the tiled/object is flipped vertically.
-func (self *TilemapParser) GetFLIPPED_VERTICALLY_FLAG() int{
-    return self.Get("FLIPPED_VERTICALLY_FLAG").Int()
+func (self *TilemapParser) GetFLIPPED_VERTICALLY_FLAGA() int{
+    return self.Object.Get("FLIPPED_VERTICALLY_FLAG").Int()
 }
 
 // A tiled flag that resides within the 31 bit of the object gid and
 // indicates whether the tiled/object is flipped vertically.
-func (self *TilemapParser) SetFLIPPED_VERTICALLY_FLAG(member int) {
-    self.Set("FLIPPED_VERTICALLY_FLAG", member)
+func (self *TilemapParser) SetFLIPPED_VERTICALLY_FLAGA(member int) {
+    self.Object.Set("FLIPPED_VERTICALLY_FLAG", member)
 }
 
 // A tiled flag that resides within the 30 bit of the object gid and
 // indicates whether the tiled/object is flipped diagonally.
-func (self *TilemapParser) GetFLIPPED_DIAGONALLY_FLAG() int{
-    return self.Get("FLIPPED_DIAGONALLY_FLAG").Int()
+func (self *TilemapParser) GetFLIPPED_DIAGONALLY_FLAGA() int{
+    return self.Object.Get("FLIPPED_DIAGONALLY_FLAG").Int()
 }
 
 // A tiled flag that resides within the 30 bit of the object gid and
 // indicates whether the tiled/object is flipped diagonally.
-func (self *TilemapParser) SetFLIPPED_DIAGONALLY_FLAG(member int) {
-    self.Set("FLIPPED_DIAGONALLY_FLAG", member)
+func (self *TilemapParser) SetFLIPPED_DIAGONALLY_FLAGA(member int) {
+    self.Object.Set("FLIPPED_DIAGONALLY_FLAG", member)
 }
 
 
 
 // Parse tilemap data from the cache and creates a Tilemap object.
+func (self *TilemapParser) Parse(game *Game, key string, tileWidth int, tileHeight int, width int, height int) interface{}{
+    return self.Object.Call("parse", game, key, tileWidth, tileHeight, width, height)
+}
+
+// Parse tilemap data from the cache and creates a Tilemap object.
 func (self *TilemapParser) ParseI(args ...interface{}) interface{}{
-    return self.Call("parse", args)
+    return self.Object.Call("parse", args)
+}
+
+// Parses a CSV file into valid map data.
+func (self *TilemapParser) ParseCSV(key string, data string, tileWidth int, tileHeight int) interface{}{
+    return self.Object.Call("parseCSV", key, data, tileWidth, tileHeight)
 }
 
 // Parses a CSV file into valid map data.
 func (self *TilemapParser) ParseCSVI(args ...interface{}) interface{}{
-    return self.Call("parseCSV", args)
+    return self.Object.Call("parseCSV", args)
+}
+
+// Returns an empty map data object.
+func (self *TilemapParser) GetEmptyData() interface{}{
+    return self.Object.Call("getEmptyData")
 }
 
 // Returns an empty map data object.
 func (self *TilemapParser) GetEmptyDataI(args ...interface{}) interface{}{
-    return self.Call("getEmptyData", args)
+    return self.Object.Call("getEmptyData", args)
+}
+
+// Parses a Tiled JSON file into valid map data.
+func (self *TilemapParser) ParseJSON(json interface{}) interface{}{
+    return self.Object.Call("parseJSON", json)
 }
 
 // Parses a Tiled JSON file into valid map data.
 func (self *TilemapParser) ParseJSONI(args ...interface{}) interface{}{
-    return self.Call("parseJSON", args)
+    return self.Object.Call("parseJSON", args)
 }

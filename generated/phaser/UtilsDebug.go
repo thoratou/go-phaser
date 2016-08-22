@@ -25,279 +25,425 @@ type UtilsDebug struct {
 
 
 // A reference to the currently running Game.
-func (self *UtilsDebug) GetGame() *Game{
-    return &Game{self.Get("game")}
+func (self *UtilsDebug) GetGameA() *Game{
+    return &Game{self.Object.Get("game")}
 }
 
 // A reference to the currently running Game.
-func (self *UtilsDebug) SetGame(member *Game) {
-    self.Set("game", member)
+func (self *UtilsDebug) SetGameA(member *Game) {
+    self.Object.Set("game", member)
 }
 
 // If debugging in WebGL mode we need this.
-func (self *UtilsDebug) GetSprite() *Image{
-    return &Image{self.Get("sprite")}
+func (self *UtilsDebug) GetSpriteA() *Image{
+    return &Image{self.Object.Get("sprite")}
 }
 
 // If debugging in WebGL mode we need this.
-func (self *UtilsDebug) SetSprite(member *Image) {
-    self.Set("sprite", member)
+func (self *UtilsDebug) SetSpriteA(member *Image) {
+    self.Object.Set("sprite", member)
 }
 
 // In WebGL mode this BitmapData contains a copy of the debug canvas.
-func (self *UtilsDebug) GetBmd() *BitmapData{
-    return &BitmapData{self.Get("bmd")}
+func (self *UtilsDebug) GetBmdA() *BitmapData{
+    return &BitmapData{self.Object.Get("bmd")}
 }
 
 // In WebGL mode this BitmapData contains a copy of the debug canvas.
-func (self *UtilsDebug) SetBmd(member *BitmapData) {
-    self.Set("bmd", member)
+func (self *UtilsDebug) SetBmdA(member *BitmapData) {
+    self.Object.Set("bmd", member)
 }
 
 // The canvas to which Debug calls draws.
-func (self *UtilsDebug) GetCanvas() dom.HTMLCanvasElement{
-    return WrapHTMLCanvasElement(self.Get("canvas"))
+func (self *UtilsDebug) GetCanvasA() dom.HTMLCanvasElement{
+    return WrapHTMLCanvasElement(self.Object.Get("canvas"))
 }
 
 // The canvas to which Debug calls draws.
-func (self *UtilsDebug) SetCanvas(member dom.HTMLCanvasElement) {
-    self.Set("canvas", member)
+func (self *UtilsDebug) SetCanvasA(member dom.HTMLCanvasElement) {
+    self.Object.Set("canvas", member)
 }
 
 // The 2d context of the canvas.
-func (self *UtilsDebug) GetContext() dom.CanvasRenderingContext2D{
-    return WrapCanvasRenderingContext2D(self.Get("context"))
+func (self *UtilsDebug) GetContextA() dom.CanvasRenderingContext2D{
+    return WrapCanvasRenderingContext2D(self.Object.Get("context"))
 }
 
 // The 2d context of the canvas.
-func (self *UtilsDebug) SetContext(member dom.CanvasRenderingContext2D) {
-    self.Set("context", member)
+func (self *UtilsDebug) SetContextA(member dom.CanvasRenderingContext2D) {
+    self.Object.Set("context", member)
 }
 
 // The font that the debug information is rendered in.
-func (self *UtilsDebug) GetFont() string{
-    return self.Get("font").String()
+func (self *UtilsDebug) GetFontA() string{
+    return self.Object.Get("font").String()
 }
 
 // The font that the debug information is rendered in.
-func (self *UtilsDebug) SetFont(member string) {
-    self.Set("font", member)
+func (self *UtilsDebug) SetFontA(member string) {
+    self.Object.Set("font", member)
 }
 
 // The spacing between columns.
-func (self *UtilsDebug) GetColumnWidth() int{
-    return self.Get("columnWidth").Int()
+func (self *UtilsDebug) GetColumnWidthA() int{
+    return self.Object.Get("columnWidth").Int()
 }
 
 // The spacing between columns.
-func (self *UtilsDebug) SetColumnWidth(member int) {
-    self.Set("columnWidth", member)
+func (self *UtilsDebug) SetColumnWidthA(member int) {
+    self.Object.Set("columnWidth", member)
 }
 
 // The line height between the debug text.
-func (self *UtilsDebug) GetLineHeight() int{
-    return self.Get("lineHeight").Int()
+func (self *UtilsDebug) GetLineHeightA() int{
+    return self.Object.Get("lineHeight").Int()
 }
 
 // The line height between the debug text.
-func (self *UtilsDebug) SetLineHeight(member int) {
-    self.Set("lineHeight", member)
+func (self *UtilsDebug) SetLineHeightA(member int) {
+    self.Object.Set("lineHeight", member)
 }
 
 // Should the text be rendered with a slight shadow? Makes it easier to read on different types of background.
-func (self *UtilsDebug) GetRenderShadow() bool{
-    return self.Get("renderShadow").Bool()
+func (self *UtilsDebug) GetRenderShadowA() bool{
+    return self.Object.Get("renderShadow").Bool()
 }
 
 // Should the text be rendered with a slight shadow? Makes it easier to read on different types of background.
-func (self *UtilsDebug) SetRenderShadow(member bool) {
-    self.Set("renderShadow", member)
+func (self *UtilsDebug) SetRenderShadowA(member bool) {
+    self.Object.Set("renderShadow", member)
 }
 
 // The current X position the debug information will be rendered at.
-func (self *UtilsDebug) GetCurrentX() int{
-    return self.Get("currentX").Int()
+func (self *UtilsDebug) GetCurrentXA() int{
+    return self.Object.Get("currentX").Int()
 }
 
 // The current X position the debug information will be rendered at.
-func (self *UtilsDebug) SetCurrentX(member int) {
-    self.Set("currentX", member)
+func (self *UtilsDebug) SetCurrentXA(member int) {
+    self.Object.Set("currentX", member)
 }
 
 // The current Y position the debug information will be rendered at.
-func (self *UtilsDebug) GetCurrentY() int{
-    return self.Get("currentY").Int()
+func (self *UtilsDebug) GetCurrentYA() int{
+    return self.Object.Get("currentY").Int()
 }
 
 // The current Y position the debug information will be rendered at.
-func (self *UtilsDebug) SetCurrentY(member int) {
-    self.Set("currentY", member)
+func (self *UtilsDebug) SetCurrentYA(member int) {
+    self.Object.Set("currentY", member)
 }
 
 // The alpha of the Debug context, set before all debug information is rendered to it.
-func (self *UtilsDebug) GetCurrentAlpha() int{
-    return self.Get("currentAlpha").Int()
+func (self *UtilsDebug) GetCurrentAlphaA() int{
+    return self.Object.Get("currentAlpha").Int()
 }
 
 // The alpha of the Debug context, set before all debug information is rendered to it.
-func (self *UtilsDebug) SetCurrentAlpha(member int) {
-    self.Set("currentAlpha", member)
+func (self *UtilsDebug) SetCurrentAlphaA(member int) {
+    self.Object.Set("currentAlpha", member)
 }
 
 // Does the canvas need re-rendering?
-func (self *UtilsDebug) GetDirty() bool{
-    return self.Get("dirty").Bool()
+func (self *UtilsDebug) GetDirtyA() bool{
+    return self.Object.Get("dirty").Bool()
 }
 
 // Does the canvas need re-rendering?
-func (self *UtilsDebug) SetDirty(member bool) {
-    self.Set("dirty", member)
+func (self *UtilsDebug) SetDirtyA(member bool) {
+    self.Object.Set("dirty", member)
 }
 
 
 
 // Internal method that boots the debug displayer.
+func (self *UtilsDebug) Boot() {
+    self.Object.Call("boot")
+}
+
+// Internal method that boots the debug displayer.
 func (self *UtilsDebug) BootI(args ...interface{}) {
-    self.Call("boot", args)
+    self.Object.Call("boot", args)
+}
+
+// Internal method that resizes the BitmapData and Canvas.
+// Called by ScaleManager.onSizeChange only in WebGL mode.
+func (self *UtilsDebug) Resize(scaleManager *ScaleManager, width int, height int) {
+    self.Object.Call("resize", scaleManager, width, height)
 }
 
 // Internal method that resizes the BitmapData and Canvas.
 // Called by ScaleManager.onSizeChange only in WebGL mode.
 func (self *UtilsDebug) ResizeI(args ...interface{}) {
-    self.Call("resize", args)
+    self.Object.Call("resize", args)
+}
+
+// Internal method that clears the canvas (if a Sprite) ready for a new debug session.
+func (self *UtilsDebug) PreUpdate() {
+    self.Object.Call("preUpdate")
 }
 
 // Internal method that clears the canvas (if a Sprite) ready for a new debug session.
 func (self *UtilsDebug) PreUpdateI(args ...interface{}) {
-    self.Call("preUpdate", args)
+    self.Object.Call("preUpdate", args)
+}
+
+// Clears the Debug canvas.
+func (self *UtilsDebug) Reset() {
+    self.Object.Call("reset")
 }
 
 // Clears the Debug canvas.
 func (self *UtilsDebug) ResetI(args ...interface{}) {
-    self.Call("reset", args)
+    self.Object.Call("reset", args)
+}
+
+// Internal method that resets and starts the debug output values.
+func (self *UtilsDebug) Start(x int, y int, color string, columnWidth int) {
+    self.Object.Call("start", x, y, color, columnWidth)
 }
 
 // Internal method that resets and starts the debug output values.
 func (self *UtilsDebug) StartI(args ...interface{}) {
-    self.Call("start", args)
+    self.Object.Call("start", args)
+}
+
+// Internal method that stops the debug output.
+func (self *UtilsDebug) Stop() {
+    self.Object.Call("stop")
 }
 
 // Internal method that stops the debug output.
 func (self *UtilsDebug) StopI(args ...interface{}) {
-    self.Call("stop", args)
+    self.Object.Call("stop", args)
+}
+
+// Internal method that outputs a single line of text split over as many columns as needed, one per parameter.
+func (self *UtilsDebug) Line() {
+    self.Object.Call("line")
 }
 
 // Internal method that outputs a single line of text split over as many columns as needed, one per parameter.
 func (self *UtilsDebug) LineI(args ...interface{}) {
-    self.Call("line", args)
+    self.Object.Call("line", args)
+}
+
+// Render Sound information, including decoded state, duration, volume and more.
+func (self *UtilsDebug) SoundInfo(sound *Sound, x int, y int, color string) {
+    self.Object.Call("soundInfo", sound, x, y, color)
 }
 
 // Render Sound information, including decoded state, duration, volume and more.
 func (self *UtilsDebug) SoundInfoI(args ...interface{}) {
-    self.Call("soundInfo", args)
+    self.Object.Call("soundInfo", args)
+}
+
+// Render camera information including dimensions and location.
+func (self *UtilsDebug) CameraInfo(camera *Camera, x int, y int, color string) {
+    self.Object.Call("cameraInfo", camera, x, y, color)
 }
 
 // Render camera information including dimensions and location.
 func (self *UtilsDebug) CameraInfoI(args ...interface{}) {
-    self.Call("cameraInfo", args)
+    self.Object.Call("cameraInfo", args)
+}
+
+// Render Timer information.
+func (self *UtilsDebug) Timer(timer *Timer, x int, y int, color string) {
+    self.Object.Call("timer", timer, x, y, color)
 }
 
 // Render Timer information.
 func (self *UtilsDebug) TimerI(args ...interface{}) {
-    self.Call("timer", args)
+    self.Object.Call("timer", args)
+}
+
+// Renders the Pointer.circle object onto the stage in green if down or red if up along with debug text.
+func (self *UtilsDebug) Pointer(pointer *Pointer, hideIfUp bool, downColor string, upColor string, color string) {
+    self.Object.Call("pointer", pointer, hideIfUp, downColor, upColor, color)
 }
 
 // Renders the Pointer.circle object onto the stage in green if down or red if up along with debug text.
 func (self *UtilsDebug) PointerI(args ...interface{}) {
-    self.Call("pointer", args)
+    self.Object.Call("pointer", args)
+}
+
+// Render Sprite Input Debug information.
+func (self *UtilsDebug) SpriteInputInfo(sprite interface{}, x int, y int, color string) {
+    self.Object.Call("spriteInputInfo", sprite, x, y, color)
 }
 
 // Render Sprite Input Debug information.
 func (self *UtilsDebug) SpriteInputInfoI(args ...interface{}) {
-    self.Call("spriteInputInfo", args)
+    self.Object.Call("spriteInputInfo", args)
+}
+
+// Renders Phaser.Key object information.
+func (self *UtilsDebug) Key(key *Key, x int, y int, color string) {
+    self.Object.Call("key", key, x, y, color)
 }
 
 // Renders Phaser.Key object information.
 func (self *UtilsDebug) KeyI(args ...interface{}) {
-    self.Call("key", args)
+    self.Object.Call("key", args)
+}
+
+// Render debug information about the Input object.
+func (self *UtilsDebug) InputInfo(x int, y int, color string) {
+    self.Object.Call("inputInfo", x, y, color)
 }
 
 // Render debug information about the Input object.
 func (self *UtilsDebug) InputInfoI(args ...interface{}) {
-    self.Call("inputInfo", args)
+    self.Object.Call("inputInfo", args)
+}
+
+// Renders the Sprites bounds. Note: This is really expensive as it has to calculate the bounds every time you call it!
+func (self *UtilsDebug) SpriteBounds(sprite interface{}, color string, filled bool) {
+    self.Object.Call("spriteBounds", sprite, color, filled)
 }
 
 // Renders the Sprites bounds. Note: This is really expensive as it has to calculate the bounds every time you call it!
 func (self *UtilsDebug) SpriteBoundsI(args ...interface{}) {
-    self.Call("spriteBounds", args)
+    self.Object.Call("spriteBounds", args)
+}
+
+// Renders the Rope's segments. Note: This is really expensive as it has to calculate new segments every time you call it
+func (self *UtilsDebug) RopeSegments(rope *Rope, color string, filled bool) {
+    self.Object.Call("ropeSegments", rope, color, filled)
 }
 
 // Renders the Rope's segments. Note: This is really expensive as it has to calculate new segments every time you call it
 func (self *UtilsDebug) RopeSegmentsI(args ...interface{}) {
-    self.Call("ropeSegments", args)
+    self.Object.Call("ropeSegments", args)
+}
+
+// Render debug infos (including name, bounds info, position and some other properties) about the Sprite.
+func (self *UtilsDebug) SpriteInfo(sprite *Sprite, x int, y int, color string) {
+    self.Object.Call("spriteInfo", sprite, x, y, color)
 }
 
 // Render debug infos (including name, bounds info, position and some other properties) about the Sprite.
 func (self *UtilsDebug) SpriteInfoI(args ...interface{}) {
-    self.Call("spriteInfo", args)
+    self.Object.Call("spriteInfo", args)
+}
+
+// Renders the sprite coordinates in local, positional and world space.
+func (self *UtilsDebug) SpriteCoords(sprite interface{}, x int, y int, color string) {
+    self.Object.Call("spriteCoords", sprite, x, y, color)
 }
 
 // Renders the sprite coordinates in local, positional and world space.
 func (self *UtilsDebug) SpriteCoordsI(args ...interface{}) {
-    self.Call("spriteCoords", args)
+    self.Object.Call("spriteCoords", args)
+}
+
+// Renders Line information in the given color.
+func (self *UtilsDebug) LineInfo(line *Line, x int, y int, color string) {
+    self.Object.Call("lineInfo", line, x, y, color)
 }
 
 // Renders Line information in the given color.
 func (self *UtilsDebug) LineInfoI(args ...interface{}) {
-    self.Call("lineInfo", args)
+    self.Object.Call("lineInfo", args)
+}
+
+// Renders a single pixel at the given size.
+func (self *UtilsDebug) Pixel(x int, y int, color string, size int) {
+    self.Object.Call("pixel", x, y, color, size)
 }
 
 // Renders a single pixel at the given size.
 func (self *UtilsDebug) PixelI(args ...interface{}) {
-    self.Call("pixel", args)
+    self.Object.Call("pixel", args)
+}
+
+// Renders a Phaser geometry object including Rectangle, Circle, Point or Line.
+func (self *UtilsDebug) Geom(object interface{}, color string, filled bool, forceType int) {
+    self.Object.Call("geom", object, color, filled, forceType)
 }
 
 // Renders a Phaser geometry object including Rectangle, Circle, Point or Line.
 func (self *UtilsDebug) GeomI(args ...interface{}) {
-    self.Call("geom", args)
+    self.Object.Call("geom", args)
+}
+
+// Render a string of text.
+func (self *UtilsDebug) Text(text string, x int, y int, color string, font string) {
+    self.Object.Call("text", text, x, y, color, font)
 }
 
 // Render a string of text.
 func (self *UtilsDebug) TextI(args ...interface{}) {
-    self.Call("text", args)
+    self.Object.Call("text", args)
+}
+
+// Visually renders a QuadTree to the display.
+func (self *UtilsDebug) QuadTree(quadtree *QuadTree, color string) {
+    self.Object.Call("quadTree", quadtree, color)
 }
 
 // Visually renders a QuadTree to the display.
 func (self *UtilsDebug) QuadTreeI(args ...interface{}) {
-    self.Call("quadTree", args)
+    self.Object.Call("quadTree", args)
+}
+
+// Render a Sprites Physics body if it has one set. The body is rendered as a filled or stroked rectangle.
+// This only works for Arcade Physics, Ninja Physics (AABB and Circle only) and Box2D Physics bodies.
+// To display a P2 Physics body you should enable debug mode on the body when creating it.
+func (self *UtilsDebug) Body(sprite *Sprite, color string, filled bool) {
+    self.Object.Call("body", sprite, color, filled)
 }
 
 // Render a Sprites Physics body if it has one set. The body is rendered as a filled or stroked rectangle.
 // This only works for Arcade Physics, Ninja Physics (AABB and Circle only) and Box2D Physics bodies.
 // To display a P2 Physics body you should enable debug mode on the body when creating it.
 func (self *UtilsDebug) BodyI(args ...interface{}) {
-    self.Call("body", args)
+    self.Object.Call("body", args)
+}
+
+// Render a Sprites Physic Body information.
+func (self *UtilsDebug) BodyInfo(sprite *Sprite, x int, y int, color string) {
+    self.Object.Call("bodyInfo", sprite, x, y, color)
 }
 
 // Render a Sprites Physic Body information.
 func (self *UtilsDebug) BodyInfoI(args ...interface{}) {
-    self.Call("bodyInfo", args)
+    self.Object.Call("bodyInfo", args)
+}
+
+// Renders 'debug draw' data for the Box2D world if it exists.
+// This uses the standard debug drawing feature of Box2D, so colors will be decided by
+// the Box2D engine.
+func (self *UtilsDebug) Box2dWorld() {
+    self.Object.Call("box2dWorld")
 }
 
 // Renders 'debug draw' data for the Box2D world if it exists.
 // This uses the standard debug drawing feature of Box2D, so colors will be decided by
 // the Box2D engine.
 func (self *UtilsDebug) Box2dWorldI(args ...interface{}) {
-    self.Call("box2dWorld", args)
+    self.Object.Call("box2dWorld", args)
+}
+
+// Renders 'debug draw' data for the given Box2D body.
+// This uses the standard debug drawing feature of Box2D, so colors will be decided by the Box2D engine.
+func (self *UtilsDebug) Box2dBody(sprite *Sprite, color string) {
+    self.Object.Call("box2dBody", sprite, color)
 }
 
 // Renders 'debug draw' data for the given Box2D body.
 // This uses the standard debug drawing feature of Box2D, so colors will be decided by the Box2D engine.
 func (self *UtilsDebug) Box2dBodyI(args ...interface{}) {
-    self.Call("box2dBody", args)
+    self.Object.Call("box2dBody", args)
+}
+
+// Destroy this object.
+func (self *UtilsDebug) Destroy() {
+    self.Object.Call("destroy")
 }
 
 // Destroy this object.
 func (self *UtilsDebug) DestroyI(args ...interface{}) {
-    self.Call("destroy", args)
+    self.Object.Call("destroy", args)
 }

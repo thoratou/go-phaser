@@ -5,6 +5,8 @@ package phaser
 import (
 	"github.com/gopherjs/gopherjs/js"
 
+	dom "honnef.co/go/js/dom"
+
 )
 
 // A Tile set is a combination of an image containing the tiles and collision data per tile.
@@ -16,144 +18,169 @@ type Tileset struct {
 
 
 // The name of the Tileset.
-func (self *Tileset) GetName() string{
-    return self.Get("name").String()
+func (self *Tileset) GetNameA() string{
+    return self.Object.Get("name").String()
 }
 
 // The name of the Tileset.
-func (self *Tileset) SetName(member string) {
-    self.Set("name", member)
+func (self *Tileset) SetNameA(member string) {
+    self.Object.Set("name", member)
 }
 
 // The Tiled firstgid value.
 // This is the starting index of the first tile index this Tileset contains.
-func (self *Tileset) GetFirstgid() int{
-    return self.Get("firstgid").Int()
+func (self *Tileset) GetFirstgidA() int{
+    return self.Object.Get("firstgid").Int()
 }
 
 // The Tiled firstgid value.
 // This is the starting index of the first tile index this Tileset contains.
-func (self *Tileset) SetFirstgid(member int) {
-    self.Set("firstgid", member)
+func (self *Tileset) SetFirstgidA(member int) {
+    self.Object.Set("firstgid", member)
 }
 
 // The width of each tile (in pixels).
-func (self *Tileset) GetTileWidth() int{
-    return self.Get("tileWidth").Int()
+func (self *Tileset) GetTileWidthA() int{
+    return self.Object.Get("tileWidth").Int()
 }
 
 // The width of each tile (in pixels).
-func (self *Tileset) SetTileWidth(member int) {
-    self.Set("tileWidth", member)
+func (self *Tileset) SetTileWidthA(member int) {
+    self.Object.Set("tileWidth", member)
 }
 
 // The height of each tile (in pixels).
-func (self *Tileset) GetTileHeight() int{
-    return self.Get("tileHeight").Int()
+func (self *Tileset) GetTileHeightA() int{
+    return self.Object.Get("tileHeight").Int()
 }
 
 // The height of each tile (in pixels).
-func (self *Tileset) SetTileHeight(member int) {
-    self.Set("tileHeight", member)
+func (self *Tileset) SetTileHeightA(member int) {
+    self.Object.Set("tileHeight", member)
 }
 
 // The margin around the tiles in the sheet (in pixels).
 // Use `setSpacing` to change.
-func (self *Tileset) GetTileMargin() interface{}{
-    return self.Get("tileMargin")
+func (self *Tileset) GetTileMarginA() interface{}{
+    return self.Object.Get("tileMargin")
 }
 
 // The margin around the tiles in the sheet (in pixels).
 // Use `setSpacing` to change.
-func (self *Tileset) SetTileMargin(member interface{}) {
-    self.Set("tileMargin", member)
+func (self *Tileset) SetTileMarginA(member interface{}) {
+    self.Object.Set("tileMargin", member)
 }
 
 // The spacing between each tile in the sheet (in pixels).
 // Use `setSpacing` to change.
-func (self *Tileset) GetTileSpacing() int{
-    return self.Get("tileSpacing").Int()
+func (self *Tileset) GetTileSpacingA() int{
+    return self.Object.Get("tileSpacing").Int()
 }
 
 // The spacing between each tile in the sheet (in pixels).
 // Use `setSpacing` to change.
-func (self *Tileset) SetTileSpacing(member int) {
-    self.Set("tileSpacing", member)
+func (self *Tileset) SetTileSpacingA(member int) {
+    self.Object.Set("tileSpacing", member)
 }
 
 // Tileset-specific properties that are typically defined in the Tiled editor.
-func (self *Tileset) GetProperties() interface{}{
-    return self.Get("properties")
+func (self *Tileset) GetPropertiesA() interface{}{
+    return self.Object.Get("properties")
 }
 
 // Tileset-specific properties that are typically defined in the Tiled editor.
-func (self *Tileset) SetProperties(member interface{}) {
-    self.Set("properties", member)
+func (self *Tileset) SetPropertiesA(member interface{}) {
+    self.Object.Set("properties", member)
 }
 
 // The cached image that contains the individual tiles. Use {@link Phaser.Tileset.setImage setImage} to set.
-func (self *Tileset) GetImage() interface{}{
-    return self.Get("image")
+func (self *Tileset) GetImageA() interface{}{
+    return self.Object.Get("image")
 }
 
 // The cached image that contains the individual tiles. Use {@link Phaser.Tileset.setImage setImage} to set.
-func (self *Tileset) SetImage(member interface{}) {
-    self.Set("image", member)
+func (self *Tileset) SetImageA(member interface{}) {
+    self.Object.Set("image", member)
 }
 
 // The number of tile rows in the the tileset.
-func (self *Tileset) GetRows() interface{}{
-    return self.Get("rows")
+func (self *Tileset) GetRowsA() interface{}{
+    return self.Object.Get("rows")
 }
 
 // The number of tile rows in the the tileset.
-func (self *Tileset) SetRows(member interface{}) {
-    self.Set("rows", member)
+func (self *Tileset) SetRowsA(member interface{}) {
+    self.Object.Set("rows", member)
 }
 
 // The number of tile columns in the tileset.
-func (self *Tileset) GetColumns() int{
-    return self.Get("columns").Int()
+func (self *Tileset) GetColumnsA() int{
+    return self.Object.Get("columns").Int()
 }
 
 // The number of tile columns in the tileset.
-func (self *Tileset) SetColumns(member int) {
-    self.Set("columns", member)
+func (self *Tileset) SetColumnsA(member int) {
+    self.Object.Set("columns", member)
 }
 
 // The total number of tiles in the tileset.
-func (self *Tileset) GetTotal() int{
-    return self.Get("total").Int()
+func (self *Tileset) GetTotalA() int{
+    return self.Object.Get("total").Int()
 }
 
 // The total number of tiles in the tileset.
-func (self *Tileset) SetTotal(member int) {
-    self.Set("total", member)
+func (self *Tileset) SetTotalA(member int) {
+    self.Object.Set("total", member)
 }
 
 
 
 // Draws a tile from this Tileset at the given coordinates on the context.
+func (self *Tileset) Draw(context *dom.CanvasRenderingContext2D, x int, y int, index int) {
+    self.Object.Call("draw", context, x, y, index)
+}
+
+// Draws a tile from this Tileset at the given coordinates on the context.
 func (self *Tileset) DrawI(args ...interface{}) {
-    self.Call("draw", args)
+    self.Object.Call("draw", args)
+}
+
+// Returns true if and only if this tileset contains the given tile index.
+func (self *Tileset) ContainsTileIndex() bool{
+    return self.Object.Call("containsTileIndex").Bool()
 }
 
 // Returns true if and only if this tileset contains the given tile index.
 func (self *Tileset) ContainsTileIndexI(args ...interface{}) bool{
-    return self.Call("containsTileIndex", args).Bool()
+    return self.Object.Call("containsTileIndex", args).Bool()
+}
+
+// Set the image associated with this Tileset and update the tile data.
+func (self *Tileset) SetImage(image *Image) {
+    self.Object.Call("setImage", image)
 }
 
 // Set the image associated with this Tileset and update the tile data.
 func (self *Tileset) SetImageI(args ...interface{}) {
-    self.Call("setImage", args)
+    self.Object.Call("setImage", args)
+}
+
+// Sets tile spacing and margins.
+func (self *Tileset) SetSpacing(margin int, spacing int) {
+    self.Object.Call("setSpacing", margin, spacing)
 }
 
 // Sets tile spacing and margins.
 func (self *Tileset) SetSpacingI(args ...interface{}) {
-    self.Call("setSpacing", args)
+    self.Object.Call("setSpacing", args)
+}
+
+// Updates tile coordinates and tileset data.
+func (self *Tileset) UpdateTileData(imageWidth int, imageHeight int) {
+    self.Object.Call("updateTileData", imageWidth, imageHeight)
 }
 
 // Updates tile coordinates and tileset data.
 func (self *Tileset) UpdateTileDataI(args ...interface{}) {
-    self.Call("updateTileData", args)
+    self.Object.Call("updateTileData", args)
 }

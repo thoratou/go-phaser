@@ -20,6 +20,16 @@ type Emitter struct{ *js.Object }
 type Weapon struct{ *js.Object }
 type XMLDocument struct{ *js.Object }
 type DOMElement dom.Element
+type AudioContext struct{ *js.Object }
+type TouchEvent struct{ *js.Object }
+type MediaStream struct{ *js.Object }
+type ArrayBuffer struct{ *js.Object }
+type RenderSession struct{ *js.Object }
+type XMLHttpRequest struct{ *js.Object }
+type KeyboardEvent struct{ *js.Object }
+type PointerEvent struct{ *js.Object }
+type MouseEvent struct{ *js.Object }
+type Blob struct{ *js.Object }
 
 //PIXI
 type PIXIPoint Point
@@ -48,9 +58,4 @@ type P2Capsule struct{ *js.Object }
 type P2Rectangle struct{ *js.Object }
 type P2RotationalSpring struct{ *js.Object }
 type P2LinearSpring struct{ *js.Object }
-
-//Other
-type AudioContext struct{ *js.Object }
-type TouchEvent struct{ *js.Object }
-type MediaStream struct{ *js.Object }
-type ArrayBuffer struct{ *js.Object }
+type PhysicsCollisionGroup struct{ *js.Object }

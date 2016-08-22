@@ -20,8 +20,8 @@ type ComponentAutoCull struct {
 // 
 // This is a relatively expensive operation, especially if enabled on hundreds of Game Objects. So enable it only if you know it's required,
 // or you have tested performance and find it acceptable.
-func (self *ComponentAutoCull) GetAutoCull() bool{
-    return self.Get("autoCull").Bool()
+func (self *ComponentAutoCull) GetAutoCullA() bool{
+    return self.Object.Get("autoCull").Bool()
 }
 
 // A Game Object with `autoCull` set to true will check its bounds against the World Camera every frame.
@@ -30,20 +30,20 @@ func (self *ComponentAutoCull) GetAutoCull() bool{
 // 
 // This is a relatively expensive operation, especially if enabled on hundreds of Game Objects. So enable it only if you know it's required,
 // or you have tested performance and find it acceptable.
-func (self *ComponentAutoCull) SetAutoCull(member bool) {
-    self.Set("autoCull", member)
+func (self *ComponentAutoCull) SetAutoCullA(member bool) {
+    self.Object.Set("autoCull", member)
 }
 
 // Checks if the Game Objects bounds intersect with the Game Camera bounds.
 // Returns `true` if they do, otherwise `false` if fully outside of the Cameras bounds.
-func (self *ComponentAutoCull) GetInCamera() bool{
-    return self.Get("inCamera").Bool()
+func (self *ComponentAutoCull) GetInCameraA() bool{
+    return self.Object.Get("inCamera").Bool()
 }
 
 // Checks if the Game Objects bounds intersect with the Game Camera bounds.
 // Returns `true` if they do, otherwise `false` if fully outside of the Cameras bounds.
-func (self *ComponentAutoCull) SetInCamera(member bool) {
-    self.Set("inCamera", member)
+func (self *ComponentAutoCull) SetInCameraA(member bool) {
+    self.Object.Set("inCamera", member)
 }
 
 

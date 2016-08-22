@@ -18,8 +18,8 @@ type ComponentInputEnabled struct {
 // By default it is disabled. If you wish this Game Object to process input events you should enable it with: `inputEnabled = true`.
 // 
 // After you have done this, this property will be a reference to the Phaser InputHandler.
-func (self *ComponentInputEnabled) GetInput() interface{}{
-    return self.Get("input")
+func (self *ComponentInputEnabled) GetInputA() interface{}{
+    return self.Object.Get("input")
 }
 
 // The Input Handler for this Game Object.
@@ -27,8 +27,8 @@ func (self *ComponentInputEnabled) GetInput() interface{}{
 // By default it is disabled. If you wish this Game Object to process input events you should enable it with: `inputEnabled = true`.
 // 
 // After you have done this, this property will be a reference to the Phaser InputHandler.
-func (self *ComponentInputEnabled) SetInput(member interface{}) {
-    self.Set("input", member)
+func (self *ComponentInputEnabled) SetInputA(member interface{}) {
+    self.Object.Set("input", member)
 }
 
 // By default a Game Object won't process any input events. By setting `inputEnabled` to true a Phaser.InputHandler is created
@@ -43,8 +43,8 @@ func (self *ComponentInputEnabled) SetInput(member interface{}) {
 // If you want to _temporarily_ disable input for a Game Object, then it's better to set
 // `input.enabled = false`, as it won't reset any of the Input Handlers internal properties.
 // You can then toggle this back on as needed.
-func (self *ComponentInputEnabled) GetInputEnabled() bool{
-    return self.Get("inputEnabled").Bool()
+func (self *ComponentInputEnabled) GetInputEnabledA() bool{
+    return self.Object.Get("inputEnabled").Bool()
 }
 
 // By default a Game Object won't process any input events. By setting `inputEnabled` to true a Phaser.InputHandler is created
@@ -59,8 +59,8 @@ func (self *ComponentInputEnabled) GetInputEnabled() bool{
 // If you want to _temporarily_ disable input for a Game Object, then it's better to set
 // `input.enabled = false`, as it won't reset any of the Input Handlers internal properties.
 // You can then toggle this back on as needed.
-func (self *ComponentInputEnabled) SetInputEnabled(member bool) {
-    self.Set("inputEnabled", member)
+func (self *ComponentInputEnabled) SetInputEnabledA(member bool) {
+    self.Object.Set("inputEnabled", member)
 }
 
 

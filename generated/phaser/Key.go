@@ -14,177 +14,200 @@ type Key struct {
 
 
 // A reference to the currently running game.
-func (self *Key) GetGame() *Game{
-    return &Game{self.Get("game")}
+func (self *Key) GetGameA() *Game{
+    return &Game{self.Object.Get("game")}
 }
 
 // A reference to the currently running game.
-func (self *Key) SetGame(member *Game) {
-    self.Set("game", member)
+func (self *Key) SetGameA(member *Game) {
+    self.Object.Set("game", member)
 }
 
 // Stores the most recent DOM event.
-func (self *Key) GetEvent() interface{}{
-    return self.Get("event")
+func (self *Key) GetEventA() interface{}{
+    return self.Object.Get("event")
 }
 
 // Stores the most recent DOM event.
-func (self *Key) SetEvent(member interface{}) {
-    self.Set("event", member)
+func (self *Key) SetEventA(member interface{}) {
+    self.Object.Set("event", member)
 }
 
 // The "down" state of the key. This will remain `true` for as long as the keyboard thinks this key is held down.
-func (self *Key) GetIsDown() bool{
-    return self.Get("isDown").Bool()
+func (self *Key) GetIsDownA() bool{
+    return self.Object.Get("isDown").Bool()
 }
 
 // The "down" state of the key. This will remain `true` for as long as the keyboard thinks this key is held down.
-func (self *Key) SetIsDown(member bool) {
-    self.Set("isDown", member)
+func (self *Key) SetIsDownA(member bool) {
+    self.Object.Set("isDown", member)
 }
 
 // The "up" state of the key. This will remain `true` for as long as the keyboard thinks this key is up.
-func (self *Key) GetIsUp() bool{
-    return self.Get("isUp").Bool()
+func (self *Key) GetIsUpA() bool{
+    return self.Object.Get("isUp").Bool()
 }
 
 // The "up" state of the key. This will remain `true` for as long as the keyboard thinks this key is up.
-func (self *Key) SetIsUp(member bool) {
-    self.Set("isUp", member)
+func (self *Key) SetIsUpA(member bool) {
+    self.Object.Set("isUp", member)
 }
 
 // The down state of the ALT key, if pressed at the same time as this key.
-func (self *Key) GetAltKey() bool{
-    return self.Get("altKey").Bool()
+func (self *Key) GetAltKeyA() bool{
+    return self.Object.Get("altKey").Bool()
 }
 
 // The down state of the ALT key, if pressed at the same time as this key.
-func (self *Key) SetAltKey(member bool) {
-    self.Set("altKey", member)
+func (self *Key) SetAltKeyA(member bool) {
+    self.Object.Set("altKey", member)
 }
 
 // The down state of the CTRL key, if pressed at the same time as this key.
-func (self *Key) GetCtrlKey() bool{
-    return self.Get("ctrlKey").Bool()
+func (self *Key) GetCtrlKeyA() bool{
+    return self.Object.Get("ctrlKey").Bool()
 }
 
 // The down state of the CTRL key, if pressed at the same time as this key.
-func (self *Key) SetCtrlKey(member bool) {
-    self.Set("ctrlKey", member)
+func (self *Key) SetCtrlKeyA(member bool) {
+    self.Object.Set("ctrlKey", member)
 }
 
 // The down state of the SHIFT key, if pressed at the same time as this key.
-func (self *Key) GetShiftKey() bool{
-    return self.Get("shiftKey").Bool()
+func (self *Key) GetShiftKeyA() bool{
+    return self.Object.Get("shiftKey").Bool()
 }
 
 // The down state of the SHIFT key, if pressed at the same time as this key.
-func (self *Key) SetShiftKey(member bool) {
-    self.Set("shiftKey", member)
+func (self *Key) SetShiftKeyA(member bool) {
+    self.Object.Set("shiftKey", member)
 }
 
 // The timestamp when the key was last pressed down. This is based on Game.time.now.
-func (self *Key) GetTimeDown() int{
-    return self.Get("timeDown").Int()
+func (self *Key) GetTimeDownA() int{
+    return self.Object.Get("timeDown").Int()
 }
 
 // The timestamp when the key was last pressed down. This is based on Game.time.now.
-func (self *Key) SetTimeDown(member int) {
-    self.Set("timeDown", member)
+func (self *Key) SetTimeDownA(member int) {
+    self.Object.Set("timeDown", member)
 }
 
 // If the key is down this value holds the duration of that key press and is constantly updated.
 // If the key is up it holds the duration of the previous down session. The number of milliseconds this key has been held down for.
-func (self *Key) GetDuration() int{
-    return self.Get("duration").Int()
+func (self *Key) GetDurationA() int{
+    return self.Object.Get("duration").Int()
 }
 
 // If the key is down this value holds the duration of that key press and is constantly updated.
 // If the key is up it holds the duration of the previous down session. The number of milliseconds this key has been held down for.
-func (self *Key) SetDuration(member int) {
-    self.Set("duration", member)
+func (self *Key) SetDurationA(member int) {
+    self.Object.Set("duration", member)
 }
 
 // The timestamp when the key was last released. This is based on Game.time.now.
-func (self *Key) GetTimeUp() int{
-    return self.Get("timeUp").Int()
+func (self *Key) GetTimeUpA() int{
+    return self.Object.Get("timeUp").Int()
 }
 
 // The timestamp when the key was last released. This is based on Game.time.now.
-func (self *Key) SetTimeUp(member int) {
-    self.Set("timeUp", member)
+func (self *Key) SetTimeUpA(member int) {
+    self.Object.Set("timeUp", member)
 }
 
 // If a key is held down this holds down the number of times the key has 'repeated'.
-func (self *Key) GetRepeats() int{
-    return self.Get("repeats").Int()
+func (self *Key) GetRepeatsA() int{
+    return self.Object.Get("repeats").Int()
 }
 
 // If a key is held down this holds down the number of times the key has 'repeated'.
-func (self *Key) SetRepeats(member int) {
-    self.Set("repeats", member)
+func (self *Key) SetRepeatsA(member int) {
+    self.Object.Set("repeats", member)
 }
 
 // The keycode of this key.
-func (self *Key) GetKeyCode() int{
-    return self.Get("keyCode").Int()
+func (self *Key) GetKeyCodeA() int{
+    return self.Object.Get("keyCode").Int()
 }
 
 // The keycode of this key.
-func (self *Key) SetKeyCode(member int) {
-    self.Set("keyCode", member)
+func (self *Key) SetKeyCodeA(member int) {
+    self.Object.Set("keyCode", member)
 }
 
 // This Signal is dispatched every time this Key is pressed down. It is only dispatched once (until the key is released again).
-func (self *Key) GetOnDown() *Signal{
-    return &Signal{self.Get("onDown")}
+func (self *Key) GetOnDownA() *Signal{
+    return &Signal{self.Object.Get("onDown")}
 }
 
 // This Signal is dispatched every time this Key is pressed down. It is only dispatched once (until the key is released again).
-func (self *Key) SetOnDown(member *Signal) {
-    self.Set("onDown", member)
+func (self *Key) SetOnDownA(member *Signal) {
+    self.Object.Set("onDown", member)
 }
 
 // A callback that is called while this Key is held down. Warning: Depending on refresh rate that could be 60+ times per second.
-func (self *Key) SetOnHoldCallback(member func(...interface{})) {
-    self.Set("onHoldCallback", member)
+func (self *Key) SetOnHoldCallbackA(member func(...interface{})) {
+    self.Object.Set("onHoldCallback", member)
 }
 
 // The context under which the onHoldCallback will be called.
-func (self *Key) GetOnHoldContext() interface{}{
-    return self.Get("onHoldContext")
+func (self *Key) GetOnHoldContextA() interface{}{
+    return self.Object.Get("onHoldContext")
 }
 
 // The context under which the onHoldCallback will be called.
-func (self *Key) SetOnHoldContext(member interface{}) {
-    self.Set("onHoldContext", member)
+func (self *Key) SetOnHoldContextA(member interface{}) {
+    self.Object.Set("onHoldContext", member)
 }
 
 // This Signal is dispatched every time this Key is released. It is only dispatched once (until the key is pressed and released again).
-func (self *Key) GetOnUp() *Signal{
-    return &Signal{self.Get("onUp")}
+func (self *Key) GetOnUpA() *Signal{
+    return &Signal{self.Object.Get("onUp")}
 }
 
 // This Signal is dispatched every time this Key is released. It is only dispatched once (until the key is pressed and released again).
-func (self *Key) SetOnUp(member *Signal) {
-    self.Set("onUp", member)
+func (self *Key) SetOnUpA(member *Signal) {
+    self.Object.Set("onUp", member)
 }
 
 
 
 // Called automatically by Phaser.Keyboard.
+func (self *Key) Update() {
+    self.Object.Call("update")
+}
+
+// Called automatically by Phaser.Keyboard.
 func (self *Key) UpdateI(args ...interface{}) {
-    self.Call("update", args)
+    self.Object.Call("update", args)
+}
+
+// Called automatically by Phaser.Keyboard.
+func (self *Key) ProcessKeyDown(event *KeyboardEvent) {
+    self.Object.Call("processKeyDown", event)
 }
 
 // Called automatically by Phaser.Keyboard.
 func (self *Key) ProcessKeyDownI(args ...interface{}) {
-    self.Call("processKeyDown", args)
+    self.Object.Call("processKeyDown", args)
+}
+
+// Called automatically by Phaser.Keyboard.
+func (self *Key) ProcessKeyUp(event *KeyboardEvent) {
+    self.Object.Call("processKeyUp", event)
 }
 
 // Called automatically by Phaser.Keyboard.
 func (self *Key) ProcessKeyUpI(args ...interface{}) {
-    self.Call("processKeyUp", args)
+    self.Object.Call("processKeyUp", args)
+}
+
+// Resets the state of this Key.
+// 
+// This sets isDown to false, isUp to true, resets the time to be the current time, and _enables_ the key.
+// In addition, if it is a "hard reset", it clears clears any callbacks associated with the onDown and onUp events and removes the onHoldCallback.
+func (self *Key) Reset(hard bool) {
+    self.Object.Call("reset", hard)
 }
 
 // Resets the state of this Key.
@@ -192,17 +215,29 @@ func (self *Key) ProcessKeyUpI(args ...interface{}) {
 // This sets isDown to false, isUp to true, resets the time to be the current time, and _enables_ the key.
 // In addition, if it is a "hard reset", it clears clears any callbacks associated with the onDown and onUp events and removes the onHoldCallback.
 func (self *Key) ResetI(args ...interface{}) {
-    self.Call("reset", args)
+    self.Object.Call("reset", args)
+}
+
+// Returns `true` if the Key was pressed down within the `duration` value given, or `false` if it either isn't down,
+// or was pressed down longer ago than then given duration.
+func (self *Key) DownDuration(duration int) bool{
+    return self.Object.Call("downDuration", duration).Bool()
 }
 
 // Returns `true` if the Key was pressed down within the `duration` value given, or `false` if it either isn't down,
 // or was pressed down longer ago than then given duration.
 func (self *Key) DownDurationI(args ...interface{}) bool{
-    return self.Call("downDuration", args).Bool()
+    return self.Object.Call("downDuration", args).Bool()
+}
+
+// Returns `true` if the Key was pressed down within the `duration` value given, or `false` if it either isn't down,
+// or was pressed down longer ago than then given duration.
+func (self *Key) UpDuration(duration int) bool{
+    return self.Object.Call("upDuration", duration).Bool()
 }
 
 // Returns `true` if the Key was pressed down within the `duration` value given, or `false` if it either isn't down,
 // or was pressed down longer ago than then given duration.
 func (self *Key) UpDurationI(args ...interface{}) bool{
-    return self.Call("upDuration", args).Bool()
+    return self.Object.Call("upDuration", args).Bool()
 }

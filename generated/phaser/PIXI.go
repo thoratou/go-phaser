@@ -16,121 +16,147 @@ type PIXI struct {
 
 
 // A reference to the Phaser Game instance that owns this Pixi renderer.
-func (self *PIXI) GetGame() *PhaserGame{
-    return &PhaserGame{self.Get("game")}
+func (self *PIXI) GetGameA() *PhaserGame{
+    return &PhaserGame{self.Object.Get("game")}
 }
 
 // A reference to the Phaser Game instance that owns this Pixi renderer.
-func (self *PIXI) SetGame(member *PhaserGame) {
-    self.Set("game", member)
+func (self *PIXI) SetGameA(member *PhaserGame) {
+    self.Object.Set("game", member)
 }
 
 // 
-func (self *PIXI) GetWEBGL_RENDERER() int{
-    return self.Get("WEBGL_RENDERER").Int()
+func (self *PIXI) GetWEBGL_RENDERERA() int{
+    return self.Object.Get("WEBGL_RENDERER").Int()
 }
 
 // 
-func (self *PIXI) SetWEBGL_RENDERER(member int) {
-    self.Set("WEBGL_RENDERER", member)
+func (self *PIXI) SetWEBGL_RENDERERA(member int) {
+    self.Object.Set("WEBGL_RENDERER", member)
 }
 
 // 
-func (self *PIXI) GetCANVAS_RENDERER() int{
-    return self.Get("CANVAS_RENDERER").Int()
+func (self *PIXI) GetCANVAS_RENDERERA() int{
+    return self.Object.Get("CANVAS_RENDERER").Int()
 }
 
 // 
-func (self *PIXI) SetCANVAS_RENDERER(member int) {
-    self.Set("CANVAS_RENDERER", member)
+func (self *PIXI) SetCANVAS_RENDERERA(member int) {
+    self.Object.Set("CANVAS_RENDERER", member)
 }
 
 // Version of pixi that is loaded.
-func (self *PIXI) GetVERSION() string{
-    return self.Get("VERSION").String()
+func (self *PIXI) GetVERSIONA() string{
+    return self.Object.Get("VERSION").String()
 }
 
 // Version of pixi that is loaded.
-func (self *PIXI) SetVERSION(member string) {
-    self.Set("VERSION", member)
+func (self *PIXI) SetVERSIONA(member string) {
+    self.Object.Set("VERSION", member)
 }
 
 // 
-func (self *PIXI) GetPI_2() int{
-    return self.Get("PI_2").Int()
+func (self *PIXI) GetPI_2A() int{
+    return self.Object.Get("PI_2").Int()
 }
 
 // 
-func (self *PIXI) SetPI_2(member int) {
-    self.Set("PI_2", member)
+func (self *PIXI) SetPI_2A(member int) {
+    self.Object.Set("PI_2", member)
 }
 
 // 
-func (self *PIXI) GetRAD_TO_DEG() int{
-    return self.Get("RAD_TO_DEG").Int()
+func (self *PIXI) GetRAD_TO_DEGA() int{
+    return self.Object.Get("RAD_TO_DEG").Int()
 }
 
 // 
-func (self *PIXI) SetRAD_TO_DEG(member int) {
-    self.Set("RAD_TO_DEG", member)
+func (self *PIXI) SetRAD_TO_DEGA(member int) {
+    self.Object.Set("RAD_TO_DEG", member)
 }
 
 // 
-func (self *PIXI) GetDEG_TO_RAD() int{
-    return self.Get("DEG_TO_RAD").Int()
+func (self *PIXI) GetDEG_TO_RADA() int{
+    return self.Object.Get("DEG_TO_RAD").Int()
 }
 
 // 
-func (self *PIXI) SetDEG_TO_RAD(member int) {
-    self.Set("DEG_TO_RAD", member)
+func (self *PIXI) SetDEG_TO_RADA(member int) {
+    self.Object.Set("DEG_TO_RAD", member)
 }
 
 // 
-func (self *PIXI) GetRETINA_PREFIX() string{
-    return self.Get("RETINA_PREFIX").String()
+func (self *PIXI) GetRETINA_PREFIXA() string{
+    return self.Object.Get("RETINA_PREFIX").String()
 }
 
 // 
-func (self *PIXI) SetRETINA_PREFIX(member string) {
-    self.Set("RETINA_PREFIX", member)
+func (self *PIXI) SetRETINA_PREFIXA(member string) {
+    self.Object.Set("RETINA_PREFIX", member)
 }
 
 // The default render options if none are supplied to
 // {{#crossLink "WebGLRenderer"}}{{/crossLink}} or {{#crossLink "CanvasRenderer"}}{{/crossLink}}.
-func (self *PIXI) GetDefaultRenderOptions() interface{}{
-    return self.Get("defaultRenderOptions")
+func (self *PIXI) GetDefaultRenderOptionsA() interface{}{
+    return self.Object.Get("defaultRenderOptions")
 }
 
 // The default render options if none are supplied to
 // {{#crossLink "WebGLRenderer"}}{{/crossLink}} or {{#crossLink "CanvasRenderer"}}{{/crossLink}}.
-func (self *PIXI) SetDefaultRenderOptions(member interface{}) {
-    self.Set("defaultRenderOptions", member)
+func (self *PIXI) SetDefaultRenderOptionsA(member interface{}) {
+    self.Object.Set("defaultRenderOptions", member)
 }
 
 
 
 // Converts a hex color number to an [R, G, B] array
+func (self *PIXI) Hex2rgb(hex int) {
+    self.Object.Call("hex2rgb", hex)
+}
+
+// Converts a hex color number to an [R, G, B] array
 func (self *PIXI) Hex2rgbI(args ...interface{}) {
-    self.Call("hex2rgb", args)
+    self.Object.Call("hex2rgb", args)
+}
+
+// Converts a color as an [R, G, B] array to a hex number
+func (self *PIXI) Rgb2hex(rgb []interface{}) {
+    self.Object.Call("rgb2hex", rgb)
 }
 
 // Converts a color as an [R, G, B] array to a hex number
 func (self *PIXI) Rgb2hexI(args ...interface{}) {
-    self.Call("rgb2hex", args)
+    self.Object.Call("rgb2hex", args)
+}
+
+// Checks whether the Canvas BlendModes are supported by the current browser for drawImage
+func (self *PIXI) CanUseNewCanvasBlendModes() bool{
+    return self.Object.Call("canUseNewCanvasBlendModes").Bool()
 }
 
 // Checks whether the Canvas BlendModes are supported by the current browser for drawImage
 func (self *PIXI) CanUseNewCanvasBlendModesI(args ...interface{}) bool{
-    return self.Call("canUseNewCanvasBlendModes", args).Bool()
+    return self.Object.Call("canUseNewCanvasBlendModes", args).Bool()
+}
+
+// Given a number, this function returns the closest number that is a power of two
+// this function is taken from Starling Framework as its pretty neat ;)
+func (self *PIXI) GetNextPowerOfTwo(number int) int{
+    return self.Object.Call("getNextPowerOfTwo", number).Int()
 }
 
 // Given a number, this function returns the closest number that is a power of two
 // this function is taken from Starling Framework as its pretty neat ;)
 func (self *PIXI) GetNextPowerOfTwoI(args ...interface{}) int{
-    return self.Call("getNextPowerOfTwo", args).Int()
+    return self.Object.Call("getNextPowerOfTwo", args).Int()
+}
+
+// checks if the given width and height make a power of two texture
+func (self *PIXI) IsPowerOfTwo(width int, height int) bool{
+    return self.Object.Call("isPowerOfTwo", width, height).Bool()
 }
 
 // checks if the given width and height make a power of two texture
 func (self *PIXI) IsPowerOfTwoI(args ...interface{}) bool{
-    return self.Call("isPowerOfTwo", args).Bool()
+    return self.Object.Call("isPowerOfTwo", args).Bool()
 }

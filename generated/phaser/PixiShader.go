@@ -14,76 +14,89 @@ type PixiShader struct {
 
 
 // 
-func (self *PixiShader) GetGl() WebGLContext{
-    return WrapWebGLContext(self.Get("gl"))
+func (self *PixiShader) GetGlA() WebGLContext{
+    return WrapWebGLContext(self.Object.Get("gl"))
 }
 
 // 
-func (self *PixiShader) SetGl(member WebGLContext) {
-    self.Set("gl", member)
+func (self *PixiShader) SetGlA(member WebGLContext) {
+    self.Object.Set("gl", member)
 }
 
 // The WebGL program.
-func (self *PixiShader) GetProgram() interface{}{
-    return self.Get("program")
+func (self *PixiShader) GetProgramA() interface{}{
+    return self.Object.Get("program")
 }
 
 // The WebGL program.
-func (self *PixiShader) SetProgram(member interface{}) {
-    self.Set("program", member)
+func (self *PixiShader) SetProgramA(member interface{}) {
+    self.Object.Set("program", member)
 }
 
 // The fragment shader.
-func (self *PixiShader) GetFragmentSrc() []interface{}{
-	array := self.Get("fragmentSrc")
-	length := array.Length()
-	out := make([]interface{}, length, length)
-	for i := 0; i < length; i++ {
-		out[i] = array.Index(i).Interface()
+func (self *PixiShader) GetFragmentSrcA() []interface{}{
+	array00 := self.Object.Get("fragmentSrc")
+	length00 := array00.Length()
+	out00 := make([]interface{}, length00, length00)
+	for i00 := 0; i00 < length00; i00++ {
+		out00[i00] = array00.Index(i00).Interface()
 	}
-	return out
+	return out00
 }
 
 // The fragment shader.
-func (self *PixiShader) SetFragmentSrc(member []interface{}) {
-    self.Set("fragmentSrc", member)
+func (self *PixiShader) SetFragmentSrcA(member []interface{}) {
+    self.Object.Set("fragmentSrc", member)
 }
 
 // A local texture counter for multi-texture shaders.
-func (self *PixiShader) GetTextureCount() int{
-    return self.Get("textureCount").Int()
+func (self *PixiShader) GetTextureCountA() int{
+    return self.Object.Get("textureCount").Int()
 }
 
 // A local texture counter for multi-texture shaders.
-func (self *PixiShader) SetTextureCount(member int) {
-    self.Set("textureCount", member)
+func (self *PixiShader) SetTextureCountA(member int) {
+    self.Object.Set("textureCount", member)
 }
 
 // A dirty flag
-func (self *PixiShader) GetDirty() bool{
-    return self.Get("dirty").Bool()
+func (self *PixiShader) GetDirtyA() bool{
+    return self.Object.Get("dirty").Bool()
 }
 
 // A dirty flag
-func (self *PixiShader) SetDirty(member bool) {
-    self.Set("dirty", member)
+func (self *PixiShader) SetDirtyA(member bool) {
+    self.Object.Set("dirty", member)
 }
 
 // The Default Vertex shader source.
-func (self *PixiShader) GetDefaultVertexSrc() string{
-    return self.Get("defaultVertexSrc").String()
+func (self *PixiShader) GetDefaultVertexSrcA() string{
+    return self.Object.Get("defaultVertexSrc").String()
 }
 
 // The Default Vertex shader source.
-func (self *PixiShader) SetDefaultVertexSrc(member string) {
-    self.Set("defaultVertexSrc", member)
+func (self *PixiShader) SetDefaultVertexSrcA(member string) {
+    self.Object.Set("defaultVertexSrc", member)
 }
 
 
 
 // Initialises the shader.
+func (self *PixiShader) Init() {
+    self.Object.Call("init")
+}
+
+// Initialises the shader.
 func (self *PixiShader) InitI(args ...interface{}) {
-    self.Call("init", args)
+    self.Object.Call("init", args)
+}
+
+// Initialises the shader uniform values.
+// 
+// Uniforms are specified in the GLSL_ES Specification: http://www.khronos.org/registry/webgl/specs/latest/1.0/
+// http://www.khronos.org/registry/gles/specs/2.0/GLSL_ES_Specification_1.0.17.pdf
+func (self *PixiShader) InitUniforms() {
+    self.Object.Call("initUniforms")
 }
 
 // Initialises the shader uniform values.
@@ -91,20 +104,35 @@ func (self *PixiShader) InitI(args ...interface{}) {
 // Uniforms are specified in the GLSL_ES Specification: http://www.khronos.org/registry/webgl/specs/latest/1.0/
 // http://www.khronos.org/registry/gles/specs/2.0/GLSL_ES_Specification_1.0.17.pdf
 func (self *PixiShader) InitUniformsI(args ...interface{}) {
-    self.Call("initUniforms", args)
+    self.Object.Call("initUniforms", args)
+}
+
+// Initialises a Sampler2D uniform (which may only be available later on after initUniforms once the texture has loaded)
+func (self *PixiShader) InitSampler2D() {
+    self.Object.Call("initSampler2D")
 }
 
 // Initialises a Sampler2D uniform (which may only be available later on after initUniforms once the texture has loaded)
 func (self *PixiShader) InitSampler2DI(args ...interface{}) {
-    self.Call("initSampler2D", args)
+    self.Object.Call("initSampler2D", args)
+}
+
+// Updates the shader uniform values.
+func (self *PixiShader) SyncUniforms() {
+    self.Object.Call("syncUniforms")
 }
 
 // Updates the shader uniform values.
 func (self *PixiShader) SyncUniformsI(args ...interface{}) {
-    self.Call("syncUniforms", args)
+    self.Object.Call("syncUniforms", args)
+}
+
+// Destroys the shader.
+func (self *PixiShader) Destroy() {
+    self.Object.Call("destroy")
 }
 
 // Destroys the shader.
 func (self *PixiShader) DestroyI(args ...interface{}) {
-    self.Call("destroy", args)
+    self.Object.Call("destroy", args)
 }

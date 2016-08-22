@@ -22,16 +22,16 @@ type DisplayObject struct {
 // 
 // The value of this property does not reflect any positioning happening further up the display list.
 // To obtain that value please see the `worldPosition` property.
-func (self *DisplayObject) GetPosition() *PIXIPoint{
-    return &PIXIPoint{self.Get("position")}
+func (self *DisplayObject) GetPositionA() *PIXIPoint{
+    return &PIXIPoint{self.Object.Get("position")}
 }
 
 // The coordinates, in pixels, of this DisplayObject, relative to its parent container.
 // 
 // The value of this property does not reflect any positioning happening further up the display list.
 // To obtain that value please see the `worldPosition` property.
-func (self *DisplayObject) SetPosition(member *PIXIPoint) {
-    self.Set("position", member)
+func (self *DisplayObject) SetPositionA(member *PIXIPoint) {
+    self.Object.Set("position", member)
 }
 
 // The scale of this DisplayObject. A scale of 1:1 represents the DisplayObject
@@ -39,8 +39,8 @@ func (self *DisplayObject) SetPosition(member *PIXIPoint) {
 // 
 // The value of this property does not reflect any scaling happening further up the display list.
 // To obtain that value please see the `worldScale` property.
-func (self *DisplayObject) GetScale() *PIXIPoint{
-    return &PIXIPoint{self.Get("scale")}
+func (self *DisplayObject) GetScaleA() *PIXIPoint{
+    return &PIXIPoint{self.Object.Get("scale")}
 }
 
 // The scale of this DisplayObject. A scale of 1:1 represents the DisplayObject
@@ -48,20 +48,20 @@ func (self *DisplayObject) GetScale() *PIXIPoint{
 // 
 // The value of this property does not reflect any scaling happening further up the display list.
 // To obtain that value please see the `worldScale` property.
-func (self *DisplayObject) SetScale(member *PIXIPoint) {
-    self.Set("scale", member)
+func (self *DisplayObject) SetScaleA(member *PIXIPoint) {
+    self.Object.Set("scale", member)
 }
 
 // The pivot point of this DisplayObject that it rotates around. The values are expressed
 // in pixel values.
-func (self *DisplayObject) GetPivot() *PIXIPoint{
-    return &PIXIPoint{self.Get("pivot")}
+func (self *DisplayObject) GetPivotA() *PIXIPoint{
+    return &PIXIPoint{self.Object.Get("pivot")}
 }
 
 // The pivot point of this DisplayObject that it rotates around. The values are expressed
 // in pixel values.
-func (self *DisplayObject) SetPivot(member *PIXIPoint) {
-    self.Set("pivot", member)
+func (self *DisplayObject) SetPivotA(member *PIXIPoint) {
+    self.Object.Set("pivot", member)
 }
 
 // The rotation of this DisplayObject. The value is given, and expressed, in radians, and is based on
@@ -69,8 +69,8 @@ func (self *DisplayObject) SetPivot(member *PIXIPoint) {
 // 
 // The value of this property does not reflect any rotation happening further up the display list.
 // To obtain that value please see the `worldRotation` property.
-func (self *DisplayObject) GetRotation() int{
-    return self.Get("rotation").Int()
+func (self *DisplayObject) GetRotationA() int{
+    return self.Object.Get("rotation").Int()
 }
 
 // The rotation of this DisplayObject. The value is given, and expressed, in radians, and is based on
@@ -78,8 +78,8 @@ func (self *DisplayObject) GetRotation() int{
 // 
 // The value of this property does not reflect any rotation happening further up the display list.
 // To obtain that value please see the `worldRotation` property.
-func (self *DisplayObject) SetRotation(member int) {
-    self.Set("rotation", member)
+func (self *DisplayObject) SetRotationA(member int) {
+    self.Object.Set("rotation", member)
 }
 
 // The alpha value of this DisplayObject. A value of 1 is fully opaque. A value of 0 is transparent.
@@ -87,8 +87,8 @@ func (self *DisplayObject) SetRotation(member int) {
 // 
 // The value of this property does not reflect any alpha values set further up the display list.
 // To obtain that value please see the `worldAlpha` property.
-func (self *DisplayObject) GetAlpha() int{
-    return self.Get("alpha").Int()
+func (self *DisplayObject) GetAlphaA() int{
+    return self.Object.Get("alpha").Int()
 }
 
 // The alpha value of this DisplayObject. A value of 1 is fully opaque. A value of 0 is transparent.
@@ -96,8 +96,8 @@ func (self *DisplayObject) GetAlpha() int{
 // 
 // The value of this property does not reflect any alpha values set further up the display list.
 // To obtain that value please see the `worldAlpha` property.
-func (self *DisplayObject) SetAlpha(member int) {
-    self.Set("alpha", member)
+func (self *DisplayObject) SetAlphaA(member int) {
+    self.Object.Set("alpha", member)
 }
 
 // The visibility of this DisplayObject. A value of `false` makes the object invisible.
@@ -107,8 +107,8 @@ func (self *DisplayObject) SetAlpha(member int) {
 // 
 // The value of this property does not reflect any visible values set further up the display list.
 // To obtain that value please see the `worldVisible` property.
-func (self *DisplayObject) GetVisible() bool{
-    return self.Get("visible").Bool()
+func (self *DisplayObject) GetVisibleA() bool{
+    return self.Object.Get("visible").Bool()
 }
 
 // The visibility of this DisplayObject. A value of `false` makes the object invisible.
@@ -118,58 +118,58 @@ func (self *DisplayObject) GetVisible() bool{
 // 
 // The value of this property does not reflect any visible values set further up the display list.
 // To obtain that value please see the `worldVisible` property.
-func (self *DisplayObject) SetVisible(member bool) {
-    self.Set("visible", member)
+func (self *DisplayObject) SetVisibleA(member bool) {
+    self.Object.Set("visible", member)
 }
 
 // This is the defined area that will pick up mouse / touch events. It is null by default.
 // Setting it is a neat way of optimising the hitTest function that the interactionManager will use (as it will not need to hit test all the children)
-func (self *DisplayObject) GetHitArea() interface{}{
-    return self.Get("hitArea")
+func (self *DisplayObject) GetHitAreaA() interface{}{
+    return self.Object.Get("hitArea")
 }
 
 // This is the defined area that will pick up mouse / touch events. It is null by default.
 // Setting it is a neat way of optimising the hitTest function that the interactionManager will use (as it will not need to hit test all the children)
-func (self *DisplayObject) SetHitArea(member interface{}) {
-    self.Set("hitArea", member)
+func (self *DisplayObject) SetHitAreaA(member interface{}) {
+    self.Object.Set("hitArea", member)
 }
 
 // Should this DisplayObject be rendered by the renderer? An object with a renderable value of
 // `false` is skipped during the render pass.
-func (self *DisplayObject) GetRenderable() bool{
-    return self.Get("renderable").Bool()
+func (self *DisplayObject) GetRenderableA() bool{
+    return self.Object.Get("renderable").Bool()
 }
 
 // Should this DisplayObject be rendered by the renderer? An object with a renderable value of
 // `false` is skipped during the render pass.
-func (self *DisplayObject) SetRenderable(member bool) {
-    self.Set("renderable", member)
+func (self *DisplayObject) SetRenderableA(member bool) {
+    self.Object.Set("renderable", member)
 }
 
 // The parent DisplayObjectContainer that this DisplayObject is a child of.
 // All DisplayObjects must belong to a parent in order to be rendered.
 // The root parent is the Stage object. This property is set automatically when the
 // DisplayObject is added to, or removed from, a DisplayObjectContainer.
-func (self *DisplayObject) GetParent() *PIXIDisplayObjectContainer{
-    return &PIXIDisplayObjectContainer{self.Get("parent")}
+func (self *DisplayObject) GetParentA() *PIXIDisplayObjectContainer{
+    return &PIXIDisplayObjectContainer{self.Object.Get("parent")}
 }
 
 // The parent DisplayObjectContainer that this DisplayObject is a child of.
 // All DisplayObjects must belong to a parent in order to be rendered.
 // The root parent is the Stage object. This property is set automatically when the
 // DisplayObject is added to, or removed from, a DisplayObjectContainer.
-func (self *DisplayObject) SetParent(member *PIXIDisplayObjectContainer) {
-    self.Set("parent", member)
+func (self *DisplayObject) SetParentA(member *PIXIDisplayObjectContainer) {
+    self.Object.Set("parent", member)
 }
 
 // The stage that this DisplayObject is connected to.
-func (self *DisplayObject) GetStage() *PIXIStage{
-    return &PIXIStage{self.Get("stage")}
+func (self *DisplayObject) GetStageA() *PIXIStage{
+    return &PIXIStage{self.Object.Get("stage")}
 }
 
 // The stage that this DisplayObject is connected to.
-func (self *DisplayObject) SetStage(member *PIXIStage) {
-    self.Set("stage", member)
+func (self *DisplayObject) SetStageA(member *PIXIStage) {
+    self.Object.Set("stage", member)
 }
 
 // The multiplied alpha value of this DisplayObject. A value of 1 is fully opaque. A value of 0 is transparent.
@@ -181,8 +181,8 @@ func (self *DisplayObject) SetStage(member *PIXIStage) {
 // Note: This property is only updated at the end of the `updateTransform` call, once per render. Until 
 // that happens this property will contain values based on the previous frame. Be mindful of this if
 // accessing this property outside of the normal game flow, i.e. from an asynchronous event callback.
-func (self *DisplayObject) GetWorldAlpha() int{
-    return self.Get("worldAlpha").Int()
+func (self *DisplayObject) GetWorldAlphaA() int{
+    return self.Object.Get("worldAlpha").Int()
 }
 
 // The multiplied alpha value of this DisplayObject. A value of 1 is fully opaque. A value of 0 is transparent.
@@ -194,8 +194,8 @@ func (self *DisplayObject) GetWorldAlpha() int{
 // Note: This property is only updated at the end of the `updateTransform` call, once per render. Until 
 // that happens this property will contain values based on the previous frame. Be mindful of this if
 // accessing this property outside of the normal game flow, i.e. from an asynchronous event callback.
-func (self *DisplayObject) SetWorldAlpha(member int) {
-    self.Set("worldAlpha", member)
+func (self *DisplayObject) SetWorldAlphaA(member int) {
+    self.Object.Set("worldAlpha", member)
 }
 
 // The current transform of this DisplayObject.
@@ -206,8 +206,8 @@ func (self *DisplayObject) SetWorldAlpha(member int) {
 // Note: This property is only updated at the end of the `updateTransform` call, once per render. Until 
 // that happens this property will contain values based on the previous frame. Be mindful of this if
 // accessing this property outside of the normal game flow, i.e. from an asynchronous event callback.
-func (self *DisplayObject) GetWorldTransform() *PIXIMatrix{
-    return &PIXIMatrix{self.Get("worldTransform")}
+func (self *DisplayObject) GetWorldTransformA() *PIXIMatrix{
+    return &PIXIMatrix{self.Object.Get("worldTransform")}
 }
 
 // The current transform of this DisplayObject.
@@ -218,8 +218,8 @@ func (self *DisplayObject) GetWorldTransform() *PIXIMatrix{
 // Note: This property is only updated at the end of the `updateTransform` call, once per render. Until 
 // that happens this property will contain values based on the previous frame. Be mindful of this if
 // accessing this property outside of the normal game flow, i.e. from an asynchronous event callback.
-func (self *DisplayObject) SetWorldTransform(member *PIXIMatrix) {
-    self.Set("worldTransform", member)
+func (self *DisplayObject) SetWorldTransformA(member *PIXIMatrix) {
+    self.Object.Set("worldTransform", member)
 }
 
 // The coordinates, in pixels, of this DisplayObject within the world.
@@ -230,8 +230,8 @@ func (self *DisplayObject) SetWorldTransform(member *PIXIMatrix) {
 // Note: This property is only updated at the end of the `updateTransform` call, once per render. Until 
 // that happens this property will contain values based on the previous frame. Be mindful of this if
 // accessing this property outside of the normal game flow, i.e. from an asynchronous event callback.
-func (self *DisplayObject) GetWorldPosition() *PIXIPoint{
-    return &PIXIPoint{self.Get("worldPosition")}
+func (self *DisplayObject) GetWorldPositionA() *PIXIPoint{
+    return &PIXIPoint{self.Object.Get("worldPosition")}
 }
 
 // The coordinates, in pixels, of this DisplayObject within the world.
@@ -242,8 +242,8 @@ func (self *DisplayObject) GetWorldPosition() *PIXIPoint{
 // Note: This property is only updated at the end of the `updateTransform` call, once per render. Until 
 // that happens this property will contain values based on the previous frame. Be mindful of this if
 // accessing this property outside of the normal game flow, i.e. from an asynchronous event callback.
-func (self *DisplayObject) SetWorldPosition(member *PIXIPoint) {
-    self.Set("worldPosition", member)
+func (self *DisplayObject) SetWorldPositionA(member *PIXIPoint) {
+    self.Object.Set("worldPosition", member)
 }
 
 // The global scale of this DisplayObject.
@@ -254,8 +254,8 @@ func (self *DisplayObject) SetWorldPosition(member *PIXIPoint) {
 // Note: This property is only updated at the end of the `updateTransform` call, once per render. Until 
 // that happens this property will contain values based on the previous frame. Be mindful of this if
 // accessing this property outside of the normal game flow, i.e. from an asynchronous event callback.
-func (self *DisplayObject) GetWorldScale() *PIXIPoint{
-    return &PIXIPoint{self.Get("worldScale")}
+func (self *DisplayObject) GetWorldScaleA() *PIXIPoint{
+    return &PIXIPoint{self.Object.Get("worldScale")}
 }
 
 // The global scale of this DisplayObject.
@@ -266,8 +266,8 @@ func (self *DisplayObject) GetWorldScale() *PIXIPoint{
 // Note: This property is only updated at the end of the `updateTransform` call, once per render. Until 
 // that happens this property will contain values based on the previous frame. Be mindful of this if
 // accessing this property outside of the normal game flow, i.e. from an asynchronous event callback.
-func (self *DisplayObject) SetWorldScale(member *PIXIPoint) {
-    self.Set("worldScale", member)
+func (self *DisplayObject) SetWorldScaleA(member *PIXIPoint) {
+    self.Object.Set("worldScale", member)
 }
 
 // The rotation, in radians, of this DisplayObject.
@@ -278,8 +278,8 @@ func (self *DisplayObject) SetWorldScale(member *PIXIPoint) {
 // Note: This property is only updated at the end of the `updateTransform` call, once per render. Until 
 // that happens this property will contain values based on the previous frame. Be mindful of this if
 // accessing this property outside of the normal game flow, i.e. from an asynchronous event callback.
-func (self *DisplayObject) GetWorldRotation() int{
-    return self.Get("worldRotation").Int()
+func (self *DisplayObject) GetWorldRotationA() int{
+    return self.Object.Get("worldRotation").Int()
 }
 
 // The rotation, in radians, of this DisplayObject.
@@ -290,68 +290,68 @@ func (self *DisplayObject) GetWorldRotation() int{
 // Note: This property is only updated at the end of the `updateTransform` call, once per render. Until 
 // that happens this property will contain values based on the previous frame. Be mindful of this if
 // accessing this property outside of the normal game flow, i.e. from an asynchronous event callback.
-func (self *DisplayObject) SetWorldRotation(member int) {
-    self.Set("worldRotation", member)
+func (self *DisplayObject) SetWorldRotationA(member int) {
+    self.Object.Set("worldRotation", member)
 }
 
 // The rectangular area used by filters when rendering a shader for this DisplayObject.
-func (self *DisplayObject) GetFilterArea() *Rectangle{
-    return &Rectangle{self.Get("filterArea")}
+func (self *DisplayObject) GetFilterAreaA() *Rectangle{
+    return &Rectangle{self.Object.Get("filterArea")}
 }
 
 // The rectangular area used by filters when rendering a shader for this DisplayObject.
-func (self *DisplayObject) SetFilterArea(member *Rectangle) {
-    self.Set("filterArea", member)
+func (self *DisplayObject) SetFilterAreaA(member *Rectangle) {
+    self.Object.Set("filterArea", member)
 }
 
 // The horizontal position of the DisplayObject, in pixels, relative to its parent.
 // If you need the world position of the DisplayObject, use `DisplayObject.worldPosition` instead.
-func (self *DisplayObject) GetX() int{
-    return self.Get("x").Int()
+func (self *DisplayObject) GetXA() int{
+    return self.Object.Get("x").Int()
 }
 
 // The horizontal position of the DisplayObject, in pixels, relative to its parent.
 // If you need the world position of the DisplayObject, use `DisplayObject.worldPosition` instead.
-func (self *DisplayObject) SetX(member int) {
-    self.Set("x", member)
+func (self *DisplayObject) SetXA(member int) {
+    self.Object.Set("x", member)
 }
 
 // The vertical position of the DisplayObject, in pixels, relative to its parent.
 // If you need the world position of the DisplayObject, use `DisplayObject.worldPosition` instead.
-func (self *DisplayObject) GetY() int{
-    return self.Get("y").Int()
+func (self *DisplayObject) GetYA() int{
+    return self.Object.Get("y").Int()
 }
 
 // The vertical position of the DisplayObject, in pixels, relative to its parent.
 // If you need the world position of the DisplayObject, use `DisplayObject.worldPosition` instead.
-func (self *DisplayObject) SetY(member int) {
-    self.Set("y", member)
+func (self *DisplayObject) SetYA(member int) {
+    self.Object.Set("y", member)
 }
 
 // Indicates if this DisplayObject is visible, based on it, and all of its parents, `visible` property values.
-func (self *DisplayObject) GetWorldVisible() bool{
-    return self.Get("worldVisible").Bool()
+func (self *DisplayObject) GetWorldVisibleA() bool{
+    return self.Object.Get("worldVisible").Bool()
 }
 
 // Indicates if this DisplayObject is visible, based on it, and all of its parents, `visible` property values.
-func (self *DisplayObject) SetWorldVisible(member bool) {
-    self.Set("worldVisible", member)
+func (self *DisplayObject) SetWorldVisibleA(member bool) {
+    self.Object.Set("worldVisible", member)
 }
 
 // Sets a mask for this DisplayObject. A mask is an instance of a Graphics object.
 // When applied it limits the visible area of this DisplayObject to the shape of the mask.
 // Under a Canvas renderer it uses shape clipping. Under a WebGL renderer it uses a Stencil Buffer.
 // To remove a mask, set this property to `null`.
-func (self *DisplayObject) GetMask() *PIXIGraphics{
-    return &PIXIGraphics{self.Get("mask")}
+func (self *DisplayObject) GetMaskA() *PIXIGraphics{
+    return &PIXIGraphics{self.Object.Get("mask")}
 }
 
 // Sets a mask for this DisplayObject. A mask is an instance of a Graphics object.
 // When applied it limits the visible area of this DisplayObject to the shape of the mask.
 // Under a Canvas renderer it uses shape clipping. Under a WebGL renderer it uses a Stencil Buffer.
 // To remove a mask, set this property to `null`.
-func (self *DisplayObject) SetMask(member *PIXIGraphics) {
-    self.Set("mask", member)
+func (self *DisplayObject) SetMaskA(member *PIXIGraphics) {
+    self.Object.Set("mask", member)
 }
 
 // Sets the filters for this DisplayObject. This is a WebGL only feature, and is ignored by the Canvas
@@ -362,14 +362,14 @@ func (self *DisplayObject) SetMask(member *PIXIGraphics) {
 // 
 // Note: You cannot have a filter set, and a MULTIPLY Blend Mode active, at the same time. Setting a 
 // filter will reset this DisplayObjects blend mode to NORMAL.
-func (self *DisplayObject) GetFilters() []interface{}{
-	array := self.Get("filters")
-	length := array.Length()
-	out := make([]interface{}, length, length)
-	for i := 0; i < length; i++ {
-		out[i] = array.Index(i).Interface()
+func (self *DisplayObject) GetFiltersA() []interface{}{
+	array00 := self.Object.Get("filters")
+	length00 := array00.Length()
+	out00 := make([]interface{}, length00, length00)
+	for i00 := 0; i00 < length00; i00++ {
+		out00[i00] = array00.Index(i00).Interface()
 	}
-	return out
+	return out00
 }
 
 // Sets the filters for this DisplayObject. This is a WebGL only feature, and is ignored by the Canvas
@@ -380,8 +380,8 @@ func (self *DisplayObject) GetFilters() []interface{}{
 // 
 // Note: You cannot have a filter set, and a MULTIPLY Blend Mode active, at the same time. Setting a 
 // filter will reset this DisplayObjects blend mode to NORMAL.
-func (self *DisplayObject) SetFilters(member []interface{}) {
-    self.Set("filters", member)
+func (self *DisplayObject) SetFiltersA(member []interface{}) {
+    self.Object.Set("filters", member)
 }
 
 // Sets if this DisplayObject should be cached as a bitmap.
@@ -394,8 +394,8 @@ func (self *DisplayObject) SetFilters(member []interface{}) {
 // re-generate the cached bitmap automatically. To do that you need to call `DisplayObject.updateCache`.
 // 
 // To remove a cached bitmap, set this property to `null`.
-func (self *DisplayObject) GetCacheAsBitmap() bool{
-    return self.Get("cacheAsBitmap").Bool()
+func (self *DisplayObject) GetCacheAsBitmapA() bool{
+    return self.Object.Get("cacheAsBitmap").Bool()
 }
 
 // Sets if this DisplayObject should be cached as a bitmap.
@@ -408,8 +408,8 @@ func (self *DisplayObject) GetCacheAsBitmap() bool{
 // re-generate the cached bitmap automatically. To do that you need to call `DisplayObject.updateCache`.
 // 
 // To remove a cached bitmap, set this property to `null`.
-func (self *DisplayObject) SetCacheAsBitmap(member bool) {
-    self.Set("cacheAsBitmap", member)
+func (self *DisplayObject) SetCacheAsBitmapA(member bool) {
+    self.Object.Set("cacheAsBitmap", member)
 }
 
 

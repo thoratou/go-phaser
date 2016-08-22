@@ -16,11 +16,21 @@ type WebGLGraphicsData struct {
 
 
 // 
+func (self *WebGLGraphicsData) Reset() {
+    self.Object.Call("reset")
+}
+
+// 
 func (self *WebGLGraphicsData) ResetI(args ...interface{}) {
-    self.Call("reset", args)
+    self.Object.Call("reset", args)
+}
+
+// 
+func (self *WebGLGraphicsData) Upload() {
+    self.Object.Call("upload")
 }
 
 // 
 func (self *WebGLGraphicsData) UploadI(args ...interface{}) {
-    self.Call("upload", args)
+    self.Object.Call("upload", args)
 }

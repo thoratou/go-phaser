@@ -16,16 +16,31 @@ type EasingBack struct {
 
 
 // Back ease-in.
+func (self *EasingBack) In(k int) int{
+    return self.Object.Call("In", k).Int()
+}
+
+// Back ease-in.
 func (self *EasingBack) InI(args ...interface{}) int{
-    return self.Call("In", args).Int()
+    return self.Object.Call("In", args).Int()
+}
+
+// Back ease-out.
+func (self *EasingBack) Out(k int) int{
+    return self.Object.Call("Out", k).Int()
 }
 
 // Back ease-out.
 func (self *EasingBack) OutI(args ...interface{}) int{
-    return self.Call("Out", args).Int()
+    return self.Object.Call("Out", args).Int()
+}
+
+// Back ease-in/out.
+func (self *EasingBack) InOut(k int) int{
+    return self.Object.Call("InOut", k).Int()
 }
 
 // Back ease-in/out.
 func (self *EasingBack) InOutI(args ...interface{}) int{
-    return self.Call("InOut", args).Int()
+    return self.Object.Call("InOut", args).Int()
 }

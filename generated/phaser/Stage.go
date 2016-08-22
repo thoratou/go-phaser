@@ -15,23 +15,23 @@ type Stage struct {
 
 
 // A reference to the currently running Game.
-func (self *Stage) GetGame() *Game{
-    return &Game{self.Get("game")}
+func (self *Stage) GetGameA() *Game{
+    return &Game{self.Object.Get("game")}
 }
 
 // A reference to the currently running Game.
-func (self *Stage) SetGame(member *Game) {
-    self.Set("game", member)
+func (self *Stage) SetGameA(member *Game) {
+    self.Object.Set("game", member)
 }
 
 // The name of this object.
-func (self *Stage) GetName() string{
-    return self.Get("name").String()
+func (self *Stage) GetNameA() string{
+    return self.Object.Get("name").String()
 }
 
 // The name of this object.
-func (self *Stage) SetName(member string) {
-    self.Set("name", member)
+func (self *Stage) SetNameA(member string) {
+    self.Object.Set("name", member)
 }
 
 // By default if the browser tab loses focus the game will pause.
@@ -39,8 +39,8 @@ func (self *Stage) SetName(member string) {
 // Note that the browser can still elect to pause your game if it wishes to do so,
 // for example swapping to another browser tab. This will cause the RAF callback to halt,
 // effectively pausing your game, even though no in-game pause event is triggered if you enable this property.
-func (self *Stage) GetDisableVisibilityChange() bool{
-    return self.Get("disableVisibilityChange").Bool()
+func (self *Stage) GetDisableVisibilityChangeA() bool{
+    return self.Object.Get("disableVisibilityChange").Bool()
 }
 
 // By default if the browser tab loses focus the game will pause.
@@ -48,64 +48,64 @@ func (self *Stage) GetDisableVisibilityChange() bool{
 // Note that the browser can still elect to pause your game if it wishes to do so,
 // for example swapping to another browser tab. This will cause the RAF callback to halt,
 // effectively pausing your game, even though no in-game pause event is triggered if you enable this property.
-func (self *Stage) SetDisableVisibilityChange(member bool) {
-    self.Set("disableVisibilityChange", member)
+func (self *Stage) SetDisableVisibilityChangeA(member bool) {
+    self.Object.Set("disableVisibilityChange", member)
 }
 
 // If exists is true the Stage and all children are updated, otherwise it is skipped.
-func (self *Stage) GetExists() bool{
-    return self.Get("exists").Bool()
+func (self *Stage) GetExistsA() bool{
+    return self.Object.Get("exists").Bool()
 }
 
 // If exists is true the Stage and all children are updated, otherwise it is skipped.
-func (self *Stage) SetExists(member bool) {
-    self.Set("exists", member)
+func (self *Stage) SetExistsA(member bool) {
+    self.Object.Set("exists", member)
 }
 
 // Reset each frame, keeps a count of the total number of objects updated.
-func (self *Stage) GetCurrentRenderOrderID() int{
-    return self.Get("currentRenderOrderID").Int()
+func (self *Stage) GetCurrentRenderOrderIDA() int{
+    return self.Object.Get("currentRenderOrderID").Int()
 }
 
 // Reset each frame, keeps a count of the total number of objects updated.
-func (self *Stage) SetCurrentRenderOrderID(member int) {
-    self.Set("currentRenderOrderID", member)
+func (self *Stage) SetCurrentRenderOrderIDA(member int) {
+    self.Object.Set("currentRenderOrderID", member)
 }
 
 // Gets and sets the background color of the stage. The color can be given as a number: 0xff0000 or a hex string: '#ff0000'
-func (self *Stage) GetBackgroundColor() interface{}{
-    return self.Get("backgroundColor")
+func (self *Stage) GetBackgroundColorA() interface{}{
+    return self.Object.Get("backgroundColor")
 }
 
 // Gets and sets the background color of the stage. The color can be given as a number: 0xff0000 or a hex string: '#ff0000'
-func (self *Stage) SetBackgroundColor(member interface{}) {
-    self.Set("backgroundColor", member)
+func (self *Stage) SetBackgroundColorA(member interface{}) {
+    self.Object.Set("backgroundColor", member)
 }
 
 // Enable or disable texture smoothing for all objects on this Stage. Only works for bitmap/image textures. Smoothing is enabled by default. Set to true to smooth all sprites rendered on this Stage, or false to disable smoothing (great for pixel art)
-func (self *Stage) GetSmoothed() bool{
-    return self.Get("smoothed").Bool()
+func (self *Stage) GetSmoothedA() bool{
+    return self.Object.Get("smoothed").Bool()
 }
 
 // Enable or disable texture smoothing for all objects on this Stage. Only works for bitmap/image textures. Smoothing is enabled by default. Set to true to smooth all sprites rendered on this Stage, or false to disable smoothing (great for pixel art)
-func (self *Stage) SetSmoothed(member bool) {
-    self.Set("smoothed", member)
+func (self *Stage) SetSmoothedA(member bool) {
+    self.Object.Set("smoothed", member)
 }
 
 // [read-only] The array of children of this container.
-func (self *Stage) GetChildren() []DisplayObject{
-	array := self.Get("children")
-	length := array.Length()
-	out := make([]DisplayObject, length, length)
-	for i := 0; i < length; i++ {
-		out[i] = DisplayObject{array.Index(i)}
+func (self *Stage) GetChildrenA() []DisplayObject{
+	array00 := self.Object.Get("children")
+	length00 := array00.Length()
+	out00 := make([]DisplayObject, length00, length00)
+	for i00 := 0; i00 < length00; i00++ {
+		out00[i00] = DisplayObject{array00.Index(i00)}
 	}
-	return out
+	return out00
 }
 
 // [read-only] The array of children of this container.
-func (self *Stage) SetChildren(member []DisplayObject) {
-    self.Set("children", member)
+func (self *Stage) SetChildrenA(member []DisplayObject) {
+    self.Object.Set("children", member)
 }
 
 // If `ignoreChildInput`  is `false` it will allow this objects _children_ to be considered as valid for Input events.
@@ -113,8 +113,8 @@ func (self *Stage) SetChildren(member []DisplayObject) {
 // If this property is `true` then the children will _not_ be considered as valid for Input events.
 // 
 // Note that this property isn't recursive: only immediate children are influenced, it doesn't scan further down.
-func (self *Stage) GetIgnoreChildInput() bool{
-    return self.Get("ignoreChildInput").Bool()
+func (self *Stage) GetIgnoreChildInputA() bool{
+    return self.Object.Get("ignoreChildInput").Bool()
 }
 
 // If `ignoreChildInput`  is `false` it will allow this objects _children_ to be considered as valid for Input events.
@@ -122,75 +122,131 @@ func (self *Stage) GetIgnoreChildInput() bool{
 // If this property is `true` then the children will _not_ be considered as valid for Input events.
 // 
 // Note that this property isn't recursive: only immediate children are influenced, it doesn't scan further down.
-func (self *Stage) SetIgnoreChildInput(member bool) {
-    self.Set("ignoreChildInput", member)
+func (self *Stage) SetIgnoreChildInputA(member bool) {
+    self.Object.Set("ignoreChildInput", member)
 }
 
 // The width of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *Stage) GetWidth() int{
-    return self.Get("width").Int()
+func (self *Stage) GetWidthA() int{
+    return self.Object.Get("width").Int()
 }
 
 // The width of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *Stage) SetWidth(member int) {
-    self.Set("width", member)
+func (self *Stage) SetWidthA(member int) {
+    self.Object.Set("width", member)
 }
 
 // The height of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *Stage) GetHeight() int{
-    return self.Get("height").Int()
+func (self *Stage) GetHeightA() int{
+    return self.Object.Get("height").Int()
 }
 
 // The height of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *Stage) SetHeight(member int) {
-    self.Set("height", member)
+func (self *Stage) SetHeightA(member int) {
+    self.Object.Set("height", member)
 }
 
 
 
 // Parses a Game configuration object.
+func (self *Stage) ParseConfig(config interface{}) {
+    self.Object.Call("parseConfig", config)
+}
+
+// Parses a Game configuration object.
 func (self *Stage) ParseConfigI(args ...interface{}) {
-    self.Call("parseConfig", args)
+    self.Object.Call("parseConfig", args)
+}
+
+// Initialises the stage and adds the event listeners.
+func (self *Stage) Boot() {
+    self.Object.Call("boot")
 }
 
 // Initialises the stage and adds the event listeners.
 func (self *Stage) BootI(args ...interface{}) {
-    self.Call("boot", args)
+    self.Object.Call("boot", args)
+}
+
+// This is called automatically after the plugins preUpdate and before the State.update.
+// Most objects have preUpdate methods and it's where initial movement and positioning is done.
+func (self *Stage) PreUpdate() {
+    self.Object.Call("preUpdate")
 }
 
 // This is called automatically after the plugins preUpdate and before the State.update.
 // Most objects have preUpdate methods and it's where initial movement and positioning is done.
 func (self *Stage) PreUpdateI(args ...interface{}) {
-    self.Call("preUpdate", args)
+    self.Object.Call("preUpdate", args)
+}
+
+// This is called automatically after the State.update, but before particles or plugins update.
+func (self *Stage) Update() {
+    self.Object.Call("update")
 }
 
 // This is called automatically after the State.update, but before particles or plugins update.
 func (self *Stage) UpdateI(args ...interface{}) {
-    self.Call("update", args)
+    self.Object.Call("update", args)
+}
+
+// This is called automatically before the renderer runs and after the plugins have updated.
+// In postUpdate this is where all the final physics calculations and object positioning happens.
+// The objects are processed in the order of the display list.
+func (self *Stage) PostUpdate() {
+    self.Object.Call("postUpdate")
 }
 
 // This is called automatically before the renderer runs and after the plugins have updated.
 // In postUpdate this is where all the final physics calculations and object positioning happens.
 // The objects are processed in the order of the display list.
 func (self *Stage) PostUpdateI(args ...interface{}) {
-    self.Call("postUpdate", args)
+    self.Object.Call("postUpdate", args)
+}
+
+// Updates the transforms for all objects on the display list.
+// This overrides the Pixi default as we don't need the interactionManager, but do need the game property check.
+func (self *Stage) UpdateTransform() {
+    self.Object.Call("updateTransform")
 }
 
 // Updates the transforms for all objects on the display list.
 // This overrides the Pixi default as we don't need the interactionManager, but do need the game property check.
 func (self *Stage) UpdateTransformI(args ...interface{}) {
-    self.Call("updateTransform", args)
+    self.Object.Call("updateTransform", args)
+}
+
+// Starts a page visibility event listener running, or window.onpagehide/onpageshow if not supported by the browser.
+// Also listens for window.onblur and window.onfocus.
+func (self *Stage) CheckVisibility() {
+    self.Object.Call("checkVisibility")
 }
 
 // Starts a page visibility event listener running, or window.onpagehide/onpageshow if not supported by the browser.
 // Also listens for window.onblur and window.onfocus.
 func (self *Stage) CheckVisibilityI(args ...interface{}) {
-    self.Call("checkVisibility", args)
+    self.Object.Call("checkVisibility", args)
+}
+
+// This method is called when the document visibility is changed.
+func (self *Stage) VisibilityChange(event *Event) {
+    self.Object.Call("visibilityChange", event)
 }
 
 // This method is called when the document visibility is changed.
 func (self *Stage) VisibilityChangeI(args ...interface{}) {
-    self.Call("visibilityChange", args)
+    self.Object.Call("visibilityChange", args)
+}
+
+// Sets the background color for the Stage.
+// 
+// The color can be given as a hex string (`'#RRGGBB'`), a CSS color string (`'rgb(r,g,b)'`), or a numeric value (`0xRRGGBB`).
+// 
+// An alpha channel is _not_ supported and will be ignored.
+// 
+// If you've set your game to be transparent then calls to setBackgroundColor are ignored.
+func (self *Stage) SetBackgroundColor(color interface{}) {
+    self.Object.Call("setBackgroundColor", color)
 }
 
 // Sets the background color for the Stage.
@@ -201,85 +257,165 @@ func (self *Stage) VisibilityChangeI(args ...interface{}) {
 // 
 // If you've set your game to be transparent then calls to setBackgroundColor are ignored.
 func (self *Stage) SetBackgroundColorI(args ...interface{}) {
-    self.Call("setBackgroundColor", args)
+    self.Object.Call("setBackgroundColor", args)
+}
+
+// Destroys the Stage and removes event listeners.
+func (self *Stage) Destroy() {
+    self.Object.Call("destroy")
 }
 
 // Destroys the Stage and removes event listeners.
 func (self *Stage) DestroyI(args ...interface{}) {
-    self.Call("destroy", args)
+    self.Object.Call("destroy", args)
+}
+
+// Adds a child to the container.
+func (self *Stage) AddChild(child *DisplayObject) *DisplayObject{
+    return &DisplayObject{self.Object.Call("addChild", child)}
 }
 
 // Adds a child to the container.
 func (self *Stage) AddChildI(args ...interface{}) *DisplayObject{
-    return &DisplayObject{self.Call("addChild", args)}
+    return &DisplayObject{self.Object.Call("addChild", args)}
+}
+
+// Adds a child to the container at a specified index. If the index is out of bounds an error will be thrown
+func (self *Stage) AddChildAt(child *DisplayObject, index int) *DisplayObject{
+    return &DisplayObject{self.Object.Call("addChildAt", child, index)}
 }
 
 // Adds a child to the container at a specified index. If the index is out of bounds an error will be thrown
 func (self *Stage) AddChildAtI(args ...interface{}) *DisplayObject{
-    return &DisplayObject{self.Call("addChildAt", args)}
+    return &DisplayObject{self.Object.Call("addChildAt", args)}
+}
+
+// Swaps the position of 2 Display Objects within this container.
+func (self *Stage) SwapChildren(child *DisplayObject, child2 *DisplayObject) {
+    self.Object.Call("swapChildren", child, child2)
 }
 
 // Swaps the position of 2 Display Objects within this container.
 func (self *Stage) SwapChildrenI(args ...interface{}) {
-    self.Call("swapChildren", args)
+    self.Object.Call("swapChildren", args)
+}
+
+// Returns the index position of a child DisplayObject instance
+func (self *Stage) GetChildIndex(child *DisplayObject) int{
+    return self.Object.Call("getChildIndex", child).Int()
 }
 
 // Returns the index position of a child DisplayObject instance
 func (self *Stage) GetChildIndexI(args ...interface{}) int{
-    return self.Call("getChildIndex", args).Int()
+    return self.Object.Call("getChildIndex", args).Int()
+}
+
+// Changes the position of an existing child in the display object container
+func (self *Stage) SetChildIndex(child *DisplayObject, index int) {
+    self.Object.Call("setChildIndex", child, index)
 }
 
 // Changes the position of an existing child in the display object container
 func (self *Stage) SetChildIndexI(args ...interface{}) {
-    self.Call("setChildIndex", args)
+    self.Object.Call("setChildIndex", args)
+}
+
+// Returns the child at the specified index
+func (self *Stage) GetChildAt(index int) *DisplayObject{
+    return &DisplayObject{self.Object.Call("getChildAt", index)}
 }
 
 // Returns the child at the specified index
 func (self *Stage) GetChildAtI(args ...interface{}) *DisplayObject{
-    return &DisplayObject{self.Call("getChildAt", args)}
+    return &DisplayObject{self.Object.Call("getChildAt", args)}
+}
+
+// Removes a child from the container.
+func (self *Stage) RemoveChild(child *DisplayObject) *DisplayObject{
+    return &DisplayObject{self.Object.Call("removeChild", child)}
 }
 
 // Removes a child from the container.
 func (self *Stage) RemoveChildI(args ...interface{}) *DisplayObject{
-    return &DisplayObject{self.Call("removeChild", args)}
+    return &DisplayObject{self.Object.Call("removeChild", args)}
+}
+
+// Removes a child from the specified index position.
+func (self *Stage) RemoveChildAt(index int) *DisplayObject{
+    return &DisplayObject{self.Object.Call("removeChildAt", index)}
 }
 
 // Removes a child from the specified index position.
 func (self *Stage) RemoveChildAtI(args ...interface{}) *DisplayObject{
-    return &DisplayObject{self.Call("removeChildAt", args)}
+    return &DisplayObject{self.Object.Call("removeChildAt", args)}
+}
+
+// Removes all children from this container that are within the begin and end indexes.
+func (self *Stage) RemoveChildren(beginIndex int, endIndex int) {
+    self.Object.Call("removeChildren", beginIndex, endIndex)
 }
 
 // Removes all children from this container that are within the begin and end indexes.
 func (self *Stage) RemoveChildrenI(args ...interface{}) {
-    self.Call("removeChildren", args)
+    self.Object.Call("removeChildren", args)
+}
+
+// Retrieves the bounds of the displayObjectContainer as a rectangle. The bounds calculation takes all visible children into consideration.
+func (self *Stage) GetBounds() *Rectangle{
+    return &Rectangle{self.Object.Call("getBounds")}
 }
 
 // Retrieves the bounds of the displayObjectContainer as a rectangle. The bounds calculation takes all visible children into consideration.
 func (self *Stage) GetBoundsI(args ...interface{}) *Rectangle{
-    return &Rectangle{self.Call("getBounds", args)}
+    return &Rectangle{self.Object.Call("getBounds", args)}
+}
+
+// Retrieves the non-global local bounds of the displayObjectContainer as a rectangle. The calculation takes all visible children into consideration.
+func (self *Stage) GetLocalBounds() *Rectangle{
+    return &Rectangle{self.Object.Call("getLocalBounds")}
 }
 
 // Retrieves the non-global local bounds of the displayObjectContainer as a rectangle. The calculation takes all visible children into consideration.
 func (self *Stage) GetLocalBoundsI(args ...interface{}) *Rectangle{
-    return &Rectangle{self.Call("getLocalBounds", args)}
+    return &Rectangle{self.Object.Call("getLocalBounds", args)}
+}
+
+// Sets the containers Stage reference. This is the Stage that this object, and all of its children, is connected to.
+func (self *Stage) SetStageReference(stage *Stage) {
+    self.Object.Call("setStageReference", stage)
 }
 
 // Sets the containers Stage reference. This is the Stage that this object, and all of its children, is connected to.
 func (self *Stage) SetStageReferenceI(args ...interface{}) {
-    self.Call("setStageReference", args)
+    self.Object.Call("setStageReference", args)
+}
+
+// Removes the current stage reference from the container and all of its children.
+func (self *Stage) RemoveStageReference() {
+    self.Object.Call("removeStageReference")
 }
 
 // Removes the current stage reference from the container and all of its children.
 func (self *Stage) RemoveStageReferenceI(args ...interface{}) {
-    self.Call("removeStageReference", args)
+    self.Object.Call("removeStageReference", args)
+}
+
+// Renders the object using the WebGL renderer
+func (self *Stage) _renderWebGL(renderSession *RenderSession) {
+    self.Object.Call("_renderWebGL", renderSession)
 }
 
 // Renders the object using the WebGL renderer
 func (self *Stage) _renderWebGLI(args ...interface{}) {
-    self.Call("_renderWebGL", args)
+    self.Object.Call("_renderWebGL", args)
+}
+
+// Renders the object using the Canvas renderer
+func (self *Stage) _renderCanvas(renderSession *RenderSession) {
+    self.Object.Call("_renderCanvas", renderSession)
 }
 
 // Renders the object using the Canvas renderer
 func (self *Stage) _renderCanvasI(args ...interface{}) {
-    self.Call("_renderCanvas", args)
+    self.Object.Call("_renderCanvas", args)
 }

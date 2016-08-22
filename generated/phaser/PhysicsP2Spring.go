@@ -14,33 +14,33 @@ type PhysicsP2Spring struct {
 
 
 // Local reference to game.
-func (self *PhysicsP2Spring) GetGame() *Game{
-    return &Game{self.Get("game")}
+func (self *PhysicsP2Spring) GetGameA() *Game{
+    return &Game{self.Object.Get("game")}
 }
 
 // Local reference to game.
-func (self *PhysicsP2Spring) SetGame(member *Game) {
-    self.Set("game", member)
+func (self *PhysicsP2Spring) SetGameA(member *Game) {
+    self.Object.Set("game", member)
 }
 
 // Local reference to P2 World.
-func (self *PhysicsP2Spring) GetWorld() *PhysicsP2{
-    return &PhysicsP2{self.Get("world")}
+func (self *PhysicsP2Spring) GetWorldA() *PhysicsP2{
+    return &PhysicsP2{self.Object.Get("world")}
 }
 
 // Local reference to P2 World.
-func (self *PhysicsP2Spring) SetWorld(member *PhysicsP2) {
-    self.Set("world", member)
+func (self *PhysicsP2Spring) SetWorldA(member *PhysicsP2) {
+    self.Object.Set("world", member)
 }
 
 // The actual p2 spring object.
-func (self *PhysicsP2Spring) GetData() *P2LinearSpring{
-    return &P2LinearSpring{self.Get("data")}
+func (self *PhysicsP2Spring) GetDataA() *P2LinearSpring{
+    return &P2LinearSpring{self.Object.Get("data")}
 }
 
 // The actual p2 spring object.
-func (self *PhysicsP2Spring) SetData(member *P2LinearSpring) {
-    self.Set("data", member)
+func (self *PhysicsP2Spring) SetDataA(member *P2LinearSpring) {
+    self.Object.Set("data", member)
 }
 
 

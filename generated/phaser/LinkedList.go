@@ -19,74 +19,95 @@ type LinkedList struct {
 
 
 // Next element in the list.
-func (self *LinkedList) GetNext() interface{}{
-    return self.Get("next")
+func (self *LinkedList) GetNextA() interface{}{
+    return self.Object.Get("next")
 }
 
 // Next element in the list.
-func (self *LinkedList) SetNext(member interface{}) {
-    self.Set("next", member)
+func (self *LinkedList) SetNextA(member interface{}) {
+    self.Object.Set("next", member)
 }
 
 // Previous element in the list.
-func (self *LinkedList) GetPrev() interface{}{
-    return self.Get("prev")
+func (self *LinkedList) GetPrevA() interface{}{
+    return self.Object.Get("prev")
 }
 
 // Previous element in the list.
-func (self *LinkedList) SetPrev(member interface{}) {
-    self.Set("prev", member)
+func (self *LinkedList) SetPrevA(member interface{}) {
+    self.Object.Set("prev", member)
 }
 
 // First element in the list.
-func (self *LinkedList) GetFirst() interface{}{
-    return self.Get("first")
+func (self *LinkedList) GetFirstA() interface{}{
+    return self.Object.Get("first")
 }
 
 // First element in the list.
-func (self *LinkedList) SetFirst(member interface{}) {
-    self.Set("first", member)
+func (self *LinkedList) SetFirstA(member interface{}) {
+    self.Object.Set("first", member)
 }
 
 // Last element in the list.
-func (self *LinkedList) GetLast() interface{}{
-    return self.Get("last")
+func (self *LinkedList) GetLastA() interface{}{
+    return self.Object.Get("last")
 }
 
 // Last element in the list.
-func (self *LinkedList) SetLast(member interface{}) {
-    self.Set("last", member)
+func (self *LinkedList) SetLastA(member interface{}) {
+    self.Object.Set("last", member)
 }
 
 // Number of elements in the list.
-func (self *LinkedList) GetTotal() int{
-    return self.Get("total").Int()
+func (self *LinkedList) GetTotalA() int{
+    return self.Object.Get("total").Int()
 }
 
 // Number of elements in the list.
-func (self *LinkedList) SetTotal(member int) {
-    self.Set("total", member)
+func (self *LinkedList) SetTotalA(member int) {
+    self.Object.Set("total", member)
 }
 
 
 
 // Adds a new element to this linked list.
+func (self *LinkedList) Add(item interface{}) interface{}{
+    return self.Object.Call("add", item)
+}
+
+// Adds a new element to this linked list.
 func (self *LinkedList) AddI(args ...interface{}) interface{}{
-    return self.Call("add", args)
+    return self.Object.Call("add", args)
+}
+
+// Resets the first, last, next and previous node pointers in this list.
+func (self *LinkedList) Reset() {
+    self.Object.Call("reset")
 }
 
 // Resets the first, last, next and previous node pointers in this list.
 func (self *LinkedList) ResetI(args ...interface{}) {
-    self.Call("reset", args)
+    self.Object.Call("reset", args)
+}
+
+// Removes the given element from this linked list if it exists.
+func (self *LinkedList) Remove(item interface{}) {
+    self.Object.Call("remove", item)
 }
 
 // Removes the given element from this linked list if it exists.
 func (self *LinkedList) RemoveI(args ...interface{}) {
-    self.Call("remove", args)
+    self.Object.Call("remove", args)
+}
+
+// Calls a function on all members of this list, using the member as the context for the callback.
+// The function must exist on the member.
+func (self *LinkedList) CallAll(callback func(...interface{})) {
+    self.Object.Call("callAll", callback)
 }
 
 // Calls a function on all members of this list, using the member as the context for the callback.
 // The function must exist on the member.
 func (self *LinkedList) CallAllI(args ...interface{}) {
-    self.Call("callAll", args)
+    self.Object.Call("callAll", args)
 }

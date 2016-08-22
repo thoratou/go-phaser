@@ -21,6 +21,9 @@ func UpperInitial(str string) string {
 }
 
 func TypeNoNamespace(str string) string {
+	if strings.Contains(str, "(") || strings.Contains(str, ")") || strings.Contains(str, "|") {
+		return "interface{}"
+	}
 	str = strings.TrimPrefix(str, "Phaser.")
 	str = strings.TrimPrefix(str, "PIXI.")
 	str = strings.TrimPrefix(str, "PIXI.") //yes twice :)
@@ -62,7 +65,7 @@ func GoNativeType(str string) string {
 		return "float64"
 	case "float":
 		return "float64"
-	case "Bounds-like":
+	case "numer":
 		return "float64"
 	case "string":
 		return "string"
@@ -80,6 +83,8 @@ func GoType(str string, typePackage string) string {
 	switch str {
 	case "...interface{}":
 		return "...interface{}"
+	case "":
+		return "interface{}"
 	case "any":
 		return "interface{}"
 	case "object":
@@ -88,7 +93,13 @@ func GoType(str string, typePackage string) string {
 		return "interface{}"
 	case "*":
 		return "interface{}"
+	case "Bounds-like":
+		return "interface{}"
+	case "Rectangle-like":
+		return "interface{}"
 	case "function":
+		return "func(...interface{})"
+	case "Functon":
 		return "func(...interface{})"
 	case "array":
 		return "[]interface{}"
@@ -225,8 +236,8 @@ func AddParamaterImports(class *Class, elements []Parameter, additionalPackages 
 		//return type
 		if addPackage, exists := additionalPackages[v.Type.GetType()]; exists {
 			fmt.Println("note: add package: " + addPackage + " to parameter type: " + v.Type.GetType())
-			if _, exists := additionalImports[addPackage]; exists {
-				//class.Imports[addPackage] = addImport
+			if addImport, exists := additionalImports[addPackage]; exists {
+				class.Imports[addPackage] = addImport
 				v.Type.Package = addPackage
 			} else {
 				fmt.Println("warning: missing import for package: " + addPackage)
@@ -266,6 +277,16 @@ func AddFunctionWrappers(elements []Function, wrappers map[string]string) []Func
 func AddParameteredFunctions(elements []Function) []Function {
 	result := []Function{}
 	for _, v := range elements {
+		//most specific function => keep the default one
+		result = append(result, v)
+
+		//optional parameter removal from last to start
+		/*optionalNumber := 1
+		for f.IsLastParameterOptional() {
+			v.Suffix = "O" + string(optionalNumber)
+			v.Parameters = v.Parameters[0 : len(v.Parameters)-1]
+			optionalNumber++
+		}*/
 
 		//generic parameters
 		v.Suffix = "I"
@@ -285,4 +306,31 @@ func AddParameteredFunctions(elements []Function) []Function {
 		result = append(result, v)
 	}
 	return result
+}
+
+func ConvertGoReserveNames(str string) string {
+	switch str {
+	case "type":
+		return "type_"
+	case "map":
+		return "map_"
+	default:
+		return str
+	}
+}
+
+func IsBugParameter(str string) bool {
+	if strings.HasPrefix(str, "options.") {
+		//PhysicsP2.go
+		//options interface{}, options.optimalDecomp bool, options.skipSimpleCheck bool, options.removeCollinearPoints interface{}
+		//only option must be kept
+		return true
+	}
+	if strings.HasPrefix(str, "style.") {
+		//Text.go
+		//style interface{}, style.font string, style.fontStyle string, style.fontVariant string, style.fontWeight string, style.fontSize interface{}, style.backgroundColor string, style.fill string, style.align string, style.boundsAlignH string, style.boundsAlignV string, style.stroke string, style.strokeThickness int, style.wordWrap bool, style.wordWrapWidth int, style.maxLines int, style.tabs interface{}
+		//only style must be kept
+		return true
+	}
+	return false
 }

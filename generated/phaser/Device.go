@@ -27,793 +27,793 @@ type Device struct {
 
 
 // The time the device became ready.
-func (self *Device) GetDeviceReadyAt() int{
-    return self.Get("deviceReadyAt").Int()
+func (self *Device) GetDeviceReadyAtA() int{
+    return self.Object.Get("deviceReadyAt").Int()
 }
 
 // The time the device became ready.
-func (self *Device) SetDeviceReadyAt(member int) {
-    self.Set("deviceReadyAt", member)
+func (self *Device) SetDeviceReadyAtA(member int) {
+    self.Object.Set("deviceReadyAt", member)
 }
 
 // The time as which initialization has completed.
-func (self *Device) GetInitialized() bool{
-    return self.Get("initialized").Bool()
+func (self *Device) GetInitializedA() bool{
+    return self.Object.Get("initialized").Bool()
 }
 
 // The time as which initialization has completed.
-func (self *Device) SetInitialized(member bool) {
-    self.Set("initialized", member)
+func (self *Device) SetInitializedA(member bool) {
+    self.Object.Set("initialized", member)
 }
 
 // Is running on a desktop?
-func (self *Device) GetDesktop() bool{
-    return self.Get("desktop").Bool()
+func (self *Device) GetDesktopA() bool{
+    return self.Object.Get("desktop").Bool()
 }
 
 // Is running on a desktop?
-func (self *Device) SetDesktop(member bool) {
-    self.Set("desktop", member)
+func (self *Device) SetDesktopA(member bool) {
+    self.Object.Set("desktop", member)
 }
 
 // Is running on iOS?
-func (self *Device) GetIOS() bool{
-    return self.Get("iOS").Bool()
+func (self *Device) GetIOSA() bool{
+    return self.Object.Get("iOS").Bool()
 }
 
 // Is running on iOS?
-func (self *Device) SetIOS(member bool) {
-    self.Set("iOS", member)
+func (self *Device) SetIOSA(member bool) {
+    self.Object.Set("iOS", member)
 }
 
 // If running in iOS this will contain the major version number.
-func (self *Device) GetIOSVersion() int{
-    return self.Get("iOSVersion").Int()
+func (self *Device) GetIOSVersionA() int{
+    return self.Object.Get("iOSVersion").Int()
 }
 
 // If running in iOS this will contain the major version number.
-func (self *Device) SetIOSVersion(member int) {
-    self.Set("iOSVersion", member)
+func (self *Device) SetIOSVersionA(member int) {
+    self.Object.Set("iOSVersion", member)
 }
 
 // Is the game running under CocoonJS?
-func (self *Device) GetCocoonJS() bool{
-    return self.Get("cocoonJS").Bool()
+func (self *Device) GetCocoonJSA() bool{
+    return self.Object.Get("cocoonJS").Bool()
 }
 
 // Is the game running under CocoonJS?
-func (self *Device) SetCocoonJS(member bool) {
-    self.Set("cocoonJS", member)
+func (self *Device) SetCocoonJSA(member bool) {
+    self.Object.Set("cocoonJS", member)
 }
 
 // Is this game running with CocoonJS.App?
-func (self *Device) GetCocoonJSApp() bool{
-    return self.Get("cocoonJSApp").Bool()
+func (self *Device) GetCocoonJSAppA() bool{
+    return self.Object.Get("cocoonJSApp").Bool()
 }
 
 // Is this game running with CocoonJS.App?
-func (self *Device) SetCocoonJSApp(member bool) {
-    self.Set("cocoonJSApp", member)
+func (self *Device) SetCocoonJSAppA(member bool) {
+    self.Object.Set("cocoonJSApp", member)
 }
 
 // Is the game running under Apache Cordova?
-func (self *Device) GetCordova() bool{
-    return self.Get("cordova").Bool()
+func (self *Device) GetCordovaA() bool{
+    return self.Object.Get("cordova").Bool()
 }
 
 // Is the game running under Apache Cordova?
-func (self *Device) SetCordova(member bool) {
-    self.Set("cordova", member)
+func (self *Device) SetCordovaA(member bool) {
+    self.Object.Set("cordova", member)
 }
 
 // Is the game running under Node.js?
-func (self *Device) GetNode() bool{
-    return self.Get("node").Bool()
+func (self *Device) GetNodeA() bool{
+    return self.Object.Get("node").Bool()
 }
 
 // Is the game running under Node.js?
-func (self *Device) SetNode(member bool) {
-    self.Set("node", member)
+func (self *Device) SetNodeA(member bool) {
+    self.Object.Set("node", member)
 }
 
 // Is the game running under Node-Webkit?
-func (self *Device) GetNodeWebkit() bool{
-    return self.Get("nodeWebkit").Bool()
+func (self *Device) GetNodeWebkitA() bool{
+    return self.Object.Get("nodeWebkit").Bool()
 }
 
 // Is the game running under Node-Webkit?
-func (self *Device) SetNodeWebkit(member bool) {
-    self.Set("nodeWebkit", member)
+func (self *Device) SetNodeWebkitA(member bool) {
+    self.Object.Set("nodeWebkit", member)
 }
 
 // Is the game running under GitHub Electron?
-func (self *Device) GetElectron() bool{
-    return self.Get("electron").Bool()
+func (self *Device) GetElectronA() bool{
+    return self.Object.Get("electron").Bool()
 }
 
 // Is the game running under GitHub Electron?
-func (self *Device) SetElectron(member bool) {
-    self.Set("electron", member)
+func (self *Device) SetElectronA(member bool) {
+    self.Object.Set("electron", member)
 }
 
 // Is the game running under Ejecta?
-func (self *Device) GetEjecta() bool{
-    return self.Get("ejecta").Bool()
+func (self *Device) GetEjectaA() bool{
+    return self.Object.Get("ejecta").Bool()
 }
 
 // Is the game running under Ejecta?
-func (self *Device) SetEjecta(member bool) {
-    self.Set("ejecta", member)
+func (self *Device) SetEjectaA(member bool) {
+    self.Object.Set("ejecta", member)
 }
 
 // Is the game running under the Intel Crosswalk XDK?
-func (self *Device) GetCrosswalk() bool{
-    return self.Get("crosswalk").Bool()
+func (self *Device) GetCrosswalkA() bool{
+    return self.Object.Get("crosswalk").Bool()
 }
 
 // Is the game running under the Intel Crosswalk XDK?
-func (self *Device) SetCrosswalk(member bool) {
-    self.Set("crosswalk", member)
+func (self *Device) SetCrosswalkA(member bool) {
+    self.Object.Set("crosswalk", member)
 }
 
 // Is running on android?
-func (self *Device) GetAndroid() bool{
-    return self.Get("android").Bool()
+func (self *Device) GetAndroidA() bool{
+    return self.Object.Get("android").Bool()
 }
 
 // Is running on android?
-func (self *Device) SetAndroid(member bool) {
-    self.Set("android", member)
+func (self *Device) SetAndroidA(member bool) {
+    self.Object.Set("android", member)
 }
 
 // Is running on chromeOS?
-func (self *Device) GetChromeOS() bool{
-    return self.Get("chromeOS").Bool()
+func (self *Device) GetChromeOSA() bool{
+    return self.Object.Get("chromeOS").Bool()
 }
 
 // Is running on chromeOS?
-func (self *Device) SetChromeOS(member bool) {
-    self.Set("chromeOS", member)
+func (self *Device) SetChromeOSA(member bool) {
+    self.Object.Set("chromeOS", member)
 }
 
 // Is running on linux?
-func (self *Device) GetLinux() bool{
-    return self.Get("linux").Bool()
+func (self *Device) GetLinuxA() bool{
+    return self.Object.Get("linux").Bool()
 }
 
 // Is running on linux?
-func (self *Device) SetLinux(member bool) {
-    self.Set("linux", member)
+func (self *Device) SetLinuxA(member bool) {
+    self.Object.Set("linux", member)
 }
 
 // Is running on macOS?
-func (self *Device) GetMacOS() bool{
-    return self.Get("macOS").Bool()
+func (self *Device) GetMacOSA() bool{
+    return self.Object.Get("macOS").Bool()
 }
 
 // Is running on macOS?
-func (self *Device) SetMacOS(member bool) {
-    self.Set("macOS", member)
+func (self *Device) SetMacOSA(member bool) {
+    self.Object.Set("macOS", member)
 }
 
 // Is running on windows?
-func (self *Device) GetWindows() bool{
-    return self.Get("windows").Bool()
+func (self *Device) GetWindowsA() bool{
+    return self.Object.Get("windows").Bool()
 }
 
 // Is running on windows?
-func (self *Device) SetWindows(member bool) {
-    self.Set("windows", member)
+func (self *Device) SetWindowsA(member bool) {
+    self.Object.Set("windows", member)
 }
 
 // Is running on a Windows Phone?
-func (self *Device) GetWindowsPhone() bool{
-    return self.Get("windowsPhone").Bool()
+func (self *Device) GetWindowsPhoneA() bool{
+    return self.Object.Get("windowsPhone").Bool()
 }
 
 // Is running on a Windows Phone?
-func (self *Device) SetWindowsPhone(member bool) {
-    self.Set("windowsPhone", member)
+func (self *Device) SetWindowsPhoneA(member bool) {
+    self.Object.Set("windowsPhone", member)
 }
 
 // Is canvas available?
-func (self *Device) GetCanvas() bool{
-    return self.Get("canvas").Bool()
+func (self *Device) GetCanvasA() bool{
+    return self.Object.Get("canvas").Bool()
 }
 
 // Is canvas available?
-func (self *Device) SetCanvas(member bool) {
-    self.Set("canvas", member)
+func (self *Device) SetCanvasA(member bool) {
+    self.Object.Set("canvas", member)
 }
 
 // True if canvas supports a 'copy' bitblt onto itself when the source and destination regions overlap.
-func (self *Device) GetCanvasBitBltShift() bool{
-    return self.Get("canvasBitBltShift").Bool()
+func (self *Device) GetCanvasBitBltShiftA() bool{
+    return self.Object.Get("canvasBitBltShift").Bool()
 }
 
 // True if canvas supports a 'copy' bitblt onto itself when the source and destination regions overlap.
-func (self *Device) SetCanvasBitBltShift(member bool) {
-    self.Set("canvasBitBltShift", member)
+func (self *Device) SetCanvasBitBltShiftA(member bool) {
+    self.Object.Set("canvasBitBltShift", member)
 }
 
 // Is webGL available?
-func (self *Device) GetWebGL() bool{
-    return self.Get("webGL").Bool()
+func (self *Device) GetWebGLA() bool{
+    return self.Object.Get("webGL").Bool()
 }
 
 // Is webGL available?
-func (self *Device) SetWebGL(member bool) {
-    self.Set("webGL", member)
+func (self *Device) SetWebGLA(member bool) {
+    self.Object.Set("webGL", member)
 }
 
 // Is file available?
-func (self *Device) GetFile() bool{
-    return self.Get("file").Bool()
+func (self *Device) GetFileA() bool{
+    return self.Object.Get("file").Bool()
 }
 
 // Is file available?
-func (self *Device) SetFile(member bool) {
-    self.Set("file", member)
+func (self *Device) SetFileA(member bool) {
+    self.Object.Set("file", member)
 }
 
 // Is fileSystem available?
-func (self *Device) GetFileSystem() bool{
-    return self.Get("fileSystem").Bool()
+func (self *Device) GetFileSystemA() bool{
+    return self.Object.Get("fileSystem").Bool()
 }
 
 // Is fileSystem available?
-func (self *Device) SetFileSystem(member bool) {
-    self.Set("fileSystem", member)
+func (self *Device) SetFileSystemA(member bool) {
+    self.Object.Set("fileSystem", member)
 }
 
 // Is localStorage available?
-func (self *Device) GetLocalStorage() bool{
-    return self.Get("localStorage").Bool()
+func (self *Device) GetLocalStorageA() bool{
+    return self.Object.Get("localStorage").Bool()
 }
 
 // Is localStorage available?
-func (self *Device) SetLocalStorage(member bool) {
-    self.Set("localStorage", member)
+func (self *Device) SetLocalStorageA(member bool) {
+    self.Object.Set("localStorage", member)
 }
 
 // Is worker available?
-func (self *Device) GetWorker() bool{
-    return self.Get("worker").Bool()
+func (self *Device) GetWorkerA() bool{
+    return self.Object.Get("worker").Bool()
 }
 
 // Is worker available?
-func (self *Device) SetWorker(member bool) {
-    self.Set("worker", member)
+func (self *Device) SetWorkerA(member bool) {
+    self.Object.Set("worker", member)
 }
 
 // Is css3D available?
-func (self *Device) GetCss3D() bool{
-    return self.Get("css3D").Bool()
+func (self *Device) GetCss3DA() bool{
+    return self.Object.Get("css3D").Bool()
 }
 
 // Is css3D available?
-func (self *Device) SetCss3D(member bool) {
-    self.Set("css3D", member)
+func (self *Device) SetCss3DA(member bool) {
+    self.Object.Set("css3D", member)
 }
 
 // Is Pointer Lock available?
-func (self *Device) GetPointerLock() bool{
-    return self.Get("pointerLock").Bool()
+func (self *Device) GetPointerLockA() bool{
+    return self.Object.Get("pointerLock").Bool()
 }
 
 // Is Pointer Lock available?
-func (self *Device) SetPointerLock(member bool) {
-    self.Set("pointerLock", member)
+func (self *Device) SetPointerLockA(member bool) {
+    self.Object.Set("pointerLock", member)
 }
 
 // Does the browser support TypedArrays?
-func (self *Device) GetTypedArray() bool{
-    return self.Get("typedArray").Bool()
+func (self *Device) GetTypedArrayA() bool{
+    return self.Object.Get("typedArray").Bool()
 }
 
 // Does the browser support TypedArrays?
-func (self *Device) SetTypedArray(member bool) {
-    self.Set("typedArray", member)
+func (self *Device) SetTypedArrayA(member bool) {
+    self.Object.Set("typedArray", member)
 }
 
 // Does the device support the Vibration API?
-func (self *Device) GetVibration() bool{
-    return self.Get("vibration").Bool()
+func (self *Device) GetVibrationA() bool{
+    return self.Object.Get("vibration").Bool()
 }
 
 // Does the device support the Vibration API?
-func (self *Device) SetVibration(member bool) {
-    self.Set("vibration", member)
+func (self *Device) SetVibrationA(member bool) {
+    self.Object.Set("vibration", member)
 }
 
 // Does the device support the getUserMedia API?
-func (self *Device) GetGetUserMedia() bool{
-    return self.Get("getUserMedia").Bool()
+func (self *Device) GetGetUserMediaA() bool{
+    return self.Object.Get("getUserMedia").Bool()
 }
 
 // Does the device support the getUserMedia API?
-func (self *Device) SetGetUserMedia(member bool) {
-    self.Set("getUserMedia", member)
+func (self *Device) SetGetUserMediaA(member bool) {
+    self.Object.Set("getUserMedia", member)
 }
 
 // Is the browser running in strict mode (false) or quirks mode? (true)
-func (self *Device) GetQuirksMode() bool{
-    return self.Get("quirksMode").Bool()
+func (self *Device) GetQuirksModeA() bool{
+    return self.Object.Get("quirksMode").Bool()
 }
 
 // Is the browser running in strict mode (false) or quirks mode? (true)
-func (self *Device) SetQuirksMode(member bool) {
-    self.Set("quirksMode", member)
+func (self *Device) SetQuirksModeA(member bool) {
+    self.Object.Set("quirksMode", member)
 }
 
 // Is touch available?
-func (self *Device) GetTouch() bool{
-    return self.Get("touch").Bool()
+func (self *Device) GetTouchA() bool{
+    return self.Object.Get("touch").Bool()
 }
 
 // Is touch available?
-func (self *Device) SetTouch(member bool) {
-    self.Set("touch", member)
+func (self *Device) SetTouchA(member bool) {
+    self.Object.Set("touch", member)
 }
 
 // Is mspointer available?
-func (self *Device) GetMspointer() bool{
-    return self.Get("mspointer").Bool()
+func (self *Device) GetMspointerA() bool{
+    return self.Object.Get("mspointer").Bool()
 }
 
 // Is mspointer available?
-func (self *Device) SetMspointer(member bool) {
-    self.Set("mspointer", member)
+func (self *Device) SetMspointerA(member bool) {
+    self.Object.Set("mspointer", member)
 }
 
 // The newest type of Wheel/Scroll event supported: 'wheel', 'mousewheel', 'DOMMouseScroll'
-func (self *Device) GetWheelEvent() interface{}{
-    return self.Get("wheelEvent")
+func (self *Device) GetWheelEventA() interface{}{
+    return self.Object.Get("wheelEvent")
 }
 
 // The newest type of Wheel/Scroll event supported: 'wheel', 'mousewheel', 'DOMMouseScroll'
-func (self *Device) SetWheelEvent(member interface{}) {
-    self.Set("wheelEvent", member)
+func (self *Device) SetWheelEventA(member interface{}) {
+    self.Object.Set("wheelEvent", member)
 }
 
 // Set to true if running in Arora.
-func (self *Device) GetArora() bool{
-    return self.Get("arora").Bool()
+func (self *Device) GetAroraA() bool{
+    return self.Object.Get("arora").Bool()
 }
 
 // Set to true if running in Arora.
-func (self *Device) SetArora(member bool) {
-    self.Set("arora", member)
+func (self *Device) SetAroraA(member bool) {
+    self.Object.Set("arora", member)
 }
 
 // Set to true if running in Chrome.
-func (self *Device) GetChrome() bool{
-    return self.Get("chrome").Bool()
+func (self *Device) GetChromeA() bool{
+    return self.Object.Get("chrome").Bool()
 }
 
 // Set to true if running in Chrome.
-func (self *Device) SetChrome(member bool) {
-    self.Set("chrome", member)
+func (self *Device) SetChromeA(member bool) {
+    self.Object.Set("chrome", member)
 }
 
 // If running in Chrome this will contain the major version number.
-func (self *Device) GetChromeVersion() int{
-    return self.Get("chromeVersion").Int()
+func (self *Device) GetChromeVersionA() int{
+    return self.Object.Get("chromeVersion").Int()
 }
 
 // If running in Chrome this will contain the major version number.
-func (self *Device) SetChromeVersion(member int) {
-    self.Set("chromeVersion", member)
+func (self *Device) SetChromeVersionA(member int) {
+    self.Object.Set("chromeVersion", member)
 }
 
 // Set to true if running in Epiphany.
-func (self *Device) GetEpiphany() bool{
-    return self.Get("epiphany").Bool()
+func (self *Device) GetEpiphanyA() bool{
+    return self.Object.Get("epiphany").Bool()
 }
 
 // Set to true if running in Epiphany.
-func (self *Device) SetEpiphany(member bool) {
-    self.Set("epiphany", member)
+func (self *Device) SetEpiphanyA(member bool) {
+    self.Object.Set("epiphany", member)
 }
 
 // Set to true if running in Firefox.
-func (self *Device) GetFirefox() bool{
-    return self.Get("firefox").Bool()
+func (self *Device) GetFirefoxA() bool{
+    return self.Object.Get("firefox").Bool()
 }
 
 // Set to true if running in Firefox.
-func (self *Device) SetFirefox(member bool) {
-    self.Set("firefox", member)
+func (self *Device) SetFirefoxA(member bool) {
+    self.Object.Set("firefox", member)
 }
 
 // If running in Firefox this will contain the major version number.
-func (self *Device) GetFirefoxVersion() int{
-    return self.Get("firefoxVersion").Int()
+func (self *Device) GetFirefoxVersionA() int{
+    return self.Object.Get("firefoxVersion").Int()
 }
 
 // If running in Firefox this will contain the major version number.
-func (self *Device) SetFirefoxVersion(member int) {
-    self.Set("firefoxVersion", member)
+func (self *Device) SetFirefoxVersionA(member int) {
+    self.Object.Set("firefoxVersion", member)
 }
 
 // Set to true if running in Internet Explorer.
-func (self *Device) GetIe() bool{
-    return self.Get("ie").Bool()
+func (self *Device) GetIeA() bool{
+    return self.Object.Get("ie").Bool()
 }
 
 // Set to true if running in Internet Explorer.
-func (self *Device) SetIe(member bool) {
-    self.Set("ie", member)
+func (self *Device) SetIeA(member bool) {
+    self.Object.Set("ie", member)
 }
 
 // If running in Internet Explorer this will contain the major version number. Beyond IE10 you should use Device.trident and Device.tridentVersion.
-func (self *Device) GetIeVersion() int{
-    return self.Get("ieVersion").Int()
+func (self *Device) GetIeVersionA() int{
+    return self.Object.Get("ieVersion").Int()
 }
 
 // If running in Internet Explorer this will contain the major version number. Beyond IE10 you should use Device.trident and Device.tridentVersion.
-func (self *Device) SetIeVersion(member int) {
-    self.Set("ieVersion", member)
+func (self *Device) SetIeVersionA(member int) {
+    self.Object.Set("ieVersion", member)
 }
 
 // Set to true if running a Trident version of Internet Explorer (IE11+)
-func (self *Device) GetTrident() bool{
-    return self.Get("trident").Bool()
+func (self *Device) GetTridentA() bool{
+    return self.Object.Get("trident").Bool()
 }
 
 // Set to true if running a Trident version of Internet Explorer (IE11+)
-func (self *Device) SetTrident(member bool) {
-    self.Set("trident", member)
+func (self *Device) SetTridentA(member bool) {
+    self.Object.Set("trident", member)
 }
 
 // If running in Internet Explorer 11 this will contain the major version number. See {@link http://msdn.microsoft.com/en-us/library/ie/ms537503(v=vs.85).aspx}
-func (self *Device) GetTridentVersion() int{
-    return self.Get("tridentVersion").Int()
+func (self *Device) GetTridentVersionA() int{
+    return self.Object.Get("tridentVersion").Int()
 }
 
 // If running in Internet Explorer 11 this will contain the major version number. See {@link http://msdn.microsoft.com/en-us/library/ie/ms537503(v=vs.85).aspx}
-func (self *Device) SetTridentVersion(member int) {
-    self.Set("tridentVersion", member)
+func (self *Device) SetTridentVersionA(member int) {
+    self.Object.Set("tridentVersion", member)
 }
 
 // Set to true if running in Microsoft Edge browser.
-func (self *Device) GetEdge() bool{
-    return self.Get("edge").Bool()
+func (self *Device) GetEdgeA() bool{
+    return self.Object.Get("edge").Bool()
 }
 
 // Set to true if running in Microsoft Edge browser.
-func (self *Device) SetEdge(member bool) {
-    self.Set("edge", member)
+func (self *Device) SetEdgeA(member bool) {
+    self.Object.Set("edge", member)
 }
 
 // Set to true if running in Mobile Safari.
-func (self *Device) GetMobileSafari() bool{
-    return self.Get("mobileSafari").Bool()
+func (self *Device) GetMobileSafariA() bool{
+    return self.Object.Get("mobileSafari").Bool()
 }
 
 // Set to true if running in Mobile Safari.
-func (self *Device) SetMobileSafari(member bool) {
-    self.Set("mobileSafari", member)
+func (self *Device) SetMobileSafariA(member bool) {
+    self.Object.Set("mobileSafari", member)
 }
 
 // Set to true if running in Midori.
-func (self *Device) GetMidori() bool{
-    return self.Get("midori").Bool()
+func (self *Device) GetMidoriA() bool{
+    return self.Object.Get("midori").Bool()
 }
 
 // Set to true if running in Midori.
-func (self *Device) SetMidori(member bool) {
-    self.Set("midori", member)
+func (self *Device) SetMidoriA(member bool) {
+    self.Object.Set("midori", member)
 }
 
 // Set to true if running in Opera.
-func (self *Device) GetOpera() bool{
-    return self.Get("opera").Bool()
+func (self *Device) GetOperaA() bool{
+    return self.Object.Get("opera").Bool()
 }
 
 // Set to true if running in Opera.
-func (self *Device) SetOpera(member bool) {
-    self.Set("opera", member)
+func (self *Device) SetOperaA(member bool) {
+    self.Object.Set("opera", member)
 }
 
 // Set to true if running in Safari.
-func (self *Device) GetSafari() bool{
-    return self.Get("safari").Bool()
+func (self *Device) GetSafariA() bool{
+    return self.Object.Get("safari").Bool()
 }
 
 // Set to true if running in Safari.
-func (self *Device) SetSafari(member bool) {
-    self.Set("safari", member)
+func (self *Device) SetSafariA(member bool) {
+    self.Object.Set("safari", member)
 }
 
 // If running in Safari this will contain the major version number.
-func (self *Device) GetSafariVersion() int{
-    return self.Get("safariVersion").Int()
+func (self *Device) GetSafariVersionA() int{
+    return self.Object.Get("safariVersion").Int()
 }
 
 // If running in Safari this will contain the major version number.
-func (self *Device) SetSafariVersion(member int) {
-    self.Set("safariVersion", member)
+func (self *Device) SetSafariVersionA(member int) {
+    self.Object.Set("safariVersion", member)
 }
 
 // Set to true if running as a WebApp, i.e. within a WebView
-func (self *Device) GetWebApp() bool{
-    return self.Get("webApp").Bool()
+func (self *Device) GetWebAppA() bool{
+    return self.Object.Get("webApp").Bool()
 }
 
 // Set to true if running as a WebApp, i.e. within a WebView
-func (self *Device) SetWebApp(member bool) {
-    self.Set("webApp", member)
+func (self *Device) SetWebAppA(member bool) {
+    self.Object.Set("webApp", member)
 }
 
 // Set to true if running in the Silk browser (as used on the Amazon Kindle)
-func (self *Device) GetSilk() bool{
-    return self.Get("silk").Bool()
+func (self *Device) GetSilkA() bool{
+    return self.Object.Get("silk").Bool()
 }
 
 // Set to true if running in the Silk browser (as used on the Amazon Kindle)
-func (self *Device) SetSilk(member bool) {
-    self.Set("silk", member)
+func (self *Device) SetSilkA(member bool) {
+    self.Object.Set("silk", member)
 }
 
 // Are Audio tags available?
-func (self *Device) GetAudioData() bool{
-    return self.Get("audioData").Bool()
+func (self *Device) GetAudioDataA() bool{
+    return self.Object.Get("audioData").Bool()
 }
 
 // Are Audio tags available?
-func (self *Device) SetAudioData(member bool) {
-    self.Set("audioData", member)
+func (self *Device) SetAudioDataA(member bool) {
+    self.Object.Set("audioData", member)
 }
 
 // Is the WebAudio API available?
-func (self *Device) GetWebAudio() bool{
-    return self.Get("webAudio").Bool()
+func (self *Device) GetWebAudioA() bool{
+    return self.Object.Get("webAudio").Bool()
 }
 
 // Is the WebAudio API available?
-func (self *Device) SetWebAudio(member bool) {
-    self.Set("webAudio", member)
+func (self *Device) SetWebAudioA(member bool) {
+    self.Object.Set("webAudio", member)
 }
 
 // Can this device play ogg files?
-func (self *Device) GetOgg() bool{
-    return self.Get("ogg").Bool()
+func (self *Device) GetOggA() bool{
+    return self.Object.Get("ogg").Bool()
 }
 
 // Can this device play ogg files?
-func (self *Device) SetOgg(member bool) {
-    self.Set("ogg", member)
+func (self *Device) SetOggA(member bool) {
+    self.Object.Set("ogg", member)
 }
 
 // Can this device play opus files?
-func (self *Device) GetOpus() bool{
-    return self.Get("opus").Bool()
+func (self *Device) GetOpusA() bool{
+    return self.Object.Get("opus").Bool()
 }
 
 // Can this device play opus files?
-func (self *Device) SetOpus(member bool) {
-    self.Set("opus", member)
+func (self *Device) SetOpusA(member bool) {
+    self.Object.Set("opus", member)
 }
 
 // Can this device play mp3 files?
-func (self *Device) GetMp3() bool{
-    return self.Get("mp3").Bool()
+func (self *Device) GetMp3A() bool{
+    return self.Object.Get("mp3").Bool()
 }
 
 // Can this device play mp3 files?
-func (self *Device) SetMp3(member bool) {
-    self.Set("mp3", member)
+func (self *Device) SetMp3A(member bool) {
+    self.Object.Set("mp3", member)
 }
 
 // Can this device play wav files?
-func (self *Device) GetWav() bool{
-    return self.Get("wav").Bool()
+func (self *Device) GetWavA() bool{
+    return self.Object.Get("wav").Bool()
 }
 
 // Can this device play wav files?
-func (self *Device) SetWav(member bool) {
-    self.Set("wav", member)
+func (self *Device) SetWavA(member bool) {
+    self.Object.Set("wav", member)
 }
 
 // Can this device play m4a files? True if this device can play m4a files.
-func (self *Device) GetM4a() bool{
-    return self.Get("m4a").Bool()
+func (self *Device) GetM4aA() bool{
+    return self.Object.Get("m4a").Bool()
 }
 
 // Can this device play m4a files? True if this device can play m4a files.
-func (self *Device) SetM4a(member bool) {
-    self.Set("m4a", member)
+func (self *Device) SetM4aA(member bool) {
+    self.Object.Set("m4a", member)
 }
 
 // Can this device play webm files?
-func (self *Device) GetWebm() bool{
-    return self.Get("webm").Bool()
+func (self *Device) GetWebmA() bool{
+    return self.Object.Get("webm").Bool()
 }
 
 // Can this device play webm files?
-func (self *Device) SetWebm(member bool) {
-    self.Set("webm", member)
+func (self *Device) SetWebmA(member bool) {
+    self.Object.Set("webm", member)
 }
 
 // Can this device play EC-3 Dolby Digital Plus files?
-func (self *Device) GetDolby() bool{
-    return self.Get("dolby").Bool()
+func (self *Device) GetDolbyA() bool{
+    return self.Object.Get("dolby").Bool()
 }
 
 // Can this device play EC-3 Dolby Digital Plus files?
-func (self *Device) SetDolby(member bool) {
-    self.Set("dolby", member)
+func (self *Device) SetDolbyA(member bool) {
+    self.Object.Set("dolby", member)
 }
 
 // Can this device play ogg video files?
-func (self *Device) GetOggVideo() bool{
-    return self.Get("oggVideo").Bool()
+func (self *Device) GetOggVideoA() bool{
+    return self.Object.Get("oggVideo").Bool()
 }
 
 // Can this device play ogg video files?
-func (self *Device) SetOggVideo(member bool) {
-    self.Set("oggVideo", member)
+func (self *Device) SetOggVideoA(member bool) {
+    self.Object.Set("oggVideo", member)
 }
 
 // Can this device play h264 mp4 video files?
-func (self *Device) GetH264Video() bool{
-    return self.Get("h264Video").Bool()
+func (self *Device) GetH264VideoA() bool{
+    return self.Object.Get("h264Video").Bool()
 }
 
 // Can this device play h264 mp4 video files?
-func (self *Device) SetH264Video(member bool) {
-    self.Set("h264Video", member)
+func (self *Device) SetH264VideoA(member bool) {
+    self.Object.Set("h264Video", member)
 }
 
 // Can this device play h264 mp4 video files?
-func (self *Device) GetMp4Video() bool{
-    return self.Get("mp4Video").Bool()
+func (self *Device) GetMp4VideoA() bool{
+    return self.Object.Get("mp4Video").Bool()
 }
 
 // Can this device play h264 mp4 video files?
-func (self *Device) SetMp4Video(member bool) {
-    self.Set("mp4Video", member)
+func (self *Device) SetMp4VideoA(member bool) {
+    self.Object.Set("mp4Video", member)
 }
 
 // Can this device play webm video files?
-func (self *Device) GetWebmVideo() bool{
-    return self.Get("webmVideo").Bool()
+func (self *Device) GetWebmVideoA() bool{
+    return self.Object.Get("webmVideo").Bool()
 }
 
 // Can this device play webm video files?
-func (self *Device) SetWebmVideo(member bool) {
-    self.Set("webmVideo", member)
+func (self *Device) SetWebmVideoA(member bool) {
+    self.Object.Set("webmVideo", member)
 }
 
 // Can this device play vp9 video files?
-func (self *Device) GetVp9Video() bool{
-    return self.Get("vp9Video").Bool()
+func (self *Device) GetVp9VideoA() bool{
+    return self.Object.Get("vp9Video").Bool()
 }
 
 // Can this device play vp9 video files?
-func (self *Device) SetVp9Video(member bool) {
-    self.Set("vp9Video", member)
+func (self *Device) SetVp9VideoA(member bool) {
+    self.Object.Set("vp9Video", member)
 }
 
 // Can this device play hls video files?
-func (self *Device) GetHlsVideo() bool{
-    return self.Get("hlsVideo").Bool()
+func (self *Device) GetHlsVideoA() bool{
+    return self.Object.Get("hlsVideo").Bool()
 }
 
 // Can this device play hls video files?
-func (self *Device) SetHlsVideo(member bool) {
-    self.Set("hlsVideo", member)
+func (self *Device) SetHlsVideoA(member bool) {
+    self.Object.Set("hlsVideo", member)
 }
 
 // Is running on iPhone?
-func (self *Device) GetIPhone() bool{
-    return self.Get("iPhone").Bool()
+func (self *Device) GetIPhoneA() bool{
+    return self.Object.Get("iPhone").Bool()
 }
 
 // Is running on iPhone?
-func (self *Device) SetIPhone(member bool) {
-    self.Set("iPhone", member)
+func (self *Device) SetIPhoneA(member bool) {
+    self.Object.Set("iPhone", member)
 }
 
 // Is running on iPhone4?
-func (self *Device) GetIPhone4() bool{
-    return self.Get("iPhone4").Bool()
+func (self *Device) GetIPhone4A() bool{
+    return self.Object.Get("iPhone4").Bool()
 }
 
 // Is running on iPhone4?
-func (self *Device) SetIPhone4(member bool) {
-    self.Set("iPhone4", member)
+func (self *Device) SetIPhone4A(member bool) {
+    self.Object.Set("iPhone4", member)
 }
 
 // Is running on iPad?
-func (self *Device) GetIPad() bool{
-    return self.Get("iPad").Bool()
+func (self *Device) GetIPadA() bool{
+    return self.Object.Get("iPad").Bool()
 }
 
 // Is running on iPad?
-func (self *Device) SetIPad(member bool) {
-    self.Set("iPad", member)
+func (self *Device) SetIPadA(member bool) {
+    self.Object.Set("iPad", member)
 }
 
 // PixelRatio of the host device?
-func (self *Device) GetPixelRatio() int{
-    return self.Get("pixelRatio").Int()
+func (self *Device) GetPixelRatioA() int{
+    return self.Object.Get("pixelRatio").Int()
 }
 
 // PixelRatio of the host device?
-func (self *Device) SetPixelRatio(member int) {
-    self.Set("pixelRatio", member)
+func (self *Device) SetPixelRatioA(member int) {
+    self.Object.Set("pixelRatio", member)
 }
 
 // Is the device big or little endian? (only detected if the browser supports TypedArrays)
-func (self *Device) GetLittleEndian() bool{
-    return self.Get("littleEndian").Bool()
+func (self *Device) GetLittleEndianA() bool{
+    return self.Object.Get("littleEndian").Bool()
 }
 
 // Is the device big or little endian? (only detected if the browser supports TypedArrays)
-func (self *Device) SetLittleEndian(member bool) {
-    self.Set("littleEndian", member)
+func (self *Device) SetLittleEndianA(member bool) {
+    self.Object.Set("littleEndian", member)
 }
 
 // Same value as `littleEndian`.
-func (self *Device) GetLITTLE_ENDIAN() bool{
-    return self.Get("LITTLE_ENDIAN").Bool()
+func (self *Device) GetLITTLE_ENDIANA() bool{
+    return self.Object.Get("LITTLE_ENDIAN").Bool()
 }
 
 // Same value as `littleEndian`.
-func (self *Device) SetLITTLE_ENDIAN(member bool) {
-    self.Set("LITTLE_ENDIAN", member)
+func (self *Device) SetLITTLE_ENDIANA(member bool) {
+    self.Object.Set("LITTLE_ENDIAN", member)
 }
 
 // Does the device context support 32bit pixel manipulation using array buffer views?
-func (self *Device) GetSupport32bit() bool{
-    return self.Get("support32bit").Bool()
+func (self *Device) GetSupport32bitA() bool{
+    return self.Object.Get("support32bit").Bool()
 }
 
 // Does the device context support 32bit pixel manipulation using array buffer views?
-func (self *Device) SetSupport32bit(member bool) {
-    self.Set("support32bit", member)
+func (self *Device) SetSupport32bitA(member bool) {
+    self.Object.Set("support32bit", member)
 }
 
 // Does the browser support the Full Screen API?
-func (self *Device) GetFullscreen() bool{
-    return self.Get("fullscreen").Bool()
+func (self *Device) GetFullscreenA() bool{
+    return self.Object.Get("fullscreen").Bool()
 }
 
 // Does the browser support the Full Screen API?
-func (self *Device) SetFullscreen(member bool) {
-    self.Set("fullscreen", member)
+func (self *Device) SetFullscreenA(member bool) {
+    self.Object.Set("fullscreen", member)
 }
 
 // If the browser supports the Full Screen API this holds the call you need to use to activate it.
-func (self *Device) GetRequestFullscreen() string{
-    return self.Get("requestFullscreen").String()
+func (self *Device) GetRequestFullscreenA() string{
+    return self.Object.Get("requestFullscreen").String()
 }
 
 // If the browser supports the Full Screen API this holds the call you need to use to activate it.
-func (self *Device) SetRequestFullscreen(member string) {
-    self.Set("requestFullscreen", member)
+func (self *Device) SetRequestFullscreenA(member string) {
+    self.Object.Set("requestFullscreen", member)
 }
 
 // If the browser supports the Full Screen API this holds the call you need to use to cancel it.
-func (self *Device) GetCancelFullscreen() string{
-    return self.Get("cancelFullscreen").String()
+func (self *Device) GetCancelFullscreenA() string{
+    return self.Object.Get("cancelFullscreen").String()
 }
 
 // If the browser supports the Full Screen API this holds the call you need to use to cancel it.
-func (self *Device) SetCancelFullscreen(member string) {
-    self.Set("cancelFullscreen", member)
+func (self *Device) SetCancelFullscreenA(member string) {
+    self.Object.Set("cancelFullscreen", member)
 }
 
 // Does the browser support access to the Keyboard during Full Screen mode?
-func (self *Device) GetFullscreenKeyboard() bool{
-    return self.Get("fullscreenKeyboard").Bool()
+func (self *Device) GetFullscreenKeyboardA() bool{
+    return self.Object.Get("fullscreenKeyboard").Bool()
 }
 
 // Does the browser support access to the Keyboard during Full Screen mode?
-func (self *Device) SetFullscreenKeyboard(member bool) {
-    self.Set("fullscreenKeyboard", member)
+func (self *Device) SetFullscreenKeyboardA(member bool) {
+    self.Object.Set("fullscreenKeyboard", member)
 }
 
 // This signal is dispatched after device initialization occurs but before any of the ready
@@ -823,8 +823,8 @@ func (self *Device) SetFullscreenKeyboard(member bool) {
 // 
 // _Note_: This signal is removed after the device has been readied; if a handler has not been
 // added _before_ `new Phaser.Game(..)` it is probably too late.
-func (self *Device) GetOnInitialized() *Signal{
-    return &Signal{self.Get("onInitialized")}
+func (self *Device) GetOnInitializedA() *Signal{
+    return &Signal{self.Object.Get("onInitialized")}
 }
 
 // This signal is dispatched after device initialization occurs but before any of the ready
@@ -834,8 +834,8 @@ func (self *Device) GetOnInitialized() *Signal{
 // 
 // _Note_: This signal is removed after the device has been readied; if a handler has not been
 // added _before_ `new Phaser.Game(..)` it is probably too late.
-func (self *Device) SetOnInitialized(member *Signal) {
-    self.Set("onInitialized", member)
+func (self *Device) SetOnInitializedA(member *Signal) {
+    self.Object.Set("onInitialized", member)
 }
 
 
@@ -847,37 +847,85 @@ func (self *Device) SetOnInitialized(member *Signal) {
 // 
 // The handler is invoked when the device is considered "ready", which may be immediately
 // if the device is already "ready". See {@link Phaser.Device#deviceReadyAt deviceReadyAt}.
+func (self *Device) WhenReady(handler func(...interface{}), context interface{}, nonPrimer bool) {
+    self.Object.Call("whenReady", handler, context, nonPrimer)
+}
+
+// Add a device-ready handler and ensure the device ready sequence is started.
+// 
+// Phaser.Device will _not_ activate or initialize until at least one `whenReady` handler is added,
+// which is normally done automatically be calling `new Phaser.Game(..)`.
+// 
+// The handler is invoked when the device is considered "ready", which may be immediately
+// if the device is already "ready". See {@link Phaser.Device#deviceReadyAt deviceReadyAt}.
 func (self *Device) WhenReadyI(args ...interface{}) {
-    self.Call("whenReady", args)
+    self.Object.Call("whenReady", args)
+}
+
+// Internal method used for checking when the device is ready.
+// This function is removed from Phaser.Device when the device becomes ready.
+func (self *Device) _readyCheck() {
+    self.Object.Call("_readyCheck")
 }
 
 // Internal method used for checking when the device is ready.
 // This function is removed from Phaser.Device when the device becomes ready.
 func (self *Device) _readyCheckI(args ...interface{}) {
-    self.Call("_readyCheck", args)
+    self.Object.Call("_readyCheck", args)
+}
+
+// Internal method to initialize the capability checks.
+// This function is removed from Phaser.Device once the device is initialized.
+func (self *Device) _initialize() {
+    self.Object.Call("_initialize")
 }
 
 // Internal method to initialize the capability checks.
 // This function is removed from Phaser.Device once the device is initialized.
 func (self *Device) _initializeI(args ...interface{}) {
-    self.Call("_initialize", args)
+    self.Object.Call("_initialize", args)
+}
+
+// Check whether the host environment can play audio.
+func (self *Device) CanPlayAudio(type_ string) bool{
+    return self.Object.Call("canPlayAudio", type_).Bool()
 }
 
 // Check whether the host environment can play audio.
 func (self *Device) CanPlayAudioI(args ...interface{}) bool{
-    return self.Call("canPlayAudio", args).Bool()
+    return self.Object.Call("canPlayAudio", args).Bool()
+}
+
+// Check whether the host environment can play video files.
+func (self *Device) CanPlayVideo(type_ string) bool{
+    return self.Object.Call("canPlayVideo", type_).Bool()
 }
 
 // Check whether the host environment can play video files.
 func (self *Device) CanPlayVideoI(args ...interface{}) bool{
-    return self.Call("canPlayVideo", args).Bool()
+    return self.Object.Call("canPlayVideo", args).Bool()
+}
+
+// Check whether the console is open.
+// Note that this only works in Firefox with Firebug and earlier versions of Chrome.
+// It used to work in Chrome, but then they removed the ability: {@link http://src.chromium.org/viewvc/blink?view=revision&revision=151136}
+func (self *Device) IsConsoleOpen() {
+    self.Object.Call("isConsoleOpen")
 }
 
 // Check whether the console is open.
 // Note that this only works in Firefox with Firebug and earlier versions of Chrome.
 // It used to work in Chrome, but then they removed the ability: {@link http://src.chromium.org/viewvc/blink?view=revision&revision=151136}
 func (self *Device) IsConsoleOpenI(args ...interface{}) {
-    self.Call("isConsoleOpen", args)
+    self.Object.Call("isConsoleOpen", args)
+}
+
+// Detect if the host is a an Android Stock browser.
+// This is available before the device "ready" event.
+// 
+// Authors might want to scale down on effects and switch to the CANVAS rendering method on those devices.
+func (self *Device) IsAndroidStockBrowser() {
+    self.Object.Call("isAndroidStockBrowser")
 }
 
 // Detect if the host is a an Android Stock browser.
@@ -885,5 +933,5 @@ func (self *Device) IsConsoleOpenI(args ...interface{}) {
 // 
 // Authors might want to scale down on effects and switch to the CANVAS rendering method on those devices.
 func (self *Device) IsAndroidStockBrowserI(args ...interface{}) {
-    self.Call("isAndroidStockBrowser", args)
+    self.Object.Call("isAndroidStockBrowser", args)
 }

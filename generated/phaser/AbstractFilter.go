@@ -15,28 +15,33 @@ type AbstractFilter struct {
 
 
 // 
-func (self *AbstractFilter) GetDirty() bool{
-    return self.Get("dirty").Bool()
+func (self *AbstractFilter) GetDirtyA() bool{
+    return self.Object.Get("dirty").Bool()
 }
 
 // 
-func (self *AbstractFilter) SetDirty(member bool) {
-    self.Set("dirty", member)
+func (self *AbstractFilter) SetDirtyA(member bool) {
+    self.Object.Set("dirty", member)
 }
 
 // 
-func (self *AbstractFilter) GetPadding() int{
-    return self.Get("padding").Int()
+func (self *AbstractFilter) GetPaddingA() int{
+    return self.Object.Get("padding").Int()
 }
 
 // 
-func (self *AbstractFilter) SetPadding(member int) {
-    self.Set("padding", member)
+func (self *AbstractFilter) SetPaddingA(member int) {
+    self.Object.Set("padding", member)
 }
 
 
 
 // Syncs the uniforms between the class object and the shaders.
+func (self *AbstractFilter) SyncUniforms() {
+    self.Object.Call("syncUniforms")
+}
+
+// Syncs the uniforms between the class object and the shaders.
 func (self *AbstractFilter) SyncUniformsI(args ...interface{}) {
-    self.Call("syncUniforms", args)
+    self.Object.Call("syncUniforms", args)
 }

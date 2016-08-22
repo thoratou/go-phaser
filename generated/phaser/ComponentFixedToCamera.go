@@ -27,8 +27,8 @@ type ComponentFixedToCamera struct {
 // Note that the `cameraOffset` values are in addition to any parent of this Game Object on the display list.
 // 
 // Be careful not to set `fixedToCamera` on Game Objects which are in Groups that already have `fixedToCamera` enabled on them.
-func (self *ComponentFixedToCamera) GetFixedToCamera() bool{
-    return self.Get("fixedToCamera").Bool()
+func (self *ComponentFixedToCamera) GetFixedToCameraA() bool{
+    return self.Object.Get("fixedToCamera").Bool()
 }
 
 // A Game Object that is "fixed" to the camera uses its x/y coordinates as offsets from the top left of the camera during rendering.
@@ -44,28 +44,34 @@ func (self *ComponentFixedToCamera) GetFixedToCamera() bool{
 // Note that the `cameraOffset` values are in addition to any parent of this Game Object on the display list.
 // 
 // Be careful not to set `fixedToCamera` on Game Objects which are in Groups that already have `fixedToCamera` enabled on them.
-func (self *ComponentFixedToCamera) SetFixedToCamera(member bool) {
-    self.Set("fixedToCamera", member)
+func (self *ComponentFixedToCamera) SetFixedToCameraA(member bool) {
+    self.Object.Set("fixedToCamera", member)
 }
 
 // The x/y coordinate offset applied to the top-left of the camera that this Game Object will be drawn at if `fixedToCamera` is true.
 // 
 // The values are relative to the top-left of the camera view and in addition to any parent of the Game Object on the display list.
-func (self *ComponentFixedToCamera) GetCameraOffset() *Point{
-    return &Point{self.Get("cameraOffset")}
+func (self *ComponentFixedToCamera) GetCameraOffsetA() *Point{
+    return &Point{self.Object.Get("cameraOffset")}
 }
 
 // The x/y coordinate offset applied to the top-left of the camera that this Game Object will be drawn at if `fixedToCamera` is true.
 // 
 // The values are relative to the top-left of the camera view and in addition to any parent of the Game Object on the display list.
-func (self *ComponentFixedToCamera) SetCameraOffset(member *Point) {
-    self.Set("cameraOffset", member)
+func (self *ComponentFixedToCamera) SetCameraOffsetA(member *Point) {
+    self.Object.Set("cameraOffset", member)
 }
 
 
 
 // The FixedToCamera component postUpdate handler.
 // Called automatically by the Game Object.
+func (self *ComponentFixedToCamera) PostUpdate() {
+    self.Object.Call("postUpdate")
+}
+
+// The FixedToCamera component postUpdate handler.
+// Called automatically by the Game Object.
 func (self *ComponentFixedToCamera) PostUpdateI(args ...interface{}) {
-    self.Call("postUpdate", args)
+    self.Object.Call("postUpdate", args)
 }

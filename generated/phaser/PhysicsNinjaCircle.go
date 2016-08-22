@@ -15,193 +15,273 @@ type PhysicsNinjaCircle struct {
 
 
 // A reference to the body that owns this shape.
-func (self *PhysicsNinjaCircle) GetBody() interface{}{
-    return self.Get("body")
+func (self *PhysicsNinjaCircle) GetBodyA() interface{}{
+    return self.Object.Get("body")
 }
 
 // A reference to the body that owns this shape.
-func (self *PhysicsNinjaCircle) SetBody(member interface{}) {
-    self.Set("body", member)
+func (self *PhysicsNinjaCircle) SetBodyA(member interface{}) {
+    self.Object.Set("body", member)
 }
 
 // A reference to the physics system.
-func (self *PhysicsNinjaCircle) GetSystem() *PhysicsNinja{
-    return &PhysicsNinja{self.Get("system")}
+func (self *PhysicsNinjaCircle) GetSystemA() *PhysicsNinja{
+    return &PhysicsNinja{self.Object.Get("system")}
 }
 
 // A reference to the physics system.
-func (self *PhysicsNinjaCircle) SetSystem(member *PhysicsNinja) {
-    self.Set("system", member)
+func (self *PhysicsNinjaCircle) SetSystemA(member *PhysicsNinja) {
+    self.Object.Set("system", member)
 }
 
 // The position of this object.
-func (self *PhysicsNinjaCircle) GetPos() *Point{
-    return &Point{self.Get("pos")}
+func (self *PhysicsNinjaCircle) GetPosA() *Point{
+    return &Point{self.Object.Get("pos")}
 }
 
 // The position of this object.
-func (self *PhysicsNinjaCircle) SetPos(member *Point) {
-    self.Set("pos", member)
+func (self *PhysicsNinjaCircle) SetPosA(member *Point) {
+    self.Object.Set("pos", member)
 }
 
 // The position of this object in the previous update.
-func (self *PhysicsNinjaCircle) GetOldpos() *Point{
-    return &Point{self.Get("oldpos")}
+func (self *PhysicsNinjaCircle) GetOldposA() *Point{
+    return &Point{self.Object.Get("oldpos")}
 }
 
 // The position of this object in the previous update.
-func (self *PhysicsNinjaCircle) SetOldpos(member *Point) {
-    self.Set("oldpos", member)
+func (self *PhysicsNinjaCircle) SetOldposA(member *Point) {
+    self.Object.Set("oldpos", member)
 }
 
 // The radius of this circle shape.
-func (self *PhysicsNinjaCircle) GetRadius() int{
-    return self.Get("radius").Int()
+func (self *PhysicsNinjaCircle) GetRadiusA() int{
+    return self.Object.Get("radius").Int()
 }
 
 // The radius of this circle shape.
-func (self *PhysicsNinjaCircle) SetRadius(member int) {
-    self.Set("radius", member)
+func (self *PhysicsNinjaCircle) SetRadiusA(member int) {
+    self.Object.Set("radius", member)
 }
 
 // Half the width.
-func (self *PhysicsNinjaCircle) GetXw() int{
-    return self.Get("xw").Int()
+func (self *PhysicsNinjaCircle) GetXwA() int{
+    return self.Object.Get("xw").Int()
 }
 
 // Half the width.
-func (self *PhysicsNinjaCircle) SetXw(member int) {
-    self.Set("xw", member)
+func (self *PhysicsNinjaCircle) SetXwA(member int) {
+    self.Object.Set("xw", member)
 }
 
 // Half the height.
-func (self *PhysicsNinjaCircle) GetYw() interface{}{
-    return self.Get("yw")
+func (self *PhysicsNinjaCircle) GetYwA() interface{}{
+    return self.Object.Get("yw")
 }
 
 // Half the height.
-func (self *PhysicsNinjaCircle) SetYw(member interface{}) {
-    self.Set("yw", member)
+func (self *PhysicsNinjaCircle) SetYwA(member interface{}) {
+    self.Object.Set("yw", member)
 }
 
 // The width.
-func (self *PhysicsNinjaCircle) GetWidth() int{
-    return self.Get("width").Int()
+func (self *PhysicsNinjaCircle) GetWidthA() int{
+    return self.Object.Get("width").Int()
 }
 
 // The width.
-func (self *PhysicsNinjaCircle) SetWidth(member int) {
-    self.Set("width", member)
+func (self *PhysicsNinjaCircle) SetWidthA(member int) {
+    self.Object.Set("width", member)
 }
 
 // The height.
-func (self *PhysicsNinjaCircle) GetHeight() int{
-    return self.Get("height").Int()
+func (self *PhysicsNinjaCircle) GetHeightA() int{
+    return self.Object.Get("height").Int()
 }
 
 // The height.
-func (self *PhysicsNinjaCircle) SetHeight(member int) {
-    self.Set("height", member)
+func (self *PhysicsNinjaCircle) SetHeightA(member int) {
+    self.Object.Set("height", member)
 }
 
 // The velocity of this object.
-func (self *PhysicsNinjaCircle) GetVelocity() *Point{
-    return &Point{self.Get("velocity")}
+func (self *PhysicsNinjaCircle) GetVelocityA() *Point{
+    return &Point{self.Object.Get("velocity")}
 }
 
 // The velocity of this object.
-func (self *PhysicsNinjaCircle) SetVelocity(member *Point) {
-    self.Set("velocity", member)
+func (self *PhysicsNinjaCircle) SetVelocityA(member *Point) {
+    self.Object.Set("velocity", member)
 }
 
 // All of the collision response handlers.
-func (self *PhysicsNinjaCircle) GetCircleTileProjections() interface{}{
-    return self.Get("circleTileProjections")
+func (self *PhysicsNinjaCircle) GetCircleTileProjectionsA() interface{}{
+    return self.Object.Get("circleTileProjections")
 }
 
 // All of the collision response handlers.
-func (self *PhysicsNinjaCircle) SetCircleTileProjections(member interface{}) {
-    self.Set("circleTileProjections", member)
+func (self *PhysicsNinjaCircle) SetCircleTileProjectionsA(member interface{}) {
+    self.Object.Set("circleTileProjections", member)
 }
 
 
 
 // Updates this Circles position.
+func (self *PhysicsNinjaCircle) Integrate() {
+    self.Object.Call("integrate")
+}
+
+// Updates this Circles position.
 func (self *PhysicsNinjaCircle) IntegrateI(args ...interface{}) {
-    self.Call("integrate", args)
+    self.Object.Call("integrate", args)
+}
+
+// Process a world collision and apply the resulting forces.
+func (self *PhysicsNinjaCircle) ReportCollisionVsWorld(px int, py int, dx int, dy int, obj int) {
+    self.Object.Call("reportCollisionVsWorld", px, py, dx, dy, obj)
 }
 
 // Process a world collision and apply the resulting forces.
 func (self *PhysicsNinjaCircle) ReportCollisionVsWorldI(args ...interface{}) {
-    self.Call("reportCollisionVsWorld", args)
+    self.Object.Call("reportCollisionVsWorld", args)
+}
+
+// Collides this Circle against the world bounds.
+func (self *PhysicsNinjaCircle) CollideWorldBounds() {
+    self.Object.Call("collideWorldBounds")
 }
 
 // Collides this Circle against the world bounds.
 func (self *PhysicsNinjaCircle) CollideWorldBoundsI(args ...interface{}) {
-    self.Call("collideWorldBounds", args)
+    self.Object.Call("collideWorldBounds", args)
+}
+
+// Collides this Circle with a Tile.
+func (self *PhysicsNinjaCircle) CollideCircleVsTile(t *PhysicsNinjaTile) bool{
+    return self.Object.Call("collideCircleVsTile", t).Bool()
 }
 
 // Collides this Circle with a Tile.
 func (self *PhysicsNinjaCircle) CollideCircleVsTileI(args ...interface{}) bool{
-    return self.Call("collideCircleVsTile", args).Bool()
+    return self.Object.Call("collideCircleVsTile", args).Bool()
+}
+
+// Resolves tile collision.
+func (self *PhysicsNinjaCircle) ResolveCircleTile(x int, y int, oH int, oV int, obj *PhysicsNinjaCircle, t *PhysicsNinjaTile) int{
+    return self.Object.Call("resolveCircleTile", x, y, oH, oV, obj, t).Int()
 }
 
 // Resolves tile collision.
 func (self *PhysicsNinjaCircle) ResolveCircleTileI(args ...interface{}) int{
-    return self.Call("resolveCircleTile", args).Int()
+    return self.Object.Call("resolveCircleTile", args).Int()
+}
+
+// Resolves Full tile collision.
+func (self *PhysicsNinjaCircle) ProjCircle_Full(x int, y int, oH int, oV int, obj *PhysicsNinjaCircle, t *PhysicsNinjaTile) int{
+    return self.Object.Call("projCircle_Full", x, y, oH, oV, obj, t).Int()
 }
 
 // Resolves Full tile collision.
 func (self *PhysicsNinjaCircle) ProjCircle_FullI(args ...interface{}) int{
-    return self.Call("projCircle_Full", args).Int()
+    return self.Object.Call("projCircle_Full", args).Int()
+}
+
+// Resolves 45 Degree tile collision.
+func (self *PhysicsNinjaCircle) ProjCircle_45Deg(x int, y int, oH int, oV int, obj *PhysicsNinjaCircle, t *PhysicsNinjaTile) int{
+    return self.Object.Call("projCircle_45Deg", x, y, oH, oV, obj, t).Int()
 }
 
 // Resolves 45 Degree tile collision.
 func (self *PhysicsNinjaCircle) ProjCircle_45DegI(args ...interface{}) int{
-    return self.Call("projCircle_45Deg", args).Int()
+    return self.Object.Call("projCircle_45Deg", args).Int()
+}
+
+// Resolves Concave tile collision.
+func (self *PhysicsNinjaCircle) ProjCircle_Concave(x int, y int, oH int, oV int, obj *PhysicsNinjaCircle, t *PhysicsNinjaTile) int{
+    return self.Object.Call("projCircle_Concave", x, y, oH, oV, obj, t).Int()
 }
 
 // Resolves Concave tile collision.
 func (self *PhysicsNinjaCircle) ProjCircle_ConcaveI(args ...interface{}) int{
-    return self.Call("projCircle_Concave", args).Int()
+    return self.Object.Call("projCircle_Concave", args).Int()
+}
+
+// Resolves Convex tile collision.
+func (self *PhysicsNinjaCircle) ProjCircle_Convex(x int, y int, oH int, oV int, obj *PhysicsNinjaCircle, t *PhysicsNinjaTile) int{
+    return self.Object.Call("projCircle_Convex", x, y, oH, oV, obj, t).Int()
 }
 
 // Resolves Convex tile collision.
 func (self *PhysicsNinjaCircle) ProjCircle_ConvexI(args ...interface{}) int{
-    return self.Call("projCircle_Convex", args).Int()
+    return self.Object.Call("projCircle_Convex", args).Int()
+}
+
+// Resolves Half tile collision.
+func (self *PhysicsNinjaCircle) ProjCircle_Half(x int, y int, oH int, oV int, obj *PhysicsNinjaCircle, t *PhysicsNinjaTile) int{
+    return self.Object.Call("projCircle_Half", x, y, oH, oV, obj, t).Int()
 }
 
 // Resolves Half tile collision.
 func (self *PhysicsNinjaCircle) ProjCircle_HalfI(args ...interface{}) int{
-    return self.Call("projCircle_Half", args).Int()
+    return self.Object.Call("projCircle_Half", args).Int()
+}
+
+// Resolves 22 Degree tile collision.
+func (self *PhysicsNinjaCircle) ProjCircle_22DegS(x int, y int, oH int, oV int, obj *PhysicsNinjaCircle, t *PhysicsNinjaTile) int{
+    return self.Object.Call("projCircle_22DegS", x, y, oH, oV, obj, t).Int()
 }
 
 // Resolves 22 Degree tile collision.
 func (self *PhysicsNinjaCircle) ProjCircle_22DegSI(args ...interface{}) int{
-    return self.Call("projCircle_22DegS", args).Int()
+    return self.Object.Call("projCircle_22DegS", args).Int()
+}
+
+// Resolves 22 Degree tile collision.
+func (self *PhysicsNinjaCircle) ProjCircle_22DegB(x int, y int, oH int, oV int, obj *PhysicsNinjaCircle, t *PhysicsNinjaTile) int{
+    return self.Object.Call("projCircle_22DegB", x, y, oH, oV, obj, t).Int()
 }
 
 // Resolves 22 Degree tile collision.
 func (self *PhysicsNinjaCircle) ProjCircle_22DegBI(args ...interface{}) int{
-    return self.Call("projCircle_22DegB", args).Int()
+    return self.Object.Call("projCircle_22DegB", args).Int()
+}
+
+// Resolves 67 Degree tile collision.
+func (self *PhysicsNinjaCircle) ProjCircle_67DegS(x int, y int, oH int, oV int, obj *PhysicsNinjaCircle, t *PhysicsNinjaTile) int{
+    return self.Object.Call("projCircle_67DegS", x, y, oH, oV, obj, t).Int()
 }
 
 // Resolves 67 Degree tile collision.
 func (self *PhysicsNinjaCircle) ProjCircle_67DegSI(args ...interface{}) int{
-    return self.Call("projCircle_67DegS", args).Int()
+    return self.Object.Call("projCircle_67DegS", args).Int()
+}
+
+// Resolves 67 Degree tile collision.
+func (self *PhysicsNinjaCircle) ProjCircle_67DegB(x int, y int, oH int, oV int, obj *PhysicsNinjaCircle, t *PhysicsNinjaTile) int{
+    return self.Object.Call("projCircle_67DegB", x, y, oH, oV, obj, t).Int()
 }
 
 // Resolves 67 Degree tile collision.
 func (self *PhysicsNinjaCircle) ProjCircle_67DegBI(args ...interface{}) int{
-    return self.Call("projCircle_67DegB", args).Int()
+    return self.Object.Call("projCircle_67DegB", args).Int()
+}
+
+// Destroys this Circle's reference to Body and System
+func (self *PhysicsNinjaCircle) Destroy() {
+    self.Object.Call("destroy")
 }
 
 // Destroys this Circle's reference to Body and System
 func (self *PhysicsNinjaCircle) DestroyI(args ...interface{}) {
-    self.Call("destroy", args)
+    self.Object.Call("destroy", args)
+}
+
+// Render this circle for debugging purposes.
+func (self *PhysicsNinjaCircle) Render(context interface{}, xOffset int, yOffset int, color string, filled bool) {
+    self.Object.Call("render", context, xOffset, yOffset, color, filled)
 }
 
 // Render this circle for debugging purposes.
 func (self *PhysicsNinjaCircle) RenderI(args ...interface{}) {
-    self.Call("render", args)
+    self.Object.Call("render", args)
 }

@@ -63,57 +63,101 @@ type Signal struct {
 // 
 // If an event has been memorized it is automatically dispatched when a new listener is added with {@link Phaser.Signal#add add} or {@link Phaser.Signal#addOnce addOnce}.
 // Use {@link Phaser.Signal#forget forget} to clear any currently memorized event.
-func (self *Signal) GetMemorize() bool{
-    return self.Get("memorize").Bool()
+func (self *Signal) GetMemorizeA() bool{
+    return self.Object.Get("memorize").Bool()
 }
 
 // Memorize the previously dispatched event?
 // 
 // If an event has been memorized it is automatically dispatched when a new listener is added with {@link Phaser.Signal#add add} or {@link Phaser.Signal#addOnce addOnce}.
 // Use {@link Phaser.Signal#forget forget} to clear any currently memorized event.
-func (self *Signal) SetMemorize(member bool) {
-    self.Set("memorize", member)
+func (self *Signal) SetMemorizeA(member bool) {
+    self.Object.Set("memorize", member)
 }
 
 // Is the Signal active? Only active signals will broadcast dispatched events.
 // 
 // Setting this property during a dispatch will only affect the next dispatch. To stop the propagation of a signal from a listener use {@link Phaser.Signal#halt halt}.
-func (self *Signal) GetActive() bool{
-    return self.Get("active").Bool()
+func (self *Signal) GetActiveA() bool{
+    return self.Object.Get("active").Bool()
 }
 
 // Is the Signal active? Only active signals will broadcast dispatched events.
 // 
 // Setting this property during a dispatch will only affect the next dispatch. To stop the propagation of a signal from a listener use {@link Phaser.Signal#halt halt}.
-func (self *Signal) SetActive(member bool) {
-    self.Set("active", member)
+func (self *Signal) SetActiveA(member bool) {
+    self.Object.Set("active", member)
 }
 
 
+
+// 
+func (self *Signal) ValidateListener(listener func(...interface{}), fnName string) {
+    self.Object.Call("validateListener", listener, fnName)
+}
 
 // 
 func (self *Signal) ValidateListenerI(args ...interface{}) {
-    self.Call("validateListener", args)
+    self.Object.Call("validateListener", args)
+}
+
+// 
+func (self *Signal) _registerListener(listener func(...interface{}), isOnce bool, listenerContext interface{}, priority int) *SignalBinding{
+    return &SignalBinding{self.Object.Call("_registerListener", listener, isOnce, listenerContext, priority)}
 }
 
 // 
 func (self *Signal) _registerListenerI(args ...interface{}) *SignalBinding{
-    return &SignalBinding{self.Call("_registerListener", args)}
+    return &SignalBinding{self.Object.Call("_registerListener", args)}
+}
+
+// 
+func (self *Signal) _addBinding(binding *SignalBinding) {
+    self.Object.Call("_addBinding", binding)
 }
 
 // 
 func (self *Signal) _addBindingI(args ...interface{}) {
-    self.Call("_addBinding", args)
+    self.Object.Call("_addBinding", args)
+}
+
+// 
+func (self *Signal) _indexOfListener(listener func(...interface{}), context interface{}) int{
+    return self.Object.Call("_indexOfListener", listener, context).Int()
 }
 
 // 
 func (self *Signal) _indexOfListenerI(args ...interface{}) int{
-    return self.Call("_indexOfListener", args).Int()
+    return self.Object.Call("_indexOfListener", args).Int()
+}
+
+// Check if a specific listener is attached.
+func (self *Signal) Has(listener func(...interface{}), context interface{}) bool{
+    return self.Object.Call("has", listener, context).Bool()
 }
 
 // Check if a specific listener is attached.
 func (self *Signal) HasI(args ...interface{}) bool{
-    return self.Call("has", args).Bool()
+    return self.Object.Call("has", args).Bool()
+}
+
+// Add an event listener for this signal.
+// 
+// An event listener is a callback with a related context and priority.
+// 
+// You can optionally provide extra arguments which will be passed to the callback after any internal parameters.
+// 
+// For example: `Phaser.Key.onDown` when dispatched will send the Phaser.Key object that caused the signal as the first parameter.
+// Any arguments you've specified after `priority` will be sent as well:
+// 
+// `fireButton.onDown.add(shoot, this, 0, 'lazer', 100);`
+// 
+// When onDown dispatches it will call the `shoot` callback passing it: `Phaser.Key, 'lazer', 100`.
+// 
+// Where the first parameter is the one that Key.onDown dispatches internally and 'lazer', 
+// and the value 100 were the custom arguments given in the call to 'add'.
+func (self *Signal) Add(listener func(...interface{}), listenerContext interface{}, priority int, args interface{}) *SignalBinding{
+    return &SignalBinding{self.Object.Call("add", listener, listenerContext, priority, args)}
 }
 
 // Add an event listener for this signal.
@@ -132,7 +176,15 @@ func (self *Signal) HasI(args ...interface{}) bool{
 // Where the first parameter is the one that Key.onDown dispatches internally and 'lazer', 
 // and the value 100 were the custom arguments given in the call to 'add'.
 func (self *Signal) AddI(args ...interface{}) *SignalBinding{
-    return &SignalBinding{self.Call("add", args)}
+    return &SignalBinding{self.Object.Call("add", args)}
+}
+
+// Add a one-time listener - the listener is automatically removed after the first execution.
+// 
+// If there is as {@link Phaser.Signal#memorize memorized} event then it will be dispatched and
+// the listener will be removed immediately.
+func (self *Signal) AddOnce(listener func(...interface{}), listenerContext interface{}, priority int, args interface{}) *SignalBinding{
+    return &SignalBinding{self.Object.Call("addOnce", listener, listenerContext, priority, args)}
 }
 
 // Add a one-time listener - the listener is automatically removed after the first execution.
@@ -140,22 +192,45 @@ func (self *Signal) AddI(args ...interface{}) *SignalBinding{
 // If there is as {@link Phaser.Signal#memorize memorized} event then it will be dispatched and
 // the listener will be removed immediately.
 func (self *Signal) AddOnceI(args ...interface{}) *SignalBinding{
-    return &SignalBinding{self.Call("addOnce", args)}
+    return &SignalBinding{self.Object.Call("addOnce", args)}
+}
+
+// Remove a single event listener.
+func (self *Signal) Remove(listener func(...interface{}), context interface{}) func(...interface{}){
+    return func(...interface{}){self.Object.Call("remove", listener, context)}
 }
 
 // Remove a single event listener.
 func (self *Signal) RemoveI(args ...interface{}) func(...interface{}){
-    return func(...interface{}){self.Call("remove", args)}
+    return func(...interface{}){self.Object.Call("remove", args)}
+}
+
+// Remove all event listeners.
+func (self *Signal) RemoveAll(context interface{}) {
+    self.Object.Call("removeAll", context)
 }
 
 // Remove all event listeners.
 func (self *Signal) RemoveAllI(args ...interface{}) {
-    self.Call("removeAll", args)
+    self.Object.Call("removeAll", args)
+}
+
+// Gets the total number of listeners attached to this Signal.
+func (self *Signal) GetNumListeners() int{
+    return self.Object.Call("getNumListeners").Int()
 }
 
 // Gets the total number of listeners attached to this Signal.
 func (self *Signal) GetNumListenersI(args ...interface{}) int{
-    return self.Call("getNumListeners", args).Int()
+    return self.Object.Call("getNumListeners", args).Int()
+}
+
+// Stop propagation of the event, blocking the dispatch to next listener on the queue.
+// 
+// This should be called only during event dispatch as calling it before/after dispatch won't affect another broadcast.
+// See {@link Phaser.Signal#active active} to enable/disable the signal entirely.
+func (self *Signal) Halt() {
+    self.Object.Call("halt")
 }
 
 // Stop propagation of the event, blocking the dispatch to next listener on the queue.
@@ -163,19 +238,39 @@ func (self *Signal) GetNumListenersI(args ...interface{}) int{
 // This should be called only during event dispatch as calling it before/after dispatch won't affect another broadcast.
 // See {@link Phaser.Signal#active active} to enable/disable the signal entirely.
 func (self *Signal) HaltI(args ...interface{}) {
-    self.Call("halt", args)
+    self.Object.Call("halt", args)
+}
+
+// Dispatch / broadcast the event to all listeners.
+// 
+// To create an instance-bound dispatch for this Signal, use {@link Phaser.Signal#boundDispatch boundDispatch}.
+func (self *Signal) Dispatch(params interface{}) {
+    self.Object.Call("dispatch", params)
 }
 
 // Dispatch / broadcast the event to all listeners.
 // 
 // To create an instance-bound dispatch for this Signal, use {@link Phaser.Signal#boundDispatch boundDispatch}.
 func (self *Signal) DispatchI(args ...interface{}) {
-    self.Call("dispatch", args)
+    self.Object.Call("dispatch", args)
+}
+
+// Forget the currently {@link Phaser.Signal#memorize memorized} event, if any.
+func (self *Signal) Forget() {
+    self.Object.Call("forget")
 }
 
 // Forget the currently {@link Phaser.Signal#memorize memorized} event, if any.
 func (self *Signal) ForgetI(args ...interface{}) {
-    self.Call("forget", args)
+    self.Object.Call("forget", args)
+}
+
+// Dispose the signal - no more events can be dispatched.
+// 
+// This removes all event listeners and clears references to external objects.
+// Calling methods on a disposed objects results in undefined behavior.
+func (self *Signal) Dispose() {
+    self.Object.Call("dispose")
 }
 
 // Dispose the signal - no more events can be dispatched.
@@ -183,10 +278,15 @@ func (self *Signal) ForgetI(args ...interface{}) {
 // This removes all event listeners and clears references to external objects.
 // Calling methods on a disposed objects results in undefined behavior.
 func (self *Signal) DisposeI(args ...interface{}) {
-    self.Call("dispose", args)
+    self.Object.Call("dispose", args)
+}
+
+// A string representation of the object.
+func (self *Signal) ToString() string{
+    return self.Object.Call("toString").String()
 }
 
 // A string representation of the object.
 func (self *Signal) ToStringI(args ...interface{}) string{
-    return self.Call("toString", args).String()
+    return self.Object.Call("toString", args).String()
 }

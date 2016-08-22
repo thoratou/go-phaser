@@ -14,53 +14,63 @@ type Event struct {
 
 
 // The original target the event triggered on.
-func (self *Event) GetTarget() interface{}{
-    return self.Get("target")
+func (self *Event) GetTargetA() interface{}{
+    return self.Object.Get("target")
 }
 
 // The original target the event triggered on.
-func (self *Event) SetTarget(member interface{}) {
-    self.Set("target", member)
+func (self *Event) SetTargetA(member interface{}) {
+    self.Object.Set("target", member)
 }
 
 // The string name of the event that this represents.
-func (self *Event) GetType() string{
-    return self.Get("type").String()
+func (self *Event) GetTypeA() string{
+    return self.Object.Get("type").String()
 }
 
 // The string name of the event that this represents.
-func (self *Event) SetType(member string) {
-    self.Set("type", member)
+func (self *Event) SetTypeA(member string) {
+    self.Object.Set("type", member)
 }
 
 // The data that was passed in with this event.
-func (self *Event) GetData() interface{}{
-    return self.Get("data")
+func (self *Event) GetDataA() interface{}{
+    return self.Object.Get("data")
 }
 
 // The data that was passed in with this event.
-func (self *Event) SetData(member interface{}) {
-    self.Set("data", member)
+func (self *Event) SetDataA(member interface{}) {
+    self.Object.Set("data", member)
 }
 
 // The timestamp when the event occurred.
-func (self *Event) GetTimeStamp() int{
-    return self.Get("timeStamp").Int()
+func (self *Event) GetTimeStampA() int{
+    return self.Object.Get("timeStamp").Int()
 }
 
 // The timestamp when the event occurred.
-func (self *Event) SetTimeStamp(member int) {
-    self.Set("timeStamp", member)
+func (self *Event) SetTimeStampA(member int) {
+    self.Object.Set("timeStamp", member)
 }
 
 
 
 // Stops the propagation of events up the scene graph (prevents bubbling).
+func (self *Event) StopPropagation() {
+    self.Object.Call("stopPropagation")
+}
+
+// Stops the propagation of events up the scene graph (prevents bubbling).
 func (self *Event) StopPropagationI(args ...interface{}) {
-    self.Call("stopPropagation", args)
+    self.Object.Call("stopPropagation", args)
+}
+
+// Stops the propagation of events to sibling listeners (no longer calls any listeners).
+func (self *Event) StopImmediatePropagation() {
+    self.Object.Call("stopImmediatePropagation")
 }
 
 // Stops the propagation of events to sibling listeners (no longer calls any listeners).
 func (self *Event) StopImmediatePropagationI(args ...interface{}) {
-    self.Call("stopImmediatePropagation", args)
+    self.Object.Call("stopImmediatePropagation", args)
 }

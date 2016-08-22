@@ -14,43 +14,43 @@ type PhysicsP2PointProxy struct {
 
 
 // The x property of this PointProxy get and set in pixels.
-func (self *PhysicsP2PointProxy) GetX() int{
-    return self.Get("x").Int()
+func (self *PhysicsP2PointProxy) GetXA() int{
+    return self.Object.Get("x").Int()
 }
 
 // The x property of this PointProxy get and set in pixels.
-func (self *PhysicsP2PointProxy) SetX(member int) {
-    self.Set("x", member)
+func (self *PhysicsP2PointProxy) SetXA(member int) {
+    self.Object.Set("x", member)
 }
 
 // The y property of this PointProxy get and set in pixels.
-func (self *PhysicsP2PointProxy) GetY() int{
-    return self.Get("y").Int()
+func (self *PhysicsP2PointProxy) GetYA() int{
+    return self.Object.Get("y").Int()
 }
 
 // The y property of this PointProxy get and set in pixels.
-func (self *PhysicsP2PointProxy) SetY(member int) {
-    self.Set("y", member)
+func (self *PhysicsP2PointProxy) SetYA(member int) {
+    self.Object.Set("y", member)
 }
 
 // The x property of this PointProxy get and set in meters.
-func (self *PhysicsP2PointProxy) GetMx() int{
-    return self.Get("mx").Int()
+func (self *PhysicsP2PointProxy) GetMxA() int{
+    return self.Object.Get("mx").Int()
 }
 
 // The x property of this PointProxy get and set in meters.
-func (self *PhysicsP2PointProxy) SetMx(member int) {
-    self.Set("mx", member)
+func (self *PhysicsP2PointProxy) SetMxA(member int) {
+    self.Object.Set("mx", member)
 }
 
 // The x property of this PointProxy get and set in meters.
-func (self *PhysicsP2PointProxy) GetMy() int{
-    return self.Get("my").Int()
+func (self *PhysicsP2PointProxy) GetMyA() int{
+    return self.Object.Get("my").Int()
 }
 
 // The x property of this PointProxy get and set in meters.
-func (self *PhysicsP2PointProxy) SetMy(member int) {
-    self.Set("my", member)
+func (self *PhysicsP2PointProxy) SetMyA(member int) {
+    self.Object.Set("my", member)
 }
 
 

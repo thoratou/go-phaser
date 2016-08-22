@@ -14,43 +14,43 @@ type PhysicsP2InversePointProxy struct {
 
 
 // The x property of this InversePointProxy get and set in pixels.
-func (self *PhysicsP2InversePointProxy) GetX() int{
-    return self.Get("x").Int()
+func (self *PhysicsP2InversePointProxy) GetXA() int{
+    return self.Object.Get("x").Int()
 }
 
 // The x property of this InversePointProxy get and set in pixels.
-func (self *PhysicsP2InversePointProxy) SetX(member int) {
-    self.Set("x", member)
+func (self *PhysicsP2InversePointProxy) SetXA(member int) {
+    self.Object.Set("x", member)
 }
 
 // The y property of this InversePointProxy get and set in pixels.
-func (self *PhysicsP2InversePointProxy) GetY() int{
-    return self.Get("y").Int()
+func (self *PhysicsP2InversePointProxy) GetYA() int{
+    return self.Object.Get("y").Int()
 }
 
 // The y property of this InversePointProxy get and set in pixels.
-func (self *PhysicsP2InversePointProxy) SetY(member int) {
-    self.Set("y", member)
+func (self *PhysicsP2InversePointProxy) SetYA(member int) {
+    self.Object.Set("y", member)
 }
 
 // The x property of this InversePointProxy get and set in meters.
-func (self *PhysicsP2InversePointProxy) GetMx() int{
-    return self.Get("mx").Int()
+func (self *PhysicsP2InversePointProxy) GetMxA() int{
+    return self.Object.Get("mx").Int()
 }
 
 // The x property of this InversePointProxy get and set in meters.
-func (self *PhysicsP2InversePointProxy) SetMx(member int) {
-    self.Set("mx", member)
+func (self *PhysicsP2InversePointProxy) SetMxA(member int) {
+    self.Object.Set("mx", member)
 }
 
 // The y property of this InversePointProxy get and set in meters.
-func (self *PhysicsP2InversePointProxy) GetMy() int{
-    return self.Get("my").Int()
+func (self *PhysicsP2InversePointProxy) GetMyA() int{
+    return self.Object.Get("my").Int()
 }
 
 // The y property of this InversePointProxy get and set in meters.
-func (self *PhysicsP2InversePointProxy) SetMy(member int) {
-    self.Set("my", member)
+func (self *PhysicsP2InversePointProxy) SetMyA(member int) {
+    self.Object.Set("my", member)
 }
 
 

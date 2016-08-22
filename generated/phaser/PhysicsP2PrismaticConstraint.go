@@ -14,23 +14,23 @@ type PhysicsP2PrismaticConstraint struct {
 
 
 // Local reference to game.
-func (self *PhysicsP2PrismaticConstraint) GetGame() *Game{
-    return &Game{self.Get("game")}
+func (self *PhysicsP2PrismaticConstraint) GetGameA() *Game{
+    return &Game{self.Object.Get("game")}
 }
 
 // Local reference to game.
-func (self *PhysicsP2PrismaticConstraint) SetGame(member *Game) {
-    self.Set("game", member)
+func (self *PhysicsP2PrismaticConstraint) SetGameA(member *Game) {
+    self.Object.Set("game", member)
 }
 
 // Local reference to P2 World.
-func (self *PhysicsP2PrismaticConstraint) GetWorld() *PhysicsP2{
-    return &PhysicsP2{self.Get("world")}
+func (self *PhysicsP2PrismaticConstraint) GetWorldA() *PhysicsP2{
+    return &PhysicsP2{self.Object.Get("world")}
 }
 
 // Local reference to P2 World.
-func (self *PhysicsP2PrismaticConstraint) SetWorld(member *PhysicsP2) {
-    self.Set("world", member)
+func (self *PhysicsP2PrismaticConstraint) SetWorldA(member *PhysicsP2) {
+    self.Object.Set("world", member)
 }
 
 

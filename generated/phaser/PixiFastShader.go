@@ -14,75 +14,85 @@ type PixiFastShader struct {
 
 
 // 
-func (self *PixiFastShader) GetGl() WebGLContext{
-    return WrapWebGLContext(self.Get("gl"))
+func (self *PixiFastShader) GetGlA() WebGLContext{
+    return WrapWebGLContext(self.Object.Get("gl"))
 }
 
 // 
-func (self *PixiFastShader) SetGl(member WebGLContext) {
-    self.Set("gl", member)
+func (self *PixiFastShader) SetGlA(member WebGLContext) {
+    self.Object.Set("gl", member)
 }
 
 // The WebGL program.
-func (self *PixiFastShader) GetProgram() interface{}{
-    return self.Get("program")
+func (self *PixiFastShader) GetProgramA() interface{}{
+    return self.Object.Get("program")
 }
 
 // The WebGL program.
-func (self *PixiFastShader) SetProgram(member interface{}) {
-    self.Set("program", member)
+func (self *PixiFastShader) SetProgramA(member interface{}) {
+    self.Object.Set("program", member)
 }
 
 // The fragment shader.
-func (self *PixiFastShader) GetFragmentSrc() []interface{}{
-	array := self.Get("fragmentSrc")
-	length := array.Length()
-	out := make([]interface{}, length, length)
-	for i := 0; i < length; i++ {
-		out[i] = array.Index(i).Interface()
+func (self *PixiFastShader) GetFragmentSrcA() []interface{}{
+	array00 := self.Object.Get("fragmentSrc")
+	length00 := array00.Length()
+	out00 := make([]interface{}, length00, length00)
+	for i00 := 0; i00 < length00; i00++ {
+		out00[i00] = array00.Index(i00).Interface()
 	}
-	return out
+	return out00
 }
 
 // The fragment shader.
-func (self *PixiFastShader) SetFragmentSrc(member []interface{}) {
-    self.Set("fragmentSrc", member)
+func (self *PixiFastShader) SetFragmentSrcA(member []interface{}) {
+    self.Object.Set("fragmentSrc", member)
 }
 
 // The vertex shader.
-func (self *PixiFastShader) GetVertexSrc() []interface{}{
-	array := self.Get("vertexSrc")
-	length := array.Length()
-	out := make([]interface{}, length, length)
-	for i := 0; i < length; i++ {
-		out[i] = array.Index(i).Interface()
+func (self *PixiFastShader) GetVertexSrcA() []interface{}{
+	array00 := self.Object.Get("vertexSrc")
+	length00 := array00.Length()
+	out00 := make([]interface{}, length00, length00)
+	for i00 := 0; i00 < length00; i00++ {
+		out00[i00] = array00.Index(i00).Interface()
 	}
-	return out
+	return out00
 }
 
 // The vertex shader.
-func (self *PixiFastShader) SetVertexSrc(member []interface{}) {
-    self.Set("vertexSrc", member)
+func (self *PixiFastShader) SetVertexSrcA(member []interface{}) {
+    self.Object.Set("vertexSrc", member)
 }
 
 // A local texture counter for multi-texture shaders.
-func (self *PixiFastShader) GetTextureCount() int{
-    return self.Get("textureCount").Int()
+func (self *PixiFastShader) GetTextureCountA() int{
+    return self.Object.Get("textureCount").Int()
 }
 
 // A local texture counter for multi-texture shaders.
-func (self *PixiFastShader) SetTextureCount(member int) {
-    self.Set("textureCount", member)
+func (self *PixiFastShader) SetTextureCountA(member int) {
+    self.Object.Set("textureCount", member)
 }
 
 
 
 // Initialises the shader.
+func (self *PixiFastShader) Init() {
+    self.Object.Call("init")
+}
+
+// Initialises the shader.
 func (self *PixiFastShader) InitI(args ...interface{}) {
-    self.Call("init", args)
+    self.Object.Call("init", args)
+}
+
+// Destroys the shader.
+func (self *PixiFastShader) Destroy() {
+    self.Object.Call("destroy")
 }
 
 // Destroys the shader.
 func (self *PixiFastShader) DestroyI(args ...interface{}) {
-    self.Call("destroy", args)
+    self.Object.Call("destroy", args)
 }

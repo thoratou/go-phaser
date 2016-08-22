@@ -14,65 +14,75 @@ type StripShader struct {
 
 
 // 
-func (self *StripShader) GetGl() WebGLContext{
-    return WrapWebGLContext(self.Get("gl"))
+func (self *StripShader) GetGlA() WebGLContext{
+    return WrapWebGLContext(self.Object.Get("gl"))
 }
 
 // 
-func (self *StripShader) SetGl(member WebGLContext) {
-    self.Set("gl", member)
+func (self *StripShader) SetGlA(member WebGLContext) {
+    self.Object.Set("gl", member)
 }
 
 // The WebGL program.
-func (self *StripShader) GetProgram() interface{}{
-    return self.Get("program")
+func (self *StripShader) GetProgramA() interface{}{
+    return self.Object.Get("program")
 }
 
 // The WebGL program.
-func (self *StripShader) SetProgram(member interface{}) {
-    self.Set("program", member)
+func (self *StripShader) SetProgramA(member interface{}) {
+    self.Object.Set("program", member)
 }
 
 // The fragment shader.
-func (self *StripShader) GetFragmentSrc() []interface{}{
-	array := self.Get("fragmentSrc")
-	length := array.Length()
-	out := make([]interface{}, length, length)
-	for i := 0; i < length; i++ {
-		out[i] = array.Index(i).Interface()
+func (self *StripShader) GetFragmentSrcA() []interface{}{
+	array00 := self.Object.Get("fragmentSrc")
+	length00 := array00.Length()
+	out00 := make([]interface{}, length00, length00)
+	for i00 := 0; i00 < length00; i00++ {
+		out00[i00] = array00.Index(i00).Interface()
 	}
-	return out
+	return out00
 }
 
 // The fragment shader.
-func (self *StripShader) SetFragmentSrc(member []interface{}) {
-    self.Set("fragmentSrc", member)
+func (self *StripShader) SetFragmentSrcA(member []interface{}) {
+    self.Object.Set("fragmentSrc", member)
 }
 
 // The vertex shader.
-func (self *StripShader) GetVertexSrc() []interface{}{
-	array := self.Get("vertexSrc")
-	length := array.Length()
-	out := make([]interface{}, length, length)
-	for i := 0; i < length; i++ {
-		out[i] = array.Index(i).Interface()
+func (self *StripShader) GetVertexSrcA() []interface{}{
+	array00 := self.Object.Get("vertexSrc")
+	length00 := array00.Length()
+	out00 := make([]interface{}, length00, length00)
+	for i00 := 0; i00 < length00; i00++ {
+		out00[i00] = array00.Index(i00).Interface()
 	}
-	return out
+	return out00
 }
 
 // The vertex shader.
-func (self *StripShader) SetVertexSrc(member []interface{}) {
-    self.Set("vertexSrc", member)
+func (self *StripShader) SetVertexSrcA(member []interface{}) {
+    self.Object.Set("vertexSrc", member)
 }
 
 
 
 // Initialises the shader.
+func (self *StripShader) Init() {
+    self.Object.Call("init")
+}
+
+// Initialises the shader.
 func (self *StripShader) InitI(args ...interface{}) {
-    self.Call("init", args)
+    self.Object.Call("init", args)
+}
+
+// Destroys the shader.
+func (self *StripShader) Destroy() {
+    self.Object.Call("destroy")
 }
 
 // Destroys the shader.
 func (self *StripShader) DestroyI(args ...interface{}) {
-    self.Call("destroy", args)
+    self.Object.Call("destroy", args)
 }

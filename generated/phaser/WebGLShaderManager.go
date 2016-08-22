@@ -14,81 +14,101 @@ type WebGLShaderManager struct {
 
 
 // 
-func (self *WebGLShaderManager) GetMaxAttibs() int{
-    return self.Get("maxAttibs").Int()
+func (self *WebGLShaderManager) GetMaxAttibsA() int{
+    return self.Object.Get("maxAttibs").Int()
 }
 
 // 
-func (self *WebGLShaderManager) SetMaxAttibs(member int) {
-    self.Set("maxAttibs", member)
+func (self *WebGLShaderManager) SetMaxAttibsA(member int) {
+    self.Object.Set("maxAttibs", member)
 }
 
 // 
-func (self *WebGLShaderManager) GetAttribState() []interface{}{
-	array := self.Get("attribState")
-	length := array.Length()
-	out := make([]interface{}, length, length)
-	for i := 0; i < length; i++ {
-		out[i] = array.Index(i).Interface()
+func (self *WebGLShaderManager) GetAttribStateA() []interface{}{
+	array00 := self.Object.Get("attribState")
+	length00 := array00.Length()
+	out00 := make([]interface{}, length00, length00)
+	for i00 := 0; i00 < length00; i00++ {
+		out00[i00] = array00.Index(i00).Interface()
 	}
-	return out
+	return out00
 }
 
 // 
-func (self *WebGLShaderManager) SetAttribState(member []interface{}) {
-    self.Set("attribState", member)
+func (self *WebGLShaderManager) SetAttribStateA(member []interface{}) {
+    self.Object.Set("attribState", member)
 }
 
 // 
-func (self *WebGLShaderManager) GetTempAttribState() []interface{}{
-	array := self.Get("tempAttribState")
-	length := array.Length()
-	out := make([]interface{}, length, length)
-	for i := 0; i < length; i++ {
-		out[i] = array.Index(i).Interface()
+func (self *WebGLShaderManager) GetTempAttribStateA() []interface{}{
+	array00 := self.Object.Get("tempAttribState")
+	length00 := array00.Length()
+	out00 := make([]interface{}, length00, length00)
+	for i00 := 0; i00 < length00; i00++ {
+		out00[i00] = array00.Index(i00).Interface()
 	}
-	return out
+	return out00
 }
 
 // 
-func (self *WebGLShaderManager) SetTempAttribState(member []interface{}) {
-    self.Set("tempAttribState", member)
+func (self *WebGLShaderManager) SetTempAttribStateA(member []interface{}) {
+    self.Object.Set("tempAttribState", member)
 }
 
 // 
-func (self *WebGLShaderManager) GetStack() []interface{}{
-	array := self.Get("stack")
-	length := array.Length()
-	out := make([]interface{}, length, length)
-	for i := 0; i < length; i++ {
-		out[i] = array.Index(i).Interface()
+func (self *WebGLShaderManager) GetStackA() []interface{}{
+	array00 := self.Object.Get("stack")
+	length00 := array00.Length()
+	out00 := make([]interface{}, length00, length00)
+	for i00 := 0; i00 < length00; i00++ {
+		out00[i00] = array00.Index(i00).Interface()
 	}
-	return out
+	return out00
 }
 
 // 
-func (self *WebGLShaderManager) SetStack(member []interface{}) {
-    self.Set("stack", member)
+func (self *WebGLShaderManager) SetStackA(member []interface{}) {
+    self.Object.Set("stack", member)
 }
 
 
 
 // Initialises the context and the properties.
+func (self *WebGLShaderManager) SetContext(gl *WebGLContext) {
+    self.Object.Call("setContext", gl)
+}
+
+// Initialises the context and the properties.
 func (self *WebGLShaderManager) SetContextI(args ...interface{}) {
-    self.Call("setContext", args)
+    self.Object.Call("setContext", args)
+}
+
+// Takes the attributes given in parameters.
+func (self *WebGLShaderManager) SetAttribs(attribs []interface{}) {
+    self.Object.Call("setAttribs", attribs)
 }
 
 // Takes the attributes given in parameters.
 func (self *WebGLShaderManager) SetAttribsI(args ...interface{}) {
-    self.Call("setAttribs", args)
+    self.Object.Call("setAttribs", args)
+}
+
+// Sets the current shader.
+func (self *WebGLShaderManager) SetShader(shader interface{}) {
+    self.Object.Call("setShader", shader)
 }
 
 // Sets the current shader.
 func (self *WebGLShaderManager) SetShaderI(args ...interface{}) {
-    self.Call("setShader", args)
+    self.Object.Call("setShader", args)
+}
+
+// Destroys this object.
+func (self *WebGLShaderManager) Destroy() {
+    self.Object.Call("destroy")
 }
 
 // Destroys this object.
 func (self *WebGLShaderManager) DestroyI(args ...interface{}) {
-    self.Call("destroy", args)
+    self.Object.Call("destroy", args)
 }

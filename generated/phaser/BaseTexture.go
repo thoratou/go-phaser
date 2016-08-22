@@ -14,101 +14,101 @@ type BaseTexture struct {
 
 
 // The Resolution of the texture.
-func (self *BaseTexture) GetResolution() int{
-    return self.Get("resolution").Int()
+func (self *BaseTexture) GetResolutionA() int{
+    return self.Object.Get("resolution").Int()
 }
 
 // The Resolution of the texture.
-func (self *BaseTexture) SetResolution(member int) {
-    self.Set("resolution", member)
+func (self *BaseTexture) SetResolutionA(member int) {
+    self.Object.Set("resolution", member)
 }
 
 // [read-only] The width of the base texture set when the image has loaded
-func (self *BaseTexture) GetWidth() int{
-    return self.Get("width").Int()
+func (self *BaseTexture) GetWidthA() int{
+    return self.Object.Get("width").Int()
 }
 
 // [read-only] The width of the base texture set when the image has loaded
-func (self *BaseTexture) SetWidth(member int) {
-    self.Set("width", member)
+func (self *BaseTexture) SetWidthA(member int) {
+    self.Object.Set("width", member)
 }
 
 // [read-only] The height of the base texture set when the image has loaded
-func (self *BaseTexture) GetHeight() int{
-    return self.Get("height").Int()
+func (self *BaseTexture) GetHeightA() int{
+    return self.Object.Get("height").Int()
 }
 
 // [read-only] The height of the base texture set when the image has loaded
-func (self *BaseTexture) SetHeight(member int) {
-    self.Set("height", member)
+func (self *BaseTexture) SetHeightA(member int) {
+    self.Object.Set("height", member)
 }
 
 // The scale mode to apply when scaling this texture
-func (self *BaseTexture) GetScaleMode() int{
-    return self.Get("scaleMode").Int()
+func (self *BaseTexture) GetScaleModeA() int{
+    return self.Object.Get("scaleMode").Int()
 }
 
 // The scale mode to apply when scaling this texture
-func (self *BaseTexture) SetScaleMode(member int) {
-    self.Set("scaleMode", member)
+func (self *BaseTexture) SetScaleModeA(member int) {
+    self.Object.Set("scaleMode", member)
 }
 
 // [read-only] Set to true once the base texture has loaded
-func (self *BaseTexture) GetHasLoaded() bool{
-    return self.Get("hasLoaded").Bool()
+func (self *BaseTexture) GetHasLoadedA() bool{
+    return self.Object.Get("hasLoaded").Bool()
 }
 
 // [read-only] Set to true once the base texture has loaded
-func (self *BaseTexture) SetHasLoaded(member bool) {
-    self.Set("hasLoaded", member)
+func (self *BaseTexture) SetHasLoadedA(member bool) {
+    self.Object.Set("hasLoaded", member)
 }
 
 // The image source that is used to create the texture.
-func (self *BaseTexture) GetSource() *Image{
-    return &Image{self.Get("source")}
+func (self *BaseTexture) GetSourceA() *Image{
+    return &Image{self.Object.Get("source")}
 }
 
 // The image source that is used to create the texture.
-func (self *BaseTexture) SetSource(member *Image) {
-    self.Set("source", member)
+func (self *BaseTexture) SetSourceA(member *Image) {
+    self.Object.Set("source", member)
 }
 
 // Controls if RGB channels should be pre-multiplied by Alpha  (WebGL only)
-func (self *BaseTexture) GetPremultipliedAlpha() bool{
-    return self.Get("premultipliedAlpha").Bool()
+func (self *BaseTexture) GetPremultipliedAlphaA() bool{
+    return self.Object.Get("premultipliedAlpha").Bool()
 }
 
 // Controls if RGB channels should be pre-multiplied by Alpha  (WebGL only)
-func (self *BaseTexture) SetPremultipliedAlpha(member bool) {
-    self.Set("premultipliedAlpha", member)
+func (self *BaseTexture) SetPremultipliedAlphaA(member bool) {
+    self.Object.Set("premultipliedAlpha", member)
 }
 
 // Set this to true if a mipmap of this texture needs to be generated. This value needs to be set before the texture is used
 // Also the texture must be a power of two size to work
-func (self *BaseTexture) GetMipmap() bool{
-    return self.Get("mipmap").Bool()
+func (self *BaseTexture) GetMipmapA() bool{
+    return self.Object.Get("mipmap").Bool()
 }
 
 // Set this to true if a mipmap of this texture needs to be generated. This value needs to be set before the texture is used
 // Also the texture must be a power of two size to work
-func (self *BaseTexture) SetMipmap(member bool) {
-    self.Set("mipmap", member)
+func (self *BaseTexture) SetMipmapA(member bool) {
+    self.Object.Set("mipmap", member)
 }
 
 // A BaseTexture can be set to skip the rendering phase in the WebGL Sprite Batch.
 // 
 // You may want to do this if you have a parent Sprite with no visible texture (i.e. uses the internal `__default` texture)
 // that has children that you do want to render, without causing a batch flush in the process.
-func (self *BaseTexture) GetSkipRender() bool{
-    return self.Get("skipRender").Bool()
+func (self *BaseTexture) GetSkipRenderA() bool{
+    return self.Object.Get("skipRender").Bool()
 }
 
 // A BaseTexture can be set to skip the rendering phase in the WebGL Sprite Batch.
 // 
 // You may want to do this if you have a parent Sprite with no visible texture (i.e. uses the internal `__default` texture)
 // that has children that you do want to render, without causing a batch flush in the process.
-func (self *BaseTexture) SetSkipRender(member bool) {
-    self.Set("skipRender", member)
+func (self *BaseTexture) SetSkipRenderA(member bool) {
+    self.Object.Set("skipRender", member)
 }
 
 
@@ -116,32 +116,65 @@ func (self *BaseTexture) SetSkipRender(member bool) {
 // Forces this BaseTexture to be set as loaded, with the given width and height.
 // Then calls BaseTexture.dirty.
 // Important for when you don't want to modify the source object by forcing in `complete` or dimension properties it may not have.
+func (self *BaseTexture) ForceLoaded(width int, height int) {
+    self.Object.Call("forceLoaded", width, height)
+}
+
+// Forces this BaseTexture to be set as loaded, with the given width and height.
+// Then calls BaseTexture.dirty.
+// Important for when you don't want to modify the source object by forcing in `complete` or dimension properties it may not have.
 func (self *BaseTexture) ForceLoadedI(args ...interface{}) {
-    self.Call("forceLoaded", args)
+    self.Object.Call("forceLoaded", args)
+}
+
+// Destroys this base texture
+func (self *BaseTexture) Destroy() {
+    self.Object.Call("destroy")
 }
 
 // Destroys this base texture
 func (self *BaseTexture) DestroyI(args ...interface{}) {
-    self.Call("destroy", args)
+    self.Object.Call("destroy", args)
+}
+
+// Changes the source image of the texture
+func (self *BaseTexture) UpdateSourceImage(newSrc string) {
+    self.Object.Call("updateSourceImage", newSrc)
 }
 
 // Changes the source image of the texture
 func (self *BaseTexture) UpdateSourceImageI(args ...interface{}) {
-    self.Call("updateSourceImage", args)
+    self.Object.Call("updateSourceImage", args)
+}
+
+// Sets all glTextures to be dirty.
+func (self *BaseTexture) Dirty() {
+    self.Object.Call("dirty")
 }
 
 // Sets all glTextures to be dirty.
 func (self *BaseTexture) DirtyI(args ...interface{}) {
-    self.Call("dirty", args)
+    self.Object.Call("dirty", args)
+}
+
+// Removes the base texture from the GPU, useful for managing resources on the GPU.
+// Atexture is still 100% usable and will simply be reuploaded if there is a sprite on screen that is using it.
+func (self *BaseTexture) UnloadFromGPU() {
+    self.Object.Call("unloadFromGPU")
 }
 
 // Removes the base texture from the GPU, useful for managing resources on the GPU.
 // Atexture is still 100% usable and will simply be reuploaded if there is a sprite on screen that is using it.
 func (self *BaseTexture) UnloadFromGPUI(args ...interface{}) {
-    self.Call("unloadFromGPU", args)
+    self.Object.Call("unloadFromGPU", args)
+}
+
+// Helper function that creates a base texture from the given canvas element.
+func (self *BaseTexture) FromCanvas(canvas *Canvas, scaleMode int) *BaseTexture{
+    return &BaseTexture{self.Object.Call("fromCanvas", canvas, scaleMode)}
 }
 
 // Helper function that creates a base texture from the given canvas element.
 func (self *BaseTexture) FromCanvasI(args ...interface{}) *BaseTexture{
-    return &BaseTexture{self.Call("fromCanvas", args)}
+    return &BaseTexture{self.Object.Call("fromCanvas", args)}
 }

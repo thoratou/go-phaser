@@ -16,6 +16,11 @@ type EasingLinear struct {
 
 
 // Linear Easing (no variation).
+func (self *EasingLinear) None(k int) int{
+    return self.Object.Call("None", k).Int()
+}
+
+// Linear Easing (no variation).
 func (self *EasingLinear) NoneI(args ...interface{}) int{
-    return self.Call("None", args).Int()
+    return self.Object.Call("None", args).Int()
 }

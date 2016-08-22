@@ -14,13 +14,13 @@ type PhysicsArcadeTilemapCollision struct {
 
 
 // A value added to the delta values during collision with tiles. Adjust this if you get tunneling.
-func (self *PhysicsArcadeTilemapCollision) GetTILE_BIAS() int{
-    return self.Get("TILE_BIAS").Int()
+func (self *PhysicsArcadeTilemapCollision) GetTILE_BIASA() int{
+    return self.Object.Get("TILE_BIAS").Int()
 }
 
 // A value added to the delta values during collision with tiles. Adjust this if you get tunneling.
-func (self *PhysicsArcadeTilemapCollision) SetTILE_BIAS(member int) {
-    self.Set("TILE_BIAS", member)
+func (self *PhysicsArcadeTilemapCollision) SetTILE_BIASA(member int) {
+    self.Object.Set("TILE_BIAS", member)
 }
 
 

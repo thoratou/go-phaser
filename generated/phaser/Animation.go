@@ -16,113 +16,113 @@ type Animation struct {
 
 
 // A reference to the currently running Game.
-func (self *Animation) GetGame() *Game{
-    return &Game{self.Get("game")}
+func (self *Animation) GetGameA() *Game{
+    return &Game{self.Object.Get("game")}
 }
 
 // A reference to the currently running Game.
-func (self *Animation) SetGame(member *Game) {
-    self.Set("game", member)
+func (self *Animation) SetGameA(member *Game) {
+    self.Object.Set("game", member)
 }
 
 // The user defined name given to this Animation.
-func (self *Animation) GetName() string{
-    return self.Get("name").String()
+func (self *Animation) GetNameA() string{
+    return self.Object.Get("name").String()
 }
 
 // The user defined name given to this Animation.
-func (self *Animation) SetName(member string) {
-    self.Set("name", member)
+func (self *Animation) SetNameA(member string) {
+    self.Object.Set("name", member)
 }
 
 // The delay in ms between each frame of the Animation, based on the given frameRate.
-func (self *Animation) GetDelay() int{
-    return self.Get("delay").Int()
+func (self *Animation) GetDelayA() int{
+    return self.Object.Get("delay").Int()
 }
 
 // The delay in ms between each frame of the Animation, based on the given frameRate.
-func (self *Animation) SetDelay(member int) {
-    self.Set("delay", member)
+func (self *Animation) SetDelayA(member int) {
+    self.Object.Set("delay", member)
 }
 
 // The loop state of the Animation.
-func (self *Animation) GetLoop() bool{
-    return self.Get("loop").Bool()
+func (self *Animation) GetLoopA() bool{
+    return self.Object.Get("loop").Bool()
 }
 
 // The loop state of the Animation.
-func (self *Animation) SetLoop(member bool) {
-    self.Set("loop", member)
+func (self *Animation) SetLoopA(member bool) {
+    self.Object.Set("loop", member)
 }
 
 // The number of times the animation has looped since it was last started.
-func (self *Animation) GetLoopCount() int{
-    return self.Get("loopCount").Int()
+func (self *Animation) GetLoopCountA() int{
+    return self.Object.Get("loopCount").Int()
 }
 
 // The number of times the animation has looped since it was last started.
-func (self *Animation) SetLoopCount(member int) {
-    self.Set("loopCount", member)
+func (self *Animation) SetLoopCountA(member int) {
+    self.Object.Set("loopCount", member)
 }
 
 // Should the parent of this Animation be killed when the animation completes?
-func (self *Animation) GetKillOnComplete() bool{
-    return self.Get("killOnComplete").Bool()
+func (self *Animation) GetKillOnCompleteA() bool{
+    return self.Object.Get("killOnComplete").Bool()
 }
 
 // Should the parent of this Animation be killed when the animation completes?
-func (self *Animation) SetKillOnComplete(member bool) {
-    self.Set("killOnComplete", member)
+func (self *Animation) SetKillOnCompleteA(member bool) {
+    self.Object.Set("killOnComplete", member)
 }
 
 // The finished state of the Animation. Set to true once playback completes, false during playback.
-func (self *Animation) GetIsFinished() bool{
-    return self.Get("isFinished").Bool()
+func (self *Animation) GetIsFinishedA() bool{
+    return self.Object.Get("isFinished").Bool()
 }
 
 // The finished state of the Animation. Set to true once playback completes, false during playback.
-func (self *Animation) SetIsFinished(member bool) {
-    self.Set("isFinished", member)
+func (self *Animation) SetIsFinishedA(member bool) {
+    self.Object.Set("isFinished", member)
 }
 
 // The playing state of the Animation. Set to false once playback completes, true during playback.
-func (self *Animation) GetIsPlaying() bool{
-    return self.Get("isPlaying").Bool()
+func (self *Animation) GetIsPlayingA() bool{
+    return self.Object.Get("isPlaying").Bool()
 }
 
 // The playing state of the Animation. Set to false once playback completes, true during playback.
-func (self *Animation) SetIsPlaying(member bool) {
-    self.Set("isPlaying", member)
+func (self *Animation) SetIsPlayingA(member bool) {
+    self.Object.Set("isPlaying", member)
 }
 
 // The paused state of the Animation.
-func (self *Animation) GetIsPaused() bool{
-    return self.Get("isPaused").Bool()
+func (self *Animation) GetIsPausedA() bool{
+    return self.Object.Get("isPaused").Bool()
 }
 
 // The paused state of the Animation.
-func (self *Animation) SetIsPaused(member bool) {
-    self.Set("isPaused", member)
+func (self *Animation) SetIsPausedA(member bool) {
+    self.Object.Set("isPaused", member)
 }
 
 // The currently displayed frame of the Animation.
-func (self *Animation) GetCurrentFrame() *Frame{
-    return &Frame{self.Get("currentFrame")}
+func (self *Animation) GetCurrentFrameA() *Frame{
+    return &Frame{self.Object.Get("currentFrame")}
 }
 
 // The currently displayed frame of the Animation.
-func (self *Animation) SetCurrentFrame(member *Frame) {
-    self.Set("currentFrame", member)
+func (self *Animation) SetCurrentFrameA(member *Frame) {
+    self.Object.Set("currentFrame", member)
 }
 
 // This event is dispatched when this Animation starts playback.
-func (self *Animation) GetOnStart() *Signal{
-    return &Signal{self.Get("onStart")}
+func (self *Animation) GetOnStartA() *Signal{
+    return &Signal{self.Object.Get("onStart")}
 }
 
 // This event is dispatched when this Animation starts playback.
-func (self *Animation) SetOnStart(member *Signal) {
-    self.Set("onStart", member)
+func (self *Animation) SetOnStartA(member *Signal) {
+    self.Object.Set("onStart", member)
 }
 
 // This event is dispatched when the Animation changes frame.
@@ -130,8 +130,8 @@ func (self *Animation) SetOnStart(member *Signal) {
 // Note that the event is only dispatched with the current frame. In a low-FPS environment Animations
 // will automatically frame-skip to try and claw back time, so do not base your code on expecting to
 // receive a perfectly sequential set of frames from this event.
-func (self *Animation) GetOnUpdate() interface{}{
-    return self.Get("onUpdate")
+func (self *Animation) GetOnUpdateA() interface{}{
+    return self.Object.Get("onUpdate")
 }
 
 // This event is dispatched when the Animation changes frame.
@@ -139,148 +139,204 @@ func (self *Animation) GetOnUpdate() interface{}{
 // Note that the event is only dispatched with the current frame. In a low-FPS environment Animations
 // will automatically frame-skip to try and claw back time, so do not base your code on expecting to
 // receive a perfectly sequential set of frames from this event.
-func (self *Animation) SetOnUpdate(member interface{}) {
-    self.Set("onUpdate", member)
+func (self *Animation) SetOnUpdateA(member interface{}) {
+    self.Object.Set("onUpdate", member)
 }
 
 // This event is dispatched when this Animation completes playback. If the animation is set to loop this is never fired, listen for onLoop instead.
-func (self *Animation) GetOnComplete() *Signal{
-    return &Signal{self.Get("onComplete")}
+func (self *Animation) GetOnCompleteA() *Signal{
+    return &Signal{self.Object.Get("onComplete")}
 }
 
 // This event is dispatched when this Animation completes playback. If the animation is set to loop this is never fired, listen for onLoop instead.
-func (self *Animation) SetOnComplete(member *Signal) {
-    self.Set("onComplete", member)
+func (self *Animation) SetOnCompleteA(member *Signal) {
+    self.Object.Set("onComplete", member)
 }
 
 // This event is dispatched when this Animation loops.
-func (self *Animation) GetOnLoop() *Signal{
-    return &Signal{self.Get("onLoop")}
+func (self *Animation) GetOnLoopA() *Signal{
+    return &Signal{self.Object.Get("onLoop")}
 }
 
 // This event is dispatched when this Animation loops.
-func (self *Animation) SetOnLoop(member *Signal) {
-    self.Set("onLoop", member)
+func (self *Animation) SetOnLoopA(member *Signal) {
+    self.Object.Set("onLoop", member)
 }
 
 // Indicates if the animation will play backwards.
-func (self *Animation) GetIsReversed() bool{
-    return self.Get("isReversed").Bool()
+func (self *Animation) GetIsReversedA() bool{
+    return self.Object.Get("isReversed").Bool()
 }
 
 // Indicates if the animation will play backwards.
-func (self *Animation) SetIsReversed(member bool) {
-    self.Set("isReversed", member)
+func (self *Animation) SetIsReversedA(member bool) {
+    self.Object.Set("isReversed", member)
 }
 
 // Gets and sets the paused state of this Animation.
-func (self *Animation) GetPaused() bool{
-    return self.Get("paused").Bool()
+func (self *Animation) GetPausedA() bool{
+    return self.Object.Get("paused").Bool()
 }
 
 // Gets and sets the paused state of this Animation.
-func (self *Animation) SetPaused(member bool) {
-    self.Set("paused", member)
+func (self *Animation) SetPausedA(member bool) {
+    self.Object.Set("paused", member)
 }
 
 // Gets and sets the isReversed state of this Animation.
-func (self *Animation) GetReversed() bool{
-    return self.Get("reversed").Bool()
+func (self *Animation) GetReversedA() bool{
+    return self.Object.Get("reversed").Bool()
 }
 
 // Gets and sets the isReversed state of this Animation.
-func (self *Animation) SetReversed(member bool) {
-    self.Set("reversed", member)
+func (self *Animation) SetReversedA(member bool) {
+    self.Object.Set("reversed", member)
 }
 
 // The total number of frames in the currently loaded FrameData, or -1 if no FrameData is loaded.
-func (self *Animation) GetFrameTotal() int{
-    return self.Get("frameTotal").Int()
+func (self *Animation) GetFrameTotalA() int{
+    return self.Object.Get("frameTotal").Int()
 }
 
 // The total number of frames in the currently loaded FrameData, or -1 if no FrameData is loaded.
-func (self *Animation) SetFrameTotal(member int) {
-    self.Set("frameTotal", member)
+func (self *Animation) SetFrameTotalA(member int) {
+    self.Object.Set("frameTotal", member)
 }
 
 // Gets or sets the current frame index and updates the Texture Cache for display.
-func (self *Animation) GetFrame() int{
-    return self.Get("frame").Int()
+func (self *Animation) GetFrameA() int{
+    return self.Object.Get("frame").Int()
 }
 
 // Gets or sets the current frame index and updates the Texture Cache for display.
-func (self *Animation) SetFrame(member int) {
-    self.Set("frame", member)
+func (self *Animation) SetFrameA(member int) {
+    self.Object.Set("frame", member)
 }
 
 // Gets or sets the current speed of the animation in frames per second. Changing this in a playing animation will take effect from the next frame. Minimum value is 1.
-func (self *Animation) GetSpeed() int{
-    return self.Get("speed").Int()
+func (self *Animation) GetSpeedA() int{
+    return self.Object.Get("speed").Int()
 }
 
 // Gets or sets the current speed of the animation in frames per second. Changing this in a playing animation will take effect from the next frame. Minimum value is 1.
-func (self *Animation) SetSpeed(member int) {
-    self.Set("speed", member)
+func (self *Animation) SetSpeedA(member int) {
+    self.Object.Set("speed", member)
 }
 
 // Gets or sets if this animation will dispatch the onUpdate events upon changing frame.
-func (self *Animation) GetEnableUpdate() bool{
-    return self.Get("enableUpdate").Bool()
+func (self *Animation) GetEnableUpdateA() bool{
+    return self.Object.Get("enableUpdate").Bool()
 }
 
 // Gets or sets if this animation will dispatch the onUpdate events upon changing frame.
-func (self *Animation) SetEnableUpdate(member bool) {
-    self.Set("enableUpdate", member)
+func (self *Animation) SetEnableUpdateA(member bool) {
+    self.Object.Set("enableUpdate", member)
 }
 
 
 
 // Plays this animation.
+func (self *Animation) Play(frameRate int, loop bool, killOnComplete bool) *Animation{
+    return &Animation{self.Object.Call("play", frameRate, loop, killOnComplete)}
+}
+
+// Plays this animation.
 func (self *Animation) PlayI(args ...interface{}) *Animation{
-    return &Animation{self.Call("play", args)}
+    return &Animation{self.Object.Call("play", args)}
+}
+
+// Sets this animation back to the first frame and restarts the animation.
+func (self *Animation) Restart() {
+    self.Object.Call("restart")
 }
 
 // Sets this animation back to the first frame and restarts the animation.
 func (self *Animation) RestartI(args ...interface{}) {
-    self.Call("restart", args)
+    self.Object.Call("restart", args)
+}
+
+// Reverses the animation direction
+func (self *Animation) Reverse() *Animation{
+    return &Animation{self.Object.Call("reverse")}
 }
 
 // Reverses the animation direction
 func (self *Animation) ReverseI(args ...interface{}) *Animation{
-    return &Animation{self.Call("reverse", args)}
+    return &Animation{self.Object.Call("reverse", args)}
+}
+
+// Reverses the animation direction for the current/next animation only
+// Once the onComplete event is called this method will be called again and revert
+// the reversed state.
+func (self *Animation) ReverseOnce() *Animation{
+    return &Animation{self.Object.Call("reverseOnce")}
 }
 
 // Reverses the animation direction for the current/next animation only
 // Once the onComplete event is called this method will be called again and revert
 // the reversed state.
 func (self *Animation) ReverseOnceI(args ...interface{}) *Animation{
-    return &Animation{self.Call("reverseOnce", args)}
+    return &Animation{self.Object.Call("reverseOnce", args)}
+}
+
+// Sets this animations playback to a given frame with the given ID.
+func (self *Animation) SetFrame(frameId interface{}, useLocalFrameIndex bool) {
+    self.Object.Call("setFrame", frameId, useLocalFrameIndex)
 }
 
 // Sets this animations playback to a given frame with the given ID.
 func (self *Animation) SetFrameI(args ...interface{}) {
-    self.Call("setFrame", args)
+    self.Object.Call("setFrame", args)
+}
+
+// Stops playback of this animation and set it to a finished state. If a resetFrame is provided it will stop playback and set frame to the first in the animation.
+// If `dispatchComplete` is true it will dispatch the complete events, otherwise they'll be ignored.
+func (self *Animation) Stop(resetFrame bool, dispatchComplete bool) {
+    self.Object.Call("stop", resetFrame, dispatchComplete)
 }
 
 // Stops playback of this animation and set it to a finished state. If a resetFrame is provided it will stop playback and set frame to the first in the animation.
 // If `dispatchComplete` is true it will dispatch the complete events, otherwise they'll be ignored.
 func (self *Animation) StopI(args ...interface{}) {
-    self.Call("stop", args)
+    self.Object.Call("stop", args)
+}
+
+// Called when the Game enters a paused state.
+func (self *Animation) OnPause() {
+    self.Object.Call("onPause")
 }
 
 // Called when the Game enters a paused state.
 func (self *Animation) OnPauseI(args ...interface{}) {
-    self.Call("onPause", args)
+    self.Object.Call("onPause", args)
+}
+
+// Called when the Game resumes from a paused state.
+func (self *Animation) OnResume() {
+    self.Object.Call("onResume")
 }
 
 // Called when the Game resumes from a paused state.
 func (self *Animation) OnResumeI(args ...interface{}) {
-    self.Call("onResume", args)
+    self.Object.Call("onResume", args)
+}
+
+// Updates this animation. Called automatically by the AnimationManager.
+func (self *Animation) Update() {
+    self.Object.Call("update")
 }
 
 // Updates this animation. Called automatically by the AnimationManager.
 func (self *Animation) UpdateI(args ...interface{}) {
-    self.Call("update", args)
+    self.Object.Call("update", args)
+}
+
+// Changes the currentFrame per the _frameIndex, updates the display state,
+// and triggers the update signal.
+// 
+// Returns true if the current frame update was 'successful', false otherwise.
+func (self *Animation) UpdateCurrentFrame(signalUpdate bool, fromPlay bool) bool{
+    return self.Object.Call("updateCurrentFrame", signalUpdate, fromPlay).Bool()
 }
 
 // Changes the currentFrame per the _frameIndex, updates the display state,
@@ -288,45 +344,85 @@ func (self *Animation) UpdateI(args ...interface{}) {
 // 
 // Returns true if the current frame update was 'successful', false otherwise.
 func (self *Animation) UpdateCurrentFrameI(args ...interface{}) bool{
-    return self.Call("updateCurrentFrame", args).Bool()
+    return self.Object.Call("updateCurrentFrame", args).Bool()
+}
+
+// Advances by the given number of frames in the Animation, taking the loop value into consideration.
+func (self *Animation) Next(quantity int) {
+    self.Object.Call("next", quantity)
 }
 
 // Advances by the given number of frames in the Animation, taking the loop value into consideration.
 func (self *Animation) NextI(args ...interface{}) {
-    self.Call("next", args)
+    self.Object.Call("next", args)
+}
+
+// Moves backwards the given number of frames in the Animation, taking the loop value into consideration.
+func (self *Animation) Previous(quantity int) {
+    self.Object.Call("previous", quantity)
 }
 
 // Moves backwards the given number of frames in the Animation, taking the loop value into consideration.
 func (self *Animation) PreviousI(args ...interface{}) {
-    self.Call("previous", args)
+    self.Object.Call("previous", args)
+}
+
+// Changes the FrameData object this Animation is using.
+func (self *Animation) UpdateFrameData(frameData *FrameData) {
+    self.Object.Call("updateFrameData", frameData)
 }
 
 // Changes the FrameData object this Animation is using.
 func (self *Animation) UpdateFrameDataI(args ...interface{}) {
-    self.Call("updateFrameData", args)
+    self.Object.Call("updateFrameData", args)
+}
+
+// Cleans up this animation ready for deletion. Nulls all values and references.
+func (self *Animation) Destroy() {
+    self.Object.Call("destroy")
 }
 
 // Cleans up this animation ready for deletion. Nulls all values and references.
 func (self *Animation) DestroyI(args ...interface{}) {
-    self.Call("destroy", args)
+    self.Object.Call("destroy", args)
+}
+
+// Called internally when the animation finishes playback.
+// Sets the isPlaying and isFinished states and dispatches the onAnimationComplete event if it exists on the parent and local onComplete event.
+func (self *Animation) Complete() {
+    self.Object.Call("complete")
 }
 
 // Called internally when the animation finishes playback.
 // Sets the isPlaying and isFinished states and dispatches the onAnimationComplete event if it exists on the parent and local onComplete event.
 func (self *Animation) CompleteI(args ...interface{}) {
-    self.Call("complete", args)
+    self.Object.Call("complete", args)
+}
+
+// Really handy function for when you are creating arrays of animation data but it's using frame names and not numbers.
+// For example imagine you've got 30 frames named: 'explosion_0001-large' to 'explosion_0030-large'
+// You could use this function to generate those by doing: Phaser.Animation.generateFrameNames('explosion_', 1, 30, '-large', 4);
+func (self *Animation) GenerateFrameNames(prefix string, start int, stop int, suffix string, zeroPad int) []string{
+	array00 := self.Object.Call("generateFrameNames", prefix, start, stop, suffix, zeroPad)
+	length00 := array00.Length()
+	out00 := make([]string, length00, length00)
+	for i00 := 0; i00 < length00; i00++ {
+		out00[i00] = array00.Index(i00).String()
+		
+	}
+	return out00
 }
 
 // Really handy function for when you are creating arrays of animation data but it's using frame names and not numbers.
 // For example imagine you've got 30 frames named: 'explosion_0001-large' to 'explosion_0030-large'
 // You could use this function to generate those by doing: Phaser.Animation.generateFrameNames('explosion_', 1, 30, '-large', 4);
 func (self *Animation) GenerateFrameNamesI(args ...interface{}) []string{
-	array := self.Call("generateFrameNames", args)
-	length := array.Length()
-	out := make([]string, length, length)
-	for i := 0; i < length; i++ {
-		out[i] = array.Index(i).String()
+	array00 := self.Object.Call("generateFrameNames", args)
+	length00 := array00.Length()
+	out00 := make([]string, length00, length00)
+	for i00 := 0; i00 < length00; i00++ {
+		out00[i00] = array00.Index(i00).String()
 		
 	}
-	return out
+	return out00
 }

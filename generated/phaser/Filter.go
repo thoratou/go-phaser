@@ -17,110 +17,136 @@ type Filter struct {
 
 
 // A reference to the currently running game.
-func (self *Filter) GetGame() *Game{
-    return &Game{self.Get("game")}
+func (self *Filter) GetGameA() *Game{
+    return &Game{self.Object.Get("game")}
 }
 
 // A reference to the currently running game.
-func (self *Filter) SetGame(member *Game) {
-    self.Set("game", member)
+func (self *Filter) SetGameA(member *Game) {
+    self.Object.Set("game", member)
 }
 
 // The const type of this object, either Phaser.WEBGL_FILTER or Phaser.CANVAS_FILTER.
-func (self *Filter) GetType() int{
-    return self.Get("type").Int()
+func (self *Filter) GetTypeA() int{
+    return self.Object.Get("type").Int()
 }
 
 // The const type of this object, either Phaser.WEBGL_FILTER or Phaser.CANVAS_FILTER.
-func (self *Filter) SetType(member int) {
-    self.Set("type", member)
+func (self *Filter) SetTypeA(member int) {
+    self.Object.Set("type", member)
 }
 
 // Internal PIXI var.
-func (self *Filter) GetDirty() bool{
-    return self.Get("dirty").Bool()
+func (self *Filter) GetDirtyA() bool{
+    return self.Object.Get("dirty").Bool()
 }
 
 // Internal PIXI var.
-func (self *Filter) SetDirty(member bool) {
-    self.Set("dirty", member)
+func (self *Filter) SetDirtyA(member bool) {
+    self.Object.Set("dirty", member)
 }
 
 // Internal PIXI var.
-func (self *Filter) GetPadding() int{
-    return self.Get("padding").Int()
+func (self *Filter) GetPaddingA() int{
+    return self.Object.Get("padding").Int()
 }
 
 // Internal PIXI var.
-func (self *Filter) SetPadding(member int) {
-    self.Set("padding", member)
+func (self *Filter) SetPaddingA(member int) {
+    self.Object.Set("padding", member)
 }
 
 // The previous position of the pointer (we don't update the uniform if the same)
-func (self *Filter) GetPrevPoint() *Point{
-    return &Point{self.Get("prevPoint")}
+func (self *Filter) GetPrevPointA() *Point{
+    return &Point{self.Object.Get("prevPoint")}
 }
 
 // The previous position of the pointer (we don't update the uniform if the same)
-func (self *Filter) SetPrevPoint(member *Point) {
-    self.Set("prevPoint", member)
+func (self *Filter) SetPrevPointA(member *Point) {
+    self.Object.Set("prevPoint", member)
 }
 
 // Default uniform mappings. Compatible with ShaderToy and GLSLSandbox.
-func (self *Filter) GetUniforms() interface{}{
-    return self.Get("uniforms")
+func (self *Filter) GetUniformsA() interface{}{
+    return self.Object.Get("uniforms")
 }
 
 // Default uniform mappings. Compatible with ShaderToy and GLSLSandbox.
-func (self *Filter) SetUniforms(member interface{}) {
-    self.Set("uniforms", member)
+func (self *Filter) SetUniformsA(member interface{}) {
+    self.Object.Set("uniforms", member)
 }
 
 // The fragment shader code.
-func (self *Filter) GetFragmentSrc() interface{}{
-    return self.Get("fragmentSrc")
+func (self *Filter) GetFragmentSrcA() interface{}{
+    return self.Object.Get("fragmentSrc")
 }
 
 // The fragment shader code.
-func (self *Filter) SetFragmentSrc(member interface{}) {
-    self.Set("fragmentSrc", member)
+func (self *Filter) SetFragmentSrcA(member interface{}) {
+    self.Object.Set("fragmentSrc", member)
 }
 
 // The width (resolution uniform)
-func (self *Filter) GetWidth() int{
-    return self.Get("width").Int()
+func (self *Filter) GetWidthA() int{
+    return self.Object.Get("width").Int()
 }
 
 // The width (resolution uniform)
-func (self *Filter) SetWidth(member int) {
-    self.Set("width", member)
+func (self *Filter) SetWidthA(member int) {
+    self.Object.Set("width", member)
 }
 
 // The height (resolution uniform)
-func (self *Filter) GetHeight() int{
-    return self.Get("height").Int()
+func (self *Filter) GetHeightA() int{
+    return self.Object.Get("height").Int()
 }
 
 // The height (resolution uniform)
-func (self *Filter) SetHeight(member int) {
-    self.Set("height", member)
+func (self *Filter) SetHeightA(member int) {
+    self.Object.Set("height", member)
 }
 
 
 
 // Should be over-ridden.
+func (self *Filter) Init() {
+    self.Object.Call("init")
+}
+
+// Should be over-ridden.
 func (self *Filter) InitI(args ...interface{}) {
-    self.Call("init", args)
+    self.Object.Call("init", args)
+}
+
+// Set the resolution uniforms on the filter.
+func (self *Filter) SetResolution(width int, height int) {
+    self.Object.Call("setResolution", width, height)
 }
 
 // Set the resolution uniforms on the filter.
 func (self *Filter) SetResolutionI(args ...interface{}) {
-    self.Call("setResolution", args)
+    self.Object.Call("setResolution", args)
+}
+
+// Updates the filter.
+func (self *Filter) Update(pointer *Pointer) {
+    self.Object.Call("update", pointer)
 }
 
 // Updates the filter.
 func (self *Filter) UpdateI(args ...interface{}) {
-    self.Call("update", args)
+    self.Object.Call("update", args)
+}
+
+// Creates a new Phaser.Image object using a blank texture and assigns 
+// this Filter to it. The image is then added to the world.
+// 
+// If you don't provide width and height values then Filter.width and Filter.height are used.
+// 
+// If you do provide width and height values then this filter will be resized to match those
+// values.
+func (self *Filter) AddToWorld(x int, y int, width int, height int, anchorX int, anchorY int) *Image{
+    return &Image{self.Object.Call("addToWorld", x, y, width, height, anchorX, anchorY)}
 }
 
 // Creates a new Phaser.Image object using a blank texture and assigns 
@@ -131,10 +157,15 @@ func (self *Filter) UpdateI(args ...interface{}) {
 // If you do provide width and height values then this filter will be resized to match those
 // values.
 func (self *Filter) AddToWorldI(args ...interface{}) *Image{
-    return &Image{self.Call("addToWorld", args)}
+    return &Image{self.Object.Call("addToWorld", args)}
+}
+
+// Clear down this Filter and null out references
+func (self *Filter) Destroy() {
+    self.Object.Call("destroy")
 }
 
 // Clear down this Filter and null out references
 func (self *Filter) DestroyI(args ...interface{}) {
-    self.Call("destroy", args)
+    self.Object.Call("destroy", args)
 }

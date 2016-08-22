@@ -16,16 +16,31 @@ type EasingElastic struct {
 
 
 // Elastic ease-in.
+func (self *EasingElastic) In(k int) int{
+    return self.Object.Call("In", k).Int()
+}
+
+// Elastic ease-in.
 func (self *EasingElastic) InI(args ...interface{}) int{
-    return self.Call("In", args).Int()
+    return self.Object.Call("In", args).Int()
+}
+
+// Elastic ease-out.
+func (self *EasingElastic) Out(k int) int{
+    return self.Object.Call("Out", k).Int()
 }
 
 // Elastic ease-out.
 func (self *EasingElastic) OutI(args ...interface{}) int{
-    return self.Call("Out", args).Int()
+    return self.Object.Call("Out", args).Int()
+}
+
+// Elastic ease-in/out.
+func (self *EasingElastic) InOut(k int) int{
+    return self.Object.Call("InOut", k).Int()
 }
 
 // Elastic ease-in/out.
 func (self *EasingElastic) InOutI(args ...interface{}) int{
-    return self.Call("InOut", args).Int()
+    return self.Object.Call("InOut", args).Int()
 }

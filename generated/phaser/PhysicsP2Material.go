@@ -16,13 +16,13 @@ type PhysicsP2Material struct {
 
 
 // The user defined name given to this Material.
-func (self *PhysicsP2Material) GetName() string{
-    return self.Get("name").String()
+func (self *PhysicsP2Material) GetNameA() string{
+    return self.Object.Get("name").String()
 }
 
 // The user defined name given to this Material.
-func (self *PhysicsP2Material) SetName(member string) {
-    self.Set("name", member)
+func (self *PhysicsP2Material) SetNameA(member string) {
+    self.Object.Set("name", member)
 }
 
 

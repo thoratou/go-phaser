@@ -16,16 +16,31 @@ type EasingQuartic struct {
 
 
 // Quartic ease-in.
+func (self *EasingQuartic) In(k int) int{
+    return self.Object.Call("In", k).Int()
+}
+
+// Quartic ease-in.
 func (self *EasingQuartic) InI(args ...interface{}) int{
-    return self.Call("In", args).Int()
+    return self.Object.Call("In", args).Int()
+}
+
+// Quartic ease-out.
+func (self *EasingQuartic) Out(k int) int{
+    return self.Object.Call("Out", k).Int()
 }
 
 // Quartic ease-out.
 func (self *EasingQuartic) OutI(args ...interface{}) int{
-    return self.Call("Out", args).Int()
+    return self.Object.Call("Out", args).Int()
+}
+
+// Quartic ease-in/out.
+func (self *EasingQuartic) InOut(k int) int{
+    return self.Object.Call("InOut", k).Int()
 }
 
 // Quartic ease-in/out.
 func (self *EasingQuartic) InOutI(args ...interface{}) int{
-    return self.Call("InOut", args).Int()
+    return self.Object.Call("InOut", args).Int()
 }
