@@ -78,6 +78,8 @@ func GoType(str string, typePackage string) string {
 		return native
 	}
 	switch str {
+	case "...interface{}":
+		return "...interface{}"
 	case "any":
 		return "interface{}"
 	case "object":
@@ -255,6 +257,30 @@ func AddFunctionWrappers(elements []Function, wrappers map[string]string) []Func
 		if wrapper, exists := wrappers[v.Return.GetType()]; exists {
 			fmt.Println("note: add wrapper: " + wrapper + " to type: " + v.Return.GetType())
 			v.Return.Wrapper = wrapper
+		}
+		result = append(result, v)
+	}
+	return result
+}
+
+func AddParameteredFunctions(elements []Function) []Function {
+	result := []Function{}
+	for _, v := range elements {
+
+		//generic parameters
+		v.Suffix = "I"
+		v.Parameters = make([]Parameter, 1, 1)
+		v.Parameters[0] = Parameter{
+			Name: "args",
+			Type: Type{
+				Names:       []string{"...interface{}"},
+				Description: "",
+				Package:     "",
+				Wrapper:     "",
+			},
+			Description: "",
+			Optional:    false,
+			Nullable:    false,
 		}
 		result = append(result, v)
 	}

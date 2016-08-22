@@ -61,7 +61,7 @@ func (t *Type) GetType() string {
 }
 
 func (t *Type) GetTypeOptionalPointer() string {
-	if !t.IsVoid() && !t.IsAnyType() && !t.IsNativeType() && !t.IsArray() && !t.IsCallback() && !t.HasWrapper() {
+	if !t.IsVoid() && !t.IsAnyType() && !t.IsNativeType() && !t.IsArray() && !t.IsCallback() && !t.HasWrapper() && !t.IsAnyParameters() {
 		return "*" + t.GetType()
 	}
 	return t.GetType()
@@ -73,6 +73,10 @@ func (t *Type) IsVoid() bool {
 
 func (t *Type) IsCallback() bool {
 	return t.GetType() == "func(...interface{})"
+}
+
+func (t *Type) IsAnyParameters() bool {
+	return t.GetType() == "...interface{}"
 }
 
 func (t *Type) IsAnyType() bool {

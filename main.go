@@ -76,6 +76,9 @@ func main() {
 		class.Members = AddMemberWrappers(class.Members, wrappers)
 		class.Functions = AddFunctionWrappers(class.Functions, wrappers)
 
+		//generate various parameter handling functions
+		class.Functions = AddParameteredFunctions(class.Functions)
+
 		classes = append(classes, class)
 	}
 	root.Classes = classes

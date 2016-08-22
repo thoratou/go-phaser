@@ -65,17 +65,17 @@ func (self *{{$class.GetNameNoNamespace}}) Set{{.GetNameUpperInitial}}(member {{
 {{- range .GetDescriptionLines}}
 // {{. -}}
 {{- end}}
-func (self *{{$class.GetNameNoNamespace}}) {{.GetNameUpperInitial}}I(args ...interface{}) {{if not .Return.IsVoid -}}{{.Return.GetTypeOptionalPointer}} {{- end}}{
+func (self *{{$class.GetNameNoNamespace}}) {{.GetNameUpperInitial}}({{.GetParameterFullString}}) {{if not .Return.IsVoid -}}{{.Return.GetTypeOptionalPointer}} {{- end}}{
 {{- if .Return.IsVoid}}
-    self.Call("{{.Name}}", args)
+    self.Call("{{.Name}}"{{.GetParameterCallString}})
 {{else if .Return.HasWrapper}}
-    return {{.Return.Wrapper}}(self.Call("{{.Name}}", args))
+    return {{.Return.Wrapper}}(self.Call("{{.Name}}"{{.GetParameterCallString}}))
 {{else if .Return.IsAnyType}}
-    return self.Call("{{.Name}}", args)
+    return self.Call("{{.Name}}"{{.GetParameterCallString}})
 {{else if .Return.IsNativeType}}
-    return self.Call("{{.Name}}", args).{{.Return.GetGopherjsCallName}}()
+    return self.Call("{{.Name}}"{{.GetParameterCallString}}).{{.Return.GetGopherjsCallName}}()
 {{else if .Return.IsGenericArray}}
-	array := self.Call("{{.Name}}", args)
+	array := self.Call("{{.Name}}"{{.GetParameterCallString}})
 	length := array.Length()
 	out := make([]interface{}, length, length)
 	for i := 0; i < length; i++ {
@@ -83,7 +83,7 @@ func (self *{{$class.GetNameNoNamespace}}) {{.GetNameUpperInitial}}I(args ...int
 	}
 	return out
 {{else if .Return.IsArray}}
-	array := self.Call("{{.Name}}", args)
+	array := self.Call("{{.Name}}"{{.GetParameterCallString}})
 	length := array.Length()
 	out := make({{.Return.GetType}}, length, length)
 	for i := 0; i < length; i++ {
@@ -95,9 +95,9 @@ func (self *{{$class.GetNameNoNamespace}}) {{.GetNameUpperInitial}}I(args ...int
 	}
 	return out
 {{else if .Return.IsCallback}}
-    return {{.Return.GetType}}{self.Call("{{.Name}}", args)}
+    return {{.Return.GetType}}{self.Call("{{.Name}}"{{.GetParameterCallString}})}
 {{else}}
-    return &{{.Return.GetType}}{self.Call("{{.Name}}", args)}
+    return &{{.Return.GetType}}{self.Call("{{.Name}}"{{.GetParameterCallString}})}
 {{end -}}
 }
 {{end}}
