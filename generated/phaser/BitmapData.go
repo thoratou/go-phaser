@@ -42,22 +42,22 @@ func (self *BitmapData) SetKey(member string) {
 }
 
 // The width of the BitmapData in pixels.
-func (self *BitmapData) GetWidth() float64{
-    return self.Get("width").Float()
+func (self *BitmapData) GetWidth() int{
+    return self.Get("width").Int()
 }
 
 // The width of the BitmapData in pixels.
-func (self *BitmapData) SetWidth(member float64) {
+func (self *BitmapData) SetWidth(member int) {
     self.Set("width", member)
 }
 
 // The height of the BitmapData in pixels.
-func (self *BitmapData) GetHeight() float64{
-    return self.Get("height").Float()
+func (self *BitmapData) GetHeight() int{
+    return self.Get("height").Int()
 }
 
 // The height of the BitmapData in pixels.
-func (self *BitmapData) SetHeight(member float64) {
+func (self *BitmapData) SetHeight(member int) {
     self.Set("height", member)
 }
 
@@ -178,12 +178,12 @@ func (self *BitmapData) SetTextureFrame(member *Frame) {
 }
 
 // The const type of this object.
-func (self *BitmapData) GetType() float64{
-    return self.Get("type").Float()
+func (self *BitmapData) GetType() int{
+    return self.Get("type").Int()
 }
 
 // The const type of this object.
-func (self *BitmapData) SetType(member float64) {
+func (self *BitmapData) SetType(member int) {
     self.Set("type", member)
 }
 
@@ -361,8 +361,8 @@ func (self *BitmapData) GetPixelI(args ...interface{}) interface{}{
 // If you have drawn anything to the BitmapData since it was created you must call BitmapData.update to refresh the array buffer,
 // otherwise this may return out of date color values, or worse - throw a run-time error as it tries to access an array element that doesn't exist.
 // Note that on little-endian systems the format is 0xAABBGGRR and on big-endian the format is 0xRRGGBBAA.
-func (self *BitmapData) GetPixel32I(args ...interface{}) float64{
-    return self.Call("getPixel32", args).Float()
+func (self *BitmapData) GetPixel32I(args ...interface{}) int{
+    return self.Call("getPixel32", args).Int()
 }
 
 // Get the color of a specific pixel including its alpha value as a color object containing r,g,b,a and rgba properties.

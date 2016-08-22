@@ -31,32 +31,32 @@ func (self *TimerEvent) SetTimer(member *Timer) {
 }
 
 // The delay in ms at which this TimerEvent fires.
-func (self *TimerEvent) GetDelay() float64{
-    return self.Get("delay").Float()
+func (self *TimerEvent) GetDelay() int{
+    return self.Get("delay").Int()
 }
 
 // The delay in ms at which this TimerEvent fires.
-func (self *TimerEvent) SetDelay(member float64) {
+func (self *TimerEvent) SetDelay(member int) {
     self.Set("delay", member)
 }
 
 // The tick is the next game clock time that this event will fire at.
-func (self *TimerEvent) GetTick() float64{
-    return self.Get("tick").Float()
+func (self *TimerEvent) GetTick() int{
+    return self.Get("tick").Int()
 }
 
 // The tick is the next game clock time that this event will fire at.
-func (self *TimerEvent) SetTick(member float64) {
+func (self *TimerEvent) SetTick(member int) {
     self.Set("tick", member)
 }
 
 // If this TimerEvent repeats it will do so this many times.
-func (self *TimerEvent) GetRepeatCount() float64{
-    return self.Get("repeatCount").Float()
+func (self *TimerEvent) GetRepeatCount() int{
+    return self.Get("repeatCount").Int()
 }
 
 // If this TimerEvent repeats it will do so this many times.
-func (self *TimerEvent) SetRepeatCount(member float64) {
+func (self *TimerEvent) SetRepeatCount(member int) {
     self.Set("repeatCount", member)
 }
 

@@ -28,8 +28,8 @@ func (self *Math) SetPI2(member interface{}) {
 
 
 // Returns a number between the `min` and `max` values.
-func (self *Math) BetweenI(args ...interface{}) float64{
-    return self.Call("between", args).Float()
+func (self *Math) BetweenI(args ...interface{}) int{
+    return self.Call("between", args).Int()
 }
 
 // Two number are fuzzyEqual if their difference is less than epsilon.
@@ -48,46 +48,46 @@ func (self *Math) FuzzyGreaterThanI(args ...interface{}) bool{
 }
 
 // Applies a fuzzy ceil to the given value.
-func (self *Math) FuzzyCeilI(args ...interface{}) float64{
-    return self.Call("fuzzyCeil", args).Float()
+func (self *Math) FuzzyCeilI(args ...interface{}) int{
+    return self.Call("fuzzyCeil", args).Int()
 }
 
 // Applies a fuzzy floor to the given value.
-func (self *Math) FuzzyFloorI(args ...interface{}) float64{
-    return self.Call("fuzzyFloor", args).Float()
+func (self *Math) FuzzyFloorI(args ...interface{}) int{
+    return self.Call("fuzzyFloor", args).Int()
 }
 
 // Averages all values passed to the function and returns the result.
-func (self *Math) AverageI(args ...interface{}) float64{
-    return self.Call("average", args).Float()
+func (self *Math) AverageI(args ...interface{}) int{
+    return self.Call("average", args).Int()
 }
 
 // 
-func (self *Math) ShearI(args ...interface{}) float64{
-    return self.Call("shear", args).Float()
+func (self *Math) ShearI(args ...interface{}) int{
+    return self.Call("shear", args).Int()
 }
 
 // Snap a value to nearest grid slice, using rounding.
 // 
 // Example: if you have an interval gap of 5 and a position of 12... you will snap to 10 whereas 14 will snap to 15.
-func (self *Math) SnapToI(args ...interface{}) float64{
-    return self.Call("snapTo", args).Float()
+func (self *Math) SnapToI(args ...interface{}) int{
+    return self.Call("snapTo", args).Int()
 }
 
 // Snap a value to nearest grid slice, using floor.
 // 
 // Example: if you have an interval gap of 5 and a position of 12... you will snap to 10.
 // As will 14 snap to 10... but 16 will snap to 15.
-func (self *Math) SnapToFloorI(args ...interface{}) float64{
-    return self.Call("snapToFloor", args).Float()
+func (self *Math) SnapToFloorI(args ...interface{}) int{
+    return self.Call("snapToFloor", args).Int()
 }
 
 // Snap a value to nearest grid slice, using ceil.
 // 
 // Example: if you have an interval gap of 5 and a position of 12... you will snap to 15.
 // As will 14 will snap to 15... but 16 will snap to 20.
-func (self *Math) SnapToCeilI(args ...interface{}) float64{
-    return self.Call("snapToCeil", args).Float()
+func (self *Math) SnapToCeilI(args ...interface{}) int{
+    return self.Call("snapToCeil", args).Int()
 }
 
 // Round to some place comparative to a `base`, default is 10 for decimal place.
@@ -117,77 +117,77 @@ func (self *Math) SnapToCeilI(args ...interface{}) float64{
 // 
 // Note what occurs when we round to the 3rd space (8ths place), 100100000, this is to be assumed
 // because we are rounding 100011.1011011011011011 which rounds up.
-func (self *Math) RoundToI(args ...interface{}) float64{
-    return self.Call("roundTo", args).Float()
+func (self *Math) RoundToI(args ...interface{}) int{
+    return self.Call("roundTo", args).Int()
 }
 
 // Floors to some place comparative to a `base`, default is 10 for decimal place.
 // The `place` is represented by the power applied to `base` to get that place.
-func (self *Math) FloorToI(args ...interface{}) float64{
-    return self.Call("floorTo", args).Float()
+func (self *Math) FloorToI(args ...interface{}) int{
+    return self.Call("floorTo", args).Int()
 }
 
 // Ceils to some place comparative to a `base`, default is 10 for decimal place.
 // The `place` is represented by the power applied to `base` to get that place.
-func (self *Math) CeilToI(args ...interface{}) float64{
-    return self.Call("ceilTo", args).Float()
+func (self *Math) CeilToI(args ...interface{}) int{
+    return self.Call("ceilTo", args).Int()
 }
 
 // Find the angle of a segment from (x1, y1) -> (x2, y2).
-func (self *Math) AngleBetweenI(args ...interface{}) float64{
-    return self.Call("angleBetween", args).Float()
+func (self *Math) AngleBetweenI(args ...interface{}) int{
+    return self.Call("angleBetween", args).Int()
 }
 
 // Find the angle of a segment from (x1, y1) -> (x2, y2).
 // 
 // The difference between this method and Math.angleBetween is that this assumes the y coordinate travels
 // down the screen.
-func (self *Math) AngleBetweenYI(args ...interface{}) float64{
-    return self.Call("angleBetweenY", args).Float()
+func (self *Math) AngleBetweenYI(args ...interface{}) int{
+    return self.Call("angleBetweenY", args).Int()
 }
 
 // Find the angle of a segment from (point1.x, point1.y) -> (point2.x, point2.y).
-func (self *Math) AngleBetweenPointsI(args ...interface{}) float64{
-    return self.Call("angleBetweenPoints", args).Float()
+func (self *Math) AngleBetweenPointsI(args ...interface{}) int{
+    return self.Call("angleBetweenPoints", args).Int()
 }
 
 // Find the angle of a segment from (point1.x, point1.y) -> (point2.x, point2.y).
-func (self *Math) AngleBetweenPointsYI(args ...interface{}) float64{
-    return self.Call("angleBetweenPointsY", args).Float()
+func (self *Math) AngleBetweenPointsYI(args ...interface{}) int{
+    return self.Call("angleBetweenPointsY", args).Int()
 }
 
 // Reverses an angle.
-func (self *Math) ReverseAngleI(args ...interface{}) float64{
-    return self.Call("reverseAngle", args).Float()
+func (self *Math) ReverseAngleI(args ...interface{}) int{
+    return self.Call("reverseAngle", args).Int()
 }
 
 // Normalizes an angle to the [0,2pi) range.
-func (self *Math) NormalizeAngleI(args ...interface{}) float64{
-    return self.Call("normalizeAngle", args).Float()
+func (self *Math) NormalizeAngleI(args ...interface{}) int{
+    return self.Call("normalizeAngle", args).Int()
 }
 
 // Adds the given amount to the value, but never lets the value go over the specified maximum.
-func (self *Math) MaxAddI(args ...interface{}) float64{
-    return self.Call("maxAdd", args).Float()
+func (self *Math) MaxAddI(args ...interface{}) int{
+    return self.Call("maxAdd", args).Int()
 }
 
 // Subtracts the given amount from the value, but never lets the value go below the specified minimum.
-func (self *Math) MinSubI(args ...interface{}) float64{
-    return self.Call("minSub", args).Float()
+func (self *Math) MinSubI(args ...interface{}) int{
+    return self.Call("minSub", args).Int()
 }
 
 // Ensures that the value always stays between min and max, by wrapping the value around.
 // 
 // If `max` is not larger than `min` the result is 0.
-func (self *Math) WrapI(args ...interface{}) float64{
-    return self.Call("wrap", args).Float()
+func (self *Math) WrapI(args ...interface{}) int{
+    return self.Call("wrap", args).Int()
 }
 
 // Adds value to amount and ensures that the result always stays between 0 and max, by wrapping the value around.
 // 
 // Values _must_ be positive integers, and are passed through Math.abs. See {@link Phaser.Math#wrap} for an alternative.
-func (self *Math) WrapValueI(args ...interface{}) float64{
-    return self.Call("wrapValue", args).Float()
+func (self *Math) WrapValueI(args ...interface{}) int{
+    return self.Call("wrapValue", args).Int()
 }
 
 // Returns true if the number given is odd.
@@ -203,72 +203,72 @@ func (self *Math) IsEvenI(args ...interface{}) bool{
 // Variation of Math.min that can be passed either an array of numbers or the numbers as parameters.
 // 
 // Prefer the standard `Math.min` function when appropriate.
-func (self *Math) MinI(args ...interface{}) float64{
-    return self.Call("min", args).Float()
+func (self *Math) MinI(args ...interface{}) int{
+    return self.Call("min", args).Int()
 }
 
 // Variation of Math.max that can be passed either an array of numbers or the numbers as parameters.
 // 
 // Prefer the standard `Math.max` function when appropriate.
-func (self *Math) MaxI(args ...interface{}) float64{
-    return self.Call("max", args).Float()
+func (self *Math) MaxI(args ...interface{}) int{
+    return self.Call("max", args).Int()
 }
 
 // Variation of Math.min that can be passed a property and either an array of objects or the objects as parameters.
 // It will find the lowest matching property value from the given objects.
-func (self *Math) MinPropertyI(args ...interface{}) float64{
-    return self.Call("minProperty", args).Float()
+func (self *Math) MinPropertyI(args ...interface{}) int{
+    return self.Call("minProperty", args).Int()
 }
 
 // Variation of Math.max that can be passed a property and either an array of objects or the objects as parameters.
 // It will find the largest matching property value from the given objects.
-func (self *Math) MaxPropertyI(args ...interface{}) float64{
-    return self.Call("maxProperty", args).Float()
+func (self *Math) MaxPropertyI(args ...interface{}) int{
+    return self.Call("maxProperty", args).Int()
 }
 
 // Keeps an angle value between -180 and +180; or -PI and PI if radians.
-func (self *Math) WrapAngleI(args ...interface{}) float64{
-    return self.Call("wrapAngle", args).Float()
+func (self *Math) WrapAngleI(args ...interface{}) int{
+    return self.Call("wrapAngle", args).Int()
 }
 
 // A Linear Interpolation Method, mostly used by Phaser.Tween.
-func (self *Math) LinearInterpolationI(args ...interface{}) float64{
-    return self.Call("linearInterpolation", args).Float()
+func (self *Math) LinearInterpolationI(args ...interface{}) int{
+    return self.Call("linearInterpolation", args).Int()
 }
 
 // A Bezier Interpolation Method, mostly used by Phaser.Tween.
-func (self *Math) BezierInterpolationI(args ...interface{}) float64{
-    return self.Call("bezierInterpolation", args).Float()
+func (self *Math) BezierInterpolationI(args ...interface{}) int{
+    return self.Call("bezierInterpolation", args).Int()
 }
 
 // A Catmull Rom Interpolation Method, mostly used by Phaser.Tween.
-func (self *Math) CatmullRomInterpolationI(args ...interface{}) float64{
-    return self.Call("catmullRomInterpolation", args).Float()
+func (self *Math) CatmullRomInterpolationI(args ...interface{}) int{
+    return self.Call("catmullRomInterpolation", args).Int()
 }
 
 // Calculates a linear (interpolation) value over t.
-func (self *Math) LinearI(args ...interface{}) float64{
-    return self.Call("linear", args).Float()
+func (self *Math) LinearI(args ...interface{}) int{
+    return self.Call("linear", args).Int()
 }
 
 // 
-func (self *Math) BernsteinI(args ...interface{}) float64{
-    return self.Call("bernstein", args).Float()
+func (self *Math) BernsteinI(args ...interface{}) int{
+    return self.Call("bernstein", args).Int()
 }
 
 // 
-func (self *Math) FactorialI(args ...interface{}) float64{
-    return self.Call("factorial", args).Float()
+func (self *Math) FactorialI(args ...interface{}) int{
+    return self.Call("factorial", args).Int()
 }
 
 // Calculates a catmum rom value.
-func (self *Math) CatmullRomI(args ...interface{}) float64{
-    return self.Call("catmullRom", args).Float()
+func (self *Math) CatmullRomI(args ...interface{}) int{
+    return self.Call("catmullRom", args).Int()
 }
 
 // The absolute difference between two values.
-func (self *Math) DifferenceI(args ...interface{}) float64{
-    return self.Call("difference", args).Float()
+func (self *Math) DifferenceI(args ...interface{}) int{
+    return self.Call("difference", args).Int()
 }
 
 // Round to the next whole number _away_ from zero.
@@ -285,30 +285,30 @@ func (self *Math) SinCosGeneratorI(args ...interface{}) interface{}{
 }
 
 // Returns the euclidian distance between the two given set of coordinates.
-func (self *Math) DistanceI(args ...interface{}) float64{
-    return self.Call("distance", args).Float()
+func (self *Math) DistanceI(args ...interface{}) int{
+    return self.Call("distance", args).Int()
 }
 
 // Returns the euclidean distance squared between the two given set of
 // coordinates (cuts out a square root operation before returning).
-func (self *Math) DistanceSqI(args ...interface{}) float64{
-    return self.Call("distanceSq", args).Float()
+func (self *Math) DistanceSqI(args ...interface{}) int{
+    return self.Call("distanceSq", args).Int()
 }
 
 // Returns the distance between the two given set of coordinates at the power given.
-func (self *Math) DistancePowI(args ...interface{}) float64{
-    return self.Call("distancePow", args).Float()
+func (self *Math) DistancePowI(args ...interface{}) int{
+    return self.Call("distancePow", args).Int()
 }
 
 // Force a value within the boundaries by clamping it to the range `min`, `max`.
-func (self *Math) ClampI(args ...interface{}) float64{
-    return self.Call("clamp", args).Float()
+func (self *Math) ClampI(args ...interface{}) int{
+    return self.Call("clamp", args).Int()
 }
 
 // Clamp `x` to the range `[a, Infinity)`.
 // Roughly the same as `Math.max(x, a)`, except for NaN handling.
-func (self *Math) ClampBottomI(args ...interface{}) float64{
-    return self.Call("clampBottom", args).Float()
+func (self *Math) ClampBottomI(args ...interface{}) int{
+    return self.Call("clampBottom", args).Int()
 }
 
 // Checks if two values are within the given tolerance of each other.
@@ -317,8 +317,8 @@ func (self *Math) WithinI(args ...interface{}) bool{
 }
 
 // Linear mapping from range <a1, a2> to range <b1, b2>
-func (self *Math) MapLinearI(args ...interface{}) float64{
-    return self.Call("mapLinear", args).Float()
+func (self *Math) MapLinearI(args ...interface{}) int{
+    return self.Call("mapLinear", args).Int()
 }
 
 // Smoothstep function as detailed at http://en.wikipedia.org/wiki/Smoothstep
@@ -339,16 +339,16 @@ func (self *Math) SignI(args ...interface{}) int{
 }
 
 // Work out what percentage value `a` is of value `b` using the given base.
-func (self *Math) PercentI(args ...interface{}) float64{
-    return self.Call("percent", args).Float()
+func (self *Math) PercentI(args ...interface{}) int{
+    return self.Call("percent", args).Int()
 }
 
 // Convert degrees to radians.
-func (self *Math) DegToRadI(args ...interface{}) float64{
-    return self.Call("degToRad", args).Float()
+func (self *Math) DegToRadI(args ...interface{}) int{
+    return self.Call("degToRad", args).Int()
 }
 
 // Convert radians to degrees.
-func (self *Math) RadToDegI(args ...interface{}) float64{
-    return self.Call("radToDeg", args).Float()
+func (self *Math) RadToDegI(args ...interface{}) int{
+    return self.Call("radToDeg", args).Int()
 }

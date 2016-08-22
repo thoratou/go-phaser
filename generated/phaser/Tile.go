@@ -24,42 +24,42 @@ func (self *Tile) SetLayer(member interface{}) {
 }
 
 // The index of this tile within the map data corresponding to the tileset, or -1 if this represents a blank/null tile.
-func (self *Tile) GetIndex() float64{
-    return self.Get("index").Float()
+func (self *Tile) GetIndex() int{
+    return self.Get("index").Int()
 }
 
 // The index of this tile within the map data corresponding to the tileset, or -1 if this represents a blank/null tile.
-func (self *Tile) SetIndex(member float64) {
+func (self *Tile) SetIndex(member int) {
     self.Set("index", member)
 }
 
 // The x map coordinate of this tile.
-func (self *Tile) GetX() float64{
-    return self.Get("x").Float()
+func (self *Tile) GetX() int{
+    return self.Get("x").Int()
 }
 
 // The x map coordinate of this tile.
-func (self *Tile) SetX(member float64) {
+func (self *Tile) SetX(member int) {
     self.Set("x", member)
 }
 
 // The y map coordinate of this tile.
-func (self *Tile) GetY() float64{
-    return self.Get("y").Float()
+func (self *Tile) GetY() int{
+    return self.Get("y").Int()
 }
 
 // The y map coordinate of this tile.
-func (self *Tile) SetY(member float64) {
+func (self *Tile) SetY(member int) {
     self.Set("y", member)
 }
 
 // The rotation angle of this tile.
-func (self *Tile) GetRotation() float64{
-    return self.Get("rotation").Float()
+func (self *Tile) GetRotation() int{
+    return self.Get("rotation").Int()
 }
 
 // The rotation angle of this tile.
-func (self *Tile) SetRotation(member float64) {
+func (self *Tile) SetRotation(member int) {
     self.Set("rotation", member)
 }
 
@@ -94,22 +94,22 @@ func (self *Tile) SetWorldY(member interface{}) {
 }
 
 // The width of the tile in pixels.
-func (self *Tile) GetWidth() float64{
-    return self.Get("width").Float()
+func (self *Tile) GetWidth() int{
+    return self.Get("width").Int()
 }
 
 // The width of the tile in pixels.
-func (self *Tile) SetWidth(member float64) {
+func (self *Tile) SetWidth(member int) {
     self.Set("width", member)
 }
 
 // The height of the tile in pixels.
-func (self *Tile) GetHeight() float64{
-    return self.Get("height").Float()
+func (self *Tile) GetHeight() int{
+    return self.Get("height").Int()
 }
 
 // The height of the tile in pixels.
-func (self *Tile) SetHeight(member float64) {
+func (self *Tile) SetHeight(member int) {
     self.Set("height", member)
 }
 
@@ -134,12 +134,12 @@ func (self *Tile) SetCenterY(member interface{}) {
 }
 
 // The alpha value at which this tile is drawn to the canvas.
-func (self *Tile) GetAlpha() float64{
-    return self.Get("alpha").Float()
+func (self *Tile) GetAlpha() int{
+    return self.Get("alpha").Int()
 }
 
 // The alpha value at which this tile is drawn to the canvas.
-func (self *Tile) SetAlpha(member float64) {
+func (self *Tile) SetAlpha(member int) {
     self.Set("alpha", member)
 }
 
@@ -279,42 +279,42 @@ func (self *Tile) SetCanCollide(member bool) {
 }
 
 // The x value in pixels.
-func (self *Tile) GetLeft() float64{
-    return self.Get("left").Float()
+func (self *Tile) GetLeft() int{
+    return self.Get("left").Int()
 }
 
 // The x value in pixels.
-func (self *Tile) SetLeft(member float64) {
+func (self *Tile) SetLeft(member int) {
     self.Set("left", member)
 }
 
 // The sum of the x and width properties.
-func (self *Tile) GetRight() float64{
-    return self.Get("right").Float()
+func (self *Tile) GetRight() int{
+    return self.Get("right").Int()
 }
 
 // The sum of the x and width properties.
-func (self *Tile) SetRight(member float64) {
+func (self *Tile) SetRight(member int) {
     self.Set("right", member)
 }
 
 // The y value.
-func (self *Tile) GetTop() float64{
-    return self.Get("top").Float()
+func (self *Tile) GetTop() int{
+    return self.Get("top").Int()
 }
 
 // The y value.
-func (self *Tile) SetTop(member float64) {
+func (self *Tile) SetTop(member int) {
     self.Set("top", member)
 }
 
 // The sum of the y and height properties.
-func (self *Tile) GetBottom() float64{
-    return self.Get("bottom").Float()
+func (self *Tile) GetBottom() int{
+    return self.Get("bottom").Int()
 }
 
 // The sum of the y and height properties.
-func (self *Tile) SetBottom(member float64) {
+func (self *Tile) SetBottom(member int) {
     self.Set("bottom", member)
 }
 

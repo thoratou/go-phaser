@@ -26,12 +26,12 @@ func (self *SignalBinding) SetContext(member interface{}) {
 }
 
 // The number of times the handler function has been called.
-func (self *SignalBinding) GetCallCount() float64{
-    return self.Get("callCount").Float()
+func (self *SignalBinding) GetCallCount() int{
+    return self.Get("callCount").Int()
 }
 
 // The number of times the handler function has been called.
-func (self *SignalBinding) SetCallCount(member float64) {
+func (self *SignalBinding) SetCallCount(member int) {
     self.Set("callCount", member)
 }
 

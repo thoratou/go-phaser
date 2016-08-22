@@ -34,22 +34,22 @@ func (self *Strip) SetDirty(member bool) {
 }
 
 // The blend mode to be applied to the sprite. Set to PIXI.blendModes.NORMAL to remove any blend mode.
-func (self *Strip) GetBlendMode() float64{
-    return self.Get("blendMode").Float()
+func (self *Strip) GetBlendMode() int{
+    return self.Get("blendMode").Int()
 }
 
 // The blend mode to be applied to the sprite. Set to PIXI.blendModes.NORMAL to remove any blend mode.
-func (self *Strip) SetBlendMode(member float64) {
+func (self *Strip) SetBlendMode(member int) {
     self.Set("blendMode", member)
 }
 
 // Triangles in canvas mode are automatically antialiased, use this value to force triangles to overlap a bit with each other.
-func (self *Strip) GetCanvasPadding() float64{
-    return self.Get("canvasPadding").Float()
+func (self *Strip) GetCanvasPadding() int{
+    return self.Get("canvasPadding").Int()
 }
 
 // Triangles in canvas mode are automatically antialiased, use this value to force triangles to overlap a bit with each other.
-func (self *Strip) SetCanvasPadding(member float64) {
+func (self *Strip) SetCanvasPadding(member int) {
     self.Set("canvasPadding", member)
 }
 
@@ -88,22 +88,22 @@ func (self *Strip) SetIgnoreChildInput(member bool) {
 }
 
 // The width of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *Strip) GetWidth() float64{
-    return self.Get("width").Float()
+func (self *Strip) GetWidth() int{
+    return self.Get("width").Int()
 }
 
 // The width of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *Strip) SetWidth(member float64) {
+func (self *Strip) SetWidth(member int) {
     self.Set("width", member)
 }
 
 // The height of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *Strip) GetHeight() float64{
-    return self.Get("height").Float()
+func (self *Strip) GetHeight() int{
+    return self.Get("height").Int()
 }
 
 // The height of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *Strip) SetHeight(member float64) {
+func (self *Strip) SetHeight(member int) {
     self.Set("height", member)
 }
 
@@ -140,8 +140,8 @@ func (self *Strip) SwapChildrenI(args ...interface{}) {
 }
 
 // Returns the index position of a child DisplayObject instance
-func (self *Strip) GetChildIndexI(args ...interface{}) float64{
-    return self.Call("getChildIndex", args).Float()
+func (self *Strip) GetChildIndexI(args ...interface{}) int{
+    return self.Call("getChildIndex", args).Int()
 }
 
 // Changes the position of an existing child in the display object container

@@ -14,52 +14,52 @@ type Frame struct {
 
 
 // The index of this Frame within the FrameData set it is being added to.
-func (self *Frame) GetIndex() float64{
-    return self.Get("index").Float()
+func (self *Frame) GetIndex() int{
+    return self.Get("index").Int()
 }
 
 // The index of this Frame within the FrameData set it is being added to.
-func (self *Frame) SetIndex(member float64) {
+func (self *Frame) SetIndex(member int) {
     self.Set("index", member)
 }
 
 // X position within the image to cut from.
-func (self *Frame) GetX() float64{
-    return self.Get("x").Float()
+func (self *Frame) GetX() int{
+    return self.Get("x").Int()
 }
 
 // X position within the image to cut from.
-func (self *Frame) SetX(member float64) {
+func (self *Frame) SetX(member int) {
     self.Set("x", member)
 }
 
 // Y position within the image to cut from.
-func (self *Frame) GetY() float64{
-    return self.Get("y").Float()
+func (self *Frame) GetY() int{
+    return self.Get("y").Int()
 }
 
 // Y position within the image to cut from.
-func (self *Frame) SetY(member float64) {
+func (self *Frame) SetY(member int) {
     self.Set("y", member)
 }
 
 // Width of the frame.
-func (self *Frame) GetWidth() float64{
-    return self.Get("width").Float()
+func (self *Frame) GetWidth() int{
+    return self.Get("width").Int()
 }
 
 // Width of the frame.
-func (self *Frame) SetWidth(member float64) {
+func (self *Frame) SetWidth(member int) {
     self.Set("width", member)
 }
 
 // Height of the frame.
-func (self *Frame) GetHeight() float64{
-    return self.Get("height").Float()
+func (self *Frame) GetHeight() int{
+    return self.Get("height").Int()
 }
 
 // Height of the frame.
-func (self *Frame) SetHeight(member float64) {
+func (self *Frame) SetHeight(member int) {
     self.Set("height", member)
 }
 
@@ -74,32 +74,32 @@ func (self *Frame) SetName(member string) {
 }
 
 // Center X position within the image to cut from.
-func (self *Frame) GetCenterX() float64{
-    return self.Get("centerX").Float()
+func (self *Frame) GetCenterX() int{
+    return self.Get("centerX").Int()
 }
 
 // Center X position within the image to cut from.
-func (self *Frame) SetCenterX(member float64) {
+func (self *Frame) SetCenterX(member int) {
     self.Set("centerX", member)
 }
 
 // Center Y position within the image to cut from.
-func (self *Frame) GetCenterY() float64{
-    return self.Get("centerY").Float()
+func (self *Frame) GetCenterY() int{
+    return self.Get("centerY").Int()
 }
 
 // Center Y position within the image to cut from.
-func (self *Frame) SetCenterY(member float64) {
+func (self *Frame) SetCenterY(member int) {
     self.Set("centerY", member)
 }
 
 // The distance from the top left to the bottom-right of this Frame.
-func (self *Frame) GetDistance() float64{
-    return self.Get("distance").Float()
+func (self *Frame) GetDistance() int{
+    return self.Get("distance").Int()
 }
 
 // The distance from the top left to the bottom-right of this Frame.
-func (self *Frame) SetDistance(member float64) {
+func (self *Frame) SetDistance(member int) {
     self.Set("distance", member)
 }
 
@@ -134,82 +134,82 @@ func (self *Frame) SetTrimmed(member bool) {
 }
 
 // Width of the original sprite before it was trimmed.
-func (self *Frame) GetSourceSizeW() float64{
-    return self.Get("sourceSizeW").Float()
+func (self *Frame) GetSourceSizeW() int{
+    return self.Get("sourceSizeW").Int()
 }
 
 // Width of the original sprite before it was trimmed.
-func (self *Frame) SetSourceSizeW(member float64) {
+func (self *Frame) SetSourceSizeW(member int) {
     self.Set("sourceSizeW", member)
 }
 
 // Height of the original sprite before it was trimmed.
-func (self *Frame) GetSourceSizeH() float64{
-    return self.Get("sourceSizeH").Float()
+func (self *Frame) GetSourceSizeH() int{
+    return self.Get("sourceSizeH").Int()
 }
 
 // Height of the original sprite before it was trimmed.
-func (self *Frame) SetSourceSizeH(member float64) {
+func (self *Frame) SetSourceSizeH(member int) {
     self.Set("sourceSizeH", member)
 }
 
 // X position of the trimmed sprite inside original sprite.
-func (self *Frame) GetSpriteSourceSizeX() float64{
-    return self.Get("spriteSourceSizeX").Float()
+func (self *Frame) GetSpriteSourceSizeX() int{
+    return self.Get("spriteSourceSizeX").Int()
 }
 
 // X position of the trimmed sprite inside original sprite.
-func (self *Frame) SetSpriteSourceSizeX(member float64) {
+func (self *Frame) SetSpriteSourceSizeX(member int) {
     self.Set("spriteSourceSizeX", member)
 }
 
 // Y position of the trimmed sprite inside original sprite.
-func (self *Frame) GetSpriteSourceSizeY() float64{
-    return self.Get("spriteSourceSizeY").Float()
+func (self *Frame) GetSpriteSourceSizeY() int{
+    return self.Get("spriteSourceSizeY").Int()
 }
 
 // Y position of the trimmed sprite inside original sprite.
-func (self *Frame) SetSpriteSourceSizeY(member float64) {
+func (self *Frame) SetSpriteSourceSizeY(member int) {
     self.Set("spriteSourceSizeY", member)
 }
 
 // Width of the trimmed sprite.
-func (self *Frame) GetSpriteSourceSizeW() float64{
-    return self.Get("spriteSourceSizeW").Float()
+func (self *Frame) GetSpriteSourceSizeW() int{
+    return self.Get("spriteSourceSizeW").Int()
 }
 
 // Width of the trimmed sprite.
-func (self *Frame) SetSpriteSourceSizeW(member float64) {
+func (self *Frame) SetSpriteSourceSizeW(member int) {
     self.Set("spriteSourceSizeW", member)
 }
 
 // Height of the trimmed sprite.
-func (self *Frame) GetSpriteSourceSizeH() float64{
-    return self.Get("spriteSourceSizeH").Float()
+func (self *Frame) GetSpriteSourceSizeH() int{
+    return self.Get("spriteSourceSizeH").Int()
 }
 
 // Height of the trimmed sprite.
-func (self *Frame) SetSpriteSourceSizeH(member float64) {
+func (self *Frame) SetSpriteSourceSizeH(member int) {
     self.Set("spriteSourceSizeH", member)
 }
 
 // The right of the Frame (x + width).
-func (self *Frame) GetRight() float64{
-    return self.Get("right").Float()
+func (self *Frame) GetRight() int{
+    return self.Get("right").Int()
 }
 
 // The right of the Frame (x + width).
-func (self *Frame) SetRight(member float64) {
+func (self *Frame) SetRight(member int) {
     self.Set("right", member)
 }
 
 // The bottom of the frame (y + height).
-func (self *Frame) GetBottom() float64{
-    return self.Get("bottom").Float()
+func (self *Frame) GetBottom() int{
+    return self.Get("bottom").Int()
 }
 
 // The bottom of the frame (y + height).
-func (self *Frame) SetBottom(member float64) {
+func (self *Frame) SetBottom(member int) {
     self.Set("bottom", member)
 }
 

@@ -101,12 +101,12 @@ func (self *Gamepad) SetSupported(member bool) {
 }
 
 // How many live gamepads are currently connected.
-func (self *Gamepad) GetPadsConnected() float64{
-    return self.Get("padsConnected").Float()
+func (self *Gamepad) GetPadsConnected() int{
+    return self.Get("padsConnected").Int()
 }
 
 // How many live gamepads are currently connected.
-func (self *Gamepad) SetPadsConnected(member float64) {
+func (self *Gamepad) SetPadsConnected(member int) {
     self.Set("padsConnected", member)
 }
 

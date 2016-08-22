@@ -35,12 +35,12 @@ func (self *PhysicsNinjaBody) SetGame(member *Game) {
 }
 
 // The type of physics system this body belongs to.
-func (self *PhysicsNinjaBody) GetType() float64{
-    return self.Get("type").Float()
+func (self *PhysicsNinjaBody) GetType() int{
+    return self.Get("type").Int()
 }
 
 // The type of physics system this body belongs to.
-func (self *PhysicsNinjaBody) SetType(member float64) {
+func (self *PhysicsNinjaBody) SetType(member int) {
     self.Set("type", member)
 }
 
@@ -95,42 +95,42 @@ func (self *PhysicsNinjaBody) SetShape(member interface{}) {
 }
 
 // The drag applied to this object as it moves.
-func (self *PhysicsNinjaBody) GetDrag() float64{
-    return self.Get("drag").Float()
+func (self *PhysicsNinjaBody) GetDrag() int{
+    return self.Get("drag").Int()
 }
 
 // The drag applied to this object as it moves.
-func (self *PhysicsNinjaBody) SetDrag(member float64) {
+func (self *PhysicsNinjaBody) SetDrag(member int) {
     self.Set("drag", member)
 }
 
 // The friction applied to this object as it moves.
-func (self *PhysicsNinjaBody) GetFriction() float64{
-    return self.Get("friction").Float()
+func (self *PhysicsNinjaBody) GetFriction() int{
+    return self.Get("friction").Int()
 }
 
 // The friction applied to this object as it moves.
-func (self *PhysicsNinjaBody) SetFriction(member float64) {
+func (self *PhysicsNinjaBody) SetFriction(member int) {
     self.Set("friction", member)
 }
 
 // How much of the world gravity should be applied to this object? 1 = all of it, 0.5 = 50%, etc.
-func (self *PhysicsNinjaBody) GetGravityScale() float64{
-    return self.Get("gravityScale").Float()
+func (self *PhysicsNinjaBody) GetGravityScale() int{
+    return self.Get("gravityScale").Int()
 }
 
 // How much of the world gravity should be applied to this object? 1 = all of it, 0.5 = 50%, etc.
-func (self *PhysicsNinjaBody) SetGravityScale(member float64) {
+func (self *PhysicsNinjaBody) SetGravityScale(member int) {
     self.Set("gravityScale", member)
 }
 
 // The bounciness of this object when it collides. A value between 0 and 1. We recommend setting it to 0.999 to avoid jittering.
-func (self *PhysicsNinjaBody) GetBounce() float64{
-    return self.Get("bounce").Float()
+func (self *PhysicsNinjaBody) GetBounce() int{
+    return self.Get("bounce").Int()
 }
 
 // The bounciness of this object when it collides. A value between 0 and 1. We recommend setting it to 0.999 to avoid jittering.
-func (self *PhysicsNinjaBody) SetBounce(member float64) {
+func (self *PhysicsNinjaBody) SetBounce(member int) {
     self.Set("bounce", member)
 }
 
@@ -145,12 +145,12 @@ func (self *PhysicsNinjaBody) SetVelocity(member *Point) {
 }
 
 // A const reference to the direction the Body is traveling or facing.
-func (self *PhysicsNinjaBody) GetFacing() float64{
-    return self.Get("facing").Float()
+func (self *PhysicsNinjaBody) GetFacing() int{
+    return self.Get("facing").Int()
 }
 
 // A const reference to the direction the Body is traveling or facing.
-func (self *PhysicsNinjaBody) SetFacing(member float64) {
+func (self *PhysicsNinjaBody) SetFacing(member int) {
     self.Set("facing", member)
 }
 
@@ -209,92 +209,92 @@ func (self *PhysicsNinjaBody) SetWasTouching(member interface{}) {
 }
 
 // The maximum speed this body can travel at (taking drag and friction into account)
-func (self *PhysicsNinjaBody) GetMaxSpeed() float64{
-    return self.Get("maxSpeed").Float()
+func (self *PhysicsNinjaBody) GetMaxSpeed() int{
+    return self.Get("maxSpeed").Int()
 }
 
 // The maximum speed this body can travel at (taking drag and friction into account)
-func (self *PhysicsNinjaBody) SetMaxSpeed(member float64) {
+func (self *PhysicsNinjaBody) SetMaxSpeed(member int) {
     self.Set("maxSpeed", member)
 }
 
 // The x position.
-func (self *PhysicsNinjaBody) GetX() float64{
-    return self.Get("x").Float()
+func (self *PhysicsNinjaBody) GetX() int{
+    return self.Get("x").Int()
 }
 
 // The x position.
-func (self *PhysicsNinjaBody) SetX(member float64) {
+func (self *PhysicsNinjaBody) SetX(member int) {
     self.Set("x", member)
 }
 
 // The y position.
-func (self *PhysicsNinjaBody) GetY() float64{
-    return self.Get("y").Float()
+func (self *PhysicsNinjaBody) GetY() int{
+    return self.Get("y").Int()
 }
 
 // The y position.
-func (self *PhysicsNinjaBody) SetY(member float64) {
+func (self *PhysicsNinjaBody) SetY(member int) {
     self.Set("y", member)
 }
 
 // The width of this Body
-func (self *PhysicsNinjaBody) GetWidth() float64{
-    return self.Get("width").Float()
+func (self *PhysicsNinjaBody) GetWidth() int{
+    return self.Get("width").Int()
 }
 
 // The width of this Body
-func (self *PhysicsNinjaBody) SetWidth(member float64) {
+func (self *PhysicsNinjaBody) SetWidth(member int) {
     self.Set("width", member)
 }
 
 // The height of this Body
-func (self *PhysicsNinjaBody) GetHeight() float64{
-    return self.Get("height").Float()
+func (self *PhysicsNinjaBody) GetHeight() int{
+    return self.Get("height").Int()
 }
 
 // The height of this Body
-func (self *PhysicsNinjaBody) SetHeight(member float64) {
+func (self *PhysicsNinjaBody) SetHeight(member int) {
     self.Set("height", member)
 }
 
 // The bottom value of this Body (same as Body.y + Body.height)
-func (self *PhysicsNinjaBody) GetBottom() float64{
-    return self.Get("bottom").Float()
+func (self *PhysicsNinjaBody) GetBottom() int{
+    return self.Get("bottom").Int()
 }
 
 // The bottom value of this Body (same as Body.y + Body.height)
-func (self *PhysicsNinjaBody) SetBottom(member float64) {
+func (self *PhysicsNinjaBody) SetBottom(member int) {
     self.Set("bottom", member)
 }
 
 // The right value of this Body (same as Body.x + Body.width)
-func (self *PhysicsNinjaBody) GetRight() float64{
-    return self.Get("right").Float()
+func (self *PhysicsNinjaBody) GetRight() int{
+    return self.Get("right").Int()
 }
 
 // The right value of this Body (same as Body.x + Body.width)
-func (self *PhysicsNinjaBody) SetRight(member float64) {
+func (self *PhysicsNinjaBody) SetRight(member int) {
     self.Set("right", member)
 }
 
 // The speed of this Body
-func (self *PhysicsNinjaBody) GetSpeed() float64{
-    return self.Get("speed").Float()
+func (self *PhysicsNinjaBody) GetSpeed() int{
+    return self.Get("speed").Int()
 }
 
 // The speed of this Body
-func (self *PhysicsNinjaBody) SetSpeed(member float64) {
+func (self *PhysicsNinjaBody) SetSpeed(member int) {
     self.Set("speed", member)
 }
 
 // The angle of this Body
-func (self *PhysicsNinjaBody) GetAngle() float64{
-    return self.Get("angle").Float()
+func (self *PhysicsNinjaBody) GetAngle() int{
+    return self.Get("angle").Int()
 }
 
 // The angle of this Body
-func (self *PhysicsNinjaBody) SetAngle(member float64) {
+func (self *PhysicsNinjaBody) SetAngle(member int) {
     self.Set("angle", member)
 }
 
@@ -321,23 +321,23 @@ func (self *PhysicsNinjaBody) ResetI(args ...interface{}) {
 }
 
 // Returns the absolute delta x value.
-func (self *PhysicsNinjaBody) DeltaAbsXI(args ...interface{}) float64{
-    return self.Call("deltaAbsX", args).Float()
+func (self *PhysicsNinjaBody) DeltaAbsXI(args ...interface{}) int{
+    return self.Call("deltaAbsX", args).Int()
 }
 
 // Returns the absolute delta y value.
-func (self *PhysicsNinjaBody) DeltaAbsYI(args ...interface{}) float64{
-    return self.Call("deltaAbsY", args).Float()
+func (self *PhysicsNinjaBody) DeltaAbsYI(args ...interface{}) int{
+    return self.Call("deltaAbsY", args).Int()
 }
 
 // Returns the delta x value. The difference between Body.x now and in the previous step.
-func (self *PhysicsNinjaBody) DeltaXI(args ...interface{}) float64{
-    return self.Call("deltaX", args).Float()
+func (self *PhysicsNinjaBody) DeltaXI(args ...interface{}) int{
+    return self.Call("deltaX", args).Int()
 }
 
 // Returns the delta y value. The difference between Body.y now and in the previous step.
-func (self *PhysicsNinjaBody) DeltaYI(args ...interface{}) float64{
-    return self.Call("deltaY", args).Float()
+func (self *PhysicsNinjaBody) DeltaYI(args ...interface{}) int{
+    return self.Call("deltaY", args).Int()
 }
 
 // Destroys this body's reference to the sprite and system, and destroys its shape.

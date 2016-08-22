@@ -58,32 +58,32 @@ func (self *Video) SetKey(member string) {
 }
 
 // The width of the video in pixels.
-func (self *Video) GetWidth() float64{
-    return self.Get("width").Float()
+func (self *Video) GetWidth() int{
+    return self.Get("width").Int()
 }
 
 // The width of the video in pixels.
-func (self *Video) SetWidth(member float64) {
+func (self *Video) SetWidth(member int) {
     self.Set("width", member)
 }
 
 // The height of the video in pixels.
-func (self *Video) GetHeight() float64{
-    return self.Get("height").Float()
+func (self *Video) GetHeight() int{
+    return self.Get("height").Int()
 }
 
 // The height of the video in pixels.
-func (self *Video) SetHeight(member float64) {
+func (self *Video) SetHeight(member int) {
     self.Set("height", member)
 }
 
 // The const type of this object.
-func (self *Video) GetType() float64{
-    return self.Get("type").Float()
+func (self *Video) GetType() int{
+    return self.Get("type").Int()
 }
 
 // The const type of this object.
-func (self *Video) SetType(member float64) {
+func (self *Video) SetType(member int) {
     self.Set("type", member)
 }
 
@@ -278,32 +278,32 @@ func (self *Video) SetSnapshot(member *BitmapData) {
 }
 
 // The current time of the video in seconds. If set the video will attempt to seek to that point in time.
-func (self *Video) GetCurrentTime() float64{
-    return self.Get("currentTime").Float()
+func (self *Video) GetCurrentTime() int{
+    return self.Get("currentTime").Int()
 }
 
 // The current time of the video in seconds. If set the video will attempt to seek to that point in time.
-func (self *Video) SetCurrentTime(member float64) {
+func (self *Video) SetCurrentTime(member int) {
     self.Set("currentTime", member)
 }
 
 // The duration of the video in seconds.
-func (self *Video) GetDuration() float64{
-    return self.Get("duration").Float()
+func (self *Video) GetDuration() int{
+    return self.Get("duration").Int()
 }
 
 // The duration of the video in seconds.
-func (self *Video) SetDuration(member float64) {
+func (self *Video) SetDuration(member int) {
     self.Set("duration", member)
 }
 
 // The progress of this video. This is a value between 0 and 1, where 0 is the start and 1 is the end of the video.
-func (self *Video) GetProgress() float64{
-    return self.Get("progress").Float()
+func (self *Video) GetProgress() int{
+    return self.Get("progress").Int()
 }
 
 // The progress of this video. This is a value between 0 and 1, where 0 is the start and 1 is the end of the video.
-func (self *Video) SetProgress(member float64) {
+func (self *Video) SetProgress(member int) {
     self.Set("progress", member)
 }
 
@@ -330,22 +330,22 @@ func (self *Video) SetPaused(member bool) {
 }
 
 // Gets or sets the volume of the Video, a value between 0 and 1. The value given is clamped to the range 0 to 1.
-func (self *Video) GetVolume() float64{
-    return self.Get("volume").Float()
+func (self *Video) GetVolume() int{
+    return self.Get("volume").Int()
 }
 
 // Gets or sets the volume of the Video, a value between 0 and 1. The value given is clamped to the range 0 to 1.
-func (self *Video) SetVolume(member float64) {
+func (self *Video) SetVolume(member int) {
     self.Set("volume", member)
 }
 
 // Gets or sets the playback rate of the Video. This is the speed at which the video is playing.
-func (self *Video) GetPlaybackRate() float64{
-    return self.Get("playbackRate").Float()
+func (self *Video) GetPlaybackRate() int{
+    return self.Get("playbackRate").Int()
 }
 
 // Gets or sets the playback rate of the Video. This is the speed at which the video is playing.
-func (self *Video) SetPlaybackRate(member float64) {
+func (self *Video) SetPlaybackRate(member int) {
     self.Set("playbackRate", member)
 }
 

@@ -14,12 +14,12 @@ type WebGLBlendModeManager struct {
 
 
 // 
-func (self *WebGLBlendModeManager) GetCurrentBlendMode() float64{
-    return self.Get("currentBlendMode").Float()
+func (self *WebGLBlendModeManager) GetCurrentBlendMode() int{
+    return self.Get("currentBlendMode").Int()
 }
 
 // 
-func (self *WebGLBlendModeManager) SetCurrentBlendMode(member float64) {
+func (self *WebGLBlendModeManager) SetCurrentBlendMode(member int) {
     self.Set("currentBlendMode", member)
 }
 

@@ -25,22 +25,22 @@ type Button struct {
 
 
 // The Phaser Object Type.
-func (self *Button) GetType() float64{
-    return self.Get("type").Float()
+func (self *Button) GetType() int{
+    return self.Get("type").Int()
 }
 
 // The Phaser Object Type.
-func (self *Button) SetType(member float64) {
+func (self *Button) SetType(member int) {
     self.Set("type", member)
 }
 
 // The const physics body type of this object.
-func (self *Button) GetPhysicsType() float64{
-    return self.Get("physicsType").Float()
+func (self *Button) GetPhysicsType() int{
+    return self.Get("physicsType").Int()
 }
 
 // The const physics body type of this object.
-func (self *Button) SetPhysicsType(member float64) {
+func (self *Button) SetPhysicsType(member int) {
     self.Set("physicsType", member)
 }
 
@@ -241,12 +241,12 @@ func (self *Button) SetTexture(member *Texture) {
 }
 
 // The tint applied to the sprite. This is a hex value. A value of 0xFFFFFF will remove any tint effect.
-func (self *Button) GetTint() float64{
-    return self.Get("tint").Float()
+func (self *Button) GetTint() int{
+    return self.Get("tint").Int()
 }
 
 // The tint applied to the sprite. This is a hex value. A value of 0xFFFFFF will remove any tint effect.
-func (self *Button) SetTint(member float64) {
+func (self *Button) SetTint(member int) {
     self.Set("tint", member)
 }
 
@@ -263,14 +263,14 @@ func (self *Button) SetTintedTexture(member *Canvas) {
 // The blend mode to be applied to the sprite. Set to PIXI.blendModes.NORMAL to remove any blend mode.
 // 
 // Warning: You cannot have a blend mode and a filter active on the same Sprite. Doing so will render the sprite invisible.
-func (self *Button) GetBlendMode() float64{
-    return self.Get("blendMode").Float()
+func (self *Button) GetBlendMode() int{
+    return self.Get("blendMode").Int()
 }
 
 // The blend mode to be applied to the sprite. Set to PIXI.blendModes.NORMAL to remove any blend mode.
 // 
 // Warning: You cannot have a blend mode and a filter active on the same Sprite. Doing so will render the sprite invisible.
-func (self *Button) SetBlendMode(member float64) {
+func (self *Button) SetBlendMode(member int) {
     self.Set("blendMode", member)
 }
 
@@ -295,22 +295,22 @@ func (self *Button) SetExists(member bool) {
 }
 
 // The width of the sprite, setting this will actually modify the scale to achieve the value set
-func (self *Button) GetWidth() float64{
-    return self.Get("width").Float()
+func (self *Button) GetWidth() int{
+    return self.Get("width").Int()
 }
 
 // The width of the sprite, setting this will actually modify the scale to achieve the value set
-func (self *Button) SetWidth(member float64) {
+func (self *Button) SetWidth(member int) {
     self.Set("width", member)
 }
 
 // The height of the sprite, setting this will actually modify the scale to achieve the value set
-func (self *Button) GetHeight() float64{
-    return self.Get("height").Float()
+func (self *Button) GetHeight() int{
+    return self.Get("height").Int()
 }
 
 // The height of the sprite, setting this will actually modify the scale to achieve the value set
-func (self *Button) SetHeight(member float64) {
+func (self *Button) SetHeight(member int) {
     self.Set("height", member)
 }
 
@@ -400,15 +400,15 @@ func (self *Button) SetComponents(member interface{}) {
 // No two objects in a Group can have the same z value.
 // This value is adjusted automatically whenever the Group hierarchy changes.
 // If you wish to re-order the layering of a Game Object then see methods like Group.moveUp or Group.bringToTop.
-func (self *Button) GetZ() float64{
-    return self.Get("z").Float()
+func (self *Button) GetZ() int{
+    return self.Get("z").Int()
 }
 
 // The z depth of this Game Object within its parent Group.
 // No two objects in a Group can have the same z value.
 // This value is adjusted automatically whenever the Group hierarchy changes.
 // If you wish to re-order the layering of a Game Object then see methods like Group.moveUp or Group.bringToTop.
-func (self *Button) SetZ(member float64) {
+func (self *Button) SetZ(member int) {
     self.Set("z", member)
 }
 
@@ -489,24 +489,24 @@ func (self *Button) SetPreviousPosition(member *Point) {
 }
 
 // The rotation the Game Object was in set to in the previous frame. Value is in radians.
-func (self *Button) GetPreviousRotation() float64{
-    return self.Get("previousRotation").Float()
+func (self *Button) GetPreviousRotation() int{
+    return self.Get("previousRotation").Int()
 }
 
 // The rotation the Game Object was in set to in the previous frame. Value is in radians.
-func (self *Button) SetPreviousRotation(member float64) {
+func (self *Button) SetPreviousRotation(member int) {
     self.Set("previousRotation", member)
 }
 
 // The render order ID is used internally by the renderer and Input Manager and should not be modified.
 // This property is mostly used internally by the renderers, but is exposed for the use of plugins.
-func (self *Button) GetRenderOrderID() float64{
-    return self.Get("renderOrderID").Float()
+func (self *Button) GetRenderOrderID() int{
+    return self.Get("renderOrderID").Int()
 }
 
 // The render order ID is used internally by the renderer and Input Manager and should not be modified.
 // This property is mostly used internally by the renderers, but is exposed for the use of plugins.
-func (self *Button) SetRenderOrderID(member float64) {
+func (self *Button) SetRenderOrderID(member int) {
     self.Set("renderOrderID", member)
 }
 
@@ -549,8 +549,8 @@ func (self *Button) SetPendingDestroy(member bool) {
 // 
 // If you wish to work in radians instead of degrees you can use the property `rotation` instead. 
 // Working in radians is slightly faster as it doesn't have to perform any calculations.
-func (self *Button) GetAngle() float64{
-    return self.Get("angle").Float()
+func (self *Button) GetAngle() int{
+    return self.Get("angle").Int()
 }
 
 // The angle property is the rotation of the Game Object in *degrees* from its original orientation.
@@ -562,7 +562,7 @@ func (self *Button) GetAngle() float64{
 // 
 // If you wish to work in radians instead of degrees you can use the property `rotation` instead. 
 // Working in radians is slightly faster as it doesn't have to perform any calculations.
-func (self *Button) SetAngle(member float64) {
+func (self *Button) SetAngle(member int) {
     self.Set("angle", member)
 }
 
@@ -601,100 +601,100 @@ func (self *Button) SetInCamera(member bool) {
 // The amount the Game Object is visually offset from its x coordinate.
 // This is the same as `width * anchor.x`.
 // It will only be > 0 if anchor.x is not equal to zero.
-func (self *Button) GetOffsetX() float64{
-    return self.Get("offsetX").Float()
+func (self *Button) GetOffsetX() int{
+    return self.Get("offsetX").Int()
 }
 
 // The amount the Game Object is visually offset from its x coordinate.
 // This is the same as `width * anchor.x`.
 // It will only be > 0 if anchor.x is not equal to zero.
-func (self *Button) SetOffsetX(member float64) {
+func (self *Button) SetOffsetX(member int) {
     self.Set("offsetX", member)
 }
 
 // The amount the Game Object is visually offset from its y coordinate.
 // This is the same as `height * anchor.y`.
 // It will only be > 0 if anchor.y is not equal to zero.
-func (self *Button) GetOffsetY() float64{
-    return self.Get("offsetY").Float()
+func (self *Button) GetOffsetY() int{
+    return self.Get("offsetY").Int()
 }
 
 // The amount the Game Object is visually offset from its y coordinate.
 // This is the same as `height * anchor.y`.
 // It will only be > 0 if anchor.y is not equal to zero.
-func (self *Button) SetOffsetY(member float64) {
+func (self *Button) SetOffsetY(member int) {
     self.Set("offsetY", member)
 }
 
 // The center x coordinate of the Game Object.
 // This is the same as `(x - offsetX) + (width / 2)`.
-func (self *Button) GetCenterX() float64{
-    return self.Get("centerX").Float()
+func (self *Button) GetCenterX() int{
+    return self.Get("centerX").Int()
 }
 
 // The center x coordinate of the Game Object.
 // This is the same as `(x - offsetX) + (width / 2)`.
-func (self *Button) SetCenterX(member float64) {
+func (self *Button) SetCenterX(member int) {
     self.Set("centerX", member)
 }
 
 // The center y coordinate of the Game Object.
 // This is the same as `(y - offsetY) + (height / 2)`.
-func (self *Button) GetCenterY() float64{
-    return self.Get("centerY").Float()
+func (self *Button) GetCenterY() int{
+    return self.Get("centerY").Int()
 }
 
 // The center y coordinate of the Game Object.
 // This is the same as `(y - offsetY) + (height / 2)`.
-func (self *Button) SetCenterY(member float64) {
+func (self *Button) SetCenterY(member int) {
     self.Set("centerY", member)
 }
 
 // The left coordinate of the Game Object.
 // This is the same as `x - offsetX`.
-func (self *Button) GetLeft() float64{
-    return self.Get("left").Float()
+func (self *Button) GetLeft() int{
+    return self.Get("left").Int()
 }
 
 // The left coordinate of the Game Object.
 // This is the same as `x - offsetX`.
-func (self *Button) SetLeft(member float64) {
+func (self *Button) SetLeft(member int) {
     self.Set("left", member)
 }
 
 // The right coordinate of the Game Object.
 // This is the same as `x + width - offsetX`.
-func (self *Button) GetRight() float64{
-    return self.Get("right").Float()
+func (self *Button) GetRight() int{
+    return self.Get("right").Int()
 }
 
 // The right coordinate of the Game Object.
 // This is the same as `x + width - offsetX`.
-func (self *Button) SetRight(member float64) {
+func (self *Button) SetRight(member int) {
     self.Set("right", member)
 }
 
 // The y coordinate of the Game Object.
 // This is the same as `y - offsetY`.
-func (self *Button) GetTop() float64{
-    return self.Get("top").Float()
+func (self *Button) GetTop() int{
+    return self.Get("top").Int()
 }
 
 // The y coordinate of the Game Object.
 // This is the same as `y - offsetY`.
-func (self *Button) SetTop(member float64) {
+func (self *Button) SetTop(member int) {
     self.Set("top", member)
 }
 
 // The sum of the y and height properties.
 // This is the same as `y + height - offsetY`.
-func (self *Button) GetBottom() float64{
-    return self.Get("bottom").Float()
+func (self *Button) GetBottom() int{
+    return self.Get("bottom").Int()
 }
 
 // The sum of the y and height properties.
 // This is the same as `y + height - offsetY`.
-func (self *Button) SetBottom(member float64) {
+func (self *Button) SetBottom(member int) {
     self.Set("bottom", member)
 }
 
@@ -852,8 +852,8 @@ func (self *Button) SetAlive(member bool) {
 // When it reaches zero it will call the `kill` method.
 // 
 // Very handy for particles, bullets, collectibles, or any other short-lived entity.
-func (self *Button) GetLifespan() float64{
-    return self.Get("lifespan").Float()
+func (self *Button) GetLifespan() int{
+    return self.Get("lifespan").Int()
 }
 
 // The lifespan allows you to give a Game Object a lifespan in milliseconds.
@@ -864,7 +864,7 @@ func (self *Button) GetLifespan() float64{
 // When it reaches zero it will call the `kill` method.
 // 
 // Very handy for particles, bullets, collectibles, or any other short-lived entity.
-func (self *Button) SetLifespan(member float64) {
+func (self *Button) SetLifespan(member int) {
     self.Set("lifespan", member)
 }
 
@@ -1084,8 +1084,8 @@ func (self *Button) SwapChildrenI(args ...interface{}) {
 }
 
 // Returns the index position of a child DisplayObject instance
-func (self *Button) GetChildIndexI(args ...interface{}) float64{
-    return self.Call("getChildIndex", args).Float()
+func (self *Button) GetChildIndexI(args ...interface{}) int{
+    return self.Call("getChildIndex", args).Int()
 }
 
 // Changes the position of an existing child in the display object container

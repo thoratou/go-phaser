@@ -70,8 +70,8 @@ func (self *ArrayUtils) RotateMatrixI(args ...interface{}) [][]interface{}{
 
 // Snaps a value to the nearest value in an array.
 // The result will always be in the range `[first_value, last_value]`.
-func (self *ArrayUtils) FindClosestI(args ...interface{}) float64{
-    return self.Call("findClosest", args).Float()
+func (self *ArrayUtils) FindClosestI(args ...interface{}) int{
+    return self.Call("findClosest", args).Int()
 }
 
 // Moves the element from the end of the array to the start, shifting all items in the process.
@@ -109,12 +109,12 @@ func (self *ArrayUtils) RotateI(args ...interface{}) interface{}{
 
 // Create an array representing the inclusive range of numbers (usually integers) in `[start, end]`.
 // This is equivalent to `numberArrayStep(start, end, 1)`.
-func (self *ArrayUtils) NumberArrayI(args ...interface{}) []float64{
+func (self *ArrayUtils) NumberArrayI(args ...interface{}) []int{
 	array := self.Call("numberArray", args)
 	length := array.Length()
-	out := make([]float64, length, length)
+	out := make([]int, length, length)
 	for i := 0; i < length; i++ {
-		out[i] = array.Index(i).Float()
+		out[i] = array.Index(i).Int()
 		
 	}
 	return out

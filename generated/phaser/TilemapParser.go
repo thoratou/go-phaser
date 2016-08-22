@@ -35,37 +35,37 @@ func (self *TilemapParser) SetINSERT_NULL(member bool) {
 
 // A tiled flag that resides within the 32 bit of the object gid and
 // indicates whether the tiled/object is flipped horizontally.
-func (self *TilemapParser) GetFLIPPED_HORIZONTALLY_FLAG() float64{
-    return self.Get("FLIPPED_HORIZONTALLY_FLAG").Float()
+func (self *TilemapParser) GetFLIPPED_HORIZONTALLY_FLAG() int{
+    return self.Get("FLIPPED_HORIZONTALLY_FLAG").Int()
 }
 
 // A tiled flag that resides within the 32 bit of the object gid and
 // indicates whether the tiled/object is flipped horizontally.
-func (self *TilemapParser) SetFLIPPED_HORIZONTALLY_FLAG(member float64) {
+func (self *TilemapParser) SetFLIPPED_HORIZONTALLY_FLAG(member int) {
     self.Set("FLIPPED_HORIZONTALLY_FLAG", member)
 }
 
 // A tiled flag that resides within the 31 bit of the object gid and
 // indicates whether the tiled/object is flipped vertically.
-func (self *TilemapParser) GetFLIPPED_VERTICALLY_FLAG() float64{
-    return self.Get("FLIPPED_VERTICALLY_FLAG").Float()
+func (self *TilemapParser) GetFLIPPED_VERTICALLY_FLAG() int{
+    return self.Get("FLIPPED_VERTICALLY_FLAG").Int()
 }
 
 // A tiled flag that resides within the 31 bit of the object gid and
 // indicates whether the tiled/object is flipped vertically.
-func (self *TilemapParser) SetFLIPPED_VERTICALLY_FLAG(member float64) {
+func (self *TilemapParser) SetFLIPPED_VERTICALLY_FLAG(member int) {
     self.Set("FLIPPED_VERTICALLY_FLAG", member)
 }
 
 // A tiled flag that resides within the 30 bit of the object gid and
 // indicates whether the tiled/object is flipped diagonally.
-func (self *TilemapParser) GetFLIPPED_DIAGONALLY_FLAG() float64{
-    return self.Get("FLIPPED_DIAGONALLY_FLAG").Float()
+func (self *TilemapParser) GetFLIPPED_DIAGONALLY_FLAG() int{
+    return self.Get("FLIPPED_DIAGONALLY_FLAG").Int()
 }
 
 // A tiled flag that resides within the 30 bit of the object gid and
 // indicates whether the tiled/object is flipped diagonally.
-func (self *TilemapParser) SetFLIPPED_DIAGONALLY_FLAG(member float64) {
+func (self *TilemapParser) SetFLIPPED_DIAGONALLY_FLAG(member int) {
     self.Set("FLIPPED_DIAGONALLY_FLAG", member)
 }
 

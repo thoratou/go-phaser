@@ -15,82 +15,82 @@ type Rectangle struct {
 
 
 // The x coordinate of the top-left corner of the Rectangle.
-func (self *Rectangle) GetX() float64{
-    return self.Get("x").Float()
+func (self *Rectangle) GetX() int{
+    return self.Get("x").Int()
 }
 
 // The x coordinate of the top-left corner of the Rectangle.
-func (self *Rectangle) SetX(member float64) {
+func (self *Rectangle) SetX(member int) {
     self.Set("x", member)
 }
 
 // The y coordinate of the top-left corner of the Rectangle.
-func (self *Rectangle) GetY() float64{
-    return self.Get("y").Float()
+func (self *Rectangle) GetY() int{
+    return self.Get("y").Int()
 }
 
 // The y coordinate of the top-left corner of the Rectangle.
-func (self *Rectangle) SetY(member float64) {
+func (self *Rectangle) SetY(member int) {
     self.Set("y", member)
 }
 
 // The width of the Rectangle. This value should never be set to a negative.
-func (self *Rectangle) GetWidth() float64{
-    return self.Get("width").Float()
+func (self *Rectangle) GetWidth() int{
+    return self.Get("width").Int()
 }
 
 // The width of the Rectangle. This value should never be set to a negative.
-func (self *Rectangle) SetWidth(member float64) {
+func (self *Rectangle) SetWidth(member int) {
     self.Set("width", member)
 }
 
 // The height of the Rectangle. This value should never be set to a negative.
-func (self *Rectangle) GetHeight() float64{
-    return self.Get("height").Float()
+func (self *Rectangle) GetHeight() int{
+    return self.Get("height").Int()
 }
 
 // The height of the Rectangle. This value should never be set to a negative.
-func (self *Rectangle) SetHeight(member float64) {
+func (self *Rectangle) SetHeight(member int) {
     self.Set("height", member)
 }
 
 // The const type of this object.
-func (self *Rectangle) GetType() float64{
-    return self.Get("type").Float()
+func (self *Rectangle) GetType() int{
+    return self.Get("type").Int()
 }
 
 // The const type of this object.
-func (self *Rectangle) SetType(member float64) {
+func (self *Rectangle) SetType(member int) {
     self.Set("type", member)
 }
 
 // Half of the width of the Rectangle.
-func (self *Rectangle) GetHalfWidth() float64{
-    return self.Get("halfWidth").Float()
+func (self *Rectangle) GetHalfWidth() int{
+    return self.Get("halfWidth").Int()
 }
 
 // Half of the width of the Rectangle.
-func (self *Rectangle) SetHalfWidth(member float64) {
+func (self *Rectangle) SetHalfWidth(member int) {
     self.Set("halfWidth", member)
 }
 
 // Half of the height of the Rectangle.
-func (self *Rectangle) GetHalfHeight() float64{
-    return self.Get("halfHeight").Float()
+func (self *Rectangle) GetHalfHeight() int{
+    return self.Get("halfHeight").Int()
 }
 
 // Half of the height of the Rectangle.
-func (self *Rectangle) SetHalfHeight(member float64) {
+func (self *Rectangle) SetHalfHeight(member int) {
     self.Set("halfHeight", member)
 }
 
 // The sum of the y and height properties. Changing the bottom property of a Rectangle object has no effect on the x, y and width properties, but does change the height property.
-func (self *Rectangle) GetBottom() float64{
-    return self.Get("bottom").Float()
+func (self *Rectangle) GetBottom() int{
+    return self.Get("bottom").Int()
 }
 
 // The sum of the y and height properties. Changing the bottom property of a Rectangle object has no effect on the x, y and width properties, but does change the height property.
-func (self *Rectangle) SetBottom(member float64) {
+func (self *Rectangle) SetBottom(member int) {
     self.Set("bottom", member)
 }
 
@@ -115,94 +115,94 @@ func (self *Rectangle) SetBottomRight(member *Point) {
 }
 
 // The x coordinate of the left of the Rectangle. Changing the left property of a Rectangle object has no effect on the y and height properties. However it does affect the width property, whereas changing the x value does not affect the width property.
-func (self *Rectangle) GetLeft() float64{
-    return self.Get("left").Float()
+func (self *Rectangle) GetLeft() int{
+    return self.Get("left").Int()
 }
 
 // The x coordinate of the left of the Rectangle. Changing the left property of a Rectangle object has no effect on the y and height properties. However it does affect the width property, whereas changing the x value does not affect the width property.
-func (self *Rectangle) SetLeft(member float64) {
+func (self *Rectangle) SetLeft(member int) {
     self.Set("left", member)
 }
 
 // The sum of the x and width properties. Changing the right property of a Rectangle object has no effect on the x, y and height properties, however it does affect the width property.
-func (self *Rectangle) GetRight() float64{
-    return self.Get("right").Float()
+func (self *Rectangle) GetRight() int{
+    return self.Get("right").Int()
 }
 
 // The sum of the x and width properties. Changing the right property of a Rectangle object has no effect on the x, y and height properties, however it does affect the width property.
-func (self *Rectangle) SetRight(member float64) {
+func (self *Rectangle) SetRight(member int) {
     self.Set("right", member)
 }
 
 // The volume of the Rectangle derived from width * height.
-func (self *Rectangle) GetVolume() float64{
-    return self.Get("volume").Float()
+func (self *Rectangle) GetVolume() int{
+    return self.Get("volume").Int()
 }
 
 // The volume of the Rectangle derived from width * height.
-func (self *Rectangle) SetVolume(member float64) {
+func (self *Rectangle) SetVolume(member int) {
     self.Set("volume", member)
 }
 
 // The perimeter size of the Rectangle. This is the sum of all 4 sides.
-func (self *Rectangle) GetPerimeter() float64{
-    return self.Get("perimeter").Float()
+func (self *Rectangle) GetPerimeter() int{
+    return self.Get("perimeter").Int()
 }
 
 // The perimeter size of the Rectangle. This is the sum of all 4 sides.
-func (self *Rectangle) SetPerimeter(member float64) {
+func (self *Rectangle) SetPerimeter(member int) {
     self.Set("perimeter", member)
 }
 
 // The x coordinate of the center of the Rectangle.
-func (self *Rectangle) GetCenterX() float64{
-    return self.Get("centerX").Float()
+func (self *Rectangle) GetCenterX() int{
+    return self.Get("centerX").Int()
 }
 
 // The x coordinate of the center of the Rectangle.
-func (self *Rectangle) SetCenterX(member float64) {
+func (self *Rectangle) SetCenterX(member int) {
     self.Set("centerX", member)
 }
 
 // The y coordinate of the center of the Rectangle.
-func (self *Rectangle) GetCenterY() float64{
-    return self.Get("centerY").Float()
+func (self *Rectangle) GetCenterY() int{
+    return self.Get("centerY").Int()
 }
 
 // The y coordinate of the center of the Rectangle.
-func (self *Rectangle) SetCenterY(member float64) {
+func (self *Rectangle) SetCenterY(member int) {
     self.Set("centerY", member)
 }
 
 // A random value between the left and right values (inclusive) of the Rectangle.
-func (self *Rectangle) GetRandomX() float64{
-    return self.Get("randomX").Float()
+func (self *Rectangle) GetRandomX() int{
+    return self.Get("randomX").Int()
 }
 
 // A random value between the left and right values (inclusive) of the Rectangle.
-func (self *Rectangle) SetRandomX(member float64) {
+func (self *Rectangle) SetRandomX(member int) {
     self.Set("randomX", member)
 }
 
 // A random value between the top and bottom values (inclusive) of the Rectangle.
-func (self *Rectangle) GetRandomY() float64{
-    return self.Get("randomY").Float()
+func (self *Rectangle) GetRandomY() int{
+    return self.Get("randomY").Int()
 }
 
 // A random value between the top and bottom values (inclusive) of the Rectangle.
-func (self *Rectangle) SetRandomY(member float64) {
+func (self *Rectangle) SetRandomY(member int) {
     self.Set("randomY", member)
 }
 
 // The y coordinate of the top of the Rectangle. Changing the top property of a Rectangle object has no effect on the x and width properties.
 // However it does affect the height property, whereas changing the y value does not affect the height property.
-func (self *Rectangle) GetTop() float64{
-    return self.Get("top").Float()
+func (self *Rectangle) GetTop() int{
+    return self.Get("top").Int()
 }
 
 // The y coordinate of the top of the Rectangle. Changing the top property of a Rectangle object has no effect on the x and width properties.
 // However it does affect the height property, whereas changing the y value does not affect the height property.
-func (self *Rectangle) SetTop(member float64) {
+func (self *Rectangle) SetTop(member int) {
     self.Set("top", member)
 }
 

@@ -40,42 +40,42 @@ func (self *Tilemap) SetKey(member string) {
 }
 
 // The width of the map (in tiles).
-func (self *Tilemap) GetWidth() float64{
-    return self.Get("width").Float()
+func (self *Tilemap) GetWidth() int{
+    return self.Get("width").Int()
 }
 
 // The width of the map (in tiles).
-func (self *Tilemap) SetWidth(member float64) {
+func (self *Tilemap) SetWidth(member int) {
     self.Set("width", member)
 }
 
 // The height of the map (in tiles).
-func (self *Tilemap) GetHeight() float64{
-    return self.Get("height").Float()
+func (self *Tilemap) GetHeight() int{
+    return self.Get("height").Int()
 }
 
 // The height of the map (in tiles).
-func (self *Tilemap) SetHeight(member float64) {
+func (self *Tilemap) SetHeight(member int) {
     self.Set("height", member)
 }
 
 // The base width of the tiles in the map (in pixels).
-func (self *Tilemap) GetTileWidth() float64{
-    return self.Get("tileWidth").Float()
+func (self *Tilemap) GetTileWidth() int{
+    return self.Get("tileWidth").Int()
 }
 
 // The base width of the tiles in the map (in pixels).
-func (self *Tilemap) SetTileWidth(member float64) {
+func (self *Tilemap) SetTileWidth(member int) {
     self.Set("tileWidth", member)
 }
 
 // The base height of the tiles in the map (in pixels).
-func (self *Tilemap) GetTileHeight() float64{
-    return self.Get("tileHeight").Float()
+func (self *Tilemap) GetTileHeight() int{
+    return self.Get("tileHeight").Int()
 }
 
 // The base height of the tiles in the map (in pixels).
-func (self *Tilemap) SetTileHeight(member float64) {
+func (self *Tilemap) SetTileHeight(member int) {
     self.Set("tileHeight", member)
 }
 
@@ -90,22 +90,22 @@ func (self *Tilemap) SetOrientation(member string) {
 }
 
 // The format of the map data, either Phaser.Tilemap.CSV or Phaser.Tilemap.TILED_JSON.
-func (self *Tilemap) GetFormat() float64{
-    return self.Get("format").Float()
+func (self *Tilemap) GetFormat() int{
+    return self.Get("format").Int()
 }
 
 // The format of the map data, either Phaser.Tilemap.CSV or Phaser.Tilemap.TILED_JSON.
-func (self *Tilemap) SetFormat(member float64) {
+func (self *Tilemap) SetFormat(member int) {
     self.Set("format", member)
 }
 
 // The version of the map data (as specified in Tiled, usually 1).
-func (self *Tilemap) GetVersion() float64{
-    return self.Get("version").Float()
+func (self *Tilemap) GetVersion() int{
+    return self.Get("version").Int()
 }
 
 // The version of the map data (as specified in Tiled, usually 1).
-func (self *Tilemap) SetVersion(member float64) {
+func (self *Tilemap) SetVersion(member int) {
     self.Set("version", member)
 }
 
@@ -120,22 +120,22 @@ func (self *Tilemap) SetProperties(member interface{}) {
 }
 
 // The width of the map in pixels based on width * tileWidth.
-func (self *Tilemap) GetWidthInPixels() float64{
-    return self.Get("widthInPixels").Float()
+func (self *Tilemap) GetWidthInPixels() int{
+    return self.Get("widthInPixels").Int()
 }
 
 // The width of the map in pixels based on width * tileWidth.
-func (self *Tilemap) SetWidthInPixels(member float64) {
+func (self *Tilemap) SetWidthInPixels(member int) {
     self.Set("widthInPixels", member)
 }
 
 // The height of the map in pixels based on height * tileHeight.
-func (self *Tilemap) GetHeightInPixels() float64{
-    return self.Get("heightInPixels").Float()
+func (self *Tilemap) GetHeightInPixels() int{
+    return self.Get("heightInPixels").Int()
 }
 
 // The height of the map in pixels based on height * tileHeight.
-func (self *Tilemap) SetHeightInPixels(member float64) {
+func (self *Tilemap) SetHeightInPixels(member int) {
     self.Set("heightInPixels", member)
 }
 
@@ -268,12 +268,12 @@ func (self *Tilemap) SetImages(member []interface{}) {
 }
 
 // The current layer.
-func (self *Tilemap) GetCurrentLayer() float64{
-    return self.Get("currentLayer").Float()
+func (self *Tilemap) GetCurrentLayer() int{
+    return self.Get("currentLayer").Int()
 }
 
 // The current layer.
-func (self *Tilemap) SetCurrentLayer(member float64) {
+func (self *Tilemap) SetCurrentLayer(member int) {
     self.Set("currentLayer", member)
 }
 
@@ -294,62 +294,62 @@ func (self *Tilemap) SetDebugMap(member []interface{}) {
 }
 
 // 
-func (self *Tilemap) GetCSV() float64{
-    return self.Get("CSV").Float()
+func (self *Tilemap) GetCSV() int{
+    return self.Get("CSV").Int()
 }
 
 // 
-func (self *Tilemap) SetCSV(member float64) {
+func (self *Tilemap) SetCSV(member int) {
     self.Set("CSV", member)
 }
 
 // 
-func (self *Tilemap) GetTILED_JSON() float64{
-    return self.Get("TILED_JSON").Float()
+func (self *Tilemap) GetTILED_JSON() int{
+    return self.Get("TILED_JSON").Int()
 }
 
 // 
-func (self *Tilemap) SetTILED_JSON(member float64) {
+func (self *Tilemap) SetTILED_JSON(member int) {
     self.Set("TILED_JSON", member)
 }
 
 // 
-func (self *Tilemap) GetNORTH() float64{
-    return self.Get("NORTH").Float()
+func (self *Tilemap) GetNORTH() int{
+    return self.Get("NORTH").Int()
 }
 
 // 
-func (self *Tilemap) SetNORTH(member float64) {
+func (self *Tilemap) SetNORTH(member int) {
     self.Set("NORTH", member)
 }
 
 // 
-func (self *Tilemap) GetEAST() float64{
-    return self.Get("EAST").Float()
+func (self *Tilemap) GetEAST() int{
+    return self.Get("EAST").Int()
 }
 
 // 
-func (self *Tilemap) SetEAST(member float64) {
+func (self *Tilemap) SetEAST(member int) {
     self.Set("EAST", member)
 }
 
 // 
-func (self *Tilemap) GetSOUTH() float64{
-    return self.Get("SOUTH").Float()
+func (self *Tilemap) GetSOUTH() int{
+    return self.Get("SOUTH").Int()
 }
 
 // 
-func (self *Tilemap) SetSOUTH(member float64) {
+func (self *Tilemap) SetSOUTH(member int) {
     self.Set("SOUTH", member)
 }
 
 // 
-func (self *Tilemap) GetWEST() float64{
-    return self.Get("WEST").Float()
+func (self *Tilemap) GetWEST() int{
+    return self.Get("WEST").Int()
 }
 
 // 
-func (self *Tilemap) SetWEST(member float64) {
+func (self *Tilemap) SetWEST(member int) {
     self.Set("WEST", member)
 }
 
@@ -411,23 +411,23 @@ func (self *Tilemap) CreateBlankLayerI(args ...interface{}) *TilemapLayer{
 }
 
 // Gets the layer index based on the layers name.
-func (self *Tilemap) GetIndexI(args ...interface{}) float64{
-    return self.Call("getIndex", args).Float()
+func (self *Tilemap) GetIndexI(args ...interface{}) int{
+    return self.Call("getIndex", args).Int()
 }
 
 // Gets the layer index based on its name.
-func (self *Tilemap) GetLayerIndexI(args ...interface{}) float64{
-    return self.Call("getLayerIndex", args).Float()
+func (self *Tilemap) GetLayerIndexI(args ...interface{}) int{
+    return self.Call("getLayerIndex", args).Int()
 }
 
 // Gets the tileset index based on its name.
-func (self *Tilemap) GetTilesetIndexI(args ...interface{}) float64{
-    return self.Call("getTilesetIndex", args).Float()
+func (self *Tilemap) GetTilesetIndexI(args ...interface{}) int{
+    return self.Call("getTilesetIndex", args).Int()
 }
 
 // Gets the image index based on its name.
-func (self *Tilemap) GetImageIndexI(args ...interface{}) float64{
-    return self.Call("getImageIndex", args).Float()
+func (self *Tilemap) GetImageIndexI(args ...interface{}) int{
+    return self.Call("getImageIndex", args).Int()
 }
 
 // Sets a global collision callback for the given tile index within the layer. This will affect all tiles on this layer that have the same index.
@@ -470,8 +470,8 @@ func (self *Tilemap) SetCollisionByIndexI(args ...interface{}) {
 }
 
 // Gets the TilemapLayer index as used in the setCollision calls.
-func (self *Tilemap) GetLayerI(args ...interface{}) float64{
-    return self.Call("getLayer", args).Float()
+func (self *Tilemap) GetLayerI(args ...interface{}) int{
+    return self.Call("getLayer", args).Int()
 }
 
 // Turn off/on the recalculation of faces for tile or collision updates. 

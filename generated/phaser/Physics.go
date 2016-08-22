@@ -100,62 +100,62 @@ func (self *Physics) SetMatter(member *PhysicsMatter) {
 }
 
 // 
-func (self *Physics) GetARCADE() float64{
-    return self.Get("ARCADE").Float()
+func (self *Physics) GetARCADE() int{
+    return self.Get("ARCADE").Int()
 }
 
 // 
-func (self *Physics) SetARCADE(member float64) {
+func (self *Physics) SetARCADE(member int) {
     self.Set("ARCADE", member)
 }
 
 // 
-func (self *Physics) GetP2JS() float64{
-    return self.Get("P2JS").Float()
+func (self *Physics) GetP2JS() int{
+    return self.Get("P2JS").Int()
 }
 
 // 
-func (self *Physics) SetP2JS(member float64) {
+func (self *Physics) SetP2JS(member int) {
     self.Set("P2JS", member)
 }
 
 // 
-func (self *Physics) GetNINJA() float64{
-    return self.Get("NINJA").Float()
+func (self *Physics) GetNINJA() int{
+    return self.Get("NINJA").Int()
 }
 
 // 
-func (self *Physics) SetNINJA(member float64) {
+func (self *Physics) SetNINJA(member int) {
     self.Set("NINJA", member)
 }
 
 // 
-func (self *Physics) GetBOX2D() float64{
-    return self.Get("BOX2D").Float()
+func (self *Physics) GetBOX2D() int{
+    return self.Get("BOX2D").Int()
 }
 
 // 
-func (self *Physics) SetBOX2D(member float64) {
+func (self *Physics) SetBOX2D(member int) {
     self.Set("BOX2D", member)
 }
 
 // 
-func (self *Physics) GetCHIPMUNK() float64{
-    return self.Get("CHIPMUNK").Float()
+func (self *Physics) GetCHIPMUNK() int{
+    return self.Get("CHIPMUNK").Int()
 }
 
 // 
-func (self *Physics) SetCHIPMUNK(member float64) {
+func (self *Physics) SetCHIPMUNK(member int) {
     self.Set("CHIPMUNK", member)
 }
 
 // 
-func (self *Physics) GetMATTERJS() float64{
-    return self.Get("MATTERJS").Float()
+func (self *Physics) GetMATTERJS() int{
+    return self.Get("MATTERJS").Int()
 }
 
 // 
-func (self *Physics) SetMATTERJS(member float64) {
+func (self *Physics) SetMATTERJS(member int) {
     self.Set("MATTERJS", member)
 }
 

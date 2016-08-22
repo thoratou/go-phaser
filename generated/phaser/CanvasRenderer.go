@@ -27,22 +27,22 @@ func (self *CanvasRenderer) SetGame(member *PhaserGame) {
 }
 
 // The renderer type.
-func (self *CanvasRenderer) GetType() float64{
-    return self.Get("type").Float()
+func (self *CanvasRenderer) GetType() int{
+    return self.Get("type").Int()
 }
 
 // The renderer type.
-func (self *CanvasRenderer) SetType(member float64) {
+func (self *CanvasRenderer) SetType(member int) {
     self.Set("type", member)
 }
 
 // The resolution of the canvas.
-func (self *CanvasRenderer) GetResolution() float64{
-    return self.Get("resolution").Float()
+func (self *CanvasRenderer) GetResolution() int{
+    return self.Get("resolution").Int()
 }
 
 // The resolution of the canvas.
-func (self *CanvasRenderer) SetResolution(member float64) {
+func (self *CanvasRenderer) SetResolution(member int) {
     self.Set("resolution", member)
 }
 
@@ -83,22 +83,22 @@ func (self *CanvasRenderer) SetAutoResize(member bool) {
 }
 
 // The width of the canvas view
-func (self *CanvasRenderer) GetWidth() float64{
-    return self.Get("width").Float()
+func (self *CanvasRenderer) GetWidth() int{
+    return self.Get("width").Int()
 }
 
 // The width of the canvas view
-func (self *CanvasRenderer) SetWidth(member float64) {
+func (self *CanvasRenderer) SetWidth(member int) {
     self.Set("width", member)
 }
 
 // The height of the canvas view
-func (self *CanvasRenderer) GetHeight() float64{
-    return self.Get("height").Float()
+func (self *CanvasRenderer) GetHeight() int{
+    return self.Get("height").Int()
 }
 
 // The height of the canvas view
-func (self *CanvasRenderer) SetHeight(member float64) {
+func (self *CanvasRenderer) SetHeight(member int) {
     self.Set("height", member)
 }
 
@@ -133,12 +133,12 @@ func (self *CanvasRenderer) SetRefresh(member bool) {
 }
 
 // Internal var.
-func (self *CanvasRenderer) GetCount() float64{
-    return self.Get("count").Float()
+func (self *CanvasRenderer) GetCount() int{
+    return self.Get("count").Int()
 }
 
 // Internal var.
-func (self *CanvasRenderer) SetCount(member float64) {
+func (self *CanvasRenderer) SetCount(member int) {
     self.Set("count", member)
 }
 

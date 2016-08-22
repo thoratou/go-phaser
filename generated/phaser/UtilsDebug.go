@@ -85,22 +85,22 @@ func (self *UtilsDebug) SetFont(member string) {
 }
 
 // The spacing between columns.
-func (self *UtilsDebug) GetColumnWidth() float64{
-    return self.Get("columnWidth").Float()
+func (self *UtilsDebug) GetColumnWidth() int{
+    return self.Get("columnWidth").Int()
 }
 
 // The spacing between columns.
-func (self *UtilsDebug) SetColumnWidth(member float64) {
+func (self *UtilsDebug) SetColumnWidth(member int) {
     self.Set("columnWidth", member)
 }
 
 // The line height between the debug text.
-func (self *UtilsDebug) GetLineHeight() float64{
-    return self.Get("lineHeight").Float()
+func (self *UtilsDebug) GetLineHeight() int{
+    return self.Get("lineHeight").Int()
 }
 
 // The line height between the debug text.
-func (self *UtilsDebug) SetLineHeight(member float64) {
+func (self *UtilsDebug) SetLineHeight(member int) {
     self.Set("lineHeight", member)
 }
 
@@ -115,32 +115,32 @@ func (self *UtilsDebug) SetRenderShadow(member bool) {
 }
 
 // The current X position the debug information will be rendered at.
-func (self *UtilsDebug) GetCurrentX() float64{
-    return self.Get("currentX").Float()
+func (self *UtilsDebug) GetCurrentX() int{
+    return self.Get("currentX").Int()
 }
 
 // The current X position the debug information will be rendered at.
-func (self *UtilsDebug) SetCurrentX(member float64) {
+func (self *UtilsDebug) SetCurrentX(member int) {
     self.Set("currentX", member)
 }
 
 // The current Y position the debug information will be rendered at.
-func (self *UtilsDebug) GetCurrentY() float64{
-    return self.Get("currentY").Float()
+func (self *UtilsDebug) GetCurrentY() int{
+    return self.Get("currentY").Int()
 }
 
 // The current Y position the debug information will be rendered at.
-func (self *UtilsDebug) SetCurrentY(member float64) {
+func (self *UtilsDebug) SetCurrentY(member int) {
     self.Set("currentY", member)
 }
 
 // The alpha of the Debug context, set before all debug information is rendered to it.
-func (self *UtilsDebug) GetCurrentAlpha() float64{
-    return self.Get("currentAlpha").Float()
+func (self *UtilsDebug) GetCurrentAlpha() int{
+    return self.Get("currentAlpha").Int()
 }
 
 // The alpha of the Debug context, set before all debug information is rendered to it.
-func (self *UtilsDebug) SetCurrentAlpha(member float64) {
+func (self *UtilsDebug) SetCurrentAlpha(member int) {
     self.Set("currentAlpha", member)
 }
 

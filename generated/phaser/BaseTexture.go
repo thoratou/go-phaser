@@ -14,42 +14,42 @@ type BaseTexture struct {
 
 
 // The Resolution of the texture.
-func (self *BaseTexture) GetResolution() float64{
-    return self.Get("resolution").Float()
+func (self *BaseTexture) GetResolution() int{
+    return self.Get("resolution").Int()
 }
 
 // The Resolution of the texture.
-func (self *BaseTexture) SetResolution(member float64) {
+func (self *BaseTexture) SetResolution(member int) {
     self.Set("resolution", member)
 }
 
 // [read-only] The width of the base texture set when the image has loaded
-func (self *BaseTexture) GetWidth() float64{
-    return self.Get("width").Float()
+func (self *BaseTexture) GetWidth() int{
+    return self.Get("width").Int()
 }
 
 // [read-only] The width of the base texture set when the image has loaded
-func (self *BaseTexture) SetWidth(member float64) {
+func (self *BaseTexture) SetWidth(member int) {
     self.Set("width", member)
 }
 
 // [read-only] The height of the base texture set when the image has loaded
-func (self *BaseTexture) GetHeight() float64{
-    return self.Get("height").Float()
+func (self *BaseTexture) GetHeight() int{
+    return self.Get("height").Int()
 }
 
 // [read-only] The height of the base texture set when the image has loaded
-func (self *BaseTexture) SetHeight(member float64) {
+func (self *BaseTexture) SetHeight(member int) {
     self.Set("height", member)
 }
 
 // The scale mode to apply when scaling this texture
-func (self *BaseTexture) GetScaleMode() float64{
-    return self.Get("scaleMode").Float()
+func (self *BaseTexture) GetScaleMode() int{
+    return self.Get("scaleMode").Int()
 }
 
 // The scale mode to apply when scaling this texture
-func (self *BaseTexture) SetScaleMode(member float64) {
+func (self *BaseTexture) SetScaleMode(member int) {
     self.Set("scaleMode", member)
 }
 

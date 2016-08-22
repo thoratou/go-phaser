@@ -35,12 +35,12 @@ func (self *PhysicsArcadeBody) SetGame(member *Game) {
 }
 
 // The type of physics system this body belongs to.
-func (self *PhysicsArcadeBody) GetType() float64{
-    return self.Get("type").Float()
+func (self *PhysicsArcadeBody) GetType() int{
+    return self.Get("type").Int()
 }
 
 // The type of physics system this body belongs to.
-func (self *PhysicsArcadeBody) SetType(member float64) {
+func (self *PhysicsArcadeBody) SetType(member int) {
     self.Set("type", member)
 }
 
@@ -69,14 +69,14 @@ func (self *PhysicsArcadeBody) SetIsCircle(member bool) {
 // The radius of the circular collision shape this Body is using if Body.setCircle has been enabled.
 // If you wish to change the radius then call `setCircle` again with the new value.
 // If you wish to stop the Body using a circle then call `setCircle` with a radius of zero (or undefined).
-func (self *PhysicsArcadeBody) GetRadius() float64{
-    return self.Get("radius").Float()
+func (self *PhysicsArcadeBody) GetRadius() int{
+    return self.Get("radius").Int()
 }
 
 // The radius of the circular collision shape this Body is using if Body.setCircle has been enabled.
 // If you wish to change the radius then call `setCircle` again with the new value.
 // If you wish to stop the Body using a circle then call `setCircle` with a radius of zero (or undefined).
-func (self *PhysicsArcadeBody) SetRadius(member float64) {
+func (self *PhysicsArcadeBody) SetRadius(member int) {
     self.Set("radius", member)
 }
 
@@ -122,83 +122,83 @@ func (self *PhysicsArcadeBody) SetAllowRotation(member bool) {
 
 // An Arcade Physics Body can have angularVelocity and angularAcceleration. Please understand that the collision Body
 // itself never rotates, it is always axis-aligned. However these values are passed up to the parent Sprite and updates its rotation.
-func (self *PhysicsArcadeBody) GetRotation() float64{
-    return self.Get("rotation").Float()
+func (self *PhysicsArcadeBody) GetRotation() int{
+    return self.Get("rotation").Int()
 }
 
 // An Arcade Physics Body can have angularVelocity and angularAcceleration. Please understand that the collision Body
 // itself never rotates, it is always axis-aligned. However these values are passed up to the parent Sprite and updates its rotation.
-func (self *PhysicsArcadeBody) SetRotation(member float64) {
+func (self *PhysicsArcadeBody) SetRotation(member int) {
     self.Set("rotation", member)
 }
 
 // The previous rotation of the physics body.
-func (self *PhysicsArcadeBody) GetPreRotation() float64{
-    return self.Get("preRotation").Float()
+func (self *PhysicsArcadeBody) GetPreRotation() int{
+    return self.Get("preRotation").Int()
 }
 
 // The previous rotation of the physics body.
-func (self *PhysicsArcadeBody) SetPreRotation(member float64) {
+func (self *PhysicsArcadeBody) SetPreRotation(member int) {
     self.Set("preRotation", member)
 }
 
 // The calculated width of the physics body.
-func (self *PhysicsArcadeBody) GetWidth() float64{
-    return self.Get("width").Float()
+func (self *PhysicsArcadeBody) GetWidth() int{
+    return self.Get("width").Int()
 }
 
 // The calculated width of the physics body.
-func (self *PhysicsArcadeBody) SetWidth(member float64) {
+func (self *PhysicsArcadeBody) SetWidth(member int) {
     self.Set("width", member)
 }
 
 // The calculated height of the physics body.
-func (self *PhysicsArcadeBody) GetHeight() float64{
-    return self.Get("height").Float()
+func (self *PhysicsArcadeBody) GetHeight() int{
+    return self.Get("height").Int()
 }
 
 // The calculated height of the physics body.
-func (self *PhysicsArcadeBody) SetHeight(member float64) {
+func (self *PhysicsArcadeBody) SetHeight(member int) {
     self.Set("height", member)
 }
 
 // The un-scaled original size.
-func (self *PhysicsArcadeBody) GetSourceWidth() float64{
-    return self.Get("sourceWidth").Float()
+func (self *PhysicsArcadeBody) GetSourceWidth() int{
+    return self.Get("sourceWidth").Int()
 }
 
 // The un-scaled original size.
-func (self *PhysicsArcadeBody) SetSourceWidth(member float64) {
+func (self *PhysicsArcadeBody) SetSourceWidth(member int) {
     self.Set("sourceWidth", member)
 }
 
 // The un-scaled original size.
-func (self *PhysicsArcadeBody) GetSourceHeight() float64{
-    return self.Get("sourceHeight").Float()
+func (self *PhysicsArcadeBody) GetSourceHeight() int{
+    return self.Get("sourceHeight").Int()
 }
 
 // The un-scaled original size.
-func (self *PhysicsArcadeBody) SetSourceHeight(member float64) {
+func (self *PhysicsArcadeBody) SetSourceHeight(member int) {
     self.Set("sourceHeight", member)
 }
 
 // The calculated width / 2 of the physics body.
-func (self *PhysicsArcadeBody) GetHalfWidth() float64{
-    return self.Get("halfWidth").Float()
+func (self *PhysicsArcadeBody) GetHalfWidth() int{
+    return self.Get("halfWidth").Int()
 }
 
 // The calculated width / 2 of the physics body.
-func (self *PhysicsArcadeBody) SetHalfWidth(member float64) {
+func (self *PhysicsArcadeBody) SetHalfWidth(member int) {
     self.Set("halfWidth", member)
 }
 
 // The calculated height / 2 of the physics body.
-func (self *PhysicsArcadeBody) GetHalfHeight() float64{
-    return self.Get("halfHeight").Float()
+func (self *PhysicsArcadeBody) GetHalfHeight() int{
+    return self.Get("halfHeight").Int()
 }
 
 // The calculated height / 2 of the physics body.
-func (self *PhysicsArcadeBody) SetHalfHeight(member float64) {
+func (self *PhysicsArcadeBody) SetHalfHeight(member int) {
     self.Set("halfHeight", member)
 }
 
@@ -425,82 +425,82 @@ func (self *PhysicsArcadeBody) SetFriction(member *Point) {
 }
 
 // The angular velocity controls the rotation speed of the Body. It is measured in radians per second.
-func (self *PhysicsArcadeBody) GetAngularVelocity() float64{
-    return self.Get("angularVelocity").Float()
+func (self *PhysicsArcadeBody) GetAngularVelocity() int{
+    return self.Get("angularVelocity").Int()
 }
 
 // The angular velocity controls the rotation speed of the Body. It is measured in radians per second.
-func (self *PhysicsArcadeBody) SetAngularVelocity(member float64) {
+func (self *PhysicsArcadeBody) SetAngularVelocity(member int) {
     self.Set("angularVelocity", member)
 }
 
 // The angular acceleration is the rate of change of the angular velocity. Measured in radians per second squared.
-func (self *PhysicsArcadeBody) GetAngularAcceleration() float64{
-    return self.Get("angularAcceleration").Float()
+func (self *PhysicsArcadeBody) GetAngularAcceleration() int{
+    return self.Get("angularAcceleration").Int()
 }
 
 // The angular acceleration is the rate of change of the angular velocity. Measured in radians per second squared.
-func (self *PhysicsArcadeBody) SetAngularAcceleration(member float64) {
+func (self *PhysicsArcadeBody) SetAngularAcceleration(member int) {
     self.Set("angularAcceleration", member)
 }
 
 // The drag applied during the rotation of the Body.
-func (self *PhysicsArcadeBody) GetAngularDrag() float64{
-    return self.Get("angularDrag").Float()
+func (self *PhysicsArcadeBody) GetAngularDrag() int{
+    return self.Get("angularDrag").Int()
 }
 
 // The drag applied during the rotation of the Body.
-func (self *PhysicsArcadeBody) SetAngularDrag(member float64) {
+func (self *PhysicsArcadeBody) SetAngularDrag(member int) {
     self.Set("angularDrag", member)
 }
 
 // The maximum angular velocity in radians per second that the Body can reach.
-func (self *PhysicsArcadeBody) GetMaxAngular() float64{
-    return self.Get("maxAngular").Float()
+func (self *PhysicsArcadeBody) GetMaxAngular() int{
+    return self.Get("maxAngular").Int()
 }
 
 // The maximum angular velocity in radians per second that the Body can reach.
-func (self *PhysicsArcadeBody) SetMaxAngular(member float64) {
+func (self *PhysicsArcadeBody) SetMaxAngular(member int) {
     self.Set("maxAngular", member)
 }
 
 // The mass of the Body. When two bodies collide their mass is used in the calculation to determine the exchange of velocity.
-func (self *PhysicsArcadeBody) GetMass() float64{
-    return self.Get("mass").Float()
+func (self *PhysicsArcadeBody) GetMass() int{
+    return self.Get("mass").Int()
 }
 
 // The mass of the Body. When two bodies collide their mass is used in the calculation to determine the exchange of velocity.
-func (self *PhysicsArcadeBody) SetMass(member float64) {
+func (self *PhysicsArcadeBody) SetMass(member int) {
     self.Set("mass", member)
 }
 
 // The angle of the Body in radians, as calculated by its angularVelocity.
-func (self *PhysicsArcadeBody) GetAngle() float64{
-    return self.Get("angle").Float()
+func (self *PhysicsArcadeBody) GetAngle() int{
+    return self.Get("angle").Int()
 }
 
 // The angle of the Body in radians, as calculated by its angularVelocity.
-func (self *PhysicsArcadeBody) SetAngle(member float64) {
+func (self *PhysicsArcadeBody) SetAngle(member int) {
     self.Set("angle", member)
 }
 
 // The speed of the Body as calculated by its velocity.
-func (self *PhysicsArcadeBody) GetSpeed() float64{
-    return self.Get("speed").Float()
+func (self *PhysicsArcadeBody) GetSpeed() int{
+    return self.Get("speed").Int()
 }
 
 // The speed of the Body as calculated by its velocity.
-func (self *PhysicsArcadeBody) SetSpeed(member float64) {
+func (self *PhysicsArcadeBody) SetSpeed(member int) {
     self.Set("speed", member)
 }
 
 // A const reference to the direction the Body is traveling or facing.
-func (self *PhysicsArcadeBody) GetFacing() float64{
-    return self.Get("facing").Float()
+func (self *PhysicsArcadeBody) GetFacing() int{
+    return self.Get("facing").Int()
 }
 
 // A const reference to the direction the Body is traveling or facing.
-func (self *PhysicsArcadeBody) SetFacing(member float64) {
+func (self *PhysicsArcadeBody) SetFacing(member int) {
     self.Set("facing", member)
 }
 
@@ -553,32 +553,32 @@ func (self *PhysicsArcadeBody) SetCustomSeparateY(member bool) {
 }
 
 // When this body collides with another, the amount of overlap is stored here. The amount of horizontal overlap during the collision.
-func (self *PhysicsArcadeBody) GetOverlapX() float64{
-    return self.Get("overlapX").Float()
+func (self *PhysicsArcadeBody) GetOverlapX() int{
+    return self.Get("overlapX").Int()
 }
 
 // When this body collides with another, the amount of overlap is stored here. The amount of horizontal overlap during the collision.
-func (self *PhysicsArcadeBody) SetOverlapX(member float64) {
+func (self *PhysicsArcadeBody) SetOverlapX(member int) {
     self.Set("overlapX", member)
 }
 
 // When this body collides with another, the amount of overlap is stored here. The amount of vertical overlap during the collision.
-func (self *PhysicsArcadeBody) GetOverlapY() float64{
-    return self.Get("overlapY").Float()
+func (self *PhysicsArcadeBody) GetOverlapY() int{
+    return self.Get("overlapY").Int()
 }
 
 // When this body collides with another, the amount of overlap is stored here. The amount of vertical overlap during the collision.
-func (self *PhysicsArcadeBody) SetOverlapY(member float64) {
+func (self *PhysicsArcadeBody) SetOverlapY(member int) {
     self.Set("overlapY", member)
 }
 
 // If `Body.isCircle` is true, and this body collides with another circular body, the amount of overlap is stored here. The amount of overlap during the collision.
-func (self *PhysicsArcadeBody) GetOverlapR() float64{
-    return self.Get("overlapR").Float()
+func (self *PhysicsArcadeBody) GetOverlapR() int{
+    return self.Get("overlapR").Int()
 }
 
 // If `Body.isCircle` is true, and this body collides with another circular body, the amount of overlap is stored here. The amount of overlap during the collision.
-func (self *PhysicsArcadeBody) SetOverlapR(member float64) {
+func (self *PhysicsArcadeBody) SetOverlapR(member int) {
     self.Set("overlapR", member)
 }
 
@@ -742,62 +742,62 @@ func (self *PhysicsArcadeBody) SetMovementCallbackContext(member interface{}) {
 }
 
 // The x position of the Body. The same as `Body.x`.
-func (self *PhysicsArcadeBody) GetLeft() float64{
-    return self.Get("left").Float()
+func (self *PhysicsArcadeBody) GetLeft() int{
+    return self.Get("left").Int()
 }
 
 // The x position of the Body. The same as `Body.x`.
-func (self *PhysicsArcadeBody) SetLeft(member float64) {
+func (self *PhysicsArcadeBody) SetLeft(member int) {
     self.Set("left", member)
 }
 
 // The right value of this Body (same as Body.x + Body.width)
-func (self *PhysicsArcadeBody) GetRight() float64{
-    return self.Get("right").Float()
+func (self *PhysicsArcadeBody) GetRight() int{
+    return self.Get("right").Int()
 }
 
 // The right value of this Body (same as Body.x + Body.width)
-func (self *PhysicsArcadeBody) SetRight(member float64) {
+func (self *PhysicsArcadeBody) SetRight(member int) {
     self.Set("right", member)
 }
 
 // The y position of the Body. The same as `Body.y`.
-func (self *PhysicsArcadeBody) GetTop() float64{
-    return self.Get("top").Float()
+func (self *PhysicsArcadeBody) GetTop() int{
+    return self.Get("top").Int()
 }
 
 // The y position of the Body. The same as `Body.y`.
-func (self *PhysicsArcadeBody) SetTop(member float64) {
+func (self *PhysicsArcadeBody) SetTop(member int) {
     self.Set("top", member)
 }
 
 // The bottom value of this Body (same as Body.y + Body.height)
-func (self *PhysicsArcadeBody) GetBottom() float64{
-    return self.Get("bottom").Float()
+func (self *PhysicsArcadeBody) GetBottom() int{
+    return self.Get("bottom").Int()
 }
 
 // The bottom value of this Body (same as Body.y + Body.height)
-func (self *PhysicsArcadeBody) SetBottom(member float64) {
+func (self *PhysicsArcadeBody) SetBottom(member int) {
     self.Set("bottom", member)
 }
 
 // The x position.
-func (self *PhysicsArcadeBody) GetX() float64{
-    return self.Get("x").Float()
+func (self *PhysicsArcadeBody) GetX() int{
+    return self.Get("x").Int()
 }
 
 // The x position.
-func (self *PhysicsArcadeBody) SetX(member float64) {
+func (self *PhysicsArcadeBody) SetX(member int) {
     self.Set("x", member)
 }
 
 // The y position.
-func (self *PhysicsArcadeBody) GetY() float64{
-    return self.Get("y").Float()
+func (self *PhysicsArcadeBody) GetY() int{
+    return self.Get("y").Int()
 }
 
 // The y position.
-func (self *PhysicsArcadeBody) SetY(member float64) {
+func (self *PhysicsArcadeBody) SetY(member int) {
     self.Set("y", member)
 }
 
@@ -954,28 +954,28 @@ func (self *PhysicsArcadeBody) OnWallI(args ...interface{}) bool{
 }
 
 // Returns the absolute delta x value.
-func (self *PhysicsArcadeBody) DeltaAbsXI(args ...interface{}) float64{
-    return self.Call("deltaAbsX", args).Float()
+func (self *PhysicsArcadeBody) DeltaAbsXI(args ...interface{}) int{
+    return self.Call("deltaAbsX", args).Int()
 }
 
 // Returns the absolute delta y value.
-func (self *PhysicsArcadeBody) DeltaAbsYI(args ...interface{}) float64{
-    return self.Call("deltaAbsY", args).Float()
+func (self *PhysicsArcadeBody) DeltaAbsYI(args ...interface{}) int{
+    return self.Call("deltaAbsY", args).Int()
 }
 
 // Returns the delta x value. The difference between Body.x now and in the previous step.
-func (self *PhysicsArcadeBody) DeltaXI(args ...interface{}) float64{
-    return self.Call("deltaX", args).Float()
+func (self *PhysicsArcadeBody) DeltaXI(args ...interface{}) int{
+    return self.Call("deltaX", args).Int()
 }
 
 // Returns the delta y value. The difference between Body.y now and in the previous step.
-func (self *PhysicsArcadeBody) DeltaYI(args ...interface{}) float64{
-    return self.Call("deltaY", args).Float()
+func (self *PhysicsArcadeBody) DeltaYI(args ...interface{}) int{
+    return self.Call("deltaY", args).Int()
 }
 
 // Returns the delta z value. The difference between Body.rotation now and in the previous step.
-func (self *PhysicsArcadeBody) DeltaZI(args ...interface{}) float64{
-    return self.Call("deltaZ", args).Float()
+func (self *PhysicsArcadeBody) DeltaZI(args ...interface{}) int{
+    return self.Call("deltaZ", args).Int()
 }
 
 // Destroys this Body.

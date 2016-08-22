@@ -34,12 +34,12 @@ func (self *Particles) SetEmitters(member interface{}) {
 }
 
 // -
-func (self *Particles) GetID() float64{
-    return self.Get("ID").Float()
+func (self *Particles) GetID() int{
+    return self.Get("ID").Int()
 }
 
 // -
-func (self *Particles) SetID(member float64) {
+func (self *Particles) SetID(member int) {
     self.Set("ID", member)
 }
 

@@ -51,22 +51,22 @@ func (self *ComponentPhysicsBody) SetBody(member interface{}) {
 }
 
 // The position of the Game Object on the x axis relative to the local coordinates of the parent.
-func (self *ComponentPhysicsBody) GetX() float64{
-    return self.Get("x").Float()
+func (self *ComponentPhysicsBody) GetX() int{
+    return self.Get("x").Int()
 }
 
 // The position of the Game Object on the x axis relative to the local coordinates of the parent.
-func (self *ComponentPhysicsBody) SetX(member float64) {
+func (self *ComponentPhysicsBody) SetX(member int) {
     self.Set("x", member)
 }
 
 // The position of the Game Object on the y axis relative to the local coordinates of the parent.
-func (self *ComponentPhysicsBody) GetY() float64{
-    return self.Get("y").Float()
+func (self *ComponentPhysicsBody) GetY() int{
+    return self.Get("y").Int()
 }
 
 // The position of the Game Object on the y axis relative to the local coordinates of the parent.
-func (self *ComponentPhysicsBody) SetY(member float64) {
+func (self *ComponentPhysicsBody) SetY(member int) {
     self.Set("y", member)
 }
 

@@ -87,12 +87,12 @@ func (self *AnimationManager) SetFrameData(member *FrameData) {
 }
 
 // The total number of frames in the currently loaded FrameData, or -1 if no FrameData is loaded.
-func (self *AnimationManager) GetFrameTotal() float64{
-    return self.Get("frameTotal").Float()
+func (self *AnimationManager) GetFrameTotal() int{
+    return self.Get("frameTotal").Int()
 }
 
 // The total number of frames in the currently loaded FrameData, or -1 if no FrameData is loaded.
-func (self *AnimationManager) SetFrameTotal(member float64) {
+func (self *AnimationManager) SetFrameTotal(member int) {
     self.Set("frameTotal", member)
 }
 
@@ -117,12 +117,12 @@ func (self *AnimationManager) SetName(member string) {
 }
 
 // Gets or sets the current frame index and updates the Texture Cache for display.
-func (self *AnimationManager) GetFrame() float64{
-    return self.Get("frame").Float()
+func (self *AnimationManager) GetFrame() int{
+    return self.Get("frame").Int()
 }
 
 // Gets or sets the current frame index and updates the Texture Cache for display.
-func (self *AnimationManager) SetFrame(member float64) {
+func (self *AnimationManager) SetFrame(member int) {
     self.Set("frame", member)
 }
 

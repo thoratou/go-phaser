@@ -74,62 +74,62 @@ func (self *World) Set_height(member interface{}) {
 }
 
 // Gets or sets the current width of the game world. The world can never be smaller than the game (canvas) dimensions.
-func (self *World) GetWidth() float64{
-    return self.Get("width").Float()
+func (self *World) GetWidth() int{
+    return self.Get("width").Int()
 }
 
 // Gets or sets the current width of the game world. The world can never be smaller than the game (canvas) dimensions.
-func (self *World) SetWidth(member float64) {
+func (self *World) SetWidth(member int) {
     self.Set("width", member)
 }
 
 // Gets or sets the current height of the game world. The world can never be smaller than the game (canvas) dimensions.
-func (self *World) GetHeight() float64{
-    return self.Get("height").Float()
+func (self *World) GetHeight() int{
+    return self.Get("height").Int()
 }
 
 // Gets or sets the current height of the game world. The world can never be smaller than the game (canvas) dimensions.
-func (self *World) SetHeight(member float64) {
+func (self *World) SetHeight(member int) {
     self.Set("height", member)
 }
 
 // Gets the X position corresponding to the center point of the world.
-func (self *World) GetCenterX() float64{
-    return self.Get("centerX").Float()
+func (self *World) GetCenterX() int{
+    return self.Get("centerX").Int()
 }
 
 // Gets the X position corresponding to the center point of the world.
-func (self *World) SetCenterX(member float64) {
+func (self *World) SetCenterX(member int) {
     self.Set("centerX", member)
 }
 
 // Gets the Y position corresponding to the center point of the world.
-func (self *World) GetCenterY() float64{
-    return self.Get("centerY").Float()
+func (self *World) GetCenterY() int{
+    return self.Get("centerY").Int()
 }
 
 // Gets the Y position corresponding to the center point of the world.
-func (self *World) SetCenterY(member float64) {
+func (self *World) SetCenterY(member int) {
     self.Set("centerY", member)
 }
 
 // Gets a random integer which is lesser than or equal to the current width of the game world.
-func (self *World) GetRandomX() float64{
-    return self.Get("randomX").Float()
+func (self *World) GetRandomX() int{
+    return self.Get("randomX").Int()
 }
 
 // Gets a random integer which is lesser than or equal to the current width of the game world.
-func (self *World) SetRandomX(member float64) {
+func (self *World) SetRandomX(member int) {
     self.Set("randomX", member)
 }
 
 // Gets a random integer which is lesser than or equal to the current height of the game world.
-func (self *World) GetRandomY() float64{
-    return self.Get("randomY").Float()
+func (self *World) GetRandomY() int{
+    return self.Get("randomY").Int()
 }
 
 // Gets a random integer which is lesser than or equal to the current height of the game world.
-func (self *World) SetRandomY(member float64) {
+func (self *World) SetRandomY(member int) {
     self.Set("randomY", member)
 }
 
@@ -176,12 +176,12 @@ func (self *World) SetType(member int) {
 }
 
 // The const physics body type of this object.
-func (self *World) GetPhysicsType() float64{
-    return self.Get("physicsType").Float()
+func (self *World) GetPhysicsType() int{
+    return self.Get("physicsType").Int()
 }
 
 // The const physics body type of this object.
-func (self *World) SetPhysicsType(member float64) {
+func (self *World) SetPhysicsType(member int) {
     self.Set("physicsType", member)
 }
 
@@ -541,8 +541,8 @@ func (self *World) SetLength(member int) {
 // 
 // This has no impact on the rotation/angle properties of the children, but it will update their worldTransform
 // and on-screen orientation and position.
-func (self *World) GetAngle() float64{
-    return self.Get("angle").Float()
+func (self *World) GetAngle() int{
+    return self.Get("angle").Int()
 }
 
 // The angle of rotation of the group container, in degrees.
@@ -551,7 +551,7 @@ func (self *World) GetAngle() float64{
 // 
 // This has no impact on the rotation/angle properties of the children, but it will update their worldTransform
 // and on-screen orientation and position.
-func (self *World) SetAngle(member float64) {
+func (self *World) SetAngle(member int) {
     self.Set("angle", member)
 }
 
@@ -564,8 +564,8 @@ func (self *World) SetAngle(member float64) {
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *World) GetLeft() float64{
-    return self.Get("left").Float()
+func (self *World) GetLeft() int{
+    return self.Get("left").Int()
 }
 
 // The left coordinate of this Group.
@@ -577,7 +577,7 @@ func (self *World) GetLeft() float64{
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *World) SetLeft(member float64) {
+func (self *World) SetLeft(member int) {
     self.Set("left", member)
 }
 
@@ -590,8 +590,8 @@ func (self *World) SetLeft(member float64) {
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *World) GetRight() float64{
-    return self.Get("right").Float()
+func (self *World) GetRight() int{
+    return self.Get("right").Int()
 }
 
 // The right coordinate of this Group.
@@ -603,7 +603,7 @@ func (self *World) GetRight() float64{
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *World) SetRight(member float64) {
+func (self *World) SetRight(member int) {
     self.Set("right", member)
 }
 
@@ -616,8 +616,8 @@ func (self *World) SetRight(member float64) {
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *World) GetTop() float64{
-    return self.Get("top").Float()
+func (self *World) GetTop() int{
+    return self.Get("top").Int()
 }
 
 // The top coordinate of this Group.
@@ -629,7 +629,7 @@ func (self *World) GetTop() float64{
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *World) SetTop(member float64) {
+func (self *World) SetTop(member int) {
     self.Set("top", member)
 }
 
@@ -642,8 +642,8 @@ func (self *World) SetTop(member float64) {
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *World) GetBottom() float64{
-    return self.Get("bottom").Float()
+func (self *World) GetBottom() int{
+    return self.Get("bottom").Int()
 }
 
 // The bottom coordinate of this Group.
@@ -655,7 +655,7 @@ func (self *World) GetBottom() float64{
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *World) SetBottom(member float64) {
+func (self *World) SetBottom(member int) {
     self.Set("bottom", member)
 }
 
@@ -663,15 +663,15 @@ func (self *World) SetBottom(member float64) {
 // 
 // You can adjust the group container itself by modifying its coordinates.
 // This will have no impact on the x/y coordinates of its children, but it will update their worldTransform and on-screen position.
-func (self *World) GetX() float64{
-    return self.Get("x").Float()
+func (self *World) GetX() int{
+    return self.Get("x").Int()
 }
 
 // The x coordinate of the group container.
 // 
 // You can adjust the group container itself by modifying its coordinates.
 // This will have no impact on the x/y coordinates of its children, but it will update their worldTransform and on-screen position.
-func (self *World) SetX(member float64) {
+func (self *World) SetX(member int) {
     self.Set("x", member)
 }
 
@@ -679,15 +679,15 @@ func (self *World) SetX(member float64) {
 // 
 // You can adjust the group container itself by modifying its coordinates.
 // This will have no impact on the x/y coordinates of its children, but it will update their worldTransform and on-screen position.
-func (self *World) GetY() float64{
-    return self.Get("y").Float()
+func (self *World) GetY() int{
+    return self.Get("y").Int()
 }
 
 // The y coordinate of the group container.
 // 
 // You can adjust the group container itself by modifying its coordinates.
 // This will have no impact on the x/y coordinates of its children, but it will update their worldTransform and on-screen position.
-func (self *World) SetY(member float64) {
+func (self *World) SetY(member int) {
     self.Set("y", member)
 }
 
@@ -695,15 +695,15 @@ func (self *World) SetY(member float64) {
 // 
 // This will adjust the group container itself by modifying its rotation.
 // This will have no impact on the rotation value of its children, but it will update their worldTransform and on-screen position.
-func (self *World) GetRotation() float64{
-    return self.Get("rotation").Float()
+func (self *World) GetRotation() int{
+    return self.Get("rotation").Int()
 }
 
 // The angle of rotation of the group container, in radians.
 // 
 // This will adjust the group container itself by modifying its rotation.
 // This will have no impact on the rotation value of its children, but it will update their worldTransform and on-screen position.
-func (self *World) SetRotation(member float64) {
+func (self *World) SetRotation(member int) {
     self.Set("rotation", member)
 }
 
@@ -718,12 +718,12 @@ func (self *World) SetVisible(member bool) {
 }
 
 // The alpha value of the group container.
-func (self *World) GetAlpha() float64{
-    return self.Get("alpha").Float()
+func (self *World) GetAlpha() int{
+    return self.Get("alpha").Int()
 }
 
 // The alpha value of the group container.
-func (self *World) SetAlpha(member float64) {
+func (self *World) SetAlpha(member int) {
     self.Set("alpha", member)
 }
 
@@ -1506,8 +1506,8 @@ func (self *World) SwapChildrenI(args ...interface{}) {
 }
 
 // Returns the index position of a child DisplayObject instance
-func (self *World) GetChildIndexI(args ...interface{}) float64{
-    return self.Call("getChildIndex", args).Float()
+func (self *World) GetChildIndexI(args ...interface{}) int{
+    return self.Call("getChildIndex", args).Int()
 }
 
 // Changes the position of an existing child in the display object container

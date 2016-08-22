@@ -79,34 +79,34 @@ func (self *DeviceButton) SetIsUp(member bool) {
 }
 
 // The timestamp when the button was last pressed down.
-func (self *DeviceButton) GetTimeDown() float64{
-    return self.Get("timeDown").Float()
+func (self *DeviceButton) GetTimeDown() int{
+    return self.Get("timeDown").Int()
 }
 
 // The timestamp when the button was last pressed down.
-func (self *DeviceButton) SetTimeDown(member float64) {
+func (self *DeviceButton) SetTimeDown(member int) {
     self.Set("timeDown", member)
 }
 
 // The timestamp when the button was last released.
-func (self *DeviceButton) GetTimeUp() float64{
-    return self.Get("timeUp").Float()
+func (self *DeviceButton) GetTimeUp() int{
+    return self.Get("timeUp").Int()
 }
 
 // The timestamp when the button was last released.
-func (self *DeviceButton) SetTimeUp(member float64) {
+func (self *DeviceButton) SetTimeUp(member int) {
     self.Set("timeUp", member)
 }
 
 // Gamepad only.
 // If a button is held down this holds down the number of times the button has 'repeated'.
-func (self *DeviceButton) GetRepeats() float64{
-    return self.Get("repeats").Float()
+func (self *DeviceButton) GetRepeats() int{
+    return self.Get("repeats").Int()
 }
 
 // Gamepad only.
 // If a button is held down this holds down the number of times the button has 'repeated'.
-func (self *DeviceButton) SetRepeats(member float64) {
+func (self *DeviceButton) SetRepeats(member int) {
     self.Set("repeats", member)
 }
 
@@ -147,22 +147,22 @@ func (self *DeviceButton) SetCtrlKey(member bool) {
 }
 
 // Button value. Mainly useful for checking analog buttons (like shoulder triggers) on Gamepads.
-func (self *DeviceButton) GetValue() float64{
-    return self.Get("value").Float()
+func (self *DeviceButton) GetValue() int{
+    return self.Get("value").Int()
 }
 
 // Button value. Mainly useful for checking analog buttons (like shoulder triggers) on Gamepads.
-func (self *DeviceButton) SetValue(member float64) {
+func (self *DeviceButton) SetValue(member int) {
     self.Set("value", member)
 }
 
 // The buttoncode of this button if a Gamepad, or the DOM button event value if a Pointer.
-func (self *DeviceButton) GetButtonCode() float64{
-    return self.Get("buttonCode").Float()
+func (self *DeviceButton) GetButtonCode() int{
+    return self.Get("buttonCode").Int()
 }
 
 // The buttoncode of this button if a Gamepad, or the DOM button event value if a Pointer.
-func (self *DeviceButton) SetButtonCode(member float64) {
+func (self *DeviceButton) SetButtonCode(member int) {
     self.Set("buttonCode", member)
 }
 
@@ -210,13 +210,13 @@ func (self *DeviceButton) SetOnFloat(member *Signal) {
 
 // How long the button has been held down for in milliseconds.
 // If not currently down it returns -1.
-func (self *DeviceButton) GetDuration() float64{
-    return self.Get("duration").Float()
+func (self *DeviceButton) GetDuration() int{
+    return self.Get("duration").Int()
 }
 
 // How long the button has been held down for in milliseconds.
 // If not currently down it returns -1.
-func (self *DeviceButton) SetDuration(member float64) {
+func (self *DeviceButton) SetDuration(member int) {
     self.Set("duration", member)
 }
 

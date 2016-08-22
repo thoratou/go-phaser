@@ -14,12 +14,12 @@ type PhysicsP2CollisionGroup struct {
 
 
 // The CollisionGroup bitmask.
-func (self *PhysicsP2CollisionGroup) GetMask() float64{
-    return self.Get("mask").Float()
+func (self *PhysicsP2CollisionGroup) GetMask() int{
+    return self.Get("mask").Int()
 }
 
 // The CollisionGroup bitmask.
-func (self *PhysicsP2CollisionGroup) SetMask(member float64) {
+func (self *PhysicsP2CollisionGroup) SetMask(member int) {
     self.Set("mask", member)
 }
 

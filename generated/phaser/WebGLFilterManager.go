@@ -30,22 +30,22 @@ func (self *WebGLFilterManager) SetFilterStack(member []interface{}) {
 }
 
 // 
-func (self *WebGLFilterManager) GetOffsetX() float64{
-    return self.Get("offsetX").Float()
+func (self *WebGLFilterManager) GetOffsetX() int{
+    return self.Get("offsetX").Int()
 }
 
 // 
-func (self *WebGLFilterManager) SetOffsetX(member float64) {
+func (self *WebGLFilterManager) SetOffsetX(member int) {
     self.Set("offsetX", member)
 }
 
 // 
-func (self *WebGLFilterManager) GetOffsetY() float64{
-    return self.Get("offsetY").Float()
+func (self *WebGLFilterManager) GetOffsetY() int{
+    return self.Get("offsetY").Int()
 }
 
 // 
-func (self *WebGLFilterManager) SetOffsetY(member float64) {
+func (self *WebGLFilterManager) SetOffsetY(member int) {
     self.Set("offsetY", member)
 }
 

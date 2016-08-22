@@ -16,16 +16,16 @@ type EasingSinusoidal struct {
 
 
 // Sinusoidal ease-in.
-func (self *EasingSinusoidal) InI(args ...interface{}) float64{
-    return self.Call("In", args).Float()
+func (self *EasingSinusoidal) InI(args ...interface{}) int{
+    return self.Call("In", args).Int()
 }
 
 // Sinusoidal ease-out.
-func (self *EasingSinusoidal) OutI(args ...interface{}) float64{
-    return self.Call("Out", args).Float()
+func (self *EasingSinusoidal) OutI(args ...interface{}) int{
+    return self.Call("Out", args).Int()
 }
 
 // Sinusoidal ease-in/out.
-func (self *EasingSinusoidal) InOutI(args ...interface{}) float64{
-    return self.Call("InOut", args).Float()
+func (self *EasingSinusoidal) InOutI(args ...interface{}) int{
+    return self.Call("InOut", args).Int()
 }

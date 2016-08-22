@@ -39,8 +39,8 @@ func (self *CanvasPool) CreateI(args ...interface{}) dom.HTMLCanvasElement{
 }
 
 // Gets the first free canvas index from the pool.
-func (self *CanvasPool) GetFirstI(args ...interface{}) float64{
-    return self.Call("getFirst", args).Float()
+func (self *CanvasPool) GetFirstI(args ...interface{}) int{
+    return self.Call("getFirst", args).Int()
 }
 
 // Removes the parent from a canvas element from the pool, freeing it up for re-use.
@@ -54,11 +54,11 @@ func (self *CanvasPool) RemoveByCanvasI(args ...interface{}) {
 }
 
 // Gets the total number of used canvas elements in the pool.
-func (self *CanvasPool) GetTotalI(args ...interface{}) float64{
-    return self.Call("getTotal", args).Float()
+func (self *CanvasPool) GetTotalI(args ...interface{}) int{
+    return self.Call("getTotal", args).Int()
 }
 
 // Gets the total number of free canvas elements in the pool.
-func (self *CanvasPool) GetFreeI(args ...interface{}) float64{
-    return self.Call("getFree", args).Float()
+func (self *CanvasPool) GetFreeI(args ...interface{}) int{
+    return self.Call("getFree", args).Int()
 }

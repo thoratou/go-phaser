@@ -67,12 +67,12 @@ func (self *Device) SetIOS(member bool) {
 }
 
 // If running in iOS this will contain the major version number.
-func (self *Device) GetIOSVersion() float64{
-    return self.Get("iOSVersion").Float()
+func (self *Device) GetIOSVersion() int{
+    return self.Get("iOSVersion").Int()
 }
 
 // If running in iOS this will contain the major version number.
-func (self *Device) SetIOSVersion(member float64) {
+func (self *Device) SetIOSVersion(member int) {
     self.Set("iOSVersion", member)
 }
 
@@ -397,12 +397,12 @@ func (self *Device) SetChrome(member bool) {
 }
 
 // If running in Chrome this will contain the major version number.
-func (self *Device) GetChromeVersion() float64{
-    return self.Get("chromeVersion").Float()
+func (self *Device) GetChromeVersion() int{
+    return self.Get("chromeVersion").Int()
 }
 
 // If running in Chrome this will contain the major version number.
-func (self *Device) SetChromeVersion(member float64) {
+func (self *Device) SetChromeVersion(member int) {
     self.Set("chromeVersion", member)
 }
 
@@ -427,12 +427,12 @@ func (self *Device) SetFirefox(member bool) {
 }
 
 // If running in Firefox this will contain the major version number.
-func (self *Device) GetFirefoxVersion() float64{
-    return self.Get("firefoxVersion").Float()
+func (self *Device) GetFirefoxVersion() int{
+    return self.Get("firefoxVersion").Int()
 }
 
 // If running in Firefox this will contain the major version number.
-func (self *Device) SetFirefoxVersion(member float64) {
+func (self *Device) SetFirefoxVersion(member int) {
     self.Set("firefoxVersion", member)
 }
 
@@ -447,12 +447,12 @@ func (self *Device) SetIe(member bool) {
 }
 
 // If running in Internet Explorer this will contain the major version number. Beyond IE10 you should use Device.trident and Device.tridentVersion.
-func (self *Device) GetIeVersion() float64{
-    return self.Get("ieVersion").Float()
+func (self *Device) GetIeVersion() int{
+    return self.Get("ieVersion").Int()
 }
 
 // If running in Internet Explorer this will contain the major version number. Beyond IE10 you should use Device.trident and Device.tridentVersion.
-func (self *Device) SetIeVersion(member float64) {
+func (self *Device) SetIeVersion(member int) {
     self.Set("ieVersion", member)
 }
 
@@ -467,12 +467,12 @@ func (self *Device) SetTrident(member bool) {
 }
 
 // If running in Internet Explorer 11 this will contain the major version number. See {@link http://msdn.microsoft.com/en-us/library/ie/ms537503(v=vs.85).aspx}
-func (self *Device) GetTridentVersion() float64{
-    return self.Get("tridentVersion").Float()
+func (self *Device) GetTridentVersion() int{
+    return self.Get("tridentVersion").Int()
 }
 
 // If running in Internet Explorer 11 this will contain the major version number. See {@link http://msdn.microsoft.com/en-us/library/ie/ms537503(v=vs.85).aspx}
-func (self *Device) SetTridentVersion(member float64) {
+func (self *Device) SetTridentVersion(member int) {
     self.Set("tridentVersion", member)
 }
 
@@ -527,12 +527,12 @@ func (self *Device) SetSafari(member bool) {
 }
 
 // If running in Safari this will contain the major version number.
-func (self *Device) GetSafariVersion() float64{
-    return self.Get("safariVersion").Float()
+func (self *Device) GetSafariVersion() int{
+    return self.Get("safariVersion").Int()
 }
 
 // If running in Safari this will contain the major version number.
-func (self *Device) SetSafariVersion(member float64) {
+func (self *Device) SetSafariVersion(member int) {
     self.Set("safariVersion", member)
 }
 
@@ -737,12 +737,12 @@ func (self *Device) SetIPad(member bool) {
 }
 
 // PixelRatio of the host device?
-func (self *Device) GetPixelRatio() float64{
-    return self.Get("pixelRatio").Float()
+func (self *Device) GetPixelRatio() int{
+    return self.Get("pixelRatio").Int()
 }
 
 // PixelRatio of the host device?
-func (self *Device) SetPixelRatio(member float64) {
+func (self *Device) SetPixelRatio(member int) {
     self.Set("pixelRatio", member)
 }
 

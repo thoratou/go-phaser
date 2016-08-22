@@ -14,12 +14,12 @@ type WebGLShaderManager struct {
 
 
 // 
-func (self *WebGLShaderManager) GetMaxAttibs() float64{
-    return self.Get("maxAttibs").Float()
+func (self *WebGLShaderManager) GetMaxAttibs() int{
+    return self.Get("maxAttibs").Int()
 }
 
 // 
-func (self *WebGLShaderManager) SetMaxAttibs(member float64) {
+func (self *WebGLShaderManager) SetMaxAttibs(member int) {
     self.Set("maxAttibs", member)
 }
 

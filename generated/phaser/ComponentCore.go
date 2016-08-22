@@ -65,15 +65,15 @@ func (self *ComponentCore) SetComponents(member interface{}) {
 // No two objects in a Group can have the same z value.
 // This value is adjusted automatically whenever the Group hierarchy changes.
 // If you wish to re-order the layering of a Game Object then see methods like Group.moveUp or Group.bringToTop.
-func (self *ComponentCore) GetZ() float64{
-    return self.Get("z").Float()
+func (self *ComponentCore) GetZ() int{
+    return self.Get("z").Int()
 }
 
 // The z depth of this Game Object within its parent Group.
 // No two objects in a Group can have the same z value.
 // This value is adjusted automatically whenever the Group hierarchy changes.
 // If you wish to re-order the layering of a Game Object then see methods like Group.moveUp or Group.bringToTop.
-func (self *ComponentCore) SetZ(member float64) {
+func (self *ComponentCore) SetZ(member int) {
     self.Set("z", member)
 }
 
@@ -154,24 +154,24 @@ func (self *ComponentCore) SetPreviousPosition(member *Point) {
 }
 
 // The rotation the Game Object was in set to in the previous frame. Value is in radians.
-func (self *ComponentCore) GetPreviousRotation() float64{
-    return self.Get("previousRotation").Float()
+func (self *ComponentCore) GetPreviousRotation() int{
+    return self.Get("previousRotation").Int()
 }
 
 // The rotation the Game Object was in set to in the previous frame. Value is in radians.
-func (self *ComponentCore) SetPreviousRotation(member float64) {
+func (self *ComponentCore) SetPreviousRotation(member int) {
     self.Set("previousRotation", member)
 }
 
 // The render order ID is used internally by the renderer and Input Manager and should not be modified.
 // This property is mostly used internally by the renderers, but is exposed for the use of plugins.
-func (self *ComponentCore) GetRenderOrderID() float64{
-    return self.Get("renderOrderID").Float()
+func (self *ComponentCore) GetRenderOrderID() int{
+    return self.Get("renderOrderID").Int()
 }
 
 // The render order ID is used internally by the renderer and Input Manager and should not be modified.
 // This property is mostly used internally by the renderers, but is exposed for the use of plugins.
-func (self *ComponentCore) SetRenderOrderID(member float64) {
+func (self *ComponentCore) SetRenderOrderID(member int) {
     self.Set("renderOrderID", member)
 }
 

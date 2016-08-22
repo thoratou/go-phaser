@@ -20,72 +20,72 @@ type Matrix struct {
 
 
 // 
-func (self *Matrix) GetA() float64{
-    return self.Get("a").Float()
+func (self *Matrix) GetA() int{
+    return self.Get("a").Int()
 }
 
 // 
-func (self *Matrix) SetA(member float64) {
+func (self *Matrix) SetA(member int) {
     self.Set("a", member)
 }
 
 // 
-func (self *Matrix) GetB() float64{
-    return self.Get("b").Float()
+func (self *Matrix) GetB() int{
+    return self.Get("b").Int()
 }
 
 // 
-func (self *Matrix) SetB(member float64) {
+func (self *Matrix) SetB(member int) {
     self.Set("b", member)
 }
 
 // 
-func (self *Matrix) GetC() float64{
-    return self.Get("c").Float()
+func (self *Matrix) GetC() int{
+    return self.Get("c").Int()
 }
 
 // 
-func (self *Matrix) SetC(member float64) {
+func (self *Matrix) SetC(member int) {
     self.Set("c", member)
 }
 
 // 
-func (self *Matrix) GetD() float64{
-    return self.Get("d").Float()
+func (self *Matrix) GetD() int{
+    return self.Get("d").Int()
 }
 
 // 
-func (self *Matrix) SetD(member float64) {
+func (self *Matrix) SetD(member int) {
     self.Set("d", member)
 }
 
 // 
-func (self *Matrix) GetTx() float64{
-    return self.Get("tx").Float()
+func (self *Matrix) GetTx() int{
+    return self.Get("tx").Int()
 }
 
 // 
-func (self *Matrix) SetTx(member float64) {
+func (self *Matrix) SetTx(member int) {
     self.Set("tx", member)
 }
 
 // 
-func (self *Matrix) GetTy() float64{
-    return self.Get("ty").Float()
+func (self *Matrix) GetTy() int{
+    return self.Get("ty").Int()
 }
 
 // 
-func (self *Matrix) SetTy(member float64) {
+func (self *Matrix) SetTy(member int) {
     self.Set("ty", member)
 }
 
 // The const type of this object.
-func (self *Matrix) GetType() float64{
-    return self.Get("type").Float()
+func (self *Matrix) GetType() int{
+    return self.Get("type").Int()
 }
 
 // The const type of this object.
-func (self *Matrix) SetType(member float64) {
+func (self *Matrix) SetType(member int) {
     self.Set("type", member)
 }
 

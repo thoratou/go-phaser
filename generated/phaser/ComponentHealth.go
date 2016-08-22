@@ -18,26 +18,26 @@ type ComponentHealth struct {
 // The Game Objects health value. This is a handy property for setting and manipulating health on a Game Object.
 // 
 // It can be used in combination with the `damage` method or modified directly.
-func (self *ComponentHealth) GetHealth() float64{
-    return self.Get("health").Float()
+func (self *ComponentHealth) GetHealth() int{
+    return self.Get("health").Int()
 }
 
 // The Game Objects health value. This is a handy property for setting and manipulating health on a Game Object.
 // 
 // It can be used in combination with the `damage` method or modified directly.
-func (self *ComponentHealth) SetHealth(member float64) {
+func (self *ComponentHealth) SetHealth(member int) {
     self.Set("health", member)
 }
 
 // The Game Objects maximum health value. This works in combination with the `heal` method to ensure
 // the health value never exceeds the maximum.
-func (self *ComponentHealth) GetMaxHealth() float64{
-    return self.Get("maxHealth").Float()
+func (self *ComponentHealth) GetMaxHealth() int{
+    return self.Get("maxHealth").Int()
 }
 
 // The Game Objects maximum health value. This works in combination with the `heal` method to ensure
 // the health value never exceeds the maximum.
-func (self *ComponentHealth) SetMaxHealth(member float64) {
+func (self *ComponentHealth) SetMaxHealth(member int) {
     self.Set("maxHealth", member)
 }
 

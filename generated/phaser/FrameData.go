@@ -14,12 +14,12 @@ type FrameData struct {
 
 
 // The total number of frames in this FrameData set.
-func (self *FrameData) GetTotal() float64{
-    return self.Get("total").Float()
+func (self *FrameData) GetTotal() int{
+    return self.Get("total").Int()
 }
 
 // The total number of frames in this FrameData set.
-func (self *FrameData) SetTotal(member float64) {
+func (self *FrameData) SetTotal(member int) {
     self.Set("total", member)
 }
 

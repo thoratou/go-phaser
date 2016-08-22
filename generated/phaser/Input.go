@@ -65,12 +65,12 @@ func (self *Input) SetMoveCallbacks(member []interface{}) {
 }
 
 // How often should the input pointers be checked for updates? A value of 0 means every single frame (60fps); a value of 1 means every other frame (30fps) and so on.
-func (self *Input) GetPollRate() float64{
-    return self.Get("pollRate").Float()
+func (self *Input) GetPollRate() int{
+    return self.Get("pollRate").Int()
 }
 
 // How often should the input pointers be checked for updates? A value of 0 means every single frame (60fps); a value of 1 means every other frame (30fps) and so on.
-func (self *Input) SetPollRate(member float64) {
+func (self *Input) SetPollRate(member int) {
     self.Set("pollRate", member)
 }
 
@@ -89,12 +89,12 @@ func (self *Input) SetEnabled(member bool) {
 }
 
 // Controls the expected behavior when using a mouse and touch together on a multi-input device.
-func (self *Input) GetMultiInputOverride() float64{
-    return self.Get("multiInputOverride").Float()
+func (self *Input) GetMultiInputOverride() int{
+    return self.Get("multiInputOverride").Int()
 }
 
 // Controls the expected behavior when using a mouse and touch together on a multi-input device.
-func (self *Input) SetMultiInputOverride(member float64) {
+func (self *Input) SetMultiInputOverride(member int) {
     self.Set("multiInputOverride", member)
 }
 
@@ -151,52 +151,52 @@ func (self *Input) SetMaxPointers(member int) {
 }
 
 // The number of milliseconds that the Pointer has to be pressed down and then released to be considered a tap or click.
-func (self *Input) GetTapRate() float64{
-    return self.Get("tapRate").Float()
+func (self *Input) GetTapRate() int{
+    return self.Get("tapRate").Int()
 }
 
 // The number of milliseconds that the Pointer has to be pressed down and then released to be considered a tap or click.
-func (self *Input) SetTapRate(member float64) {
+func (self *Input) SetTapRate(member int) {
     self.Set("tapRate", member)
 }
 
 // The number of milliseconds between taps of the same Pointer for it to be considered a double tap / click.
-func (self *Input) GetDoubleTapRate() float64{
-    return self.Get("doubleTapRate").Float()
+func (self *Input) GetDoubleTapRate() int{
+    return self.Get("doubleTapRate").Int()
 }
 
 // The number of milliseconds between taps of the same Pointer for it to be considered a double tap / click.
-func (self *Input) SetDoubleTapRate(member float64) {
+func (self *Input) SetDoubleTapRate(member int) {
     self.Set("doubleTapRate", member)
 }
 
 // The number of milliseconds that the Pointer has to be pressed down for it to fire a onHold event.
-func (self *Input) GetHoldRate() float64{
-    return self.Get("holdRate").Float()
+func (self *Input) GetHoldRate() int{
+    return self.Get("holdRate").Int()
 }
 
 // The number of milliseconds that the Pointer has to be pressed down for it to fire a onHold event.
-func (self *Input) SetHoldRate(member float64) {
+func (self *Input) SetHoldRate(member int) {
     self.Set("holdRate", member)
 }
 
 // The number of milliseconds below which the Pointer is considered justPressed.
-func (self *Input) GetJustPressedRate() float64{
-    return self.Get("justPressedRate").Float()
+func (self *Input) GetJustPressedRate() int{
+    return self.Get("justPressedRate").Int()
 }
 
 // The number of milliseconds below which the Pointer is considered justPressed.
-func (self *Input) SetJustPressedRate(member float64) {
+func (self *Input) SetJustPressedRate(member int) {
     self.Set("justPressedRate", member)
 }
 
 // The number of milliseconds below which the Pointer is considered justReleased .
-func (self *Input) GetJustReleasedRate() float64{
-    return self.Get("justReleasedRate").Float()
+func (self *Input) GetJustReleasedRate() int{
+    return self.Get("justReleasedRate").Int()
 }
 
 // The number of milliseconds below which the Pointer is considered justReleased .
-func (self *Input) SetJustReleasedRate(member float64) {
+func (self *Input) SetJustReleasedRate(member int) {
     self.Set("justReleasedRate", member)
 }
 
@@ -215,24 +215,24 @@ func (self *Input) SetRecordPointerHistory(member bool) {
 }
 
 // The rate in milliseconds at which the Pointer objects should update their tracking history.
-func (self *Input) GetRecordRate() float64{
-    return self.Get("recordRate").Float()
+func (self *Input) GetRecordRate() int{
+    return self.Get("recordRate").Int()
 }
 
 // The rate in milliseconds at which the Pointer objects should update their tracking history.
-func (self *Input) SetRecordRate(member float64) {
+func (self *Input) SetRecordRate(member int) {
     self.Set("recordRate", member)
 }
 
 // The total number of entries that can be recorded into the Pointer objects tracking history.
 // If the Pointer is tracking one event every 100ms; then a trackLimit of 100 would store the last 10 seconds worth of history.
-func (self *Input) GetRecordLimit() float64{
-    return self.Get("recordLimit").Float()
+func (self *Input) GetRecordLimit() int{
+    return self.Get("recordLimit").Int()
 }
 
 // The total number of entries that can be recorded into the Pointer objects tracking history.
 // If the Pointer is tracking one event every 100ms; then a trackLimit of 100 would store the last 10 seconds worth of history.
-func (self *Input) SetRecordLimit(member float64) {
+func (self *Input) SetRecordLimit(member int) {
     self.Set("recordLimit", member)
 }
 
@@ -500,13 +500,13 @@ func (self *Input) SetOnHold(member *Signal) {
 
 // You can tell all Pointers to ignore any Game Object with a `priorityID` lower than this value.
 // This is useful when stacking UI layers. Set to zero to disable.
-func (self *Input) GetMinPriorityID() float64{
-    return self.Get("minPriorityID").Float()
+func (self *Input) GetMinPriorityID() int{
+    return self.Get("minPriorityID").Int()
 }
 
 // You can tell all Pointers to ignore any Game Object with a `priorityID` lower than this value.
 // This is useful when stacking UI layers. Set to zero to disable.
-func (self *Input) SetMinPriorityID(member float64) {
+func (self *Input) SetMinPriorityID(member int) {
     self.Set("minPriorityID", member)
 }
 
@@ -521,32 +521,32 @@ func (self *Input) SetInteractiveItems(member *ArraySet) {
 }
 
 // 
-func (self *Input) GetMOUSE_OVERRIDES_TOUCH() float64{
-    return self.Get("MOUSE_OVERRIDES_TOUCH").Float()
+func (self *Input) GetMOUSE_OVERRIDES_TOUCH() int{
+    return self.Get("MOUSE_OVERRIDES_TOUCH").Int()
 }
 
 // 
-func (self *Input) SetMOUSE_OVERRIDES_TOUCH(member float64) {
+func (self *Input) SetMOUSE_OVERRIDES_TOUCH(member int) {
     self.Set("MOUSE_OVERRIDES_TOUCH", member)
 }
 
 // 
-func (self *Input) GetTOUCH_OVERRIDES_MOUSE() float64{
-    return self.Get("TOUCH_OVERRIDES_MOUSE").Float()
+func (self *Input) GetTOUCH_OVERRIDES_MOUSE() int{
+    return self.Get("TOUCH_OVERRIDES_MOUSE").Int()
 }
 
 // 
-func (self *Input) SetTOUCH_OVERRIDES_MOUSE(member float64) {
+func (self *Input) SetTOUCH_OVERRIDES_MOUSE(member int) {
     self.Set("TOUCH_OVERRIDES_MOUSE", member)
 }
 
 // 
-func (self *Input) GetMOUSE_TOUCH_COMBINE() float64{
-    return self.Get("MOUSE_TOUCH_COMBINE").Float()
+func (self *Input) GetMOUSE_TOUCH_COMBINE() int{
+    return self.Get("MOUSE_TOUCH_COMBINE").Int()
 }
 
 // 
-func (self *Input) SetMOUSE_TOUCH_COMBINE(member float64) {
+func (self *Input) SetMOUSE_TOUCH_COMBINE(member int) {
     self.Set("MOUSE_TOUCH_COMBINE", member)
 }
 
@@ -562,25 +562,25 @@ func (self *Input) SetMAX_POINTERS(member int) {
 
 // The X coordinate of the most recently active pointer.
 // This value takes game scaling into account automatically. See Pointer.screenX/clientX for source values.
-func (self *Input) GetX() float64{
-    return self.Get("x").Float()
+func (self *Input) GetX() int{
+    return self.Get("x").Int()
 }
 
 // The X coordinate of the most recently active pointer.
 // This value takes game scaling into account automatically. See Pointer.screenX/clientX for source values.
-func (self *Input) SetX(member float64) {
+func (self *Input) SetX(member int) {
     self.Set("x", member)
 }
 
 // The Y coordinate of the most recently active pointer.
 // This value takes game scaling into account automatically. See Pointer.screenY/clientY for source values.
-func (self *Input) GetY() float64{
-    return self.Get("y").Float()
+func (self *Input) GetY() int{
+    return self.Get("y").Int()
 }
 
 // The Y coordinate of the most recently active pointer.
 // This value takes game scaling into account automatically. See Pointer.screenY/clientY for source values.
-func (self *Input) SetY(member float64) {
+func (self *Input) SetY(member int) {
     self.Set("y", member)
 }
 
@@ -595,12 +595,12 @@ func (self *Input) SetPollLocked(member bool) {
 }
 
 // The total number of inactive Pointers.
-func (self *Input) GetTotalInactivePointers() float64{
-    return self.Get("totalInactivePointers").Float()
+func (self *Input) GetTotalInactivePointers() int{
+    return self.Get("totalInactivePointers").Int()
 }
 
 // The total number of inactive Pointers.
-func (self *Input) SetTotalInactivePointers(member float64) {
+func (self *Input) SetTotalInactivePointers(member int) {
     self.Set("totalInactivePointers", member)
 }
 
@@ -615,22 +615,22 @@ func (self *Input) SetTotalActivePointers(member int) {
 }
 
 // The world X coordinate of the most recently active pointer.
-func (self *Input) GetWorldX() float64{
-    return self.Get("worldX").Float()
+func (self *Input) GetWorldX() int{
+    return self.Get("worldX").Int()
 }
 
 // The world X coordinate of the most recently active pointer.
-func (self *Input) SetWorldX(member float64) {
+func (self *Input) SetWorldX(member int) {
     self.Set("worldX", member)
 }
 
 // The world Y coordinate of the most recently active pointer.
-func (self *Input) GetWorldY() float64{
-    return self.Get("worldY").Float()
+func (self *Input) GetWorldY() int{
+    return self.Get("worldY").Int()
 }
 
 // The world Y coordinate of the most recently active pointer.
-func (self *Input) SetWorldY(member float64) {
+func (self *Input) SetWorldY(member int) {
     self.Set("worldY", member)
 }
 

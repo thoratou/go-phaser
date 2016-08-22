@@ -24,12 +24,12 @@ func (self *SinglePad) SetGame(member *Game) {
 }
 
 // The gamepad index as per browsers data
-func (self *SinglePad) GetIndex() float64{
-    return self.Get("index").Float()
+func (self *SinglePad) GetIndex() int{
+    return self.Get("index").Int()
 }
 
 // The gamepad index as per browsers data
-func (self *SinglePad) SetIndex(member float64) {
+func (self *SinglePad) SetIndex(member int) {
     self.Set("index", member)
 }
 
@@ -84,12 +84,12 @@ func (self *SinglePad) SetOnFloatCallback(member func(...interface{})) {
 }
 
 // Dead zone for axis feedback - within this value you won't trigger updates.
-func (self *SinglePad) GetDeadZone() float64{
-    return self.Get("deadZone").Float()
+func (self *SinglePad) GetDeadZone() int{
+    return self.Get("deadZone").Int()
 }
 
 // Dead zone for axis feedback - within this value you won't trigger updates.
-func (self *SinglePad) SetDeadZone(member float64) {
+func (self *SinglePad) SetDeadZone(member int) {
     self.Set("deadZone", member)
 }
 
@@ -147,8 +147,8 @@ func (self *SinglePad) ProcessButtonFloatI(args ...interface{}) {
 }
 
 // Returns value of requested axis.
-func (self *SinglePad) AxisI(args ...interface{}) float64{
-    return self.Call("axis", args).Float()
+func (self *SinglePad) AxisI(args ...interface{}) int{
+    return self.Call("axis", args).Int()
 }
 
 // Returns true if the button is pressed down.
@@ -173,8 +173,8 @@ func (self *SinglePad) JustPressedI(args ...interface{}) bool{
 
 // Returns the value of a gamepad button. Intended mainly for cases when you have floating button values, for example
 // analog trigger buttons on the XBOX 360 controller.
-func (self *SinglePad) ButtonValueI(args ...interface{}) float64{
-    return self.Call("buttonValue", args).Float()
+func (self *SinglePad) ButtonValueI(args ...interface{}) int{
+    return self.Call("buttonValue", args).Int()
 }
 
 // Reset all buttons/axes of this gamepad.

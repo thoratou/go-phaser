@@ -17,72 +17,72 @@ type RetroFont struct {
 
 
 // The width of each character in the font set.
-func (self *RetroFont) GetCharacterWidth() float64{
-    return self.Get("characterWidth").Float()
+func (self *RetroFont) GetCharacterWidth() int{
+    return self.Get("characterWidth").Int()
 }
 
 // The width of each character in the font set.
-func (self *RetroFont) SetCharacterWidth(member float64) {
+func (self *RetroFont) SetCharacterWidth(member int) {
     self.Set("characterWidth", member)
 }
 
 // The height of each character in the font set.
-func (self *RetroFont) GetCharacterHeight() float64{
-    return self.Get("characterHeight").Float()
+func (self *RetroFont) GetCharacterHeight() int{
+    return self.Get("characterHeight").Int()
 }
 
 // The height of each character in the font set.
-func (self *RetroFont) SetCharacterHeight(member float64) {
+func (self *RetroFont) SetCharacterHeight(member int) {
     self.Set("characterHeight", member)
 }
 
 // If the characters in the font set have horizontal spacing between them set the required amount here.
-func (self *RetroFont) GetCharacterSpacingX() float64{
-    return self.Get("characterSpacingX").Float()
+func (self *RetroFont) GetCharacterSpacingX() int{
+    return self.Get("characterSpacingX").Int()
 }
 
 // If the characters in the font set have horizontal spacing between them set the required amount here.
-func (self *RetroFont) SetCharacterSpacingX(member float64) {
+func (self *RetroFont) SetCharacterSpacingX(member int) {
     self.Set("characterSpacingX", member)
 }
 
 // If the characters in the font set have vertical spacing between them set the required amount here.
-func (self *RetroFont) GetCharacterSpacingY() float64{
-    return self.Get("characterSpacingY").Float()
+func (self *RetroFont) GetCharacterSpacingY() int{
+    return self.Get("characterSpacingY").Int()
 }
 
 // If the characters in the font set have vertical spacing between them set the required amount here.
-func (self *RetroFont) SetCharacterSpacingY(member float64) {
+func (self *RetroFont) SetCharacterSpacingY(member int) {
     self.Set("characterSpacingY", member)
 }
 
 // The number of characters per row in the font set.
-func (self *RetroFont) GetCharacterPerRow() float64{
-    return self.Get("characterPerRow").Float()
+func (self *RetroFont) GetCharacterPerRow() int{
+    return self.Get("characterPerRow").Int()
 }
 
 // The number of characters per row in the font set.
-func (self *RetroFont) SetCharacterPerRow(member float64) {
+func (self *RetroFont) SetCharacterPerRow(member int) {
     self.Set("characterPerRow", member)
 }
 
 // If the font set doesn't start at the top left of the given image, specify the X coordinate offset here.
-func (self *RetroFont) GetOffsetX() float64{
-    return self.Get("offsetX").Float()
+func (self *RetroFont) GetOffsetX() int{
+    return self.Get("offsetX").Int()
 }
 
 // If the font set doesn't start at the top left of the given image, specify the X coordinate offset here.
-func (self *RetroFont) SetOffsetX(member float64) {
+func (self *RetroFont) SetOffsetX(member int) {
     self.Set("offsetX", member)
 }
 
 // If the font set doesn't start at the top left of the given image, specify the Y coordinate offset here.
-func (self *RetroFont) GetOffsetY() float64{
-    return self.Get("offsetY").Float()
+func (self *RetroFont) GetOffsetY() int{
+    return self.Get("offsetY").Int()
 }
 
 // If the font set doesn't start at the top left of the given image, specify the Y coordinate offset here.
-func (self *RetroFont) SetOffsetY(member float64) {
+func (self *RetroFont) SetOffsetY(member int) {
     self.Set("offsetY", member)
 }
 
@@ -117,34 +117,34 @@ func (self *RetroFont) SetAutoUpperCase(member bool) {
 }
 
 // Adds horizontal spacing between each character of the font, in pixels.
-func (self *RetroFont) GetCustomSpacingX() float64{
-    return self.Get("customSpacingX").Float()
+func (self *RetroFont) GetCustomSpacingX() int{
+    return self.Get("customSpacingX").Int()
 }
 
 // Adds horizontal spacing between each character of the font, in pixels.
-func (self *RetroFont) SetCustomSpacingX(member float64) {
+func (self *RetroFont) SetCustomSpacingX(member int) {
     self.Set("customSpacingX", member)
 }
 
 // Adds vertical spacing between each line of multi-line text, set in pixels.
-func (self *RetroFont) GetCustomSpacingY() float64{
-    return self.Get("customSpacingY").Float()
+func (self *RetroFont) GetCustomSpacingY() int{
+    return self.Get("customSpacingY").Int()
 }
 
 // Adds vertical spacing between each line of multi-line text, set in pixels.
-func (self *RetroFont) SetCustomSpacingY(member float64) {
+func (self *RetroFont) SetCustomSpacingY(member int) {
     self.Set("customSpacingY", member)
 }
 
 // If you need this RetroFont image to have a fixed width you can set the width in this value.
 // If text is wider than the width specified it will be cropped off.
-func (self *RetroFont) GetFixedWidth() float64{
-    return self.Get("fixedWidth").Float()
+func (self *RetroFont) GetFixedWidth() int{
+    return self.Get("fixedWidth").Int()
 }
 
 // If you need this RetroFont image to have a fixed width you can set the width in this value.
 // If text is wider than the width specified it will be cropped off.
-func (self *RetroFont) SetFixedWidth(member float64) {
+func (self *RetroFont) SetFixedWidth(member int) {
     self.Set("fixedWidth", member)
 }
 
@@ -179,12 +179,12 @@ func (self *RetroFont) SetStamp(member *Image) {
 }
 
 // Base Phaser object type.
-func (self *RetroFont) GetType() float64{
-    return self.Get("type").Float()
+func (self *RetroFont) GetType() int{
+    return self.Get("type").Int()
 }
 
 // Base Phaser object type.
-func (self *RetroFont) SetType(member float64) {
+func (self *RetroFont) SetType(member int) {
     self.Set("type", member)
 }
 
@@ -369,32 +369,32 @@ func (self *RetroFont) SetKey(member string) {
 }
 
 // The with of the render texture
-func (self *RetroFont) GetWidth() float64{
-    return self.Get("width").Float()
+func (self *RetroFont) GetWidth() int{
+    return self.Get("width").Int()
 }
 
 // The with of the render texture
-func (self *RetroFont) SetWidth(member float64) {
+func (self *RetroFont) SetWidth(member int) {
     self.Set("width", member)
 }
 
 // The height of the render texture
-func (self *RetroFont) GetHeight() float64{
-    return self.Get("height").Float()
+func (self *RetroFont) GetHeight() int{
+    return self.Get("height").Int()
 }
 
 // The height of the render texture
-func (self *RetroFont) SetHeight(member float64) {
+func (self *RetroFont) SetHeight(member int) {
     self.Set("height", member)
 }
 
 // The Resolution of the texture.
-func (self *RetroFont) GetResolution() float64{
-    return self.Get("resolution").Float()
+func (self *RetroFont) GetResolution() int{
+    return self.Get("resolution").Int()
 }
 
 // The Resolution of the texture.
-func (self *RetroFont) SetResolution(member float64) {
+func (self *RetroFont) SetResolution(member int) {
     self.Set("resolution", member)
 }
 
@@ -525,8 +525,8 @@ func (self *RetroFont) PasteLineI(args ...interface{}) {
 }
 
 // Works out the longest line of text in _text and returns its length
-func (self *RetroFont) GetLongestLineI(args ...interface{}) float64{
-    return self.Call("getLongestLine", args).Float()
+func (self *RetroFont) GetLongestLineI(args ...interface{}) int{
+    return self.Call("getLongestLine", args).Int()
 }
 
 // Internal helper function that removes all unsupported characters from the _text String, leaving only characters contained in the font set.

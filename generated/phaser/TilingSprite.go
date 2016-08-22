@@ -14,22 +14,22 @@ type TilingSprite struct {
 
 
 // The width of the tiling sprite
-func (self *TilingSprite) GetWidth() float64{
-    return self.Get("width").Float()
+func (self *TilingSprite) GetWidth() int{
+    return self.Get("width").Int()
 }
 
 // The width of the tiling sprite
-func (self *TilingSprite) SetWidth(member float64) {
+func (self *TilingSprite) SetWidth(member int) {
     self.Set("width", member)
 }
 
 // The height of the tiling sprite
-func (self *TilingSprite) GetHeight() float64{
-    return self.Get("height").Float()
+func (self *TilingSprite) GetHeight() int{
+    return self.Get("height").Int()
 }
 
 // The height of the tiling sprite
-func (self *TilingSprite) SetHeight(member float64) {
+func (self *TilingSprite) SetHeight(member int) {
     self.Set("height", member)
 }
 
@@ -74,12 +74,12 @@ func (self *TilingSprite) SetRenderable(member bool) {
 }
 
 // The tint applied to the sprite. This is a hex value
-func (self *TilingSprite) GetTint() float64{
-    return self.Get("tint").Float()
+func (self *TilingSprite) GetTint() int{
+    return self.Get("tint").Int()
 }
 
 // The tint applied to the sprite. This is a hex value
-func (self *TilingSprite) SetTint(member float64) {
+func (self *TilingSprite) SetTint(member int) {
     self.Set("tint", member)
 }
 
@@ -96,12 +96,12 @@ func (self *TilingSprite) SetTextureDebug(member bool) {
 }
 
 // The blend mode to be applied to the sprite
-func (self *TilingSprite) GetBlendMode() float64{
-    return self.Get("blendMode").Float()
+func (self *TilingSprite) GetBlendMode() int{
+    return self.Get("blendMode").Int()
 }
 
 // The blend mode to be applied to the sprite
-func (self *TilingSprite) SetBlendMode(member float64) {
+func (self *TilingSprite) SetBlendMode(member int) {
     self.Set("blendMode", member)
 }
 
@@ -286,8 +286,8 @@ func (self *TilingSprite) SwapChildrenI(args ...interface{}) {
 }
 
 // Returns the index position of a child DisplayObject instance
-func (self *TilingSprite) GetChildIndexI(args ...interface{}) float64{
-    return self.Call("getChildIndex", args).Float()
+func (self *TilingSprite) GetChildIndexI(args ...interface{}) int{
+    return self.Call("getChildIndex", args).Int()
 }
 
 // Changes the position of an existing child in the display object container

@@ -17,8 +17,8 @@ type Color struct {
 
 // Packs the r, g, b, a components into a single integer, for use with Int32Array.
 // If device is little endian then ABGR order is used. Otherwise RGBA order is used.
-func (self *Color) PackPixelI(args ...interface{}) float64{
-    return self.Call("packPixel", args).Float()
+func (self *Color) PackPixelI(args ...interface{}) int{
+    return self.Call("packPixel", args).Int()
 }
 
 // Unpacks the r, g, b, a components into the specified color object, or a new
@@ -40,13 +40,13 @@ func (self *Color) FromRGBAI(args ...interface{}) interface{}{
 }
 
 // A utility to convert RGBA components to a 32 bit integer in RRGGBBAA format.
-func (self *Color) ToRGBAI(args ...interface{}) float64{
-    return self.Call("toRGBA", args).Float()
+func (self *Color) ToRGBAI(args ...interface{}) int{
+    return self.Call("toRGBA", args).Int()
 }
 
 // Converts RGBA components to a 32 bit integer in AABBGGRR format.
-func (self *Color) ToABGRI(args ...interface{}) float64{
-    return self.Call("toABGR", args).Float()
+func (self *Color) ToABGRI(args ...interface{}) int{
+    return self.Call("toABGR", args).Int()
 }
 
 // Converts an RGB color value to HSL (hue, saturation and lightness).
@@ -83,8 +83,8 @@ func (self *Color) HSVtoRGBI(args ...interface{}) interface{}{
 
 // Converts a hue to an RGB color.
 // Based on code by Michael Jackson (https://github.com/mjijackson)
-func (self *Color) HueToColorI(args ...interface{}) float64{
-    return self.Call("hueToColor", args).Float()
+func (self *Color) HueToColorI(args ...interface{}) int{
+    return self.Call("hueToColor", args).Int()
 }
 
 // A utility function to create a lightweight 'color' object with the default components.
@@ -96,18 +96,18 @@ func (self *Color) CreateColorI(args ...interface{}) interface{}{
 }
 
 // Takes a color object and updates the rgba, color and color32 properties.
-func (self *Color) UpdateColorI(args ...interface{}) float64{
-    return self.Call("updateColor", args).Float()
+func (self *Color) UpdateColorI(args ...interface{}) int{
+    return self.Call("updateColor", args).Int()
 }
 
 // Given an alpha and 3 color values this will return an integer representation of it.
-func (self *Color) GetColor32I(args ...interface{}) float64{
-    return self.Call("getColor32", args).Float()
+func (self *Color) GetColor32I(args ...interface{}) int{
+    return self.Call("getColor32", args).Int()
 }
 
 // Given 3 color values this will return an integer representation of it.
-func (self *Color) GetColorI(args ...interface{}) float64{
-    return self.Call("getColor", args).Float()
+func (self *Color) GetColorI(args ...interface{}) int{
+    return self.Call("getColor", args).Int()
 }
 
 // Converts the given color values into a string.
@@ -117,8 +117,8 @@ func (self *Color) RGBtoStringI(args ...interface{}) string{
 }
 
 // Converts a hex string into an integer color value.
-func (self *Color) HexToRGBI(args ...interface{}) float64{
-    return self.Call("hexToRGB", args).Float()
+func (self *Color) HexToRGBI(args ...interface{}) int{
+    return self.Call("hexToRGB", args).Int()
 }
 
 // Converts a hex string into a Phaser Color object.
@@ -174,25 +174,25 @@ func (self *Color) HSLColorWheelI(args ...interface{}) []interface{}{
 }
 
 // Interpolates the two given colours based on the supplied step and currentStep properties.
-func (self *Color) InterpolateColorI(args ...interface{}) float64{
-    return self.Call("interpolateColor", args).Float()
+func (self *Color) InterpolateColorI(args ...interface{}) int{
+    return self.Call("interpolateColor", args).Int()
 }
 
 // Interpolates the two given colours based on the supplied step and currentStep properties.
-func (self *Color) InterpolateColorWithRGBI(args ...interface{}) float64{
-    return self.Call("interpolateColorWithRGB", args).Float()
+func (self *Color) InterpolateColorWithRGBI(args ...interface{}) int{
+    return self.Call("interpolateColorWithRGB", args).Int()
 }
 
 // Interpolates the two given colours based on the supplied step and currentStep properties.
-func (self *Color) InterpolateRGBI(args ...interface{}) float64{
-    return self.Call("interpolateRGB", args).Float()
+func (self *Color) InterpolateRGBI(args ...interface{}) int{
+    return self.Call("interpolateRGB", args).Int()
 }
 
 // Returns a random color value between black and white
 // Set the min value to start each channel from the given offset.
 // Set the max value to restrict the maximum color used per channel.
-func (self *Color) GetRandomColorI(args ...interface{}) float64{
-    return self.Call("getRandomColor", args).Float()
+func (self *Color) GetRandomColorI(args ...interface{}) int{
+    return self.Call("getRandomColor", args).Int()
 }
 
 // Return the component parts of a color as an Object with the properties alpha, red, green, blue.
@@ -208,28 +208,28 @@ func (self *Color) GetWebRGBI(args ...interface{}) string{
 }
 
 // Given a native color value (in the format 0xAARRGGBB) this will return the Alpha component, as a value between 0 and 255.
-func (self *Color) GetAlphaI(args ...interface{}) float64{
-    return self.Call("getAlpha", args).Float()
+func (self *Color) GetAlphaI(args ...interface{}) int{
+    return self.Call("getAlpha", args).Int()
 }
 
 // Given a native color value (in the format 0xAARRGGBB) this will return the Alpha component as a value between 0 and 1.
-func (self *Color) GetAlphaFloatI(args ...interface{}) float64{
-    return self.Call("getAlphaFloat", args).Float()
+func (self *Color) GetAlphaFloatI(args ...interface{}) int{
+    return self.Call("getAlphaFloat", args).Int()
 }
 
 // Given a native color value (in the format 0xAARRGGBB) this will return the Red component, as a value between 0 and 255.
-func (self *Color) GetRedI(args ...interface{}) float64{
-    return self.Call("getRed", args).Float()
+func (self *Color) GetRedI(args ...interface{}) int{
+    return self.Call("getRed", args).Int()
 }
 
 // Given a native color value (in the format 0xAARRGGBB) this will return the Green component, as a value between 0 and 255.
-func (self *Color) GetGreenI(args ...interface{}) float64{
-    return self.Call("getGreen", args).Float()
+func (self *Color) GetGreenI(args ...interface{}) int{
+    return self.Call("getGreen", args).Int()
 }
 
 // Given a native color value (in the format 0xAARRGGBB) this will return the Blue component, as a value between 0 and 255.
-func (self *Color) GetBlueI(args ...interface{}) float64{
-    return self.Call("getBlue", args).Float()
+func (self *Color) GetBlueI(args ...interface{}) int{
+    return self.Call("getBlue", args).Int()
 }
 
 // Blends the source color, ignoring the backdrop.

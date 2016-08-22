@@ -16,16 +16,16 @@ type EasingQuadratic struct {
 
 
 // Ease-in.
-func (self *EasingQuadratic) InI(args ...interface{}) float64{
-    return self.Call("In", args).Float()
+func (self *EasingQuadratic) InI(args ...interface{}) int{
+    return self.Call("In", args).Int()
 }
 
 // Ease-out.
-func (self *EasingQuadratic) OutI(args ...interface{}) float64{
-    return self.Call("Out", args).Float()
+func (self *EasingQuadratic) OutI(args ...interface{}) int{
+    return self.Call("Out", args).Int()
 }
 
 // Ease-in/out.
-func (self *EasingQuadratic) InOutI(args ...interface{}) float64{
-    return self.Call("InOut", args).Float()
+func (self *EasingQuadratic) InOutI(args ...interface{}) int{
+    return self.Call("InOut", args).Int()
 }

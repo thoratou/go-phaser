@@ -55,9 +55,9 @@ func GoNativeType(str string) string {
 	case "int":
 		return "int"
 	case "number":
-		return "float64"
+		return "int"
 	case "Number":
-		return "float64"
+		return "int"
 	case "float64":
 		return "float64"
 	case "float":

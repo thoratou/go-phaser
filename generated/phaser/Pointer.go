@@ -24,22 +24,22 @@ func (self *Pointer) SetGame(member *Game) {
 }
 
 // The ID of the Pointer object within the game. Each game can have up to 10 active pointers.
-func (self *Pointer) GetId() float64{
-    return self.Get("id").Float()
+func (self *Pointer) GetId() int{
+    return self.Get("id").Int()
 }
 
 // The ID of the Pointer object within the game. Each game can have up to 10 active pointers.
-func (self *Pointer) SetId(member float64) {
+func (self *Pointer) SetId(member int) {
     self.Set("id", member)
 }
 
 // The const type of this object.
-func (self *Pointer) GetType() float64{
-    return self.Get("type").Float()
+func (self *Pointer) GetType() int{
+    return self.Get("type").Int()
 }
 
 // The const type of this object.
-func (self *Pointer) SetType(member float64) {
+func (self *Pointer) SetType(member int) {
     self.Set("type", member)
 }
 
@@ -54,22 +54,22 @@ func (self *Pointer) SetExists(member bool) {
 }
 
 // The identifier property of the Pointer as set by the DOM event when this Pointer is started.
-func (self *Pointer) GetIdentifier() float64{
-    return self.Get("identifier").Float()
+func (self *Pointer) GetIdentifier() int{
+    return self.Get("identifier").Int()
 }
 
 // The identifier property of the Pointer as set by the DOM event when this Pointer is started.
-func (self *Pointer) SetIdentifier(member float64) {
+func (self *Pointer) SetIdentifier(member int) {
     self.Set("identifier", member)
 }
 
 // The pointerId property of the Pointer as set by the DOM event when this Pointer is started. The browser can and will recycle this value.
-func (self *Pointer) GetPointerId() float64{
-    return self.Get("pointerId").Float()
+func (self *Pointer) GetPointerId() int{
+    return self.Get("pointerId").Int()
 }
 
 // The pointerId property of the Pointer as set by the DOM event when this Pointer is started. The browser can and will recycle this value.
-func (self *Pointer) SetPointerId(member float64) {
+func (self *Pointer) SetPointerId(member int) {
     self.Set("pointerId", member)
 }
 
@@ -234,122 +234,122 @@ func (self *Pointer) SetWithinGame(member bool) {
 }
 
 // The horizontal coordinate of the Pointer within the application's client area at which the event occurred (as opposed to the coordinates within the page).
-func (self *Pointer) GetClientX() float64{
-    return self.Get("clientX").Float()
+func (self *Pointer) GetClientX() int{
+    return self.Get("clientX").Int()
 }
 
 // The horizontal coordinate of the Pointer within the application's client area at which the event occurred (as opposed to the coordinates within the page).
-func (self *Pointer) SetClientX(member float64) {
+func (self *Pointer) SetClientX(member int) {
     self.Set("clientX", member)
 }
 
 // The vertical coordinate of the Pointer within the application's client area at which the event occurred (as opposed to the coordinates within the page).
-func (self *Pointer) GetClientY() float64{
-    return self.Get("clientY").Float()
+func (self *Pointer) GetClientY() int{
+    return self.Get("clientY").Int()
 }
 
 // The vertical coordinate of the Pointer within the application's client area at which the event occurred (as opposed to the coordinates within the page).
-func (self *Pointer) SetClientY(member float64) {
+func (self *Pointer) SetClientY(member int) {
     self.Set("clientY", member)
 }
 
 // The horizontal coordinate of the Pointer relative to whole document.
-func (self *Pointer) GetPageX() float64{
-    return self.Get("pageX").Float()
+func (self *Pointer) GetPageX() int{
+    return self.Get("pageX").Int()
 }
 
 // The horizontal coordinate of the Pointer relative to whole document.
-func (self *Pointer) SetPageX(member float64) {
+func (self *Pointer) SetPageX(member int) {
     self.Set("pageX", member)
 }
 
 // The vertical coordinate of the Pointer relative to whole document.
-func (self *Pointer) GetPageY() float64{
-    return self.Get("pageY").Float()
+func (self *Pointer) GetPageY() int{
+    return self.Get("pageY").Int()
 }
 
 // The vertical coordinate of the Pointer relative to whole document.
-func (self *Pointer) SetPageY(member float64) {
+func (self *Pointer) SetPageY(member int) {
     self.Set("pageY", member)
 }
 
 // The horizontal coordinate of the Pointer relative to the screen.
-func (self *Pointer) GetScreenX() float64{
-    return self.Get("screenX").Float()
+func (self *Pointer) GetScreenX() int{
+    return self.Get("screenX").Int()
 }
 
 // The horizontal coordinate of the Pointer relative to the screen.
-func (self *Pointer) SetScreenX(member float64) {
+func (self *Pointer) SetScreenX(member int) {
     self.Set("screenX", member)
 }
 
 // The vertical coordinate of the Pointer relative to the screen.
-func (self *Pointer) GetScreenY() float64{
-    return self.Get("screenY").Float()
+func (self *Pointer) GetScreenY() int{
+    return self.Get("screenY").Int()
 }
 
 // The vertical coordinate of the Pointer relative to the screen.
-func (self *Pointer) SetScreenY(member float64) {
+func (self *Pointer) SetScreenY(member int) {
     self.Set("screenY", member)
 }
 
 // The horizontal raw relative movement of the Pointer in pixels since last event.
-func (self *Pointer) GetRawMovementX() float64{
-    return self.Get("rawMovementX").Float()
+func (self *Pointer) GetRawMovementX() int{
+    return self.Get("rawMovementX").Int()
 }
 
 // The horizontal raw relative movement of the Pointer in pixels since last event.
-func (self *Pointer) SetRawMovementX(member float64) {
+func (self *Pointer) SetRawMovementX(member int) {
     self.Set("rawMovementX", member)
 }
 
 // The vertical raw relative movement of the Pointer in pixels since last event.
-func (self *Pointer) GetRawMovementY() float64{
-    return self.Get("rawMovementY").Float()
+func (self *Pointer) GetRawMovementY() int{
+    return self.Get("rawMovementY").Int()
 }
 
 // The vertical raw relative movement of the Pointer in pixels since last event.
-func (self *Pointer) SetRawMovementY(member float64) {
+func (self *Pointer) SetRawMovementY(member int) {
     self.Set("rawMovementY", member)
 }
 
 // The horizontal processed relative movement of the Pointer in pixels since last event.
-func (self *Pointer) GetMovementX() float64{
-    return self.Get("movementX").Float()
+func (self *Pointer) GetMovementX() int{
+    return self.Get("movementX").Int()
 }
 
 // The horizontal processed relative movement of the Pointer in pixels since last event.
-func (self *Pointer) SetMovementX(member float64) {
+func (self *Pointer) SetMovementX(member int) {
     self.Set("movementX", member)
 }
 
 // The vertical processed relative movement of the Pointer in pixels since last event.
-func (self *Pointer) GetMovementY() float64{
-    return self.Get("movementY").Float()
+func (self *Pointer) GetMovementY() int{
+    return self.Get("movementY").Int()
 }
 
 // The vertical processed relative movement of the Pointer in pixels since last event.
-func (self *Pointer) SetMovementY(member float64) {
+func (self *Pointer) SetMovementY(member int) {
     self.Set("movementY", member)
 }
 
 // The horizontal coordinate of the Pointer. This value is automatically scaled based on the game scale.
-func (self *Pointer) GetX() float64{
-    return self.Get("x").Float()
+func (self *Pointer) GetX() int{
+    return self.Get("x").Int()
 }
 
 // The horizontal coordinate of the Pointer. This value is automatically scaled based on the game scale.
-func (self *Pointer) SetX(member float64) {
+func (self *Pointer) SetX(member int) {
     self.Set("x", member)
 }
 
 // The vertical coordinate of the Pointer. This value is automatically scaled based on the game scale.
-func (self *Pointer) GetY() float64{
-    return self.Get("y").Float()
+func (self *Pointer) GetY() int{
+    return self.Get("y").Int()
 }
 
 // The vertical coordinate of the Pointer. This value is automatically scaled based on the game scale.
-func (self *Pointer) SetY(member float64) {
+func (self *Pointer) SetY(member int) {
     self.Set("y", member)
 }
 
@@ -388,52 +388,52 @@ func (self *Pointer) SetIsUp(member bool) {
 }
 
 // A timestamp representing when the Pointer first touched the touchscreen.
-func (self *Pointer) GetTimeDown() float64{
-    return self.Get("timeDown").Float()
+func (self *Pointer) GetTimeDown() int{
+    return self.Get("timeDown").Int()
 }
 
 // A timestamp representing when the Pointer first touched the touchscreen.
-func (self *Pointer) SetTimeDown(member float64) {
+func (self *Pointer) SetTimeDown(member int) {
     self.Set("timeDown", member)
 }
 
 // A timestamp representing when the Pointer left the touchscreen.
-func (self *Pointer) GetTimeUp() float64{
-    return self.Get("timeUp").Float()
+func (self *Pointer) GetTimeUp() int{
+    return self.Get("timeUp").Int()
 }
 
 // A timestamp representing when the Pointer left the touchscreen.
-func (self *Pointer) SetTimeUp(member float64) {
+func (self *Pointer) SetTimeUp(member int) {
     self.Set("timeUp", member)
 }
 
 // A timestamp representing when the Pointer was last tapped or clicked.
-func (self *Pointer) GetPreviousTapTime() float64{
-    return self.Get("previousTapTime").Float()
+func (self *Pointer) GetPreviousTapTime() int{
+    return self.Get("previousTapTime").Int()
 }
 
 // A timestamp representing when the Pointer was last tapped or clicked.
-func (self *Pointer) SetPreviousTapTime(member float64) {
+func (self *Pointer) SetPreviousTapTime(member int) {
     self.Set("previousTapTime", member)
 }
 
 // The total number of times this Pointer has been touched to the touchscreen.
-func (self *Pointer) GetTotalTouches() float64{
-    return self.Get("totalTouches").Float()
+func (self *Pointer) GetTotalTouches() int{
+    return self.Get("totalTouches").Int()
 }
 
 // The total number of times this Pointer has been touched to the touchscreen.
-func (self *Pointer) SetTotalTouches(member float64) {
+func (self *Pointer) SetTotalTouches(member int) {
     self.Set("totalTouches", member)
 }
 
 // The number of milliseconds since the last click or touch event.
-func (self *Pointer) GetMsSinceLastClick() float64{
-    return self.Get("msSinceLastClick").Float()
+func (self *Pointer) GetMsSinceLastClick() int{
+    return self.Get("msSinceLastClick").Int()
 }
 
 // The number of milliseconds since the last click or touch event.
-func (self *Pointer) SetMsSinceLastClick(member float64) {
+func (self *Pointer) SetMsSinceLastClick(member int) {
     self.Set("msSinceLastClick", member)
 }
 
@@ -534,110 +534,110 @@ func (self *Pointer) SetCircle(member *Circle) {
 }
 
 // No buttons at all.
-func (self *Pointer) GetNO_BUTTON() float64{
-    return self.Get("NO_BUTTON").Float()
+func (self *Pointer) GetNO_BUTTON() int{
+    return self.Get("NO_BUTTON").Int()
 }
 
 // No buttons at all.
-func (self *Pointer) SetNO_BUTTON(member float64) {
+func (self *Pointer) SetNO_BUTTON(member int) {
     self.Set("NO_BUTTON", member)
 }
 
 // The Left Mouse button, or in PointerEvent devices a Touch contact or Pen contact.
-func (self *Pointer) GetLEFT_BUTTON() float64{
-    return self.Get("LEFT_BUTTON").Float()
+func (self *Pointer) GetLEFT_BUTTON() int{
+    return self.Get("LEFT_BUTTON").Int()
 }
 
 // The Left Mouse button, or in PointerEvent devices a Touch contact or Pen contact.
-func (self *Pointer) SetLEFT_BUTTON(member float64) {
+func (self *Pointer) SetLEFT_BUTTON(member int) {
     self.Set("LEFT_BUTTON", member)
 }
 
 // The Right Mouse button, or in PointerEvent devices a Pen contact with a barrel button.
-func (self *Pointer) GetRIGHT_BUTTON() float64{
-    return self.Get("RIGHT_BUTTON").Float()
+func (self *Pointer) GetRIGHT_BUTTON() int{
+    return self.Get("RIGHT_BUTTON").Int()
 }
 
 // The Right Mouse button, or in PointerEvent devices a Pen contact with a barrel button.
-func (self *Pointer) SetRIGHT_BUTTON(member float64) {
+func (self *Pointer) SetRIGHT_BUTTON(member int) {
     self.Set("RIGHT_BUTTON", member)
 }
 
 // The Middle Mouse button.
-func (self *Pointer) GetMIDDLE_BUTTON() float64{
-    return self.Get("MIDDLE_BUTTON").Float()
+func (self *Pointer) GetMIDDLE_BUTTON() int{
+    return self.Get("MIDDLE_BUTTON").Int()
 }
 
 // The Middle Mouse button.
-func (self *Pointer) SetMIDDLE_BUTTON(member float64) {
+func (self *Pointer) SetMIDDLE_BUTTON(member int) {
     self.Set("MIDDLE_BUTTON", member)
 }
 
 // The X1 button. This is typically the mouse Back button, but is often reconfigured.
 // On Linux (GTK) this is unsupported. On Windows if advanced pointer software (such as IntelliPoint) is installed this doesn't register.
-func (self *Pointer) GetBACK_BUTTON() float64{
-    return self.Get("BACK_BUTTON").Float()
+func (self *Pointer) GetBACK_BUTTON() int{
+    return self.Get("BACK_BUTTON").Int()
 }
 
 // The X1 button. This is typically the mouse Back button, but is often reconfigured.
 // On Linux (GTK) this is unsupported. On Windows if advanced pointer software (such as IntelliPoint) is installed this doesn't register.
-func (self *Pointer) SetBACK_BUTTON(member float64) {
+func (self *Pointer) SetBACK_BUTTON(member int) {
     self.Set("BACK_BUTTON", member)
 }
 
 // The X2 button. This is typically the mouse Forward button, but is often reconfigured.
 // On Linux (GTK) this is unsupported. On Windows if advanced pointer software (such as IntelliPoint) is installed this doesn't register.
-func (self *Pointer) GetFORWARD_BUTTON() float64{
-    return self.Get("FORWARD_BUTTON").Float()
+func (self *Pointer) GetFORWARD_BUTTON() int{
+    return self.Get("FORWARD_BUTTON").Int()
 }
 
 // The X2 button. This is typically the mouse Forward button, but is often reconfigured.
 // On Linux (GTK) this is unsupported. On Windows if advanced pointer software (such as IntelliPoint) is installed this doesn't register.
-func (self *Pointer) SetFORWARD_BUTTON(member float64) {
+func (self *Pointer) SetFORWARD_BUTTON(member int) {
     self.Set("FORWARD_BUTTON", member)
 }
 
 // The Eraser pen button on PointerEvent supported devices only.
-func (self *Pointer) GetERASER_BUTTON() float64{
-    return self.Get("ERASER_BUTTON").Float()
+func (self *Pointer) GetERASER_BUTTON() int{
+    return self.Get("ERASER_BUTTON").Int()
 }
 
 // The Eraser pen button on PointerEvent supported devices only.
-func (self *Pointer) SetERASER_BUTTON(member float64) {
+func (self *Pointer) SetERASER_BUTTON(member int) {
     self.Set("ERASER_BUTTON", member)
 }
 
 // How long the Pointer has been depressed on the touchscreen or *any* of the mouse buttons have been held down.
 // If not currently down it returns -1.
 // If you need to test a specific mouse or pen button then access the buttons directly, i.e. `Pointer.rightButton.duration`.
-func (self *Pointer) GetDuration() float64{
-    return self.Get("duration").Float()
+func (self *Pointer) GetDuration() int{
+    return self.Get("duration").Int()
 }
 
 // How long the Pointer has been depressed on the touchscreen or *any* of the mouse buttons have been held down.
 // If not currently down it returns -1.
 // If you need to test a specific mouse or pen button then access the buttons directly, i.e. `Pointer.rightButton.duration`.
-func (self *Pointer) SetDuration(member float64) {
+func (self *Pointer) SetDuration(member int) {
     self.Set("duration", member)
 }
 
 // Gets the X value of this Pointer in world coordinates based on the world camera.
-func (self *Pointer) GetWorldX() float64{
-    return self.Get("worldX").Float()
+func (self *Pointer) GetWorldX() int{
+    return self.Get("worldX").Int()
 }
 
 // Gets the X value of this Pointer in world coordinates based on the world camera.
-func (self *Pointer) SetWorldX(member float64) {
+func (self *Pointer) SetWorldX(member int) {
     self.Set("worldX", member)
 }
 
 // Gets the Y value of this Pointer in world coordinates based on the world camera.
-func (self *Pointer) GetWorldY() float64{
-    return self.Get("worldY").Float()
+func (self *Pointer) GetWorldY() int{
+    return self.Get("worldY").Int()
 }
 
 // Gets the Y value of this Pointer in world coordinates based on the world camera.
-func (self *Pointer) SetWorldY(member float64) {
+func (self *Pointer) SetWorldY(member int) {
     self.Set("worldY", member)
 }
 

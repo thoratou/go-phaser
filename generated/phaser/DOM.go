@@ -93,22 +93,22 @@ func (self *DOM) SetDocumentBounds(member *Rectangle) {
 }
 
 // A cross-browser window.scrollX.
-func (self *DOM) GetScrollX() float64{
-    return self.Get("scrollX").Float()
+func (self *DOM) GetScrollX() int{
+    return self.Get("scrollX").Int()
 }
 
 // A cross-browser window.scrollX.
-func (self *DOM) SetScrollX(member float64) {
+func (self *DOM) SetScrollX(member int) {
     self.Set("scrollX", member)
 }
 
 // A cross-browser window.scrollY.
-func (self *DOM) GetScrollY() float64{
-    return self.Get("scrollY").Float()
+func (self *DOM) GetScrollY() int{
+    return self.Get("scrollY").Int()
 }
 
 // A cross-browser window.scrollY.
-func (self *DOM) SetScrollY(member float64) {
+func (self *DOM) SetScrollY(member int) {
     self.Set("scrollY", member)
 }
 
@@ -137,8 +137,8 @@ func (self *DOM) CalibrateI(args ...interface{}) interface{}{
 }
 
 // Get the Visual viewport aspect ratio (or the aspect ratio of an object or element)
-func (self *DOM) GetAspectRatioI(args ...interface{}) float64{
-    return self.Call("getAspectRatio", args).Float()
+func (self *DOM) GetAspectRatioI(args ...interface{}) int{
+    return self.Call("getAspectRatio", args).Int()
 }
 
 // Tests if the given DOM element is within the Layout viewport.

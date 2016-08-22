@@ -34,162 +34,162 @@ func (self *Line) SetEnd(member *Point) {
 }
 
 // The const type of this object.
-func (self *Line) GetType() float64{
-    return self.Get("type").Float()
+func (self *Line) GetType() int{
+    return self.Get("type").Int()
 }
 
 // The const type of this object.
-func (self *Line) SetType(member float64) {
+func (self *Line) SetType(member int) {
     self.Set("type", member)
 }
 
 // Gets the length of the line segment.
-func (self *Line) GetLength() float64{
-    return self.Get("length").Float()
+func (self *Line) GetLength() int{
+    return self.Get("length").Int()
 }
 
 // Gets the length of the line segment.
-func (self *Line) SetLength(member float64) {
+func (self *Line) SetLength(member int) {
     self.Set("length", member)
 }
 
 // Gets the angle of the line in radians.
-func (self *Line) GetAngle() float64{
-    return self.Get("angle").Float()
+func (self *Line) GetAngle() int{
+    return self.Get("angle").Int()
 }
 
 // Gets the angle of the line in radians.
-func (self *Line) SetAngle(member float64) {
+func (self *Line) SetAngle(member int) {
     self.Set("angle", member)
 }
 
 // Gets the slope of the line (y/x).
-func (self *Line) GetSlope() float64{
-    return self.Get("slope").Float()
+func (self *Line) GetSlope() int{
+    return self.Get("slope").Int()
 }
 
 // Gets the slope of the line (y/x).
-func (self *Line) SetSlope(member float64) {
+func (self *Line) SetSlope(member int) {
     self.Set("slope", member)
 }
 
 // Gets the perpendicular slope of the line (x/y).
-func (self *Line) GetPerpSlope() float64{
-    return self.Get("perpSlope").Float()
+func (self *Line) GetPerpSlope() int{
+    return self.Get("perpSlope").Int()
 }
 
 // Gets the perpendicular slope of the line (x/y).
-func (self *Line) SetPerpSlope(member float64) {
+func (self *Line) SetPerpSlope(member int) {
     self.Set("perpSlope", member)
 }
 
 // Gets the x coordinate of the top left of the bounds around this line.
-func (self *Line) GetX() float64{
-    return self.Get("x").Float()
+func (self *Line) GetX() int{
+    return self.Get("x").Int()
 }
 
 // Gets the x coordinate of the top left of the bounds around this line.
-func (self *Line) SetX(member float64) {
+func (self *Line) SetX(member int) {
     self.Set("x", member)
 }
 
 // Gets the y coordinate of the top left of the bounds around this line.
-func (self *Line) GetY() float64{
-    return self.Get("y").Float()
+func (self *Line) GetY() int{
+    return self.Get("y").Int()
 }
 
 // Gets the y coordinate of the top left of the bounds around this line.
-func (self *Line) SetY(member float64) {
+func (self *Line) SetY(member int) {
     self.Set("y", member)
 }
 
 // Gets the left-most point of this line.
-func (self *Line) GetLeft() float64{
-    return self.Get("left").Float()
+func (self *Line) GetLeft() int{
+    return self.Get("left").Int()
 }
 
 // Gets the left-most point of this line.
-func (self *Line) SetLeft(member float64) {
+func (self *Line) SetLeft(member int) {
     self.Set("left", member)
 }
 
 // Gets the right-most point of this line.
-func (self *Line) GetRight() float64{
-    return self.Get("right").Float()
+func (self *Line) GetRight() int{
+    return self.Get("right").Int()
 }
 
 // Gets the right-most point of this line.
-func (self *Line) SetRight(member float64) {
+func (self *Line) SetRight(member int) {
     self.Set("right", member)
 }
 
 // Gets the top-most point of this line.
-func (self *Line) GetTop() float64{
-    return self.Get("top").Float()
+func (self *Line) GetTop() int{
+    return self.Get("top").Int()
 }
 
 // Gets the top-most point of this line.
-func (self *Line) SetTop(member float64) {
+func (self *Line) SetTop(member int) {
     self.Set("top", member)
 }
 
 // Gets the bottom-most point of this line.
-func (self *Line) GetBottom() float64{
-    return self.Get("bottom").Float()
+func (self *Line) GetBottom() int{
+    return self.Get("bottom").Int()
 }
 
 // Gets the bottom-most point of this line.
-func (self *Line) SetBottom(member float64) {
+func (self *Line) SetBottom(member int) {
     self.Set("bottom", member)
 }
 
 // Gets the width of this bounds of this line.
-func (self *Line) GetWidth() float64{
-    return self.Get("width").Float()
+func (self *Line) GetWidth() int{
+    return self.Get("width").Int()
 }
 
 // Gets the width of this bounds of this line.
-func (self *Line) SetWidth(member float64) {
+func (self *Line) SetWidth(member int) {
     self.Set("width", member)
 }
 
 // Gets the height of this bounds of this line.
-func (self *Line) GetHeight() float64{
-    return self.Get("height").Float()
+func (self *Line) GetHeight() int{
+    return self.Get("height").Int()
 }
 
 // Gets the height of this bounds of this line.
-func (self *Line) SetHeight(member float64) {
+func (self *Line) SetHeight(member int) {
     self.Set("height", member)
 }
 
 // Gets the x component of the left-hand normal of this line.
-func (self *Line) GetNormalX() float64{
-    return self.Get("normalX").Float()
+func (self *Line) GetNormalX() int{
+    return self.Get("normalX").Int()
 }
 
 // Gets the x component of the left-hand normal of this line.
-func (self *Line) SetNormalX(member float64) {
+func (self *Line) SetNormalX(member int) {
     self.Set("normalX", member)
 }
 
 // Gets the y component of the left-hand normal of this line.
-func (self *Line) GetNormalY() float64{
-    return self.Get("normalY").Float()
+func (self *Line) GetNormalY() int{
+    return self.Get("normalY").Int()
 }
 
 // Gets the y component of the left-hand normal of this line.
-func (self *Line) SetNormalY(member float64) {
+func (self *Line) SetNormalY(member int) {
     self.Set("normalY", member)
 }
 
 // Gets the angle in radians of the normal of this line (line.angle - 90 degrees.)
-func (self *Line) GetNormalAngle() float64{
-    return self.Get("normalAngle").Float()
+func (self *Line) GetNormalAngle() int{
+    return self.Get("normalAngle").Int()
 }
 
 // Gets the angle in radians of the normal of this line (line.angle - 90 degrees.)
-func (self *Line) SetNormalAngle(member float64) {
+func (self *Line) SetNormalAngle(member int) {
     self.Set("normalAngle", member)
 }
 
@@ -237,8 +237,8 @@ func (self *Line) IntersectsI(args ...interface{}) *Point{
 
 // Returns the reflected angle between two lines.
 // This is the outgoing angle based on the angle of this line and the normalAngle of the given line.
-func (self *Line) ReflectI(args ...interface{}) float64{
-    return self.Call("reflect", args).Float()
+func (self *Line) ReflectI(args ...interface{}) int{
+    return self.Call("reflect", args).Int()
 }
 
 // Returns a Point object where the x and y values correspond to the center (or midpoint) of the Line segment.

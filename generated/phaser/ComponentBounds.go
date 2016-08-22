@@ -16,100 +16,100 @@ type ComponentBounds struct {
 // The amount the Game Object is visually offset from its x coordinate.
 // This is the same as `width * anchor.x`.
 // It will only be > 0 if anchor.x is not equal to zero.
-func (self *ComponentBounds) GetOffsetX() float64{
-    return self.Get("offsetX").Float()
+func (self *ComponentBounds) GetOffsetX() int{
+    return self.Get("offsetX").Int()
 }
 
 // The amount the Game Object is visually offset from its x coordinate.
 // This is the same as `width * anchor.x`.
 // It will only be > 0 if anchor.x is not equal to zero.
-func (self *ComponentBounds) SetOffsetX(member float64) {
+func (self *ComponentBounds) SetOffsetX(member int) {
     self.Set("offsetX", member)
 }
 
 // The amount the Game Object is visually offset from its y coordinate.
 // This is the same as `height * anchor.y`.
 // It will only be > 0 if anchor.y is not equal to zero.
-func (self *ComponentBounds) GetOffsetY() float64{
-    return self.Get("offsetY").Float()
+func (self *ComponentBounds) GetOffsetY() int{
+    return self.Get("offsetY").Int()
 }
 
 // The amount the Game Object is visually offset from its y coordinate.
 // This is the same as `height * anchor.y`.
 // It will only be > 0 if anchor.y is not equal to zero.
-func (self *ComponentBounds) SetOffsetY(member float64) {
+func (self *ComponentBounds) SetOffsetY(member int) {
     self.Set("offsetY", member)
 }
 
 // The center x coordinate of the Game Object.
 // This is the same as `(x - offsetX) + (width / 2)`.
-func (self *ComponentBounds) GetCenterX() float64{
-    return self.Get("centerX").Float()
+func (self *ComponentBounds) GetCenterX() int{
+    return self.Get("centerX").Int()
 }
 
 // The center x coordinate of the Game Object.
 // This is the same as `(x - offsetX) + (width / 2)`.
-func (self *ComponentBounds) SetCenterX(member float64) {
+func (self *ComponentBounds) SetCenterX(member int) {
     self.Set("centerX", member)
 }
 
 // The center y coordinate of the Game Object.
 // This is the same as `(y - offsetY) + (height / 2)`.
-func (self *ComponentBounds) GetCenterY() float64{
-    return self.Get("centerY").Float()
+func (self *ComponentBounds) GetCenterY() int{
+    return self.Get("centerY").Int()
 }
 
 // The center y coordinate of the Game Object.
 // This is the same as `(y - offsetY) + (height / 2)`.
-func (self *ComponentBounds) SetCenterY(member float64) {
+func (self *ComponentBounds) SetCenterY(member int) {
     self.Set("centerY", member)
 }
 
 // The left coordinate of the Game Object.
 // This is the same as `x - offsetX`.
-func (self *ComponentBounds) GetLeft() float64{
-    return self.Get("left").Float()
+func (self *ComponentBounds) GetLeft() int{
+    return self.Get("left").Int()
 }
 
 // The left coordinate of the Game Object.
 // This is the same as `x - offsetX`.
-func (self *ComponentBounds) SetLeft(member float64) {
+func (self *ComponentBounds) SetLeft(member int) {
     self.Set("left", member)
 }
 
 // The right coordinate of the Game Object.
 // This is the same as `x + width - offsetX`.
-func (self *ComponentBounds) GetRight() float64{
-    return self.Get("right").Float()
+func (self *ComponentBounds) GetRight() int{
+    return self.Get("right").Int()
 }
 
 // The right coordinate of the Game Object.
 // This is the same as `x + width - offsetX`.
-func (self *ComponentBounds) SetRight(member float64) {
+func (self *ComponentBounds) SetRight(member int) {
     self.Set("right", member)
 }
 
 // The y coordinate of the Game Object.
 // This is the same as `y - offsetY`.
-func (self *ComponentBounds) GetTop() float64{
-    return self.Get("top").Float()
+func (self *ComponentBounds) GetTop() int{
+    return self.Get("top").Int()
 }
 
 // The y coordinate of the Game Object.
 // This is the same as `y - offsetY`.
-func (self *ComponentBounds) SetTop(member float64) {
+func (self *ComponentBounds) SetTop(member int) {
     self.Set("top", member)
 }
 
 // The sum of the y and height properties.
 // This is the same as `y + height - offsetY`.
-func (self *ComponentBounds) GetBottom() float64{
-    return self.Get("bottom").Float()
+func (self *ComponentBounds) GetBottom() int{
+    return self.Get("bottom").Int()
 }
 
 // The sum of the y and height properties.
 // This is the same as `y + height - offsetY`.
-func (self *ComponentBounds) SetBottom(member float64) {
+func (self *ComponentBounds) SetBottom(member int) {
     self.Set("bottom", member)
 }
 

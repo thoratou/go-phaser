@@ -55,22 +55,22 @@ func (self *PhysicsNinjaCircle) SetOldpos(member *Point) {
 }
 
 // The radius of this circle shape.
-func (self *PhysicsNinjaCircle) GetRadius() float64{
-    return self.Get("radius").Float()
+func (self *PhysicsNinjaCircle) GetRadius() int{
+    return self.Get("radius").Int()
 }
 
 // The radius of this circle shape.
-func (self *PhysicsNinjaCircle) SetRadius(member float64) {
+func (self *PhysicsNinjaCircle) SetRadius(member int) {
     self.Set("radius", member)
 }
 
 // Half the width.
-func (self *PhysicsNinjaCircle) GetXw() float64{
-    return self.Get("xw").Float()
+func (self *PhysicsNinjaCircle) GetXw() int{
+    return self.Get("xw").Int()
 }
 
 // Half the width.
-func (self *PhysicsNinjaCircle) SetXw(member float64) {
+func (self *PhysicsNinjaCircle) SetXw(member int) {
     self.Set("xw", member)
 }
 
@@ -85,22 +85,22 @@ func (self *PhysicsNinjaCircle) SetYw(member interface{}) {
 }
 
 // The width.
-func (self *PhysicsNinjaCircle) GetWidth() float64{
-    return self.Get("width").Float()
+func (self *PhysicsNinjaCircle) GetWidth() int{
+    return self.Get("width").Int()
 }
 
 // The width.
-func (self *PhysicsNinjaCircle) SetWidth(member float64) {
+func (self *PhysicsNinjaCircle) SetWidth(member int) {
     self.Set("width", member)
 }
 
 // The height.
-func (self *PhysicsNinjaCircle) GetHeight() float64{
-    return self.Get("height").Float()
+func (self *PhysicsNinjaCircle) GetHeight() int{
+    return self.Get("height").Int()
 }
 
 // The height.
-func (self *PhysicsNinjaCircle) SetHeight(member float64) {
+func (self *PhysicsNinjaCircle) SetHeight(member int) {
     self.Set("height", member)
 }
 
@@ -147,53 +147,53 @@ func (self *PhysicsNinjaCircle) CollideCircleVsTileI(args ...interface{}) bool{
 }
 
 // Resolves tile collision.
-func (self *PhysicsNinjaCircle) ResolveCircleTileI(args ...interface{}) float64{
-    return self.Call("resolveCircleTile", args).Float()
+func (self *PhysicsNinjaCircle) ResolveCircleTileI(args ...interface{}) int{
+    return self.Call("resolveCircleTile", args).Int()
 }
 
 // Resolves Full tile collision.
-func (self *PhysicsNinjaCircle) ProjCircle_FullI(args ...interface{}) float64{
-    return self.Call("projCircle_Full", args).Float()
+func (self *PhysicsNinjaCircle) ProjCircle_FullI(args ...interface{}) int{
+    return self.Call("projCircle_Full", args).Int()
 }
 
 // Resolves 45 Degree tile collision.
-func (self *PhysicsNinjaCircle) ProjCircle_45DegI(args ...interface{}) float64{
-    return self.Call("projCircle_45Deg", args).Float()
+func (self *PhysicsNinjaCircle) ProjCircle_45DegI(args ...interface{}) int{
+    return self.Call("projCircle_45Deg", args).Int()
 }
 
 // Resolves Concave tile collision.
-func (self *PhysicsNinjaCircle) ProjCircle_ConcaveI(args ...interface{}) float64{
-    return self.Call("projCircle_Concave", args).Float()
+func (self *PhysicsNinjaCircle) ProjCircle_ConcaveI(args ...interface{}) int{
+    return self.Call("projCircle_Concave", args).Int()
 }
 
 // Resolves Convex tile collision.
-func (self *PhysicsNinjaCircle) ProjCircle_ConvexI(args ...interface{}) float64{
-    return self.Call("projCircle_Convex", args).Float()
+func (self *PhysicsNinjaCircle) ProjCircle_ConvexI(args ...interface{}) int{
+    return self.Call("projCircle_Convex", args).Int()
 }
 
 // Resolves Half tile collision.
-func (self *PhysicsNinjaCircle) ProjCircle_HalfI(args ...interface{}) float64{
-    return self.Call("projCircle_Half", args).Float()
+func (self *PhysicsNinjaCircle) ProjCircle_HalfI(args ...interface{}) int{
+    return self.Call("projCircle_Half", args).Int()
 }
 
 // Resolves 22 Degree tile collision.
-func (self *PhysicsNinjaCircle) ProjCircle_22DegSI(args ...interface{}) float64{
-    return self.Call("projCircle_22DegS", args).Float()
+func (self *PhysicsNinjaCircle) ProjCircle_22DegSI(args ...interface{}) int{
+    return self.Call("projCircle_22DegS", args).Int()
 }
 
 // Resolves 22 Degree tile collision.
-func (self *PhysicsNinjaCircle) ProjCircle_22DegBI(args ...interface{}) float64{
-    return self.Call("projCircle_22DegB", args).Float()
+func (self *PhysicsNinjaCircle) ProjCircle_22DegBI(args ...interface{}) int{
+    return self.Call("projCircle_22DegB", args).Int()
 }
 
 // Resolves 67 Degree tile collision.
-func (self *PhysicsNinjaCircle) ProjCircle_67DegSI(args ...interface{}) float64{
-    return self.Call("projCircle_67DegS", args).Float()
+func (self *PhysicsNinjaCircle) ProjCircle_67DegSI(args ...interface{}) int{
+    return self.Call("projCircle_67DegS", args).Int()
 }
 
 // Resolves 67 Degree tile collision.
-func (self *PhysicsNinjaCircle) ProjCircle_67DegBI(args ...interface{}) float64{
-    return self.Call("projCircle_67DegB", args).Float()
+func (self *PhysicsNinjaCircle) ProjCircle_67DegBI(args ...interface{}) int{
+    return self.Call("projCircle_67DegB", args).Int()
 }
 
 // Destroys this Circle's reference to Body and System

@@ -17,32 +17,32 @@ type Point struct {
 
 
 // The x value of the point.
-func (self *Point) GetX() float64{
-    return self.Get("x").Float()
+func (self *Point) GetX() int{
+    return self.Get("x").Int()
 }
 
 // The x value of the point.
-func (self *Point) SetX(member float64) {
+func (self *Point) SetX(member int) {
     self.Set("x", member)
 }
 
 // The y value of the point.
-func (self *Point) GetY() float64{
-    return self.Get("y").Float()
+func (self *Point) GetY() int{
+    return self.Get("y").Int()
 }
 
 // The y value of the point.
-func (self *Point) SetY(member float64) {
+func (self *Point) SetY(member int) {
     self.Set("y", member)
 }
 
 // The const type of this object.
-func (self *Point) GetType() float64{
-    return self.Get("type").Float()
+func (self *Point) GetType() int{
+    return self.Get("type").Int()
 }
 
 // The const type of this object.
-func (self *Point) SetType(member float64) {
+func (self *Point) SetType(member int) {
     self.Set("type", member)
 }
 
@@ -118,8 +118,8 @@ func (self *Point) CopyToI(args ...interface{}) interface{}{
 }
 
 // Returns the distance of this Point object to the given object (can be a Circle, Point or anything with x/y properties)
-func (self *Point) DistanceI(args ...interface{}) float64{
-    return self.Call("distance", args).Float()
+func (self *Point) DistanceI(args ...interface{}) int{
+    return self.Call("distance", args).Int()
 }
 
 // Determines whether the given objects x/y values are equal to this Point object.
@@ -128,8 +128,8 @@ func (self *Point) EqualsI(args ...interface{}) bool{
 }
 
 // Returns the angle between this Point object and another object with public x and y properties.
-func (self *Point) AngleI(args ...interface{}) float64{
-    return self.Call("angle", args).Float()
+func (self *Point) AngleI(args ...interface{}) int{
+    return self.Call("angle", args).Int()
 }
 
 // Rotates this Point around the x/y coordinates given to the desired angle.
@@ -138,13 +138,13 @@ func (self *Point) RotateI(args ...interface{}) *Point{
 }
 
 // Calculates the length of the Point object.
-func (self *Point) GetMagnitudeI(args ...interface{}) float64{
-    return self.Call("getMagnitude", args).Float()
+func (self *Point) GetMagnitudeI(args ...interface{}) int{
+    return self.Call("getMagnitude", args).Int()
 }
 
 // Calculates the length squared of the Point object.
-func (self *Point) GetMagnitudeSqI(args ...interface{}) float64{
-    return self.Call("getMagnitudeSq", args).Float()
+func (self *Point) GetMagnitudeSqI(args ...interface{}) int{
+    return self.Call("getMagnitudeSq", args).Int()
 }
 
 // Alters the length of the Point without changing the direction.
@@ -163,13 +163,13 @@ func (self *Point) IsZeroI(args ...interface{}) bool{
 }
 
 // The dot product of this and another Point object.
-func (self *Point) DotI(args ...interface{}) float64{
-    return self.Call("dot", args).Float()
+func (self *Point) DotI(args ...interface{}) int{
+    return self.Call("dot", args).Int()
 }
 
 // The cross product of this and another Point object.
-func (self *Point) CrossI(args ...interface{}) float64{
-    return self.Call("cross", args).Float()
+func (self *Point) CrossI(args ...interface{}) int{
+    return self.Call("cross", args).Int()
 }
 
 // Make this Point perpendicular (90 degrees rotation)

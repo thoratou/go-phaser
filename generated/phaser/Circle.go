@@ -15,52 +15,52 @@ type Circle struct {
 
 
 // The x coordinate of the center of the circle.
-func (self *Circle) GetX() float64{
-    return self.Get("x").Float()
+func (self *Circle) GetX() int{
+    return self.Get("x").Int()
 }
 
 // The x coordinate of the center of the circle.
-func (self *Circle) SetX(member float64) {
+func (self *Circle) SetX(member int) {
     self.Set("x", member)
 }
 
 // The y coordinate of the center of the circle.
-func (self *Circle) GetY() float64{
-    return self.Get("y").Float()
+func (self *Circle) GetY() int{
+    return self.Get("y").Int()
 }
 
 // The y coordinate of the center of the circle.
-func (self *Circle) SetY(member float64) {
+func (self *Circle) SetY(member int) {
     self.Set("y", member)
 }
 
 // The const type of this object.
-func (self *Circle) GetType() float64{
-    return self.Get("type").Float()
+func (self *Circle) GetType() int{
+    return self.Get("type").Int()
 }
 
 // The const type of this object.
-func (self *Circle) SetType(member float64) {
+func (self *Circle) SetType(member int) {
     self.Set("type", member)
 }
 
 // The largest distance between any two points on the circle. The same as the radius * 2. Gets or sets the diameter of the circle.
-func (self *Circle) GetDiameter() float64{
-    return self.Get("diameter").Float()
+func (self *Circle) GetDiameter() int{
+    return self.Get("diameter").Int()
 }
 
 // The largest distance between any two points on the circle. The same as the radius * 2. Gets or sets the diameter of the circle.
-func (self *Circle) SetDiameter(member float64) {
+func (self *Circle) SetDiameter(member int) {
     self.Set("diameter", member)
 }
 
 // The length of a line extending from the center of the circle to any point on the circle itself. The same as half the diameter. Gets or sets the radius of the circle.
-func (self *Circle) GetRadius() float64{
-    return self.Get("radius").Float()
+func (self *Circle) GetRadius() int{
+    return self.Get("radius").Int()
 }
 
 // The length of a line extending from the center of the circle to any point on the circle itself. The same as half the diameter. Gets or sets the radius of the circle.
-func (self *Circle) SetRadius(member float64) {
+func (self *Circle) SetRadius(member int) {
     self.Set("radius", member)
 }
 
@@ -75,42 +75,42 @@ func (self *Circle) SetLeft(member interface{}) {
 }
 
 // The x coordinate of the rightmost point of the circle. Changing the right property of a Circle object has no effect on the x and y properties. However it does affect the diameter, whereas changing the x value does not affect the diameter property. Gets or sets the value of the rightmost point of the circle.
-func (self *Circle) GetRight() float64{
-    return self.Get("right").Float()
+func (self *Circle) GetRight() int{
+    return self.Get("right").Int()
 }
 
 // The x coordinate of the rightmost point of the circle. Changing the right property of a Circle object has no effect on the x and y properties. However it does affect the diameter, whereas changing the x value does not affect the diameter property. Gets or sets the value of the rightmost point of the circle.
-func (self *Circle) SetRight(member float64) {
+func (self *Circle) SetRight(member int) {
     self.Set("right", member)
 }
 
 // The sum of the y minus the radius property. Changing the top property of a Circle object has no effect on the x and y properties, but does change the diameter. Gets or sets the top of the circle.
-func (self *Circle) GetTop() float64{
-    return self.Get("top").Float()
+func (self *Circle) GetTop() int{
+    return self.Get("top").Int()
 }
 
 // The sum of the y minus the radius property. Changing the top property of a Circle object has no effect on the x and y properties, but does change the diameter. Gets or sets the top of the circle.
-func (self *Circle) SetTop(member float64) {
+func (self *Circle) SetTop(member int) {
     self.Set("top", member)
 }
 
 // The sum of the y and radius properties. Changing the bottom property of a Circle object has no effect on the x and y properties, but does change the diameter. Gets or sets the bottom of the circle.
-func (self *Circle) GetBottom() float64{
-    return self.Get("bottom").Float()
+func (self *Circle) GetBottom() int{
+    return self.Get("bottom").Int()
 }
 
 // The sum of the y and radius properties. Changing the bottom property of a Circle object has no effect on the x and y properties, but does change the diameter. Gets or sets the bottom of the circle.
-func (self *Circle) SetBottom(member float64) {
+func (self *Circle) SetBottom(member int) {
     self.Set("bottom", member)
 }
 
 // The area of this Circle.
-func (self *Circle) GetArea() float64{
-    return self.Get("area").Float()
+func (self *Circle) GetArea() int{
+    return self.Get("area").Int()
 }
 
 // The area of this Circle.
-func (self *Circle) SetArea(member float64) {
+func (self *Circle) SetArea(member int) {
     self.Set("area", member)
 }
 
@@ -129,8 +129,8 @@ func (self *Circle) SetEmpty(member bool) {
 
 
 // The circumference of the circle.
-func (self *Circle) CircumferenceI(args ...interface{}) float64{
-    return self.Call("circumference", args).Float()
+func (self *Circle) CircumferenceI(args ...interface{}) int{
+    return self.Call("circumference", args).Int()
 }
 
 // Returns a uniformly distributed random point from anywhere within this Circle.
@@ -160,8 +160,8 @@ func (self *Circle) CopyToI(args ...interface{}) interface{}{
 
 // Returns the distance from the center of the Circle object to the given object
 // (can be Circle, Point or anything with x/y properties)
-func (self *Circle) DistanceI(args ...interface{}) float64{
-    return self.Call("distance", args).Float()
+func (self *Circle) DistanceI(args ...interface{}) int{
+    return self.Call("distance", args).Int()
 }
 
 // Returns a new Circle object with the same values for the x, y, width, and height properties as this Circle object.

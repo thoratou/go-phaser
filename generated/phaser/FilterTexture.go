@@ -44,12 +44,12 @@ func (self *FilterTexture) SetTexture(member interface{}) {
 }
 
 // 
-func (self *FilterTexture) GetScaleMode() float64{
-    return self.Get("scaleMode").Float()
+func (self *FilterTexture) GetScaleMode() int{
+    return self.Get("scaleMode").Int()
 }
 
 // 
-func (self *FilterTexture) SetScaleMode(member float64) {
+func (self *FilterTexture) SetScaleMode(member int) {
     self.Set("scaleMode", member)
 }
 

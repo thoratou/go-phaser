@@ -58,12 +58,12 @@ func (self *Time) SetTime(member int) {
 }
 
 // The `now` when the previous update occurred.
-func (self *Time) GetPrevTime() float64{
-    return self.Get("prevTime").Float()
+func (self *Time) GetPrevTime() int{
+    return self.Get("prevTime").Int()
 }
 
 // The `now` when the previous update occurred.
-func (self *Time) SetPrevTime(member float64) {
+func (self *Time) SetPrevTime(member int) {
     self.Set("prevTime", member)
 }
 
@@ -74,8 +74,8 @@ func (self *Time) SetPrevTime(member float64) {
 // 
 // The source may either be from a high-res source (eg. if RAF is available) or the standard Date.now;
 // the value can only be relied upon within a particular game instance.
-func (self *Time) GetNow() float64{
-    return self.Get("now").Float()
+func (self *Time) GetNow() int{
+    return self.Get("now").Int()
 }
 
 // An increasing value representing cumulative milliseconds since an undisclosed epoch.
@@ -85,7 +85,7 @@ func (self *Time) GetNow() float64{
 // 
 // The source may either be from a high-res source (eg. if RAF is available) or the standard Date.now;
 // the value can only be relied upon within a particular game instance.
-func (self *Time) SetNow(member float64) {
+func (self *Time) SetNow(member int) {
     self.Set("now", member)
 }
 
@@ -95,8 +95,8 @@ func (self *Time) SetNow(member float64) {
 // 
 // _Note:_ This is updated only once per game loop - even if multiple logic update steps are done.
 // Use {@link Phaser.Timer#physicsTime physicsTime} as a basis of game/logic calculations instead.
-func (self *Time) GetElapsed() float64{
-    return self.Get("elapsed").Float()
+func (self *Time) GetElapsed() int{
+    return self.Get("elapsed").Int()
 }
 
 // Elapsed time since the last time update, in milliseconds, based on `now`.
@@ -105,7 +105,7 @@ func (self *Time) GetElapsed() float64{
 // 
 // _Note:_ This is updated only once per game loop - even if multiple logic update steps are done.
 // Use {@link Phaser.Timer#physicsTime physicsTime} as a basis of game/logic calculations instead.
-func (self *Time) SetElapsed(member float64) {
+func (self *Time) SetElapsed(member int) {
     self.Set("elapsed", member)
 }
 
@@ -136,8 +136,8 @@ func (self *Time) SetElapsedMS(member int) {
 // is unable to consistently maintain the desired FPS.
 // 
 // With fixed-step updates this is normally equivalent to `1.0 / desiredFps`.
-func (self *Time) GetPhysicsElapsed() float64{
-    return self.Get("physicsElapsed").Float()
+func (self *Time) GetPhysicsElapsed() int{
+    return self.Get("physicsElapsed").Int()
 }
 
 // The physics update delta, in fractional seconds.
@@ -147,17 +147,17 @@ func (self *Time) GetPhysicsElapsed() float64{
 // is unable to consistently maintain the desired FPS.
 // 
 // With fixed-step updates this is normally equivalent to `1.0 / desiredFps`.
-func (self *Time) SetPhysicsElapsed(member float64) {
+func (self *Time) SetPhysicsElapsed(member int) {
     self.Set("physicsElapsed", member)
 }
 
 // The physics update delta, in milliseconds - equivalent to `physicsElapsed * 1000`.
-func (self *Time) GetPhysicsElapsedMS() float64{
-    return self.Get("physicsElapsedMS").Float()
+func (self *Time) GetPhysicsElapsedMS() int{
+    return self.Get("physicsElapsedMS").Int()
 }
 
 // The physics update delta, in milliseconds - equivalent to `physicsElapsed * 1000`.
-func (self *Time) SetPhysicsElapsedMS(member float64) {
+func (self *Time) SetPhysicsElapsedMS(member int) {
     self.Set("physicsElapsedMS", member)
 }
 
@@ -176,8 +176,8 @@ func (self *Time) SetDesiredFpsMult(member int) {
 // 
 // _Note:_ This is not available until after a few frames have passed; until then
 // it's set to the same value as desiredFps.
-func (self *Time) GetSuggestedFps() float64{
-    return self.Get("suggestedFps").Float()
+func (self *Time) GetSuggestedFps() int{
+    return self.Get("suggestedFps").Int()
 }
 
 // The suggested frame rate for your game, based on an averaged real frame rate.
@@ -185,21 +185,21 @@ func (self *Time) GetSuggestedFps() float64{
 // 
 // _Note:_ This is not available until after a few frames have passed; until then
 // it's set to the same value as desiredFps.
-func (self *Time) SetSuggestedFps(member float64) {
+func (self *Time) SetSuggestedFps(member int) {
     self.Set("suggestedFps", member)
 }
 
 // Scaling factor to make the game move smoothly in slow motion
 // - 1.0 = normal speed
 // - 2.0 = half speed
-func (self *Time) GetSlowMotion() float64{
-    return self.Get("slowMotion").Float()
+func (self *Time) GetSlowMotion() int{
+    return self.Get("slowMotion").Int()
 }
 
 // Scaling factor to make the game move smoothly in slow motion
 // - 1.0 = normal speed
 // - 2.0 = half speed
-func (self *Time) SetSlowMotion(member float64) {
+func (self *Time) SetSlowMotion(member int) {
     self.Set("slowMotion", member)
 }
 
@@ -230,14 +230,14 @@ func (self *Time) SetFrames(member int) {
 // Advanced timing result: Frames per second.
 // 
 // Only calculated if {@link Phaser.Time#advancedTiming advancedTiming} is enabled.
-func (self *Time) GetFps() float64{
-    return self.Get("fps").Float()
+func (self *Time) GetFps() int{
+    return self.Get("fps").Int()
 }
 
 // Advanced timing result: Frames per second.
 // 
 // Only calculated if {@link Phaser.Time#advancedTiming advancedTiming} is enabled.
-func (self *Time) SetFps(member float64) {
+func (self *Time) SetFps(member int) {
     self.Set("fps", member)
 }
 
@@ -245,15 +245,15 @@ func (self *Time) SetFps(member float64) {
 // 
 // Only calculated if {@link Phaser.Time#advancedTiming advancedTiming} is enabled.
 // This value can be manually reset.
-func (self *Time) GetFpsMin() float64{
-    return self.Get("fpsMin").Float()
+func (self *Time) GetFpsMin() int{
+    return self.Get("fpsMin").Int()
 }
 
 // Advanced timing result: The lowest rate the fps has dropped to.
 // 
 // Only calculated if {@link Phaser.Time#advancedTiming advancedTiming} is enabled.
 // This value can be manually reset.
-func (self *Time) SetFpsMin(member float64) {
+func (self *Time) SetFpsMin(member int) {
     self.Set("fpsMin", member)
 }
 
@@ -261,15 +261,15 @@ func (self *Time) SetFpsMin(member float64) {
 // 
 // Only calculated if {@link Phaser.Time#advancedTiming advancedTiming} is enabled.
 // This value can be manually reset.
-func (self *Time) GetFpsMax() float64{
-    return self.Get("fpsMax").Float()
+func (self *Time) GetFpsMax() int{
+    return self.Get("fpsMax").Int()
 }
 
 // Advanced timing result: The highest rate the fps has reached (usually no higher than 60fps).
 // 
 // Only calculated if {@link Phaser.Time#advancedTiming advancedTiming} is enabled.
 // This value can be manually reset.
-func (self *Time) SetFpsMax(member float64) {
+func (self *Time) SetFpsMax(member int) {
     self.Set("fpsMax", member)
 }
 
@@ -277,15 +277,15 @@ func (self *Time) SetFpsMax(member float64) {
 // 
 // Only calculated if {@link Phaser.Time#advancedTiming advancedTiming} is enabled.
 // This value can be manually reset.
-func (self *Time) GetMsMin() float64{
-    return self.Get("msMin").Float()
+func (self *Time) GetMsMin() int{
+    return self.Get("msMin").Int()
 }
 
 // Advanced timing result: The minimum amount of time the game has taken between consecutive frames.
 // 
 // Only calculated if {@link Phaser.Time#advancedTiming advancedTiming} is enabled.
 // This value can be manually reset.
-func (self *Time) SetMsMin(member float64) {
+func (self *Time) SetMsMin(member int) {
     self.Set("msMin", member)
 }
 
@@ -293,47 +293,47 @@ func (self *Time) SetMsMin(member float64) {
 // 
 // Only calculated if {@link Phaser.Time#advancedTiming advancedTiming} is enabled.
 // This value can be manually reset.
-func (self *Time) GetMsMax() float64{
-    return self.Get("msMax").Float()
+func (self *Time) GetMsMax() int{
+    return self.Get("msMax").Int()
 }
 
 // Advanced timing result: The maximum amount of time the game has taken between consecutive frames.
 // 
 // Only calculated if {@link Phaser.Time#advancedTiming advancedTiming} is enabled.
 // This value can be manually reset.
-func (self *Time) SetMsMax(member float64) {
+func (self *Time) SetMsMax(member int) {
     self.Set("msMax", member)
 }
 
 // Records how long the game was last paused, in milliseconds.
 // (This is not updated until the game is resumed.)
-func (self *Time) GetPauseDuration() float64{
-    return self.Get("pauseDuration").Float()
+func (self *Time) GetPauseDuration() int{
+    return self.Get("pauseDuration").Int()
 }
 
 // Records how long the game was last paused, in milliseconds.
 // (This is not updated until the game is resumed.)
-func (self *Time) SetPauseDuration(member float64) {
+func (self *Time) SetPauseDuration(member int) {
     self.Set("pauseDuration", member)
 }
 
 // The value that setTimeout needs to work out when to next update
-func (self *Time) GetTimeToCall() float64{
-    return self.Get("timeToCall").Float()
+func (self *Time) GetTimeToCall() int{
+    return self.Get("timeToCall").Int()
 }
 
 // The value that setTimeout needs to work out when to next update
-func (self *Time) SetTimeToCall(member float64) {
+func (self *Time) SetTimeToCall(member int) {
     self.Set("timeToCall", member)
 }
 
 // The time when the next call is expected when using setTimer to control the update loop
-func (self *Time) GetTimeExpected() float64{
-    return self.Get("timeExpected").Float()
+func (self *Time) GetTimeExpected() int{
+    return self.Get("timeExpected").Int()
 }
 
 // The time when the next call is expected when using setTimer to control the update loop
-func (self *Time) SetTimeExpected(member float64) {
+func (self *Time) SetTimeExpected(member int) {
     self.Set("timeExpected", member)
 }
 
@@ -416,18 +416,18 @@ func (self *Time) GameResumedI(args ...interface{}) {
 }
 
 // The number of seconds that have elapsed since the game was started.
-func (self *Time) TotalElapsedSecondsI(args ...interface{}) float64{
-    return self.Call("totalElapsedSeconds", args).Float()
+func (self *Time) TotalElapsedSecondsI(args ...interface{}) int{
+    return self.Call("totalElapsedSeconds", args).Int()
 }
 
 // How long has passed since the given time.
-func (self *Time) ElapsedSinceI(args ...interface{}) float64{
-    return self.Call("elapsedSince", args).Float()
+func (self *Time) ElapsedSinceI(args ...interface{}) int{
+    return self.Call("elapsedSince", args).Int()
 }
 
 // How long has passed since the given time (in seconds).
-func (self *Time) ElapsedSecondsSinceI(args ...interface{}) float64{
-    return self.Call("elapsedSecondsSince", args).Float()
+func (self *Time) ElapsedSecondsSinceI(args ...interface{}) int{
+    return self.Call("elapsedSecondsSince", args).Int()
 }
 
 // Resets the private _started value to now and removes all currently running Timers.

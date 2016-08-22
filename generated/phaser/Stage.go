@@ -63,12 +63,12 @@ func (self *Stage) SetExists(member bool) {
 }
 
 // Reset each frame, keeps a count of the total number of objects updated.
-func (self *Stage) GetCurrentRenderOrderID() float64{
-    return self.Get("currentRenderOrderID").Float()
+func (self *Stage) GetCurrentRenderOrderID() int{
+    return self.Get("currentRenderOrderID").Int()
 }
 
 // Reset each frame, keeps a count of the total number of objects updated.
-func (self *Stage) SetCurrentRenderOrderID(member float64) {
+func (self *Stage) SetCurrentRenderOrderID(member int) {
     self.Set("currentRenderOrderID", member)
 }
 
@@ -127,22 +127,22 @@ func (self *Stage) SetIgnoreChildInput(member bool) {
 }
 
 // The width of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *Stage) GetWidth() float64{
-    return self.Get("width").Float()
+func (self *Stage) GetWidth() int{
+    return self.Get("width").Int()
 }
 
 // The width of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *Stage) SetWidth(member float64) {
+func (self *Stage) SetWidth(member int) {
     self.Set("width", member)
 }
 
 // The height of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *Stage) GetHeight() float64{
-    return self.Get("height").Float()
+func (self *Stage) GetHeight() int{
+    return self.Get("height").Int()
 }
 
 // The height of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *Stage) SetHeight(member float64) {
+func (self *Stage) SetHeight(member int) {
     self.Set("height", member)
 }
 
@@ -225,8 +225,8 @@ func (self *Stage) SwapChildrenI(args ...interface{}) {
 }
 
 // Returns the index position of a child DisplayObject instance
-func (self *Stage) GetChildIndexI(args ...interface{}) float64{
-    return self.Call("getChildIndex", args).Float()
+func (self *Stage) GetChildIndexI(args ...interface{}) int{
+    return self.Call("getChildIndex", args).Int()
 }
 
 // Changes the position of an existing child in the display object container

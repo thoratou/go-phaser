@@ -16,16 +16,16 @@ type EasingQuartic struct {
 
 
 // Quartic ease-in.
-func (self *EasingQuartic) InI(args ...interface{}) float64{
-    return self.Call("In", args).Float()
+func (self *EasingQuartic) InI(args ...interface{}) int{
+    return self.Call("In", args).Int()
 }
 
 // Quartic ease-out.
-func (self *EasingQuartic) OutI(args ...interface{}) float64{
-    return self.Call("Out", args).Float()
+func (self *EasingQuartic) OutI(args ...interface{}) int{
+    return self.Call("Out", args).Int()
 }
 
 // Quartic ease-in/out.
-func (self *EasingQuartic) InOutI(args ...interface{}) float64{
-    return self.Call("InOut", args).Float()
+func (self *EasingQuartic) InOutI(args ...interface{}) int{
+    return self.Call("InOut", args).Int()
 }

@@ -49,12 +49,12 @@ func (self *PhysicsP2Body) SetSprite(member *Sprite) {
 }
 
 // The type of physics system this body belongs to.
-func (self *PhysicsP2Body) GetType() float64{
-    return self.Get("type").Float()
+func (self *PhysicsP2Body) GetType() int{
+    return self.Get("type").Int()
 }
 
 // The type of physics system this body belongs to.
-func (self *PhysicsP2Body) SetType(member float64) {
+func (self *PhysicsP2Body) SetType(member int) {
     self.Set("type", member)
 }
 
@@ -209,32 +209,32 @@ func (self *PhysicsP2Body) SetDirty(member bool) {
 }
 
 // Dynamic body. Dynamic bodies body can move and respond to collisions and forces.
-func (self *PhysicsP2Body) GetDYNAMIC() float64{
-    return self.Get("DYNAMIC").Float()
+func (self *PhysicsP2Body) GetDYNAMIC() int{
+    return self.Get("DYNAMIC").Int()
 }
 
 // Dynamic body. Dynamic bodies body can move and respond to collisions and forces.
-func (self *PhysicsP2Body) SetDYNAMIC(member float64) {
+func (self *PhysicsP2Body) SetDYNAMIC(member int) {
     self.Set("DYNAMIC", member)
 }
 
 // Static body. Static bodies do not move, and they do not respond to forces or collision.
-func (self *PhysicsP2Body) GetSTATIC() float64{
-    return self.Get("STATIC").Float()
+func (self *PhysicsP2Body) GetSTATIC() int{
+    return self.Get("STATIC").Int()
 }
 
 // Static body. Static bodies do not move, and they do not respond to forces or collision.
-func (self *PhysicsP2Body) SetSTATIC(member float64) {
+func (self *PhysicsP2Body) SetSTATIC(member int) {
     self.Set("STATIC", member)
 }
 
 // Kinematic body. Kinematic bodies only moves according to its .velocity, and does not respond to collisions or force.
-func (self *PhysicsP2Body) GetKINEMATIC() float64{
-    return self.Get("KINEMATIC").Float()
+func (self *PhysicsP2Body) GetKINEMATIC() int{
+    return self.Get("KINEMATIC").Int()
 }
 
 // Kinematic body. Kinematic bodies only moves according to its .velocity, and does not respond to collisions or force.
-func (self *PhysicsP2Body) SetKINEMATIC(member float64) {
+func (self *PhysicsP2Body) SetKINEMATIC(member int) {
     self.Set("KINEMATIC", member)
 }
 
@@ -281,54 +281,54 @@ func (self *PhysicsP2Body) SetAllowSleep(member bool) {
 // The angle of the Body in degrees from its original orientation. Values from 0 to 180 represent clockwise rotation; values from 0 to -180 represent counterclockwise rotation.
 // Values outside this range are added to or subtracted from 360 to obtain a value within the range. For example, the statement Body.angle = 450 is the same as Body.angle = 90.
 // If you wish to work in radians instead of degrees use the property Body.rotation instead. Working in radians is faster as it doesn't have to convert values. The angle of this Body in degrees.
-func (self *PhysicsP2Body) GetAngle() float64{
-    return self.Get("angle").Float()
+func (self *PhysicsP2Body) GetAngle() int{
+    return self.Get("angle").Int()
 }
 
 // The angle of the Body in degrees from its original orientation. Values from 0 to 180 represent clockwise rotation; values from 0 to -180 represent counterclockwise rotation.
 // Values outside this range are added to or subtracted from 360 to obtain a value within the range. For example, the statement Body.angle = 450 is the same as Body.angle = 90.
 // If you wish to work in radians instead of degrees use the property Body.rotation instead. Working in radians is faster as it doesn't have to convert values. The angle of this Body in degrees.
-func (self *PhysicsP2Body) SetAngle(member float64) {
+func (self *PhysicsP2Body) SetAngle(member int) {
     self.Set("angle", member)
 }
 
 // Damping is specified as a value between 0 and 1, which is the proportion of velocity lost per second. The angular damping acting acting on the body.
-func (self *PhysicsP2Body) GetAngularDamping() float64{
-    return self.Get("angularDamping").Float()
+func (self *PhysicsP2Body) GetAngularDamping() int{
+    return self.Get("angularDamping").Int()
 }
 
 // Damping is specified as a value between 0 and 1, which is the proportion of velocity lost per second. The angular damping acting acting on the body.
-func (self *PhysicsP2Body) SetAngularDamping(member float64) {
+func (self *PhysicsP2Body) SetAngularDamping(member int) {
     self.Set("angularDamping", member)
 }
 
 // The angular force acting on the body.
-func (self *PhysicsP2Body) GetAngularForce() float64{
-    return self.Get("angularForce").Float()
+func (self *PhysicsP2Body) GetAngularForce() int{
+    return self.Get("angularForce").Int()
 }
 
 // The angular force acting on the body.
-func (self *PhysicsP2Body) SetAngularForce(member float64) {
+func (self *PhysicsP2Body) SetAngularForce(member int) {
     self.Set("angularForce", member)
 }
 
 // The angular velocity of the body.
-func (self *PhysicsP2Body) GetAngularVelocity() float64{
-    return self.Get("angularVelocity").Float()
+func (self *PhysicsP2Body) GetAngularVelocity() int{
+    return self.Get("angularVelocity").Int()
 }
 
 // The angular velocity of the body.
-func (self *PhysicsP2Body) SetAngularVelocity(member float64) {
+func (self *PhysicsP2Body) SetAngularVelocity(member int) {
     self.Set("angularVelocity", member)
 }
 
 // Damping is specified as a value between 0 and 1, which is the proportion of velocity lost per second. The linear damping acting on the body in the velocity direction.
-func (self *PhysicsP2Body) GetDamping() float64{
-    return self.Get("damping").Float()
+func (self *PhysicsP2Body) GetDamping() int{
+    return self.Get("damping").Int()
 }
 
 // Damping is specified as a value between 0 and 1, which is the proportion of velocity lost per second. The linear damping acting on the body in the velocity direction.
-func (self *PhysicsP2Body) SetDamping(member float64) {
+func (self *PhysicsP2Body) SetDamping(member int) {
     self.Set("damping", member)
 }
 
@@ -343,84 +343,84 @@ func (self *PhysicsP2Body) SetFixedRotation(member bool) {
 }
 
 // The inertia of the body around the Z axis..
-func (self *PhysicsP2Body) GetInertia() float64{
-    return self.Get("inertia").Float()
+func (self *PhysicsP2Body) GetInertia() int{
+    return self.Get("inertia").Int()
 }
 
 // The inertia of the body around the Z axis..
-func (self *PhysicsP2Body) SetInertia(member float64) {
+func (self *PhysicsP2Body) SetInertia(member int) {
     self.Set("inertia", member)
 }
 
 // The mass of the body.
-func (self *PhysicsP2Body) GetMass() float64{
-    return self.Get("mass").Float()
+func (self *PhysicsP2Body) GetMass() int{
+    return self.Get("mass").Int()
 }
 
 // The mass of the body.
-func (self *PhysicsP2Body) SetMass(member float64) {
+func (self *PhysicsP2Body) SetMass(member int) {
     self.Set("mass", member)
 }
 
 // The type of motion this body has. Should be one of: Body.STATIC (the body does not move), Body.DYNAMIC (body can move and respond to collisions) and Body.KINEMATIC (only moves according to its .velocity).
-func (self *PhysicsP2Body) GetMotionState() float64{
-    return self.Get("motionState").Float()
+func (self *PhysicsP2Body) GetMotionState() int{
+    return self.Get("motionState").Int()
 }
 
 // The type of motion this body has. Should be one of: Body.STATIC (the body does not move), Body.DYNAMIC (body can move and respond to collisions) and Body.KINEMATIC (only moves according to its .velocity).
-func (self *PhysicsP2Body) SetMotionState(member float64) {
+func (self *PhysicsP2Body) SetMotionState(member int) {
     self.Set("motionState", member)
 }
 
 // The angle of the Body in radians.
 // If you wish to work in degrees instead of radians use the Body.angle property instead. Working in radians is faster as it doesn't have to convert values. The angle of this Body in radians.
-func (self *PhysicsP2Body) GetRotation() float64{
-    return self.Get("rotation").Float()
+func (self *PhysicsP2Body) GetRotation() int{
+    return self.Get("rotation").Int()
 }
 
 // The angle of the Body in radians.
 // If you wish to work in degrees instead of radians use the Body.angle property instead. Working in radians is faster as it doesn't have to convert values. The angle of this Body in radians.
-func (self *PhysicsP2Body) SetRotation(member float64) {
+func (self *PhysicsP2Body) SetRotation(member int) {
     self.Set("rotation", member)
 }
 
 // .
-func (self *PhysicsP2Body) GetSleepSpeedLimit() float64{
-    return self.Get("sleepSpeedLimit").Float()
+func (self *PhysicsP2Body) GetSleepSpeedLimit() int{
+    return self.Get("sleepSpeedLimit").Int()
 }
 
 // .
-func (self *PhysicsP2Body) SetSleepSpeedLimit(member float64) {
+func (self *PhysicsP2Body) SetSleepSpeedLimit(member int) {
     self.Set("sleepSpeedLimit", member)
 }
 
 // The x coordinate of this Body.
-func (self *PhysicsP2Body) GetX() float64{
-    return self.Get("x").Float()
+func (self *PhysicsP2Body) GetX() int{
+    return self.Get("x").Int()
 }
 
 // The x coordinate of this Body.
-func (self *PhysicsP2Body) SetX(member float64) {
+func (self *PhysicsP2Body) SetX(member int) {
     self.Set("x", member)
 }
 
 // The y coordinate of this Body.
-func (self *PhysicsP2Body) GetY() float64{
-    return self.Get("y").Float()
+func (self *PhysicsP2Body) GetY() int{
+    return self.Get("y").Int()
 }
 
 // The y coordinate of this Body.
-func (self *PhysicsP2Body) SetY(member float64) {
+func (self *PhysicsP2Body) SetY(member int) {
     self.Set("y", member)
 }
 
 // The Body ID. Each Body that has been added to the World has a unique ID.
-func (self *PhysicsP2Body) GetId() float64{
-    return self.Get("id").Float()
+func (self *PhysicsP2Body) GetId() int{
+    return self.Get("id").Int()
 }
 
 // The Body ID. Each Body that has been added to the World has a unique ID.
-func (self *PhysicsP2Body) SetId(member float64) {
+func (self *PhysicsP2Body) SetId(member int) {
     self.Set("id", member)
 }
 
@@ -470,8 +470,8 @@ func (self *PhysicsP2Body) CreateGroupCallbackI(args ...interface{}) {
 }
 
 // Gets the collision bitmask from the groups this body collides with.
-func (self *PhysicsP2Body) GetCollisionMaskI(args ...interface{}) float64{
-    return self.Call("getCollisionMask", args).Float()
+func (self *PhysicsP2Body) GetCollisionMaskI(args ...interface{}) int{
+    return self.Call("getCollisionMask", args).Int()
 }
 
 // Updates the collisionMask.

@@ -49,22 +49,22 @@ func (self *DisplayObjectContainer) SetIgnoreChildInput(member bool) {
 }
 
 // The width of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *DisplayObjectContainer) GetWidth() float64{
-    return self.Get("width").Float()
+func (self *DisplayObjectContainer) GetWidth() int{
+    return self.Get("width").Int()
 }
 
 // The width of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *DisplayObjectContainer) SetWidth(member float64) {
+func (self *DisplayObjectContainer) SetWidth(member int) {
     self.Set("width", member)
 }
 
 // The height of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *DisplayObjectContainer) GetHeight() float64{
-    return self.Get("height").Float()
+func (self *DisplayObjectContainer) GetHeight() int{
+    return self.Get("height").Int()
 }
 
 // The height of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *DisplayObjectContainer) SetHeight(member float64) {
+func (self *DisplayObjectContainer) SetHeight(member int) {
     self.Set("height", member)
 }
 
@@ -86,8 +86,8 @@ func (self *DisplayObjectContainer) SwapChildrenI(args ...interface{}) {
 }
 
 // Returns the index position of a child DisplayObject instance
-func (self *DisplayObjectContainer) GetChildIndexI(args ...interface{}) float64{
-    return self.Call("getChildIndex", args).Float()
+func (self *DisplayObjectContainer) GetChildIndexI(args ...interface{}) int{
+    return self.Call("getChildIndex", args).Int()
 }
 
 // Changes the position of an existing child in the display object container

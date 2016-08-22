@@ -88,24 +88,24 @@ func (self *Mouse) SetCapture(member bool) {
 // This property was removed in Phaser 2.4 and should no longer be used.
 // Instead please see the Pointer button properties such as `Pointer.leftButton`, `Pointer.rightButton` and so on.
 // Or Pointer.button holds the DOM event button value if you require that.
-func (self *Mouse) GetButton() float64{
-    return self.Get("button").Float()
+func (self *Mouse) GetButton() int{
+    return self.Get("button").Int()
 }
 
 // This property was removed in Phaser 2.4 and should no longer be used.
 // Instead please see the Pointer button properties such as `Pointer.leftButton`, `Pointer.rightButton` and so on.
 // Or Pointer.button holds the DOM event button value if you require that.
-func (self *Mouse) SetButton(member float64) {
+func (self *Mouse) SetButton(member int) {
     self.Set("button", member)
 }
 
 // The direction of the _last_ mousewheel usage 1 for up -1 for down.
-func (self *Mouse) GetWheelDelta() float64{
-    return self.Get("wheelDelta").Float()
+func (self *Mouse) GetWheelDelta() int{
+    return self.Get("wheelDelta").Int()
 }
 
 // The direction of the _last_ mousewheel usage 1 for up -1 for down.
-func (self *Mouse) SetWheelDelta(member float64) {
+func (self *Mouse) SetWheelDelta(member int) {
     self.Set("wheelDelta", member)
 }
 
@@ -162,82 +162,82 @@ func (self *Mouse) SetEvent(member interface{}) {
 }
 
 // 
-func (self *Mouse) GetNO_BUTTON() float64{
-    return self.Get("NO_BUTTON").Float()
+func (self *Mouse) GetNO_BUTTON() int{
+    return self.Get("NO_BUTTON").Int()
 }
 
 // 
-func (self *Mouse) SetNO_BUTTON(member float64) {
+func (self *Mouse) SetNO_BUTTON(member int) {
     self.Set("NO_BUTTON", member)
 }
 
 // 
-func (self *Mouse) GetLEFT_BUTTON() float64{
-    return self.Get("LEFT_BUTTON").Float()
+func (self *Mouse) GetLEFT_BUTTON() int{
+    return self.Get("LEFT_BUTTON").Int()
 }
 
 // 
-func (self *Mouse) SetLEFT_BUTTON(member float64) {
+func (self *Mouse) SetLEFT_BUTTON(member int) {
     self.Set("LEFT_BUTTON", member)
 }
 
 // 
-func (self *Mouse) GetMIDDLE_BUTTON() float64{
-    return self.Get("MIDDLE_BUTTON").Float()
+func (self *Mouse) GetMIDDLE_BUTTON() int{
+    return self.Get("MIDDLE_BUTTON").Int()
 }
 
 // 
-func (self *Mouse) SetMIDDLE_BUTTON(member float64) {
+func (self *Mouse) SetMIDDLE_BUTTON(member int) {
     self.Set("MIDDLE_BUTTON", member)
 }
 
 // 
-func (self *Mouse) GetRIGHT_BUTTON() float64{
-    return self.Get("RIGHT_BUTTON").Float()
+func (self *Mouse) GetRIGHT_BUTTON() int{
+    return self.Get("RIGHT_BUTTON").Int()
 }
 
 // 
-func (self *Mouse) SetRIGHT_BUTTON(member float64) {
+func (self *Mouse) SetRIGHT_BUTTON(member int) {
     self.Set("RIGHT_BUTTON", member)
 }
 
 // 
-func (self *Mouse) GetBACK_BUTTON() float64{
-    return self.Get("BACK_BUTTON").Float()
+func (self *Mouse) GetBACK_BUTTON() int{
+    return self.Get("BACK_BUTTON").Int()
 }
 
 // 
-func (self *Mouse) SetBACK_BUTTON(member float64) {
+func (self *Mouse) SetBACK_BUTTON(member int) {
     self.Set("BACK_BUTTON", member)
 }
 
 // 
-func (self *Mouse) GetFORWARD_BUTTON() float64{
-    return self.Get("FORWARD_BUTTON").Float()
+func (self *Mouse) GetFORWARD_BUTTON() int{
+    return self.Get("FORWARD_BUTTON").Int()
 }
 
 // 
-func (self *Mouse) SetFORWARD_BUTTON(member float64) {
+func (self *Mouse) SetFORWARD_BUTTON(member int) {
     self.Set("FORWARD_BUTTON", member)
 }
 
 // 
-func (self *Mouse) GetWHEEL_UP() float64{
-    return self.Get("WHEEL_UP").Float()
+func (self *Mouse) GetWHEEL_UP() int{
+    return self.Get("WHEEL_UP").Int()
 }
 
 // 
-func (self *Mouse) SetWHEEL_UP(member float64) {
+func (self *Mouse) SetWHEEL_UP(member int) {
     self.Set("WHEEL_UP", member)
 }
 
 // 
-func (self *Mouse) GetWHEEL_DOWN() float64{
-    return self.Get("WHEEL_DOWN").Float()
+func (self *Mouse) GetWHEEL_DOWN() int{
+    return self.Get("WHEEL_DOWN").Int()
 }
 
 // 
-func (self *Mouse) SetWHEEL_DOWN(member float64) {
+func (self *Mouse) SetWHEEL_DOWN(member int) {
     self.Set("WHEEL_DOWN", member)
 }
 

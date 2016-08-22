@@ -37,42 +37,42 @@ func (self *RenderTexture) SetKey(member string) {
 }
 
 // Base Phaser object type.
-func (self *RenderTexture) GetType() float64{
-    return self.Get("type").Float()
+func (self *RenderTexture) GetType() int{
+    return self.Get("type").Int()
 }
 
 // Base Phaser object type.
-func (self *RenderTexture) SetType(member float64) {
+func (self *RenderTexture) SetType(member int) {
     self.Set("type", member)
 }
 
 // The with of the render texture
-func (self *RenderTexture) GetWidth() float64{
-    return self.Get("width").Float()
+func (self *RenderTexture) GetWidth() int{
+    return self.Get("width").Int()
 }
 
 // The with of the render texture
-func (self *RenderTexture) SetWidth(member float64) {
+func (self *RenderTexture) SetWidth(member int) {
     self.Set("width", member)
 }
 
 // The height of the render texture
-func (self *RenderTexture) GetHeight() float64{
-    return self.Get("height").Float()
+func (self *RenderTexture) GetHeight() int{
+    return self.Get("height").Int()
 }
 
 // The height of the render texture
-func (self *RenderTexture) SetHeight(member float64) {
+func (self *RenderTexture) SetHeight(member int) {
     self.Set("height", member)
 }
 
 // The Resolution of the texture.
-func (self *RenderTexture) GetResolution() float64{
-    return self.Get("resolution").Float()
+func (self *RenderTexture) GetResolution() int{
+    return self.Get("resolution").Int()
 }
 
 // The Resolution of the texture.
-func (self *RenderTexture) SetResolution(member float64) {
+func (self *RenderTexture) SetResolution(member int) {
     self.Set("resolution", member)
 }
 

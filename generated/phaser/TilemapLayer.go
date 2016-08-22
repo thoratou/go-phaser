@@ -30,12 +30,12 @@ func (self *TilemapLayer) SetMap(member *Tilemap) {
 }
 
 // The index of this layer within the Tilemap.
-func (self *TilemapLayer) GetIndex() float64{
-    return self.Get("index").Float()
+func (self *TilemapLayer) GetIndex() int{
+    return self.Get("index").Int()
 }
 
 // The index of this layer within the Tilemap.
-func (self *TilemapLayer) SetIndex(member float64) {
+func (self *TilemapLayer) SetIndex(member int) {
     self.Set("index", member)
 }
 
@@ -60,22 +60,22 @@ func (self *TilemapLayer) SetCanvas(member dom.HTMLCanvasElement) {
 }
 
 // The const type of this object.
-func (self *TilemapLayer) GetType() float64{
-    return self.Get("type").Float()
+func (self *TilemapLayer) GetType() int{
+    return self.Get("type").Int()
 }
 
 // The const type of this object.
-func (self *TilemapLayer) SetType(member float64) {
+func (self *TilemapLayer) SetType(member int) {
     self.Set("type", member)
 }
 
 // The const physics body type of this object.
-func (self *TilemapLayer) GetPhysicsType() float64{
-    return self.Get("physicsType").Float()
+func (self *TilemapLayer) GetPhysicsType() int{
+    return self.Get("physicsType").Int()
 }
 
 // The const physics body type of this object.
-func (self *TilemapLayer) SetPhysicsType(member float64) {
+func (self *TilemapLayer) SetPhysicsType(member int) {
     self.Set("physicsType", member)
 }
 
@@ -120,22 +120,22 @@ func (self *TilemapLayer) SetDebugSettings(member interface{}) {
 }
 
 // Speed at which this layer scrolls horizontally, relative to the camera (e.g. scrollFactorX of 0.5 scrolls half as quickly as the 'normal' camera-locked layers do).
-func (self *TilemapLayer) GetScrollFactorX() float64{
-    return self.Get("scrollFactorX").Float()
+func (self *TilemapLayer) GetScrollFactorX() int{
+    return self.Get("scrollFactorX").Int()
 }
 
 // Speed at which this layer scrolls horizontally, relative to the camera (e.g. scrollFactorX of 0.5 scrolls half as quickly as the 'normal' camera-locked layers do).
-func (self *TilemapLayer) SetScrollFactorX(member float64) {
+func (self *TilemapLayer) SetScrollFactorX(member int) {
     self.Set("scrollFactorX", member)
 }
 
 // Speed at which this layer scrolls vertically, relative to the camera (e.g. scrollFactorY of 0.5 scrolls half as quickly as the 'normal' camera-locked layers do)
-func (self *TilemapLayer) GetScrollFactorY() float64{
-    return self.Get("scrollFactorY").Float()
+func (self *TilemapLayer) GetScrollFactorY() int{
+    return self.Get("scrollFactorY").Int()
 }
 
 // Speed at which this layer scrolls vertically, relative to the camera (e.g. scrollFactorY of 0.5 scrolls half as quickly as the 'normal' camera-locked layers do)
-func (self *TilemapLayer) SetScrollFactorY(member float64) {
+func (self *TilemapLayer) SetScrollFactorY(member int) {
     self.Set("scrollFactorY", member)
 }
 
@@ -186,12 +186,12 @@ func (self *TilemapLayer) SetTexture(member *Texture) {
 }
 
 // The tint applied to the sprite. This is a hex value. A value of 0xFFFFFF will remove any tint effect.
-func (self *TilemapLayer) GetTint() float64{
-    return self.Get("tint").Float()
+func (self *TilemapLayer) GetTint() int{
+    return self.Get("tint").Int()
 }
 
 // The tint applied to the sprite. This is a hex value. A value of 0xFFFFFF will remove any tint effect.
-func (self *TilemapLayer) SetTint(member float64) {
+func (self *TilemapLayer) SetTint(member int) {
     self.Set("tint", member)
 }
 
@@ -208,14 +208,14 @@ func (self *TilemapLayer) SetTintedTexture(member *Canvas) {
 // The blend mode to be applied to the sprite. Set to PIXI.blendModes.NORMAL to remove any blend mode.
 // 
 // Warning: You cannot have a blend mode and a filter active on the same Sprite. Doing so will render the sprite invisible.
-func (self *TilemapLayer) GetBlendMode() float64{
-    return self.Get("blendMode").Float()
+func (self *TilemapLayer) GetBlendMode() int{
+    return self.Get("blendMode").Int()
 }
 
 // The blend mode to be applied to the sprite. Set to PIXI.blendModes.NORMAL to remove any blend mode.
 // 
 // Warning: You cannot have a blend mode and a filter active on the same Sprite. Doing so will render the sprite invisible.
-func (self *TilemapLayer) SetBlendMode(member float64) {
+func (self *TilemapLayer) SetBlendMode(member int) {
     self.Set("blendMode", member)
 }
 
@@ -230,22 +230,22 @@ func (self *TilemapLayer) SetShader(member *AbstractFilter) {
 }
 
 // The width of the sprite, setting this will actually modify the scale to achieve the value set
-func (self *TilemapLayer) GetWidth() float64{
-    return self.Get("width").Float()
+func (self *TilemapLayer) GetWidth() int{
+    return self.Get("width").Int()
 }
 
 // The width of the sprite, setting this will actually modify the scale to achieve the value set
-func (self *TilemapLayer) SetWidth(member float64) {
+func (self *TilemapLayer) SetWidth(member int) {
     self.Set("width", member)
 }
 
 // The height of the sprite, setting this will actually modify the scale to achieve the value set
-func (self *TilemapLayer) GetHeight() float64{
-    return self.Get("height").Float()
+func (self *TilemapLayer) GetHeight() int{
+    return self.Get("height").Int()
 }
 
 // The height of the sprite, setting this will actually modify the scale to achieve the value set
-func (self *TilemapLayer) SetHeight(member float64) {
+func (self *TilemapLayer) SetHeight(member int) {
     self.Set("height", member)
 }
 
@@ -335,15 +335,15 @@ func (self *TilemapLayer) SetComponents(member interface{}) {
 // No two objects in a Group can have the same z value.
 // This value is adjusted automatically whenever the Group hierarchy changes.
 // If you wish to re-order the layering of a Game Object then see methods like Group.moveUp or Group.bringToTop.
-func (self *TilemapLayer) GetZ() float64{
-    return self.Get("z").Float()
+func (self *TilemapLayer) GetZ() int{
+    return self.Get("z").Int()
 }
 
 // The z depth of this Game Object within its parent Group.
 // No two objects in a Group can have the same z value.
 // This value is adjusted automatically whenever the Group hierarchy changes.
 // If you wish to re-order the layering of a Game Object then see methods like Group.moveUp or Group.bringToTop.
-func (self *TilemapLayer) SetZ(member float64) {
+func (self *TilemapLayer) SetZ(member int) {
     self.Set("z", member)
 }
 
@@ -414,24 +414,24 @@ func (self *TilemapLayer) SetPreviousPosition(member *Point) {
 }
 
 // The rotation the Game Object was in set to in the previous frame. Value is in radians.
-func (self *TilemapLayer) GetPreviousRotation() float64{
-    return self.Get("previousRotation").Float()
+func (self *TilemapLayer) GetPreviousRotation() int{
+    return self.Get("previousRotation").Int()
 }
 
 // The rotation the Game Object was in set to in the previous frame. Value is in radians.
-func (self *TilemapLayer) SetPreviousRotation(member float64) {
+func (self *TilemapLayer) SetPreviousRotation(member int) {
     self.Set("previousRotation", member)
 }
 
 // The render order ID is used internally by the renderer and Input Manager and should not be modified.
 // This property is mostly used internally by the renderers, but is exposed for the use of plugins.
-func (self *TilemapLayer) GetRenderOrderID() float64{
-    return self.Get("renderOrderID").Float()
+func (self *TilemapLayer) GetRenderOrderID() int{
+    return self.Get("renderOrderID").Int()
 }
 
 // The render order ID is used internally by the renderer and Input Manager and should not be modified.
 // This property is mostly used internally by the renderers, but is exposed for the use of plugins.
-func (self *TilemapLayer) SetRenderOrderID(member float64) {
+func (self *TilemapLayer) SetRenderOrderID(member int) {
     self.Set("renderOrderID", member)
 }
 
@@ -474,8 +474,8 @@ func (self *TilemapLayer) SetPendingDestroy(member bool) {
 // 
 // If you wish to work in radians instead of degrees you can use the property `rotation` instead. 
 // Working in radians is slightly faster as it doesn't have to perform any calculations.
-func (self *TilemapLayer) GetAngle() float64{
-    return self.Get("angle").Float()
+func (self *TilemapLayer) GetAngle() int{
+    return self.Get("angle").Int()
 }
 
 // The angle property is the rotation of the Game Object in *degrees* from its original orientation.
@@ -487,7 +487,7 @@ func (self *TilemapLayer) GetAngle() float64{
 // 
 // If you wish to work in radians instead of degrees you can use the property `rotation` instead. 
 // Working in radians is slightly faster as it doesn't have to perform any calculations.
-func (self *TilemapLayer) SetAngle(member float64) {
+func (self *TilemapLayer) SetAngle(member int) {
     self.Set("angle", member)
 }
 
@@ -526,100 +526,100 @@ func (self *TilemapLayer) SetInCamera(member bool) {
 // The amount the Game Object is visually offset from its x coordinate.
 // This is the same as `width * anchor.x`.
 // It will only be > 0 if anchor.x is not equal to zero.
-func (self *TilemapLayer) GetOffsetX() float64{
-    return self.Get("offsetX").Float()
+func (self *TilemapLayer) GetOffsetX() int{
+    return self.Get("offsetX").Int()
 }
 
 // The amount the Game Object is visually offset from its x coordinate.
 // This is the same as `width * anchor.x`.
 // It will only be > 0 if anchor.x is not equal to zero.
-func (self *TilemapLayer) SetOffsetX(member float64) {
+func (self *TilemapLayer) SetOffsetX(member int) {
     self.Set("offsetX", member)
 }
 
 // The amount the Game Object is visually offset from its y coordinate.
 // This is the same as `height * anchor.y`.
 // It will only be > 0 if anchor.y is not equal to zero.
-func (self *TilemapLayer) GetOffsetY() float64{
-    return self.Get("offsetY").Float()
+func (self *TilemapLayer) GetOffsetY() int{
+    return self.Get("offsetY").Int()
 }
 
 // The amount the Game Object is visually offset from its y coordinate.
 // This is the same as `height * anchor.y`.
 // It will only be > 0 if anchor.y is not equal to zero.
-func (self *TilemapLayer) SetOffsetY(member float64) {
+func (self *TilemapLayer) SetOffsetY(member int) {
     self.Set("offsetY", member)
 }
 
 // The center x coordinate of the Game Object.
 // This is the same as `(x - offsetX) + (width / 2)`.
-func (self *TilemapLayer) GetCenterX() float64{
-    return self.Get("centerX").Float()
+func (self *TilemapLayer) GetCenterX() int{
+    return self.Get("centerX").Int()
 }
 
 // The center x coordinate of the Game Object.
 // This is the same as `(x - offsetX) + (width / 2)`.
-func (self *TilemapLayer) SetCenterX(member float64) {
+func (self *TilemapLayer) SetCenterX(member int) {
     self.Set("centerX", member)
 }
 
 // The center y coordinate of the Game Object.
 // This is the same as `(y - offsetY) + (height / 2)`.
-func (self *TilemapLayer) GetCenterY() float64{
-    return self.Get("centerY").Float()
+func (self *TilemapLayer) GetCenterY() int{
+    return self.Get("centerY").Int()
 }
 
 // The center y coordinate of the Game Object.
 // This is the same as `(y - offsetY) + (height / 2)`.
-func (self *TilemapLayer) SetCenterY(member float64) {
+func (self *TilemapLayer) SetCenterY(member int) {
     self.Set("centerY", member)
 }
 
 // The left coordinate of the Game Object.
 // This is the same as `x - offsetX`.
-func (self *TilemapLayer) GetLeft() float64{
-    return self.Get("left").Float()
+func (self *TilemapLayer) GetLeft() int{
+    return self.Get("left").Int()
 }
 
 // The left coordinate of the Game Object.
 // This is the same as `x - offsetX`.
-func (self *TilemapLayer) SetLeft(member float64) {
+func (self *TilemapLayer) SetLeft(member int) {
     self.Set("left", member)
 }
 
 // The right coordinate of the Game Object.
 // This is the same as `x + width - offsetX`.
-func (self *TilemapLayer) GetRight() float64{
-    return self.Get("right").Float()
+func (self *TilemapLayer) GetRight() int{
+    return self.Get("right").Int()
 }
 
 // The right coordinate of the Game Object.
 // This is the same as `x + width - offsetX`.
-func (self *TilemapLayer) SetRight(member float64) {
+func (self *TilemapLayer) SetRight(member int) {
     self.Set("right", member)
 }
 
 // The y coordinate of the Game Object.
 // This is the same as `y - offsetY`.
-func (self *TilemapLayer) GetTop() float64{
-    return self.Get("top").Float()
+func (self *TilemapLayer) GetTop() int{
+    return self.Get("top").Int()
 }
 
 // The y coordinate of the Game Object.
 // This is the same as `y - offsetY`.
-func (self *TilemapLayer) SetTop(member float64) {
+func (self *TilemapLayer) SetTop(member int) {
     self.Set("top", member)
 }
 
 // The sum of the y and height properties.
 // This is the same as `y + height - offsetY`.
-func (self *TilemapLayer) GetBottom() float64{
-    return self.Get("bottom").Float()
+func (self *TilemapLayer) GetBottom() int{
+    return self.Get("bottom").Int()
 }
 
 // The sum of the y and height properties.
 // This is the same as `y + height - offsetY`.
-func (self *TilemapLayer) SetBottom(member float64) {
+func (self *TilemapLayer) SetBottom(member int) {
     self.Set("bottom", member)
 }
 
@@ -640,38 +640,38 @@ func (self *TilemapLayer) SetCropRect(member *Rectangle) {
 // Returns the delta x value. The difference between world.x now and in the previous frame.
 // 
 // The value will be positive if the Game Object has moved to the right or negative if to the left.
-func (self *TilemapLayer) GetDeltaX() float64{
-    return self.Get("deltaX").Float()
+func (self *TilemapLayer) GetDeltaX() int{
+    return self.Get("deltaX").Int()
 }
 
 // Returns the delta x value. The difference between world.x now and in the previous frame.
 // 
 // The value will be positive if the Game Object has moved to the right or negative if to the left.
-func (self *TilemapLayer) SetDeltaX(member float64) {
+func (self *TilemapLayer) SetDeltaX(member int) {
     self.Set("deltaX", member)
 }
 
 // Returns the delta y value. The difference between world.y now and in the previous frame.
 // 
 // The value will be positive if the Game Object has moved down or negative if up.
-func (self *TilemapLayer) GetDeltaY() float64{
-    return self.Get("deltaY").Float()
+func (self *TilemapLayer) GetDeltaY() int{
+    return self.Get("deltaY").Int()
 }
 
 // Returns the delta y value. The difference between world.y now and in the previous frame.
 // 
 // The value will be positive if the Game Object has moved down or negative if up.
-func (self *TilemapLayer) SetDeltaY(member float64) {
+func (self *TilemapLayer) SetDeltaY(member int) {
     self.Set("deltaY", member)
 }
 
 // Returns the delta z value. The difference between rotation now and in the previous frame. The delta value.
-func (self *TilemapLayer) GetDeltaZ() float64{
-    return self.Get("deltaZ").Float()
+func (self *TilemapLayer) GetDeltaZ() int{
+    return self.Get("deltaZ").Int()
 }
 
 // Returns the delta z value. The difference between rotation now and in the previous frame. The delta value.
-func (self *TilemapLayer) SetDeltaZ(member float64) {
+func (self *TilemapLayer) SetDeltaZ(member int) {
     self.Set("deltaZ", member)
 }
 
@@ -738,26 +738,26 @@ func (self *TilemapLayer) SetCameraOffset(member *Point) {
 // The Game Objects health value. This is a handy property for setting and manipulating health on a Game Object.
 // 
 // It can be used in combination with the `damage` method or modified directly.
-func (self *TilemapLayer) GetHealth() float64{
-    return self.Get("health").Float()
+func (self *TilemapLayer) GetHealth() int{
+    return self.Get("health").Int()
 }
 
 // The Game Objects health value. This is a handy property for setting and manipulating health on a Game Object.
 // 
 // It can be used in combination with the `damage` method or modified directly.
-func (self *TilemapLayer) SetHealth(member float64) {
+func (self *TilemapLayer) SetHealth(member int) {
     self.Set("health", member)
 }
 
 // The Game Objects maximum health value. This works in combination with the `heal` method to ensure
 // the health value never exceeds the maximum.
-func (self *TilemapLayer) GetMaxHealth() float64{
-    return self.Get("maxHealth").Float()
+func (self *TilemapLayer) GetMaxHealth() int{
+    return self.Get("maxHealth").Int()
 }
 
 // The Game Objects maximum health value. This works in combination with the `heal` method to ensure
 // the health value never exceeds the maximum.
-func (self *TilemapLayer) SetMaxHealth(member float64) {
+func (self *TilemapLayer) SetMaxHealth(member int) {
     self.Set("maxHealth", member)
 }
 
@@ -941,8 +941,8 @@ func (self *TilemapLayer) SetAlive(member bool) {
 // When it reaches zero it will call the `kill` method.
 // 
 // Very handy for particles, bullets, collectibles, or any other short-lived entity.
-func (self *TilemapLayer) GetLifespan() float64{
-    return self.Get("lifespan").Float()
+func (self *TilemapLayer) GetLifespan() int{
+    return self.Get("lifespan").Int()
 }
 
 // The lifespan allows you to give a Game Object a lifespan in milliseconds.
@@ -953,7 +953,7 @@ func (self *TilemapLayer) GetLifespan() float64{
 // When it reaches zero it will call the `kill` method.
 // 
 // Very handy for particles, bullets, collectibles, or any other short-lived entity.
-func (self *TilemapLayer) SetLifespan(member float64) {
+func (self *TilemapLayer) SetLifespan(member int) {
     self.Set("lifespan", member)
 }
 
@@ -1050,22 +1050,22 @@ func (self *TilemapLayer) SetBody(member interface{}) {
 }
 
 // The position of the Game Object on the x axis relative to the local coordinates of the parent.
-func (self *TilemapLayer) GetX() float64{
-    return self.Get("x").Float()
+func (self *TilemapLayer) GetX() int{
+    return self.Get("x").Int()
 }
 
 // The position of the Game Object on the x axis relative to the local coordinates of the parent.
-func (self *TilemapLayer) SetX(member float64) {
+func (self *TilemapLayer) SetX(member int) {
     self.Set("x", member)
 }
 
 // The position of the Game Object on the y axis relative to the local coordinates of the parent.
-func (self *TilemapLayer) GetY() float64{
-    return self.Get("y").Float()
+func (self *TilemapLayer) GetY() int{
+    return self.Get("y").Int()
 }
 
 // The position of the Game Object on the y axis relative to the local coordinates of the parent.
-func (self *TilemapLayer) SetY(member float64) {
+func (self *TilemapLayer) SetY(member int) {
     self.Set("y", member)
 }
 
@@ -1191,23 +1191,23 @@ func (self *TilemapLayer) ResizeWorldI(args ...interface{}) {
 }
 
 // Take an x coordinate that doesn't account for scrollFactorX and 'fix' it into a scrolled local space.
-func (self *TilemapLayer) _fixXI(args ...interface{}) float64{
-    return self.Call("_fixX", args).Float()
+func (self *TilemapLayer) _fixXI(args ...interface{}) int{
+    return self.Call("_fixX", args).Int()
 }
 
 // Take an x coordinate that _does_ account for scrollFactorX and 'unfix' it back to camera space.
-func (self *TilemapLayer) _unfixXI(args ...interface{}) float64{
-    return self.Call("_unfixX", args).Float()
+func (self *TilemapLayer) _unfixXI(args ...interface{}) int{
+    return self.Call("_unfixX", args).Int()
 }
 
 // Take a y coordinate that doesn't account for scrollFactorY and 'fix' it into a scrolled local space.
-func (self *TilemapLayer) _fixYI(args ...interface{}) float64{
-    return self.Call("_fixY", args).Float()
+func (self *TilemapLayer) _fixYI(args ...interface{}) int{
+    return self.Call("_fixY", args).Int()
 }
 
 // Take a y coordinate that _does_ account for scrollFactorY and 'unfix' it back to camera space.
-func (self *TilemapLayer) _unfixYI(args ...interface{}) float64{
-    return self.Call("_unfixY", args).Float()
+func (self *TilemapLayer) _unfixYI(args ...interface{}) int{
+    return self.Call("_unfixY", args).Int()
 }
 
 // Convert a pixel value to a tile coordinate.
@@ -1342,8 +1342,8 @@ func (self *TilemapLayer) SwapChildrenI(args ...interface{}) {
 }
 
 // Returns the index position of a child DisplayObject instance
-func (self *TilemapLayer) GetChildIndexI(args ...interface{}) float64{
-    return self.Call("getChildIndex", args).Float()
+func (self *TilemapLayer) GetChildIndexI(args ...interface{}) int{
+    return self.Call("getChildIndex", args).Int()
 }
 
 // Changes the position of an existing child in the display object container

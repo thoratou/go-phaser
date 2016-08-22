@@ -43,8 +43,8 @@ func (self *ComponentLifeSpan) SetAlive(member bool) {
 // When it reaches zero it will call the `kill` method.
 // 
 // Very handy for particles, bullets, collectibles, or any other short-lived entity.
-func (self *ComponentLifeSpan) GetLifespan() float64{
-    return self.Get("lifespan").Float()
+func (self *ComponentLifeSpan) GetLifespan() int{
+    return self.Get("lifespan").Int()
 }
 
 // The lifespan allows you to give a Game Object a lifespan in milliseconds.
@@ -55,7 +55,7 @@ func (self *ComponentLifeSpan) GetLifespan() float64{
 // When it reaches zero it will call the `kill` method.
 // 
 // Very handy for particles, bullets, collectibles, or any other short-lived entity.
-func (self *ComponentLifeSpan) SetLifespan(member float64) {
+func (self *ComponentLifeSpan) SetLifespan(member int) {
     self.Set("lifespan", member)
 }
 

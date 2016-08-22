@@ -180,12 +180,12 @@ func (self *FlexLayer) SetType(member int) {
 }
 
 // The const physics body type of this object.
-func (self *FlexLayer) GetPhysicsType() float64{
-    return self.Get("physicsType").Float()
+func (self *FlexLayer) GetPhysicsType() int{
+    return self.Get("physicsType").Int()
 }
 
 // The const physics body type of this object.
-func (self *FlexLayer) SetPhysicsType(member float64) {
+func (self *FlexLayer) SetPhysicsType(member int) {
     self.Set("physicsType", member)
 }
 
@@ -545,8 +545,8 @@ func (self *FlexLayer) SetLength(member int) {
 // 
 // This has no impact on the rotation/angle properties of the children, but it will update their worldTransform
 // and on-screen orientation and position.
-func (self *FlexLayer) GetAngle() float64{
-    return self.Get("angle").Float()
+func (self *FlexLayer) GetAngle() int{
+    return self.Get("angle").Int()
 }
 
 // The angle of rotation of the group container, in degrees.
@@ -555,7 +555,7 @@ func (self *FlexLayer) GetAngle() float64{
 // 
 // This has no impact on the rotation/angle properties of the children, but it will update their worldTransform
 // and on-screen orientation and position.
-func (self *FlexLayer) SetAngle(member float64) {
+func (self *FlexLayer) SetAngle(member int) {
     self.Set("angle", member)
 }
 
@@ -568,8 +568,8 @@ func (self *FlexLayer) SetAngle(member float64) {
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *FlexLayer) GetCenterX() float64{
-    return self.Get("centerX").Float()
+func (self *FlexLayer) GetCenterX() int{
+    return self.Get("centerX").Int()
 }
 
 // The center x coordinate of this Group.
@@ -581,7 +581,7 @@ func (self *FlexLayer) GetCenterX() float64{
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *FlexLayer) SetCenterX(member float64) {
+func (self *FlexLayer) SetCenterX(member int) {
     self.Set("centerX", member)
 }
 
@@ -594,8 +594,8 @@ func (self *FlexLayer) SetCenterX(member float64) {
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *FlexLayer) GetCenterY() float64{
-    return self.Get("centerY").Float()
+func (self *FlexLayer) GetCenterY() int{
+    return self.Get("centerY").Int()
 }
 
 // The center y coordinate of this Group.
@@ -607,7 +607,7 @@ func (self *FlexLayer) GetCenterY() float64{
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *FlexLayer) SetCenterY(member float64) {
+func (self *FlexLayer) SetCenterY(member int) {
     self.Set("centerY", member)
 }
 
@@ -620,8 +620,8 @@ func (self *FlexLayer) SetCenterY(member float64) {
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *FlexLayer) GetLeft() float64{
-    return self.Get("left").Float()
+func (self *FlexLayer) GetLeft() int{
+    return self.Get("left").Int()
 }
 
 // The left coordinate of this Group.
@@ -633,7 +633,7 @@ func (self *FlexLayer) GetLeft() float64{
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *FlexLayer) SetLeft(member float64) {
+func (self *FlexLayer) SetLeft(member int) {
     self.Set("left", member)
 }
 
@@ -646,8 +646,8 @@ func (self *FlexLayer) SetLeft(member float64) {
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *FlexLayer) GetRight() float64{
-    return self.Get("right").Float()
+func (self *FlexLayer) GetRight() int{
+    return self.Get("right").Int()
 }
 
 // The right coordinate of this Group.
@@ -659,7 +659,7 @@ func (self *FlexLayer) GetRight() float64{
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *FlexLayer) SetRight(member float64) {
+func (self *FlexLayer) SetRight(member int) {
     self.Set("right", member)
 }
 
@@ -672,8 +672,8 @@ func (self *FlexLayer) SetRight(member float64) {
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *FlexLayer) GetTop() float64{
-    return self.Get("top").Float()
+func (self *FlexLayer) GetTop() int{
+    return self.Get("top").Int()
 }
 
 // The top coordinate of this Group.
@@ -685,7 +685,7 @@ func (self *FlexLayer) GetTop() float64{
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *FlexLayer) SetTop(member float64) {
+func (self *FlexLayer) SetTop(member int) {
     self.Set("top", member)
 }
 
@@ -698,8 +698,8 @@ func (self *FlexLayer) SetTop(member float64) {
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *FlexLayer) GetBottom() float64{
-    return self.Get("bottom").Float()
+func (self *FlexLayer) GetBottom() int{
+    return self.Get("bottom").Int()
 }
 
 // The bottom coordinate of this Group.
@@ -711,7 +711,7 @@ func (self *FlexLayer) GetBottom() float64{
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *FlexLayer) SetBottom(member float64) {
+func (self *FlexLayer) SetBottom(member int) {
     self.Set("bottom", member)
 }
 
@@ -719,15 +719,15 @@ func (self *FlexLayer) SetBottom(member float64) {
 // 
 // You can adjust the group container itself by modifying its coordinates.
 // This will have no impact on the x/y coordinates of its children, but it will update their worldTransform and on-screen position.
-func (self *FlexLayer) GetX() float64{
-    return self.Get("x").Float()
+func (self *FlexLayer) GetX() int{
+    return self.Get("x").Int()
 }
 
 // The x coordinate of the group container.
 // 
 // You can adjust the group container itself by modifying its coordinates.
 // This will have no impact on the x/y coordinates of its children, but it will update their worldTransform and on-screen position.
-func (self *FlexLayer) SetX(member float64) {
+func (self *FlexLayer) SetX(member int) {
     self.Set("x", member)
 }
 
@@ -735,15 +735,15 @@ func (self *FlexLayer) SetX(member float64) {
 // 
 // You can adjust the group container itself by modifying its coordinates.
 // This will have no impact on the x/y coordinates of its children, but it will update their worldTransform and on-screen position.
-func (self *FlexLayer) GetY() float64{
-    return self.Get("y").Float()
+func (self *FlexLayer) GetY() int{
+    return self.Get("y").Int()
 }
 
 // The y coordinate of the group container.
 // 
 // You can adjust the group container itself by modifying its coordinates.
 // This will have no impact on the x/y coordinates of its children, but it will update their worldTransform and on-screen position.
-func (self *FlexLayer) SetY(member float64) {
+func (self *FlexLayer) SetY(member int) {
     self.Set("y", member)
 }
 
@@ -751,15 +751,15 @@ func (self *FlexLayer) SetY(member float64) {
 // 
 // This will adjust the group container itself by modifying its rotation.
 // This will have no impact on the rotation value of its children, but it will update their worldTransform and on-screen position.
-func (self *FlexLayer) GetRotation() float64{
-    return self.Get("rotation").Float()
+func (self *FlexLayer) GetRotation() int{
+    return self.Get("rotation").Int()
 }
 
 // The angle of rotation of the group container, in radians.
 // 
 // This will adjust the group container itself by modifying its rotation.
 // This will have no impact on the rotation value of its children, but it will update their worldTransform and on-screen position.
-func (self *FlexLayer) SetRotation(member float64) {
+func (self *FlexLayer) SetRotation(member int) {
     self.Set("rotation", member)
 }
 
@@ -774,12 +774,12 @@ func (self *FlexLayer) SetVisible(member bool) {
 }
 
 // The alpha value of the group container.
-func (self *FlexLayer) GetAlpha() float64{
-    return self.Get("alpha").Float()
+func (self *FlexLayer) GetAlpha() int{
+    return self.Get("alpha").Int()
 }
 
 // The alpha value of the group container.
-func (self *FlexLayer) SetAlpha(member float64) {
+func (self *FlexLayer) SetAlpha(member int) {
     self.Set("alpha", member)
 }
 
@@ -818,22 +818,22 @@ func (self *FlexLayer) SetIgnoreChildInput(member bool) {
 }
 
 // The width of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *FlexLayer) GetWidth() float64{
-    return self.Get("width").Float()
+func (self *FlexLayer) GetWidth() int{
+    return self.Get("width").Int()
 }
 
 // The width of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *FlexLayer) SetWidth(member float64) {
+func (self *FlexLayer) SetWidth(member int) {
     self.Set("width", member)
 }
 
 // The height of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *FlexLayer) GetHeight() float64{
-    return self.Get("height").Float()
+func (self *FlexLayer) GetHeight() int{
+    return self.Get("height").Int()
 }
 
 // The height of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *FlexLayer) SetHeight(member float64) {
+func (self *FlexLayer) SetHeight(member int) {
     self.Set("height", member)
 }
 
@@ -1553,8 +1553,8 @@ func (self *FlexLayer) SwapChildrenI(args ...interface{}) {
 }
 
 // Returns the index position of a child DisplayObject instance
-func (self *FlexLayer) GetChildIndexI(args ...interface{}) float64{
-    return self.Call("getChildIndex", args).Float()
+func (self *FlexLayer) GetChildIndexI(args ...interface{}) int{
+    return self.Call("getChildIndex", args).Int()
 }
 
 // Changes the position of an existing child in the display object container

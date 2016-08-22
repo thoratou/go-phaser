@@ -20,12 +20,12 @@ type Game struct {
 
 
 // Phaser Game ID (for when Pixi supports multiple instances).
-func (self *Game) GetId() float64{
-    return self.Get("id").Float()
+func (self *Game) GetId() int{
+    return self.Get("id").Int()
 }
 
 // Phaser Game ID (for when Pixi supports multiple instances).
-func (self *Game) SetId(member float64) {
+func (self *Game) SetId(member int) {
     self.Set("id", member)
 }
 
@@ -150,12 +150,12 @@ func (self *Game) SetRenderer(member interface{}) {
 }
 
 // The Renderer this game will use. Either Phaser.AUTO, Phaser.CANVAS, Phaser.WEBGL, or Phaser.HEADLESS.
-func (self *Game) GetRenderType() float64{
-    return self.Get("renderType").Float()
+func (self *Game) GetRenderType() int{
+    return self.Get("renderType").Int()
 }
 
 // The Renderer this game will use. Either Phaser.AUTO, Phaser.CANVAS, Phaser.WEBGL, or Phaser.HEADLESS.
-func (self *Game) SetRenderType(member float64) {
+func (self *Game) SetRenderType(member int) {
     self.Set("renderType", member)
 }
 
@@ -464,12 +464,12 @@ func (self *Game) SetPendingStep(member bool) {
 }
 
 // When stepping is enabled this contains the current step cycle.
-func (self *Game) GetStepCount() float64{
-    return self.Get("stepCount").Float()
+func (self *Game) GetStepCount() int{
+    return self.Get("stepCount").Int()
 }
 
 // When stepping is enabled this contains the current step cycle.
-func (self *Game) SetStepCount(member float64) {
+func (self *Game) SetStepCount(member int) {
     self.Set("stepCount", member)
 }
 

@@ -27,12 +27,12 @@ type Creature struct {
 
 
 // The const type of this object.
-func (self *Creature) GetType() float64{
-    return self.Get("type").Float()
+func (self *Creature) GetType() int{
+    return self.Get("type").Int()
 }
 
 // The const type of this object.
-func (self *Creature) SetType(member float64) {
+func (self *Creature) SetType(member int) {
     self.Set("type", member)
 }
 
@@ -57,12 +57,12 @@ func (self *Creature) SetManager(member *CreatureManager) {
 }
 
 // How quickly the animation advances.
-func (self *Creature) GetTimeDelta() float64{
-    return self.Get("timeDelta").Float()
+func (self *Creature) GetTimeDelta() int{
+    return self.Get("timeDelta").Int()
 }
 
 // How quickly the animation advances.
-func (self *Creature) SetTimeDelta(member float64) {
+func (self *Creature) SetTimeDelta(member int) {
     self.Set("timeDelta", member)
 }
 
@@ -191,22 +191,22 @@ func (self *Creature) SetIgnoreChildInput(member bool) {
 }
 
 // The width of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *Creature) GetWidth() float64{
-    return self.Get("width").Float()
+func (self *Creature) GetWidth() int{
+    return self.Get("width").Int()
 }
 
 // The width of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *Creature) SetWidth(member float64) {
+func (self *Creature) SetWidth(member int) {
     self.Set("width", member)
 }
 
 // The height of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *Creature) GetHeight() float64{
-    return self.Get("height").Float()
+func (self *Creature) GetHeight() int{
+    return self.Get("height").Int()
 }
 
 // The height of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *Creature) SetHeight(member float64) {
+func (self *Creature) SetHeight(member int) {
     self.Set("height", member)
 }
 
@@ -262,15 +262,15 @@ func (self *Creature) SetComponents(member interface{}) {
 // No two objects in a Group can have the same z value.
 // This value is adjusted automatically whenever the Group hierarchy changes.
 // If you wish to re-order the layering of a Game Object then see methods like Group.moveUp or Group.bringToTop.
-func (self *Creature) GetZ() float64{
-    return self.Get("z").Float()
+func (self *Creature) GetZ() int{
+    return self.Get("z").Int()
 }
 
 // The z depth of this Game Object within its parent Group.
 // No two objects in a Group can have the same z value.
 // This value is adjusted automatically whenever the Group hierarchy changes.
 // If you wish to re-order the layering of a Game Object then see methods like Group.moveUp or Group.bringToTop.
-func (self *Creature) SetZ(member float64) {
+func (self *Creature) SetZ(member int) {
     self.Set("z", member)
 }
 
@@ -351,24 +351,24 @@ func (self *Creature) SetPreviousPosition(member *Point) {
 }
 
 // The rotation the Game Object was in set to in the previous frame. Value is in radians.
-func (self *Creature) GetPreviousRotation() float64{
-    return self.Get("previousRotation").Float()
+func (self *Creature) GetPreviousRotation() int{
+    return self.Get("previousRotation").Int()
 }
 
 // The rotation the Game Object was in set to in the previous frame. Value is in radians.
-func (self *Creature) SetPreviousRotation(member float64) {
+func (self *Creature) SetPreviousRotation(member int) {
     self.Set("previousRotation", member)
 }
 
 // The render order ID is used internally by the renderer and Input Manager and should not be modified.
 // This property is mostly used internally by the renderers, but is exposed for the use of plugins.
-func (self *Creature) GetRenderOrderID() float64{
-    return self.Get("renderOrderID").Float()
+func (self *Creature) GetRenderOrderID() int{
+    return self.Get("renderOrderID").Int()
 }
 
 // The render order ID is used internally by the renderer and Input Manager and should not be modified.
 // This property is mostly used internally by the renderers, but is exposed for the use of plugins.
-func (self *Creature) SetRenderOrderID(member float64) {
+func (self *Creature) SetRenderOrderID(member int) {
     self.Set("renderOrderID", member)
 }
 
@@ -433,8 +433,8 @@ func (self *Creature) SetExists(member bool) {
 // 
 // If you wish to work in radians instead of degrees you can use the property `rotation` instead. 
 // Working in radians is slightly faster as it doesn't have to perform any calculations.
-func (self *Creature) GetAngle() float64{
-    return self.Get("angle").Float()
+func (self *Creature) GetAngle() int{
+    return self.Get("angle").Int()
 }
 
 // The angle property is the rotation of the Game Object in *degrees* from its original orientation.
@@ -446,7 +446,7 @@ func (self *Creature) GetAngle() float64{
 // 
 // If you wish to work in radians instead of degrees you can use the property `rotation` instead. 
 // Working in radians is slightly faster as it doesn't have to perform any calculations.
-func (self *Creature) SetAngle(member float64) {
+func (self *Creature) SetAngle(member int) {
     self.Set("angle", member)
 }
 
@@ -572,8 +572,8 @@ func (self *Creature) SetAlive(member bool) {
 // When it reaches zero it will call the `kill` method.
 // 
 // Very handy for particles, bullets, collectibles, or any other short-lived entity.
-func (self *Creature) GetLifespan() float64{
-    return self.Get("lifespan").Float()
+func (self *Creature) GetLifespan() int{
+    return self.Get("lifespan").Int()
 }
 
 // The lifespan allows you to give a Game Object a lifespan in milliseconds.
@@ -584,7 +584,7 @@ func (self *Creature) GetLifespan() float64{
 // When it reaches zero it will call the `kill` method.
 // 
 // Very handy for particles, bullets, collectibles, or any other short-lived entity.
-func (self *Creature) SetLifespan(member float64) {
+func (self *Creature) SetLifespan(member int) {
     self.Set("lifespan", member)
 }
 
@@ -656,8 +656,8 @@ func (self *Creature) SwapChildrenI(args ...interface{}) {
 }
 
 // Returns the index position of a child DisplayObject instance
-func (self *Creature) GetChildIndexI(args ...interface{}) float64{
-    return self.Call("getChildIndex", args).Float()
+func (self *Creature) GetChildIndexI(args ...interface{}) int{
+    return self.Call("getChildIndex", args).Int()
 }
 
 // Changes the position of an existing child in the display object container

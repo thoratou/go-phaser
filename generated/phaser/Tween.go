@@ -79,23 +79,23 @@ func (self *Tween) SetReverse(member bool) {
 
 // The speed at which the tweens will run. A value of 1 means it will match the game frame rate. 0.5 will run at half the frame rate. 2 at double the frame rate, etc.
 // If a tweens duration is 1 second but timeScale is 0.5 then it will take 2 seconds to complete.
-func (self *Tween) GetTimeScale() float64{
-    return self.Get("timeScale").Float()
+func (self *Tween) GetTimeScale() int{
+    return self.Get("timeScale").Int()
 }
 
 // The speed at which the tweens will run. A value of 1 means it will match the game frame rate. 0.5 will run at half the frame rate. 2 at double the frame rate, etc.
 // If a tweens duration is 1 second but timeScale is 0.5 then it will take 2 seconds to complete.
-func (self *Tween) SetTimeScale(member float64) {
+func (self *Tween) SetTimeScale(member int) {
     self.Set("timeScale", member)
 }
 
 // If the Tween and any child tweens are set to repeat this contains the current repeat count.
-func (self *Tween) GetRepeatCounter() float64{
-    return self.Get("repeatCounter").Float()
+func (self *Tween) GetRepeatCounter() int{
+    return self.Get("repeatCounter").Int()
 }
 
 // If the Tween and any child tweens are set to repeat this contains the current repeat count.
-func (self *Tween) SetRepeatCounter(member float64) {
+func (self *Tween) SetRepeatCounter(member int) {
     self.Set("repeatCounter", member)
 }
 
@@ -182,12 +182,12 @@ func (self *Tween) SetIsRunning(member bool) {
 }
 
 // The current Tween child being run.
-func (self *Tween) GetCurrent() float64{
-    return self.Get("current").Float()
+func (self *Tween) GetCurrent() int{
+    return self.Get("current").Int()
 }
 
 // The current Tween child being run.
-func (self *Tween) SetCurrent(member float64) {
+func (self *Tween) SetCurrent(member int) {
     self.Set("current", member)
 }
 

@@ -56,14 +56,14 @@ func (self *InputHandler) SetChecked(member bool) {
 // The priorityID is used to determine which game objects should get priority when input events occur. For example if you have
 // several Sprites that overlap, by default the one at the top of the display list is given priority for input events. You can
 // stop this from happening by controlling the priorityID value. The higher the value, the more important they are considered to the Input events.
-func (self *InputHandler) GetPriorityID() float64{
-    return self.Get("priorityID").Float()
+func (self *InputHandler) GetPriorityID() int{
+    return self.Get("priorityID").Int()
 }
 
 // The priorityID is used to determine which game objects should get priority when input events occur. For example if you have
 // several Sprites that overlap, by default the one at the top of the display list is given priority for input events. You can
 // stop this from happening by controlling the priorityID value. The higher the value, the more important they are considered to the Input events.
-func (self *InputHandler) SetPriorityID(member float64) {
+func (self *InputHandler) SetPriorityID(member int) {
     self.Set("priorityID", member)
 }
 
@@ -148,42 +148,42 @@ func (self *InputHandler) SetSnapOnRelease(member bool) {
 }
 
 // When a Sprite has snapping enabled this holds the width of the snap grid.
-func (self *InputHandler) GetSnapX() float64{
-    return self.Get("snapX").Float()
+func (self *InputHandler) GetSnapX() int{
+    return self.Get("snapX").Int()
 }
 
 // When a Sprite has snapping enabled this holds the width of the snap grid.
-func (self *InputHandler) SetSnapX(member float64) {
+func (self *InputHandler) SetSnapX(member int) {
     self.Set("snapX", member)
 }
 
 // When a Sprite has snapping enabled this holds the height of the snap grid.
-func (self *InputHandler) GetSnapY() float64{
-    return self.Get("snapY").Float()
+func (self *InputHandler) GetSnapY() int{
+    return self.Get("snapY").Int()
 }
 
 // When a Sprite has snapping enabled this holds the height of the snap grid.
-func (self *InputHandler) SetSnapY(member float64) {
+func (self *InputHandler) SetSnapY(member int) {
     self.Set("snapY", member)
 }
 
 // This defines the top-left X coordinate of the snap grid.
-func (self *InputHandler) GetSnapOffsetX() float64{
-    return self.Get("snapOffsetX").Float()
+func (self *InputHandler) GetSnapOffsetX() int{
+    return self.Get("snapOffsetX").Int()
 }
 
 // This defines the top-left X coordinate of the snap grid.
-func (self *InputHandler) SetSnapOffsetX(member float64) {
+func (self *InputHandler) SetSnapOffsetX(member int) {
     self.Set("snapOffsetX", member)
 }
 
 // This defines the top-left Y coordinate of the snap grid..
-func (self *InputHandler) GetSnapOffsetY() float64{
-    return self.Get("snapOffsetY").Float()
+func (self *InputHandler) GetSnapOffsetY() int{
+    return self.Get("snapOffsetY").Int()
 }
 
 // This defines the top-left Y coordinate of the snap grid..
-func (self *InputHandler) SetSnapOffsetY(member float64) {
+func (self *InputHandler) SetSnapOffsetY(member int) {
     self.Set("snapOffsetY", member)
 }
 
@@ -220,12 +220,12 @@ func (self *InputHandler) SetPixelPerfectClick(member bool) {
 }
 
 // The alpha tolerance threshold. If the alpha value of the pixel matches or is above this value, it's considered a hit.
-func (self *InputHandler) GetPixelPerfectAlpha() float64{
-    return self.Get("pixelPerfectAlpha").Float()
+func (self *InputHandler) GetPixelPerfectAlpha() int{
+    return self.Get("pixelPerfectAlpha").Int()
 }
 
 // The alpha tolerance threshold. If the alpha value of the pixel matches or is above this value, it's considered a hit.
-func (self *InputHandler) SetPixelPerfectAlpha(member float64) {
+func (self *InputHandler) SetPixelPerfectAlpha(member int) {
     self.Set("pixelPerfectAlpha", member)
 }
 
@@ -394,14 +394,14 @@ func (self *InputHandler) IsPixelPerfectI(args ...interface{}) bool{
 
 // The x coordinate of the Input pointer, relative to the top-left of the parent Sprite.
 // This value is only set when the pointer is over this Sprite.
-func (self *InputHandler) PointerXI(args ...interface{}) float64{
-    return self.Call("pointerX", args).Float()
+func (self *InputHandler) PointerXI(args ...interface{}) int{
+    return self.Call("pointerX", args).Int()
 }
 
 // The y coordinate of the Input pointer, relative to the top-left of the parent Sprite
 // This value is only set when the pointer is over this Sprite.
-func (self *InputHandler) PointerYI(args ...interface{}) float64{
-    return self.Call("pointerY", args).Float()
+func (self *InputHandler) PointerYI(args ...interface{}) int{
+    return self.Call("pointerY", args).Int()
 }
 
 // If the Pointer is down this returns true.
@@ -417,13 +417,13 @@ func (self *InputHandler) PointerUpI(args ...interface{}) bool{
 }
 
 // A timestamp representing when the Pointer first touched the touchscreen.
-func (self *InputHandler) PointerTimeDownI(args ...interface{}) float64{
-    return self.Call("pointerTimeDown", args).Float()
+func (self *InputHandler) PointerTimeDownI(args ...interface{}) int{
+    return self.Call("pointerTimeDown", args).Int()
 }
 
 // A timestamp representing when the Pointer left the touchscreen.
-func (self *InputHandler) PointerTimeUpI(args ...interface{}) float64{
-    return self.Call("pointerTimeUp", args).Float()
+func (self *InputHandler) PointerTimeUpI(args ...interface{}) int{
+    return self.Call("pointerTimeUp", args).Int()
 }
 
 // Is the Pointer over this Sprite?
@@ -437,13 +437,13 @@ func (self *InputHandler) PointerOutI(args ...interface{}) bool{
 }
 
 // A timestamp representing when the Pointer first touched the touchscreen.
-func (self *InputHandler) PointerTimeOverI(args ...interface{}) float64{
-    return self.Call("pointerTimeOver", args).Float()
+func (self *InputHandler) PointerTimeOverI(args ...interface{}) int{
+    return self.Call("pointerTimeOver", args).Int()
 }
 
 // A timestamp representing when the Pointer left the touchscreen.
-func (self *InputHandler) PointerTimeOutI(args ...interface{}) float64{
-    return self.Call("pointerTimeOut", args).Float()
+func (self *InputHandler) PointerTimeOutI(args ...interface{}) int{
+    return self.Call("pointerTimeOut", args).Int()
 }
 
 // Is this sprite being dragged by the mouse or not?
@@ -526,13 +526,13 @@ func (self *InputHandler) JustReleasedI(args ...interface{}) bool{
 }
 
 // If the pointer is currently over this Sprite this returns how long it has been there for in milliseconds.
-func (self *InputHandler) OverDurationI(args ...interface{}) float64{
-    return self.Call("overDuration", args).Float()
+func (self *InputHandler) OverDurationI(args ...interface{}) int{
+    return self.Call("overDuration", args).Int()
 }
 
 // If the pointer is currently over this Sprite this returns how long it has been there for in milliseconds.
-func (self *InputHandler) DownDurationI(args ...interface{}) float64{
-    return self.Call("downDuration", args).Float()
+func (self *InputHandler) DownDurationI(args ...interface{}) int{
+    return self.Call("downDuration", args).Int()
 }
 
 // Allow this Sprite to be dragged by any valid pointer.

@@ -84,72 +84,72 @@ func (self *Sound) SetAutoplay(member bool) {
 }
 
 // The total duration of the sound in seconds.
-func (self *Sound) GetTotalDuration() float64{
-    return self.Get("totalDuration").Float()
+func (self *Sound) GetTotalDuration() int{
+    return self.Get("totalDuration").Int()
 }
 
 // The total duration of the sound in seconds.
-func (self *Sound) SetTotalDuration(member float64) {
+func (self *Sound) SetTotalDuration(member int) {
     self.Set("totalDuration", member)
 }
 
 // The time the Sound starts at (typically 0 unless starting from a marker)
-func (self *Sound) GetStartTime() float64{
-    return self.Get("startTime").Float()
+func (self *Sound) GetStartTime() int{
+    return self.Get("startTime").Int()
 }
 
 // The time the Sound starts at (typically 0 unless starting from a marker)
-func (self *Sound) SetStartTime(member float64) {
+func (self *Sound) SetStartTime(member int) {
     self.Set("startTime", member)
 }
 
 // The current time the sound is at.
-func (self *Sound) GetCurrentTime() float64{
-    return self.Get("currentTime").Float()
+func (self *Sound) GetCurrentTime() int{
+    return self.Get("currentTime").Int()
 }
 
 // The current time the sound is at.
-func (self *Sound) SetCurrentTime(member float64) {
+func (self *Sound) SetCurrentTime(member int) {
     self.Set("currentTime", member)
 }
 
 // The duration of the current sound marker in seconds.
-func (self *Sound) GetDuration() float64{
-    return self.Get("duration").Float()
+func (self *Sound) GetDuration() int{
+    return self.Get("duration").Int()
 }
 
 // The duration of the current sound marker in seconds.
-func (self *Sound) SetDuration(member float64) {
+func (self *Sound) SetDuration(member int) {
     self.Set("duration", member)
 }
 
 // The duration of the current sound marker in ms.
-func (self *Sound) GetDurationMS() float64{
-    return self.Get("durationMS").Float()
+func (self *Sound) GetDurationMS() int{
+    return self.Get("durationMS").Int()
 }
 
 // The duration of the current sound marker in ms.
-func (self *Sound) SetDurationMS(member float64) {
+func (self *Sound) SetDurationMS(member int) {
     self.Set("durationMS", member)
 }
 
 // The position of the current sound marker.
-func (self *Sound) GetPosition() float64{
-    return self.Get("position").Float()
+func (self *Sound) GetPosition() int{
+    return self.Get("position").Int()
 }
 
 // The position of the current sound marker.
-func (self *Sound) SetPosition(member float64) {
+func (self *Sound) SetPosition(member int) {
     self.Set("position", member)
 }
 
 // The time the sound stopped.
-func (self *Sound) GetStopTime() float64{
-    return self.Get("stopTime").Float()
+func (self *Sound) GetStopTime() int{
+    return self.Get("stopTime").Int()
 }
 
 // The time the sound stopped.
-func (self *Sound) SetStopTime(member float64) {
+func (self *Sound) SetStopTime(member int) {
     self.Set("stopTime", member)
 }
 
@@ -164,22 +164,22 @@ func (self *Sound) SetPaused(member bool) {
 }
 
 // The position the sound had reached when it was paused.
-func (self *Sound) GetPausedPosition() float64{
-    return self.Get("pausedPosition").Float()
+func (self *Sound) GetPausedPosition() int{
+    return self.Get("pausedPosition").Int()
 }
 
 // The position the sound had reached when it was paused.
-func (self *Sound) SetPausedPosition(member float64) {
+func (self *Sound) SetPausedPosition(member int) {
     self.Set("pausedPosition", member)
 }
 
 // The game time at which the sound was paused.
-func (self *Sound) GetPausedTime() float64{
-    return self.Get("pausedTime").Float()
+func (self *Sound) GetPausedTime() int{
+    return self.Get("pausedTime").Int()
 }
 
 // The game time at which the sound was paused.
-func (self *Sound) SetPausedTime(member float64) {
+func (self *Sound) SetPausedTime(member int) {
     self.Set("pausedTime", member)
 }
 
@@ -414,12 +414,12 @@ func (self *Sound) SetMute(member bool) {
 }
 
 // Gets or sets the volume of this sound, a value between 0 and 1.
-func (self *Sound) GetVolume() float64{
-    return self.Get("volume").Float()
+func (self *Sound) GetVolume() int{
+    return self.Get("volume").Int()
 }
 
 // Gets or sets the volume of this sound, a value between 0 and 1.
-func (self *Sound) SetVolume(member float64) {
+func (self *Sound) SetVolume(member int) {
     self.Set("volume", member)
 }
 

@@ -36,12 +36,12 @@ func (self *Animation) SetName(member string) {
 }
 
 // The delay in ms between each frame of the Animation, based on the given frameRate.
-func (self *Animation) GetDelay() float64{
-    return self.Get("delay").Float()
+func (self *Animation) GetDelay() int{
+    return self.Get("delay").Int()
 }
 
 // The delay in ms between each frame of the Animation, based on the given frameRate.
-func (self *Animation) SetDelay(member float64) {
+func (self *Animation) SetDelay(member int) {
     self.Set("delay", member)
 }
 
@@ -56,12 +56,12 @@ func (self *Animation) SetLoop(member bool) {
 }
 
 // The number of times the animation has looped since it was last started.
-func (self *Animation) GetLoopCount() float64{
-    return self.Get("loopCount").Float()
+func (self *Animation) GetLoopCount() int{
+    return self.Get("loopCount").Int()
 }
 
 // The number of times the animation has looped since it was last started.
-func (self *Animation) SetLoopCount(member float64) {
+func (self *Animation) SetLoopCount(member int) {
     self.Set("loopCount", member)
 }
 
@@ -194,32 +194,32 @@ func (self *Animation) SetReversed(member bool) {
 }
 
 // The total number of frames in the currently loaded FrameData, or -1 if no FrameData is loaded.
-func (self *Animation) GetFrameTotal() float64{
-    return self.Get("frameTotal").Float()
+func (self *Animation) GetFrameTotal() int{
+    return self.Get("frameTotal").Int()
 }
 
 // The total number of frames in the currently loaded FrameData, or -1 if no FrameData is loaded.
-func (self *Animation) SetFrameTotal(member float64) {
+func (self *Animation) SetFrameTotal(member int) {
     self.Set("frameTotal", member)
 }
 
 // Gets or sets the current frame index and updates the Texture Cache for display.
-func (self *Animation) GetFrame() float64{
-    return self.Get("frame").Float()
+func (self *Animation) GetFrame() int{
+    return self.Get("frame").Int()
 }
 
 // Gets or sets the current frame index and updates the Texture Cache for display.
-func (self *Animation) SetFrame(member float64) {
+func (self *Animation) SetFrame(member int) {
     self.Set("frame", member)
 }
 
 // Gets or sets the current speed of the animation in frames per second. Changing this in a playing animation will take effect from the next frame. Minimum value is 1.
-func (self *Animation) GetSpeed() float64{
-    return self.Get("speed").Float()
+func (self *Animation) GetSpeed() int{
+    return self.Get("speed").Int()
 }
 
 // Gets or sets the current speed of the animation in frames per second. Changing this in a playing animation will take effect from the next frame. Minimum value is 1.
-func (self *Animation) SetSpeed(member float64) {
+func (self *Animation) SetSpeed(member int) {
     self.Set("speed", member)
 }
 

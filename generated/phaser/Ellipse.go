@@ -14,52 +14,52 @@ type Ellipse struct {
 
 
 // The X coordinate of the upper-left corner of the framing rectangle of this ellipse.
-func (self *Ellipse) GetX() float64{
-    return self.Get("x").Float()
+func (self *Ellipse) GetX() int{
+    return self.Get("x").Int()
 }
 
 // The X coordinate of the upper-left corner of the framing rectangle of this ellipse.
-func (self *Ellipse) SetX(member float64) {
+func (self *Ellipse) SetX(member int) {
     self.Set("x", member)
 }
 
 // The Y coordinate of the upper-left corner of the framing rectangle of this ellipse.
-func (self *Ellipse) GetY() float64{
-    return self.Get("y").Float()
+func (self *Ellipse) GetY() int{
+    return self.Get("y").Int()
 }
 
 // The Y coordinate of the upper-left corner of the framing rectangle of this ellipse.
-func (self *Ellipse) SetY(member float64) {
+func (self *Ellipse) SetY(member int) {
     self.Set("y", member)
 }
 
 // The overall width of this ellipse.
-func (self *Ellipse) GetWidth() float64{
-    return self.Get("width").Float()
+func (self *Ellipse) GetWidth() int{
+    return self.Get("width").Int()
 }
 
 // The overall width of this ellipse.
-func (self *Ellipse) SetWidth(member float64) {
+func (self *Ellipse) SetWidth(member int) {
     self.Set("width", member)
 }
 
 // The overall height of this ellipse.
-func (self *Ellipse) GetHeight() float64{
-    return self.Get("height").Float()
+func (self *Ellipse) GetHeight() int{
+    return self.Get("height").Int()
 }
 
 // The overall height of this ellipse.
-func (self *Ellipse) SetHeight(member float64) {
+func (self *Ellipse) SetHeight(member int) {
     self.Set("height", member)
 }
 
 // The const type of this object.
-func (self *Ellipse) GetType() float64{
-    return self.Get("type").Float()
+func (self *Ellipse) GetType() int{
+    return self.Get("type").Int()
 }
 
 // The const type of this object.
-func (self *Ellipse) SetType(member float64) {
+func (self *Ellipse) SetType(member int) {
     self.Set("type", member)
 }
 
@@ -74,32 +74,32 @@ func (self *Ellipse) SetLeft(member interface{}) {
 }
 
 // The x coordinate of the rightmost point of the Ellipse. Changing the right property of an Ellipse object has no effect on the x property, but does adjust the width. Gets or sets the value of the rightmost point of the ellipse.
-func (self *Ellipse) GetRight() float64{
-    return self.Get("right").Float()
+func (self *Ellipse) GetRight() int{
+    return self.Get("right").Int()
 }
 
 // The x coordinate of the rightmost point of the Ellipse. Changing the right property of an Ellipse object has no effect on the x property, but does adjust the width. Gets or sets the value of the rightmost point of the ellipse.
-func (self *Ellipse) SetRight(member float64) {
+func (self *Ellipse) SetRight(member int) {
     self.Set("right", member)
 }
 
 // The top of the Ellipse. The same as its y property. Gets or sets the top of the ellipse.
-func (self *Ellipse) GetTop() float64{
-    return self.Get("top").Float()
+func (self *Ellipse) GetTop() int{
+    return self.Get("top").Int()
 }
 
 // The top of the Ellipse. The same as its y property. Gets or sets the top of the ellipse.
-func (self *Ellipse) SetTop(member float64) {
+func (self *Ellipse) SetTop(member int) {
     self.Set("top", member)
 }
 
 // The sum of the y and height properties. Changing the bottom property of an Ellipse doesn't adjust the y property, but does change the height. Gets or sets the bottom of the ellipse.
-func (self *Ellipse) GetBottom() float64{
-    return self.Get("bottom").Float()
+func (self *Ellipse) GetBottom() int{
+    return self.Get("bottom").Int()
 }
 
 // The sum of the y and height properties. Changing the bottom property of an Ellipse doesn't adjust the y property, but does change the height. Gets or sets the bottom of the ellipse.
-func (self *Ellipse) SetBottom(member float64) {
+func (self *Ellipse) SetBottom(member int) {
     self.Set("bottom", member)
 }
 

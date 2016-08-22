@@ -66,12 +66,12 @@ func (self *PixiFastShader) SetVertexSrc(member []interface{}) {
 }
 
 // A local texture counter for multi-texture shaders.
-func (self *PixiFastShader) GetTextureCount() float64{
-    return self.Get("textureCount").Float()
+func (self *PixiFastShader) GetTextureCount() int{
+    return self.Get("textureCount").Int()
 }
 
 // A local texture counter for multi-texture shaders.
-func (self *PixiFastShader) SetTextureCount(member float64) {
+func (self *PixiFastShader) SetTextureCount(member int) {
     self.Set("textureCount", member)
 }
 

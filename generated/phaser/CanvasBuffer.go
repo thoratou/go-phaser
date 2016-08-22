@@ -16,22 +16,22 @@ type CanvasBuffer struct {
 
 
 // The width of the Canvas in pixels.
-func (self *CanvasBuffer) GetWidth() float64{
-    return self.Get("width").Float()
+func (self *CanvasBuffer) GetWidth() int{
+    return self.Get("width").Int()
 }
 
 // The width of the Canvas in pixels.
-func (self *CanvasBuffer) SetWidth(member float64) {
+func (self *CanvasBuffer) SetWidth(member int) {
     self.Set("width", member)
 }
 
 // The height of the Canvas in pixels.
-func (self *CanvasBuffer) GetHeight() float64{
-    return self.Get("height").Float()
+func (self *CanvasBuffer) GetHeight() int{
+    return self.Get("height").Int()
 }
 
 // The height of the Canvas in pixels.
-func (self *CanvasBuffer) SetHeight(member float64) {
+func (self *CanvasBuffer) SetHeight(member int) {
     self.Set("height", member)
 }
 

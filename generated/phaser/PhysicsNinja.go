@@ -49,12 +49,12 @@ func (self *PhysicsNinja) SetTime(member *Time) {
 }
 
 // The World gravity setting.
-func (self *PhysicsNinja) GetGravity() float64{
-    return self.Get("gravity").Float()
+func (self *PhysicsNinja) GetGravity() int{
+    return self.Get("gravity").Int()
 }
 
 // The World gravity setting.
-func (self *PhysicsNinja) SetGravity(member float64) {
+func (self *PhysicsNinja) SetGravity(member int) {
     self.Set("gravity", member)
 }
 
@@ -69,22 +69,22 @@ func (self *PhysicsNinja) SetBounds(member *Rectangle) {
 }
 
 // Used by the QuadTree to set the maximum number of objects per quad.
-func (self *PhysicsNinja) GetMaxObjects() float64{
-    return self.Get("maxObjects").Float()
+func (self *PhysicsNinja) GetMaxObjects() int{
+    return self.Get("maxObjects").Int()
 }
 
 // Used by the QuadTree to set the maximum number of objects per quad.
-func (self *PhysicsNinja) SetMaxObjects(member float64) {
+func (self *PhysicsNinja) SetMaxObjects(member int) {
     self.Set("maxObjects", member)
 }
 
 // Used by the QuadTree to set the maximum number of iteration levels.
-func (self *PhysicsNinja) GetMaxLevels() float64{
-    return self.Get("maxLevels").Float()
+func (self *PhysicsNinja) GetMaxLevels() int{
+    return self.Get("maxLevels").Int()
 }
 
 // Used by the QuadTree to set the maximum number of iteration levels.
-func (self *PhysicsNinja) SetMaxLevels(member float64) {
+func (self *PhysicsNinja) SetMaxLevels(member int) {
     self.Set("maxLevels", member)
 }
 

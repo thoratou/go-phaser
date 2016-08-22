@@ -39,22 +39,22 @@ func (self *PhysicsNinjaTile) SetSystem(member *PhysicsNinja) {
 }
 
 // The ID of this Tile.
-func (self *PhysicsNinjaTile) GetId() float64{
-    return self.Get("id").Float()
+func (self *PhysicsNinjaTile) GetId() int{
+    return self.Get("id").Int()
 }
 
 // The ID of this Tile.
-func (self *PhysicsNinjaTile) SetId(member float64) {
+func (self *PhysicsNinjaTile) SetId(member int) {
     self.Set("id", member)
 }
 
 // The type of this Tile.
-func (self *PhysicsNinjaTile) GetType() float64{
-    return self.Get("type").Float()
+func (self *PhysicsNinjaTile) GetType() int{
+    return self.Get("type").Int()
 }
 
 // The type of this Tile.
-func (self *PhysicsNinjaTile) SetType(member float64) {
+func (self *PhysicsNinjaTile) SetType(member int) {
     self.Set("type", member)
 }
 
@@ -79,12 +79,12 @@ func (self *PhysicsNinjaTile) SetOldpos(member *Point) {
 }
 
 // Half the width.
-func (self *PhysicsNinjaTile) GetXw() float64{
-    return self.Get("xw").Float()
+func (self *PhysicsNinjaTile) GetXw() int{
+    return self.Get("xw").Int()
 }
 
 // Half the width.
-func (self *PhysicsNinjaTile) SetXw(member float64) {
+func (self *PhysicsNinjaTile) SetXw(member int) {
     self.Set("xw", member)
 }
 
@@ -99,22 +99,22 @@ func (self *PhysicsNinjaTile) SetYw(member interface{}) {
 }
 
 // The width.
-func (self *PhysicsNinjaTile) GetWidth() float64{
-    return self.Get("width").Float()
+func (self *PhysicsNinjaTile) GetWidth() int{
+    return self.Get("width").Int()
 }
 
 // The width.
-func (self *PhysicsNinjaTile) SetWidth(member float64) {
+func (self *PhysicsNinjaTile) SetWidth(member int) {
     self.Set("width", member)
 }
 
 // The height.
-func (self *PhysicsNinjaTile) GetHeight() float64{
-    return self.Get("height").Float()
+func (self *PhysicsNinjaTile) GetHeight() int{
+    return self.Get("height").Int()
 }
 
 // The height.
-func (self *PhysicsNinjaTile) SetHeight(member float64) {
+func (self *PhysicsNinjaTile) SetHeight(member int) {
     self.Set("height", member)
 }
 
@@ -129,42 +129,42 @@ func (self *PhysicsNinjaTile) SetVelocity(member *Point) {
 }
 
 // The x position.
-func (self *PhysicsNinjaTile) GetX() float64{
-    return self.Get("x").Float()
+func (self *PhysicsNinjaTile) GetX() int{
+    return self.Get("x").Int()
 }
 
 // The x position.
-func (self *PhysicsNinjaTile) SetX(member float64) {
+func (self *PhysicsNinjaTile) SetX(member int) {
     self.Set("x", member)
 }
 
 // The y position.
-func (self *PhysicsNinjaTile) GetY() float64{
-    return self.Get("y").Float()
+func (self *PhysicsNinjaTile) GetY() int{
+    return self.Get("y").Int()
 }
 
 // The y position.
-func (self *PhysicsNinjaTile) SetY(member float64) {
+func (self *PhysicsNinjaTile) SetY(member int) {
     self.Set("y", member)
 }
 
 // The bottom value of this Body (same as Body.y + Body.height)
-func (self *PhysicsNinjaTile) GetBottom() float64{
-    return self.Get("bottom").Float()
+func (self *PhysicsNinjaTile) GetBottom() int{
+    return self.Get("bottom").Int()
 }
 
 // The bottom value of this Body (same as Body.y + Body.height)
-func (self *PhysicsNinjaTile) SetBottom(member float64) {
+func (self *PhysicsNinjaTile) SetBottom(member int) {
     self.Set("bottom", member)
 }
 
 // The right value of this Body (same as Body.x + Body.width)
-func (self *PhysicsNinjaTile) GetRight() float64{
-    return self.Get("right").Float()
+func (self *PhysicsNinjaTile) GetRight() int{
+    return self.Get("right").Int()
 }
 
 // The right value of this Body (same as Body.x + Body.width)
-func (self *PhysicsNinjaTile) SetRight(member float64) {
+func (self *PhysicsNinjaTile) SetRight(member int) {
     self.Set("right", member)
 }
 

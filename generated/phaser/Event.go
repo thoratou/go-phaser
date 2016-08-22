@@ -44,12 +44,12 @@ func (self *Event) SetData(member interface{}) {
 }
 
 // The timestamp when the event occurred.
-func (self *Event) GetTimeStamp() float64{
-    return self.Get("timeStamp").Float()
+func (self *Event) GetTimeStamp() int{
+    return self.Get("timeStamp").Int()
 }
 
 // The timestamp when the event occurred.
-func (self *Event) SetTimeStamp(member float64) {
+func (self *Event) SetTimeStamp(member int) {
     self.Set("timeStamp", member)
 }
 

@@ -16,32 +16,32 @@ type QuadTree struct {
 
 
 // The maximum number of objects per node.
-func (self *QuadTree) GetMaxObjects() float64{
-    return self.Get("maxObjects").Float()
+func (self *QuadTree) GetMaxObjects() int{
+    return self.Get("maxObjects").Int()
 }
 
 // The maximum number of objects per node.
-func (self *QuadTree) SetMaxObjects(member float64) {
+func (self *QuadTree) SetMaxObjects(member int) {
     self.Set("maxObjects", member)
 }
 
 // The maximum number of levels to break down to.
-func (self *QuadTree) GetMaxLevels() float64{
-    return self.Get("maxLevels").Float()
+func (self *QuadTree) GetMaxLevels() int{
+    return self.Get("maxLevels").Int()
 }
 
 // The maximum number of levels to break down to.
-func (self *QuadTree) SetMaxLevels(member float64) {
+func (self *QuadTree) SetMaxLevels(member int) {
     self.Set("maxLevels", member)
 }
 
 // The current level.
-func (self *QuadTree) GetLevel() float64{
-    return self.Get("level").Float()
+func (self *QuadTree) GetLevel() int{
+    return self.Get("level").Int()
 }
 
 // The current level.
-func (self *QuadTree) SetLevel(member float64) {
+func (self *QuadTree) SetLevel(member int) {
     self.Set("level", member)
 }
 
@@ -115,8 +115,8 @@ func (self *QuadTree) InsertI(args ...interface{}) {
 }
 
 // Determine which node the object belongs to.
-func (self *QuadTree) GetIndexI(args ...interface{}) float64{
-    return self.Call("getIndex", args).Float()
+func (self *QuadTree) GetIndexI(args ...interface{}) int{
+    return self.Call("getIndex", args).Int()
 }
 
 // Return all objects that could collide with the given Sprite or Rectangle.

@@ -308,62 +308,62 @@ func (self *Loader) Set_withSyncPointDepth(member interface{}) {
 }
 
 // 
-func (self *Loader) GetTEXTURE_ATLAS_JSON_ARRAY() float64{
-    return self.Get("TEXTURE_ATLAS_JSON_ARRAY").Float()
+func (self *Loader) GetTEXTURE_ATLAS_JSON_ARRAY() int{
+    return self.Get("TEXTURE_ATLAS_JSON_ARRAY").Int()
 }
 
 // 
-func (self *Loader) SetTEXTURE_ATLAS_JSON_ARRAY(member float64) {
+func (self *Loader) SetTEXTURE_ATLAS_JSON_ARRAY(member int) {
     self.Set("TEXTURE_ATLAS_JSON_ARRAY", member)
 }
 
 // 
-func (self *Loader) GetTEXTURE_ATLAS_JSON_HASH() float64{
-    return self.Get("TEXTURE_ATLAS_JSON_HASH").Float()
+func (self *Loader) GetTEXTURE_ATLAS_JSON_HASH() int{
+    return self.Get("TEXTURE_ATLAS_JSON_HASH").Int()
 }
 
 // 
-func (self *Loader) SetTEXTURE_ATLAS_JSON_HASH(member float64) {
+func (self *Loader) SetTEXTURE_ATLAS_JSON_HASH(member int) {
     self.Set("TEXTURE_ATLAS_JSON_HASH", member)
 }
 
 // 
-func (self *Loader) GetTEXTURE_ATLAS_XML_STARLING() float64{
-    return self.Get("TEXTURE_ATLAS_XML_STARLING").Float()
+func (self *Loader) GetTEXTURE_ATLAS_XML_STARLING() int{
+    return self.Get("TEXTURE_ATLAS_XML_STARLING").Int()
 }
 
 // 
-func (self *Loader) SetTEXTURE_ATLAS_XML_STARLING(member float64) {
+func (self *Loader) SetTEXTURE_ATLAS_XML_STARLING(member int) {
     self.Set("TEXTURE_ATLAS_XML_STARLING", member)
 }
 
 // 
-func (self *Loader) GetPHYSICS_LIME_CORONA_JSON() float64{
-    return self.Get("PHYSICS_LIME_CORONA_JSON").Float()
+func (self *Loader) GetPHYSICS_LIME_CORONA_JSON() int{
+    return self.Get("PHYSICS_LIME_CORONA_JSON").Int()
 }
 
 // 
-func (self *Loader) SetPHYSICS_LIME_CORONA_JSON(member float64) {
+func (self *Loader) SetPHYSICS_LIME_CORONA_JSON(member int) {
     self.Set("PHYSICS_LIME_CORONA_JSON", member)
 }
 
 // 
-func (self *Loader) GetPHYSICS_PHASER_JSON() float64{
-    return self.Get("PHYSICS_PHASER_JSON").Float()
+func (self *Loader) GetPHYSICS_PHASER_JSON() int{
+    return self.Get("PHYSICS_PHASER_JSON").Int()
 }
 
 // 
-func (self *Loader) SetPHYSICS_PHASER_JSON(member float64) {
+func (self *Loader) SetPHYSICS_PHASER_JSON(member int) {
     self.Set("PHYSICS_PHASER_JSON", member)
 }
 
 // 
-func (self *Loader) GetTEXTURE_ATLAS_JSON_PYXEL() float64{
-    return self.Get("TEXTURE_ATLAS_JSON_PYXEL").Float()
+func (self *Loader) GetTEXTURE_ATLAS_JSON_PYXEL() int{
+    return self.Get("TEXTURE_ATLAS_JSON_PYXEL").Int()
 }
 
 // 
-func (self *Loader) SetTEXTURE_ATLAS_JSON_PYXEL(member float64) {
+func (self *Loader) SetTEXTURE_ATLAS_JSON_PYXEL(member int) {
     self.Set("TEXTURE_ATLAS_JSON_PYXEL", member)
 }
 
@@ -422,8 +422,8 @@ func (self *Loader) CheckKeyExistsI(args ...interface{}) bool{
 // Get the queue-index of the file/asset with a specific key.
 // 
 // Only assets in the download file queue will be found.
-func (self *Loader) GetAssetIndexI(args ...interface{}) float64{
-    return self.Call("getAssetIndex", args).Float()
+func (self *Loader) GetAssetIndexI(args ...interface{}) int{
+    return self.Call("getAssetIndex", args).Int()
 }
 
 // Find a file/asset with a specific key.
@@ -1060,21 +1060,21 @@ func (self *Loader) NextFileI(args ...interface{}) {
 }
 
 // Returns the number of files that have already been loaded, even if they errored.
-func (self *Loader) TotalLoadedFilesI(args ...interface{}) float64{
-    return self.Call("totalLoadedFiles", args).Float()
+func (self *Loader) TotalLoadedFilesI(args ...interface{}) int{
+    return self.Call("totalLoadedFiles", args).Int()
 }
 
 // Returns the number of files still waiting to be processed in the load queue. This value decreases as each file in the queue is loaded.
-func (self *Loader) TotalQueuedFilesI(args ...interface{}) float64{
-    return self.Call("totalQueuedFiles", args).Float()
+func (self *Loader) TotalQueuedFilesI(args ...interface{}) int{
+    return self.Call("totalQueuedFiles", args).Int()
 }
 
 // Returns the number of asset packs that have already been loaded, even if they errored.
-func (self *Loader) TotalLoadedPacksI(args ...interface{}) float64{
-    return self.Call("totalLoadedPacks", args).Float()
+func (self *Loader) TotalLoadedPacksI(args ...interface{}) int{
+    return self.Call("totalLoadedPacks", args).Int()
 }
 
 // Returns the number of asset packs still waiting to be processed in the load queue. This value decreases as each pack in the queue is loaded.
-func (self *Loader) TotalQueuedPacksI(args ...interface{}) float64{
-    return self.Call("totalQueuedPacks", args).Float()
+func (self *Loader) TotalQueuedPacksI(args ...interface{}) int{
+    return self.Call("totalQueuedPacks", args).Int()
 }

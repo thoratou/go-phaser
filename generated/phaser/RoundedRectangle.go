@@ -15,62 +15,62 @@ type RoundedRectangle struct {
 
 
 // The x coordinate of the top-left corner of the Rectangle.
-func (self *RoundedRectangle) GetX() float64{
-    return self.Get("x").Float()
+func (self *RoundedRectangle) GetX() int{
+    return self.Get("x").Int()
 }
 
 // The x coordinate of the top-left corner of the Rectangle.
-func (self *RoundedRectangle) SetX(member float64) {
+func (self *RoundedRectangle) SetX(member int) {
     self.Set("x", member)
 }
 
 // The y coordinate of the top-left corner of the Rectangle.
-func (self *RoundedRectangle) GetY() float64{
-    return self.Get("y").Float()
+func (self *RoundedRectangle) GetY() int{
+    return self.Get("y").Int()
 }
 
 // The y coordinate of the top-left corner of the Rectangle.
-func (self *RoundedRectangle) SetY(member float64) {
+func (self *RoundedRectangle) SetY(member int) {
     self.Set("y", member)
 }
 
 // The width of the Rectangle. This value should never be set to a negative.
-func (self *RoundedRectangle) GetWidth() float64{
-    return self.Get("width").Float()
+func (self *RoundedRectangle) GetWidth() int{
+    return self.Get("width").Int()
 }
 
 // The width of the Rectangle. This value should never be set to a negative.
-func (self *RoundedRectangle) SetWidth(member float64) {
+func (self *RoundedRectangle) SetWidth(member int) {
     self.Set("width", member)
 }
 
 // The height of the Rectangle. This value should never be set to a negative.
-func (self *RoundedRectangle) GetHeight() float64{
-    return self.Get("height").Float()
+func (self *RoundedRectangle) GetHeight() int{
+    return self.Get("height").Int()
 }
 
 // The height of the Rectangle. This value should never be set to a negative.
-func (self *RoundedRectangle) SetHeight(member float64) {
+func (self *RoundedRectangle) SetHeight(member int) {
     self.Set("height", member)
 }
 
 // The radius of the rounded corners.
-func (self *RoundedRectangle) GetRadius() float64{
-    return self.Get("radius").Float()
+func (self *RoundedRectangle) GetRadius() int{
+    return self.Get("radius").Int()
 }
 
 // The radius of the rounded corners.
-func (self *RoundedRectangle) SetRadius(member float64) {
+func (self *RoundedRectangle) SetRadius(member int) {
     self.Set("radius", member)
 }
 
 // The const type of this object.
-func (self *RoundedRectangle) GetType() float64{
-    return self.Get("type").Float()
+func (self *RoundedRectangle) GetType() int{
+    return self.Get("type").Int()
 }
 
 // The const type of this object.
-func (self *RoundedRectangle) SetType(member float64) {
+func (self *RoundedRectangle) SetType(member int) {
     self.Set("type", member)
 }
 

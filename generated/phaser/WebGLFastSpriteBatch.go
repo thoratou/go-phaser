@@ -14,32 +14,32 @@ type WebGLFastSpriteBatch struct {
 
 
 // 
-func (self *WebGLFastSpriteBatch) GetVertSize() float64{
-    return self.Get("vertSize").Float()
+func (self *WebGLFastSpriteBatch) GetVertSize() int{
+    return self.Get("vertSize").Int()
 }
 
 // 
-func (self *WebGLFastSpriteBatch) SetVertSize(member float64) {
+func (self *WebGLFastSpriteBatch) SetVertSize(member int) {
     self.Set("vertSize", member)
 }
 
 // 
-func (self *WebGLFastSpriteBatch) GetMaxSize() float64{
-    return self.Get("maxSize").Float()
+func (self *WebGLFastSpriteBatch) GetMaxSize() int{
+    return self.Get("maxSize").Int()
 }
 
 // 
-func (self *WebGLFastSpriteBatch) SetMaxSize(member float64) {
+func (self *WebGLFastSpriteBatch) SetMaxSize(member int) {
     self.Set("maxSize", member)
 }
 
 // 
-func (self *WebGLFastSpriteBatch) GetSize() float64{
-    return self.Get("size").Float()
+func (self *WebGLFastSpriteBatch) GetSize() int{
+    return self.Get("size").Int()
 }
 
 // 
-func (self *WebGLFastSpriteBatch) SetSize(member float64) {
+func (self *WebGLFastSpriteBatch) SetSize(member int) {
     self.Set("size", member)
 }
 
@@ -84,12 +84,12 @@ func (self *WebGLFastSpriteBatch) SetIndexBuffer(member interface{}) {
 }
 
 // 
-func (self *WebGLFastSpriteBatch) GetLastIndexCount() float64{
-    return self.Get("lastIndexCount").Float()
+func (self *WebGLFastSpriteBatch) GetLastIndexCount() int{
+    return self.Get("lastIndexCount").Int()
 }
 
 // 
-func (self *WebGLFastSpriteBatch) SetLastIndexCount(member float64) {
+func (self *WebGLFastSpriteBatch) SetLastIndexCount(member int) {
     self.Set("lastIndexCount", member)
 }
 
@@ -104,12 +104,12 @@ func (self *WebGLFastSpriteBatch) SetDrawing(member bool) {
 }
 
 // 
-func (self *WebGLFastSpriteBatch) GetCurrentBatchSize() float64{
-    return self.Get("currentBatchSize").Float()
+func (self *WebGLFastSpriteBatch) GetCurrentBatchSize() int{
+    return self.Get("currentBatchSize").Int()
 }
 
 // 
-func (self *WebGLFastSpriteBatch) SetCurrentBatchSize(member float64) {
+func (self *WebGLFastSpriteBatch) SetCurrentBatchSize(member int) {
     self.Set("currentBatchSize", member)
 }
 
@@ -124,12 +124,12 @@ func (self *WebGLFastSpriteBatch) SetCurrentBaseTexture(member *BaseTexture) {
 }
 
 // 
-func (self *WebGLFastSpriteBatch) GetCurrentBlendMode() float64{
-    return self.Get("currentBlendMode").Float()
+func (self *WebGLFastSpriteBatch) GetCurrentBlendMode() int{
+    return self.Get("currentBlendMode").Int()
 }
 
 // 
-func (self *WebGLFastSpriteBatch) SetCurrentBlendMode(member float64) {
+func (self *WebGLFastSpriteBatch) SetCurrentBlendMode(member int) {
     self.Set("currentBlendMode", member)
 }
 

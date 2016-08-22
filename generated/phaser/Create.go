@@ -76,52 +76,52 @@ func (self *Create) SetPalettes(member []interface{}) {
 }
 
 // A 16 color palette by [Arne](http://androidarts.com/palette/16pal.htm)
-func (self *Create) GetPALETTE_ARNE() float64{
-    return self.Get("PALETTE_ARNE").Float()
+func (self *Create) GetPALETTE_ARNE() int{
+    return self.Get("PALETTE_ARNE").Int()
 }
 
 // A 16 color palette by [Arne](http://androidarts.com/palette/16pal.htm)
-func (self *Create) SetPALETTE_ARNE(member float64) {
+func (self *Create) SetPALETTE_ARNE(member int) {
     self.Set("PALETTE_ARNE", member)
 }
 
 // A 16 color JMP inspired palette.
-func (self *Create) GetPALETTE_JMP() float64{
-    return self.Get("PALETTE_JMP").Float()
+func (self *Create) GetPALETTE_JMP() int{
+    return self.Get("PALETTE_JMP").Int()
 }
 
 // A 16 color JMP inspired palette.
-func (self *Create) SetPALETTE_JMP(member float64) {
+func (self *Create) SetPALETTE_JMP(member int) {
     self.Set("PALETTE_JMP", member)
 }
 
 // A 16 color CGA inspired palette.
-func (self *Create) GetPALETTE_CGA() float64{
-    return self.Get("PALETTE_CGA").Float()
+func (self *Create) GetPALETTE_CGA() int{
+    return self.Get("PALETTE_CGA").Int()
 }
 
 // A 16 color CGA inspired palette.
-func (self *Create) SetPALETTE_CGA(member float64) {
+func (self *Create) SetPALETTE_CGA(member int) {
     self.Set("PALETTE_CGA", member)
 }
 
 // A 16 color C64 inspired palette.
-func (self *Create) GetPALETTE_C64() float64{
-    return self.Get("PALETTE_C64").Float()
+func (self *Create) GetPALETTE_C64() int{
+    return self.Get("PALETTE_C64").Int()
 }
 
 // A 16 color C64 inspired palette.
-func (self *Create) SetPALETTE_C64(member float64) {
+func (self *Create) SetPALETTE_C64(member int) {
     self.Set("PALETTE_C64", member)
 }
 
 // A 16 color palette inspired by Japanese computers like the MSX.
-func (self *Create) GetPALETTE_JAPANESE_MACHINE() float64{
-    return self.Get("PALETTE_JAPANESE_MACHINE").Float()
+func (self *Create) GetPALETTE_JAPANESE_MACHINE() int{
+    return self.Get("PALETTE_JAPANESE_MACHINE").Int()
 }
 
 // A 16 color palette inspired by Japanese computers like the MSX.
-func (self *Create) SetPALETTE_JAPANESE_MACHINE(member float64) {
+func (self *Create) SetPALETTE_JAPANESE_MACHINE(member int) {
     self.Set("PALETTE_JAPANESE_MACHINE", member)
 }
 

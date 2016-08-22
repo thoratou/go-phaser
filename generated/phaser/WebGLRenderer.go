@@ -29,22 +29,22 @@ func (self *WebGLRenderer) SetGame(member *PhaserGame) {
 }
 
 // 
-func (self *WebGLRenderer) GetType() float64{
-    return self.Get("type").Float()
+func (self *WebGLRenderer) GetType() int{
+    return self.Get("type").Int()
 }
 
 // 
-func (self *WebGLRenderer) SetType(member float64) {
+func (self *WebGLRenderer) SetType(member int) {
     self.Set("type", member)
 }
 
 // The resolution of the renderer
-func (self *WebGLRenderer) GetResolution() float64{
-    return self.Get("resolution").Float()
+func (self *WebGLRenderer) GetResolution() int{
+    return self.Get("resolution").Int()
 }
 
 // The resolution of the renderer
-func (self *WebGLRenderer) SetResolution(member float64) {
+func (self *WebGLRenderer) SetResolution(member int) {
     self.Set("resolution", member)
 }
 
@@ -95,22 +95,22 @@ func (self *WebGLRenderer) SetClearBeforeRender(member bool) {
 }
 
 // The width of the canvas view
-func (self *WebGLRenderer) GetWidth() float64{
-    return self.Get("width").Float()
+func (self *WebGLRenderer) GetWidth() int{
+    return self.Get("width").Int()
 }
 
 // The width of the canvas view
-func (self *WebGLRenderer) SetWidth(member float64) {
+func (self *WebGLRenderer) SetWidth(member int) {
     self.Set("width", member)
 }
 
 // The height of the canvas view
-func (self *WebGLRenderer) GetHeight() float64{
-    return self.Get("height").Float()
+func (self *WebGLRenderer) GetHeight() int{
+    return self.Get("height").Int()
 }
 
 // The height of the canvas view
-func (self *WebGLRenderer) SetHeight(member float64) {
+func (self *WebGLRenderer) SetHeight(member int) {
     self.Set("height", member)
 }
 

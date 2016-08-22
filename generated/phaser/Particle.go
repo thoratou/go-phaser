@@ -66,22 +66,22 @@ func (self *Particle) SetAlphaData(member []interface{}) {
 }
 
 // The const type of this object.
-func (self *Particle) GetType() float64{
-    return self.Get("type").Float()
+func (self *Particle) GetType() int{
+    return self.Get("type").Int()
 }
 
 // The const type of this object.
-func (self *Particle) SetType(member float64) {
+func (self *Particle) SetType(member int) {
     self.Set("type", member)
 }
 
 // The const physics body type of this object.
-func (self *Particle) GetPhysicsType() float64{
-    return self.Get("physicsType").Float()
+func (self *Particle) GetPhysicsType() int{
+    return self.Get("physicsType").Int()
 }
 
 // The const physics body type of this object.
-func (self *Particle) SetPhysicsType(member float64) {
+func (self *Particle) SetPhysicsType(member int) {
     self.Set("physicsType", member)
 }
 
@@ -112,12 +112,12 @@ func (self *Particle) SetTexture(member *Texture) {
 }
 
 // The tint applied to the sprite. This is a hex value. A value of 0xFFFFFF will remove any tint effect.
-func (self *Particle) GetTint() float64{
-    return self.Get("tint").Float()
+func (self *Particle) GetTint() int{
+    return self.Get("tint").Int()
 }
 
 // The tint applied to the sprite. This is a hex value. A value of 0xFFFFFF will remove any tint effect.
-func (self *Particle) SetTint(member float64) {
+func (self *Particle) SetTint(member int) {
     self.Set("tint", member)
 }
 
@@ -134,14 +134,14 @@ func (self *Particle) SetTintedTexture(member *Canvas) {
 // The blend mode to be applied to the sprite. Set to PIXI.blendModes.NORMAL to remove any blend mode.
 // 
 // Warning: You cannot have a blend mode and a filter active on the same Sprite. Doing so will render the sprite invisible.
-func (self *Particle) GetBlendMode() float64{
-    return self.Get("blendMode").Float()
+func (self *Particle) GetBlendMode() int{
+    return self.Get("blendMode").Int()
 }
 
 // The blend mode to be applied to the sprite. Set to PIXI.blendModes.NORMAL to remove any blend mode.
 // 
 // Warning: You cannot have a blend mode and a filter active on the same Sprite. Doing so will render the sprite invisible.
-func (self *Particle) SetBlendMode(member float64) {
+func (self *Particle) SetBlendMode(member int) {
     self.Set("blendMode", member)
 }
 
@@ -166,22 +166,22 @@ func (self *Particle) SetExists(member bool) {
 }
 
 // The width of the sprite, setting this will actually modify the scale to achieve the value set
-func (self *Particle) GetWidth() float64{
-    return self.Get("width").Float()
+func (self *Particle) GetWidth() int{
+    return self.Get("width").Int()
 }
 
 // The width of the sprite, setting this will actually modify the scale to achieve the value set
-func (self *Particle) SetWidth(member float64) {
+func (self *Particle) SetWidth(member int) {
     self.Set("width", member)
 }
 
 // The height of the sprite, setting this will actually modify the scale to achieve the value set
-func (self *Particle) GetHeight() float64{
-    return self.Get("height").Float()
+func (self *Particle) GetHeight() int{
+    return self.Get("height").Int()
 }
 
 // The height of the sprite, setting this will actually modify the scale to achieve the value set
-func (self *Particle) SetHeight(member float64) {
+func (self *Particle) SetHeight(member int) {
     self.Set("height", member)
 }
 
@@ -271,15 +271,15 @@ func (self *Particle) SetComponents(member interface{}) {
 // No two objects in a Group can have the same z value.
 // This value is adjusted automatically whenever the Group hierarchy changes.
 // If you wish to re-order the layering of a Game Object then see methods like Group.moveUp or Group.bringToTop.
-func (self *Particle) GetZ() float64{
-    return self.Get("z").Float()
+func (self *Particle) GetZ() int{
+    return self.Get("z").Int()
 }
 
 // The z depth of this Game Object within its parent Group.
 // No two objects in a Group can have the same z value.
 // This value is adjusted automatically whenever the Group hierarchy changes.
 // If you wish to re-order the layering of a Game Object then see methods like Group.moveUp or Group.bringToTop.
-func (self *Particle) SetZ(member float64) {
+func (self *Particle) SetZ(member int) {
     self.Set("z", member)
 }
 
@@ -360,24 +360,24 @@ func (self *Particle) SetPreviousPosition(member *Point) {
 }
 
 // The rotation the Game Object was in set to in the previous frame. Value is in radians.
-func (self *Particle) GetPreviousRotation() float64{
-    return self.Get("previousRotation").Float()
+func (self *Particle) GetPreviousRotation() int{
+    return self.Get("previousRotation").Int()
 }
 
 // The rotation the Game Object was in set to in the previous frame. Value is in radians.
-func (self *Particle) SetPreviousRotation(member float64) {
+func (self *Particle) SetPreviousRotation(member int) {
     self.Set("previousRotation", member)
 }
 
 // The render order ID is used internally by the renderer and Input Manager and should not be modified.
 // This property is mostly used internally by the renderers, but is exposed for the use of plugins.
-func (self *Particle) GetRenderOrderID() float64{
-    return self.Get("renderOrderID").Float()
+func (self *Particle) GetRenderOrderID() int{
+    return self.Get("renderOrderID").Int()
 }
 
 // The render order ID is used internally by the renderer and Input Manager and should not be modified.
 // This property is mostly used internally by the renderers, but is exposed for the use of plugins.
-func (self *Particle) SetRenderOrderID(member float64) {
+func (self *Particle) SetRenderOrderID(member int) {
     self.Set("renderOrderID", member)
 }
 
@@ -420,8 +420,8 @@ func (self *Particle) SetPendingDestroy(member bool) {
 // 
 // If you wish to work in radians instead of degrees you can use the property `rotation` instead. 
 // Working in radians is slightly faster as it doesn't have to perform any calculations.
-func (self *Particle) GetAngle() float64{
-    return self.Get("angle").Float()
+func (self *Particle) GetAngle() int{
+    return self.Get("angle").Int()
 }
 
 // The angle property is the rotation of the Game Object in *degrees* from its original orientation.
@@ -433,7 +433,7 @@ func (self *Particle) GetAngle() float64{
 // 
 // If you wish to work in radians instead of degrees you can use the property `rotation` instead. 
 // Working in radians is slightly faster as it doesn't have to perform any calculations.
-func (self *Particle) SetAngle(member float64) {
+func (self *Particle) SetAngle(member int) {
     self.Set("angle", member)
 }
 
@@ -472,100 +472,100 @@ func (self *Particle) SetInCamera(member bool) {
 // The amount the Game Object is visually offset from its x coordinate.
 // This is the same as `width * anchor.x`.
 // It will only be > 0 if anchor.x is not equal to zero.
-func (self *Particle) GetOffsetX() float64{
-    return self.Get("offsetX").Float()
+func (self *Particle) GetOffsetX() int{
+    return self.Get("offsetX").Int()
 }
 
 // The amount the Game Object is visually offset from its x coordinate.
 // This is the same as `width * anchor.x`.
 // It will only be > 0 if anchor.x is not equal to zero.
-func (self *Particle) SetOffsetX(member float64) {
+func (self *Particle) SetOffsetX(member int) {
     self.Set("offsetX", member)
 }
 
 // The amount the Game Object is visually offset from its y coordinate.
 // This is the same as `height * anchor.y`.
 // It will only be > 0 if anchor.y is not equal to zero.
-func (self *Particle) GetOffsetY() float64{
-    return self.Get("offsetY").Float()
+func (self *Particle) GetOffsetY() int{
+    return self.Get("offsetY").Int()
 }
 
 // The amount the Game Object is visually offset from its y coordinate.
 // This is the same as `height * anchor.y`.
 // It will only be > 0 if anchor.y is not equal to zero.
-func (self *Particle) SetOffsetY(member float64) {
+func (self *Particle) SetOffsetY(member int) {
     self.Set("offsetY", member)
 }
 
 // The center x coordinate of the Game Object.
 // This is the same as `(x - offsetX) + (width / 2)`.
-func (self *Particle) GetCenterX() float64{
-    return self.Get("centerX").Float()
+func (self *Particle) GetCenterX() int{
+    return self.Get("centerX").Int()
 }
 
 // The center x coordinate of the Game Object.
 // This is the same as `(x - offsetX) + (width / 2)`.
-func (self *Particle) SetCenterX(member float64) {
+func (self *Particle) SetCenterX(member int) {
     self.Set("centerX", member)
 }
 
 // The center y coordinate of the Game Object.
 // This is the same as `(y - offsetY) + (height / 2)`.
-func (self *Particle) GetCenterY() float64{
-    return self.Get("centerY").Float()
+func (self *Particle) GetCenterY() int{
+    return self.Get("centerY").Int()
 }
 
 // The center y coordinate of the Game Object.
 // This is the same as `(y - offsetY) + (height / 2)`.
-func (self *Particle) SetCenterY(member float64) {
+func (self *Particle) SetCenterY(member int) {
     self.Set("centerY", member)
 }
 
 // The left coordinate of the Game Object.
 // This is the same as `x - offsetX`.
-func (self *Particle) GetLeft() float64{
-    return self.Get("left").Float()
+func (self *Particle) GetLeft() int{
+    return self.Get("left").Int()
 }
 
 // The left coordinate of the Game Object.
 // This is the same as `x - offsetX`.
-func (self *Particle) SetLeft(member float64) {
+func (self *Particle) SetLeft(member int) {
     self.Set("left", member)
 }
 
 // The right coordinate of the Game Object.
 // This is the same as `x + width - offsetX`.
-func (self *Particle) GetRight() float64{
-    return self.Get("right").Float()
+func (self *Particle) GetRight() int{
+    return self.Get("right").Int()
 }
 
 // The right coordinate of the Game Object.
 // This is the same as `x + width - offsetX`.
-func (self *Particle) SetRight(member float64) {
+func (self *Particle) SetRight(member int) {
     self.Set("right", member)
 }
 
 // The y coordinate of the Game Object.
 // This is the same as `y - offsetY`.
-func (self *Particle) GetTop() float64{
-    return self.Get("top").Float()
+func (self *Particle) GetTop() int{
+    return self.Get("top").Int()
 }
 
 // The y coordinate of the Game Object.
 // This is the same as `y - offsetY`.
-func (self *Particle) SetTop(member float64) {
+func (self *Particle) SetTop(member int) {
     self.Set("top", member)
 }
 
 // The sum of the y and height properties.
 // This is the same as `y + height - offsetY`.
-func (self *Particle) GetBottom() float64{
-    return self.Get("bottom").Float()
+func (self *Particle) GetBottom() int{
+    return self.Get("bottom").Int()
 }
 
 // The sum of the y and height properties.
 // This is the same as `y + height - offsetY`.
-func (self *Particle) SetBottom(member float64) {
+func (self *Particle) SetBottom(member int) {
     self.Set("bottom", member)
 }
 
@@ -586,38 +586,38 @@ func (self *Particle) SetCropRect(member *Rectangle) {
 // Returns the delta x value. The difference between world.x now and in the previous frame.
 // 
 // The value will be positive if the Game Object has moved to the right or negative if to the left.
-func (self *Particle) GetDeltaX() float64{
-    return self.Get("deltaX").Float()
+func (self *Particle) GetDeltaX() int{
+    return self.Get("deltaX").Int()
 }
 
 // Returns the delta x value. The difference between world.x now and in the previous frame.
 // 
 // The value will be positive if the Game Object has moved to the right or negative if to the left.
-func (self *Particle) SetDeltaX(member float64) {
+func (self *Particle) SetDeltaX(member int) {
     self.Set("deltaX", member)
 }
 
 // Returns the delta y value. The difference between world.y now and in the previous frame.
 // 
 // The value will be positive if the Game Object has moved down or negative if up.
-func (self *Particle) GetDeltaY() float64{
-    return self.Get("deltaY").Float()
+func (self *Particle) GetDeltaY() int{
+    return self.Get("deltaY").Int()
 }
 
 // Returns the delta y value. The difference between world.y now and in the previous frame.
 // 
 // The value will be positive if the Game Object has moved down or negative if up.
-func (self *Particle) SetDeltaY(member float64) {
+func (self *Particle) SetDeltaY(member int) {
     self.Set("deltaY", member)
 }
 
 // Returns the delta z value. The difference between rotation now and in the previous frame. The delta value.
-func (self *Particle) GetDeltaZ() float64{
-    return self.Get("deltaZ").Float()
+func (self *Particle) GetDeltaZ() int{
+    return self.Get("deltaZ").Int()
 }
 
 // Returns the delta z value. The difference between rotation now and in the previous frame. The delta value.
-func (self *Particle) SetDeltaZ(member float64) {
+func (self *Particle) SetDeltaZ(member int) {
     self.Set("deltaZ", member)
 }
 
@@ -684,26 +684,26 @@ func (self *Particle) SetCameraOffset(member *Point) {
 // The Game Objects health value. This is a handy property for setting and manipulating health on a Game Object.
 // 
 // It can be used in combination with the `damage` method or modified directly.
-func (self *Particle) GetHealth() float64{
-    return self.Get("health").Float()
+func (self *Particle) GetHealth() int{
+    return self.Get("health").Int()
 }
 
 // The Game Objects health value. This is a handy property for setting and manipulating health on a Game Object.
 // 
 // It can be used in combination with the `damage` method or modified directly.
-func (self *Particle) SetHealth(member float64) {
+func (self *Particle) SetHealth(member int) {
     self.Set("health", member)
 }
 
 // The Game Objects maximum health value. This works in combination with the `heal` method to ensure
 // the health value never exceeds the maximum.
-func (self *Particle) GetMaxHealth() float64{
-    return self.Get("maxHealth").Float()
+func (self *Particle) GetMaxHealth() int{
+    return self.Get("maxHealth").Int()
 }
 
 // The Game Objects maximum health value. This works in combination with the `heal` method to ensure
 // the health value never exceeds the maximum.
-func (self *Particle) SetMaxHealth(member float64) {
+func (self *Particle) SetMaxHealth(member int) {
     self.Set("maxHealth", member)
 }
 
@@ -887,8 +887,8 @@ func (self *Particle) SetAlive(member bool) {
 // When it reaches zero it will call the `kill` method.
 // 
 // Very handy for particles, bullets, collectibles, or any other short-lived entity.
-func (self *Particle) GetLifespan() float64{
-    return self.Get("lifespan").Float()
+func (self *Particle) GetLifespan() int{
+    return self.Get("lifespan").Int()
 }
 
 // The lifespan allows you to give a Game Object a lifespan in milliseconds.
@@ -899,7 +899,7 @@ func (self *Particle) GetLifespan() float64{
 // When it reaches zero it will call the `kill` method.
 // 
 // Very handy for particles, bullets, collectibles, or any other short-lived entity.
-func (self *Particle) SetLifespan(member float64) {
+func (self *Particle) SetLifespan(member int) {
     self.Set("lifespan", member)
 }
 
@@ -996,22 +996,22 @@ func (self *Particle) SetBody(member interface{}) {
 }
 
 // The position of the Game Object on the x axis relative to the local coordinates of the parent.
-func (self *Particle) GetX() float64{
-    return self.Get("x").Float()
+func (self *Particle) GetX() int{
+    return self.Get("x").Int()
 }
 
 // The position of the Game Object on the x axis relative to the local coordinates of the parent.
-func (self *Particle) SetX(member float64) {
+func (self *Particle) SetX(member int) {
     self.Set("x", member)
 }
 
 // The position of the Game Object on the y axis relative to the local coordinates of the parent.
-func (self *Particle) GetY() float64{
-    return self.Get("y").Float()
+func (self *Particle) GetY() int{
+    return self.Get("y").Int()
 }
 
 // The position of the Game Object on the y axis relative to the local coordinates of the parent.
-func (self *Particle) SetY(member float64) {
+func (self *Particle) SetY(member int) {
     self.Set("y", member)
 }
 
@@ -1168,8 +1168,8 @@ func (self *Particle) SwapChildrenI(args ...interface{}) {
 }
 
 // Returns the index position of a child DisplayObject instance
-func (self *Particle) GetChildIndexI(args ...interface{}) float64{
-    return self.Call("getChildIndex", args).Float()
+func (self *Particle) GetChildIndexI(args ...interface{}) int{
+    return self.Call("getChildIndex", args).Int()
 }
 
 // Changes the position of an existing child in the display object container

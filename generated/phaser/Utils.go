@@ -45,8 +45,8 @@ func (self *Utils) RandomChoiceI(args ...interface{}) interface{}{
 }
 
 // Get a unit dimension from a string.
-func (self *Utils) ParseDimensionI(args ...interface{}) float64{
-    return self.Call("parseDimension", args).Float()
+func (self *Utils) ParseDimensionI(args ...interface{}) int{
+    return self.Call("parseDimension", args).Int()
 }
 
 // Takes the given string and pads it out, to the length required, using the character

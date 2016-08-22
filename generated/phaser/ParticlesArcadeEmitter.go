@@ -16,12 +16,12 @@ type ParticlesArcadeEmitter struct {
 
 
 // The total number of particles in this emitter.
-func (self *ParticlesArcadeEmitter) GetMaxParticles() float64{
-    return self.Get("maxParticles").Float()
+func (self *ParticlesArcadeEmitter) GetMaxParticles() int{
+    return self.Get("maxParticles").Int()
 }
 
 // The total number of particles in this emitter.
-func (self *ParticlesArcadeEmitter) SetMaxParticles(member float64) {
+func (self *ParticlesArcadeEmitter) SetMaxParticles(member int) {
     self.Set("maxParticles", member)
 }
 
@@ -36,22 +36,22 @@ func (self *ParticlesArcadeEmitter) SetName(member string) {
 }
 
 // Internal Phaser Type value.
-func (self *ParticlesArcadeEmitter) GetType() float64{
-    return self.Get("type").Float()
+func (self *ParticlesArcadeEmitter) GetType() int{
+    return self.Get("type").Int()
 }
 
 // Internal Phaser Type value.
-func (self *ParticlesArcadeEmitter) SetType(member float64) {
+func (self *ParticlesArcadeEmitter) SetType(member int) {
     self.Set("type", member)
 }
 
 // The const physics body type of this object.
-func (self *ParticlesArcadeEmitter) GetPhysicsType() float64{
-    return self.Get("physicsType").Float()
+func (self *ParticlesArcadeEmitter) GetPhysicsType() int{
+    return self.Get("physicsType").Int()
 }
 
 // The const physics body type of this object.
-func (self *ParticlesArcadeEmitter) SetPhysicsType(member float64) {
+func (self *ParticlesArcadeEmitter) SetPhysicsType(member int) {
     self.Set("physicsType", member)
 }
 
@@ -86,22 +86,22 @@ func (self *ParticlesArcadeEmitter) SetMaxParticleSpeed(member *Point) {
 }
 
 // The minimum possible scale of a particle. This is applied to the X and Y axis. If you need to control each axis see minParticleScaleX.
-func (self *ParticlesArcadeEmitter) GetMinParticleScale() float64{
-    return self.Get("minParticleScale").Float()
+func (self *ParticlesArcadeEmitter) GetMinParticleScale() int{
+    return self.Get("minParticleScale").Int()
 }
 
 // The minimum possible scale of a particle. This is applied to the X and Y axis. If you need to control each axis see minParticleScaleX.
-func (self *ParticlesArcadeEmitter) SetMinParticleScale(member float64) {
+func (self *ParticlesArcadeEmitter) SetMinParticleScale(member int) {
     self.Set("minParticleScale", member)
 }
 
 // The maximum possible scale of a particle. This is applied to the X and Y axis. If you need to control each axis see maxParticleScaleX.
-func (self *ParticlesArcadeEmitter) GetMaxParticleScale() float64{
-    return self.Get("maxParticleScale").Float()
+func (self *ParticlesArcadeEmitter) GetMaxParticleScale() int{
+    return self.Get("maxParticleScale").Int()
 }
 
 // The maximum possible scale of a particle. This is applied to the X and Y axis. If you need to control each axis see maxParticleScaleX.
-func (self *ParticlesArcadeEmitter) SetMaxParticleScale(member float64) {
+func (self *ParticlesArcadeEmitter) SetMaxParticleScale(member int) {
     self.Set("maxParticleScale", member)
 }
 
@@ -122,42 +122,42 @@ func (self *ParticlesArcadeEmitter) SetScaleData(member []interface{}) {
 }
 
 // The minimum possible angular velocity of a particle.
-func (self *ParticlesArcadeEmitter) GetMinRotation() float64{
-    return self.Get("minRotation").Float()
+func (self *ParticlesArcadeEmitter) GetMinRotation() int{
+    return self.Get("minRotation").Int()
 }
 
 // The minimum possible angular velocity of a particle.
-func (self *ParticlesArcadeEmitter) SetMinRotation(member float64) {
+func (self *ParticlesArcadeEmitter) SetMinRotation(member int) {
     self.Set("minRotation", member)
 }
 
 // The maximum possible angular velocity of a particle.
-func (self *ParticlesArcadeEmitter) GetMaxRotation() float64{
-    return self.Get("maxRotation").Float()
+func (self *ParticlesArcadeEmitter) GetMaxRotation() int{
+    return self.Get("maxRotation").Int()
 }
 
 // The maximum possible angular velocity of a particle.
-func (self *ParticlesArcadeEmitter) SetMaxRotation(member float64) {
+func (self *ParticlesArcadeEmitter) SetMaxRotation(member int) {
     self.Set("maxRotation", member)
 }
 
 // The minimum possible alpha value of a particle.
-func (self *ParticlesArcadeEmitter) GetMinParticleAlpha() float64{
-    return self.Get("minParticleAlpha").Float()
+func (self *ParticlesArcadeEmitter) GetMinParticleAlpha() int{
+    return self.Get("minParticleAlpha").Int()
 }
 
 // The minimum possible alpha value of a particle.
-func (self *ParticlesArcadeEmitter) SetMinParticleAlpha(member float64) {
+func (self *ParticlesArcadeEmitter) SetMinParticleAlpha(member int) {
     self.Set("minParticleAlpha", member)
 }
 
 // The maximum possible alpha value of a particle.
-func (self *ParticlesArcadeEmitter) GetMaxParticleAlpha() float64{
-    return self.Get("maxParticleAlpha").Float()
+func (self *ParticlesArcadeEmitter) GetMaxParticleAlpha() int{
+    return self.Get("maxParticleAlpha").Int()
 }
 
 // The maximum possible alpha value of a particle.
-func (self *ParticlesArcadeEmitter) SetMaxParticleAlpha(member float64) {
+func (self *ParticlesArcadeEmitter) SetMaxParticleAlpha(member int) {
     self.Set("maxParticleAlpha", member)
 }
 
@@ -178,12 +178,12 @@ func (self *ParticlesArcadeEmitter) SetAlphaData(member []interface{}) {
 }
 
 // Sets the `body.gravity.y` of each particle sprite to this value on launch.
-func (self *ParticlesArcadeEmitter) GetGravity() float64{
-    return self.Get("gravity").Float()
+func (self *ParticlesArcadeEmitter) GetGravity() int{
+    return self.Get("gravity").Int()
 }
 
 // Sets the `body.gravity.y` of each particle sprite to this value on launch.
-func (self *ParticlesArcadeEmitter) SetGravity(member float64) {
+func (self *ParticlesArcadeEmitter) SetGravity(member int) {
     self.Set("gravity", member)
 }
 
@@ -208,32 +208,32 @@ func (self *ParticlesArcadeEmitter) SetParticleDrag(member *Point) {
 }
 
 // The angular drag component of particles launched from the emitter if they are rotating.
-func (self *ParticlesArcadeEmitter) GetAngularDrag() float64{
-    return self.Get("angularDrag").Float()
+func (self *ParticlesArcadeEmitter) GetAngularDrag() int{
+    return self.Get("angularDrag").Int()
 }
 
 // The angular drag component of particles launched from the emitter if they are rotating.
-func (self *ParticlesArcadeEmitter) SetAngularDrag(member float64) {
+func (self *ParticlesArcadeEmitter) SetAngularDrag(member int) {
     self.Set("angularDrag", member)
 }
 
 // How often a particle is emitted in ms (if emitter is started with Explode === false).
-func (self *ParticlesArcadeEmitter) GetFrequency() float64{
-    return self.Get("frequency").Float()
+func (self *ParticlesArcadeEmitter) GetFrequency() int{
+    return self.Get("frequency").Int()
 }
 
 // How often a particle is emitted in ms (if emitter is started with Explode === false).
-func (self *ParticlesArcadeEmitter) SetFrequency(member float64) {
+func (self *ParticlesArcadeEmitter) SetFrequency(member int) {
     self.Set("frequency", member)
 }
 
 // How long each particle lives once it is emitted in ms. Default is 2 seconds. Set lifespan to 'zero' for particles to live forever.
-func (self *ParticlesArcadeEmitter) GetLifespan() float64{
-    return self.Get("lifespan").Float()
+func (self *ParticlesArcadeEmitter) GetLifespan() int{
+    return self.Get("lifespan").Int()
 }
 
 // How long each particle lives once it is emitted in ms. Default is 2 seconds. Set lifespan to 'zero' for particles to live forever.
-func (self *ParticlesArcadeEmitter) SetLifespan(member float64) {
+func (self *ParticlesArcadeEmitter) SetLifespan(member int) {
     self.Set("lifespan", member)
 }
 
@@ -268,40 +268,40 @@ func (self *ParticlesArcadeEmitter) SetParticleAnchor(member *Point) {
 }
 
 // The blendMode as set on the particle when emitted from the Emitter. Defaults to NORMAL. Needs browser capable of supporting canvas blend-modes (most not available in WebGL)
-func (self *ParticlesArcadeEmitter) GetBlendMode() float64{
-    return self.Get("blendMode").Float()
+func (self *ParticlesArcadeEmitter) GetBlendMode() int{
+    return self.Get("blendMode").Int()
 }
 
 // The blendMode as set on the particle when emitted from the Emitter. Defaults to NORMAL. Needs browser capable of supporting canvas blend-modes (most not available in WebGL)
-func (self *ParticlesArcadeEmitter) SetBlendMode(member float64) {
+func (self *ParticlesArcadeEmitter) SetBlendMode(member int) {
     self.Set("blendMode", member)
 }
 
 // The point the particles are emitted from.
 // Emitter.x and Emitter.y control the containers location, which updates all current particles
 // Emitter.emitX and Emitter.emitY control the emission location relative to the x/y position.
-func (self *ParticlesArcadeEmitter) GetEmitX() float64{
-    return self.Get("emitX").Float()
+func (self *ParticlesArcadeEmitter) GetEmitX() int{
+    return self.Get("emitX").Int()
 }
 
 // The point the particles are emitted from.
 // Emitter.x and Emitter.y control the containers location, which updates all current particles
 // Emitter.emitX and Emitter.emitY control the emission location relative to the x/y position.
-func (self *ParticlesArcadeEmitter) SetEmitX(member float64) {
+func (self *ParticlesArcadeEmitter) SetEmitX(member int) {
     self.Set("emitX", member)
 }
 
 // The point the particles are emitted from.
 // Emitter.x and Emitter.y control the containers location, which updates all current particles
 // Emitter.emitX and Emitter.emitY control the emission location relative to the x/y position.
-func (self *ParticlesArcadeEmitter) GetEmitY() float64{
-    return self.Get("emitY").Float()
+func (self *ParticlesArcadeEmitter) GetEmitY() int{
+    return self.Get("emitY").Int()
 }
 
 // The point the particles are emitted from.
 // Emitter.x and Emitter.y control the containers location, which updates all current particles
 // Emitter.emitX and Emitter.emitY control the emission location relative to the x/y position.
-func (self *ParticlesArcadeEmitter) SetEmitY(member float64) {
+func (self *ParticlesArcadeEmitter) SetEmitY(member int) {
     self.Set("emitY", member)
 }
 
@@ -346,82 +346,82 @@ func (self *ParticlesArcadeEmitter) SetParticleSendToBack(member bool) {
 }
 
 // Gets or sets the width of the Emitter. This is the region in which a particle can be emitted.
-func (self *ParticlesArcadeEmitter) GetWidth() float64{
-    return self.Get("width").Float()
+func (self *ParticlesArcadeEmitter) GetWidth() int{
+    return self.Get("width").Int()
 }
 
 // Gets or sets the width of the Emitter. This is the region in which a particle can be emitted.
-func (self *ParticlesArcadeEmitter) SetWidth(member float64) {
+func (self *ParticlesArcadeEmitter) SetWidth(member int) {
     self.Set("width", member)
 }
 
 // Gets or sets the height of the Emitter. This is the region in which a particle can be emitted.
-func (self *ParticlesArcadeEmitter) GetHeight() float64{
-    return self.Get("height").Float()
+func (self *ParticlesArcadeEmitter) GetHeight() int{
+    return self.Get("height").Int()
 }
 
 // Gets or sets the height of the Emitter. This is the region in which a particle can be emitted.
-func (self *ParticlesArcadeEmitter) SetHeight(member float64) {
+func (self *ParticlesArcadeEmitter) SetHeight(member int) {
     self.Set("height", member)
 }
 
 // Gets or sets the x position of the Emitter.
-func (self *ParticlesArcadeEmitter) GetX() float64{
-    return self.Get("x").Float()
+func (self *ParticlesArcadeEmitter) GetX() int{
+    return self.Get("x").Int()
 }
 
 // Gets or sets the x position of the Emitter.
-func (self *ParticlesArcadeEmitter) SetX(member float64) {
+func (self *ParticlesArcadeEmitter) SetX(member int) {
     self.Set("x", member)
 }
 
 // Gets or sets the y position of the Emitter.
-func (self *ParticlesArcadeEmitter) GetY() float64{
-    return self.Get("y").Float()
+func (self *ParticlesArcadeEmitter) GetY() int{
+    return self.Get("y").Int()
 }
 
 // Gets or sets the y position of the Emitter.
-func (self *ParticlesArcadeEmitter) SetY(member float64) {
+func (self *ParticlesArcadeEmitter) SetY(member int) {
     self.Set("y", member)
 }
 
 // Gets the left position of the Emitter.
-func (self *ParticlesArcadeEmitter) GetLeft() float64{
-    return self.Get("left").Float()
+func (self *ParticlesArcadeEmitter) GetLeft() int{
+    return self.Get("left").Int()
 }
 
 // Gets the left position of the Emitter.
-func (self *ParticlesArcadeEmitter) SetLeft(member float64) {
+func (self *ParticlesArcadeEmitter) SetLeft(member int) {
     self.Set("left", member)
 }
 
 // Gets the right position of the Emitter.
-func (self *ParticlesArcadeEmitter) GetRight() float64{
-    return self.Get("right").Float()
+func (self *ParticlesArcadeEmitter) GetRight() int{
+    return self.Get("right").Int()
 }
 
 // Gets the right position of the Emitter.
-func (self *ParticlesArcadeEmitter) SetRight(member float64) {
+func (self *ParticlesArcadeEmitter) SetRight(member int) {
     self.Set("right", member)
 }
 
 // Gets the top position of the Emitter.
-func (self *ParticlesArcadeEmitter) GetTop() float64{
-    return self.Get("top").Float()
+func (self *ParticlesArcadeEmitter) GetTop() int{
+    return self.Get("top").Int()
 }
 
 // Gets the top position of the Emitter.
-func (self *ParticlesArcadeEmitter) SetTop(member float64) {
+func (self *ParticlesArcadeEmitter) SetTop(member int) {
     self.Set("top", member)
 }
 
 // Gets the bottom position of the Emitter.
-func (self *ParticlesArcadeEmitter) GetBottom() float64{
-    return self.Get("bottom").Float()
+func (self *ParticlesArcadeEmitter) GetBottom() int{
+    return self.Get("bottom").Int()
 }
 
 // Gets the bottom position of the Emitter.
-func (self *ParticlesArcadeEmitter) SetBottom(member float64) {
+func (self *ParticlesArcadeEmitter) SetBottom(member int) {
     self.Set("bottom", member)
 }
 
@@ -803,8 +803,8 @@ func (self *ParticlesArcadeEmitter) SetLength(member int) {
 // 
 // This has no impact on the rotation/angle properties of the children, but it will update their worldTransform
 // and on-screen orientation and position.
-func (self *ParticlesArcadeEmitter) GetAngle() float64{
-    return self.Get("angle").Float()
+func (self *ParticlesArcadeEmitter) GetAngle() int{
+    return self.Get("angle").Int()
 }
 
 // The angle of rotation of the group container, in degrees.
@@ -813,7 +813,7 @@ func (self *ParticlesArcadeEmitter) GetAngle() float64{
 // 
 // This has no impact on the rotation/angle properties of the children, but it will update their worldTransform
 // and on-screen orientation and position.
-func (self *ParticlesArcadeEmitter) SetAngle(member float64) {
+func (self *ParticlesArcadeEmitter) SetAngle(member int) {
     self.Set("angle", member)
 }
 
@@ -826,8 +826,8 @@ func (self *ParticlesArcadeEmitter) SetAngle(member float64) {
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *ParticlesArcadeEmitter) GetCenterX() float64{
-    return self.Get("centerX").Float()
+func (self *ParticlesArcadeEmitter) GetCenterX() int{
+    return self.Get("centerX").Int()
 }
 
 // The center x coordinate of this Group.
@@ -839,7 +839,7 @@ func (self *ParticlesArcadeEmitter) GetCenterX() float64{
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *ParticlesArcadeEmitter) SetCenterX(member float64) {
+func (self *ParticlesArcadeEmitter) SetCenterX(member int) {
     self.Set("centerX", member)
 }
 
@@ -852,8 +852,8 @@ func (self *ParticlesArcadeEmitter) SetCenterX(member float64) {
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *ParticlesArcadeEmitter) GetCenterY() float64{
-    return self.Get("centerY").Float()
+func (self *ParticlesArcadeEmitter) GetCenterY() int{
+    return self.Get("centerY").Int()
 }
 
 // The center y coordinate of this Group.
@@ -865,7 +865,7 @@ func (self *ParticlesArcadeEmitter) GetCenterY() float64{
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *ParticlesArcadeEmitter) SetCenterY(member float64) {
+func (self *ParticlesArcadeEmitter) SetCenterY(member int) {
     self.Set("centerY", member)
 }
 
@@ -873,15 +873,15 @@ func (self *ParticlesArcadeEmitter) SetCenterY(member float64) {
 // 
 // This will adjust the group container itself by modifying its rotation.
 // This will have no impact on the rotation value of its children, but it will update their worldTransform and on-screen position.
-func (self *ParticlesArcadeEmitter) GetRotation() float64{
-    return self.Get("rotation").Float()
+func (self *ParticlesArcadeEmitter) GetRotation() int{
+    return self.Get("rotation").Int()
 }
 
 // The angle of rotation of the group container, in radians.
 // 
 // This will adjust the group container itself by modifying its rotation.
 // This will have no impact on the rotation value of its children, but it will update their worldTransform and on-screen position.
-func (self *ParticlesArcadeEmitter) SetRotation(member float64) {
+func (self *ParticlesArcadeEmitter) SetRotation(member int) {
     self.Set("rotation", member)
 }
 
@@ -896,12 +896,12 @@ func (self *ParticlesArcadeEmitter) SetVisible(member bool) {
 }
 
 // The alpha value of the group container.
-func (self *ParticlesArcadeEmitter) GetAlpha() float64{
-    return self.Get("alpha").Float()
+func (self *ParticlesArcadeEmitter) GetAlpha() int{
+    return self.Get("alpha").Int()
 }
 
 // The alpha value of the group container.
-func (self *ParticlesArcadeEmitter) SetAlpha(member float64) {
+func (self *ParticlesArcadeEmitter) SetAlpha(member int) {
     self.Set("alpha", member)
 }
 
@@ -1727,8 +1727,8 @@ func (self *ParticlesArcadeEmitter) SwapChildrenI(args ...interface{}) {
 }
 
 // Returns the index position of a child DisplayObject instance
-func (self *ParticlesArcadeEmitter) GetChildIndexI(args ...interface{}) float64{
-    return self.Call("getChildIndex", args).Float()
+func (self *ParticlesArcadeEmitter) GetChildIndexI(args ...interface{}) int{
+    return self.Call("getChildIndex", args).Int()
 }
 
 // Changes the position of an existing child in the display object container

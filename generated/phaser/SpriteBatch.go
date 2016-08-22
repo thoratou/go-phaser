@@ -19,12 +19,12 @@ type SpriteBatch struct {
 
 
 // Internal Phaser Type value.
-func (self *SpriteBatch) GetType() float64{
-    return self.Get("type").Float()
+func (self *SpriteBatch) GetType() int{
+    return self.Get("type").Int()
 }
 
 // Internal Phaser Type value.
-func (self *SpriteBatch) SetType(member float64) {
+func (self *SpriteBatch) SetType(member int) {
     self.Set("type", member)
 }
 
@@ -61,12 +61,12 @@ func (self *SpriteBatch) SetZ(member int) {
 }
 
 // The const physics body type of this object.
-func (self *SpriteBatch) GetPhysicsType() float64{
-    return self.Get("physicsType").Float()
+func (self *SpriteBatch) GetPhysicsType() int{
+    return self.Get("physicsType").Int()
 }
 
 // The const physics body type of this object.
-func (self *SpriteBatch) SetPhysicsType(member float64) {
+func (self *SpriteBatch) SetPhysicsType(member int) {
     self.Set("physicsType", member)
 }
 
@@ -426,8 +426,8 @@ func (self *SpriteBatch) SetLength(member int) {
 // 
 // This has no impact on the rotation/angle properties of the children, but it will update their worldTransform
 // and on-screen orientation and position.
-func (self *SpriteBatch) GetAngle() float64{
-    return self.Get("angle").Float()
+func (self *SpriteBatch) GetAngle() int{
+    return self.Get("angle").Int()
 }
 
 // The angle of rotation of the group container, in degrees.
@@ -436,7 +436,7 @@ func (self *SpriteBatch) GetAngle() float64{
 // 
 // This has no impact on the rotation/angle properties of the children, but it will update their worldTransform
 // and on-screen orientation and position.
-func (self *SpriteBatch) SetAngle(member float64) {
+func (self *SpriteBatch) SetAngle(member int) {
     self.Set("angle", member)
 }
 
@@ -449,8 +449,8 @@ func (self *SpriteBatch) SetAngle(member float64) {
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *SpriteBatch) GetCenterX() float64{
-    return self.Get("centerX").Float()
+func (self *SpriteBatch) GetCenterX() int{
+    return self.Get("centerX").Int()
 }
 
 // The center x coordinate of this Group.
@@ -462,7 +462,7 @@ func (self *SpriteBatch) GetCenterX() float64{
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *SpriteBatch) SetCenterX(member float64) {
+func (self *SpriteBatch) SetCenterX(member int) {
     self.Set("centerX", member)
 }
 
@@ -475,8 +475,8 @@ func (self *SpriteBatch) SetCenterX(member float64) {
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *SpriteBatch) GetCenterY() float64{
-    return self.Get("centerY").Float()
+func (self *SpriteBatch) GetCenterY() int{
+    return self.Get("centerY").Int()
 }
 
 // The center y coordinate of this Group.
@@ -488,7 +488,7 @@ func (self *SpriteBatch) GetCenterY() float64{
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *SpriteBatch) SetCenterY(member float64) {
+func (self *SpriteBatch) SetCenterY(member int) {
     self.Set("centerY", member)
 }
 
@@ -501,8 +501,8 @@ func (self *SpriteBatch) SetCenterY(member float64) {
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *SpriteBatch) GetLeft() float64{
-    return self.Get("left").Float()
+func (self *SpriteBatch) GetLeft() int{
+    return self.Get("left").Int()
 }
 
 // The left coordinate of this Group.
@@ -514,7 +514,7 @@ func (self *SpriteBatch) GetLeft() float64{
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *SpriteBatch) SetLeft(member float64) {
+func (self *SpriteBatch) SetLeft(member int) {
     self.Set("left", member)
 }
 
@@ -527,8 +527,8 @@ func (self *SpriteBatch) SetLeft(member float64) {
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *SpriteBatch) GetRight() float64{
-    return self.Get("right").Float()
+func (self *SpriteBatch) GetRight() int{
+    return self.Get("right").Int()
 }
 
 // The right coordinate of this Group.
@@ -540,7 +540,7 @@ func (self *SpriteBatch) GetRight() float64{
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *SpriteBatch) SetRight(member float64) {
+func (self *SpriteBatch) SetRight(member int) {
     self.Set("right", member)
 }
 
@@ -553,8 +553,8 @@ func (self *SpriteBatch) SetRight(member float64) {
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *SpriteBatch) GetTop() float64{
-    return self.Get("top").Float()
+func (self *SpriteBatch) GetTop() int{
+    return self.Get("top").Int()
 }
 
 // The top coordinate of this Group.
@@ -566,7 +566,7 @@ func (self *SpriteBatch) GetTop() float64{
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *SpriteBatch) SetTop(member float64) {
+func (self *SpriteBatch) SetTop(member int) {
     self.Set("top", member)
 }
 
@@ -579,8 +579,8 @@ func (self *SpriteBatch) SetTop(member float64) {
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *SpriteBatch) GetBottom() float64{
-    return self.Get("bottom").Float()
+func (self *SpriteBatch) GetBottom() int{
+    return self.Get("bottom").Int()
 }
 
 // The bottom coordinate of this Group.
@@ -592,7 +592,7 @@ func (self *SpriteBatch) GetBottom() float64{
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *SpriteBatch) SetBottom(member float64) {
+func (self *SpriteBatch) SetBottom(member int) {
     self.Set("bottom", member)
 }
 
@@ -600,15 +600,15 @@ func (self *SpriteBatch) SetBottom(member float64) {
 // 
 // You can adjust the group container itself by modifying its coordinates.
 // This will have no impact on the x/y coordinates of its children, but it will update their worldTransform and on-screen position.
-func (self *SpriteBatch) GetX() float64{
-    return self.Get("x").Float()
+func (self *SpriteBatch) GetX() int{
+    return self.Get("x").Int()
 }
 
 // The x coordinate of the group container.
 // 
 // You can adjust the group container itself by modifying its coordinates.
 // This will have no impact on the x/y coordinates of its children, but it will update their worldTransform and on-screen position.
-func (self *SpriteBatch) SetX(member float64) {
+func (self *SpriteBatch) SetX(member int) {
     self.Set("x", member)
 }
 
@@ -616,15 +616,15 @@ func (self *SpriteBatch) SetX(member float64) {
 // 
 // You can adjust the group container itself by modifying its coordinates.
 // This will have no impact on the x/y coordinates of its children, but it will update their worldTransform and on-screen position.
-func (self *SpriteBatch) GetY() float64{
-    return self.Get("y").Float()
+func (self *SpriteBatch) GetY() int{
+    return self.Get("y").Int()
 }
 
 // The y coordinate of the group container.
 // 
 // You can adjust the group container itself by modifying its coordinates.
 // This will have no impact on the x/y coordinates of its children, but it will update their worldTransform and on-screen position.
-func (self *SpriteBatch) SetY(member float64) {
+func (self *SpriteBatch) SetY(member int) {
     self.Set("y", member)
 }
 
@@ -632,15 +632,15 @@ func (self *SpriteBatch) SetY(member float64) {
 // 
 // This will adjust the group container itself by modifying its rotation.
 // This will have no impact on the rotation value of its children, but it will update their worldTransform and on-screen position.
-func (self *SpriteBatch) GetRotation() float64{
-    return self.Get("rotation").Float()
+func (self *SpriteBatch) GetRotation() int{
+    return self.Get("rotation").Int()
 }
 
 // The angle of rotation of the group container, in radians.
 // 
 // This will adjust the group container itself by modifying its rotation.
 // This will have no impact on the rotation value of its children, but it will update their worldTransform and on-screen position.
-func (self *SpriteBatch) SetRotation(member float64) {
+func (self *SpriteBatch) SetRotation(member int) {
     self.Set("rotation", member)
 }
 
@@ -655,12 +655,12 @@ func (self *SpriteBatch) SetVisible(member bool) {
 }
 
 // The alpha value of the group container.
-func (self *SpriteBatch) GetAlpha() float64{
-    return self.Get("alpha").Float()
+func (self *SpriteBatch) GetAlpha() int{
+    return self.Get("alpha").Int()
 }
 
 // The alpha value of the group container.
-func (self *SpriteBatch) SetAlpha(member float64) {
+func (self *SpriteBatch) SetAlpha(member int) {
     self.Set("alpha", member)
 }
 
@@ -699,22 +699,22 @@ func (self *SpriteBatch) SetIgnoreChildInput(member bool) {
 }
 
 // The width of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *SpriteBatch) GetWidth() float64{
-    return self.Get("width").Float()
+func (self *SpriteBatch) GetWidth() int{
+    return self.Get("width").Int()
 }
 
 // The width of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *SpriteBatch) SetWidth(member float64) {
+func (self *SpriteBatch) SetWidth(member int) {
     self.Set("width", member)
 }
 
 // The height of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *SpriteBatch) GetHeight() float64{
-    return self.Get("height").Float()
+func (self *SpriteBatch) GetHeight() int{
+    return self.Get("height").Int()
 }
 
 // The height of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *SpriteBatch) SetHeight(member float64) {
+func (self *SpriteBatch) SetHeight(member int) {
     self.Set("height", member)
 }
 
@@ -1424,8 +1424,8 @@ func (self *SpriteBatch) SwapChildrenI(args ...interface{}) {
 }
 
 // Returns the index position of a child DisplayObject instance
-func (self *SpriteBatch) GetChildIndexI(args ...interface{}) float64{
-    return self.Call("getChildIndex", args).Float()
+func (self *SpriteBatch) GetChildIndexI(args ...interface{}) int{
+    return self.Call("getChildIndex", args).Int()
 }
 
 // Changes the position of an existing child in the display object container

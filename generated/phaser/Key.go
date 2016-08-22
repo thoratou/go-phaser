@@ -84,54 +84,54 @@ func (self *Key) SetShiftKey(member bool) {
 }
 
 // The timestamp when the key was last pressed down. This is based on Game.time.now.
-func (self *Key) GetTimeDown() float64{
-    return self.Get("timeDown").Float()
+func (self *Key) GetTimeDown() int{
+    return self.Get("timeDown").Int()
 }
 
 // The timestamp when the key was last pressed down. This is based on Game.time.now.
-func (self *Key) SetTimeDown(member float64) {
+func (self *Key) SetTimeDown(member int) {
     self.Set("timeDown", member)
 }
 
 // If the key is down this value holds the duration of that key press and is constantly updated.
 // If the key is up it holds the duration of the previous down session. The number of milliseconds this key has been held down for.
-func (self *Key) GetDuration() float64{
-    return self.Get("duration").Float()
+func (self *Key) GetDuration() int{
+    return self.Get("duration").Int()
 }
 
 // If the key is down this value holds the duration of that key press and is constantly updated.
 // If the key is up it holds the duration of the previous down session. The number of milliseconds this key has been held down for.
-func (self *Key) SetDuration(member float64) {
+func (self *Key) SetDuration(member int) {
     self.Set("duration", member)
 }
 
 // The timestamp when the key was last released. This is based on Game.time.now.
-func (self *Key) GetTimeUp() float64{
-    return self.Get("timeUp").Float()
+func (self *Key) GetTimeUp() int{
+    return self.Get("timeUp").Int()
 }
 
 // The timestamp when the key was last released. This is based on Game.time.now.
-func (self *Key) SetTimeUp(member float64) {
+func (self *Key) SetTimeUp(member int) {
     self.Set("timeUp", member)
 }
 
 // If a key is held down this holds down the number of times the key has 'repeated'.
-func (self *Key) GetRepeats() float64{
-    return self.Get("repeats").Float()
+func (self *Key) GetRepeats() int{
+    return self.Get("repeats").Int()
 }
 
 // If a key is held down this holds down the number of times the key has 'repeated'.
-func (self *Key) SetRepeats(member float64) {
+func (self *Key) SetRepeats(member int) {
     self.Set("repeats", member)
 }
 
 // The keycode of this key.
-func (self *Key) GetKeyCode() float64{
-    return self.Get("keyCode").Float()
+func (self *Key) GetKeyCode() int{
+    return self.Get("keyCode").Int()
 }
 
 // The keycode of this key.
-func (self *Key) SetKeyCode(member float64) {
+func (self *Key) SetKeyCode(member int) {
     self.Set("keyCode", member)
 }
 

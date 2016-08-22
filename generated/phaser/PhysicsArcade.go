@@ -56,32 +56,32 @@ func (self *PhysicsArcade) SetCheckCollision(member interface{}) {
 }
 
 // Used by the QuadTree to set the maximum number of objects per quad.
-func (self *PhysicsArcade) GetMaxObjects() float64{
-    return self.Get("maxObjects").Float()
+func (self *PhysicsArcade) GetMaxObjects() int{
+    return self.Get("maxObjects").Int()
 }
 
 // Used by the QuadTree to set the maximum number of objects per quad.
-func (self *PhysicsArcade) SetMaxObjects(member float64) {
+func (self *PhysicsArcade) SetMaxObjects(member int) {
     self.Set("maxObjects", member)
 }
 
 // Used by the QuadTree to set the maximum number of iteration levels.
-func (self *PhysicsArcade) GetMaxLevels() float64{
-    return self.Get("maxLevels").Float()
+func (self *PhysicsArcade) GetMaxLevels() int{
+    return self.Get("maxLevels").Int()
 }
 
 // Used by the QuadTree to set the maximum number of iteration levels.
-func (self *PhysicsArcade) SetMaxLevels(member float64) {
+func (self *PhysicsArcade) SetMaxLevels(member int) {
     self.Set("maxLevels", member)
 }
 
 // A value added to the delta values during collision checks.
-func (self *PhysicsArcade) GetOVERLAP_BIAS() float64{
-    return self.Get("OVERLAP_BIAS").Float()
+func (self *PhysicsArcade) GetOVERLAP_BIAS() int{
+    return self.Get("OVERLAP_BIAS").Int()
 }
 
 // A value added to the delta values during collision checks.
-func (self *PhysicsArcade) SetOVERLAP_BIAS(member float64) {
+func (self *PhysicsArcade) SetOVERLAP_BIAS(member int) {
     self.Set("OVERLAP_BIAS", member)
 }
 
@@ -96,12 +96,12 @@ func (self *PhysicsArcade) SetForceX(member bool) {
 }
 
 // Used when colliding a Sprite vs. a Group, or a Group vs. a Group, this defines the direction the sort is based on. Default is Phaser.Physics.Arcade.LEFT_RIGHT.
-func (self *PhysicsArcade) GetSortDirection() float64{
-    return self.Get("sortDirection").Float()
+func (self *PhysicsArcade) GetSortDirection() int{
+    return self.Get("sortDirection").Int()
 }
 
 // Used when colliding a Sprite vs. a Group, or a Group vs. a Group, this defines the direction the sort is based on. Default is Phaser.Physics.Arcade.LEFT_RIGHT.
-func (self *PhysicsArcade) SetSortDirection(member float64) {
+func (self *PhysicsArcade) SetSortDirection(member int) {
     self.Set("sortDirection", member)
 }
 
@@ -137,61 +137,61 @@ func (self *PhysicsArcade) SetQuadTree(member *QuadTree) {
 
 // A constant used for the sortDirection value.
 // Use this if you don't wish to perform any pre-collision sorting at all, or will manually sort your Groups.
-func (self *PhysicsArcade) GetSORT_NONE() float64{
-    return self.Get("SORT_NONE").Float()
+func (self *PhysicsArcade) GetSORT_NONE() int{
+    return self.Get("SORT_NONE").Int()
 }
 
 // A constant used for the sortDirection value.
 // Use this if you don't wish to perform any pre-collision sorting at all, or will manually sort your Groups.
-func (self *PhysicsArcade) SetSORT_NONE(member float64) {
+func (self *PhysicsArcade) SetSORT_NONE(member int) {
     self.Set("SORT_NONE", member)
 }
 
 // A constant used for the sortDirection value.
 // Use this if your game world is wide but short and scrolls from the left to the right (i.e. Mario)
-func (self *PhysicsArcade) GetLEFT_RIGHT() float64{
-    return self.Get("LEFT_RIGHT").Float()
+func (self *PhysicsArcade) GetLEFT_RIGHT() int{
+    return self.Get("LEFT_RIGHT").Int()
 }
 
 // A constant used for the sortDirection value.
 // Use this if your game world is wide but short and scrolls from the left to the right (i.e. Mario)
-func (self *PhysicsArcade) SetLEFT_RIGHT(member float64) {
+func (self *PhysicsArcade) SetLEFT_RIGHT(member int) {
     self.Set("LEFT_RIGHT", member)
 }
 
 // A constant used for the sortDirection value.
 // Use this if your game world is wide but short and scrolls from the right to the left (i.e. Mario backwards)
-func (self *PhysicsArcade) GetRIGHT_LEFT() float64{
-    return self.Get("RIGHT_LEFT").Float()
+func (self *PhysicsArcade) GetRIGHT_LEFT() int{
+    return self.Get("RIGHT_LEFT").Int()
 }
 
 // A constant used for the sortDirection value.
 // Use this if your game world is wide but short and scrolls from the right to the left (i.e. Mario backwards)
-func (self *PhysicsArcade) SetRIGHT_LEFT(member float64) {
+func (self *PhysicsArcade) SetRIGHT_LEFT(member int) {
     self.Set("RIGHT_LEFT", member)
 }
 
 // A constant used for the sortDirection value.
 // Use this if your game world is narrow but tall and scrolls from the top to the bottom (i.e. Dig Dug)
-func (self *PhysicsArcade) GetTOP_BOTTOM() float64{
-    return self.Get("TOP_BOTTOM").Float()
+func (self *PhysicsArcade) GetTOP_BOTTOM() int{
+    return self.Get("TOP_BOTTOM").Int()
 }
 
 // A constant used for the sortDirection value.
 // Use this if your game world is narrow but tall and scrolls from the top to the bottom (i.e. Dig Dug)
-func (self *PhysicsArcade) SetTOP_BOTTOM(member float64) {
+func (self *PhysicsArcade) SetTOP_BOTTOM(member int) {
     self.Set("TOP_BOTTOM", member)
 }
 
 // A constant used for the sortDirection value.
 // Use this if your game world is narrow but tall and scrolls from the bottom to the top (i.e. Commando or a vertically scrolling shoot-em-up)
-func (self *PhysicsArcade) GetBOTTOM_TOP() float64{
-    return self.Get("BOTTOM_TOP").Float()
+func (self *PhysicsArcade) GetBOTTOM_TOP() int{
+    return self.Get("BOTTOM_TOP").Int()
 }
 
 // A constant used for the sortDirection value.
 // Use this if your game world is narrow but tall and scrolls from the bottom to the top (i.e. Commando or a vertically scrolling shoot-em-up)
-func (self *PhysicsArcade) SetBOTTOM_TOP(member float64) {
+func (self *PhysicsArcade) SetBOTTOM_TOP(member int) {
     self.Set("BOTTOM_TOP", member)
 }
 
@@ -229,8 +229,8 @@ func (self *PhysicsArcade) UpdateMotionI(args ...interface{}) {
 
 // A tween-like function that takes a starting velocity and some other factors and returns an altered velocity.
 // Based on a function in Flixel by @ADAMATOMIC
-func (self *PhysicsArcade) ComputeVelocityI(args ...interface{}) float64{
-    return self.Call("computeVelocity", args).Float()
+func (self *PhysicsArcade) ComputeVelocityI(args ...interface{}) int{
+    return self.Call("computeVelocity", args).Int()
 }
 
 // Checks for overlaps between two game objects. The objects can be Sprites, Groups or Emitters.
@@ -395,8 +395,8 @@ func (self *PhysicsArcade) GetObjectsAtLocationI(args ...interface{}) []DisplayO
 // Note: The display object does not continuously track the target. If the target changes location during transit the display object will not modify its course.
 // Note: The display object doesn't stop moving once it reaches the destination coordinates.
 // Note: Doesn't take into account acceleration, maxVelocity or drag (if you've set drag or acceleration too high this object may not move at all)
-func (self *PhysicsArcade) MoveToObjectI(args ...interface{}) float64{
-    return self.Call("moveToObject", args).Float()
+func (self *PhysicsArcade) MoveToObjectI(args ...interface{}) int{
+    return self.Call("moveToObject", args).Int()
 }
 
 // Move the given display object towards the pointer at a steady velocity. If no pointer is given it will use Phaser.Input.activePointer.
@@ -404,8 +404,8 @@ func (self *PhysicsArcade) MoveToObjectI(args ...interface{}) float64{
 // Timings are approximate due to the way browser timers work. Allow for a variance of +- 50ms.
 // Note: The display object does not continuously track the target. If the target changes location during transit the display object will not modify its course.
 // Note: The display object doesn't stop moving once it reaches the destination coordinates.
-func (self *PhysicsArcade) MoveToPointerI(args ...interface{}) float64{
-    return self.Call("moveToPointer", args).Float()
+func (self *PhysicsArcade) MoveToPointerI(args ...interface{}) int{
+    return self.Call("moveToPointer", args).Int()
 }
 
 // Move the given display object towards the x/y coordinates at a steady velocity.
@@ -414,8 +414,8 @@ func (self *PhysicsArcade) MoveToPointerI(args ...interface{}) float64{
 // Note: The display object does not continuously track the target. If the target changes location during transit the display object will not modify its course.
 // Note: The display object doesn't stop moving once it reaches the destination coordinates.
 // Note: Doesn't take into account acceleration, maxVelocity or drag (if you've set drag or acceleration too high this object may not move at all)
-func (self *PhysicsArcade) MoveToXYI(args ...interface{}) float64{
-    return self.Call("moveToXY", args).Float()
+func (self *PhysicsArcade) MoveToXYI(args ...interface{}) int{
+    return self.Call("moveToXY", args).Int()
 }
 
 // Given the angle (in degrees) and speed calculate the velocity and return it as a Point object, or set it to the given point object.
@@ -440,24 +440,24 @@ func (self *PhysicsArcade) AccelerationFromRotationI(args ...interface{}) *Point
 // You must give a maximum speed value, beyond which the display object won't go any faster.
 // Note: The display object does not continuously track the target. If the target changes location during transit the display object will not modify its course.
 // Note: The display object doesn't stop moving once it reaches the destination coordinates.
-func (self *PhysicsArcade) AccelerateToObjectI(args ...interface{}) float64{
-    return self.Call("accelerateToObject", args).Float()
+func (self *PhysicsArcade) AccelerateToObjectI(args ...interface{}) int{
+    return self.Call("accelerateToObject", args).Int()
 }
 
 // Sets the acceleration.x/y property on the display object so it will move towards the target at the given speed (in pixels per second sq.)
 // You must give a maximum speed value, beyond which the display object won't go any faster.
 // Note: The display object does not continuously track the target. If the target changes location during transit the display object will not modify its course.
 // Note: The display object doesn't stop moving once it reaches the destination coordinates.
-func (self *PhysicsArcade) AccelerateToPointerI(args ...interface{}) float64{
-    return self.Call("accelerateToPointer", args).Float()
+func (self *PhysicsArcade) AccelerateToPointerI(args ...interface{}) int{
+    return self.Call("accelerateToPointer", args).Int()
 }
 
 // Sets the acceleration.x/y property on the display object so it will move towards the x/y coordinates at the given speed (in pixels per second sq.)
 // You must give a maximum speed value, beyond which the display object won't go any faster.
 // Note: The display object does not continuously track the target. If the target changes location during transit the display object will not modify its course.
 // Note: The display object doesn't stop moving once it reaches the destination coordinates.
-func (self *PhysicsArcade) AccelerateToXYI(args ...interface{}) float64{
-    return self.Call("accelerateToXY", args).Float()
+func (self *PhysicsArcade) AccelerateToXYI(args ...interface{}) int{
+    return self.Call("accelerateToXY", args).Int()
 }
 
 // Find the distance between two display objects (like Sprites).
@@ -465,8 +465,8 @@ func (self *PhysicsArcade) AccelerateToXYI(args ...interface{}) float64{
 // The optional `world` argument allows you to return the result based on the Game Objects `world` property,
 // instead of its `x` and `y` values. This is useful of the object has been nested inside an offset Group,
 // or parent Game Object.
-func (self *PhysicsArcade) DistanceBetweenI(args ...interface{}) float64{
-    return self.Call("distanceBetween", args).Float()
+func (self *PhysicsArcade) DistanceBetweenI(args ...interface{}) int{
+    return self.Call("distanceBetween", args).Int()
 }
 
 // Find the distance between a display object (like a Sprite) and the given x/y coordinates.
@@ -476,8 +476,8 @@ func (self *PhysicsArcade) DistanceBetweenI(args ...interface{}) float64{
 // The optional `world` argument allows you to return the result based on the Game Objects `world` property,
 // instead of its `x` and `y` values. This is useful of the object has been nested inside an offset Group,
 // or parent Game Object.
-func (self *PhysicsArcade) DistanceToXYI(args ...interface{}) float64{
-    return self.Call("distanceToXY", args).Float()
+func (self *PhysicsArcade) DistanceToXYI(args ...interface{}) int{
+    return self.Call("distanceToXY", args).Int()
 }
 
 // Find the distance between a display object (like a Sprite) and a Pointer. If no Pointer is given the Input.activePointer is used.
@@ -487,8 +487,8 @@ func (self *PhysicsArcade) DistanceToXYI(args ...interface{}) float64{
 // The optional `world` argument allows you to return the result based on the Game Objects `world` property,
 // instead of its `x` and `y` values. This is useful of the object has been nested inside an offset Group,
 // or parent Game Object.
-func (self *PhysicsArcade) DistanceToPointerI(args ...interface{}) float64{
-    return self.Call("distanceToPointer", args).Float()
+func (self *PhysicsArcade) DistanceToPointerI(args ...interface{}) int{
+    return self.Call("distanceToPointer", args).Int()
 }
 
 // Find the angle in radians between two display objects (like Sprites).
@@ -496,13 +496,13 @@ func (self *PhysicsArcade) DistanceToPointerI(args ...interface{}) float64{
 // The optional `world` argument allows you to return the result based on the Game Objects `world` property,
 // instead of its `x` and `y` values. This is useful of the object has been nested inside an offset Group,
 // or parent Game Object.
-func (self *PhysicsArcade) AngleBetweenI(args ...interface{}) float64{
-    return self.Call("angleBetween", args).Float()
+func (self *PhysicsArcade) AngleBetweenI(args ...interface{}) int{
+    return self.Call("angleBetween", args).Int()
 }
 
 // Find the angle in radians between centers of two display objects (like Sprites).
-func (self *PhysicsArcade) AngleBetweenCentersI(args ...interface{}) float64{
-    return self.Call("angleBetweenCenters", args).Float()
+func (self *PhysicsArcade) AngleBetweenCentersI(args ...interface{}) int{
+    return self.Call("angleBetweenCenters", args).Int()
 }
 
 // Find the angle in radians between a display object (like a Sprite) and the given x/y coordinate.
@@ -510,8 +510,8 @@ func (self *PhysicsArcade) AngleBetweenCentersI(args ...interface{}) float64{
 // The optional `world` argument allows you to return the result based on the Game Objects `world` property,
 // instead of its `x` and `y` values. This is useful of the object has been nested inside an offset Group,
 // or parent Game Object.
-func (self *PhysicsArcade) AngleToXYI(args ...interface{}) float64{
-    return self.Call("angleToXY", args).Float()
+func (self *PhysicsArcade) AngleToXYI(args ...interface{}) int{
+    return self.Call("angleToXY", args).Int()
 }
 
 // Find the angle in radians between a display object (like a Sprite) and a Pointer, taking their x/y and center into account.
@@ -519,12 +519,12 @@ func (self *PhysicsArcade) AngleToXYI(args ...interface{}) float64{
 // The optional `world` argument allows you to return the result based on the Game Objects `world` property,
 // instead of its `x` and `y` values. This is useful of the object has been nested inside an offset Group,
 // or parent Game Object.
-func (self *PhysicsArcade) AngleToPointerI(args ...interface{}) float64{
-    return self.Call("angleToPointer", args).Float()
+func (self *PhysicsArcade) AngleToPointerI(args ...interface{}) int{
+    return self.Call("angleToPointer", args).Int()
 }
 
 // Find the angle in radians between a display object (like a Sprite) and a Pointer, 
 // taking their x/y and center into account relative to the world.
-func (self *PhysicsArcade) WorldAngleToPointerI(args ...interface{}) float64{
-    return self.Call("worldAngleToPointer", args).Float()
+func (self *PhysicsArcade) WorldAngleToPointerI(args ...interface{}) int{
+    return self.Call("worldAngleToPointer", args).Int()
 }

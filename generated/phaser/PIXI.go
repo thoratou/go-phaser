@@ -26,22 +26,22 @@ func (self *PIXI) SetGame(member *PhaserGame) {
 }
 
 // 
-func (self *PIXI) GetWEBGL_RENDERER() float64{
-    return self.Get("WEBGL_RENDERER").Float()
+func (self *PIXI) GetWEBGL_RENDERER() int{
+    return self.Get("WEBGL_RENDERER").Int()
 }
 
 // 
-func (self *PIXI) SetWEBGL_RENDERER(member float64) {
+func (self *PIXI) SetWEBGL_RENDERER(member int) {
     self.Set("WEBGL_RENDERER", member)
 }
 
 // 
-func (self *PIXI) GetCANVAS_RENDERER() float64{
-    return self.Get("CANVAS_RENDERER").Float()
+func (self *PIXI) GetCANVAS_RENDERER() int{
+    return self.Get("CANVAS_RENDERER").Int()
 }
 
 // 
-func (self *PIXI) SetCANVAS_RENDERER(member float64) {
+func (self *PIXI) SetCANVAS_RENDERER(member int) {
     self.Set("CANVAS_RENDERER", member)
 }
 
@@ -56,32 +56,32 @@ func (self *PIXI) SetVERSION(member string) {
 }
 
 // 
-func (self *PIXI) GetPI_2() float64{
-    return self.Get("PI_2").Float()
+func (self *PIXI) GetPI_2() int{
+    return self.Get("PI_2").Int()
 }
 
 // 
-func (self *PIXI) SetPI_2(member float64) {
+func (self *PIXI) SetPI_2(member int) {
     self.Set("PI_2", member)
 }
 
 // 
-func (self *PIXI) GetRAD_TO_DEG() float64{
-    return self.Get("RAD_TO_DEG").Float()
+func (self *PIXI) GetRAD_TO_DEG() int{
+    return self.Get("RAD_TO_DEG").Int()
 }
 
 // 
-func (self *PIXI) SetRAD_TO_DEG(member float64) {
+func (self *PIXI) SetRAD_TO_DEG(member int) {
     self.Set("RAD_TO_DEG", member)
 }
 
 // 
-func (self *PIXI) GetDEG_TO_RAD() float64{
-    return self.Get("DEG_TO_RAD").Float()
+func (self *PIXI) GetDEG_TO_RAD() int{
+    return self.Get("DEG_TO_RAD").Int()
 }
 
 // 
-func (self *PIXI) SetDEG_TO_RAD(member float64) {
+func (self *PIXI) SetDEG_TO_RAD(member int) {
     self.Set("DEG_TO_RAD", member)
 }
 
@@ -126,8 +126,8 @@ func (self *PIXI) CanUseNewCanvasBlendModesI(args ...interface{}) bool{
 
 // Given a number, this function returns the closest number that is a power of two
 // this function is taken from Starling Framework as its pretty neat ;)
-func (self *PIXI) GetNextPowerOfTwoI(args ...interface{}) float64{
-    return self.Call("getNextPowerOfTwo", args).Float()
+func (self *PIXI) GetNextPowerOfTwoI(args ...interface{}) int{
+    return self.Call("getNextPowerOfTwo", args).Int()
 }
 
 // checks if the given width and height make a power of two texture

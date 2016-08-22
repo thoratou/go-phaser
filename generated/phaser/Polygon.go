@@ -23,12 +23,12 @@ type Polygon struct {
 
 
 // The area of this Polygon.
-func (self *Polygon) GetArea() float64{
-    return self.Get("area").Float()
+func (self *Polygon) GetArea() int{
+    return self.Get("area").Int()
 }
 
 // The area of this Polygon.
-func (self *Polygon) SetArea(member float64) {
+func (self *Polygon) SetArea(member int) {
     self.Set("area", member)
 }
 
@@ -53,12 +53,12 @@ func (self *Polygon) SetFlattened(member bool) {
 }
 
 // The base object type.
-func (self *Polygon) GetType() float64{
-    return self.Get("type").Float()
+func (self *Polygon) GetType() int{
+    return self.Get("type").Int()
 }
 
 // The base object type.
-func (self *Polygon) SetType(member float64) {
+func (self *Polygon) SetType(member int) {
     self.Set("type", member)
 }
 
@@ -131,6 +131,6 @@ func (self *Polygon) SetToI(args ...interface{}) *Polygon{
 }
 
 // Calcuates the area of the Polygon. This is available in the property Polygon.area
-func (self *Polygon) CalculateAreaI(args ...interface{}) float64{
-    return self.Call("calculateArea", args).Float()
+func (self *Polygon) CalculateAreaI(args ...interface{}) int{
+    return self.Call("calculateArea", args).Int()
 }

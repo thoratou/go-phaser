@@ -64,12 +64,12 @@ func (self *Timer) SetExpired(member bool) {
 }
 
 // Elapsed time since the last frame (in ms).
-func (self *Timer) GetElapsed() float64{
-    return self.Get("elapsed").Float()
+func (self *Timer) GetElapsed() int{
+    return self.Get("elapsed").Int()
 }
 
 // Elapsed time since the last frame (in ms).
-func (self *Timer) SetElapsed(member float64) {
+func (self *Timer) SetElapsed(member int) {
     self.Set("elapsed", member)
 }
 
@@ -104,22 +104,22 @@ func (self *Timer) SetOnComplete(member *Signal) {
 }
 
 // The time the next tick will occur.
-func (self *Timer) GetNextTick() float64{
-    return self.Get("nextTick").Float()
+func (self *Timer) GetNextTick() int{
+    return self.Get("nextTick").Int()
 }
 
 // The time the next tick will occur.
-func (self *Timer) SetNextTick(member float64) {
+func (self *Timer) SetNextTick(member int) {
     self.Set("nextTick", member)
 }
 
 // If the difference in time between two frame updates exceeds this value, the event times are reset to avoid catch-up situations.
-func (self *Timer) GetTimeCap() float64{
-    return self.Get("timeCap").Float()
+func (self *Timer) GetTimeCap() int{
+    return self.Get("timeCap").Int()
 }
 
 // If the difference in time between two frame updates exceeds this value, the event times are reset to avoid catch-up situations.
-func (self *Timer) SetTimeCap(member float64) {
+func (self *Timer) SetTimeCap(member int) {
     self.Set("timeCap", member)
 }
 
@@ -174,52 +174,52 @@ func (self *Timer) SetQUARTER(member int) {
 }
 
 // The time at which the next event will occur.
-func (self *Timer) GetNext() float64{
-    return self.Get("next").Float()
+func (self *Timer) GetNext() int{
+    return self.Get("next").Int()
 }
 
 // The time at which the next event will occur.
-func (self *Timer) SetNext(member float64) {
+func (self *Timer) SetNext(member int) {
     self.Set("next", member)
 }
 
 // The duration in ms remaining until the next event will occur.
-func (self *Timer) GetDuration() float64{
-    return self.Get("duration").Float()
+func (self *Timer) GetDuration() int{
+    return self.Get("duration").Int()
 }
 
 // The duration in ms remaining until the next event will occur.
-func (self *Timer) SetDuration(member float64) {
+func (self *Timer) SetDuration(member int) {
     self.Set("duration", member)
 }
 
 // The number of pending events in the queue.
-func (self *Timer) GetLength() float64{
-    return self.Get("length").Float()
+func (self *Timer) GetLength() int{
+    return self.Get("length").Int()
 }
 
 // The number of pending events in the queue.
-func (self *Timer) SetLength(member float64) {
+func (self *Timer) SetLength(member int) {
     self.Set("length", member)
 }
 
 // The duration in milliseconds that this Timer has been running for.
-func (self *Timer) GetMs() float64{
-    return self.Get("ms").Float()
+func (self *Timer) GetMs() int{
+    return self.Get("ms").Int()
 }
 
 // The duration in milliseconds that this Timer has been running for.
-func (self *Timer) SetMs(member float64) {
+func (self *Timer) SetMs(member int) {
     self.Set("ms", member)
 }
 
 // The duration in seconds that this Timer has been running for.
-func (self *Timer) GetSeconds() float64{
-    return self.Get("seconds").Float()
+func (self *Timer) GetSeconds() int{
+    return self.Get("seconds").Int()
 }
 
 // The duration in seconds that this Timer has been running for.
-func (self *Timer) SetSeconds(member float64) {
+func (self *Timer) SetSeconds(member int) {
     self.Set("seconds", member)
 }
 

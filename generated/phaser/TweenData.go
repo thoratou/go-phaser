@@ -36,62 +36,62 @@ func (self *TweenData) SetGame(member *Game) {
 }
 
 // The duration of the tween in ms.
-func (self *TweenData) GetDuration() float64{
-    return self.Get("duration").Float()
+func (self *TweenData) GetDuration() int{
+    return self.Get("duration").Int()
 }
 
 // The duration of the tween in ms.
-func (self *TweenData) SetDuration(member float64) {
+func (self *TweenData) SetDuration(member int) {
     self.Set("duration", member)
 }
 
 // A value between 0 and 1 that represents how far through the duration this tween is.
-func (self *TweenData) GetPercent() float64{
-    return self.Get("percent").Float()
+func (self *TweenData) GetPercent() int{
+    return self.Get("percent").Int()
 }
 
 // A value between 0 and 1 that represents how far through the duration this tween is.
-func (self *TweenData) SetPercent(member float64) {
+func (self *TweenData) SetPercent(member int) {
     self.Set("percent", member)
 }
 
 // The current calculated value.
-func (self *TweenData) GetValue() float64{
-    return self.Get("value").Float()
+func (self *TweenData) GetValue() int{
+    return self.Get("value").Int()
 }
 
 // The current calculated value.
-func (self *TweenData) SetValue(member float64) {
+func (self *TweenData) SetValue(member int) {
     self.Set("value", member)
 }
 
 // If the Tween is set to repeat this contains the current repeat count.
-func (self *TweenData) GetRepeatCounter() float64{
-    return self.Get("repeatCounter").Float()
+func (self *TweenData) GetRepeatCounter() int{
+    return self.Get("repeatCounter").Int()
 }
 
 // If the Tween is set to repeat this contains the current repeat count.
-func (self *TweenData) SetRepeatCounter(member float64) {
+func (self *TweenData) SetRepeatCounter(member int) {
     self.Set("repeatCounter", member)
 }
 
 // The amount of time in ms between repeats of this tween.
-func (self *TweenData) GetRepeatDelay() float64{
-    return self.Get("repeatDelay").Float()
+func (self *TweenData) GetRepeatDelay() int{
+    return self.Get("repeatDelay").Int()
 }
 
 // The amount of time in ms between repeats of this tween.
-func (self *TweenData) SetRepeatDelay(member float64) {
+func (self *TweenData) SetRepeatDelay(member int) {
     self.Set("repeatDelay", member)
 }
 
 // The total number of times this Tween will repeat.
-func (self *TweenData) GetRepeatTotal() float64{
-    return self.Get("repeatTotal").Float()
+func (self *TweenData) GetRepeatTotal() int{
+    return self.Get("repeatTotal").Int()
 }
 
 // The total number of times this Tween will repeat.
-func (self *TweenData) SetRepeatTotal(member float64) {
+func (self *TweenData) SetRepeatTotal(member int) {
     self.Set("repeatTotal", member)
 }
 
@@ -116,12 +116,12 @@ func (self *TweenData) SetYoyo(member bool) {
 }
 
 // The amount of time in ms between yoyos of this tween.
-func (self *TweenData) GetYoyoDelay() float64{
-    return self.Get("yoyoDelay").Float()
+func (self *TweenData) GetYoyoDelay() int{
+    return self.Get("yoyoDelay").Int()
 }
 
 // The amount of time in ms between yoyos of this tween.
-func (self *TweenData) SetYoyoDelay(member float64) {
+func (self *TweenData) SetYoyoDelay(member int) {
     self.Set("yoyoDelay", member)
 }
 
@@ -136,32 +136,32 @@ func (self *TweenData) SetInReverse(member bool) {
 }
 
 // The amount to delay by until the Tween starts (in ms). Only applies to the start, use repeatDelay to handle repeats.
-func (self *TweenData) GetDelay() float64{
-    return self.Get("delay").Float()
+func (self *TweenData) GetDelay() int{
+    return self.Get("delay").Int()
 }
 
 // The amount to delay by until the Tween starts (in ms). Only applies to the start, use repeatDelay to handle repeats.
-func (self *TweenData) SetDelay(member float64) {
+func (self *TweenData) SetDelay(member int) {
     self.Set("delay", member)
 }
 
 // Current time value.
-func (self *TweenData) GetDt() float64{
-    return self.Get("dt").Float()
+func (self *TweenData) GetDt() int{
+    return self.Get("dt").Int()
 }
 
 // Current time value.
-func (self *TweenData) SetDt(member float64) {
+func (self *TweenData) SetDt(member int) {
     self.Set("dt", member)
 }
 
 // The time the Tween started or null if it hasn't yet started.
-func (self *TweenData) GetStartTime() float64{
-    return self.Get("startTime").Float()
+func (self *TweenData) GetStartTime() int{
+    return self.Get("startTime").Int()
 }
 
 // The time the Tween started or null if it hasn't yet started.
-func (self *TweenData) SetStartTime(member float64) {
+func (self *TweenData) SetStartTime(member int) {
     self.Set("startTime", member)
 }
 
@@ -206,42 +206,42 @@ func (self *TweenData) SetIsFrom(member bool) {
 }
 
 // 
-func (self *TweenData) GetPENDING() float64{
-    return self.Get("PENDING").Float()
+func (self *TweenData) GetPENDING() int{
+    return self.Get("PENDING").Int()
 }
 
 // 
-func (self *TweenData) SetPENDING(member float64) {
+func (self *TweenData) SetPENDING(member int) {
     self.Set("PENDING", member)
 }
 
 // 
-func (self *TweenData) GetRUNNING() float64{
-    return self.Get("RUNNING").Float()
+func (self *TweenData) GetRUNNING() int{
+    return self.Get("RUNNING").Int()
 }
 
 // 
-func (self *TweenData) SetRUNNING(member float64) {
+func (self *TweenData) SetRUNNING(member int) {
     self.Set("RUNNING", member)
 }
 
 // 
-func (self *TweenData) GetLOOPED() float64{
-    return self.Get("LOOPED").Float()
+func (self *TweenData) GetLOOPED() int{
+    return self.Get("LOOPED").Int()
 }
 
 // 
-func (self *TweenData) SetLOOPED(member float64) {
+func (self *TweenData) SetLOOPED(member int) {
     self.Set("LOOPED", member)
 }
 
 // 
-func (self *TweenData) GetCOMPLETE() float64{
-    return self.Get("COMPLETE").Float()
+func (self *TweenData) GetCOMPLETE() int{
+    return self.Get("COMPLETE").Int()
 }
 
 // 
-func (self *TweenData) SetCOMPLETE(member float64) {
+func (self *TweenData) SetCOMPLETE(member int) {
     self.Set("COMPLETE", member)
 }
 
@@ -270,8 +270,8 @@ func (self *TweenData) LoadValuesI(args ...interface{}) *TweenData{
 }
 
 // Updates this Tween. This is called automatically by Phaser.Tween.
-func (self *TweenData) UpdateI(args ...interface{}) float64{
-    return self.Call("update", args).Float()
+func (self *TweenData) UpdateI(args ...interface{}) int{
+    return self.Call("update", args).Int()
 }
 
 // This will generate an array populated with the tweened object values from start to end.
@@ -288,6 +288,6 @@ func (self *TweenData) GenerateDataI(args ...interface{}) []interface{}{
 }
 
 // Checks if this Tween is meant to repeat or yoyo and handles doing so.
-func (self *TweenData) RepeatI(args ...interface{}) float64{
-    return self.Call("repeat", args).Float()
+func (self *TweenData) RepeatI(args ...interface{}) int{
+    return self.Call("repeat", args).Int()
 }

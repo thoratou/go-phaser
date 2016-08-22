@@ -107,8 +107,8 @@ func (self *Signal) _addBindingI(args ...interface{}) {
 }
 
 // 
-func (self *Signal) _indexOfListenerI(args ...interface{}) float64{
-    return self.Call("_indexOfListener", args).Float()
+func (self *Signal) _indexOfListenerI(args ...interface{}) int{
+    return self.Call("_indexOfListener", args).Int()
 }
 
 // Check if a specific listener is attached.

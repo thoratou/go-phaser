@@ -136,12 +136,12 @@ func (self *SoundManager) SetTouchLocked(member bool) {
 }
 
 // The number of audio channels to use in playback.
-func (self *SoundManager) GetChannels() float64{
-    return self.Get("channels").Float()
+func (self *SoundManager) GetChannels() int{
+    return self.Get("channels").Int()
 }
 
 // The number of audio channels to use in playback.
-func (self *SoundManager) SetChannels(member float64) {
+func (self *SoundManager) SetChannels(member int) {
     self.Set("channels", member)
 }
 
@@ -170,12 +170,12 @@ func (self *SoundManager) SetMute(member bool) {
 }
 
 // Gets or sets the global volume of the SoundManager, a value between 0 and 1. The value given is clamped to the range 0 to 1.
-func (self *SoundManager) GetVolume() float64{
-    return self.Get("volume").Float()
+func (self *SoundManager) GetVolume() int{
+    return self.Get("volume").Int()
 }
 
 // Gets or sets the global volume of the SoundManager, a value between 0 and 1. The value given is clamped to the range 0 to 1.
-func (self *SoundManager) SetVolume(member float64) {
+func (self *SoundManager) SetVolume(member int) {
     self.Set("volume", member)
 }
 
@@ -247,8 +247,8 @@ func (self *SoundManager) RemoveI(args ...interface{}) bool{
 
 // Removes all Sounds from the SoundManager that have an asset key matching the given value.
 // The removed Sounds are destroyed before removal.
-func (self *SoundManager) RemoveByKeyI(args ...interface{}) float64{
-    return self.Call("removeByKey", args).Float()
+func (self *SoundManager) RemoveByKeyI(args ...interface{}) int{
+    return self.Call("removeByKey", args).Int()
 }
 
 // Adds a new Sound into the SoundManager and starts it playing.

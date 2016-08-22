@@ -16,16 +16,16 @@ type EasingQuintic struct {
 
 
 // Quintic ease-in.
-func (self *EasingQuintic) InI(args ...interface{}) float64{
-    return self.Call("In", args).Float()
+func (self *EasingQuintic) InI(args ...interface{}) int{
+    return self.Call("In", args).Int()
 }
 
 // Quintic ease-out.
-func (self *EasingQuintic) OutI(args ...interface{}) float64{
-    return self.Call("Out", args).Float()
+func (self *EasingQuintic) OutI(args ...interface{}) int{
+    return self.Call("Out", args).Int()
 }
 
 // Quintic ease-in/out.
-func (self *EasingQuintic) InOutI(args ...interface{}) float64{
-    return self.Call("InOut", args).Float()
+func (self *EasingQuintic) InOutI(args ...interface{}) int{
+    return self.Call("InOut", args).Int()
 }

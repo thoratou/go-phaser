@@ -14,42 +14,42 @@ type PhysicsP2InversePointProxy struct {
 
 
 // The x property of this InversePointProxy get and set in pixels.
-func (self *PhysicsP2InversePointProxy) GetX() float64{
-    return self.Get("x").Float()
+func (self *PhysicsP2InversePointProxy) GetX() int{
+    return self.Get("x").Int()
 }
 
 // The x property of this InversePointProxy get and set in pixels.
-func (self *PhysicsP2InversePointProxy) SetX(member float64) {
+func (self *PhysicsP2InversePointProxy) SetX(member int) {
     self.Set("x", member)
 }
 
 // The y property of this InversePointProxy get and set in pixels.
-func (self *PhysicsP2InversePointProxy) GetY() float64{
-    return self.Get("y").Float()
+func (self *PhysicsP2InversePointProxy) GetY() int{
+    return self.Get("y").Int()
 }
 
 // The y property of this InversePointProxy get and set in pixels.
-func (self *PhysicsP2InversePointProxy) SetY(member float64) {
+func (self *PhysicsP2InversePointProxy) SetY(member int) {
     self.Set("y", member)
 }
 
 // The x property of this InversePointProxy get and set in meters.
-func (self *PhysicsP2InversePointProxy) GetMx() float64{
-    return self.Get("mx").Float()
+func (self *PhysicsP2InversePointProxy) GetMx() int{
+    return self.Get("mx").Int()
 }
 
 // The x property of this InversePointProxy get and set in meters.
-func (self *PhysicsP2InversePointProxy) SetMx(member float64) {
+func (self *PhysicsP2InversePointProxy) SetMx(member int) {
     self.Set("mx", member)
 }
 
 // The y property of this InversePointProxy get and set in meters.
-func (self *PhysicsP2InversePointProxy) GetMy() float64{
-    return self.Get("my").Float()
+func (self *PhysicsP2InversePointProxy) GetMy() int{
+    return self.Get("my").Int()
 }
 
 // The y property of this InversePointProxy get and set in meters.
-func (self *PhysicsP2InversePointProxy) SetMy(member float64) {
+func (self *PhysicsP2InversePointProxy) SetMy(member int) {
     self.Set("my", member)
 }
 

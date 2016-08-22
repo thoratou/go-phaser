@@ -45,12 +45,12 @@ func (self *PhysicsP2) SetWorld(member *P2World) {
 }
 
 // The frame rate the world will be stepped at. Defaults to 1 / 60, but you can change here. Also see useElapsedTime property.
-func (self *PhysicsP2) GetFrameRate() float64{
-    return self.Get("frameRate").Float()
+func (self *PhysicsP2) GetFrameRate() int{
+    return self.Get("frameRate").Int()
 }
 
 // The frame rate the world will be stepped at. Defaults to 1 / 60, but you can change here. Also see useElapsedTime property.
-func (self *PhysicsP2) SetFrameRate(member float64) {
+func (self *PhysicsP2) SetFrameRate(member int) {
     self.Set("frameRate", member)
 }
 
@@ -340,22 +340,22 @@ func (self *PhysicsP2) SetBoundsCollidesWith(member []interface{}) {
 }
 
 // Friction between colliding bodies. This value is used if no matching ContactMaterial is found for a Material pair.
-func (self *PhysicsP2) GetFriction() float64{
-    return self.Get("friction").Float()
+func (self *PhysicsP2) GetFriction() int{
+    return self.Get("friction").Int()
 }
 
 // Friction between colliding bodies. This value is used if no matching ContactMaterial is found for a Material pair.
-func (self *PhysicsP2) SetFriction(member float64) {
+func (self *PhysicsP2) SetFriction(member int) {
     self.Set("friction", member)
 }
 
 // Default coefficient of restitution between colliding bodies. This value is used if no matching ContactMaterial is found for a Material pair.
-func (self *PhysicsP2) GetRestitution() float64{
-    return self.Get("restitution").Float()
+func (self *PhysicsP2) GetRestitution() int{
+    return self.Get("restitution").Int()
 }
 
 // Default coefficient of restitution between colliding bodies. This value is used if no matching ContactMaterial is found for a Material pair.
-func (self *PhysicsP2) SetRestitution(member float64) {
+func (self *PhysicsP2) SetRestitution(member int) {
     self.Set("restitution", member)
 }
 
@@ -431,23 +431,23 @@ func (self *PhysicsP2) SetEmitImpactEvent(member bool) {
 
 // How to deactivate bodies during simulation. Possible modes are: World.NO_SLEEPING, World.BODY_SLEEPING and World.ISLAND_SLEEPING.
 // If sleeping is enabled, you might need to wake up the bodies if they fall asleep when they shouldn't. If you want to enable sleeping in the world, but want to disable it for a particular body, see Body.allowSleep.
-func (self *PhysicsP2) GetSleepMode() float64{
-    return self.Get("sleepMode").Float()
+func (self *PhysicsP2) GetSleepMode() int{
+    return self.Get("sleepMode").Int()
 }
 
 // How to deactivate bodies during simulation. Possible modes are: World.NO_SLEEPING, World.BODY_SLEEPING and World.ISLAND_SLEEPING.
 // If sleeping is enabled, you might need to wake up the bodies if they fall asleep when they shouldn't. If you want to enable sleeping in the world, but want to disable it for a particular body, see Body.allowSleep.
-func (self *PhysicsP2) SetSleepMode(member float64) {
+func (self *PhysicsP2) SetSleepMode(member int) {
     self.Set("sleepMode", member)
 }
 
 // The total number of bodies in the world.
-func (self *PhysicsP2) GetTotal() float64{
-    return self.Get("total").Float()
+func (self *PhysicsP2) GetTotal() int{
+    return self.Get("total").Int()
 }
 
 // The total number of bodies in the world.
-func (self *PhysicsP2) SetTotal(member float64) {
+func (self *PhysicsP2) SetTotal(member int) {
     self.Set("total", member)
 }
 
@@ -783,27 +783,27 @@ func (self *PhysicsP2) ConvertTilemapI(args ...interface{}) []interface{}{
 // Convert p2 physics value (meters) to pixel scale.
 // By default Phaser uses a scale of 20px per meter.
 // If you need to modify this you can over-ride these functions via the Physics Configuration object.
-func (self *PhysicsP2) MpxI(args ...interface{}) float64{
-    return self.Call("mpx", args).Float()
+func (self *PhysicsP2) MpxI(args ...interface{}) int{
+    return self.Call("mpx", args).Int()
 }
 
 // Convert pixel value to p2 physics scale (meters).
 // By default Phaser uses a scale of 20px per meter.
 // If you need to modify this you can over-ride these functions via the Physics Configuration object.
-func (self *PhysicsP2) PxmI(args ...interface{}) float64{
-    return self.Call("pxm", args).Float()
+func (self *PhysicsP2) PxmI(args ...interface{}) int{
+    return self.Call("pxm", args).Int()
 }
 
 // Convert p2 physics value (meters) to pixel scale and inverses it.
 // By default Phaser uses a scale of 20px per meter.
 // If you need to modify this you can over-ride these functions via the Physics Configuration object.
-func (self *PhysicsP2) MpxiI(args ...interface{}) float64{
-    return self.Call("mpxi", args).Float()
+func (self *PhysicsP2) MpxiI(args ...interface{}) int{
+    return self.Call("mpxi", args).Int()
 }
 
 // Convert pixel value to p2 physics scale (meters) and inverses it.
 // By default Phaser uses a scale of 20px per meter.
 // If you need to modify this you can over-ride these functions via the Physics Configuration object.
-func (self *PhysicsP2) PxmiI(args ...interface{}) float64{
-    return self.Call("pxmi", args).Float()
+func (self *PhysicsP2) PxmiI(args ...interface{}) int{
+    return self.Call("pxmi", args).Int()
 }

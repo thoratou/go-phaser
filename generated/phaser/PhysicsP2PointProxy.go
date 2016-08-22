@@ -14,42 +14,42 @@ type PhysicsP2PointProxy struct {
 
 
 // The x property of this PointProxy get and set in pixels.
-func (self *PhysicsP2PointProxy) GetX() float64{
-    return self.Get("x").Float()
+func (self *PhysicsP2PointProxy) GetX() int{
+    return self.Get("x").Int()
 }
 
 // The x property of this PointProxy get and set in pixels.
-func (self *PhysicsP2PointProxy) SetX(member float64) {
+func (self *PhysicsP2PointProxy) SetX(member int) {
     self.Set("x", member)
 }
 
 // The y property of this PointProxy get and set in pixels.
-func (self *PhysicsP2PointProxy) GetY() float64{
-    return self.Get("y").Float()
+func (self *PhysicsP2PointProxy) GetY() int{
+    return self.Get("y").Int()
 }
 
 // The y property of this PointProxy get and set in pixels.
-func (self *PhysicsP2PointProxy) SetY(member float64) {
+func (self *PhysicsP2PointProxy) SetY(member int) {
     self.Set("y", member)
 }
 
 // The x property of this PointProxy get and set in meters.
-func (self *PhysicsP2PointProxy) GetMx() float64{
-    return self.Get("mx").Float()
+func (self *PhysicsP2PointProxy) GetMx() int{
+    return self.Get("mx").Int()
 }
 
 // The x property of this PointProxy get and set in meters.
-func (self *PhysicsP2PointProxy) SetMx(member float64) {
+func (self *PhysicsP2PointProxy) SetMx(member int) {
     self.Set("mx", member)
 }
 
 // The x property of this PointProxy get and set in meters.
-func (self *PhysicsP2PointProxy) GetMy() float64{
-    return self.Get("my").Float()
+func (self *PhysicsP2PointProxy) GetMy() int{
+    return self.Get("my").Int()
 }
 
 // The x property of this PointProxy get and set in meters.
-func (self *PhysicsP2PointProxy) SetMy(member float64) {
+func (self *PhysicsP2PointProxy) SetMy(member int) {
     self.Set("my", member)
 }
 

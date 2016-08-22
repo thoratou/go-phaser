@@ -69,74 +69,74 @@ func (self *ScaleManager) SetGrid(member *FlexGrid) {
 }
 
 // Target width (in pixels) of the Display canvas.
-func (self *ScaleManager) GetWidth() float64{
-    return self.Get("width").Float()
+func (self *ScaleManager) GetWidth() int{
+    return self.Get("width").Int()
 }
 
 // Target width (in pixels) of the Display canvas.
-func (self *ScaleManager) SetWidth(member float64) {
+func (self *ScaleManager) SetWidth(member int) {
     self.Set("width", member)
 }
 
 // Target height (in pixels) of the Display canvas.
-func (self *ScaleManager) GetHeight() float64{
-    return self.Get("height").Float()
+func (self *ScaleManager) GetHeight() int{
+    return self.Get("height").Int()
 }
 
 // Target height (in pixels) of the Display canvas.
-func (self *ScaleManager) SetHeight(member float64) {
+func (self *ScaleManager) SetHeight(member int) {
     self.Set("height", member)
 }
 
 // Minimum width the canvas should be scaled to (in pixels).
 // Change with {@link Phaser.ScaleManager#setMinMax setMinMax}.
-func (self *ScaleManager) GetMinWidth() float64{
-    return self.Get("minWidth").Float()
+func (self *ScaleManager) GetMinWidth() int{
+    return self.Get("minWidth").Int()
 }
 
 // Minimum width the canvas should be scaled to (in pixels).
 // Change with {@link Phaser.ScaleManager#setMinMax setMinMax}.
-func (self *ScaleManager) SetMinWidth(member float64) {
+func (self *ScaleManager) SetMinWidth(member int) {
     self.Set("minWidth", member)
 }
 
 // Maximum width the canvas should be scaled to (in pixels).
 // If null it will scale to whatever width the browser can handle.
 // Change with {@link Phaser.ScaleManager#setMinMax setMinMax}.
-func (self *ScaleManager) GetMaxWidth() float64{
-    return self.Get("maxWidth").Float()
+func (self *ScaleManager) GetMaxWidth() int{
+    return self.Get("maxWidth").Int()
 }
 
 // Maximum width the canvas should be scaled to (in pixels).
 // If null it will scale to whatever width the browser can handle.
 // Change with {@link Phaser.ScaleManager#setMinMax setMinMax}.
-func (self *ScaleManager) SetMaxWidth(member float64) {
+func (self *ScaleManager) SetMaxWidth(member int) {
     self.Set("maxWidth", member)
 }
 
 // Minimum height the canvas should be scaled to (in pixels).
 // Change with {@link Phaser.ScaleManager#setMinMax setMinMax}.
-func (self *ScaleManager) GetMinHeight() float64{
-    return self.Get("minHeight").Float()
+func (self *ScaleManager) GetMinHeight() int{
+    return self.Get("minHeight").Int()
 }
 
 // Minimum height the canvas should be scaled to (in pixels).
 // Change with {@link Phaser.ScaleManager#setMinMax setMinMax}.
-func (self *ScaleManager) SetMinHeight(member float64) {
+func (self *ScaleManager) SetMinHeight(member int) {
     self.Set("minHeight", member)
 }
 
 // Maximum height the canvas should be scaled to (in pixels).
 // If null it will scale to whatever height the browser can handle.
 // Change with {@link Phaser.ScaleManager#setMinMax setMinMax}.
-func (self *ScaleManager) GetMaxHeight() float64{
-    return self.Get("maxHeight").Float()
+func (self *ScaleManager) GetMaxHeight() int{
+    return self.Get("maxHeight").Int()
 }
 
 // Maximum height the canvas should be scaled to (in pixels).
 // If null it will scale to whatever height the browser can handle.
 // Change with {@link Phaser.ScaleManager#setMinMax setMinMax}.
-func (self *ScaleManager) SetMaxHeight(member float64) {
+func (self *ScaleManager) SetMaxHeight(member int) {
     self.Set("maxHeight", member)
 }
 
@@ -413,22 +413,22 @@ func (self *ScaleManager) SetBounds(member *Rectangle) {
 }
 
 // The aspect ratio of the scaled Display canvas.
-func (self *ScaleManager) GetAspectRatio() float64{
-    return self.Get("aspectRatio").Float()
+func (self *ScaleManager) GetAspectRatio() int{
+    return self.Get("aspectRatio").Int()
 }
 
 // The aspect ratio of the scaled Display canvas.
-func (self *ScaleManager) SetAspectRatio(member float64) {
+func (self *ScaleManager) SetAspectRatio(member int) {
     self.Set("aspectRatio", member)
 }
 
 // The aspect ratio of the original game dimensions.
-func (self *ScaleManager) GetSourceAspectRatio() float64{
-    return self.Get("sourceAspectRatio").Float()
+func (self *ScaleManager) GetSourceAspectRatio() int{
+    return self.Get("sourceAspectRatio").Int()
 }
 
 // The aspect ratio of the original game dimensions.
-func (self *ScaleManager) SetSourceAspectRatio(member float64) {
+func (self *ScaleManager) SetSourceAspectRatio(member int) {
     self.Set("sourceAspectRatio", member)
 }
 
@@ -705,14 +705,14 @@ func (self *ScaleManager) SetFullScreenScaleMode(member int) {
 // Returns the current scale mode - for normal or fullscreen operation.
 // 
 // See {@link Phaser.ScaleManager#scaleMode scaleMode} for the different modes allowed.
-func (self *ScaleManager) GetCurrentScaleMode() float64{
-    return self.Get("currentScaleMode").Float()
+func (self *ScaleManager) GetCurrentScaleMode() int{
+    return self.Get("currentScaleMode").Int()
 }
 
 // Returns the current scale mode - for normal or fullscreen operation.
 // 
 // See {@link Phaser.ScaleManager#scaleMode scaleMode} for the different modes allowed.
-func (self *ScaleManager) SetCurrentScaleMode(member float64) {
+func (self *ScaleManager) SetCurrentScaleMode(member int) {
     self.Set("currentScaleMode", member)
 }
 

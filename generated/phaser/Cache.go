@@ -64,152 +64,152 @@ func (self *Cache) SetOnSoundUnlock(member *Signal) {
 }
 
 // 
-func (self *Cache) GetCANVAS() float64{
-    return self.Get("CANVAS").Float()
+func (self *Cache) GetCANVAS() int{
+    return self.Get("CANVAS").Int()
 }
 
 // 
-func (self *Cache) SetCANVAS(member float64) {
+func (self *Cache) SetCANVAS(member int) {
     self.Set("CANVAS", member)
 }
 
 // 
-func (self *Cache) GetIMAGE() float64{
-    return self.Get("IMAGE").Float()
+func (self *Cache) GetIMAGE() int{
+    return self.Get("IMAGE").Int()
 }
 
 // 
-func (self *Cache) SetIMAGE(member float64) {
+func (self *Cache) SetIMAGE(member int) {
     self.Set("IMAGE", member)
 }
 
 // 
-func (self *Cache) GetTEXTURE() float64{
-    return self.Get("TEXTURE").Float()
+func (self *Cache) GetTEXTURE() int{
+    return self.Get("TEXTURE").Int()
 }
 
 // 
-func (self *Cache) SetTEXTURE(member float64) {
+func (self *Cache) SetTEXTURE(member int) {
     self.Set("TEXTURE", member)
 }
 
 // 
-func (self *Cache) GetSOUND() float64{
-    return self.Get("SOUND").Float()
+func (self *Cache) GetSOUND() int{
+    return self.Get("SOUND").Int()
 }
 
 // 
-func (self *Cache) SetSOUND(member float64) {
+func (self *Cache) SetSOUND(member int) {
     self.Set("SOUND", member)
 }
 
 // 
-func (self *Cache) GetTEXT() float64{
-    return self.Get("TEXT").Float()
+func (self *Cache) GetTEXT() int{
+    return self.Get("TEXT").Int()
 }
 
 // 
-func (self *Cache) SetTEXT(member float64) {
+func (self *Cache) SetTEXT(member int) {
     self.Set("TEXT", member)
 }
 
 // 
-func (self *Cache) GetPHYSICS() float64{
-    return self.Get("PHYSICS").Float()
+func (self *Cache) GetPHYSICS() int{
+    return self.Get("PHYSICS").Int()
 }
 
 // 
-func (self *Cache) SetPHYSICS(member float64) {
+func (self *Cache) SetPHYSICS(member int) {
     self.Set("PHYSICS", member)
 }
 
 // 
-func (self *Cache) GetTILEMAP() float64{
-    return self.Get("TILEMAP").Float()
+func (self *Cache) GetTILEMAP() int{
+    return self.Get("TILEMAP").Int()
 }
 
 // 
-func (self *Cache) SetTILEMAP(member float64) {
+func (self *Cache) SetTILEMAP(member int) {
     self.Set("TILEMAP", member)
 }
 
 // 
-func (self *Cache) GetBINARY() float64{
-    return self.Get("BINARY").Float()
+func (self *Cache) GetBINARY() int{
+    return self.Get("BINARY").Int()
 }
 
 // 
-func (self *Cache) SetBINARY(member float64) {
+func (self *Cache) SetBINARY(member int) {
     self.Set("BINARY", member)
 }
 
 // 
-func (self *Cache) GetBITMAPDATA() float64{
-    return self.Get("BITMAPDATA").Float()
+func (self *Cache) GetBITMAPDATA() int{
+    return self.Get("BITMAPDATA").Int()
 }
 
 // 
-func (self *Cache) SetBITMAPDATA(member float64) {
+func (self *Cache) SetBITMAPDATA(member int) {
     self.Set("BITMAPDATA", member)
 }
 
 // 
-func (self *Cache) GetBITMAPFONT() float64{
-    return self.Get("BITMAPFONT").Float()
+func (self *Cache) GetBITMAPFONT() int{
+    return self.Get("BITMAPFONT").Int()
 }
 
 // 
-func (self *Cache) SetBITMAPFONT(member float64) {
+func (self *Cache) SetBITMAPFONT(member int) {
     self.Set("BITMAPFONT", member)
 }
 
 // 
-func (self *Cache) GetJSON() float64{
-    return self.Get("JSON").Float()
+func (self *Cache) GetJSON() int{
+    return self.Get("JSON").Int()
 }
 
 // 
-func (self *Cache) SetJSON(member float64) {
+func (self *Cache) SetJSON(member int) {
     self.Set("JSON", member)
 }
 
 // 
-func (self *Cache) GetXML() float64{
-    return self.Get("XML").Float()
+func (self *Cache) GetXML() int{
+    return self.Get("XML").Int()
 }
 
 // 
-func (self *Cache) SetXML(member float64) {
+func (self *Cache) SetXML(member int) {
     self.Set("XML", member)
 }
 
 // 
-func (self *Cache) GetVIDEO() float64{
-    return self.Get("VIDEO").Float()
+func (self *Cache) GetVIDEO() int{
+    return self.Get("VIDEO").Int()
 }
 
 // 
-func (self *Cache) SetVIDEO(member float64) {
+func (self *Cache) SetVIDEO(member int) {
     self.Set("VIDEO", member)
 }
 
 // 
-func (self *Cache) GetSHADER() float64{
-    return self.Get("SHADER").Float()
+func (self *Cache) GetSHADER() int{
+    return self.Get("SHADER").Int()
 }
 
 // 
-func (self *Cache) SetSHADER(member float64) {
+func (self *Cache) SetSHADER(member int) {
     self.Set("SHADER", member)
 }
 
 // 
-func (self *Cache) GetRENDER_TEXTURE() float64{
-    return self.Get("RENDER_TEXTURE").Float()
+func (self *Cache) GetRENDER_TEXTURE() int{
+    return self.Get("RENDER_TEXTURE").Int()
 }
 
 // 
-func (self *Cache) SetRENDER_TEXTURE(member float64) {
+func (self *Cache) SetRENDER_TEXTURE(member int) {
     self.Set("RENDER_TEXTURE", member)
 }
 
@@ -621,8 +621,8 @@ func (self *Cache) GetFrameI(args ...interface{}) *Frame{
 }
 
 // Get the total number of frames contained in the FrameData object specified by the given key.
-func (self *Cache) GetFrameCountI(args ...interface{}) float64{
-    return self.Call("getFrameCount", args).Float()
+func (self *Cache) GetFrameCountI(args ...interface{}) int{
+    return self.Call("getFrameCount", args).Int()
 }
 
 // Gets a Phaser.FrameData object from the Image Cache.

@@ -50,12 +50,12 @@ func (self *PixiShader) SetFragmentSrc(member []interface{}) {
 }
 
 // A local texture counter for multi-texture shaders.
-func (self *PixiShader) GetTextureCount() float64{
-    return self.Get("textureCount").Float()
+func (self *PixiShader) GetTextureCount() int{
+    return self.Get("textureCount").Int()
 }
 
 // A local texture counter for multi-texture shaders.
-func (self *PixiShader) SetTextureCount(member float64) {
+func (self *PixiShader) SetTextureCount(member int) {
     self.Set("textureCount", member)
 }
 

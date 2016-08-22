@@ -95,22 +95,22 @@ func (self *Texture) SetRequiresReTint(member bool) {
 }
 
 // The width of the Texture in pixels.
-func (self *Texture) GetWidth() float64{
-    return self.Get("width").Float()
+func (self *Texture) GetWidth() int{
+    return self.Get("width").Int()
 }
 
 // The width of the Texture in pixels.
-func (self *Texture) SetWidth(member float64) {
+func (self *Texture) SetWidth(member int) {
     self.Set("width", member)
 }
 
 // The height of the Texture in pixels.
-func (self *Texture) GetHeight() float64{
-    return self.Get("height").Float()
+func (self *Texture) GetHeight() int{
+    return self.Get("height").Int()
 }
 
 // The height of the Texture in pixels.
-func (self *Texture) SetHeight(member float64) {
+func (self *Texture) SetHeight(member int) {
     self.Set("height", member)
 }
 

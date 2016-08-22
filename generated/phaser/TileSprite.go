@@ -34,42 +34,42 @@ type TileSprite struct {
 
 
 // The const type of this object.
-func (self *TileSprite) GetType() float64{
-    return self.Get("type").Float()
+func (self *TileSprite) GetType() int{
+    return self.Get("type").Int()
 }
 
 // The const type of this object.
-func (self *TileSprite) SetType(member float64) {
+func (self *TileSprite) SetType(member int) {
     self.Set("type", member)
 }
 
 // The const physics body type of this object.
-func (self *TileSprite) GetPhysicsType() float64{
-    return self.Get("physicsType").Float()
+func (self *TileSprite) GetPhysicsType() int{
+    return self.Get("physicsType").Int()
 }
 
 // The const physics body type of this object.
-func (self *TileSprite) SetPhysicsType(member float64) {
+func (self *TileSprite) SetPhysicsType(member int) {
     self.Set("physicsType", member)
 }
 
 // The width of the tiling sprite
-func (self *TileSprite) GetWidth() float64{
-    return self.Get("width").Float()
+func (self *TileSprite) GetWidth() int{
+    return self.Get("width").Int()
 }
 
 // The width of the tiling sprite
-func (self *TileSprite) SetWidth(member float64) {
+func (self *TileSprite) SetWidth(member int) {
     self.Set("width", member)
 }
 
 // The height of the tiling sprite
-func (self *TileSprite) GetHeight() float64{
-    return self.Get("height").Float()
+func (self *TileSprite) GetHeight() int{
+    return self.Get("height").Int()
 }
 
 // The height of the tiling sprite
-func (self *TileSprite) SetHeight(member float64) {
+func (self *TileSprite) SetHeight(member int) {
     self.Set("height", member)
 }
 
@@ -114,12 +114,12 @@ func (self *TileSprite) SetRenderable(member bool) {
 }
 
 // The tint applied to the sprite. This is a hex value
-func (self *TileSprite) GetTint() float64{
-    return self.Get("tint").Float()
+func (self *TileSprite) GetTint() int{
+    return self.Get("tint").Int()
 }
 
 // The tint applied to the sprite. This is a hex value
-func (self *TileSprite) SetTint(member float64) {
+func (self *TileSprite) SetTint(member int) {
     self.Set("tint", member)
 }
 
@@ -136,12 +136,12 @@ func (self *TileSprite) SetTextureDebug(member bool) {
 }
 
 // The blend mode to be applied to the sprite
-func (self *TileSprite) GetBlendMode() float64{
-    return self.Get("blendMode").Float()
+func (self *TileSprite) GetBlendMode() int{
+    return self.Get("blendMode").Int()
 }
 
 // The blend mode to be applied to the sprite
-func (self *TileSprite) SetBlendMode(member float64) {
+func (self *TileSprite) SetBlendMode(member int) {
     self.Set("blendMode", member)
 }
 
@@ -329,15 +329,15 @@ func (self *TileSprite) SetComponents(member interface{}) {
 // No two objects in a Group can have the same z value.
 // This value is adjusted automatically whenever the Group hierarchy changes.
 // If you wish to re-order the layering of a Game Object then see methods like Group.moveUp or Group.bringToTop.
-func (self *TileSprite) GetZ() float64{
-    return self.Get("z").Float()
+func (self *TileSprite) GetZ() int{
+    return self.Get("z").Int()
 }
 
 // The z depth of this Game Object within its parent Group.
 // No two objects in a Group can have the same z value.
 // This value is adjusted automatically whenever the Group hierarchy changes.
 // If you wish to re-order the layering of a Game Object then see methods like Group.moveUp or Group.bringToTop.
-func (self *TileSprite) SetZ(member float64) {
+func (self *TileSprite) SetZ(member int) {
     self.Set("z", member)
 }
 
@@ -418,24 +418,24 @@ func (self *TileSprite) SetPreviousPosition(member *Point) {
 }
 
 // The rotation the Game Object was in set to in the previous frame. Value is in radians.
-func (self *TileSprite) GetPreviousRotation() float64{
-    return self.Get("previousRotation").Float()
+func (self *TileSprite) GetPreviousRotation() int{
+    return self.Get("previousRotation").Int()
 }
 
 // The rotation the Game Object was in set to in the previous frame. Value is in radians.
-func (self *TileSprite) SetPreviousRotation(member float64) {
+func (self *TileSprite) SetPreviousRotation(member int) {
     self.Set("previousRotation", member)
 }
 
 // The render order ID is used internally by the renderer and Input Manager and should not be modified.
 // This property is mostly used internally by the renderers, but is exposed for the use of plugins.
-func (self *TileSprite) GetRenderOrderID() float64{
-    return self.Get("renderOrderID").Float()
+func (self *TileSprite) GetRenderOrderID() int{
+    return self.Get("renderOrderID").Int()
 }
 
 // The render order ID is used internally by the renderer and Input Manager and should not be modified.
 // This property is mostly used internally by the renderers, but is exposed for the use of plugins.
-func (self *TileSprite) SetRenderOrderID(member float64) {
+func (self *TileSprite) SetRenderOrderID(member int) {
     self.Set("renderOrderID", member)
 }
 
@@ -478,8 +478,8 @@ func (self *TileSprite) SetPendingDestroy(member bool) {
 // 
 // If you wish to work in radians instead of degrees you can use the property `rotation` instead. 
 // Working in radians is slightly faster as it doesn't have to perform any calculations.
-func (self *TileSprite) GetAngle() float64{
-    return self.Get("angle").Float()
+func (self *TileSprite) GetAngle() int{
+    return self.Get("angle").Int()
 }
 
 // The angle property is the rotation of the Game Object in *degrees* from its original orientation.
@@ -491,7 +491,7 @@ func (self *TileSprite) GetAngle() float64{
 // 
 // If you wish to work in radians instead of degrees you can use the property `rotation` instead. 
 // Working in radians is slightly faster as it doesn't have to perform any calculations.
-func (self *TileSprite) SetAngle(member float64) {
+func (self *TileSprite) SetAngle(member int) {
     self.Set("angle", member)
 }
 
@@ -530,100 +530,100 @@ func (self *TileSprite) SetInCamera(member bool) {
 // The amount the Game Object is visually offset from its x coordinate.
 // This is the same as `width * anchor.x`.
 // It will only be > 0 if anchor.x is not equal to zero.
-func (self *TileSprite) GetOffsetX() float64{
-    return self.Get("offsetX").Float()
+func (self *TileSprite) GetOffsetX() int{
+    return self.Get("offsetX").Int()
 }
 
 // The amount the Game Object is visually offset from its x coordinate.
 // This is the same as `width * anchor.x`.
 // It will only be > 0 if anchor.x is not equal to zero.
-func (self *TileSprite) SetOffsetX(member float64) {
+func (self *TileSprite) SetOffsetX(member int) {
     self.Set("offsetX", member)
 }
 
 // The amount the Game Object is visually offset from its y coordinate.
 // This is the same as `height * anchor.y`.
 // It will only be > 0 if anchor.y is not equal to zero.
-func (self *TileSprite) GetOffsetY() float64{
-    return self.Get("offsetY").Float()
+func (self *TileSprite) GetOffsetY() int{
+    return self.Get("offsetY").Int()
 }
 
 // The amount the Game Object is visually offset from its y coordinate.
 // This is the same as `height * anchor.y`.
 // It will only be > 0 if anchor.y is not equal to zero.
-func (self *TileSprite) SetOffsetY(member float64) {
+func (self *TileSprite) SetOffsetY(member int) {
     self.Set("offsetY", member)
 }
 
 // The center x coordinate of the Game Object.
 // This is the same as `(x - offsetX) + (width / 2)`.
-func (self *TileSprite) GetCenterX() float64{
-    return self.Get("centerX").Float()
+func (self *TileSprite) GetCenterX() int{
+    return self.Get("centerX").Int()
 }
 
 // The center x coordinate of the Game Object.
 // This is the same as `(x - offsetX) + (width / 2)`.
-func (self *TileSprite) SetCenterX(member float64) {
+func (self *TileSprite) SetCenterX(member int) {
     self.Set("centerX", member)
 }
 
 // The center y coordinate of the Game Object.
 // This is the same as `(y - offsetY) + (height / 2)`.
-func (self *TileSprite) GetCenterY() float64{
-    return self.Get("centerY").Float()
+func (self *TileSprite) GetCenterY() int{
+    return self.Get("centerY").Int()
 }
 
 // The center y coordinate of the Game Object.
 // This is the same as `(y - offsetY) + (height / 2)`.
-func (self *TileSprite) SetCenterY(member float64) {
+func (self *TileSprite) SetCenterY(member int) {
     self.Set("centerY", member)
 }
 
 // The left coordinate of the Game Object.
 // This is the same as `x - offsetX`.
-func (self *TileSprite) GetLeft() float64{
-    return self.Get("left").Float()
+func (self *TileSprite) GetLeft() int{
+    return self.Get("left").Int()
 }
 
 // The left coordinate of the Game Object.
 // This is the same as `x - offsetX`.
-func (self *TileSprite) SetLeft(member float64) {
+func (self *TileSprite) SetLeft(member int) {
     self.Set("left", member)
 }
 
 // The right coordinate of the Game Object.
 // This is the same as `x + width - offsetX`.
-func (self *TileSprite) GetRight() float64{
-    return self.Get("right").Float()
+func (self *TileSprite) GetRight() int{
+    return self.Get("right").Int()
 }
 
 // The right coordinate of the Game Object.
 // This is the same as `x + width - offsetX`.
-func (self *TileSprite) SetRight(member float64) {
+func (self *TileSprite) SetRight(member int) {
     self.Set("right", member)
 }
 
 // The y coordinate of the Game Object.
 // This is the same as `y - offsetY`.
-func (self *TileSprite) GetTop() float64{
-    return self.Get("top").Float()
+func (self *TileSprite) GetTop() int{
+    return self.Get("top").Int()
 }
 
 // The y coordinate of the Game Object.
 // This is the same as `y - offsetY`.
-func (self *TileSprite) SetTop(member float64) {
+func (self *TileSprite) SetTop(member int) {
     self.Set("top", member)
 }
 
 // The sum of the y and height properties.
 // This is the same as `y + height - offsetY`.
-func (self *TileSprite) GetBottom() float64{
-    return self.Get("bottom").Float()
+func (self *TileSprite) GetBottom() int{
+    return self.Get("bottom").Int()
 }
 
 // The sum of the y and height properties.
 // This is the same as `y + height - offsetY`.
-func (self *TileSprite) SetBottom(member float64) {
+func (self *TileSprite) SetBottom(member int) {
     self.Set("bottom", member)
 }
 
@@ -690,26 +690,26 @@ func (self *TileSprite) SetCameraOffset(member *Point) {
 // The Game Objects health value. This is a handy property for setting and manipulating health on a Game Object.
 // 
 // It can be used in combination with the `damage` method or modified directly.
-func (self *TileSprite) GetHealth() float64{
-    return self.Get("health").Float()
+func (self *TileSprite) GetHealth() int{
+    return self.Get("health").Int()
 }
 
 // The Game Objects health value. This is a handy property for setting and manipulating health on a Game Object.
 // 
 // It can be used in combination with the `damage` method or modified directly.
-func (self *TileSprite) SetHealth(member float64) {
+func (self *TileSprite) SetHealth(member int) {
     self.Set("health", member)
 }
 
 // The Game Objects maximum health value. This works in combination with the `heal` method to ensure
 // the health value never exceeds the maximum.
-func (self *TileSprite) GetMaxHealth() float64{
-    return self.Get("maxHealth").Float()
+func (self *TileSprite) GetMaxHealth() int{
+    return self.Get("maxHealth").Int()
 }
 
 // The Game Objects maximum health value. This works in combination with the `heal` method to ensure
 // the health value never exceeds the maximum.
-func (self *TileSprite) SetMaxHealth(member float64) {
+func (self *TileSprite) SetMaxHealth(member int) {
     self.Set("maxHealth", member)
 }
 
@@ -893,8 +893,8 @@ func (self *TileSprite) SetAlive(member bool) {
 // When it reaches zero it will call the `kill` method.
 // 
 // Very handy for particles, bullets, collectibles, or any other short-lived entity.
-func (self *TileSprite) GetLifespan() float64{
-    return self.Get("lifespan").Float()
+func (self *TileSprite) GetLifespan() int{
+    return self.Get("lifespan").Int()
 }
 
 // The lifespan allows you to give a Game Object a lifespan in milliseconds.
@@ -905,7 +905,7 @@ func (self *TileSprite) GetLifespan() float64{
 // When it reaches zero it will call the `kill` method.
 // 
 // Very handy for particles, bullets, collectibles, or any other short-lived entity.
-func (self *TileSprite) SetLifespan(member float64) {
+func (self *TileSprite) SetLifespan(member int) {
     self.Set("lifespan", member)
 }
 
@@ -1002,22 +1002,22 @@ func (self *TileSprite) SetBody(member interface{}) {
 }
 
 // The position of the Game Object on the x axis relative to the local coordinates of the parent.
-func (self *TileSprite) GetX() float64{
-    return self.Get("x").Float()
+func (self *TileSprite) GetX() int{
+    return self.Get("x").Int()
 }
 
 // The position of the Game Object on the x axis relative to the local coordinates of the parent.
-func (self *TileSprite) SetX(member float64) {
+func (self *TileSprite) SetX(member int) {
     self.Set("x", member)
 }
 
 // The position of the Game Object on the y axis relative to the local coordinates of the parent.
-func (self *TileSprite) GetY() float64{
-    return self.Get("y").Float()
+func (self *TileSprite) GetY() int{
+    return self.Get("y").Int()
 }
 
 // The position of the Game Object on the y axis relative to the local coordinates of the parent.
-func (self *TileSprite) SetY(member float64) {
+func (self *TileSprite) SetY(member int) {
     self.Set("y", member)
 }
 
@@ -1119,8 +1119,8 @@ func (self *TileSprite) SwapChildrenI(args ...interface{}) {
 }
 
 // Returns the index position of a child DisplayObject instance
-func (self *TileSprite) GetChildIndexI(args ...interface{}) float64{
-    return self.Call("getChildIndex", args).Float()
+func (self *TileSprite) GetChildIndexI(args ...interface{}) int{
+    return self.Call("getChildIndex", args).Int()
 }
 
 // Changes the position of an existing child in the display object container

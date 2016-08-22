@@ -35,12 +35,12 @@ func (self *Camera) SetWorld(member *World) {
 }
 
 // Reserved for future multiple camera set-ups.
-func (self *Camera) GetId() float64{
-    return self.Get("id").Float()
+func (self *Camera) GetId() int{
+    return self.Get("id").Int()
 }
 
 // Reserved for future multiple camera set-ups.
-func (self *Camera) SetId(member float64) {
+func (self *Camera) SetId(member int) {
     self.Set("id", member)
 }
 
@@ -145,12 +145,12 @@ func (self *Camera) SetScale(member *Point) {
 }
 
 // The total number of Sprites with `autoCull` set to `true` that are visible by this Camera.
-func (self *Camera) GetTotalInView() float64{
-    return self.Get("totalInView").Float()
+func (self *Camera) GetTotalInView() int{
+    return self.Get("totalInView").Int()
 }
 
 // The total number of Sprites with `autoCull` set to `true` that are visible by this Camera.
-func (self *Camera) SetTotalInView(member float64) {
+func (self *Camera) SetTotalInView(member int) {
     self.Set("totalInView", member)
 }
 
@@ -219,72 +219,72 @@ func (self *Camera) SetFx(member *Graphics) {
 }
 
 // 
-func (self *Camera) GetFOLLOW_LOCKON() float64{
-    return self.Get("FOLLOW_LOCKON").Float()
+func (self *Camera) GetFOLLOW_LOCKON() int{
+    return self.Get("FOLLOW_LOCKON").Int()
 }
 
 // 
-func (self *Camera) SetFOLLOW_LOCKON(member float64) {
+func (self *Camera) SetFOLLOW_LOCKON(member int) {
     self.Set("FOLLOW_LOCKON", member)
 }
 
 // 
-func (self *Camera) GetFOLLOW_PLATFORMER() float64{
-    return self.Get("FOLLOW_PLATFORMER").Float()
+func (self *Camera) GetFOLLOW_PLATFORMER() int{
+    return self.Get("FOLLOW_PLATFORMER").Int()
 }
 
 // 
-func (self *Camera) SetFOLLOW_PLATFORMER(member float64) {
+func (self *Camera) SetFOLLOW_PLATFORMER(member int) {
     self.Set("FOLLOW_PLATFORMER", member)
 }
 
 // 
-func (self *Camera) GetFOLLOW_TOPDOWN() float64{
-    return self.Get("FOLLOW_TOPDOWN").Float()
+func (self *Camera) GetFOLLOW_TOPDOWN() int{
+    return self.Get("FOLLOW_TOPDOWN").Int()
 }
 
 // 
-func (self *Camera) SetFOLLOW_TOPDOWN(member float64) {
+func (self *Camera) SetFOLLOW_TOPDOWN(member int) {
     self.Set("FOLLOW_TOPDOWN", member)
 }
 
 // 
-func (self *Camera) GetFOLLOW_TOPDOWN_TIGHT() float64{
-    return self.Get("FOLLOW_TOPDOWN_TIGHT").Float()
+func (self *Camera) GetFOLLOW_TOPDOWN_TIGHT() int{
+    return self.Get("FOLLOW_TOPDOWN_TIGHT").Int()
 }
 
 // 
-func (self *Camera) SetFOLLOW_TOPDOWN_TIGHT(member float64) {
+func (self *Camera) SetFOLLOW_TOPDOWN_TIGHT(member int) {
     self.Set("FOLLOW_TOPDOWN_TIGHT", member)
 }
 
 // 
-func (self *Camera) GetSHAKE_BOTH() float64{
-    return self.Get("SHAKE_BOTH").Float()
+func (self *Camera) GetSHAKE_BOTH() int{
+    return self.Get("SHAKE_BOTH").Int()
 }
 
 // 
-func (self *Camera) SetSHAKE_BOTH(member float64) {
+func (self *Camera) SetSHAKE_BOTH(member int) {
     self.Set("SHAKE_BOTH", member)
 }
 
 // 
-func (self *Camera) GetSHAKE_HORIZONTAL() float64{
-    return self.Get("SHAKE_HORIZONTAL").Float()
+func (self *Camera) GetSHAKE_HORIZONTAL() int{
+    return self.Get("SHAKE_HORIZONTAL").Int()
 }
 
 // 
-func (self *Camera) SetSHAKE_HORIZONTAL(member float64) {
+func (self *Camera) SetSHAKE_HORIZONTAL(member int) {
     self.Set("SHAKE_HORIZONTAL", member)
 }
 
 // 
-func (self *Camera) GetSHAKE_VERTICAL() float64{
-    return self.Get("SHAKE_VERTICAL").Float()
+func (self *Camera) GetSHAKE_VERTICAL() int{
+    return self.Get("SHAKE_VERTICAL").Int()
 }
 
 // 
-func (self *Camera) SetSHAKE_VERTICAL(member float64) {
+func (self *Camera) SetSHAKE_VERTICAL(member int) {
     self.Set("SHAKE_VERTICAL", member)
 }
 
@@ -299,22 +299,22 @@ func (self *Camera) SetENABLE_FX(member bool) {
 }
 
 // The Cameras x coordinate. This value is automatically clamped if it falls outside of the World bounds. Gets or sets the cameras x position.
-func (self *Camera) GetX() float64{
-    return self.Get("x").Float()
+func (self *Camera) GetX() int{
+    return self.Get("x").Int()
 }
 
 // The Cameras x coordinate. This value is automatically clamped if it falls outside of the World bounds. Gets or sets the cameras x position.
-func (self *Camera) SetX(member float64) {
+func (self *Camera) SetX(member int) {
     self.Set("x", member)
 }
 
 // The Cameras y coordinate. This value is automatically clamped if it falls outside of the World bounds. Gets or sets the cameras y position.
-func (self *Camera) GetY() float64{
-    return self.Get("y").Float()
+func (self *Camera) GetY() int{
+    return self.Get("y").Int()
 }
 
 // The Cameras y coordinate. This value is automatically clamped if it falls outside of the World bounds. Gets or sets the cameras y position.
-func (self *Camera) SetY(member float64) {
+func (self *Camera) SetY(member int) {
     self.Set("y", member)
 }
 
@@ -329,32 +329,32 @@ func (self *Camera) SetPosition(member *Point) {
 }
 
 // The Cameras width. By default this is the same as the Game size and should not be adjusted for now. Gets or sets the cameras width.
-func (self *Camera) GetWidth() float64{
-    return self.Get("width").Float()
+func (self *Camera) GetWidth() int{
+    return self.Get("width").Int()
 }
 
 // The Cameras width. By default this is the same as the Game size and should not be adjusted for now. Gets or sets the cameras width.
-func (self *Camera) SetWidth(member float64) {
+func (self *Camera) SetWidth(member int) {
     self.Set("width", member)
 }
 
 // The Cameras height. By default this is the same as the Game size and should not be adjusted for now. Gets or sets the cameras height.
-func (self *Camera) GetHeight() float64{
-    return self.Get("height").Float()
+func (self *Camera) GetHeight() int{
+    return self.Get("height").Int()
 }
 
 // The Cameras height. By default this is the same as the Game size and should not be adjusted for now. Gets or sets the cameras height.
-func (self *Camera) SetHeight(member float64) {
+func (self *Camera) SetHeight(member int) {
     self.Set("height", member)
 }
 
 // The Cameras shake intensity. Gets or sets the cameras shake intensity.
-func (self *Camera) GetShakeIntensity() float64{
-    return self.Get("shakeIntensity").Float()
+func (self *Camera) GetShakeIntensity() int{
+    return self.Get("shakeIntensity").Int()
 }
 
 // The Cameras shake intensity. Gets or sets the cameras shake intensity.
-func (self *Camera) SetShakeIntensity(member float64) {
+func (self *Camera) SetShakeIntensity(member int) {
     self.Set("shakeIntensity", member)
 }
 

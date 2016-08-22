@@ -14,22 +14,22 @@ type WebGLSpriteBatch struct {
 
 
 // 
-func (self *WebGLSpriteBatch) GetVertSize() float64{
-    return self.Get("vertSize").Float()
+func (self *WebGLSpriteBatch) GetVertSize() int{
+    return self.Get("vertSize").Int()
 }
 
 // 
-func (self *WebGLSpriteBatch) SetVertSize(member float64) {
+func (self *WebGLSpriteBatch) SetVertSize(member int) {
     self.Set("vertSize", member)
 }
 
 // The number of images in the SpriteBatch before it flushes
-func (self *WebGLSpriteBatch) GetSize() float64{
-    return self.Get("size").Float()
+func (self *WebGLSpriteBatch) GetSize() int{
+    return self.Get("size").Int()
 }
 
 // The number of images in the SpriteBatch before it flushes
-func (self *WebGLSpriteBatch) SetSize(member float64) {
+func (self *WebGLSpriteBatch) SetSize(member int) {
     self.Set("size", member)
 }
 
@@ -74,12 +74,12 @@ func (self *WebGLSpriteBatch) SetIndices(member *Uint16Array) {
 }
 
 // 
-func (self *WebGLSpriteBatch) GetLastIndexCount() float64{
-    return self.Get("lastIndexCount").Float()
+func (self *WebGLSpriteBatch) GetLastIndexCount() int{
+    return self.Get("lastIndexCount").Int()
 }
 
 // 
-func (self *WebGLSpriteBatch) SetLastIndexCount(member float64) {
+func (self *WebGLSpriteBatch) SetLastIndexCount(member int) {
     self.Set("lastIndexCount", member)
 }
 
@@ -94,12 +94,12 @@ func (self *WebGLSpriteBatch) SetDrawing(member bool) {
 }
 
 // 
-func (self *WebGLSpriteBatch) GetCurrentBatchSize() float64{
-    return self.Get("currentBatchSize").Float()
+func (self *WebGLSpriteBatch) GetCurrentBatchSize() int{
+    return self.Get("currentBatchSize").Int()
 }
 
 // 
-func (self *WebGLSpriteBatch) SetCurrentBatchSize(member float64) {
+func (self *WebGLSpriteBatch) SetCurrentBatchSize(member int) {
     self.Set("currentBatchSize", member)
 }
 

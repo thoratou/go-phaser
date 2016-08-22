@@ -36,42 +36,42 @@ type Graphics struct {
 
 
 // The const type of this object.
-func (self *Graphics) GetType() float64{
-    return self.Get("type").Float()
+func (self *Graphics) GetType() int{
+    return self.Get("type").Int()
 }
 
 // The const type of this object.
-func (self *Graphics) SetType(member float64) {
+func (self *Graphics) SetType(member int) {
     self.Set("type", member)
 }
 
 // The const physics body type of this object.
-func (self *Graphics) GetPhysicsType() float64{
-    return self.Get("physicsType").Float()
+func (self *Graphics) GetPhysicsType() int{
+    return self.Get("physicsType").Int()
 }
 
 // The const physics body type of this object.
-func (self *Graphics) SetPhysicsType(member float64) {
+func (self *Graphics) SetPhysicsType(member int) {
     self.Set("physicsType", member)
 }
 
 // The alpha value used when filling the Graphics object.
-func (self *Graphics) GetFillAlpha() float64{
-    return self.Get("fillAlpha").Float()
+func (self *Graphics) GetFillAlpha() int{
+    return self.Get("fillAlpha").Int()
 }
 
 // The alpha value used when filling the Graphics object.
-func (self *Graphics) SetFillAlpha(member float64) {
+func (self *Graphics) SetFillAlpha(member int) {
     self.Set("fillAlpha", member)
 }
 
 // The width (thickness) of any lines drawn.
-func (self *Graphics) GetLineWidth() float64{
-    return self.Get("lineWidth").Float()
+func (self *Graphics) GetLineWidth() int{
+    return self.Get("lineWidth").Int()
 }
 
 // The width (thickness) of any lines drawn.
-func (self *Graphics) SetLineWidth(member float64) {
+func (self *Graphics) SetLineWidth(member int) {
     self.Set("lineWidth", member)
 }
 
@@ -86,22 +86,22 @@ func (self *Graphics) SetLineColor(member string) {
 }
 
 // The tint applied to the graphic shape. This is a hex value. Apply a value of 0xFFFFFF to reset the tint.
-func (self *Graphics) GetTint() float64{
-    return self.Get("tint").Float()
+func (self *Graphics) GetTint() int{
+    return self.Get("tint").Int()
 }
 
 // The tint applied to the graphic shape. This is a hex value. Apply a value of 0xFFFFFF to reset the tint.
-func (self *Graphics) SetTint(member float64) {
+func (self *Graphics) SetTint(member int) {
     self.Set("tint", member)
 }
 
 // The blend mode to be applied to the graphic shape. Apply a value of PIXI.blendModes.NORMAL to reset the blend mode.
-func (self *Graphics) GetBlendMode() float64{
-    return self.Get("blendMode").Float()
+func (self *Graphics) GetBlendMode() int{
+    return self.Get("blendMode").Int()
 }
 
 // The blend mode to be applied to the graphic shape. Apply a value of PIXI.blendModes.NORMAL to reset the blend mode.
-func (self *Graphics) SetBlendMode(member float64) {
+func (self *Graphics) SetBlendMode(member int) {
     self.Set("blendMode", member)
 }
 
@@ -116,12 +116,12 @@ func (self *Graphics) SetIsMask(member bool) {
 }
 
 // The bounds' padding used for bounds calculation.
-func (self *Graphics) GetBoundsPadding() float64{
-    return self.Get("boundsPadding").Float()
+func (self *Graphics) GetBoundsPadding() int{
+    return self.Get("boundsPadding").Int()
 }
 
 // The bounds' padding used for bounds calculation.
-func (self *Graphics) SetBoundsPadding(member float64) {
+func (self *Graphics) SetBoundsPadding(member int) {
     self.Set("boundsPadding", member)
 }
 
@@ -160,22 +160,22 @@ func (self *Graphics) SetIgnoreChildInput(member bool) {
 }
 
 // The width of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *Graphics) GetWidth() float64{
-    return self.Get("width").Float()
+func (self *Graphics) GetWidth() int{
+    return self.Get("width").Int()
 }
 
 // The width of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *Graphics) SetWidth(member float64) {
+func (self *Graphics) SetWidth(member int) {
     self.Set("width", member)
 }
 
 // The height of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *Graphics) GetHeight() float64{
-    return self.Get("height").Float()
+func (self *Graphics) GetHeight() int{
+    return self.Get("height").Int()
 }
 
 // The height of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *Graphics) SetHeight(member float64) {
+func (self *Graphics) SetHeight(member int) {
     self.Set("height", member)
 }
 
@@ -231,15 +231,15 @@ func (self *Graphics) SetComponents(member interface{}) {
 // No two objects in a Group can have the same z value.
 // This value is adjusted automatically whenever the Group hierarchy changes.
 // If you wish to re-order the layering of a Game Object then see methods like Group.moveUp or Group.bringToTop.
-func (self *Graphics) GetZ() float64{
-    return self.Get("z").Float()
+func (self *Graphics) GetZ() int{
+    return self.Get("z").Int()
 }
 
 // The z depth of this Game Object within its parent Group.
 // No two objects in a Group can have the same z value.
 // This value is adjusted automatically whenever the Group hierarchy changes.
 // If you wish to re-order the layering of a Game Object then see methods like Group.moveUp or Group.bringToTop.
-func (self *Graphics) SetZ(member float64) {
+func (self *Graphics) SetZ(member int) {
     self.Set("z", member)
 }
 
@@ -320,24 +320,24 @@ func (self *Graphics) SetPreviousPosition(member *Point) {
 }
 
 // The rotation the Game Object was in set to in the previous frame. Value is in radians.
-func (self *Graphics) GetPreviousRotation() float64{
-    return self.Get("previousRotation").Float()
+func (self *Graphics) GetPreviousRotation() int{
+    return self.Get("previousRotation").Int()
 }
 
 // The rotation the Game Object was in set to in the previous frame. Value is in radians.
-func (self *Graphics) SetPreviousRotation(member float64) {
+func (self *Graphics) SetPreviousRotation(member int) {
     self.Set("previousRotation", member)
 }
 
 // The render order ID is used internally by the renderer and Input Manager and should not be modified.
 // This property is mostly used internally by the renderers, but is exposed for the use of plugins.
-func (self *Graphics) GetRenderOrderID() float64{
-    return self.Get("renderOrderID").Float()
+func (self *Graphics) GetRenderOrderID() int{
+    return self.Get("renderOrderID").Int()
 }
 
 // The render order ID is used internally by the renderer and Input Manager and should not be modified.
 // This property is mostly used internally by the renderers, but is exposed for the use of plugins.
-func (self *Graphics) SetRenderOrderID(member float64) {
+func (self *Graphics) SetRenderOrderID(member int) {
     self.Set("renderOrderID", member)
 }
 
@@ -402,8 +402,8 @@ func (self *Graphics) SetExists(member bool) {
 // 
 // If you wish to work in radians instead of degrees you can use the property `rotation` instead. 
 // Working in radians is slightly faster as it doesn't have to perform any calculations.
-func (self *Graphics) GetAngle() float64{
-    return self.Get("angle").Float()
+func (self *Graphics) GetAngle() int{
+    return self.Get("angle").Int()
 }
 
 // The angle property is the rotation of the Game Object in *degrees* from its original orientation.
@@ -415,7 +415,7 @@ func (self *Graphics) GetAngle() float64{
 // 
 // If you wish to work in radians instead of degrees you can use the property `rotation` instead. 
 // Working in radians is slightly faster as it doesn't have to perform any calculations.
-func (self *Graphics) SetAngle(member float64) {
+func (self *Graphics) SetAngle(member int) {
     self.Set("angle", member)
 }
 
@@ -454,100 +454,100 @@ func (self *Graphics) SetInCamera(member bool) {
 // The amount the Game Object is visually offset from its x coordinate.
 // This is the same as `width * anchor.x`.
 // It will only be > 0 if anchor.x is not equal to zero.
-func (self *Graphics) GetOffsetX() float64{
-    return self.Get("offsetX").Float()
+func (self *Graphics) GetOffsetX() int{
+    return self.Get("offsetX").Int()
 }
 
 // The amount the Game Object is visually offset from its x coordinate.
 // This is the same as `width * anchor.x`.
 // It will only be > 0 if anchor.x is not equal to zero.
-func (self *Graphics) SetOffsetX(member float64) {
+func (self *Graphics) SetOffsetX(member int) {
     self.Set("offsetX", member)
 }
 
 // The amount the Game Object is visually offset from its y coordinate.
 // This is the same as `height * anchor.y`.
 // It will only be > 0 if anchor.y is not equal to zero.
-func (self *Graphics) GetOffsetY() float64{
-    return self.Get("offsetY").Float()
+func (self *Graphics) GetOffsetY() int{
+    return self.Get("offsetY").Int()
 }
 
 // The amount the Game Object is visually offset from its y coordinate.
 // This is the same as `height * anchor.y`.
 // It will only be > 0 if anchor.y is not equal to zero.
-func (self *Graphics) SetOffsetY(member float64) {
+func (self *Graphics) SetOffsetY(member int) {
     self.Set("offsetY", member)
 }
 
 // The center x coordinate of the Game Object.
 // This is the same as `(x - offsetX) + (width / 2)`.
-func (self *Graphics) GetCenterX() float64{
-    return self.Get("centerX").Float()
+func (self *Graphics) GetCenterX() int{
+    return self.Get("centerX").Int()
 }
 
 // The center x coordinate of the Game Object.
 // This is the same as `(x - offsetX) + (width / 2)`.
-func (self *Graphics) SetCenterX(member float64) {
+func (self *Graphics) SetCenterX(member int) {
     self.Set("centerX", member)
 }
 
 // The center y coordinate of the Game Object.
 // This is the same as `(y - offsetY) + (height / 2)`.
-func (self *Graphics) GetCenterY() float64{
-    return self.Get("centerY").Float()
+func (self *Graphics) GetCenterY() int{
+    return self.Get("centerY").Int()
 }
 
 // The center y coordinate of the Game Object.
 // This is the same as `(y - offsetY) + (height / 2)`.
-func (self *Graphics) SetCenterY(member float64) {
+func (self *Graphics) SetCenterY(member int) {
     self.Set("centerY", member)
 }
 
 // The left coordinate of the Game Object.
 // This is the same as `x - offsetX`.
-func (self *Graphics) GetLeft() float64{
-    return self.Get("left").Float()
+func (self *Graphics) GetLeft() int{
+    return self.Get("left").Int()
 }
 
 // The left coordinate of the Game Object.
 // This is the same as `x - offsetX`.
-func (self *Graphics) SetLeft(member float64) {
+func (self *Graphics) SetLeft(member int) {
     self.Set("left", member)
 }
 
 // The right coordinate of the Game Object.
 // This is the same as `x + width - offsetX`.
-func (self *Graphics) GetRight() float64{
-    return self.Get("right").Float()
+func (self *Graphics) GetRight() int{
+    return self.Get("right").Int()
 }
 
 // The right coordinate of the Game Object.
 // This is the same as `x + width - offsetX`.
-func (self *Graphics) SetRight(member float64) {
+func (self *Graphics) SetRight(member int) {
     self.Set("right", member)
 }
 
 // The y coordinate of the Game Object.
 // This is the same as `y - offsetY`.
-func (self *Graphics) GetTop() float64{
-    return self.Get("top").Float()
+func (self *Graphics) GetTop() int{
+    return self.Get("top").Int()
 }
 
 // The y coordinate of the Game Object.
 // This is the same as `y - offsetY`.
-func (self *Graphics) SetTop(member float64) {
+func (self *Graphics) SetTop(member int) {
     self.Set("top", member)
 }
 
 // The sum of the y and height properties.
 // This is the same as `y + height - offsetY`.
-func (self *Graphics) GetBottom() float64{
-    return self.Get("bottom").Float()
+func (self *Graphics) GetBottom() int{
+    return self.Get("bottom").Int()
 }
 
 // The sum of the y and height properties.
 // This is the same as `y + height - offsetY`.
-func (self *Graphics) SetBottom(member float64) {
+func (self *Graphics) SetBottom(member int) {
     self.Set("bottom", member)
 }
 
@@ -755,8 +755,8 @@ func (self *Graphics) SetAlive(member bool) {
 // When it reaches zero it will call the `kill` method.
 // 
 // Very handy for particles, bullets, collectibles, or any other short-lived entity.
-func (self *Graphics) GetLifespan() float64{
-    return self.Get("lifespan").Float()
+func (self *Graphics) GetLifespan() int{
+    return self.Get("lifespan").Int()
 }
 
 // The lifespan allows you to give a Game Object a lifespan in milliseconds.
@@ -767,7 +767,7 @@ func (self *Graphics) GetLifespan() float64{
 // When it reaches zero it will call the `kill` method.
 // 
 // Very handy for particles, bullets, collectibles, or any other short-lived entity.
-func (self *Graphics) SetLifespan(member float64) {
+func (self *Graphics) SetLifespan(member int) {
     self.Set("lifespan", member)
 }
 
@@ -808,22 +808,22 @@ func (self *Graphics) SetBody(member interface{}) {
 }
 
 // The position of the Game Object on the x axis relative to the local coordinates of the parent.
-func (self *Graphics) GetX() float64{
-    return self.Get("x").Float()
+func (self *Graphics) GetX() int{
+    return self.Get("x").Int()
 }
 
 // The position of the Game Object on the x axis relative to the local coordinates of the parent.
-func (self *Graphics) SetX(member float64) {
+func (self *Graphics) SetX(member int) {
     self.Set("x", member)
 }
 
 // The position of the Game Object on the y axis relative to the local coordinates of the parent.
-func (self *Graphics) GetY() float64{
-    return self.Get("y").Float()
+func (self *Graphics) GetY() int{
+    return self.Get("y").Int()
 }
 
 // The position of the Game Object on the y axis relative to the local coordinates of the parent.
-func (self *Graphics) SetY(member float64) {
+func (self *Graphics) SetY(member int) {
     self.Set("y", member)
 }
 
@@ -974,8 +974,8 @@ func (self *Graphics) SwapChildrenI(args ...interface{}) {
 }
 
 // Returns the index position of a child DisplayObject instance
-func (self *Graphics) GetChildIndexI(args ...interface{}) float64{
-    return self.Call("getChildIndex", args).Float()
+func (self *Graphics) GetChildIndexI(args ...interface{}) int{
+    return self.Call("getChildIndex", args).Int()
 }
 
 // Changes the position of an existing child in the display object container

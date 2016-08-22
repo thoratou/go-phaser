@@ -27,12 +27,12 @@ func (self *Filter) SetGame(member *Game) {
 }
 
 // The const type of this object, either Phaser.WEBGL_FILTER or Phaser.CANVAS_FILTER.
-func (self *Filter) GetType() float64{
-    return self.Get("type").Float()
+func (self *Filter) GetType() int{
+    return self.Get("type").Int()
 }
 
 // The const type of this object, either Phaser.WEBGL_FILTER or Phaser.CANVAS_FILTER.
-func (self *Filter) SetType(member float64) {
+func (self *Filter) SetType(member int) {
     self.Set("type", member)
 }
 
@@ -47,12 +47,12 @@ func (self *Filter) SetDirty(member bool) {
 }
 
 // Internal PIXI var.
-func (self *Filter) GetPadding() float64{
-    return self.Get("padding").Float()
+func (self *Filter) GetPadding() int{
+    return self.Get("padding").Int()
 }
 
 // Internal PIXI var.
-func (self *Filter) SetPadding(member float64) {
+func (self *Filter) SetPadding(member int) {
     self.Set("padding", member)
 }
 
@@ -87,22 +87,22 @@ func (self *Filter) SetFragmentSrc(member interface{}) {
 }
 
 // The width (resolution uniform)
-func (self *Filter) GetWidth() float64{
-    return self.Get("width").Float()
+func (self *Filter) GetWidth() int{
+    return self.Get("width").Int()
 }
 
 // The width (resolution uniform)
-func (self *Filter) SetWidth(member float64) {
+func (self *Filter) SetWidth(member int) {
     self.Set("width", member)
 }
 
 // The height (resolution uniform)
-func (self *Filter) GetHeight() float64{
-    return self.Get("height").Float()
+func (self *Filter) GetHeight() int{
+    return self.Get("height").Int()
 }
 
 // The height (resolution uniform)
-func (self *Filter) SetHeight(member float64) {
+func (self *Filter) SetHeight(member int) {
     self.Set("height", member)
 }
 

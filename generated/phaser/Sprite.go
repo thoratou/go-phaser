@@ -18,22 +18,22 @@ type Sprite struct {
 
 
 // The const type of this object.
-func (self *Sprite) GetType() float64{
-    return self.Get("type").Float()
+func (self *Sprite) GetType() int{
+    return self.Get("type").Int()
 }
 
 // The const type of this object.
-func (self *Sprite) SetType(member float64) {
+func (self *Sprite) SetType(member int) {
     self.Set("type", member)
 }
 
 // The const physics body type of this object.
-func (self *Sprite) GetPhysicsType() float64{
-    return self.Get("physicsType").Float()
+func (self *Sprite) GetPhysicsType() int{
+    return self.Get("physicsType").Int()
 }
 
 // The const physics body type of this object.
-func (self *Sprite) SetPhysicsType(member float64) {
+func (self *Sprite) SetPhysicsType(member int) {
     self.Set("physicsType", member)
 }
 
@@ -64,12 +64,12 @@ func (self *Sprite) SetTexture(member *Texture) {
 }
 
 // The tint applied to the sprite. This is a hex value. A value of 0xFFFFFF will remove any tint effect.
-func (self *Sprite) GetTint() float64{
-    return self.Get("tint").Float()
+func (self *Sprite) GetTint() int{
+    return self.Get("tint").Int()
 }
 
 // The tint applied to the sprite. This is a hex value. A value of 0xFFFFFF will remove any tint effect.
-func (self *Sprite) SetTint(member float64) {
+func (self *Sprite) SetTint(member int) {
     self.Set("tint", member)
 }
 
@@ -86,14 +86,14 @@ func (self *Sprite) SetTintedTexture(member *Canvas) {
 // The blend mode to be applied to the sprite. Set to PIXI.blendModes.NORMAL to remove any blend mode.
 // 
 // Warning: You cannot have a blend mode and a filter active on the same Sprite. Doing so will render the sprite invisible.
-func (self *Sprite) GetBlendMode() float64{
-    return self.Get("blendMode").Float()
+func (self *Sprite) GetBlendMode() int{
+    return self.Get("blendMode").Int()
 }
 
 // The blend mode to be applied to the sprite. Set to PIXI.blendModes.NORMAL to remove any blend mode.
 // 
 // Warning: You cannot have a blend mode and a filter active on the same Sprite. Doing so will render the sprite invisible.
-func (self *Sprite) SetBlendMode(member float64) {
+func (self *Sprite) SetBlendMode(member int) {
     self.Set("blendMode", member)
 }
 
@@ -118,22 +118,22 @@ func (self *Sprite) SetExists(member bool) {
 }
 
 // The width of the sprite, setting this will actually modify the scale to achieve the value set
-func (self *Sprite) GetWidth() float64{
-    return self.Get("width").Float()
+func (self *Sprite) GetWidth() int{
+    return self.Get("width").Int()
 }
 
 // The width of the sprite, setting this will actually modify the scale to achieve the value set
-func (self *Sprite) SetWidth(member float64) {
+func (self *Sprite) SetWidth(member int) {
     self.Set("width", member)
 }
 
 // The height of the sprite, setting this will actually modify the scale to achieve the value set
-func (self *Sprite) GetHeight() float64{
-    return self.Get("height").Float()
+func (self *Sprite) GetHeight() int{
+    return self.Get("height").Int()
 }
 
 // The height of the sprite, setting this will actually modify the scale to achieve the value set
-func (self *Sprite) SetHeight(member float64) {
+func (self *Sprite) SetHeight(member int) {
     self.Set("height", member)
 }
 
@@ -223,15 +223,15 @@ func (self *Sprite) SetComponents(member interface{}) {
 // No two objects in a Group can have the same z value.
 // This value is adjusted automatically whenever the Group hierarchy changes.
 // If you wish to re-order the layering of a Game Object then see methods like Group.moveUp or Group.bringToTop.
-func (self *Sprite) GetZ() float64{
-    return self.Get("z").Float()
+func (self *Sprite) GetZ() int{
+    return self.Get("z").Int()
 }
 
 // The z depth of this Game Object within its parent Group.
 // No two objects in a Group can have the same z value.
 // This value is adjusted automatically whenever the Group hierarchy changes.
 // If you wish to re-order the layering of a Game Object then see methods like Group.moveUp or Group.bringToTop.
-func (self *Sprite) SetZ(member float64) {
+func (self *Sprite) SetZ(member int) {
     self.Set("z", member)
 }
 
@@ -312,24 +312,24 @@ func (self *Sprite) SetPreviousPosition(member *Point) {
 }
 
 // The rotation the Game Object was in set to in the previous frame. Value is in radians.
-func (self *Sprite) GetPreviousRotation() float64{
-    return self.Get("previousRotation").Float()
+func (self *Sprite) GetPreviousRotation() int{
+    return self.Get("previousRotation").Int()
 }
 
 // The rotation the Game Object was in set to in the previous frame. Value is in radians.
-func (self *Sprite) SetPreviousRotation(member float64) {
+func (self *Sprite) SetPreviousRotation(member int) {
     self.Set("previousRotation", member)
 }
 
 // The render order ID is used internally by the renderer and Input Manager and should not be modified.
 // This property is mostly used internally by the renderers, but is exposed for the use of plugins.
-func (self *Sprite) GetRenderOrderID() float64{
-    return self.Get("renderOrderID").Float()
+func (self *Sprite) GetRenderOrderID() int{
+    return self.Get("renderOrderID").Int()
 }
 
 // The render order ID is used internally by the renderer and Input Manager and should not be modified.
 // This property is mostly used internally by the renderers, but is exposed for the use of plugins.
-func (self *Sprite) SetRenderOrderID(member float64) {
+func (self *Sprite) SetRenderOrderID(member int) {
     self.Set("renderOrderID", member)
 }
 
@@ -372,8 +372,8 @@ func (self *Sprite) SetPendingDestroy(member bool) {
 // 
 // If you wish to work in radians instead of degrees you can use the property `rotation` instead. 
 // Working in radians is slightly faster as it doesn't have to perform any calculations.
-func (self *Sprite) GetAngle() float64{
-    return self.Get("angle").Float()
+func (self *Sprite) GetAngle() int{
+    return self.Get("angle").Int()
 }
 
 // The angle property is the rotation of the Game Object in *degrees* from its original orientation.
@@ -385,7 +385,7 @@ func (self *Sprite) GetAngle() float64{
 // 
 // If you wish to work in radians instead of degrees you can use the property `rotation` instead. 
 // Working in radians is slightly faster as it doesn't have to perform any calculations.
-func (self *Sprite) SetAngle(member float64) {
+func (self *Sprite) SetAngle(member int) {
     self.Set("angle", member)
 }
 
@@ -424,100 +424,100 @@ func (self *Sprite) SetInCamera(member bool) {
 // The amount the Game Object is visually offset from its x coordinate.
 // This is the same as `width * anchor.x`.
 // It will only be > 0 if anchor.x is not equal to zero.
-func (self *Sprite) GetOffsetX() float64{
-    return self.Get("offsetX").Float()
+func (self *Sprite) GetOffsetX() int{
+    return self.Get("offsetX").Int()
 }
 
 // The amount the Game Object is visually offset from its x coordinate.
 // This is the same as `width * anchor.x`.
 // It will only be > 0 if anchor.x is not equal to zero.
-func (self *Sprite) SetOffsetX(member float64) {
+func (self *Sprite) SetOffsetX(member int) {
     self.Set("offsetX", member)
 }
 
 // The amount the Game Object is visually offset from its y coordinate.
 // This is the same as `height * anchor.y`.
 // It will only be > 0 if anchor.y is not equal to zero.
-func (self *Sprite) GetOffsetY() float64{
-    return self.Get("offsetY").Float()
+func (self *Sprite) GetOffsetY() int{
+    return self.Get("offsetY").Int()
 }
 
 // The amount the Game Object is visually offset from its y coordinate.
 // This is the same as `height * anchor.y`.
 // It will only be > 0 if anchor.y is not equal to zero.
-func (self *Sprite) SetOffsetY(member float64) {
+func (self *Sprite) SetOffsetY(member int) {
     self.Set("offsetY", member)
 }
 
 // The center x coordinate of the Game Object.
 // This is the same as `(x - offsetX) + (width / 2)`.
-func (self *Sprite) GetCenterX() float64{
-    return self.Get("centerX").Float()
+func (self *Sprite) GetCenterX() int{
+    return self.Get("centerX").Int()
 }
 
 // The center x coordinate of the Game Object.
 // This is the same as `(x - offsetX) + (width / 2)`.
-func (self *Sprite) SetCenterX(member float64) {
+func (self *Sprite) SetCenterX(member int) {
     self.Set("centerX", member)
 }
 
 // The center y coordinate of the Game Object.
 // This is the same as `(y - offsetY) + (height / 2)`.
-func (self *Sprite) GetCenterY() float64{
-    return self.Get("centerY").Float()
+func (self *Sprite) GetCenterY() int{
+    return self.Get("centerY").Int()
 }
 
 // The center y coordinate of the Game Object.
 // This is the same as `(y - offsetY) + (height / 2)`.
-func (self *Sprite) SetCenterY(member float64) {
+func (self *Sprite) SetCenterY(member int) {
     self.Set("centerY", member)
 }
 
 // The left coordinate of the Game Object.
 // This is the same as `x - offsetX`.
-func (self *Sprite) GetLeft() float64{
-    return self.Get("left").Float()
+func (self *Sprite) GetLeft() int{
+    return self.Get("left").Int()
 }
 
 // The left coordinate of the Game Object.
 // This is the same as `x - offsetX`.
-func (self *Sprite) SetLeft(member float64) {
+func (self *Sprite) SetLeft(member int) {
     self.Set("left", member)
 }
 
 // The right coordinate of the Game Object.
 // This is the same as `x + width - offsetX`.
-func (self *Sprite) GetRight() float64{
-    return self.Get("right").Float()
+func (self *Sprite) GetRight() int{
+    return self.Get("right").Int()
 }
 
 // The right coordinate of the Game Object.
 // This is the same as `x + width - offsetX`.
-func (self *Sprite) SetRight(member float64) {
+func (self *Sprite) SetRight(member int) {
     self.Set("right", member)
 }
 
 // The y coordinate of the Game Object.
 // This is the same as `y - offsetY`.
-func (self *Sprite) GetTop() float64{
-    return self.Get("top").Float()
+func (self *Sprite) GetTop() int{
+    return self.Get("top").Int()
 }
 
 // The y coordinate of the Game Object.
 // This is the same as `y - offsetY`.
-func (self *Sprite) SetTop(member float64) {
+func (self *Sprite) SetTop(member int) {
     self.Set("top", member)
 }
 
 // The sum of the y and height properties.
 // This is the same as `y + height - offsetY`.
-func (self *Sprite) GetBottom() float64{
-    return self.Get("bottom").Float()
+func (self *Sprite) GetBottom() int{
+    return self.Get("bottom").Int()
 }
 
 // The sum of the y and height properties.
 // This is the same as `y + height - offsetY`.
-func (self *Sprite) SetBottom(member float64) {
+func (self *Sprite) SetBottom(member int) {
     self.Set("bottom", member)
 }
 
@@ -538,38 +538,38 @@ func (self *Sprite) SetCropRect(member *Rectangle) {
 // Returns the delta x value. The difference between world.x now and in the previous frame.
 // 
 // The value will be positive if the Game Object has moved to the right or negative if to the left.
-func (self *Sprite) GetDeltaX() float64{
-    return self.Get("deltaX").Float()
+func (self *Sprite) GetDeltaX() int{
+    return self.Get("deltaX").Int()
 }
 
 // Returns the delta x value. The difference between world.x now and in the previous frame.
 // 
 // The value will be positive if the Game Object has moved to the right or negative if to the left.
-func (self *Sprite) SetDeltaX(member float64) {
+func (self *Sprite) SetDeltaX(member int) {
     self.Set("deltaX", member)
 }
 
 // Returns the delta y value. The difference between world.y now and in the previous frame.
 // 
 // The value will be positive if the Game Object has moved down or negative if up.
-func (self *Sprite) GetDeltaY() float64{
-    return self.Get("deltaY").Float()
+func (self *Sprite) GetDeltaY() int{
+    return self.Get("deltaY").Int()
 }
 
 // Returns the delta y value. The difference between world.y now and in the previous frame.
 // 
 // The value will be positive if the Game Object has moved down or negative if up.
-func (self *Sprite) SetDeltaY(member float64) {
+func (self *Sprite) SetDeltaY(member int) {
     self.Set("deltaY", member)
 }
 
 // Returns the delta z value. The difference between rotation now and in the previous frame. The delta value.
-func (self *Sprite) GetDeltaZ() float64{
-    return self.Get("deltaZ").Float()
+func (self *Sprite) GetDeltaZ() int{
+    return self.Get("deltaZ").Int()
 }
 
 // Returns the delta z value. The difference between rotation now and in the previous frame. The delta value.
-func (self *Sprite) SetDeltaZ(member float64) {
+func (self *Sprite) SetDeltaZ(member int) {
     self.Set("deltaZ", member)
 }
 
@@ -636,26 +636,26 @@ func (self *Sprite) SetCameraOffset(member *Point) {
 // The Game Objects health value. This is a handy property for setting and manipulating health on a Game Object.
 // 
 // It can be used in combination with the `damage` method or modified directly.
-func (self *Sprite) GetHealth() float64{
-    return self.Get("health").Float()
+func (self *Sprite) GetHealth() int{
+    return self.Get("health").Int()
 }
 
 // The Game Objects health value. This is a handy property for setting and manipulating health on a Game Object.
 // 
 // It can be used in combination with the `damage` method or modified directly.
-func (self *Sprite) SetHealth(member float64) {
+func (self *Sprite) SetHealth(member int) {
     self.Set("health", member)
 }
 
 // The Game Objects maximum health value. This works in combination with the `heal` method to ensure
 // the health value never exceeds the maximum.
-func (self *Sprite) GetMaxHealth() float64{
-    return self.Get("maxHealth").Float()
+func (self *Sprite) GetMaxHealth() int{
+    return self.Get("maxHealth").Int()
 }
 
 // The Game Objects maximum health value. This works in combination with the `heal` method to ensure
 // the health value never exceeds the maximum.
-func (self *Sprite) SetMaxHealth(member float64) {
+func (self *Sprite) SetMaxHealth(member int) {
     self.Set("maxHealth", member)
 }
 
@@ -839,8 +839,8 @@ func (self *Sprite) SetAlive(member bool) {
 // When it reaches zero it will call the `kill` method.
 // 
 // Very handy for particles, bullets, collectibles, or any other short-lived entity.
-func (self *Sprite) GetLifespan() float64{
-    return self.Get("lifespan").Float()
+func (self *Sprite) GetLifespan() int{
+    return self.Get("lifespan").Int()
 }
 
 // The lifespan allows you to give a Game Object a lifespan in milliseconds.
@@ -851,7 +851,7 @@ func (self *Sprite) GetLifespan() float64{
 // When it reaches zero it will call the `kill` method.
 // 
 // Very handy for particles, bullets, collectibles, or any other short-lived entity.
-func (self *Sprite) SetLifespan(member float64) {
+func (self *Sprite) SetLifespan(member int) {
     self.Set("lifespan", member)
 }
 
@@ -948,22 +948,22 @@ func (self *Sprite) SetBody(member interface{}) {
 }
 
 // The position of the Game Object on the x axis relative to the local coordinates of the parent.
-func (self *Sprite) GetX() float64{
-    return self.Get("x").Float()
+func (self *Sprite) GetX() int{
+    return self.Get("x").Int()
 }
 
 // The position of the Game Object on the x axis relative to the local coordinates of the parent.
-func (self *Sprite) SetX(member float64) {
+func (self *Sprite) SetX(member int) {
     self.Set("x", member)
 }
 
 // The position of the Game Object on the y axis relative to the local coordinates of the parent.
-func (self *Sprite) GetY() float64{
-    return self.Get("y").Float()
+func (self *Sprite) GetY() int{
+    return self.Get("y").Int()
 }
 
 // The position of the Game Object on the y axis relative to the local coordinates of the parent.
-func (self *Sprite) SetY(member float64) {
+func (self *Sprite) SetY(member int) {
     self.Set("y", member)
 }
 
@@ -1093,8 +1093,8 @@ func (self *Sprite) SwapChildrenI(args ...interface{}) {
 }
 
 // Returns the index position of a child DisplayObject instance
-func (self *Sprite) GetChildIndexI(args ...interface{}) float64{
-    return self.Call("getChildIndex", args).Float()
+func (self *Sprite) GetChildIndexI(args ...interface{}) int{
+    return self.Call("getChildIndex", args).Int()
 }
 
 // Changes the position of an existing child in the display object container

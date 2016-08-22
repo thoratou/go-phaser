@@ -36,42 +36,42 @@ type BitmapText struct {
 
 
 // The const type of this object.
-func (self *BitmapText) GetType() float64{
-    return self.Get("type").Float()
+func (self *BitmapText) GetType() int{
+    return self.Get("type").Int()
 }
 
 // The const type of this object.
-func (self *BitmapText) SetType(member float64) {
+func (self *BitmapText) SetType(member int) {
     self.Set("type", member)
 }
 
 // The const physics body type of this object.
-func (self *BitmapText) GetPhysicsType() float64{
-    return self.Get("physicsType").Float()
+func (self *BitmapText) GetPhysicsType() int{
+    return self.Get("physicsType").Int()
 }
 
 // The const physics body type of this object.
-func (self *BitmapText) SetPhysicsType(member float64) {
+func (self *BitmapText) SetPhysicsType(member int) {
     self.Set("physicsType", member)
 }
 
 // The width in pixels of the overall text area, taking into consideration multi-line text.
-func (self *BitmapText) GetTextWidth() float64{
-    return self.Get("textWidth").Float()
+func (self *BitmapText) GetTextWidth() int{
+    return self.Get("textWidth").Int()
 }
 
 // The width in pixels of the overall text area, taking into consideration multi-line text.
-func (self *BitmapText) SetTextWidth(member float64) {
+func (self *BitmapText) SetTextWidth(member int) {
     self.Set("textWidth", member)
 }
 
 // The height in pixels of the overall text area, taking into consideration multi-line text.
-func (self *BitmapText) GetTextHeight() float64{
-    return self.Get("textHeight").Float()
+func (self *BitmapText) GetTextHeight() int{
+    return self.Get("textHeight").Int()
 }
 
 // The height in pixels of the overall text area, taking into consideration multi-line text.
-func (self *BitmapText) SetTextHeight(member float64) {
+func (self *BitmapText) SetTextHeight(member int) {
     self.Set("textHeight", member)
 }
 
@@ -106,12 +106,12 @@ func (self *BitmapText) SetAlign(member string) {
 }
 
 // The tint applied to the BitmapText. This is a hex value. Set to white to disable (0xFFFFFF)
-func (self *BitmapText) GetTint() float64{
-    return self.Get("tint").Float()
+func (self *BitmapText) GetTint() int{
+    return self.Get("tint").Int()
 }
 
 // The tint applied to the BitmapText. This is a hex value. Set to white to disable (0xFFFFFF)
-func (self *BitmapText) SetTint(member float64) {
+func (self *BitmapText) SetTint(member int) {
     self.Set("tint", member)
 }
 
@@ -126,12 +126,12 @@ func (self *BitmapText) SetFont(member string) {
 }
 
 // The size of the font in pixels.
-func (self *BitmapText) GetFontSize() float64{
-    return self.Get("fontSize").Float()
+func (self *BitmapText) GetFontSize() int{
+    return self.Get("fontSize").Int()
 }
 
 // The size of the font in pixels.
-func (self *BitmapText) SetFontSize(member float64) {
+func (self *BitmapText) SetFontSize(member int) {
     self.Set("fontSize", member)
 }
 
@@ -153,8 +153,8 @@ func (self *BitmapText) SetText(member string) {
 // If no whitespace was found then no wrapping will take place and consequently the maxWidth value will not be honored.
 // 
 // Disable maxWidth by setting the value to 0. The maximum width of this BitmapText in pixels.
-func (self *BitmapText) GetMaxWidth() float64{
-    return self.Get("maxWidth").Float()
+func (self *BitmapText) GetMaxWidth() int{
+    return self.Get("maxWidth").Int()
 }
 
 // The maximum display width of this BitmapText in pixels.
@@ -165,7 +165,7 @@ func (self *BitmapText) GetMaxWidth() float64{
 // If no whitespace was found then no wrapping will take place and consequently the maxWidth value will not be honored.
 // 
 // Disable maxWidth by setting the value to 0. The maximum width of this BitmapText in pixels.
-func (self *BitmapText) SetMaxWidth(member float64) {
+func (self *BitmapText) SetMaxWidth(member int) {
     self.Set("maxWidth", member)
 }
 
@@ -222,22 +222,22 @@ func (self *BitmapText) SetIgnoreChildInput(member bool) {
 }
 
 // The width of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *BitmapText) GetWidth() float64{
-    return self.Get("width").Float()
+func (self *BitmapText) GetWidth() int{
+    return self.Get("width").Int()
 }
 
 // The width of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *BitmapText) SetWidth(member float64) {
+func (self *BitmapText) SetWidth(member int) {
     self.Set("width", member)
 }
 
 // The height of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *BitmapText) GetHeight() float64{
-    return self.Get("height").Float()
+func (self *BitmapText) GetHeight() int{
+    return self.Get("height").Int()
 }
 
 // The height of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *BitmapText) SetHeight(member float64) {
+func (self *BitmapText) SetHeight(member int) {
     self.Set("height", member)
 }
 
@@ -293,15 +293,15 @@ func (self *BitmapText) SetComponents(member interface{}) {
 // No two objects in a Group can have the same z value.
 // This value is adjusted automatically whenever the Group hierarchy changes.
 // If you wish to re-order the layering of a Game Object then see methods like Group.moveUp or Group.bringToTop.
-func (self *BitmapText) GetZ() float64{
-    return self.Get("z").Float()
+func (self *BitmapText) GetZ() int{
+    return self.Get("z").Int()
 }
 
 // The z depth of this Game Object within its parent Group.
 // No two objects in a Group can have the same z value.
 // This value is adjusted automatically whenever the Group hierarchy changes.
 // If you wish to re-order the layering of a Game Object then see methods like Group.moveUp or Group.bringToTop.
-func (self *BitmapText) SetZ(member float64) {
+func (self *BitmapText) SetZ(member int) {
     self.Set("z", member)
 }
 
@@ -382,24 +382,24 @@ func (self *BitmapText) SetPreviousPosition(member *Point) {
 }
 
 // The rotation the Game Object was in set to in the previous frame. Value is in radians.
-func (self *BitmapText) GetPreviousRotation() float64{
-    return self.Get("previousRotation").Float()
+func (self *BitmapText) GetPreviousRotation() int{
+    return self.Get("previousRotation").Int()
 }
 
 // The rotation the Game Object was in set to in the previous frame. Value is in radians.
-func (self *BitmapText) SetPreviousRotation(member float64) {
+func (self *BitmapText) SetPreviousRotation(member int) {
     self.Set("previousRotation", member)
 }
 
 // The render order ID is used internally by the renderer and Input Manager and should not be modified.
 // This property is mostly used internally by the renderers, but is exposed for the use of plugins.
-func (self *BitmapText) GetRenderOrderID() float64{
-    return self.Get("renderOrderID").Float()
+func (self *BitmapText) GetRenderOrderID() int{
+    return self.Get("renderOrderID").Int()
 }
 
 // The render order ID is used internally by the renderer and Input Manager and should not be modified.
 // This property is mostly used internally by the renderers, but is exposed for the use of plugins.
-func (self *BitmapText) SetRenderOrderID(member float64) {
+func (self *BitmapText) SetRenderOrderID(member int) {
     self.Set("renderOrderID", member)
 }
 
@@ -464,8 +464,8 @@ func (self *BitmapText) SetExists(member bool) {
 // 
 // If you wish to work in radians instead of degrees you can use the property `rotation` instead. 
 // Working in radians is slightly faster as it doesn't have to perform any calculations.
-func (self *BitmapText) GetAngle() float64{
-    return self.Get("angle").Float()
+func (self *BitmapText) GetAngle() int{
+    return self.Get("angle").Int()
 }
 
 // The angle property is the rotation of the Game Object in *degrees* from its original orientation.
@@ -477,7 +477,7 @@ func (self *BitmapText) GetAngle() float64{
 // 
 // If you wish to work in radians instead of degrees you can use the property `rotation` instead. 
 // Working in radians is slightly faster as it doesn't have to perform any calculations.
-func (self *BitmapText) SetAngle(member float64) {
+func (self *BitmapText) SetAngle(member int) {
     self.Set("angle", member)
 }
 
@@ -516,100 +516,100 @@ func (self *BitmapText) SetInCamera(member bool) {
 // The amount the Game Object is visually offset from its x coordinate.
 // This is the same as `width * anchor.x`.
 // It will only be > 0 if anchor.x is not equal to zero.
-func (self *BitmapText) GetOffsetX() float64{
-    return self.Get("offsetX").Float()
+func (self *BitmapText) GetOffsetX() int{
+    return self.Get("offsetX").Int()
 }
 
 // The amount the Game Object is visually offset from its x coordinate.
 // This is the same as `width * anchor.x`.
 // It will only be > 0 if anchor.x is not equal to zero.
-func (self *BitmapText) SetOffsetX(member float64) {
+func (self *BitmapText) SetOffsetX(member int) {
     self.Set("offsetX", member)
 }
 
 // The amount the Game Object is visually offset from its y coordinate.
 // This is the same as `height * anchor.y`.
 // It will only be > 0 if anchor.y is not equal to zero.
-func (self *BitmapText) GetOffsetY() float64{
-    return self.Get("offsetY").Float()
+func (self *BitmapText) GetOffsetY() int{
+    return self.Get("offsetY").Int()
 }
 
 // The amount the Game Object is visually offset from its y coordinate.
 // This is the same as `height * anchor.y`.
 // It will only be > 0 if anchor.y is not equal to zero.
-func (self *BitmapText) SetOffsetY(member float64) {
+func (self *BitmapText) SetOffsetY(member int) {
     self.Set("offsetY", member)
 }
 
 // The center x coordinate of the Game Object.
 // This is the same as `(x - offsetX) + (width / 2)`.
-func (self *BitmapText) GetCenterX() float64{
-    return self.Get("centerX").Float()
+func (self *BitmapText) GetCenterX() int{
+    return self.Get("centerX").Int()
 }
 
 // The center x coordinate of the Game Object.
 // This is the same as `(x - offsetX) + (width / 2)`.
-func (self *BitmapText) SetCenterX(member float64) {
+func (self *BitmapText) SetCenterX(member int) {
     self.Set("centerX", member)
 }
 
 // The center y coordinate of the Game Object.
 // This is the same as `(y - offsetY) + (height / 2)`.
-func (self *BitmapText) GetCenterY() float64{
-    return self.Get("centerY").Float()
+func (self *BitmapText) GetCenterY() int{
+    return self.Get("centerY").Int()
 }
 
 // The center y coordinate of the Game Object.
 // This is the same as `(y - offsetY) + (height / 2)`.
-func (self *BitmapText) SetCenterY(member float64) {
+func (self *BitmapText) SetCenterY(member int) {
     self.Set("centerY", member)
 }
 
 // The left coordinate of the Game Object.
 // This is the same as `x - offsetX`.
-func (self *BitmapText) GetLeft() float64{
-    return self.Get("left").Float()
+func (self *BitmapText) GetLeft() int{
+    return self.Get("left").Int()
 }
 
 // The left coordinate of the Game Object.
 // This is the same as `x - offsetX`.
-func (self *BitmapText) SetLeft(member float64) {
+func (self *BitmapText) SetLeft(member int) {
     self.Set("left", member)
 }
 
 // The right coordinate of the Game Object.
 // This is the same as `x + width - offsetX`.
-func (self *BitmapText) GetRight() float64{
-    return self.Get("right").Float()
+func (self *BitmapText) GetRight() int{
+    return self.Get("right").Int()
 }
 
 // The right coordinate of the Game Object.
 // This is the same as `x + width - offsetX`.
-func (self *BitmapText) SetRight(member float64) {
+func (self *BitmapText) SetRight(member int) {
     self.Set("right", member)
 }
 
 // The y coordinate of the Game Object.
 // This is the same as `y - offsetY`.
-func (self *BitmapText) GetTop() float64{
-    return self.Get("top").Float()
+func (self *BitmapText) GetTop() int{
+    return self.Get("top").Int()
 }
 
 // The y coordinate of the Game Object.
 // This is the same as `y - offsetY`.
-func (self *BitmapText) SetTop(member float64) {
+func (self *BitmapText) SetTop(member int) {
     self.Set("top", member)
 }
 
 // The sum of the y and height properties.
 // This is the same as `y + height - offsetY`.
-func (self *BitmapText) GetBottom() float64{
-    return self.Get("bottom").Float()
+func (self *BitmapText) GetBottom() int{
+    return self.Get("bottom").Int()
 }
 
 // The sum of the y and height properties.
 // This is the same as `y + height - offsetY`.
-func (self *BitmapText) SetBottom(member float64) {
+func (self *BitmapText) SetBottom(member int) {
     self.Set("bottom", member)
 }
 
@@ -817,8 +817,8 @@ func (self *BitmapText) SetAlive(member bool) {
 // When it reaches zero it will call the `kill` method.
 // 
 // Very handy for particles, bullets, collectibles, or any other short-lived entity.
-func (self *BitmapText) GetLifespan() float64{
-    return self.Get("lifespan").Float()
+func (self *BitmapText) GetLifespan() int{
+    return self.Get("lifespan").Int()
 }
 
 // The lifespan allows you to give a Game Object a lifespan in milliseconds.
@@ -829,7 +829,7 @@ func (self *BitmapText) GetLifespan() float64{
 // When it reaches zero it will call the `kill` method.
 // 
 // Very handy for particles, bullets, collectibles, or any other short-lived entity.
-func (self *BitmapText) SetLifespan(member float64) {
+func (self *BitmapText) SetLifespan(member int) {
     self.Set("lifespan", member)
 }
 
@@ -870,22 +870,22 @@ func (self *BitmapText) SetBody(member interface{}) {
 }
 
 // The position of the Game Object on the x axis relative to the local coordinates of the parent.
-func (self *BitmapText) GetX() float64{
-    return self.Get("x").Float()
+func (self *BitmapText) GetX() int{
+    return self.Get("x").Int()
 }
 
 // The position of the Game Object on the x axis relative to the local coordinates of the parent.
-func (self *BitmapText) SetX(member float64) {
+func (self *BitmapText) SetX(member int) {
     self.Set("x", member)
 }
 
 // The position of the Game Object on the y axis relative to the local coordinates of the parent.
-func (self *BitmapText) GetY() float64{
-    return self.Get("y").Float()
+func (self *BitmapText) GetY() int{
+    return self.Get("y").Int()
 }
 
 // The position of the Game Object on the y axis relative to the local coordinates of the parent.
-func (self *BitmapText) SetY(member float64) {
+func (self *BitmapText) SetY(member int) {
     self.Set("y", member)
 }
 
@@ -960,8 +960,8 @@ func (self *BitmapText) SwapChildrenI(args ...interface{}) {
 }
 
 // Returns the index position of a child DisplayObject instance
-func (self *BitmapText) GetChildIndexI(args ...interface{}) float64{
-    return self.Call("getChildIndex", args).Float()
+func (self *BitmapText) GetChildIndexI(args ...interface{}) int{
+    return self.Call("getChildIndex", args).Int()
 }
 
 // Changes the position of an existing child in the display object container

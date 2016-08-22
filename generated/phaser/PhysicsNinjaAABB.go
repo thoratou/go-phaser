@@ -55,12 +55,12 @@ func (self *PhysicsNinjaAABB) SetOldpos(member *Point) {
 }
 
 // Half the width.
-func (self *PhysicsNinjaAABB) GetXw() float64{
-    return self.Get("xw").Float()
+func (self *PhysicsNinjaAABB) GetXw() int{
+    return self.Get("xw").Int()
 }
 
 // Half the width.
-func (self *PhysicsNinjaAABB) SetXw(member float64) {
+func (self *PhysicsNinjaAABB) SetXw(member int) {
     self.Set("xw", member)
 }
 
@@ -75,22 +75,22 @@ func (self *PhysicsNinjaAABB) SetYw(member interface{}) {
 }
 
 // The width.
-func (self *PhysicsNinjaAABB) GetWidth() float64{
-    return self.Get("width").Float()
+func (self *PhysicsNinjaAABB) GetWidth() int{
+    return self.Get("width").Int()
 }
 
 // The width.
-func (self *PhysicsNinjaAABB) SetWidth(member float64) {
+func (self *PhysicsNinjaAABB) SetWidth(member int) {
     self.Set("width", member)
 }
 
 // The height.
-func (self *PhysicsNinjaAABB) GetHeight() float64{
-    return self.Get("height").Float()
+func (self *PhysicsNinjaAABB) GetHeight() int{
+    return self.Get("height").Int()
 }
 
 // The height.
-func (self *PhysicsNinjaAABB) SetHeight(member float64) {
+func (self *PhysicsNinjaAABB) SetHeight(member int) {
     self.Set("height", member)
 }
 
@@ -162,48 +162,48 @@ func (self *PhysicsNinjaAABB) ResolveTileI(args ...interface{}) bool{
 }
 
 // Resolves Full tile collision.
-func (self *PhysicsNinjaAABB) ProjAABB_FullI(args ...interface{}) float64{
-    return self.Call("projAABB_Full", args).Float()
+func (self *PhysicsNinjaAABB) ProjAABB_FullI(args ...interface{}) int{
+    return self.Call("projAABB_Full", args).Int()
 }
 
 // Resolves Half tile collision.
-func (self *PhysicsNinjaAABB) ProjAABB_HalfI(args ...interface{}) float64{
-    return self.Call("projAABB_Half", args).Float()
+func (self *PhysicsNinjaAABB) ProjAABB_HalfI(args ...interface{}) int{
+    return self.Call("projAABB_Half", args).Int()
 }
 
 // Resolves 45 Degree tile collision.
-func (self *PhysicsNinjaAABB) ProjAABB_45DegI(args ...interface{}) float64{
-    return self.Call("projAABB_45Deg", args).Float()
+func (self *PhysicsNinjaAABB) ProjAABB_45DegI(args ...interface{}) int{
+    return self.Call("projAABB_45Deg", args).Int()
 }
 
 // Resolves 22 Degree tile collision.
-func (self *PhysicsNinjaAABB) ProjAABB_22DegSI(args ...interface{}) float64{
-    return self.Call("projAABB_22DegS", args).Float()
+func (self *PhysicsNinjaAABB) ProjAABB_22DegSI(args ...interface{}) int{
+    return self.Call("projAABB_22DegS", args).Int()
 }
 
 // Resolves 22 Degree tile collision.
-func (self *PhysicsNinjaAABB) ProjAABB_22DegBI(args ...interface{}) float64{
-    return self.Call("projAABB_22DegB", args).Float()
+func (self *PhysicsNinjaAABB) ProjAABB_22DegBI(args ...interface{}) int{
+    return self.Call("projAABB_22DegB", args).Int()
 }
 
 // Resolves 67 Degree tile collision.
-func (self *PhysicsNinjaAABB) ProjAABB_67DegSI(args ...interface{}) float64{
-    return self.Call("projAABB_67DegS", args).Float()
+func (self *PhysicsNinjaAABB) ProjAABB_67DegSI(args ...interface{}) int{
+    return self.Call("projAABB_67DegS", args).Int()
 }
 
 // Resolves 67 Degree tile collision.
-func (self *PhysicsNinjaAABB) ProjAABB_67DegBI(args ...interface{}) float64{
-    return self.Call("projAABB_67DegB", args).Float()
+func (self *PhysicsNinjaAABB) ProjAABB_67DegBI(args ...interface{}) int{
+    return self.Call("projAABB_67DegB", args).Int()
 }
 
 // Resolves Convex tile collision.
-func (self *PhysicsNinjaAABB) ProjAABB_ConvexI(args ...interface{}) float64{
-    return self.Call("projAABB_Convex", args).Float()
+func (self *PhysicsNinjaAABB) ProjAABB_ConvexI(args ...interface{}) int{
+    return self.Call("projAABB_Convex", args).Int()
 }
 
 // Resolves Concave tile collision.
-func (self *PhysicsNinjaAABB) ProjAABB_ConcaveI(args ...interface{}) float64{
-    return self.Call("projAABB_Concave", args).Float()
+func (self *PhysicsNinjaAABB) ProjAABB_ConcaveI(args ...interface{}) int{
+    return self.Call("projAABB_Concave", args).Int()
 }
 
 // Destroys this AABB's reference to Body and System

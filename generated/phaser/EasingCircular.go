@@ -16,16 +16,16 @@ type EasingCircular struct {
 
 
 // Circular ease-in.
-func (self *EasingCircular) InI(args ...interface{}) float64{
-    return self.Call("In", args).Float()
+func (self *EasingCircular) InI(args ...interface{}) int{
+    return self.Call("In", args).Int()
 }
 
 // Circular ease-out.
-func (self *EasingCircular) OutI(args ...interface{}) float64{
-    return self.Call("Out", args).Float()
+func (self *EasingCircular) OutI(args ...interface{}) int{
+    return self.Call("Out", args).Int()
 }
 
 // Circular ease-in/out.
-func (self *EasingCircular) InOutI(args ...interface{}) float64{
-    return self.Call("InOut", args).Float()
+func (self *EasingCircular) InOutI(args ...interface{}) int{
+    return self.Call("InOut", args).Int()
 }

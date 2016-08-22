@@ -25,12 +25,12 @@ func (self *AbstractFilter) SetDirty(member bool) {
 }
 
 // 
-func (self *AbstractFilter) GetPadding() float64{
-    return self.Get("padding").Float()
+func (self *AbstractFilter) GetPadding() int{
+    return self.Get("padding").Int()
 }
 
 // 
-func (self *AbstractFilter) SetPadding(member float64) {
+func (self *AbstractFilter) SetPadding(member int) {
     self.Set("padding", member)
 }
 

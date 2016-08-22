@@ -16,16 +16,16 @@ type EasingBounce struct {
 
 
 // Bounce ease-in.
-func (self *EasingBounce) InI(args ...interface{}) float64{
-    return self.Call("In", args).Float()
+func (self *EasingBounce) InI(args ...interface{}) int{
+    return self.Call("In", args).Int()
 }
 
 // Bounce ease-out.
-func (self *EasingBounce) OutI(args ...interface{}) float64{
-    return self.Call("Out", args).Float()
+func (self *EasingBounce) OutI(args ...interface{}) int{
+    return self.Call("Out", args).Int()
 }
 
 // Bounce ease-in/out.
-func (self *EasingBounce) InOutI(args ...interface{}) float64{
-    return self.Call("InOut", args).Float()
+func (self *EasingBounce) InOutI(args ...interface{}) int{
+    return self.Call("InOut", args).Int()
 }

@@ -69,8 +69,8 @@ func (self *DisplayObject) SetPivot(member *PIXIPoint) {
 // 
 // The value of this property does not reflect any rotation happening further up the display list.
 // To obtain that value please see the `worldRotation` property.
-func (self *DisplayObject) GetRotation() float64{
-    return self.Get("rotation").Float()
+func (self *DisplayObject) GetRotation() int{
+    return self.Get("rotation").Int()
 }
 
 // The rotation of this DisplayObject. The value is given, and expressed, in radians, and is based on
@@ -78,7 +78,7 @@ func (self *DisplayObject) GetRotation() float64{
 // 
 // The value of this property does not reflect any rotation happening further up the display list.
 // To obtain that value please see the `worldRotation` property.
-func (self *DisplayObject) SetRotation(member float64) {
+func (self *DisplayObject) SetRotation(member int) {
     self.Set("rotation", member)
 }
 
@@ -87,8 +87,8 @@ func (self *DisplayObject) SetRotation(member float64) {
 // 
 // The value of this property does not reflect any alpha values set further up the display list.
 // To obtain that value please see the `worldAlpha` property.
-func (self *DisplayObject) GetAlpha() float64{
-    return self.Get("alpha").Float()
+func (self *DisplayObject) GetAlpha() int{
+    return self.Get("alpha").Int()
 }
 
 // The alpha value of this DisplayObject. A value of 1 is fully opaque. A value of 0 is transparent.
@@ -96,7 +96,7 @@ func (self *DisplayObject) GetAlpha() float64{
 // 
 // The value of this property does not reflect any alpha values set further up the display list.
 // To obtain that value please see the `worldAlpha` property.
-func (self *DisplayObject) SetAlpha(member float64) {
+func (self *DisplayObject) SetAlpha(member int) {
     self.Set("alpha", member)
 }
 
@@ -181,8 +181,8 @@ func (self *DisplayObject) SetStage(member *PIXIStage) {
 // Note: This property is only updated at the end of the `updateTransform` call, once per render. Until 
 // that happens this property will contain values based on the previous frame. Be mindful of this if
 // accessing this property outside of the normal game flow, i.e. from an asynchronous event callback.
-func (self *DisplayObject) GetWorldAlpha() float64{
-    return self.Get("worldAlpha").Float()
+func (self *DisplayObject) GetWorldAlpha() int{
+    return self.Get("worldAlpha").Int()
 }
 
 // The multiplied alpha value of this DisplayObject. A value of 1 is fully opaque. A value of 0 is transparent.
@@ -194,7 +194,7 @@ func (self *DisplayObject) GetWorldAlpha() float64{
 // Note: This property is only updated at the end of the `updateTransform` call, once per render. Until 
 // that happens this property will contain values based on the previous frame. Be mindful of this if
 // accessing this property outside of the normal game flow, i.e. from an asynchronous event callback.
-func (self *DisplayObject) SetWorldAlpha(member float64) {
+func (self *DisplayObject) SetWorldAlpha(member int) {
     self.Set("worldAlpha", member)
 }
 
@@ -278,8 +278,8 @@ func (self *DisplayObject) SetWorldScale(member *PIXIPoint) {
 // Note: This property is only updated at the end of the `updateTransform` call, once per render. Until 
 // that happens this property will contain values based on the previous frame. Be mindful of this if
 // accessing this property outside of the normal game flow, i.e. from an asynchronous event callback.
-func (self *DisplayObject) GetWorldRotation() float64{
-    return self.Get("worldRotation").Float()
+func (self *DisplayObject) GetWorldRotation() int{
+    return self.Get("worldRotation").Int()
 }
 
 // The rotation, in radians, of this DisplayObject.
@@ -290,7 +290,7 @@ func (self *DisplayObject) GetWorldRotation() float64{
 // Note: This property is only updated at the end of the `updateTransform` call, once per render. Until 
 // that happens this property will contain values based on the previous frame. Be mindful of this if
 // accessing this property outside of the normal game flow, i.e. from an asynchronous event callback.
-func (self *DisplayObject) SetWorldRotation(member float64) {
+func (self *DisplayObject) SetWorldRotation(member int) {
     self.Set("worldRotation", member)
 }
 
@@ -306,25 +306,25 @@ func (self *DisplayObject) SetFilterArea(member *Rectangle) {
 
 // The horizontal position of the DisplayObject, in pixels, relative to its parent.
 // If you need the world position of the DisplayObject, use `DisplayObject.worldPosition` instead.
-func (self *DisplayObject) GetX() float64{
-    return self.Get("x").Float()
+func (self *DisplayObject) GetX() int{
+    return self.Get("x").Int()
 }
 
 // The horizontal position of the DisplayObject, in pixels, relative to its parent.
 // If you need the world position of the DisplayObject, use `DisplayObject.worldPosition` instead.
-func (self *DisplayObject) SetX(member float64) {
+func (self *DisplayObject) SetX(member int) {
     self.Set("x", member)
 }
 
 // The vertical position of the DisplayObject, in pixels, relative to its parent.
 // If you need the world position of the DisplayObject, use `DisplayObject.worldPosition` instead.
-func (self *DisplayObject) GetY() float64{
-    return self.Get("y").Float()
+func (self *DisplayObject) GetY() int{
+    return self.Get("y").Int()
 }
 
 // The vertical position of the DisplayObject, in pixels, relative to its parent.
 // If you need the world position of the DisplayObject, use `DisplayObject.worldPosition` instead.
-func (self *DisplayObject) SetY(member float64) {
+func (self *DisplayObject) SetY(member int) {
     self.Set("y", member)
 }
 
