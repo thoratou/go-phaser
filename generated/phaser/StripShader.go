@@ -14,6 +14,18 @@ type StripShader struct {
 
 
 // 
+func NewStripShader(gl *WebGLContext) *StripShader {
+    return &StripShader{js.Global.Call("PIXI.StripShader", gl)}
+}
+
+// 
+func NewStripShaderI(args ...interface{}) *StripShader {
+    return &StripShader{js.Global.Call("PIXI.StripShader", args)}
+}
+
+
+
+// 
 func (self *StripShader) GetGlA() WebGLContext{
     return WrapWebGLContext(self.Object.Get("gl"))
 }

@@ -15,6 +15,22 @@ type ComponentHealth struct {
 }
 
 
+// The Health component provides the ability for Game Objects to have a `health` property 
+// that can be damaged and reset through game code.
+// Requires the LifeSpan component.
+func NewComponentHealth() *ComponentHealth {
+    return &ComponentHealth{js.Global.Call("Phaser.Component.Health")}
+}
+
+// The Health component provides the ability for Game Objects to have a `health` property 
+// that can be damaged and reset through game code.
+// Requires the LifeSpan component.
+func NewComponentHealthI(args ...interface{}) *ComponentHealth {
+    return &ComponentHealth{js.Global.Call("Phaser.Component.Health", args)}
+}
+
+
+
 // The Game Objects health value. This is a handy property for setting and manipulating health on a Game Object.
 // 
 // It can be used in combination with the `damage` method or modified directly.

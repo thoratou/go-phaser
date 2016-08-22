@@ -13,6 +13,18 @@ type ComponentOverlap struct {
 }
 
 
+// The Overlap component allows a Game Object to check if it overlaps with the bounds of another Game Object.
+func NewComponentOverlap() *ComponentOverlap {
+    return &ComponentOverlap{js.Global.Call("Phaser.Component.Overlap")}
+}
+
+// The Overlap component allows a Game Object to check if it overlaps with the bounds of another Game Object.
+func NewComponentOverlapI(args ...interface{}) *ComponentOverlap {
+    return &ComponentOverlap{js.Global.Call("Phaser.Component.Overlap", args)}
+}
+
+
+
 
 
 // Checks to see if the bounds of this Game Object overlaps with the bounds of the given Display Object, 

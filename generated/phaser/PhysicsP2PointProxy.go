@@ -13,6 +13,18 @@ type PhysicsP2PointProxy struct {
 }
 
 
+// A PointProxy is an internal class that allows for direct getter/setter style property access to Arrays and TypedArrays.
+func NewPhysicsP2PointProxy(world *PhysicsP2, destination interface{}) *PhysicsP2PointProxy {
+    return &PhysicsP2PointProxy{js.Global.Call("Phaser.Physics.P2.PointProxy", world, destination)}
+}
+
+// A PointProxy is an internal class that allows for direct getter/setter style property access to Arrays and TypedArrays.
+func NewPhysicsP2PointProxyI(args ...interface{}) *PhysicsP2PointProxy {
+    return &PhysicsP2PointProxy{js.Global.Call("Phaser.Physics.P2.PointProxy", args)}
+}
+
+
+
 // The x property of this PointProxy get and set in pixels.
 func (self *PhysicsP2PointProxy) GetXA() int{
     return self.Object.Get("x").Int()

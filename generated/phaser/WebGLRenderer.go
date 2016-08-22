@@ -18,6 +18,24 @@ type WebGLRenderer struct {
 }
 
 
+// The WebGLRenderer draws the stage and all its content onto a webGL enabled canvas. This renderer
+// should be used for browsers that support webGL. This Render works by automatically managing webGLBatchs.
+// So no need for Sprite Batches or Sprite Clouds.
+// Don't forget to add the view to your DOM or you will not see anything :)
+func NewWebGLRenderer(game *PhaserGame) *WebGLRenderer {
+    return &WebGLRenderer{js.Global.Call("PIXI.WebGLRenderer", game)}
+}
+
+// The WebGLRenderer draws the stage and all its content onto a webGL enabled canvas. This renderer
+// should be used for browsers that support webGL. This Render works by automatically managing webGLBatchs.
+// So no need for Sprite Batches or Sprite Clouds.
+// Don't forget to add the view to your DOM or you will not see anything :)
+func NewWebGLRendererI(args ...interface{}) *WebGLRenderer {
+    return &WebGLRenderer{js.Global.Call("PIXI.WebGLRenderer", args)}
+}
+
+
+
 // 
 func (self *WebGLRenderer) GetGameA() *PhaserGame{
     return &PhaserGame{self.Object.Get("game")}

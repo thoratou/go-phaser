@@ -14,6 +14,18 @@ type WebGLShaderManager struct {
 
 
 // 
+func NewWebGLShaderManager() *WebGLShaderManager {
+    return &WebGLShaderManager{js.Global.Call("PIXI.WebGLShaderManager")}
+}
+
+// 
+func NewWebGLShaderManagerI(args ...interface{}) *WebGLShaderManager {
+    return &WebGLShaderManager{js.Global.Call("PIXI.WebGLShaderManager", args)}
+}
+
+
+
+// 
 func (self *WebGLShaderManager) GetMaxAttibsA() int{
     return self.Object.Get("maxAttibs").Int()
 }

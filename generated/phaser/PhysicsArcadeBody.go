@@ -14,6 +14,20 @@ type PhysicsArcadeBody struct {
 }
 
 
+// The Physics Body is linked to a single Sprite. All physics operations should be performed against the body rather than
+// the Sprite itself. For example you can set the velocity, acceleration, bounce values etc all on the Body.
+func NewPhysicsArcadeBody(sprite *Sprite) *PhysicsArcadeBody {
+    return &PhysicsArcadeBody{js.Global.Call("Phaser.Physics.Arcade.Body", sprite)}
+}
+
+// The Physics Body is linked to a single Sprite. All physics operations should be performed against the body rather than
+// the Sprite itself. For example you can set the velocity, acceleration, bounce values etc all on the Body.
+func NewPhysicsArcadeBodyI(args ...interface{}) *PhysicsArcadeBody {
+    return &PhysicsArcadeBody{js.Global.Call("Phaser.Physics.Arcade.Body", args)}
+}
+
+
+
 // Reference to the parent Sprite.
 func (self *PhysicsArcadeBody) GetSpriteA() *Sprite{
     return &Sprite{self.Object.Get("sprite")}

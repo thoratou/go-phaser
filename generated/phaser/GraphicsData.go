@@ -13,4 +13,16 @@ type GraphicsData struct {
 }
 
 
+// A GraphicsData object.
+func NewGraphicsData() *GraphicsData {
+    return &GraphicsData{js.Global.Call("PIXI.GraphicsData")}
+}
+
+// A GraphicsData object.
+func NewGraphicsDataI(args ...interface{}) *GraphicsData {
+    return &GraphicsData{js.Global.Call("PIXI.GraphicsData", args)}
+}
+
+
+
 

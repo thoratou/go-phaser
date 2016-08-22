@@ -14,6 +14,20 @@ type AbstractFilter struct {
 }
 
 
+// This is the base class for creating a PIXI filter. Currently only webGL supports filters.
+// If you want to make a custom filter this should be your base class.
+func NewAbstractFilter(fragmentSrc []interface{}, uniforms interface{}) *AbstractFilter {
+    return &AbstractFilter{js.Global.Call("PIXI.AbstractFilter", fragmentSrc, uniforms)}
+}
+
+// This is the base class for creating a PIXI filter. Currently only webGL supports filters.
+// If you want to make a custom filter this should be your base class.
+func NewAbstractFilterI(args ...interface{}) *AbstractFilter {
+    return &AbstractFilter{js.Global.Call("PIXI.AbstractFilter", args)}
+}
+
+
+
 // 
 func (self *AbstractFilter) GetDirtyA() bool{
     return self.Object.Get("dirty").Bool()

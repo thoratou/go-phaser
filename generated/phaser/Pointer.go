@@ -13,6 +13,18 @@ type Pointer struct {
 }
 
 
+// A Pointer object is used by the Mouse, Touch and MSPoint managers and represents a single finger on the touch screen.
+func NewPointer(game *Game, id int, pointerMode *PointerMode) *Pointer {
+    return &Pointer{js.Global.Call("Phaser.Pointer", game, id, pointerMode)}
+}
+
+// A Pointer object is used by the Mouse, Touch and MSPoint managers and represents a single finger on the touch screen.
+func NewPointerI(args ...interface{}) *Pointer {
+    return &Pointer{js.Global.Call("Phaser.Pointer", args)}
+}
+
+
+
 // A reference to the currently running game.
 func (self *Pointer) GetGameA() *Game{
     return &Game{self.Object.Get("game")}

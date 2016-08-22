@@ -13,6 +13,18 @@ type PhysicsP2InversePointProxy struct {
 }
 
 
+// A InversePointProxy is an internal class that allows for direct getter/setter style property access to Arrays and TypedArrays but inverses the values on set.
+func NewPhysicsP2InversePointProxy(world *PhysicsP2, destination interface{}) *PhysicsP2InversePointProxy {
+    return &PhysicsP2InversePointProxy{js.Global.Call("Phaser.Physics.P2.InversePointProxy", world, destination)}
+}
+
+// A InversePointProxy is an internal class that allows for direct getter/setter style property access to Arrays and TypedArrays but inverses the values on set.
+func NewPhysicsP2InversePointProxyI(args ...interface{}) *PhysicsP2InversePointProxy {
+    return &PhysicsP2InversePointProxy{js.Global.Call("Phaser.Physics.P2.InversePointProxy", args)}
+}
+
+
+
 // The x property of this InversePointProxy get and set in pixels.
 func (self *PhysicsP2InversePointProxy) GetXA() int{
     return self.Object.Get("x").Int()

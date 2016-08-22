@@ -15,6 +15,22 @@ type Math struct {
 }
 
 
+// A collection of useful mathematical functions.
+// 
+// These are normally accessed through `game.math`.
+func NewMath() *Math {
+    return &Math{js.Global.Call("Phaser.Math")}
+}
+
+// A collection of useful mathematical functions.
+// 
+// These are normally accessed through `game.math`.
+func NewMathI(args ...interface{}) *Math {
+    return &Math{js.Global.Call("Phaser.Math", args)}
+}
+
+
+
 // Twice PI.
 func (self *Math) GetPI2A() interface{}{
     return self.Object.Get("PI2")

@@ -13,6 +13,18 @@ type EasingElastic struct {
 }
 
 
+// Elastic easing.
+func NewEasingElastic() *EasingElastic {
+    return &EasingElastic{js.Global.Call("Phaser.Easing.Elastic")}
+}
+
+// Elastic easing.
+func NewEasingElasticI(args ...interface{}) *EasingElastic {
+    return &EasingElastic{js.Global.Call("Phaser.Easing.Elastic", args)}
+}
+
+
+
 
 
 // Elastic ease-in.

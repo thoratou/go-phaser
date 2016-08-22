@@ -18,6 +18,28 @@ type DisplayObject struct {
 }
 
 
+// The base class for all objects that are rendered. Contains properties for position, scaling,
+// rotation, masks and cache handling.
+// 
+// This is an abstract class and should not be used on its own, rather it should be extended.
+// 
+// It is used internally by the likes of PIXI.Sprite.
+func NewDisplayObject() *DisplayObject {
+    return &DisplayObject{js.Global.Call("PIXI.PIXI.DisplayObject")}
+}
+
+// The base class for all objects that are rendered. Contains properties for position, scaling,
+// rotation, masks and cache handling.
+// 
+// This is an abstract class and should not be used on its own, rather it should be extended.
+// 
+// It is used internally by the likes of PIXI.Sprite.
+func NewDisplayObjectI(args ...interface{}) *DisplayObject {
+    return &DisplayObject{js.Global.Call("PIXI.PIXI.DisplayObject", args)}
+}
+
+
+
 // The coordinates, in pixels, of this DisplayObject, relative to its parent container.
 // 
 // The value of this property does not reflect any positioning happening further up the display list.

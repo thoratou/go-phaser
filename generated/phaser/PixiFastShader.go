@@ -14,6 +14,18 @@ type PixiFastShader struct {
 
 
 // 
+func NewPixiFastShader(gl *WebGLContext) *PixiFastShader {
+    return &PixiFastShader{js.Global.Call("PIXI.PixiFastShader", gl)}
+}
+
+// 
+func NewPixiFastShaderI(args ...interface{}) *PixiFastShader {
+    return &PixiFastShader{js.Global.Call("PIXI.PixiFastShader", args)}
+}
+
+
+
+// 
 func (self *PixiFastShader) GetGlA() WebGLContext{
     return WrapWebGLContext(self.Object.Get("gl"))
 }

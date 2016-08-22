@@ -14,6 +14,62 @@ type PhysicsNinjaBody struct {
 }
 
 
+// The Physics Body is linked to a single Sprite. All physics operations should be performed against the body rather than
+// the Sprite itself. For example you can set the velocity, bounce values etc all on the Body.
+func NewPhysicsNinjaBody(system *PhysicsNinja, sprite *Sprite) *PhysicsNinjaBody {
+    return &PhysicsNinjaBody{js.Global.Call("Phaser.Physics.Ninja.Body", system, sprite)}
+}
+
+// The Physics Body is linked to a single Sprite. All physics operations should be performed against the body rather than
+// the Sprite itself. For example you can set the velocity, bounce values etc all on the Body.
+func NewPhysicsNinjaBody1O(system *PhysicsNinja, sprite *Sprite, type_ int) *PhysicsNinjaBody {
+    return &PhysicsNinjaBody{js.Global.Call("Phaser.Physics.Ninja.Body", system, sprite, type_)}
+}
+
+// The Physics Body is linked to a single Sprite. All physics operations should be performed against the body rather than
+// the Sprite itself. For example you can set the velocity, bounce values etc all on the Body.
+func NewPhysicsNinjaBody2O(system *PhysicsNinja, sprite *Sprite, type_ int, id int) *PhysicsNinjaBody {
+    return &PhysicsNinjaBody{js.Global.Call("Phaser.Physics.Ninja.Body", system, sprite, type_, id)}
+}
+
+// The Physics Body is linked to a single Sprite. All physics operations should be performed against the body rather than
+// the Sprite itself. For example you can set the velocity, bounce values etc all on the Body.
+func NewPhysicsNinjaBody3O(system *PhysicsNinja, sprite *Sprite, type_ int, id int, radius int) *PhysicsNinjaBody {
+    return &PhysicsNinjaBody{js.Global.Call("Phaser.Physics.Ninja.Body", system, sprite, type_, id, radius)}
+}
+
+// The Physics Body is linked to a single Sprite. All physics operations should be performed against the body rather than
+// the Sprite itself. For example you can set the velocity, bounce values etc all on the Body.
+func NewPhysicsNinjaBody4O(system *PhysicsNinja, sprite *Sprite, type_ int, id int, radius int, x int) *PhysicsNinjaBody {
+    return &PhysicsNinjaBody{js.Global.Call("Phaser.Physics.Ninja.Body", system, sprite, type_, id, radius, x)}
+}
+
+// The Physics Body is linked to a single Sprite. All physics operations should be performed against the body rather than
+// the Sprite itself. For example you can set the velocity, bounce values etc all on the Body.
+func NewPhysicsNinjaBody5O(system *PhysicsNinja, sprite *Sprite, type_ int, id int, radius int, x int, y int) *PhysicsNinjaBody {
+    return &PhysicsNinjaBody{js.Global.Call("Phaser.Physics.Ninja.Body", system, sprite, type_, id, radius, x, y)}
+}
+
+// The Physics Body is linked to a single Sprite. All physics operations should be performed against the body rather than
+// the Sprite itself. For example you can set the velocity, bounce values etc all on the Body.
+func NewPhysicsNinjaBody6O(system *PhysicsNinja, sprite *Sprite, type_ int, id int, radius int, x int, y int, width int) *PhysicsNinjaBody {
+    return &PhysicsNinjaBody{js.Global.Call("Phaser.Physics.Ninja.Body", system, sprite, type_, id, radius, x, y, width)}
+}
+
+// The Physics Body is linked to a single Sprite. All physics operations should be performed against the body rather than
+// the Sprite itself. For example you can set the velocity, bounce values etc all on the Body.
+func NewPhysicsNinjaBody7O(system *PhysicsNinja, sprite *Sprite, type_ int, id int, radius int, x int, y int, width int, height int) *PhysicsNinjaBody {
+    return &PhysicsNinjaBody{js.Global.Call("Phaser.Physics.Ninja.Body", system, sprite, type_, id, radius, x, y, width, height)}
+}
+
+// The Physics Body is linked to a single Sprite. All physics operations should be performed against the body rather than
+// the Sprite itself. For example you can set the velocity, bounce values etc all on the Body.
+func NewPhysicsNinjaBodyI(args ...interface{}) *PhysicsNinjaBody {
+    return &PhysicsNinjaBody{js.Global.Call("Phaser.Physics.Ninja.Body", args)}
+}
+
+
+
 // Reference to the parent Sprite.
 func (self *PhysicsNinjaBody) GetSpriteA() *Sprite{
     return &Sprite{self.Object.Get("sprite")}

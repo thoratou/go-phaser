@@ -19,6 +19,41 @@ type Timer struct {
 }
 
 
+// A Timer is a way to create and manage {@link Phaser.TimerEvent timer events} that wait for a specific duration and then run a callback.
+// Many different timer events, with individual delays, can be added to the same Timer.
+// 
+// All Timer delays are in milliseconds (there are 1000 ms in 1 second); so a delay value of 250 represents a quarter of a second.
+// 
+// Timers are based on real life time, adjusted for game pause durations.
+// That is, *timer events are based on elapsed {@link Phaser.Time game time}* and do *not* take physics time or slow motion into account.
+func NewTimer(game *Game) *Timer {
+    return &Timer{js.Global.Call("Phaser.Timer", game)}
+}
+
+// A Timer is a way to create and manage {@link Phaser.TimerEvent timer events} that wait for a specific duration and then run a callback.
+// Many different timer events, with individual delays, can be added to the same Timer.
+// 
+// All Timer delays are in milliseconds (there are 1000 ms in 1 second); so a delay value of 250 represents a quarter of a second.
+// 
+// Timers are based on real life time, adjusted for game pause durations.
+// That is, *timer events are based on elapsed {@link Phaser.Time game time}* and do *not* take physics time or slow motion into account.
+func NewTimer1O(game *Game, autoDestroy bool) *Timer {
+    return &Timer{js.Global.Call("Phaser.Timer", game, autoDestroy)}
+}
+
+// A Timer is a way to create and manage {@link Phaser.TimerEvent timer events} that wait for a specific duration and then run a callback.
+// Many different timer events, with individual delays, can be added to the same Timer.
+// 
+// All Timer delays are in milliseconds (there are 1000 ms in 1 second); so a delay value of 250 represents a quarter of a second.
+// 
+// Timers are based on real life time, adjusted for game pause durations.
+// That is, *timer events are based on elapsed {@link Phaser.Time game time}* and do *not* take physics time or slow motion into account.
+func NewTimerI(args ...interface{}) *Timer {
+    return &Timer{js.Global.Call("Phaser.Timer", args)}
+}
+
+
+
 // Local reference to game.
 func (self *Timer) GetGameA() *Game{
     return &Game{self.Object.Get("game")}

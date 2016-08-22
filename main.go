@@ -76,8 +76,41 @@ func main() {
 		class.Members = AddMemberWrappers(class.Members, wrappers)
 		class.Functions = AddFunctionWrappers(class.Functions, wrappers)
 
-		//generate various parameter handling functions
+		//generate various parametered functions
 		class.Functions = AddParameteredFunctions(class.Functions)
+
+		//constructors
+		if class.GetNameNoNamespace() != TypeNoNamespace(class.Constructor.Name) &&
+			!strings.HasSuffix(class.GetNameNoNamespace(), TypeNoNamespace(class.Constructor.Name)) {
+			fmt.Println("warning: gap with constructor name. class: " + class.GetNameNoNamespace() + ", constructor: " + TypeNoNamespace(class.Constructor.Name))
+		}
+
+		//workaround for RenderTexture duplicate key
+		if class.Name == "Phaser.RenderTexture" {
+			if class.Constructor.Parameters[1].Name == "key" {
+				class.Constructor.Parameters = append(class.Constructor.Parameters[:1], class.Constructor.Parameters[2:]...)
+				fmt.Println("warning: workaround for Phaser.RenderTexture duplicate key")
+			}
+		}
+
+		//generate inner function uses for contructor
+		class.Constructor.GoFunctions = []Function{
+			Function{
+				Name:        class.Name,
+				Suffix:      "",
+				Description: class.Constructor.Description,
+				Parameters:  class.Constructor.Parameters,
+				Return: Type{
+					Names:       []string{class.GetNameNoNamespace()},
+					Description: "",
+					Wrapper:     "",
+					Package:     "",
+				},
+			},
+		}
+
+		//generate various parametered constructors
+		class.Constructor.GoFunctions = AddParameteredFunctions(class.Constructor.GoFunctions)
 
 		classes = append(classes, class)
 	}

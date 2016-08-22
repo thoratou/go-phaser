@@ -16,6 +16,50 @@ type RenderTexture struct {
 }
 
 
+// A RenderTexture is a special texture that allows any displayObject to be rendered to it. It allows you to take many complex objects and
+// render them down into a single quad (on WebGL) which can then be used to texture other display objects with. A way of generating textures at run-time.
+func NewRenderTexture(game *Game) *RenderTexture {
+    return &RenderTexture{js.Global.Call("Phaser.RenderTexture", game)}
+}
+
+// A RenderTexture is a special texture that allows any displayObject to be rendered to it. It allows you to take many complex objects and
+// render them down into a single quad (on WebGL) which can then be used to texture other display objects with. A way of generating textures at run-time.
+func NewRenderTexture1O(game *Game, width int) *RenderTexture {
+    return &RenderTexture{js.Global.Call("Phaser.RenderTexture", game, width)}
+}
+
+// A RenderTexture is a special texture that allows any displayObject to be rendered to it. It allows you to take many complex objects and
+// render them down into a single quad (on WebGL) which can then be used to texture other display objects with. A way of generating textures at run-time.
+func NewRenderTexture2O(game *Game, width int, height int) *RenderTexture {
+    return &RenderTexture{js.Global.Call("Phaser.RenderTexture", game, width, height)}
+}
+
+// A RenderTexture is a special texture that allows any displayObject to be rendered to it. It allows you to take many complex objects and
+// render them down into a single quad (on WebGL) which can then be used to texture other display objects with. A way of generating textures at run-time.
+func NewRenderTexture3O(game *Game, width int, height int, key string) *RenderTexture {
+    return &RenderTexture{js.Global.Call("Phaser.RenderTexture", game, width, height, key)}
+}
+
+// A RenderTexture is a special texture that allows any displayObject to be rendered to it. It allows you to take many complex objects and
+// render them down into a single quad (on WebGL) which can then be used to texture other display objects with. A way of generating textures at run-time.
+func NewRenderTexture4O(game *Game, width int, height int, key string, scaleMode int) *RenderTexture {
+    return &RenderTexture{js.Global.Call("Phaser.RenderTexture", game, width, height, key, scaleMode)}
+}
+
+// A RenderTexture is a special texture that allows any displayObject to be rendered to it. It allows you to take many complex objects and
+// render them down into a single quad (on WebGL) which can then be used to texture other display objects with. A way of generating textures at run-time.
+func NewRenderTexture5O(game *Game, width int, height int, key string, scaleMode int, resolution int) *RenderTexture {
+    return &RenderTexture{js.Global.Call("Phaser.RenderTexture", game, width, height, key, scaleMode, resolution)}
+}
+
+// A RenderTexture is a special texture that allows any displayObject to be rendered to it. It allows you to take many complex objects and
+// render them down into a single quad (on WebGL) which can then be used to texture other display objects with. A way of generating textures at run-time.
+func NewRenderTextureI(args ...interface{}) *RenderTexture {
+    return &RenderTexture{js.Global.Call("Phaser.RenderTexture", args)}
+}
+
+
+
 // A reference to the currently running game.
 func (self *RenderTexture) GetGameA() *Game{
     return &Game{self.Object.Get("game")}

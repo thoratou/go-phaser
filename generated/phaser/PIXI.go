@@ -15,6 +15,22 @@ type PIXI struct {
 }
 
 
+// Namespace-class for [pixi.js](http://www.pixijs.com/).
+// 
+// Contains assorted static properties and enumerations.
+func NewPIXI() *PIXI {
+    return &PIXI{js.Global.Call("PIXI.PIXI")}
+}
+
+// Namespace-class for [pixi.js](http://www.pixijs.com/).
+// 
+// Contains assorted static properties and enumerations.
+func NewPIXII(args ...interface{}) *PIXI {
+    return &PIXI{js.Global.Call("PIXI.PIXI", args)}
+}
+
+
+
 // A reference to the Phaser Game instance that owns this Pixi renderer.
 func (self *PIXI) GetGameA() *PhaserGame{
     return &PhaserGame{self.Object.Get("game")}

@@ -13,6 +13,18 @@ type WebGLGraphicsData struct {
 }
 
 
+// 
+func NewWebGLGraphicsData() *WebGLGraphicsData {
+    return &WebGLGraphicsData{js.Global.Call("PIXI.WebGLGraphicsData")}
+}
+
+// 
+func NewWebGLGraphicsDataI(args ...interface{}) *WebGLGraphicsData {
+    return &WebGLGraphicsData{js.Global.Call("PIXI.WebGLGraphicsData", args)}
+}
+
+
+
 
 
 // 

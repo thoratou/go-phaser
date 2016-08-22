@@ -14,6 +14,18 @@ type FilterTexture struct {
 
 
 // 
+func NewFilterTexture(gl *WebGLContext, width int, height int, scaleMode int) *FilterTexture {
+    return &FilterTexture{js.Global.Call("PIXI.FilterTexture", gl, width, height, scaleMode)}
+}
+
+// 
+func NewFilterTextureI(args ...interface{}) *FilterTexture {
+    return &FilterTexture{js.Global.Call("PIXI.FilterTexture", args)}
+}
+
+
+
+// 
 func (self *FilterTexture) GetGlA() WebGLContext{
     return WrapWebGLContext(self.Object.Get("gl"))
 }

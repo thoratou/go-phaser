@@ -13,6 +13,18 @@ type ComponentLoadTexture struct {
 }
 
 
+// The LoadTexture component manages the loading of a texture into the Game Object and the changing of frames.
+func NewComponentLoadTexture() *ComponentLoadTexture {
+    return &ComponentLoadTexture{js.Global.Call("Phaser.Component.LoadTexture")}
+}
+
+// The LoadTexture component manages the loading of a texture into the Game Object and the changing of frames.
+func NewComponentLoadTextureI(args ...interface{}) *ComponentLoadTexture {
+    return &ComponentLoadTexture{js.Global.Call("Phaser.Component.LoadTexture", args)}
+}
+
+
+
 // Gets or sets the current frame index of the texture being used to render this Game Object.
 // 
 // To change the frame set `frame` to the index of the new frame in the sprite sheet you wish this Game Object to use,

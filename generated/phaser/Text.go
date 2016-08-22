@@ -20,6 +20,198 @@ type Text struct {
 }
 
 
+// Create a new game object for displaying Text.
+// 
+// This uses a local hidden Canvas object and renders the type into it. It then makes a texture from this for rendering to the view.
+// Because of this you can only display fonts that are currently loaded and available to the browser: fonts must be pre-loaded.
+// 
+// See {@link http://www.jordanm.co.uk/tinytype this compatibility table} for the available default fonts across mobile browsers.
+func NewText(game *Game, x int, y int, text string) *Text {
+    return &Text{js.Global.Call("Phaser.Text", game, x, y, text)}
+}
+
+// Create a new game object for displaying Text.
+// 
+// This uses a local hidden Canvas object and renders the type into it. It then makes a texture from this for rendering to the view.
+// Because of this you can only display fonts that are currently loaded and available to the browser: fonts must be pre-loaded.
+// 
+// See {@link http://www.jordanm.co.uk/tinytype this compatibility table} for the available default fonts across mobile browsers.
+func NewText1O(game *Game, x int, y int, text string, style interface{}) *Text {
+    return &Text{js.Global.Call("Phaser.Text", game, x, y, text, style)}
+}
+
+// Create a new game object for displaying Text.
+// 
+// This uses a local hidden Canvas object and renders the type into it. It then makes a texture from this for rendering to the view.
+// Because of this you can only display fonts that are currently loaded and available to the browser: fonts must be pre-loaded.
+// 
+// See {@link http://www.jordanm.co.uk/tinytype this compatibility table} for the available default fonts across mobile browsers.
+func NewText2O(game *Game, x int, y int, text string, style interface{}) *Text {
+    return &Text{js.Global.Call("Phaser.Text", game, x, y, text, style)}
+}
+
+// Create a new game object for displaying Text.
+// 
+// This uses a local hidden Canvas object and renders the type into it. It then makes a texture from this for rendering to the view.
+// Because of this you can only display fonts that are currently loaded and available to the browser: fonts must be pre-loaded.
+// 
+// See {@link http://www.jordanm.co.uk/tinytype this compatibility table} for the available default fonts across mobile browsers.
+func NewText3O(game *Game, x int, y int, text string, style interface{}) *Text {
+    return &Text{js.Global.Call("Phaser.Text", game, x, y, text, style)}
+}
+
+// Create a new game object for displaying Text.
+// 
+// This uses a local hidden Canvas object and renders the type into it. It then makes a texture from this for rendering to the view.
+// Because of this you can only display fonts that are currently loaded and available to the browser: fonts must be pre-loaded.
+// 
+// See {@link http://www.jordanm.co.uk/tinytype this compatibility table} for the available default fonts across mobile browsers.
+func NewText4O(game *Game, x int, y int, text string, style interface{}) *Text {
+    return &Text{js.Global.Call("Phaser.Text", game, x, y, text, style)}
+}
+
+// Create a new game object for displaying Text.
+// 
+// This uses a local hidden Canvas object and renders the type into it. It then makes a texture from this for rendering to the view.
+// Because of this you can only display fonts that are currently loaded and available to the browser: fonts must be pre-loaded.
+// 
+// See {@link http://www.jordanm.co.uk/tinytype this compatibility table} for the available default fonts across mobile browsers.
+func NewText5O(game *Game, x int, y int, text string, style interface{}) *Text {
+    return &Text{js.Global.Call("Phaser.Text", game, x, y, text, style)}
+}
+
+// Create a new game object for displaying Text.
+// 
+// This uses a local hidden Canvas object and renders the type into it. It then makes a texture from this for rendering to the view.
+// Because of this you can only display fonts that are currently loaded and available to the browser: fonts must be pre-loaded.
+// 
+// See {@link http://www.jordanm.co.uk/tinytype this compatibility table} for the available default fonts across mobile browsers.
+func NewText6O(game *Game, x int, y int, text string, style interface{}) *Text {
+    return &Text{js.Global.Call("Phaser.Text", game, x, y, text, style)}
+}
+
+// Create a new game object for displaying Text.
+// 
+// This uses a local hidden Canvas object and renders the type into it. It then makes a texture from this for rendering to the view.
+// Because of this you can only display fonts that are currently loaded and available to the browser: fonts must be pre-loaded.
+// 
+// See {@link http://www.jordanm.co.uk/tinytype this compatibility table} for the available default fonts across mobile browsers.
+func NewText7O(game *Game, x int, y int, text string, style interface{}) *Text {
+    return &Text{js.Global.Call("Phaser.Text", game, x, y, text, style)}
+}
+
+// Create a new game object for displaying Text.
+// 
+// This uses a local hidden Canvas object and renders the type into it. It then makes a texture from this for rendering to the view.
+// Because of this you can only display fonts that are currently loaded and available to the browser: fonts must be pre-loaded.
+// 
+// See {@link http://www.jordanm.co.uk/tinytype this compatibility table} for the available default fonts across mobile browsers.
+func NewText8O(game *Game, x int, y int, text string, style interface{}) *Text {
+    return &Text{js.Global.Call("Phaser.Text", game, x, y, text, style)}
+}
+
+// Create a new game object for displaying Text.
+// 
+// This uses a local hidden Canvas object and renders the type into it. It then makes a texture from this for rendering to the view.
+// Because of this you can only display fonts that are currently loaded and available to the browser: fonts must be pre-loaded.
+// 
+// See {@link http://www.jordanm.co.uk/tinytype this compatibility table} for the available default fonts across mobile browsers.
+func NewText9O(game *Game, x int, y int, text string, style interface{}) *Text {
+    return &Text{js.Global.Call("Phaser.Text", game, x, y, text, style)}
+}
+
+// Create a new game object for displaying Text.
+// 
+// This uses a local hidden Canvas object and renders the type into it. It then makes a texture from this for rendering to the view.
+// Because of this you can only display fonts that are currently loaded and available to the browser: fonts must be pre-loaded.
+// 
+// See {@link http://www.jordanm.co.uk/tinytype this compatibility table} for the available default fonts across mobile browsers.
+func NewText10O(game *Game, x int, y int, text string, style interface{}) *Text {
+    return &Text{js.Global.Call("Phaser.Text", game, x, y, text, style)}
+}
+
+// Create a new game object for displaying Text.
+// 
+// This uses a local hidden Canvas object and renders the type into it. It then makes a texture from this for rendering to the view.
+// Because of this you can only display fonts that are currently loaded and available to the browser: fonts must be pre-loaded.
+// 
+// See {@link http://www.jordanm.co.uk/tinytype this compatibility table} for the available default fonts across mobile browsers.
+func NewText11O(game *Game, x int, y int, text string, style interface{}) *Text {
+    return &Text{js.Global.Call("Phaser.Text", game, x, y, text, style)}
+}
+
+// Create a new game object for displaying Text.
+// 
+// This uses a local hidden Canvas object and renders the type into it. It then makes a texture from this for rendering to the view.
+// Because of this you can only display fonts that are currently loaded and available to the browser: fonts must be pre-loaded.
+// 
+// See {@link http://www.jordanm.co.uk/tinytype this compatibility table} for the available default fonts across mobile browsers.
+func NewText12O(game *Game, x int, y int, text string, style interface{}) *Text {
+    return &Text{js.Global.Call("Phaser.Text", game, x, y, text, style)}
+}
+
+// Create a new game object for displaying Text.
+// 
+// This uses a local hidden Canvas object and renders the type into it. It then makes a texture from this for rendering to the view.
+// Because of this you can only display fonts that are currently loaded and available to the browser: fonts must be pre-loaded.
+// 
+// See {@link http://www.jordanm.co.uk/tinytype this compatibility table} for the available default fonts across mobile browsers.
+func NewText13O(game *Game, x int, y int, text string, style interface{}) *Text {
+    return &Text{js.Global.Call("Phaser.Text", game, x, y, text, style)}
+}
+
+// Create a new game object for displaying Text.
+// 
+// This uses a local hidden Canvas object and renders the type into it. It then makes a texture from this for rendering to the view.
+// Because of this you can only display fonts that are currently loaded and available to the browser: fonts must be pre-loaded.
+// 
+// See {@link http://www.jordanm.co.uk/tinytype this compatibility table} for the available default fonts across mobile browsers.
+func NewText14O(game *Game, x int, y int, text string, style interface{}) *Text {
+    return &Text{js.Global.Call("Phaser.Text", game, x, y, text, style)}
+}
+
+// Create a new game object for displaying Text.
+// 
+// This uses a local hidden Canvas object and renders the type into it. It then makes a texture from this for rendering to the view.
+// Because of this you can only display fonts that are currently loaded and available to the browser: fonts must be pre-loaded.
+// 
+// See {@link http://www.jordanm.co.uk/tinytype this compatibility table} for the available default fonts across mobile browsers.
+func NewText15O(game *Game, x int, y int, text string, style interface{}) *Text {
+    return &Text{js.Global.Call("Phaser.Text", game, x, y, text, style)}
+}
+
+// Create a new game object for displaying Text.
+// 
+// This uses a local hidden Canvas object and renders the type into it. It then makes a texture from this for rendering to the view.
+// Because of this you can only display fonts that are currently loaded and available to the browser: fonts must be pre-loaded.
+// 
+// See {@link http://www.jordanm.co.uk/tinytype this compatibility table} for the available default fonts across mobile browsers.
+func NewText16O(game *Game, x int, y int, text string, style interface{}) *Text {
+    return &Text{js.Global.Call("Phaser.Text", game, x, y, text, style)}
+}
+
+// Create a new game object for displaying Text.
+// 
+// This uses a local hidden Canvas object and renders the type into it. It then makes a texture from this for rendering to the view.
+// Because of this you can only display fonts that are currently loaded and available to the browser: fonts must be pre-loaded.
+// 
+// See {@link http://www.jordanm.co.uk/tinytype this compatibility table} for the available default fonts across mobile browsers.
+func NewText17O(game *Game, x int, y int, text string, style interface{}) *Text {
+    return &Text{js.Global.Call("Phaser.Text", game, x, y, text, style)}
+}
+
+// Create a new game object for displaying Text.
+// 
+// This uses a local hidden Canvas object and renders the type into it. It then makes a texture from this for rendering to the view.
+// Because of this you can only display fonts that are currently loaded and available to the browser: fonts must be pre-loaded.
+// 
+// See {@link http://www.jordanm.co.uk/tinytype this compatibility table} for the available default fonts across mobile browsers.
+func NewTextI(args ...interface{}) *Text {
+    return &Text{js.Global.Call("Phaser.Text", args)}
+}
+
+
+
 // The const type of this object.
 func (self *Text) GetTypeA() int{
     return self.Object.Get("type").Int()

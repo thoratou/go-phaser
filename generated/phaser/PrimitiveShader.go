@@ -14,6 +14,18 @@ type PrimitiveShader struct {
 
 
 // 
+func NewPrimitiveShader(gl *WebGLContext) *PrimitiveShader {
+    return &PrimitiveShader{js.Global.Call("PIXI.PrimitiveShader", gl)}
+}
+
+// 
+func NewPrimitiveShaderI(args ...interface{}) *PrimitiveShader {
+    return &PrimitiveShader{js.Global.Call("PIXI.PrimitiveShader", args)}
+}
+
+
+
+// 
 func (self *PrimitiveShader) GetGlA() WebGLContext{
     return WrapWebGLContext(self.Object.Get("gl"))
 }

@@ -13,6 +13,18 @@ type ComponentLifeSpan struct {
 }
 
 
+// LifeSpan Component Features.
+func NewComponentLifeSpan() *ComponentLifeSpan {
+    return &ComponentLifeSpan{js.Global.Call("Phaser.Component.LifeSpan")}
+}
+
+// LifeSpan Component Features.
+func NewComponentLifeSpanI(args ...interface{}) *ComponentLifeSpan {
+    return &ComponentLifeSpan{js.Global.Call("Phaser.Component.LifeSpan", args)}
+}
+
+
+
 // A useful flag to control if the Game Object is alive or dead.
 // 
 // This is set automatically by the Health components `damage` method should the object run out of health.

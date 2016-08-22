@@ -13,6 +13,18 @@ type AnimationParser struct {
 }
 
 
+// Responsible for parsing sprite sheet and JSON data into the internal FrameData format that Phaser uses for animations.
+func NewAnimationParser() *AnimationParser {
+    return &AnimationParser{js.Global.Call("Phaser.AnimationParser")}
+}
+
+// Responsible for parsing sprite sheet and JSON data into the internal FrameData format that Phaser uses for animations.
+func NewAnimationParserI(args ...interface{}) *AnimationParser {
+    return &AnimationParser{js.Global.Call("Phaser.AnimationParser", args)}
+}
+
+
+
 
 
 // Parse a Sprite Sheet and extract the animation frame data from it.

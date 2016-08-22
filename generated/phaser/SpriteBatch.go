@@ -18,6 +18,48 @@ type SpriteBatch struct {
 }
 
 
+// The SpriteBatch class is a really fast version of the DisplayObjectContainer built purely for speed, so use when you need a lot of sprites or particles.
+// It's worth mentioning that by default sprite batches are used through-out the renderer, so you only really need to use a SpriteBatch if you have over
+// 1000 sprites that all share the same texture (or texture atlas). It's also useful if running in Canvas mode and you have a lot of un-rotated or un-scaled
+// Sprites as it skips all of the Canvas setTransform calls, which helps performance, especially on mobile devices.
+// 
+// Please note that any Sprite that is part of a SpriteBatch will not have its bounds updated, so will fail checks such as outOfBounds.
+func NewSpriteBatch(game *Game, parent interface{}) *SpriteBatch {
+    return &SpriteBatch{js.Global.Call("Phaser.SpriteBatch", game, parent)}
+}
+
+// The SpriteBatch class is a really fast version of the DisplayObjectContainer built purely for speed, so use when you need a lot of sprites or particles.
+// It's worth mentioning that by default sprite batches are used through-out the renderer, so you only really need to use a SpriteBatch if you have over
+// 1000 sprites that all share the same texture (or texture atlas). It's also useful if running in Canvas mode and you have a lot of un-rotated or un-scaled
+// Sprites as it skips all of the Canvas setTransform calls, which helps performance, especially on mobile devices.
+// 
+// Please note that any Sprite that is part of a SpriteBatch will not have its bounds updated, so will fail checks such as outOfBounds.
+func NewSpriteBatch1O(game *Game, parent interface{}, name string) *SpriteBatch {
+    return &SpriteBatch{js.Global.Call("Phaser.SpriteBatch", game, parent, name)}
+}
+
+// The SpriteBatch class is a really fast version of the DisplayObjectContainer built purely for speed, so use when you need a lot of sprites or particles.
+// It's worth mentioning that by default sprite batches are used through-out the renderer, so you only really need to use a SpriteBatch if you have over
+// 1000 sprites that all share the same texture (or texture atlas). It's also useful if running in Canvas mode and you have a lot of un-rotated or un-scaled
+// Sprites as it skips all of the Canvas setTransform calls, which helps performance, especially on mobile devices.
+// 
+// Please note that any Sprite that is part of a SpriteBatch will not have its bounds updated, so will fail checks such as outOfBounds.
+func NewSpriteBatch2O(game *Game, parent interface{}, name string, addToStage bool) *SpriteBatch {
+    return &SpriteBatch{js.Global.Call("Phaser.SpriteBatch", game, parent, name, addToStage)}
+}
+
+// The SpriteBatch class is a really fast version of the DisplayObjectContainer built purely for speed, so use when you need a lot of sprites or particles.
+// It's worth mentioning that by default sprite batches are used through-out the renderer, so you only really need to use a SpriteBatch if you have over
+// 1000 sprites that all share the same texture (or texture atlas). It's also useful if running in Canvas mode and you have a lot of un-rotated or un-scaled
+// Sprites as it skips all of the Canvas setTransform calls, which helps performance, especially on mobile devices.
+// 
+// Please note that any Sprite that is part of a SpriteBatch will not have its bounds updated, so will fail checks such as outOfBounds.
+func NewSpriteBatchI(args ...interface{}) *SpriteBatch {
+    return &SpriteBatch{js.Global.Call("Phaser.SpriteBatch", args)}
+}
+
+
+
 // Internal Phaser Type value.
 func (self *SpriteBatch) GetTypeA() int{
     return self.Object.Get("type").Int()

@@ -13,6 +13,23 @@ type RequestAnimationFrame struct {
 }
 
 
+// Abstracts away the use of RAF or setTimeOut for the core game update loop.
+func NewRequestAnimationFrame(game *Game) *RequestAnimationFrame {
+    return &RequestAnimationFrame{js.Global.Call("Phaser.RequestAnimationFrame", game)}
+}
+
+// Abstracts away the use of RAF or setTimeOut for the core game update loop.
+func NewRequestAnimationFrame1O(game *Game, forceSetTimeOut bool) *RequestAnimationFrame {
+    return &RequestAnimationFrame{js.Global.Call("Phaser.RequestAnimationFrame", game, forceSetTimeOut)}
+}
+
+// Abstracts away the use of RAF or setTimeOut for the core game update loop.
+func NewRequestAnimationFrameI(args ...interface{}) *RequestAnimationFrame {
+    return &RequestAnimationFrame{js.Global.Call("Phaser.RequestAnimationFrame", args)}
+}
+
+
+
 // The currently running game.
 func (self *RequestAnimationFrame) GetGameA() *Game{
     return &Game{self.Object.Get("game")}

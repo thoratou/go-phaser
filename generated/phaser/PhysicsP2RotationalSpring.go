@@ -13,6 +13,33 @@ type PhysicsP2RotationalSpring struct {
 }
 
 
+// Creates a rotational spring, connecting two bodies. A spring can have a resting length, a stiffness and damping.
+func NewPhysicsP2RotationalSpring(world *PhysicsP2, bodyA *P2Body, bodyB *P2Body) *PhysicsP2RotationalSpring {
+    return &PhysicsP2RotationalSpring{js.Global.Call("Phaser.Physics.P2.RotationalSpring", world, bodyA, bodyB)}
+}
+
+// Creates a rotational spring, connecting two bodies. A spring can have a resting length, a stiffness and damping.
+func NewPhysicsP2RotationalSpring1O(world *PhysicsP2, bodyA *P2Body, bodyB *P2Body, restAngle int) *PhysicsP2RotationalSpring {
+    return &PhysicsP2RotationalSpring{js.Global.Call("Phaser.Physics.P2.RotationalSpring", world, bodyA, bodyB, restAngle)}
+}
+
+// Creates a rotational spring, connecting two bodies. A spring can have a resting length, a stiffness and damping.
+func NewPhysicsP2RotationalSpring2O(world *PhysicsP2, bodyA *P2Body, bodyB *P2Body, restAngle int, stiffness int) *PhysicsP2RotationalSpring {
+    return &PhysicsP2RotationalSpring{js.Global.Call("Phaser.Physics.P2.RotationalSpring", world, bodyA, bodyB, restAngle, stiffness)}
+}
+
+// Creates a rotational spring, connecting two bodies. A spring can have a resting length, a stiffness and damping.
+func NewPhysicsP2RotationalSpring3O(world *PhysicsP2, bodyA *P2Body, bodyB *P2Body, restAngle int, stiffness int, damping int) *PhysicsP2RotationalSpring {
+    return &PhysicsP2RotationalSpring{js.Global.Call("Phaser.Physics.P2.RotationalSpring", world, bodyA, bodyB, restAngle, stiffness, damping)}
+}
+
+// Creates a rotational spring, connecting two bodies. A spring can have a resting length, a stiffness and damping.
+func NewPhysicsP2RotationalSpringI(args ...interface{}) *PhysicsP2RotationalSpring {
+    return &PhysicsP2RotationalSpring{js.Global.Call("Phaser.Physics.P2.RotationalSpring", args)}
+}
+
+
+
 // Local reference to game.
 func (self *PhysicsP2RotationalSpring) GetGameA() *Game{
     return &Game{self.Object.Get("game")}

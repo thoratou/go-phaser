@@ -13,6 +13,18 @@ type Plugin struct {
 }
 
 
+// This is a base Plugin template to use for any Phaser plugin development.
+func NewPlugin(game *Game, parent interface{}) *Plugin {
+    return &Plugin{js.Global.Call("Phaser.Plugin", game, parent)}
+}
+
+// This is a base Plugin template to use for any Phaser plugin development.
+func NewPluginI(args ...interface{}) *Plugin {
+    return &Plugin{js.Global.Call("Phaser.Plugin", args)}
+}
+
+
+
 // A reference to the currently running game.
 func (self *Plugin) GetGameA() *Game{
     return &Game{self.Object.Get("game")}

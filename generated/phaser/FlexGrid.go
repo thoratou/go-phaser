@@ -18,6 +18,28 @@ type FlexGrid struct {
 }
 
 
+// WARNING: This is an EXPERIMENTAL class. The API will change significantly in the coming versions and is incomplete.
+// Please try to avoid using in production games with a long time to build.
+// This is also why the documentation is incomplete.
+// 
+// FlexGrid is a a responsive grid manager that works in conjunction with the ScaleManager RESIZE scaling mode and FlexLayers
+// to provide for game object positioning in a responsive manner.
+func NewFlexGrid(manager *ScaleManager, width int, height int) *FlexGrid {
+    return &FlexGrid{js.Global.Call("Phaser.FlexGrid", manager, width, height)}
+}
+
+// WARNING: This is an EXPERIMENTAL class. The API will change significantly in the coming versions and is incomplete.
+// Please try to avoid using in production games with a long time to build.
+// This is also why the documentation is incomplete.
+// 
+// FlexGrid is a a responsive grid manager that works in conjunction with the ScaleManager RESIZE scaling mode and FlexLayers
+// to provide for game object positioning in a responsive manner.
+func NewFlexGridI(args ...interface{}) *FlexGrid {
+    return &FlexGrid{js.Global.Call("Phaser.FlexGrid", args)}
+}
+
+
+
 // A reference to the currently running Game.
 func (self *FlexGrid) GetGameA() *Game{
     return &Game{self.Object.Get("game")}

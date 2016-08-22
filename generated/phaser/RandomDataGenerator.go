@@ -20,6 +20,44 @@ type RandomDataGenerator struct {
 }
 
 
+// An extremely useful repeatable random data generator.
+// 
+// Based on Nonsense by Josh Faul https://github.com/jocafa/Nonsense.
+// 
+// The random number genererator is based on the Alea PRNG, but is modified.
+//  - https://github.com/coverslide/node-alea
+//  - https://github.com/nquinlan/better-random-numbers-for-javascript-mirror
+//  - http://baagoe.org/en/wiki/Better_random_numbers_for_javascript (original, perm. 404)
+func NewRandomDataGenerator() *RandomDataGenerator {
+    return &RandomDataGenerator{js.Global.Call("Phaser.RandomDataGenerator")}
+}
+
+// An extremely useful repeatable random data generator.
+// 
+// Based on Nonsense by Josh Faul https://github.com/jocafa/Nonsense.
+// 
+// The random number genererator is based on the Alea PRNG, but is modified.
+//  - https://github.com/coverslide/node-alea
+//  - https://github.com/nquinlan/better-random-numbers-for-javascript-mirror
+//  - http://baagoe.org/en/wiki/Better_random_numbers_for_javascript (original, perm. 404)
+func NewRandomDataGenerator1O(seeds interface{}) *RandomDataGenerator {
+    return &RandomDataGenerator{js.Global.Call("Phaser.RandomDataGenerator", seeds)}
+}
+
+// An extremely useful repeatable random data generator.
+// 
+// Based on Nonsense by Josh Faul https://github.com/jocafa/Nonsense.
+// 
+// The random number genererator is based on the Alea PRNG, but is modified.
+//  - https://github.com/coverslide/node-alea
+//  - https://github.com/nquinlan/better-random-numbers-for-javascript-mirror
+//  - http://baagoe.org/en/wiki/Better_random_numbers_for_javascript (original, perm. 404)
+func NewRandomDataGeneratorI(args ...interface{}) *RandomDataGenerator {
+    return &RandomDataGenerator{js.Global.Call("Phaser.RandomDataGenerator", args)}
+}
+
+
+
 
 
 // Private random helper.

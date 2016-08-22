@@ -13,4 +13,16 @@ type GlMatrix struct {
 }
 
 
+// 
+func NewGlMatrix() *GlMatrix {
+    return &GlMatrix{js.Global.Call("glMatrix")}
+}
+
+// 
+func NewGlMatrixI(args ...interface{}) *GlMatrix {
+    return &GlMatrix{js.Global.Call("glMatrix", args)}
+}
+
+
+
 

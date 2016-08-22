@@ -14,6 +14,20 @@ type Rectangle struct {
 }
 
 
+// Creates a new Rectangle object with the top-left corner specified by the x and y parameters and with the specified width and height parameters.
+// If you call this function without parameters, a Rectangle with x, y, width, and height properties set to 0 is created.
+func NewRectangle(x int, y int, width int, height int) *Rectangle {
+    return &Rectangle{js.Global.Call("Phaser.Rectangle", x, y, width, height)}
+}
+
+// Creates a new Rectangle object with the top-left corner specified by the x and y parameters and with the specified width and height parameters.
+// If you call this function without parameters, a Rectangle with x, y, width, and height properties set to 0 is created.
+func NewRectangleI(args ...interface{}) *Rectangle {
+    return &Rectangle{js.Global.Call("Phaser.Rectangle", args)}
+}
+
+
+
 // The x coordinate of the top-left corner of the Rectangle.
 func (self *Rectangle) GetXA() int{
     return self.Object.Get("x").Int()

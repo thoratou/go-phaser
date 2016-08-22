@@ -18,6 +18,28 @@ type PhysicsP2FixtureList struct {
 }
 
 
+// Allow to access a list of created fixture (coming from Body#addPhaserPolygon)
+// which itself parse the input from PhysicsEditor with the custom phaser exporter.
+// You can access fixtures of a Body by a group index or even by providing a fixture Key.
+// You can set the fixture key and also the group index for a fixture in PhysicsEditor.
+// This gives you the power to create a complex body built of many fixtures and modify them
+// during runtime (to remove parts, set masks, categories & sensor properties)
+func NewPhysicsP2FixtureList(list []interface{}) *PhysicsP2FixtureList {
+    return &PhysicsP2FixtureList{js.Global.Call("Phaser.Physics.P2.FixtureList", list)}
+}
+
+// Allow to access a list of created fixture (coming from Body#addPhaserPolygon)
+// which itself parse the input from PhysicsEditor with the custom phaser exporter.
+// You can access fixtures of a Body by a group index or even by providing a fixture Key.
+// You can set the fixture key and also the group index for a fixture in PhysicsEditor.
+// This gives you the power to create a complex body built of many fixtures and modify them
+// during runtime (to remove parts, set masks, categories & sensor properties)
+func NewPhysicsP2FixtureListI(args ...interface{}) *PhysicsP2FixtureList {
+    return &PhysicsP2FixtureList{js.Global.Call("Phaser.Physics.P2.FixtureList", args)}
+}
+
+
+
 
 
 // 

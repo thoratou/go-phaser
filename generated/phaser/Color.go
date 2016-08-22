@@ -13,6 +13,18 @@ type Color struct {
 }
 
 
+// The Phaser.Color class is a set of static methods that assist in color manipulation and conversion.
+func NewColor() *Color {
+    return &Color{js.Global.Call("Phaser.Color")}
+}
+
+// The Phaser.Color class is a set of static methods that assist in color manipulation and conversion.
+func NewColorI(args ...interface{}) *Color {
+    return &Color{js.Global.Call("Phaser.Color", args)}
+}
+
+
+
 
 
 // Packs the r, g, b, a components into a single integer, for use with Int32Array.

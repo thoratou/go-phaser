@@ -16,6 +16,50 @@ type RetroFont struct {
 }
 
 
+// A Retro Font is similar to a BitmapFont, in that it uses a texture to render the text. However unlike a BitmapFont every character in a RetroFont
+// is the same size. This makes it similar to a sprite sheet. You typically find font sheets like this from old 8/16-bit games and demos.
+func NewRetroFont(game *Game, key string, characterWidth int, characterHeight int, chars string) *RetroFont {
+    return &RetroFont{js.Global.Call("Phaser.RetroFont", game, key, characterWidth, characterHeight, chars)}
+}
+
+// A Retro Font is similar to a BitmapFont, in that it uses a texture to render the text. However unlike a BitmapFont every character in a RetroFont
+// is the same size. This makes it similar to a sprite sheet. You typically find font sheets like this from old 8/16-bit games and demos.
+func NewRetroFont1O(game *Game, key string, characterWidth int, characterHeight int, chars string, charsPerRow int) *RetroFont {
+    return &RetroFont{js.Global.Call("Phaser.RetroFont", game, key, characterWidth, characterHeight, chars, charsPerRow)}
+}
+
+// A Retro Font is similar to a BitmapFont, in that it uses a texture to render the text. However unlike a BitmapFont every character in a RetroFont
+// is the same size. This makes it similar to a sprite sheet. You typically find font sheets like this from old 8/16-bit games and demos.
+func NewRetroFont2O(game *Game, key string, characterWidth int, characterHeight int, chars string, charsPerRow int, xSpacing int) *RetroFont {
+    return &RetroFont{js.Global.Call("Phaser.RetroFont", game, key, characterWidth, characterHeight, chars, charsPerRow, xSpacing)}
+}
+
+// A Retro Font is similar to a BitmapFont, in that it uses a texture to render the text. However unlike a BitmapFont every character in a RetroFont
+// is the same size. This makes it similar to a sprite sheet. You typically find font sheets like this from old 8/16-bit games and demos.
+func NewRetroFont3O(game *Game, key string, characterWidth int, characterHeight int, chars string, charsPerRow int, xSpacing int, ySpacing int) *RetroFont {
+    return &RetroFont{js.Global.Call("Phaser.RetroFont", game, key, characterWidth, characterHeight, chars, charsPerRow, xSpacing, ySpacing)}
+}
+
+// A Retro Font is similar to a BitmapFont, in that it uses a texture to render the text. However unlike a BitmapFont every character in a RetroFont
+// is the same size. This makes it similar to a sprite sheet. You typically find font sheets like this from old 8/16-bit games and demos.
+func NewRetroFont4O(game *Game, key string, characterWidth int, characterHeight int, chars string, charsPerRow int, xSpacing int, ySpacing int, xOffset int) *RetroFont {
+    return &RetroFont{js.Global.Call("Phaser.RetroFont", game, key, characterWidth, characterHeight, chars, charsPerRow, xSpacing, ySpacing, xOffset)}
+}
+
+// A Retro Font is similar to a BitmapFont, in that it uses a texture to render the text. However unlike a BitmapFont every character in a RetroFont
+// is the same size. This makes it similar to a sprite sheet. You typically find font sheets like this from old 8/16-bit games and demos.
+func NewRetroFont5O(game *Game, key string, characterWidth int, characterHeight int, chars string, charsPerRow int, xSpacing int, ySpacing int, xOffset int, yOffset int) *RetroFont {
+    return &RetroFont{js.Global.Call("Phaser.RetroFont", game, key, characterWidth, characterHeight, chars, charsPerRow, xSpacing, ySpacing, xOffset, yOffset)}
+}
+
+// A Retro Font is similar to a BitmapFont, in that it uses a texture to render the text. However unlike a BitmapFont every character in a RetroFont
+// is the same size. This makes it similar to a sprite sheet. You typically find font sheets like this from old 8/16-bit games and demos.
+func NewRetroFontI(args ...interface{}) *RetroFont {
+    return &RetroFont{js.Global.Call("Phaser.RetroFont", args)}
+}
+
+
+
 // The width of each character in the font set.
 func (self *RetroFont) GetCharacterWidthA() int{
     return self.Object.Get("characterWidth").Int()

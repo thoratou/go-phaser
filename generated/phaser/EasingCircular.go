@@ -13,6 +13,18 @@ type EasingCircular struct {
 }
 
 
+// Circular easing.
+func NewEasingCircular() *EasingCircular {
+    return &EasingCircular{js.Global.Call("Phaser.Easing.Circular")}
+}
+
+// Circular easing.
+func NewEasingCircularI(args ...interface{}) *EasingCircular {
+    return &EasingCircular{js.Global.Call("Phaser.Easing.Circular", args)}
+}
+
+
+
 
 
 // Circular ease-in.

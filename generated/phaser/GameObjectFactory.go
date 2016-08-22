@@ -16,6 +16,24 @@ type GameObjectFactory struct {
 }
 
 
+// The GameObjectFactory is a quick way to create many common game objects
+// using {@linkcode Phaser.Game#add `game.add`}.
+// 
+// Created objects are _automatically added_ to the appropriate Manager, World, or manually specified parent Group.
+func NewGameObjectFactory(game *Game) *GameObjectFactory {
+    return &GameObjectFactory{js.Global.Call("Phaser.GameObjectFactory", game)}
+}
+
+// The GameObjectFactory is a quick way to create many common game objects
+// using {@linkcode Phaser.Game#add `game.add`}.
+// 
+// Created objects are _automatically added_ to the appropriate Manager, World, or manually specified parent Group.
+func NewGameObjectFactoryI(args ...interface{}) *GameObjectFactory {
+    return &GameObjectFactory{js.Global.Call("Phaser.GameObjectFactory", args)}
+}
+
+
+
 // A reference to the currently running Game.
 func (self *GameObjectFactory) GetGameA() *Game{
     return &Game{self.Object.Get("game")}

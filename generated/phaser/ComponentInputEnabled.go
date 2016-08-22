@@ -13,6 +13,18 @@ type ComponentInputEnabled struct {
 }
 
 
+// The InputEnabled component allows a Game Object to have its own InputHandler and process input related events.
+func NewComponentInputEnabled() *ComponentInputEnabled {
+    return &ComponentInputEnabled{js.Global.Call("Phaser.Component.InputEnabled")}
+}
+
+// The InputEnabled component allows a Game Object to have its own InputHandler and process input related events.
+func NewComponentInputEnabledI(args ...interface{}) *ComponentInputEnabled {
+    return &ComponentInputEnabled{js.Global.Call("Phaser.Component.InputEnabled", args)}
+}
+
+
+
 // The Input Handler for this Game Object.
 // 
 // By default it is disabled. If you wish this Game Object to process input events you should enable it with: `inputEnabled = true`.

@@ -13,6 +13,18 @@ type ComponentBringToTop struct {
 }
 
 
+// The BringToTop Component features quick access to Group sorting related methods.
+func NewComponentBringToTop() *ComponentBringToTop {
+    return &ComponentBringToTop{js.Global.Call("Phaser.Component.BringToTop")}
+}
+
+// The BringToTop Component features quick access to Group sorting related methods.
+func NewComponentBringToTopI(args ...interface{}) *ComponentBringToTop {
+    return &ComponentBringToTop{js.Global.Call("Phaser.Component.BringToTop", args)}
+}
+
+
+
 
 
 // Brings this Game Object to the top of its parents display list.

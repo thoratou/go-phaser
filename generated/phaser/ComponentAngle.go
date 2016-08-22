@@ -13,6 +13,18 @@ type ComponentAngle struct {
 }
 
 
+// The Angle Component provides access to an `angle` property; the rotation of a Game Object in degrees.
+func NewComponentAngle() *ComponentAngle {
+    return &ComponentAngle{js.Global.Call("Phaser.Component.Angle")}
+}
+
+// The Angle Component provides access to an `angle` property; the rotation of a Game Object in degrees.
+func NewComponentAngleI(args ...interface{}) *ComponentAngle {
+    return &ComponentAngle{js.Global.Call("Phaser.Component.Angle", args)}
+}
+
+
+
 // The angle property is the rotation of the Game Object in *degrees* from its original orientation.
 // 
 // Values from 0 to 180 represent clockwise rotation; values from 0 to -180 represent counterclockwise rotation.

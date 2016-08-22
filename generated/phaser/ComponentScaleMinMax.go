@@ -13,6 +13,18 @@ type ComponentScaleMinMax struct {
 }
 
 
+// The ScaleMinMax component allows a Game Object to limit how far it can be scaled by its parent.
+func NewComponentScaleMinMax() *ComponentScaleMinMax {
+    return &ComponentScaleMinMax{js.Global.Call("Phaser.Component.ScaleMinMax")}
+}
+
+// The ScaleMinMax component allows a Game Object to limit how far it can be scaled by its parent.
+func NewComponentScaleMinMaxI(args ...interface{}) *ComponentScaleMinMax {
+    return &ComponentScaleMinMax{js.Global.Call("Phaser.Component.ScaleMinMax", args)}
+}
+
+
+
 // The callback that will apply any scale limiting to the worldTransform.
 func (self *ComponentScaleMinMax) SetTransformCallbackA(member func(...interface{})) {
     self.Object.Set("transformCallback", member)

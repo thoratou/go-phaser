@@ -13,6 +13,18 @@ type Particles struct {
 }
 
 
+// Phaser.Particles is the Particle Manager for the game. It is called during the game update loop and in turn updates any Emitters attached to it.
+func NewParticles(game *Game) *Particles {
+    return &Particles{js.Global.Call("Phaser.Particles", game)}
+}
+
+// Phaser.Particles is the Particle Manager for the game. It is called during the game update loop and in turn updates any Emitters attached to it.
+func NewParticlesI(args ...interface{}) *Particles {
+    return &Particles{js.Global.Call("Phaser.Particles", args)}
+}
+
+
+
 // A reference to the currently running Game.
 func (self *Particles) GetGameA() *Game{
     return &Game{self.Object.Get("game")}

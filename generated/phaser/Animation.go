@@ -15,6 +15,36 @@ type Animation struct {
 }
 
 
+// An Animation instance contains a single animation and the controls to play it.
+// 
+// It is created by the AnimationManager, consists of Animation.Frame objects and belongs to a single Game Object such as a Sprite.
+func NewAnimation(game *Game, parent *Sprite, name string, frameData *FrameData, frames interface{}) *Animation {
+    return &Animation{js.Global.Call("Phaser.Animation", game, parent, name, frameData, frames)}
+}
+
+// An Animation instance contains a single animation and the controls to play it.
+// 
+// It is created by the AnimationManager, consists of Animation.Frame objects and belongs to a single Game Object such as a Sprite.
+func NewAnimation1O(game *Game, parent *Sprite, name string, frameData *FrameData, frames interface{}, frameRate int) *Animation {
+    return &Animation{js.Global.Call("Phaser.Animation", game, parent, name, frameData, frames, frameRate)}
+}
+
+// An Animation instance contains a single animation and the controls to play it.
+// 
+// It is created by the AnimationManager, consists of Animation.Frame objects and belongs to a single Game Object such as a Sprite.
+func NewAnimation2O(game *Game, parent *Sprite, name string, frameData *FrameData, frames interface{}, frameRate int, loop bool) *Animation {
+    return &Animation{js.Global.Call("Phaser.Animation", game, parent, name, frameData, frames, frameRate, loop)}
+}
+
+// An Animation instance contains a single animation and the controls to play it.
+// 
+// It is created by the AnimationManager, consists of Animation.Frame objects and belongs to a single Game Object such as a Sprite.
+func NewAnimationI(args ...interface{}) *Animation {
+    return &Animation{js.Global.Call("Phaser.Animation", args)}
+}
+
+
+
 // A reference to the currently running Game.
 func (self *Animation) GetGameA() *Game{
     return &Game{self.Object.Get("game")}

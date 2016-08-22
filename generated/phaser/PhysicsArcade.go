@@ -13,6 +13,18 @@ type PhysicsArcade struct {
 }
 
 
+// The Arcade Physics world. Contains Arcade Physics related collision, overlap and motion methods.
+func NewPhysicsArcade(game *Game) *PhysicsArcade {
+    return &PhysicsArcade{js.Global.Call("Phaser.Physics.Arcade", game)}
+}
+
+// The Arcade Physics world. Contains Arcade Physics related collision, overlap and motion methods.
+func NewPhysicsArcadeI(args ...interface{}) *PhysicsArcade {
+    return &PhysicsArcade{js.Global.Call("Phaser.Physics.Arcade", args)}
+}
+
+
+
 // Local reference to game.
 func (self *PhysicsArcade) GetGameA() *Game{
     return &Game{self.Object.Get("game")}

@@ -14,6 +14,50 @@ type RoundedRectangle struct {
 }
 
 
+// The Rounded Rectangle object is an area defined by its position and has nice rounded corners, 
+// as indicated by its top-left corner point (x, y) and by its width and its height.
+func NewRoundedRectangle() *RoundedRectangle {
+    return &RoundedRectangle{js.Global.Call("Phaser.RoundedRectangle")}
+}
+
+// The Rounded Rectangle object is an area defined by its position and has nice rounded corners, 
+// as indicated by its top-left corner point (x, y) and by its width and its height.
+func NewRoundedRectangle1O(x int) *RoundedRectangle {
+    return &RoundedRectangle{js.Global.Call("Phaser.RoundedRectangle", x)}
+}
+
+// The Rounded Rectangle object is an area defined by its position and has nice rounded corners, 
+// as indicated by its top-left corner point (x, y) and by its width and its height.
+func NewRoundedRectangle2O(x int, y int) *RoundedRectangle {
+    return &RoundedRectangle{js.Global.Call("Phaser.RoundedRectangle", x, y)}
+}
+
+// The Rounded Rectangle object is an area defined by its position and has nice rounded corners, 
+// as indicated by its top-left corner point (x, y) and by its width and its height.
+func NewRoundedRectangle3O(x int, y int, width int) *RoundedRectangle {
+    return &RoundedRectangle{js.Global.Call("Phaser.RoundedRectangle", x, y, width)}
+}
+
+// The Rounded Rectangle object is an area defined by its position and has nice rounded corners, 
+// as indicated by its top-left corner point (x, y) and by its width and its height.
+func NewRoundedRectangle4O(x int, y int, width int, height int) *RoundedRectangle {
+    return &RoundedRectangle{js.Global.Call("Phaser.RoundedRectangle", x, y, width, height)}
+}
+
+// The Rounded Rectangle object is an area defined by its position and has nice rounded corners, 
+// as indicated by its top-left corner point (x, y) and by its width and its height.
+func NewRoundedRectangle5O(x int, y int, width int, height int, radius int) *RoundedRectangle {
+    return &RoundedRectangle{js.Global.Call("Phaser.RoundedRectangle", x, y, width, height, radius)}
+}
+
+// The Rounded Rectangle object is an area defined by its position and has nice rounded corners, 
+// as indicated by its top-left corner point (x, y) and by its width and its height.
+func NewRoundedRectangleI(args ...interface{}) *RoundedRectangle {
+    return &RoundedRectangle{js.Global.Call("Phaser.RoundedRectangle", args)}
+}
+
+
+
 // The x coordinate of the top-left corner of the Rectangle.
 func (self *RoundedRectangle) GetXA() int{
     return self.Object.Get("x").Int()

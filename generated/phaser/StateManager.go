@@ -13,6 +13,23 @@ type StateManager struct {
 }
 
 
+// The State Manager is responsible for loading, setting up and switching game states.
+func NewStateManager(game *Game) *StateManager {
+    return &StateManager{js.Global.Call("Phaser.StateManager", game)}
+}
+
+// The State Manager is responsible for loading, setting up and switching game states.
+func NewStateManager1O(game *Game, pendingState interface{}) *StateManager {
+    return &StateManager{js.Global.Call("Phaser.StateManager", game, pendingState)}
+}
+
+// The State Manager is responsible for loading, setting up and switching game states.
+func NewStateManagerI(args ...interface{}) *StateManager {
+    return &StateManager{js.Global.Call("Phaser.StateManager", args)}
+}
+
+
+
 // A reference to the currently running game.
 func (self *StateManager) GetGameA() *Game{
     return &Game{self.Object.Get("game")}

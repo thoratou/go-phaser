@@ -19,6 +19,41 @@ type Physics struct {
 }
 
 
+// The Physics Manager is responsible for looking after all of the running physics systems.
+// Phaser supports 4 physics systems: Arcade Physics, P2, Ninja Physics and Box2D via a commercial plugin.
+// 
+// Game Objects (such as Sprites) can only belong to 1 physics system, but you can have multiple systems active in a single game.
+// 
+// For example you could have P2 managing a polygon-built terrain landscape that an vehicle drives over, while it could be firing bullets that use the
+// faster (due to being much simpler) Arcade Physics system.
+func NewPhysics(game *Game) *Physics {
+    return &Physics{js.Global.Call("Phaser.Physics", game)}
+}
+
+// The Physics Manager is responsible for looking after all of the running physics systems.
+// Phaser supports 4 physics systems: Arcade Physics, P2, Ninja Physics and Box2D via a commercial plugin.
+// 
+// Game Objects (such as Sprites) can only belong to 1 physics system, but you can have multiple systems active in a single game.
+// 
+// For example you could have P2 managing a polygon-built terrain landscape that an vehicle drives over, while it could be firing bullets that use the
+// faster (due to being much simpler) Arcade Physics system.
+func NewPhysics1O(game *Game, physicsConfig interface{}) *Physics {
+    return &Physics{js.Global.Call("Phaser.Physics", game, physicsConfig)}
+}
+
+// The Physics Manager is responsible for looking after all of the running physics systems.
+// Phaser supports 4 physics systems: Arcade Physics, P2, Ninja Physics and Box2D via a commercial plugin.
+// 
+// Game Objects (such as Sprites) can only belong to 1 physics system, but you can have multiple systems active in a single game.
+// 
+// For example you could have P2 managing a polygon-built terrain landscape that an vehicle drives over, while it could be firing bullets that use the
+// faster (due to being much simpler) Arcade Physics system.
+func NewPhysicsI(args ...interface{}) *Physics {
+    return &Physics{js.Global.Call("Phaser.Physics", args)}
+}
+
+
+
 // Local reference to game.
 func (self *Physics) GetGameA() *Game{
     return &Game{self.Object.Get("game")}

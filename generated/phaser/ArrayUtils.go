@@ -13,6 +13,18 @@ type ArrayUtils struct {
 }
 
 
+// Utility functions for dealing with Arrays.
+func NewArrayUtils() *ArrayUtils {
+    return &ArrayUtils{js.Global.Call("Phaser.ArrayUtils")}
+}
+
+// Utility functions for dealing with Arrays.
+func NewArrayUtilsI(args ...interface{}) *ArrayUtils {
+    return &ArrayUtils{js.Global.Call("Phaser.ArrayUtils", args)}
+}
+
+
+
 
 
 // Fetch a random entry from the given array.

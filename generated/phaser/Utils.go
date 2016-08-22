@@ -13,6 +13,18 @@ type Utils struct {
 }
 
 
+// 
+func NewUtils() *Utils {
+    return &Utils{js.Global.Call("Phaser.Utils")}
+}
+
+// 
+func NewUtilsI(args ...interface{}) *Utils {
+    return &Utils{js.Global.Call("Phaser.Utils", args)}
+}
+
+
+
 
 
 // Takes the given string and reverses it, returning the reversed string.

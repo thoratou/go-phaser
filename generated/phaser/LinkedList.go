@@ -18,6 +18,28 @@ type LinkedList struct {
 }
 
 
+// A basic Linked List data structure.
+// 
+// This implementation _modifies_ the `prev` and `next` properties of each item added:
+// - The `prev` and `next` properties must be writable and should not be used for any other purpose.
+// - Items _cannot_ be added to multiple LinkedLists at the same time.
+// - Only objects can be added.
+func NewLinkedList() *LinkedList {
+    return &LinkedList{js.Global.Call("Phaser.LinkedList")}
+}
+
+// A basic Linked List data structure.
+// 
+// This implementation _modifies_ the `prev` and `next` properties of each item added:
+// - The `prev` and `next` properties must be writable and should not be used for any other purpose.
+// - Items _cannot_ be added to multiple LinkedLists at the same time.
+// - Only objects can be added.
+func NewLinkedListI(args ...interface{}) *LinkedList {
+    return &LinkedList{js.Global.Call("Phaser.LinkedList", args)}
+}
+
+
+
 // Next element in the list.
 func (self *LinkedList) GetNextA() interface{}{
     return self.Object.Get("next")

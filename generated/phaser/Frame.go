@@ -13,6 +13,18 @@ type Frame struct {
 }
 
 
+// A Frame is a single frame of an animation and is part of a FrameData collection.
+func NewFrame(index int, x int, y int, width int, height int, name string) *Frame {
+    return &Frame{js.Global.Call("Phaser.Frame", index, x, y, width, height, name)}
+}
+
+// A Frame is a single frame of an animation and is part of a FrameData collection.
+func NewFrameI(args ...interface{}) *Frame {
+    return &Frame{js.Global.Call("Phaser.Frame", args)}
+}
+
+
+
 // The index of this Frame within the FrameData set it is being added to.
 func (self *Frame) GetIndexA() int{
     return self.Object.Get("index").Int()

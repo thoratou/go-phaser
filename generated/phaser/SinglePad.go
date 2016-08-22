@@ -13,6 +13,18 @@ type SinglePad struct {
 }
 
 
+// A single Phaser Gamepad
+func NewSinglePad(game *Game, padParent interface{}) *SinglePad {
+    return &SinglePad{js.Global.Call("Phaser.SinglePad", game, padParent)}
+}
+
+// A single Phaser Gamepad
+func NewSinglePadI(args ...interface{}) *SinglePad {
+    return &SinglePad{js.Global.Call("Phaser.SinglePad", args)}
+}
+
+
+
 // Local reference to game.
 func (self *SinglePad) GetGameA() *Game{
     return &Game{self.Object.Get("game")}

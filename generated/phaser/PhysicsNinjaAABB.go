@@ -14,6 +14,20 @@ type PhysicsNinjaAABB struct {
 }
 
 
+// Ninja Physics AABB constructor.
+// Note: This class could be massively optimised and reduced in size. I leave that challenge up to you.
+func NewPhysicsNinjaAABB(body *PhysicsNinjaBody, x int, y int, width int, height int) *PhysicsNinjaAABB {
+    return &PhysicsNinjaAABB{js.Global.Call("Phaser.Physics.Ninja.AABB", body, x, y, width, height)}
+}
+
+// Ninja Physics AABB constructor.
+// Note: This class could be massively optimised and reduced in size. I leave that challenge up to you.
+func NewPhysicsNinjaAABBI(args ...interface{}) *PhysicsNinjaAABB {
+    return &PhysicsNinjaAABB{js.Global.Call("Phaser.Physics.Ninja.AABB", args)}
+}
+
+
+
 // A reference to the body that owns this shape.
 func (self *PhysicsNinjaAABB) GetBodyA() interface{}{
     return self.Object.Get("body")

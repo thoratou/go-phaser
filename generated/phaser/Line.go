@@ -13,6 +13,38 @@ type Line struct {
 }
 
 
+// Creates a new Line object with a start and an end point.
+func NewLine() *Line {
+    return &Line{js.Global.Call("Phaser.Line")}
+}
+
+// Creates a new Line object with a start and an end point.
+func NewLine1O(x1 int) *Line {
+    return &Line{js.Global.Call("Phaser.Line", x1)}
+}
+
+// Creates a new Line object with a start and an end point.
+func NewLine2O(x1 int, y1 int) *Line {
+    return &Line{js.Global.Call("Phaser.Line", x1, y1)}
+}
+
+// Creates a new Line object with a start and an end point.
+func NewLine3O(x1 int, y1 int, x2 int) *Line {
+    return &Line{js.Global.Call("Phaser.Line", x1, y1, x2)}
+}
+
+// Creates a new Line object with a start and an end point.
+func NewLine4O(x1 int, y1 int, x2 int, y2 int) *Line {
+    return &Line{js.Global.Call("Phaser.Line", x1, y1, x2, y2)}
+}
+
+// Creates a new Line object with a start and an end point.
+func NewLineI(args ...interface{}) *Line {
+    return &Line{js.Global.Call("Phaser.Line", args)}
+}
+
+
+
 // The start point of the line.
 func (self *Line) GetStartA() *Point{
     return &Point{self.Object.Get("start")}

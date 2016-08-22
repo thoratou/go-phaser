@@ -14,6 +14,18 @@ type WebGLSpriteBatch struct {
 
 
 // 
+func NewWebGLSpriteBatch() *WebGLSpriteBatch {
+    return &WebGLSpriteBatch{js.Global.Call("PIXI.WebGLSpriteBatch")}
+}
+
+// 
+func NewWebGLSpriteBatchI(args ...interface{}) *WebGLSpriteBatch {
+    return &WebGLSpriteBatch{js.Global.Call("PIXI.WebGLSpriteBatch", args)}
+}
+
+
+
+// 
 func (self *WebGLSpriteBatch) GetVertSizeA() int{
     return self.Object.Get("vertSize").Int()
 }

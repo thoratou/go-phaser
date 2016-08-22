@@ -38,6 +38,22 @@ type ScaleManager struct {
 }
 
 
+// Create a new ScaleManager object - this is done automatically by {@link Phaser.Game}
+// 
+// The `width` and `height` constructor parameters can either be a number which represents pixels or a string that represents a percentage: e.g. `800` (for 800 pixels) or `"80%"` for 80%.
+func NewScaleManager(game *Game, width interface{}, height interface{}) *ScaleManager {
+    return &ScaleManager{js.Global.Call("Phaser.ScaleManager", game, width, height)}
+}
+
+// Create a new ScaleManager object - this is done automatically by {@link Phaser.Game}
+// 
+// The `width` and `height` constructor parameters can either be a number which represents pixels or a string that represents a percentage: e.g. `800` (for 800 pixels) or `"80%"` for 80%.
+func NewScaleManagerI(args ...interface{}) *ScaleManager {
+    return &ScaleManager{js.Global.Call("Phaser.ScaleManager", args)}
+}
+
+
+
 // A reference to the currently running game.
 func (self *ScaleManager) GetGameA() *Game{
     return &Game{self.Object.Get("game")}

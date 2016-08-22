@@ -13,6 +13,18 @@ type BaseTexture struct {
 }
 
 
+// A texture stores the information that represents an image. All textures have a base texture.
+func NewBaseTexture(source interface{}, scaleMode int) *BaseTexture {
+    return &BaseTexture{js.Global.Call("PIXI.BaseTexture", source, scaleMode)}
+}
+
+// A texture stores the information that represents an image. All textures have a base texture.
+func NewBaseTextureI(args ...interface{}) *BaseTexture {
+    return &BaseTexture{js.Global.Call("PIXI.BaseTexture", args)}
+}
+
+
+
 // The Resolution of the texture.
 func (self *BaseTexture) GetResolutionA() int{
     return self.Object.Get("resolution").Int()

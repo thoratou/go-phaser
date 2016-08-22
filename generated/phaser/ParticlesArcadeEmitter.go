@@ -15,6 +15,43 @@ type ParticlesArcadeEmitter struct {
 }
 
 
+// Emitter is a lightweight particle emitter that uses Arcade Physics.
+// It can be used for one-time explosions or for continuous effects like rain and fire.
+// All it really does is launch Particle objects out at set intervals, and fixes their positions and velocities accordingly.
+func NewParticlesArcadeEmitter(game *Game) *ParticlesArcadeEmitter {
+    return &ParticlesArcadeEmitter{js.Global.Call("Phaser.Particles.Arcade.Emitter", game)}
+}
+
+// Emitter is a lightweight particle emitter that uses Arcade Physics.
+// It can be used for one-time explosions or for continuous effects like rain and fire.
+// All it really does is launch Particle objects out at set intervals, and fixes their positions and velocities accordingly.
+func NewParticlesArcadeEmitter1O(game *Game, x int) *ParticlesArcadeEmitter {
+    return &ParticlesArcadeEmitter{js.Global.Call("Phaser.Particles.Arcade.Emitter", game, x)}
+}
+
+// Emitter is a lightweight particle emitter that uses Arcade Physics.
+// It can be used for one-time explosions or for continuous effects like rain and fire.
+// All it really does is launch Particle objects out at set intervals, and fixes their positions and velocities accordingly.
+func NewParticlesArcadeEmitter2O(game *Game, x int, y int) *ParticlesArcadeEmitter {
+    return &ParticlesArcadeEmitter{js.Global.Call("Phaser.Particles.Arcade.Emitter", game, x, y)}
+}
+
+// Emitter is a lightweight particle emitter that uses Arcade Physics.
+// It can be used for one-time explosions or for continuous effects like rain and fire.
+// All it really does is launch Particle objects out at set intervals, and fixes their positions and velocities accordingly.
+func NewParticlesArcadeEmitter3O(game *Game, x int, y int, maxParticles int) *ParticlesArcadeEmitter {
+    return &ParticlesArcadeEmitter{js.Global.Call("Phaser.Particles.Arcade.Emitter", game, x, y, maxParticles)}
+}
+
+// Emitter is a lightweight particle emitter that uses Arcade Physics.
+// It can be used for one-time explosions or for continuous effects like rain and fire.
+// All it really does is launch Particle objects out at set intervals, and fixes their positions and velocities accordingly.
+func NewParticlesArcadeEmitterI(args ...interface{}) *ParticlesArcadeEmitter {
+    return &ParticlesArcadeEmitter{js.Global.Call("Phaser.Particles.Arcade.Emitter", args)}
+}
+
+
+
 // The total number of particles in this emitter.
 func (self *ParticlesArcadeEmitter) GetMaxParticlesA() int{
     return self.Object.Get("maxParticles").Int()

@@ -14,6 +14,20 @@ type ComponentCrop struct {
 }
 
 
+// The Crop component provides the ability to crop a texture based Game Object to a defined rectangle, 
+// which can be updated in real-time.
+func NewComponentCrop() *ComponentCrop {
+    return &ComponentCrop{js.Global.Call("Phaser.Component.Crop")}
+}
+
+// The Crop component provides the ability to crop a texture based Game Object to a defined rectangle, 
+// which can be updated in real-time.
+func NewComponentCropI(args ...interface{}) *ComponentCrop {
+    return &ComponentCrop{js.Global.Call("Phaser.Component.Crop", args)}
+}
+
+
+
 // The Rectangle used to crop the texture this Game Object uses.
 // Set this property via `crop`. 
 // If you modify this property directly you must call `updateCrop` in order to have the change take effect.

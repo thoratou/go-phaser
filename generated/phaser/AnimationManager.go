@@ -14,6 +14,20 @@ type AnimationManager struct {
 }
 
 
+// The Animation Manager is used to add, play and update Phaser Animations.
+// Any Game Object such as Phaser.Sprite that supports animation contains a single AnimationManager instance.
+func NewAnimationManager(sprite *Sprite) *AnimationManager {
+    return &AnimationManager{js.Global.Call("Phaser.AnimationManager", sprite)}
+}
+
+// The Animation Manager is used to add, play and update Phaser Animations.
+// Any Game Object such as Phaser.Sprite that supports animation contains a single AnimationManager instance.
+func NewAnimationManagerI(args ...interface{}) *AnimationManager {
+    return &AnimationManager{js.Global.Call("Phaser.AnimationManager", args)}
+}
+
+
+
 // A reference to the parent Sprite that owns this AnimationManager.
 func (self *AnimationManager) GetSpriteA() *Sprite{
     return &Sprite{self.Object.Get("sprite")}

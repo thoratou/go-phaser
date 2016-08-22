@@ -17,6 +17,26 @@ type Tween struct {
 }
 
 
+// A Tween allows you to alter one or more properties of a target object over a defined period of time.
+// This can be used for things such as alpha fading Sprites, scaling them or motion.
+// Use `Tween.to` or `Tween.from` to set-up the tween values. You can create multiple tweens on the same object
+// by calling Tween.to multiple times on the same Tween. Additional tweens specified in this way become "child" tweens and
+// are played through in sequence. You can use Tween.timeScale and Tween.reverse to control the playback of this Tween and all of its children.
+func NewTween(target interface{}, game *Game, manager *TweenManager) *Tween {
+    return &Tween{js.Global.Call("Phaser.Tween", target, game, manager)}
+}
+
+// A Tween allows you to alter one or more properties of a target object over a defined period of time.
+// This can be used for things such as alpha fading Sprites, scaling them or motion.
+// Use `Tween.to` or `Tween.from` to set-up the tween values. You can create multiple tweens on the same object
+// by calling Tween.to multiple times on the same Tween. Additional tweens specified in this way become "child" tweens and
+// are played through in sequence. You can use Tween.timeScale and Tween.reverse to control the playback of this Tween and all of its children.
+func NewTweenI(args ...interface{}) *Tween {
+    return &Tween{js.Global.Call("Phaser.Tween", args)}
+}
+
+
+
 // A reference to the currently running Game.
 func (self *Tween) GetGameA() *Game{
     return &Game{self.Object.Get("game")}

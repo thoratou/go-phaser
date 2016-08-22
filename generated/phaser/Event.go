@@ -13,6 +13,18 @@ type Event struct {
 }
 
 
+// Creates an homogenous object for tracking events so users can know what to expect.
+func NewEvent(target interface{}, name string, data interface{}) *Event {
+    return &Event{js.Global.Call("PIXI.Event", target, name, data)}
+}
+
+// Creates an homogenous object for tracking events so users can know what to expect.
+func NewEventI(args ...interface{}) *Event {
+    return &Event{js.Global.Call("PIXI.Event", args)}
+}
+
+
+
 // The original target the event triggered on.
 func (self *Event) GetTargetA() interface{}{
     return self.Object.Get("target")

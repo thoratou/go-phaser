@@ -13,6 +13,18 @@ type Tile struct {
 }
 
 
+// A Tile is a representation of a single tile within the Tilemap.
+func NewTile(layer interface{}, index int, x int, y int, width int, height int) *Tile {
+    return &Tile{js.Global.Call("Phaser.Tile", layer, index, x, y, width, height)}
+}
+
+// A Tile is a representation of a single tile within the Tilemap.
+func NewTileI(args ...interface{}) *Tile {
+    return &Tile{js.Global.Call("Phaser.Tile", args)}
+}
+
+
+
 // The layer in the Tilemap data that this tile belongs to.
 func (self *Tile) GetLayerA() interface{}{
     return self.Object.Get("layer")

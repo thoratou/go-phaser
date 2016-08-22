@@ -13,6 +13,33 @@ type PhysicsP2DistanceConstraint struct {
 }
 
 
+// A constraint that tries to keep the distance between two bodies constant.
+func NewPhysicsP2DistanceConstraint(world *PhysicsP2, bodyA *P2Body, bodyB *P2Body, distance int) *PhysicsP2DistanceConstraint {
+    return &PhysicsP2DistanceConstraint{js.Global.Call("Phaser.Physics.P2.DistanceConstraint", world, bodyA, bodyB, distance)}
+}
+
+// A constraint that tries to keep the distance between two bodies constant.
+func NewPhysicsP2DistanceConstraint1O(world *PhysicsP2, bodyA *P2Body, bodyB *P2Body, distance int, localAnchorA []interface{}) *PhysicsP2DistanceConstraint {
+    return &PhysicsP2DistanceConstraint{js.Global.Call("Phaser.Physics.P2.DistanceConstraint", world, bodyA, bodyB, distance, localAnchorA)}
+}
+
+// A constraint that tries to keep the distance between two bodies constant.
+func NewPhysicsP2DistanceConstraint2O(world *PhysicsP2, bodyA *P2Body, bodyB *P2Body, distance int, localAnchorA []interface{}, localAnchorB []interface{}) *PhysicsP2DistanceConstraint {
+    return &PhysicsP2DistanceConstraint{js.Global.Call("Phaser.Physics.P2.DistanceConstraint", world, bodyA, bodyB, distance, localAnchorA, localAnchorB)}
+}
+
+// A constraint that tries to keep the distance between two bodies constant.
+func NewPhysicsP2DistanceConstraint3O(world *PhysicsP2, bodyA *P2Body, bodyB *P2Body, distance int, localAnchorA []interface{}, localAnchorB []interface{}, maxForce interface{}) *PhysicsP2DistanceConstraint {
+    return &PhysicsP2DistanceConstraint{js.Global.Call("Phaser.Physics.P2.DistanceConstraint", world, bodyA, bodyB, distance, localAnchorA, localAnchorB, maxForce)}
+}
+
+// A constraint that tries to keep the distance between two bodies constant.
+func NewPhysicsP2DistanceConstraintI(args ...interface{}) *PhysicsP2DistanceConstraint {
+    return &PhysicsP2DistanceConstraint{js.Global.Call("Phaser.Physics.P2.DistanceConstraint", args)}
+}
+
+
+
 // Local reference to game.
 func (self *PhysicsP2DistanceConstraint) GetGameA() *Game{
     return &Game{self.Object.Get("game")}

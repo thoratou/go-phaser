@@ -13,6 +13,18 @@ type ComponentBounds struct {
 }
 
 
+// The Bounds component contains properties related to the bounds of the Game Object.
+func NewComponentBounds() *ComponentBounds {
+    return &ComponentBounds{js.Global.Call("Phaser.Component.Bounds")}
+}
+
+// The Bounds component contains properties related to the bounds of the Game Object.
+func NewComponentBoundsI(args ...interface{}) *ComponentBounds {
+    return &ComponentBounds{js.Global.Call("Phaser.Component.Bounds", args)}
+}
+
+
+
 // The amount the Game Object is visually offset from its x coordinate.
 // This is the same as `width * anchor.x`.
 // It will only be > 0 if anchor.x is not equal to zero.

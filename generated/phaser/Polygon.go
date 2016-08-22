@@ -22,6 +22,36 @@ type Polygon struct {
 }
 
 
+// Creates a new Polygon.
+// 
+// The points can be set from a variety of formats:
+// 
+// - An array of Point objects: `[new Phaser.Point(x1, y1), ...]`
+// - An array of objects with public x/y properties: `[obj1, obj2, ...]`
+// - An array of paired numbers that represent point coordinates: `[x1,y1, x2,y2, ...]`
+// - As separate Point arguments: `setTo(new Phaser.Point(x1, y1), ...)`
+// - As separate objects with public x/y properties arguments: `setTo(obj1, obj2, ...)`
+// - As separate arguments representing point coordinates: `setTo(x1,y1, x2,y2, ...)`
+func NewPolygon(points interface{}) *Polygon {
+    return &Polygon{js.Global.Call("Phaser.Polygon", points)}
+}
+
+// Creates a new Polygon.
+// 
+// The points can be set from a variety of formats:
+// 
+// - An array of Point objects: `[new Phaser.Point(x1, y1), ...]`
+// - An array of objects with public x/y properties: `[obj1, obj2, ...]`
+// - An array of paired numbers that represent point coordinates: `[x1,y1, x2,y2, ...]`
+// - As separate Point arguments: `setTo(new Phaser.Point(x1, y1), ...)`
+// - As separate objects with public x/y properties arguments: `setTo(obj1, obj2, ...)`
+// - As separate arguments representing point coordinates: `setTo(x1,y1, x2,y2, ...)`
+func NewPolygonI(args ...interface{}) *Polygon {
+    return &Polygon{js.Global.Call("Phaser.Polygon", args)}
+}
+
+
+
 // The area of this Polygon.
 func (self *Polygon) GetAreaA() int{
     return self.Object.Get("area").Int()

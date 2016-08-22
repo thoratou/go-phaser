@@ -13,6 +13,18 @@ type Particle struct {
 }
 
 
+// Create a new `Particle` object. Particles are extended Sprites that are emitted by a particle emitter such as Phaser.Particles.Arcade.Emitter.
+func NewParticle(game *Game, x int, y int, key interface{}, frame interface{}) *Particle {
+    return &Particle{js.Global.Call("Phaser.Particle", game, x, y, key, frame)}
+}
+
+// Create a new `Particle` object. Particles are extended Sprites that are emitted by a particle emitter such as Phaser.Particles.Arcade.Emitter.
+func NewParticleI(args ...interface{}) *Particle {
+    return &Particle{js.Global.Call("Phaser.Particle", args)}
+}
+
+
+
 // If this Particle automatically scales this is set to true by Particle.setScaleData.
 func (self *Particle) GetAutoScaleA() bool{
     return self.Object.Get("autoScale").Bool()

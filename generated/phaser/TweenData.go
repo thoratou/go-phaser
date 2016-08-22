@@ -15,6 +15,22 @@ type TweenData struct {
 }
 
 
+// A Phaser.Tween contains at least one TweenData object. It contains all of the tween data values, such as the
+// starting and ending values, the ease function, interpolation and duration. The Tween acts as a timeline manager for
+// TweenData objects and can contain multiple TweenData objects.
+func NewTweenData(parent *Tween) *TweenData {
+    return &TweenData{js.Global.Call("Phaser.TweenData", parent)}
+}
+
+// A Phaser.Tween contains at least one TweenData object. It contains all of the tween data values, such as the
+// starting and ending values, the ease function, interpolation and duration. The Tween acts as a timeline manager for
+// TweenData objects and can contain multiple TweenData objects.
+func NewTweenDataI(args ...interface{}) *TweenData {
+    return &TweenData{js.Global.Call("Phaser.TweenData", args)}
+}
+
+
+
 // The Tween which owns this TweenData.
 func (self *TweenData) GetParentA() *Tween{
     return &Tween{self.Object.Get("parent")}

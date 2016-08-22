@@ -14,6 +14,38 @@ type Circle struct {
 }
 
 
+// Creates a new Circle object with the center coordinate specified by the x and y parameters and the diameter specified by the diameter parameter.
+// If you call this function without parameters, a circle with x, y, diameter and radius properties set to 0 is created.
+func NewCircle() *Circle {
+    return &Circle{js.Global.Call("Phaser.Circle")}
+}
+
+// Creates a new Circle object with the center coordinate specified by the x and y parameters and the diameter specified by the diameter parameter.
+// If you call this function without parameters, a circle with x, y, diameter and radius properties set to 0 is created.
+func NewCircle1O(x int) *Circle {
+    return &Circle{js.Global.Call("Phaser.Circle", x)}
+}
+
+// Creates a new Circle object with the center coordinate specified by the x and y parameters and the diameter specified by the diameter parameter.
+// If you call this function without parameters, a circle with x, y, diameter and radius properties set to 0 is created.
+func NewCircle2O(x int, y int) *Circle {
+    return &Circle{js.Global.Call("Phaser.Circle", x, y)}
+}
+
+// Creates a new Circle object with the center coordinate specified by the x and y parameters and the diameter specified by the diameter parameter.
+// If you call this function without parameters, a circle with x, y, diameter and radius properties set to 0 is created.
+func NewCircle3O(x int, y int, diameter int) *Circle {
+    return &Circle{js.Global.Call("Phaser.Circle", x, y, diameter)}
+}
+
+// Creates a new Circle object with the center coordinate specified by the x and y parameters and the diameter specified by the diameter parameter.
+// If you call this function without parameters, a circle with x, y, diameter and radius properties set to 0 is created.
+func NewCircleI(args ...interface{}) *Circle {
+    return &Circle{js.Global.Call("Phaser.Circle", args)}
+}
+
+
+
 // The x coordinate of the center of the circle.
 func (self *Circle) GetXA() int{
     return self.Object.Get("x").Int()

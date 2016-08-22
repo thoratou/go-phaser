@@ -16,6 +16,20 @@ type Input struct {
 }
 
 
+// Phaser.Input is the Input Manager for all types of Input across Phaser, including mouse, keyboard, touch and MSPointer.
+// The Input manager is updated automatically by the core game loop.
+func NewInput(game *Game) *Input {
+    return &Input{js.Global.Call("Phaser.Input", game)}
+}
+
+// Phaser.Input is the Input Manager for all types of Input across Phaser, including mouse, keyboard, touch and MSPointer.
+// The Input manager is updated automatically by the core game loop.
+func NewInputI(args ...interface{}) *Input {
+    return &Input{js.Global.Call("Phaser.Input", args)}
+}
+
+
+
 // A reference to the currently running game.
 func (self *Input) GetGameA() *Game{
     return &Game{self.Object.Get("game")}

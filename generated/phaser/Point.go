@@ -16,6 +16,40 @@ type Point struct {
 }
 
 
+// A Point object represents a location in a two-dimensional coordinate system, where x represents the horizontal axis and y represents the vertical axis.
+// The following code creates a point at (0,0):
+// `var myPoint = new Phaser.Point();`
+// You can also use them as 2D Vectors and you'll find different vector related methods in this class.
+func NewPoint() *Point {
+    return &Point{js.Global.Call("Phaser.Point")}
+}
+
+// A Point object represents a location in a two-dimensional coordinate system, where x represents the horizontal axis and y represents the vertical axis.
+// The following code creates a point at (0,0):
+// `var myPoint = new Phaser.Point();`
+// You can also use them as 2D Vectors and you'll find different vector related methods in this class.
+func NewPoint1O(x int) *Point {
+    return &Point{js.Global.Call("Phaser.Point", x)}
+}
+
+// A Point object represents a location in a two-dimensional coordinate system, where x represents the horizontal axis and y represents the vertical axis.
+// The following code creates a point at (0,0):
+// `var myPoint = new Phaser.Point();`
+// You can also use them as 2D Vectors and you'll find different vector related methods in this class.
+func NewPoint2O(x int, y int) *Point {
+    return &Point{js.Global.Call("Phaser.Point", x, y)}
+}
+
+// A Point object represents a location in a two-dimensional coordinate system, where x represents the horizontal axis and y represents the vertical axis.
+// The following code creates a point at (0,0):
+// `var myPoint = new Phaser.Point();`
+// You can also use them as 2D Vectors and you'll find different vector related methods in this class.
+func NewPointI(args ...interface{}) *Point {
+    return &Point{js.Global.Call("Phaser.Point", args)}
+}
+
+
+
 // The x value of the point.
 func (self *Point) GetXA() int{
     return self.Object.Get("x").Int()

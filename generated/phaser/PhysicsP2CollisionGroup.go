@@ -13,6 +13,18 @@ type PhysicsP2CollisionGroup struct {
 }
 
 
+// Collision Group
+func NewPhysicsP2CollisionGroup(bitmask int) *PhysicsP2CollisionGroup {
+    return &PhysicsP2CollisionGroup{js.Global.Call("Phaser.Physics.P2.CollisionGroup", bitmask)}
+}
+
+// Collision Group
+func NewPhysicsP2CollisionGroupI(args ...interface{}) *PhysicsP2CollisionGroup {
+    return &PhysicsP2CollisionGroup{js.Global.Call("Phaser.Physics.P2.CollisionGroup", args)}
+}
+
+
+
 // The CollisionGroup bitmask.
 func (self *PhysicsP2CollisionGroup) GetMaskA() int{
     return self.Object.Get("mask").Int()

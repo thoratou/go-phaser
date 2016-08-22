@@ -14,6 +14,20 @@ type ComponentPhysicsBody struct {
 }
 
 
+// The PhysicsBody component manages the Game Objects physics body and physics enabling.
+// It also overrides the x and y properties, ensuring that any manual adjustment of them is reflected in the physics body itself.
+func NewComponentPhysicsBody() *ComponentPhysicsBody {
+    return &ComponentPhysicsBody{js.Global.Call("Phaser.Component.PhysicsBody")}
+}
+
+// The PhysicsBody component manages the Game Objects physics body and physics enabling.
+// It also overrides the x and y properties, ensuring that any manual adjustment of them is reflected in the physics body itself.
+func NewComponentPhysicsBodyI(args ...interface{}) *ComponentPhysicsBody {
+    return &ComponentPhysicsBody{js.Global.Call("Phaser.Component.PhysicsBody", args)}
+}
+
+
+
 // `body` is the Game Objects physics body. Once a Game Object is enabled for physics you access all associated 
 // properties and methods via it.
 // 

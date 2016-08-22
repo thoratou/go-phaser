@@ -14,6 +14,20 @@ type DisplayObjectContainer struct {
 }
 
 
+// A DisplayObjectContainer represents a collection of display objects.
+// It is the base class of all display objects that act as a container for other objects.
+func NewDisplayObjectContainer() *DisplayObjectContainer {
+    return &DisplayObjectContainer{js.Global.Call("PIXI.DisplayObjectContainer")}
+}
+
+// A DisplayObjectContainer represents a collection of display objects.
+// It is the base class of all display objects that act as a container for other objects.
+func NewDisplayObjectContainerI(args ...interface{}) *DisplayObjectContainer {
+    return &DisplayObjectContainer{js.Global.Call("PIXI.DisplayObjectContainer", args)}
+}
+
+
+
 // [read-only] The array of children of this container.
 func (self *DisplayObjectContainer) GetChildrenA() []DisplayObject{
 	array00 := self.Object.Get("children")

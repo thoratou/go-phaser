@@ -26,6 +26,18 @@ type Device struct {
 }
 
 
+// It is not possible to instantiate the Device class manually.
+func NewDevice() *Device {
+    return &Device{js.Global.Call("Phaser.Device")}
+}
+
+// It is not possible to instantiate the Device class manually.
+func NewDeviceI(args ...interface{}) *Device {
+    return &Device{js.Global.Call("Phaser.Device", args)}
+}
+
+
+
 // The time the device became ready.
 func (self *Device) GetDeviceReadyAtA() int{
     return self.Object.Get("deviceReadyAt").Int()

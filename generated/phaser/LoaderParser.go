@@ -13,6 +13,18 @@ type LoaderParser struct {
 }
 
 
+// Phaser.LoaderParser parses data objects from Phaser.Loader that need more preparation before they can be inserted into the Cache.
+func NewLoaderParser() *LoaderParser {
+    return &LoaderParser{js.Global.Call("Phaser.LoaderParser")}
+}
+
+// Phaser.LoaderParser parses data objects from Phaser.Loader that need more preparation before they can be inserted into the Cache.
+func NewLoaderParserI(args ...interface{}) *LoaderParser {
+    return &LoaderParser{js.Global.Call("Phaser.LoaderParser", args)}
+}
+
+
+
 
 
 // Alias for xmlBitmapFont, for backwards compatibility.

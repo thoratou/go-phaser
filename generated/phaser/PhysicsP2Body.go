@@ -18,6 +18,68 @@ type PhysicsP2Body struct {
 }
 
 
+// The Physics Body is typically linked to a single Sprite and defines properties that determine how the physics body is simulated.
+// These properties affect how the body reacts to forces, what forces it generates on itself (to simulate friction), and how it reacts to collisions in the scene.
+// In most cases, the properties are used to simulate physical effects. Each body also has its own property values that determine exactly how it reacts to forces and collisions in the scene.
+// By default a single Rectangle shape is added to the Body that matches the dimensions of the parent Sprite. See addShape, removeShape, clearShapes to add extra shapes around the Body.
+// Note: When bound to a Sprite to avoid single-pixel jitters on mobile devices we strongly recommend using Sprite sizes that are even on both axis, i.e. 128x128 not 127x127.
+// Note: When a game object is given a P2 body it has its anchor x/y set to 0.5, so it becomes centered.
+func NewPhysicsP2Body(game *Game) *PhysicsP2Body {
+    return &PhysicsP2Body{js.Global.Call("Phaser.Physics.P2.Body", game)}
+}
+
+// The Physics Body is typically linked to a single Sprite and defines properties that determine how the physics body is simulated.
+// These properties affect how the body reacts to forces, what forces it generates on itself (to simulate friction), and how it reacts to collisions in the scene.
+// In most cases, the properties are used to simulate physical effects. Each body also has its own property values that determine exactly how it reacts to forces and collisions in the scene.
+// By default a single Rectangle shape is added to the Body that matches the dimensions of the parent Sprite. See addShape, removeShape, clearShapes to add extra shapes around the Body.
+// Note: When bound to a Sprite to avoid single-pixel jitters on mobile devices we strongly recommend using Sprite sizes that are even on both axis, i.e. 128x128 not 127x127.
+// Note: When a game object is given a P2 body it has its anchor x/y set to 0.5, so it becomes centered.
+func NewPhysicsP2Body1O(game *Game, sprite *Sprite) *PhysicsP2Body {
+    return &PhysicsP2Body{js.Global.Call("Phaser.Physics.P2.Body", game, sprite)}
+}
+
+// The Physics Body is typically linked to a single Sprite and defines properties that determine how the physics body is simulated.
+// These properties affect how the body reacts to forces, what forces it generates on itself (to simulate friction), and how it reacts to collisions in the scene.
+// In most cases, the properties are used to simulate physical effects. Each body also has its own property values that determine exactly how it reacts to forces and collisions in the scene.
+// By default a single Rectangle shape is added to the Body that matches the dimensions of the parent Sprite. See addShape, removeShape, clearShapes to add extra shapes around the Body.
+// Note: When bound to a Sprite to avoid single-pixel jitters on mobile devices we strongly recommend using Sprite sizes that are even on both axis, i.e. 128x128 not 127x127.
+// Note: When a game object is given a P2 body it has its anchor x/y set to 0.5, so it becomes centered.
+func NewPhysicsP2Body2O(game *Game, sprite *Sprite, x int) *PhysicsP2Body {
+    return &PhysicsP2Body{js.Global.Call("Phaser.Physics.P2.Body", game, sprite, x)}
+}
+
+// The Physics Body is typically linked to a single Sprite and defines properties that determine how the physics body is simulated.
+// These properties affect how the body reacts to forces, what forces it generates on itself (to simulate friction), and how it reacts to collisions in the scene.
+// In most cases, the properties are used to simulate physical effects. Each body also has its own property values that determine exactly how it reacts to forces and collisions in the scene.
+// By default a single Rectangle shape is added to the Body that matches the dimensions of the parent Sprite. See addShape, removeShape, clearShapes to add extra shapes around the Body.
+// Note: When bound to a Sprite to avoid single-pixel jitters on mobile devices we strongly recommend using Sprite sizes that are even on both axis, i.e. 128x128 not 127x127.
+// Note: When a game object is given a P2 body it has its anchor x/y set to 0.5, so it becomes centered.
+func NewPhysicsP2Body3O(game *Game, sprite *Sprite, x int, y int) *PhysicsP2Body {
+    return &PhysicsP2Body{js.Global.Call("Phaser.Physics.P2.Body", game, sprite, x, y)}
+}
+
+// The Physics Body is typically linked to a single Sprite and defines properties that determine how the physics body is simulated.
+// These properties affect how the body reacts to forces, what forces it generates on itself (to simulate friction), and how it reacts to collisions in the scene.
+// In most cases, the properties are used to simulate physical effects. Each body also has its own property values that determine exactly how it reacts to forces and collisions in the scene.
+// By default a single Rectangle shape is added to the Body that matches the dimensions of the parent Sprite. See addShape, removeShape, clearShapes to add extra shapes around the Body.
+// Note: When bound to a Sprite to avoid single-pixel jitters on mobile devices we strongly recommend using Sprite sizes that are even on both axis, i.e. 128x128 not 127x127.
+// Note: When a game object is given a P2 body it has its anchor x/y set to 0.5, so it becomes centered.
+func NewPhysicsP2Body4O(game *Game, sprite *Sprite, x int, y int, mass int) *PhysicsP2Body {
+    return &PhysicsP2Body{js.Global.Call("Phaser.Physics.P2.Body", game, sprite, x, y, mass)}
+}
+
+// The Physics Body is typically linked to a single Sprite and defines properties that determine how the physics body is simulated.
+// These properties affect how the body reacts to forces, what forces it generates on itself (to simulate friction), and how it reacts to collisions in the scene.
+// In most cases, the properties are used to simulate physical effects. Each body also has its own property values that determine exactly how it reacts to forces and collisions in the scene.
+// By default a single Rectangle shape is added to the Body that matches the dimensions of the parent Sprite. See addShape, removeShape, clearShapes to add extra shapes around the Body.
+// Note: When bound to a Sprite to avoid single-pixel jitters on mobile devices we strongly recommend using Sprite sizes that are even on both axis, i.e. 128x128 not 127x127.
+// Note: When a game object is given a P2 body it has its anchor x/y set to 0.5, so it becomes centered.
+func NewPhysicsP2BodyI(args ...interface{}) *PhysicsP2Body {
+    return &PhysicsP2Body{js.Global.Call("Phaser.Physics.P2.Body", args)}
+}
+
+
+
 // Local reference to game.
 func (self *PhysicsP2Body) GetGameA() *Game{
     return &Game{self.Object.Get("game")}

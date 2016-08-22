@@ -13,6 +13,18 @@ type Net struct {
 }
 
 
+// Phaser.Net handles browser URL related tasks such as checking host names, domain names and query string manipulation.
+func NewNet(game *Game) *Net {
+    return &Net{js.Global.Call("Phaser.Net", game)}
+}
+
+// Phaser.Net handles browser URL related tasks such as checking host names, domain names and query string manipulation.
+func NewNetI(args ...interface{}) *Net {
+    return &Net{js.Global.Call("Phaser.Net", args)}
+}
+
+
+
 
 
 // Returns the hostname given by the browser.

@@ -13,6 +13,18 @@ type EasingLinear struct {
 }
 
 
+// Linear easing.
+func NewEasingLinear() *EasingLinear {
+    return &EasingLinear{js.Global.Call("Phaser.Easing.Linear")}
+}
+
+// Linear easing.
+func NewEasingLinearI(args ...interface{}) *EasingLinear {
+    return &EasingLinear{js.Global.Call("Phaser.Easing.Linear", args)}
+}
+
+
+
 
 
 // Linear Easing (no variation).

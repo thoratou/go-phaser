@@ -17,6 +17,26 @@ type Sprite struct {
 }
 
 
+// Sprites are the lifeblood of your game, used for nearly everything visual.
+// 
+// At its most basic a Sprite consists of a set of coordinates and a texture that is rendered to the canvas.
+// They also contain additional properties allowing for physics motion (via Sprite.body), input handling (via Sprite.input),
+// events (via Sprite.events), animation (via Sprite.animations), camera culling and more. Please see the Examples for use cases.
+func NewSprite(game *Game, x int, y int, key interface{}, frame interface{}) *Sprite {
+    return &Sprite{js.Global.Call("Phaser.Sprite", game, x, y, key, frame)}
+}
+
+// Sprites are the lifeblood of your game, used for nearly everything visual.
+// 
+// At its most basic a Sprite consists of a set of coordinates and a texture that is rendered to the canvas.
+// They also contain additional properties allowing for physics motion (via Sprite.body), input handling (via Sprite.input),
+// events (via Sprite.events), animation (via Sprite.animations), camera culling and more. Please see the Examples for use cases.
+func NewSpriteI(args ...interface{}) *Sprite {
+    return &Sprite{js.Global.Call("Phaser.Sprite", args)}
+}
+
+
+
 // The const type of this object.
 func (self *Sprite) GetTypeA() int{
     return self.Object.Get("type").Int()

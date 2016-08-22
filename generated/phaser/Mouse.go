@@ -20,6 +20,32 @@ type Mouse struct {
 }
 
 
+// The Mouse class is responsible for handling all aspects of mouse interaction with the browser.
+// 
+// It captures and processes mouse events that happen on the game canvas object.
+// It also adds a single `mouseup` listener to `window` which is used to capture the mouse being released
+// when not over the game.
+// 
+// You should not normally access this class directly, but instead use a Phaser.Pointer object
+// which normalises all game input for you, including accurate button handling.
+func NewMouse(game *Game) *Mouse {
+    return &Mouse{js.Global.Call("Phaser.Mouse", game)}
+}
+
+// The Mouse class is responsible for handling all aspects of mouse interaction with the browser.
+// 
+// It captures and processes mouse events that happen on the game canvas object.
+// It also adds a single `mouseup` listener to `window` which is used to capture the mouse being released
+// when not over the game.
+// 
+// You should not normally access this class directly, but instead use a Phaser.Pointer object
+// which normalises all game input for you, including accurate button handling.
+func NewMouseI(args ...interface{}) *Mouse {
+    return &Mouse{js.Global.Call("Phaser.Mouse", args)}
+}
+
+
+
 // A reference to the currently running game.
 func (self *Mouse) GetGameA() *Game{
     return &Game{self.Object.Get("game")}

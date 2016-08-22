@@ -15,6 +15,22 @@ type ComponentInWorld struct {
 }
 
 
+// The InWorld component checks if a Game Object is within the Game World Bounds.
+// An object is considered as being "in bounds" so long as its own bounds intersects at any point with the World bounds.
+// If the AutoCull component is enabled on the Game Object then it will check the Game Object against the Camera bounds as well.
+func NewComponentInWorld() *ComponentInWorld {
+    return &ComponentInWorld{js.Global.Call("Phaser.Component.InWorld")}
+}
+
+// The InWorld component checks if a Game Object is within the Game World Bounds.
+// An object is considered as being "in bounds" so long as its own bounds intersects at any point with the World bounds.
+// If the AutoCull component is enabled on the Game Object then it will check the Game Object against the Camera bounds as well.
+func NewComponentInWorldI(args ...interface{}) *ComponentInWorld {
+    return &ComponentInWorld{js.Global.Call("Phaser.Component.InWorld", args)}
+}
+
+
+
 // If this is set to `true` the Game Object checks if it is within the World bounds each frame. 
 // 
 // When it is no longer intersecting the world bounds it dispatches the `onOutOfBounds` event.

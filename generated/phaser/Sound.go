@@ -13,6 +13,28 @@ type Sound struct {
 }
 
 
+// The Sound class constructor.
+func NewSound(game *Game, key string) *Sound {
+    return &Sound{js.Global.Call("Phaser.Sound", game, key)}
+}
+
+// The Sound class constructor.
+func NewSound1O(game *Game, key string, volume int) *Sound {
+    return &Sound{js.Global.Call("Phaser.Sound", game, key, volume)}
+}
+
+// The Sound class constructor.
+func NewSound2O(game *Game, key string, volume int, loop bool) *Sound {
+    return &Sound{js.Global.Call("Phaser.Sound", game, key, volume, loop)}
+}
+
+// The Sound class constructor.
+func NewSoundI(args ...interface{}) *Sound {
+    return &Sound{js.Global.Call("Phaser.Sound", args)}
+}
+
+
+
 // A reference to the currently running Game.
 func (self *Sound) GetGameA() *Game{
     return &Game{self.Object.Get("game")}

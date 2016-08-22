@@ -19,6 +19,85 @@ type Tilemap struct {
 }
 
 
+// Creates a new Phaser.Tilemap object. The map can either be populated with data from a Tiled JSON file or from a CSV file.
+// To do this pass the Cache key as the first parameter. When using Tiled data you need only provide the key.
+// When using CSV data you must provide the key and the tileWidth and tileHeight parameters.
+// If creating a blank tilemap to be populated later, you can either specify no parameters at all and then use `Tilemap.create` or pass the map and tile dimensions here.
+// Note that all Tilemaps use a base tile size to calculate dimensions from, but that a TilemapLayer may have its own unique tile size that overrides it.
+// A Tile map is rendered to the display using a TilemapLayer. It is not added to the display list directly itself.
+// A map may have multiple layers. You can perform operations on the map data such as copying, pasting, filling and shuffling the tiles around.
+func NewTilemap(game *Game) *Tilemap {
+    return &Tilemap{js.Global.Call("Phaser.Tilemap", game)}
+}
+
+// Creates a new Phaser.Tilemap object. The map can either be populated with data from a Tiled JSON file or from a CSV file.
+// To do this pass the Cache key as the first parameter. When using Tiled data you need only provide the key.
+// When using CSV data you must provide the key and the tileWidth and tileHeight parameters.
+// If creating a blank tilemap to be populated later, you can either specify no parameters at all and then use `Tilemap.create` or pass the map and tile dimensions here.
+// Note that all Tilemaps use a base tile size to calculate dimensions from, but that a TilemapLayer may have its own unique tile size that overrides it.
+// A Tile map is rendered to the display using a TilemapLayer. It is not added to the display list directly itself.
+// A map may have multiple layers. You can perform operations on the map data such as copying, pasting, filling and shuffling the tiles around.
+func NewTilemap1O(game *Game, key string) *Tilemap {
+    return &Tilemap{js.Global.Call("Phaser.Tilemap", game, key)}
+}
+
+// Creates a new Phaser.Tilemap object. The map can either be populated with data from a Tiled JSON file or from a CSV file.
+// To do this pass the Cache key as the first parameter. When using Tiled data you need only provide the key.
+// When using CSV data you must provide the key and the tileWidth and tileHeight parameters.
+// If creating a blank tilemap to be populated later, you can either specify no parameters at all and then use `Tilemap.create` or pass the map and tile dimensions here.
+// Note that all Tilemaps use a base tile size to calculate dimensions from, but that a TilemapLayer may have its own unique tile size that overrides it.
+// A Tile map is rendered to the display using a TilemapLayer. It is not added to the display list directly itself.
+// A map may have multiple layers. You can perform operations on the map data such as copying, pasting, filling and shuffling the tiles around.
+func NewTilemap2O(game *Game, key string, tileWidth int) *Tilemap {
+    return &Tilemap{js.Global.Call("Phaser.Tilemap", game, key, tileWidth)}
+}
+
+// Creates a new Phaser.Tilemap object. The map can either be populated with data from a Tiled JSON file or from a CSV file.
+// To do this pass the Cache key as the first parameter. When using Tiled data you need only provide the key.
+// When using CSV data you must provide the key and the tileWidth and tileHeight parameters.
+// If creating a blank tilemap to be populated later, you can either specify no parameters at all and then use `Tilemap.create` or pass the map and tile dimensions here.
+// Note that all Tilemaps use a base tile size to calculate dimensions from, but that a TilemapLayer may have its own unique tile size that overrides it.
+// A Tile map is rendered to the display using a TilemapLayer. It is not added to the display list directly itself.
+// A map may have multiple layers. You can perform operations on the map data such as copying, pasting, filling and shuffling the tiles around.
+func NewTilemap3O(game *Game, key string, tileWidth int, tileHeight int) *Tilemap {
+    return &Tilemap{js.Global.Call("Phaser.Tilemap", game, key, tileWidth, tileHeight)}
+}
+
+// Creates a new Phaser.Tilemap object. The map can either be populated with data from a Tiled JSON file or from a CSV file.
+// To do this pass the Cache key as the first parameter. When using Tiled data you need only provide the key.
+// When using CSV data you must provide the key and the tileWidth and tileHeight parameters.
+// If creating a blank tilemap to be populated later, you can either specify no parameters at all and then use `Tilemap.create` or pass the map and tile dimensions here.
+// Note that all Tilemaps use a base tile size to calculate dimensions from, but that a TilemapLayer may have its own unique tile size that overrides it.
+// A Tile map is rendered to the display using a TilemapLayer. It is not added to the display list directly itself.
+// A map may have multiple layers. You can perform operations on the map data such as copying, pasting, filling and shuffling the tiles around.
+func NewTilemap4O(game *Game, key string, tileWidth int, tileHeight int, width int) *Tilemap {
+    return &Tilemap{js.Global.Call("Phaser.Tilemap", game, key, tileWidth, tileHeight, width)}
+}
+
+// Creates a new Phaser.Tilemap object. The map can either be populated with data from a Tiled JSON file or from a CSV file.
+// To do this pass the Cache key as the first parameter. When using Tiled data you need only provide the key.
+// When using CSV data you must provide the key and the tileWidth and tileHeight parameters.
+// If creating a blank tilemap to be populated later, you can either specify no parameters at all and then use `Tilemap.create` or pass the map and tile dimensions here.
+// Note that all Tilemaps use a base tile size to calculate dimensions from, but that a TilemapLayer may have its own unique tile size that overrides it.
+// A Tile map is rendered to the display using a TilemapLayer. It is not added to the display list directly itself.
+// A map may have multiple layers. You can perform operations on the map data such as copying, pasting, filling and shuffling the tiles around.
+func NewTilemap5O(game *Game, key string, tileWidth int, tileHeight int, width int, height int) *Tilemap {
+    return &Tilemap{js.Global.Call("Phaser.Tilemap", game, key, tileWidth, tileHeight, width, height)}
+}
+
+// Creates a new Phaser.Tilemap object. The map can either be populated with data from a Tiled JSON file or from a CSV file.
+// To do this pass the Cache key as the first parameter. When using Tiled data you need only provide the key.
+// When using CSV data you must provide the key and the tileWidth and tileHeight parameters.
+// If creating a blank tilemap to be populated later, you can either specify no parameters at all and then use `Tilemap.create` or pass the map and tile dimensions here.
+// Note that all Tilemaps use a base tile size to calculate dimensions from, but that a TilemapLayer may have its own unique tile size that overrides it.
+// A Tile map is rendered to the display using a TilemapLayer. It is not added to the display list directly itself.
+// A map may have multiple layers. You can perform operations on the map data such as copying, pasting, filling and shuffling the tiles around.
+func NewTilemapI(args ...interface{}) *Tilemap {
+    return &Tilemap{js.Global.Call("Phaser.Tilemap", args)}
+}
+
+
+
 // A reference to the currently running Game.
 func (self *Tilemap) GetGameA() *Game{
     return &Game{self.Object.Get("game")}

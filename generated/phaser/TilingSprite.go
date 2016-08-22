@@ -13,6 +13,18 @@ type TilingSprite struct {
 }
 
 
+// A tiling sprite is a fast way of rendering a tiling image
+func NewTilingSprite(texture *Texture, width int, height int) *TilingSprite {
+    return &TilingSprite{js.Global.Call("PIXI.TilingSprite", texture, width, height)}
+}
+
+// A tiling sprite is a fast way of rendering a tiling image
+func NewTilingSpriteI(args ...interface{}) *TilingSprite {
+    return &TilingSprite{js.Global.Call("PIXI.TilingSprite", args)}
+}
+
+
+
 // The width of the tiling sprite
 func (self *TilingSprite) GetWidthA() int{
     return self.Object.Get("width").Int()

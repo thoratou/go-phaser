@@ -14,6 +14,20 @@ type PhysicsNinjaCircle struct {
 }
 
 
+// Ninja Physics Circle constructor.
+// Note: This class could be massively optimised and reduced in size. I leave that challenge up to you.
+func NewPhysicsNinjaCircle(body *PhysicsNinjaBody, x int, y int, radius int) *PhysicsNinjaCircle {
+    return &PhysicsNinjaCircle{js.Global.Call("Phaser.Physics.Ninja.Circle", body, x, y, radius)}
+}
+
+// Ninja Physics Circle constructor.
+// Note: This class could be massively optimised and reduced in size. I leave that challenge up to you.
+func NewPhysicsNinjaCircleI(args ...interface{}) *PhysicsNinjaCircle {
+    return &PhysicsNinjaCircle{js.Global.Call("Phaser.Physics.Ninja.Circle", args)}
+}
+
+
+
 // A reference to the body that owns this shape.
 func (self *PhysicsNinjaCircle) GetBodyA() interface{}{
     return self.Object.Get("body")

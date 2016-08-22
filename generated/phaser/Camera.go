@@ -14,6 +14,20 @@ type Camera struct {
 }
 
 
+// A Camera is your view into the game world. It has a position and size and renders only those objects within its field of view.
+// The game automatically creates a single Stage sized camera on boot. Move the camera around the world with Phaser.Camera.x/y
+func NewCamera(game *Game, id int, x int, y int, width int, height int) *Camera {
+    return &Camera{js.Global.Call("Phaser.Camera", game, id, x, y, width, height)}
+}
+
+// A Camera is your view into the game world. It has a position and size and renders only those objects within its field of view.
+// The game automatically creates a single Stage sized camera on boot. Move the camera around the world with Phaser.Camera.x/y
+func NewCameraI(args ...interface{}) *Camera {
+    return &Camera{js.Global.Call("Phaser.Camera", args)}
+}
+
+
+
 // A reference to the currently running Game.
 func (self *Camera) GetGameA() *Game{
     return &Game{self.Object.Get("game")}

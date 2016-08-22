@@ -13,6 +13,18 @@ type ComponentInCamera struct {
 }
 
 
+// The InCamera component checks if the Game Object intersects with the Game Camera.
+func NewComponentInCamera() *ComponentInCamera {
+    return &ComponentInCamera{js.Global.Call("Phaser.Component.InCamera")}
+}
+
+// The InCamera component checks if the Game Object intersects with the Game Camera.
+func NewComponentInCameraI(args ...interface{}) *ComponentInCamera {
+    return &ComponentInCamera{js.Global.Call("Phaser.Component.InCamera", args)}
+}
+
+
+
 // Checks if this Game Objects bounds intersects with the Game Cameras bounds.
 // 
 // It will be `true` if they intersect, or `false` if the Game Object is fully outside of the Cameras bounds.

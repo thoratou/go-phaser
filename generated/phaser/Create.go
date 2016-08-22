@@ -19,6 +19,26 @@ type Create struct {
 }
 
 
+// The Phaser.Create class is a collection of smaller helper methods that allow you to generate game content
+// quickly and easily, without the need for any external files. You can create textures for sprites and in
+// coming releases we'll add dynamic sound effect generation support as well (like sfxr).
+// 
+// Access this via `Game.create` (`this.game.create` from within a State object)
+func NewCreate(game *Game) *Create {
+    return &Create{js.Global.Call("Phaser.Create", game)}
+}
+
+// The Phaser.Create class is a collection of smaller helper methods that allow you to generate game content
+// quickly and easily, without the need for any external files. You can create textures for sprites and in
+// coming releases we'll add dynamic sound effect generation support as well (like sfxr).
+// 
+// Access this via `Game.create` (`this.game.create` from within a State object)
+func NewCreateI(args ...interface{}) *Create {
+    return &Create{js.Global.Call("Phaser.Create", args)}
+}
+
+
+
 // A reference to the currently running Game.
 func (self *Create) GetGameA() *Game{
     return &Game{self.Object.Get("game")}

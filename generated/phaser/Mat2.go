@@ -13,4 +13,16 @@ type Mat2 struct {
 }
 
 
+// 
+func NewMat2() *Mat2 {
+    return &Mat2{js.Global.Call("mat2")}
+}
+
+// 
+func NewMat2I(args ...interface{}) *Mat2 {
+    return &Mat2{js.Global.Call("mat2", args)}
+}
+
+
+
 

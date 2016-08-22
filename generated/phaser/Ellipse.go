@@ -13,6 +13,38 @@ type Ellipse struct {
 }
 
 
+// Creates a Ellipse object. A curve on a plane surrounding two focal points.
+func NewEllipse() *Ellipse {
+    return &Ellipse{js.Global.Call("Phaser.Ellipse")}
+}
+
+// Creates a Ellipse object. A curve on a plane surrounding two focal points.
+func NewEllipse1O(x int) *Ellipse {
+    return &Ellipse{js.Global.Call("Phaser.Ellipse", x)}
+}
+
+// Creates a Ellipse object. A curve on a plane surrounding two focal points.
+func NewEllipse2O(x int, y int) *Ellipse {
+    return &Ellipse{js.Global.Call("Phaser.Ellipse", x, y)}
+}
+
+// Creates a Ellipse object. A curve on a plane surrounding two focal points.
+func NewEllipse3O(x int, y int, width int) *Ellipse {
+    return &Ellipse{js.Global.Call("Phaser.Ellipse", x, y, width)}
+}
+
+// Creates a Ellipse object. A curve on a plane surrounding two focal points.
+func NewEllipse4O(x int, y int, width int, height int) *Ellipse {
+    return &Ellipse{js.Global.Call("Phaser.Ellipse", x, y, width, height)}
+}
+
+// Creates a Ellipse object. A curve on a plane surrounding two focal points.
+func NewEllipseI(args ...interface{}) *Ellipse {
+    return &Ellipse{js.Global.Call("Phaser.Ellipse", args)}
+}
+
+
+
 // The X coordinate of the upper-left corner of the framing rectangle of this ellipse.
 func (self *Ellipse) GetXA() int{
     return self.Object.Get("x").Int()

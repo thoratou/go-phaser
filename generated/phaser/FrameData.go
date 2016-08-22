@@ -13,6 +13,18 @@ type FrameData struct {
 }
 
 
+// FrameData is a container for Frame objects, which are the internal representation of animation data in Phaser.
+func NewFrameData() *FrameData {
+    return &FrameData{js.Global.Call("Phaser.FrameData")}
+}
+
+// FrameData is a container for Frame objects, which are the internal representation of animation data in Phaser.
+func NewFrameDataI(args ...interface{}) *FrameData {
+    return &FrameData{js.Global.Call("Phaser.FrameData", args)}
+}
+
+
+
 // The total number of frames in this FrameData set.
 func (self *FrameData) GetTotalA() int{
     return self.Object.Get("total").Int()

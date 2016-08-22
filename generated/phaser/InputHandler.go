@@ -13,6 +13,18 @@ type InputHandler struct {
 }
 
 
+// The Input Handler is bound to a specific Sprite and is responsible for managing all Input events on that Sprite.
+func NewInputHandler(sprite *Sprite) *InputHandler {
+    return &InputHandler{js.Global.Call("Phaser.InputHandler", sprite)}
+}
+
+// The Input Handler is bound to a specific Sprite and is responsible for managing all Input events on that Sprite.
+func NewInputHandlerI(args ...interface{}) *InputHandler {
+    return &InputHandler{js.Global.Call("Phaser.InputHandler", args)}
+}
+
+
+
 // The Sprite object to which this Input Handler belongs.
 func (self *InputHandler) GetSpriteA() *Sprite{
     return &Sprite{self.Object.Get("sprite")}

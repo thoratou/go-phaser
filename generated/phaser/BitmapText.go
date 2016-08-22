@@ -35,6 +35,143 @@ type BitmapText struct {
 }
 
 
+// BitmapText objects work by taking a texture file and an XML or JSON file that describes the font structure.
+// It then generates a new Sprite object for each letter of the text, proportionally spaced out and aligned to 
+// match the font structure.
+// 
+// BitmapText objects are less flexible than Text objects, in that they have less features such as shadows, fills and the ability 
+// to use Web Fonts, however you trade this flexibility for rendering speed. You can also create visually compelling BitmapTexts by
+// processing the font texture in an image editor, applying fills and any other effects required.
+// 
+// To create multi-line text insert \r, \n or \r\n escape codes into the text string.
+// 
+// If you are having performance issues due to the volume of sprites being rendered, and do not require the text to be constantly
+// updating, you can use BitmapText.generateTexture to create a static texture from this BitmapText.
+// 
+// To create a BitmapText data files you can use:
+// 
+// BMFont (Windows, free): http://www.angelcode.com/products/bmfont/
+// Glyph Designer (OS X, commercial): http://www.71squared.com/en/glyphdesigner
+// Littera (Web-based, free): http://kvazars.com/littera/
+// 
+// For most use cases it is recommended to use XML. If you wish to use JSON, the formatting should be equal to the result of
+// converting a valid XML file through the popular X2JS library. An online tool for conversion can be found here: http://codebeautify.org/xmltojson
+// 
+// If you were using an older version of Phaser (< 2.4) and using the DOMish parser hack, please remove this. It isn't required any longer.
+func NewBitmapText(game *Game, x int, y int, font string) *BitmapText {
+    return &BitmapText{js.Global.Call("Phaser.BitmapText", game, x, y, font)}
+}
+
+// BitmapText objects work by taking a texture file and an XML or JSON file that describes the font structure.
+// It then generates a new Sprite object for each letter of the text, proportionally spaced out and aligned to 
+// match the font structure.
+// 
+// BitmapText objects are less flexible than Text objects, in that they have less features such as shadows, fills and the ability 
+// to use Web Fonts, however you trade this flexibility for rendering speed. You can also create visually compelling BitmapTexts by
+// processing the font texture in an image editor, applying fills and any other effects required.
+// 
+// To create multi-line text insert \r, \n or \r\n escape codes into the text string.
+// 
+// If you are having performance issues due to the volume of sprites being rendered, and do not require the text to be constantly
+// updating, you can use BitmapText.generateTexture to create a static texture from this BitmapText.
+// 
+// To create a BitmapText data files you can use:
+// 
+// BMFont (Windows, free): http://www.angelcode.com/products/bmfont/
+// Glyph Designer (OS X, commercial): http://www.71squared.com/en/glyphdesigner
+// Littera (Web-based, free): http://kvazars.com/littera/
+// 
+// For most use cases it is recommended to use XML. If you wish to use JSON, the formatting should be equal to the result of
+// converting a valid XML file through the popular X2JS library. An online tool for conversion can be found here: http://codebeautify.org/xmltojson
+// 
+// If you were using an older version of Phaser (< 2.4) and using the DOMish parser hack, please remove this. It isn't required any longer.
+func NewBitmapText1O(game *Game, x int, y int, font string, text string) *BitmapText {
+    return &BitmapText{js.Global.Call("Phaser.BitmapText", game, x, y, font, text)}
+}
+
+// BitmapText objects work by taking a texture file and an XML or JSON file that describes the font structure.
+// It then generates a new Sprite object for each letter of the text, proportionally spaced out and aligned to 
+// match the font structure.
+// 
+// BitmapText objects are less flexible than Text objects, in that they have less features such as shadows, fills and the ability 
+// to use Web Fonts, however you trade this flexibility for rendering speed. You can also create visually compelling BitmapTexts by
+// processing the font texture in an image editor, applying fills and any other effects required.
+// 
+// To create multi-line text insert \r, \n or \r\n escape codes into the text string.
+// 
+// If you are having performance issues due to the volume of sprites being rendered, and do not require the text to be constantly
+// updating, you can use BitmapText.generateTexture to create a static texture from this BitmapText.
+// 
+// To create a BitmapText data files you can use:
+// 
+// BMFont (Windows, free): http://www.angelcode.com/products/bmfont/
+// Glyph Designer (OS X, commercial): http://www.71squared.com/en/glyphdesigner
+// Littera (Web-based, free): http://kvazars.com/littera/
+// 
+// For most use cases it is recommended to use XML. If you wish to use JSON, the formatting should be equal to the result of
+// converting a valid XML file through the popular X2JS library. An online tool for conversion can be found here: http://codebeautify.org/xmltojson
+// 
+// If you were using an older version of Phaser (< 2.4) and using the DOMish parser hack, please remove this. It isn't required any longer.
+func NewBitmapText2O(game *Game, x int, y int, font string, text string, size int) *BitmapText {
+    return &BitmapText{js.Global.Call("Phaser.BitmapText", game, x, y, font, text, size)}
+}
+
+// BitmapText objects work by taking a texture file and an XML or JSON file that describes the font structure.
+// It then generates a new Sprite object for each letter of the text, proportionally spaced out and aligned to 
+// match the font structure.
+// 
+// BitmapText objects are less flexible than Text objects, in that they have less features such as shadows, fills and the ability 
+// to use Web Fonts, however you trade this flexibility for rendering speed. You can also create visually compelling BitmapTexts by
+// processing the font texture in an image editor, applying fills and any other effects required.
+// 
+// To create multi-line text insert \r, \n or \r\n escape codes into the text string.
+// 
+// If you are having performance issues due to the volume of sprites being rendered, and do not require the text to be constantly
+// updating, you can use BitmapText.generateTexture to create a static texture from this BitmapText.
+// 
+// To create a BitmapText data files you can use:
+// 
+// BMFont (Windows, free): http://www.angelcode.com/products/bmfont/
+// Glyph Designer (OS X, commercial): http://www.71squared.com/en/glyphdesigner
+// Littera (Web-based, free): http://kvazars.com/littera/
+// 
+// For most use cases it is recommended to use XML. If you wish to use JSON, the formatting should be equal to the result of
+// converting a valid XML file through the popular X2JS library. An online tool for conversion can be found here: http://codebeautify.org/xmltojson
+// 
+// If you were using an older version of Phaser (< 2.4) and using the DOMish parser hack, please remove this. It isn't required any longer.
+func NewBitmapText3O(game *Game, x int, y int, font string, text string, size int, align string) *BitmapText {
+    return &BitmapText{js.Global.Call("Phaser.BitmapText", game, x, y, font, text, size, align)}
+}
+
+// BitmapText objects work by taking a texture file and an XML or JSON file that describes the font structure.
+// It then generates a new Sprite object for each letter of the text, proportionally spaced out and aligned to 
+// match the font structure.
+// 
+// BitmapText objects are less flexible than Text objects, in that they have less features such as shadows, fills and the ability 
+// to use Web Fonts, however you trade this flexibility for rendering speed. You can also create visually compelling BitmapTexts by
+// processing the font texture in an image editor, applying fills and any other effects required.
+// 
+// To create multi-line text insert \r, \n or \r\n escape codes into the text string.
+// 
+// If you are having performance issues due to the volume of sprites being rendered, and do not require the text to be constantly
+// updating, you can use BitmapText.generateTexture to create a static texture from this BitmapText.
+// 
+// To create a BitmapText data files you can use:
+// 
+// BMFont (Windows, free): http://www.angelcode.com/products/bmfont/
+// Glyph Designer (OS X, commercial): http://www.71squared.com/en/glyphdesigner
+// Littera (Web-based, free): http://kvazars.com/littera/
+// 
+// For most use cases it is recommended to use XML. If you wish to use JSON, the formatting should be equal to the result of
+// converting a valid XML file through the popular X2JS library. An online tool for conversion can be found here: http://codebeautify.org/xmltojson
+// 
+// If you were using an older version of Phaser (< 2.4) and using the DOMish parser hack, please remove this. It isn't required any longer.
+func NewBitmapTextI(args ...interface{}) *BitmapText {
+    return &BitmapText{js.Global.Call("Phaser.BitmapText", args)}
+}
+
+
+
 // The const type of this object.
 func (self *BitmapText) GetTypeA() int{
     return self.Object.Get("type").Int()

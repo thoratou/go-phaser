@@ -14,6 +14,20 @@ type ComponentFixedToCamera struct {
 }
 
 
+// The FixedToCamera component enables a Game Object to be rendered relative to the game camera coordinates, regardless 
+// of where in the world the camera is. This is used for things like sticking game UI to the camera that scrolls as it moves around the world.
+func NewComponentFixedToCamera() *ComponentFixedToCamera {
+    return &ComponentFixedToCamera{js.Global.Call("Phaser.Component.FixedToCamera")}
+}
+
+// The FixedToCamera component enables a Game Object to be rendered relative to the game camera coordinates, regardless 
+// of where in the world the camera is. This is used for things like sticking game UI to the camera that scrolls as it moves around the world.
+func NewComponentFixedToCameraI(args ...interface{}) *ComponentFixedToCamera {
+    return &ComponentFixedToCamera{js.Global.Call("Phaser.Component.FixedToCamera", args)}
+}
+
+
+
 // A Game Object that is "fixed" to the camera uses its x/y coordinates as offsets from the top left of the camera during rendering.
 // 
 // The values are adjusted at the rendering stage, overriding the Game Objects actual world position.

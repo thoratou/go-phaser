@@ -15,6 +15,57 @@ type ImageCollection struct {
 }
 
 
+// An Image Collection is a special tileset containing mulitple images, with no slicing into each image.
+// 
+// Image Collections are normally created automatically when Tiled data is loaded.
+func NewImageCollection(name string, firstgid int) *ImageCollection {
+    return &ImageCollection{js.Global.Call("Phaser.ImageCollection", name, firstgid)}
+}
+
+// An Image Collection is a special tileset containing mulitple images, with no slicing into each image.
+// 
+// Image Collections are normally created automatically when Tiled data is loaded.
+func NewImageCollection1O(name string, firstgid int, width int) *ImageCollection {
+    return &ImageCollection{js.Global.Call("Phaser.ImageCollection", name, firstgid, width)}
+}
+
+// An Image Collection is a special tileset containing mulitple images, with no slicing into each image.
+// 
+// Image Collections are normally created automatically when Tiled data is loaded.
+func NewImageCollection2O(name string, firstgid int, width int, height int) *ImageCollection {
+    return &ImageCollection{js.Global.Call("Phaser.ImageCollection", name, firstgid, width, height)}
+}
+
+// An Image Collection is a special tileset containing mulitple images, with no slicing into each image.
+// 
+// Image Collections are normally created automatically when Tiled data is loaded.
+func NewImageCollection3O(name string, firstgid int, width int, height int, margin int) *ImageCollection {
+    return &ImageCollection{js.Global.Call("Phaser.ImageCollection", name, firstgid, width, height, margin)}
+}
+
+// An Image Collection is a special tileset containing mulitple images, with no slicing into each image.
+// 
+// Image Collections are normally created automatically when Tiled data is loaded.
+func NewImageCollection4O(name string, firstgid int, width int, height int, margin int, spacing int) *ImageCollection {
+    return &ImageCollection{js.Global.Call("Phaser.ImageCollection", name, firstgid, width, height, margin, spacing)}
+}
+
+// An Image Collection is a special tileset containing mulitple images, with no slicing into each image.
+// 
+// Image Collections are normally created automatically when Tiled data is loaded.
+func NewImageCollection5O(name string, firstgid int, width int, height int, margin int, spacing int, properties interface{}) *ImageCollection {
+    return &ImageCollection{js.Global.Call("Phaser.ImageCollection", name, firstgid, width, height, margin, spacing, properties)}
+}
+
+// An Image Collection is a special tileset containing mulitple images, with no slicing into each image.
+// 
+// Image Collections are normally created automatically when Tiled data is loaded.
+func NewImageCollectionI(args ...interface{}) *ImageCollection {
+    return &ImageCollection{js.Global.Call("Phaser.ImageCollection", args)}
+}
+
+
+
 // The name of the Image Collection.
 func (self *ImageCollection) GetNameA() string{
     return self.Object.Get("name").String()

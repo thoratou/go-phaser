@@ -15,6 +15,18 @@ type CanvasBuffer struct {
 }
 
 
+// Creates a Canvas element of the given size.
+func NewCanvasBuffer(width int, height int) *CanvasBuffer {
+    return &CanvasBuffer{js.Global.Call("PIXI.CanvasBuffer", width, height)}
+}
+
+// Creates a Canvas element of the given size.
+func NewCanvasBufferI(args ...interface{}) *CanvasBuffer {
+    return &CanvasBuffer{js.Global.Call("PIXI.CanvasBuffer", args)}
+}
+
+
+
 // The width of the Canvas in pixels.
 func (self *CanvasBuffer) GetWidthA() int{
     return self.Object.Get("width").Int()

@@ -17,6 +17,26 @@ type FlexLayer struct {
 }
 
 
+// WARNING: This is an EXPERIMENTAL class. The API will change significantly in the coming versions and is incomplete.
+// Please try to avoid using in production games with a long time to build.
+// This is also why the documentation is incomplete.
+// 
+// A responsive grid layer.
+func NewFlexLayer(manager *FlexGrid, position *Point, bounds *Rectangle, scale *Point) *FlexLayer {
+    return &FlexLayer{js.Global.Call("Phaser.FlexLayer", manager, position, bounds, scale)}
+}
+
+// WARNING: This is an EXPERIMENTAL class. The API will change significantly in the coming versions and is incomplete.
+// Please try to avoid using in production games with a long time to build.
+// This is also why the documentation is incomplete.
+// 
+// A responsive grid layer.
+func NewFlexLayerI(args ...interface{}) *FlexLayer {
+    return &FlexLayer{js.Global.Call("Phaser.FlexLayer", args)}
+}
+
+
+
 // A reference to the ScaleManager.
 func (self *FlexLayer) GetManagerA() interface{}{
     return self.Object.Get("manager")

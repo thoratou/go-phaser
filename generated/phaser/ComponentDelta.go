@@ -13,6 +13,18 @@ type ComponentDelta struct {
 }
 
 
+// The Delta component provides access to delta values between the Game Objects current and previous position.
+func NewComponentDelta() *ComponentDelta {
+    return &ComponentDelta{js.Global.Call("Phaser.Component.Delta")}
+}
+
+// The Delta component provides access to delta values between the Game Objects current and previous position.
+func NewComponentDeltaI(args ...interface{}) *ComponentDelta {
+    return &ComponentDelta{js.Global.Call("Phaser.Component.Delta", args)}
+}
+
+
+
 // Returns the delta x value. The difference between world.x now and in the previous frame.
 // 
 // The value will be positive if the Game Object has moved to the right or negative if to the left.

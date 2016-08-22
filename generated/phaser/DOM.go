@@ -18,6 +18,28 @@ type DOM struct {
 }
 
 
+// DOM utility class.
+// 
+// Provides a useful Window and Element functions as well as cross-browser compatibility buffer.
+// 
+// Some code originally derived from {@link https://github.com/ryanve/verge verge}.
+// Some parts were inspired by the research of Ryan Van Etten, released under MIT License 2013.
+func NewDOM() *DOM {
+    return &DOM{js.Global.Call("Phaser.DOM")}
+}
+
+// DOM utility class.
+// 
+// Provides a useful Window and Element functions as well as cross-browser compatibility buffer.
+// 
+// Some code originally derived from {@link https://github.com/ryanve/verge verge}.
+// Some parts were inspired by the research of Ryan Van Etten, released under MIT License 2013.
+func NewDOMI(args ...interface{}) *DOM {
+    return &DOM{js.Global.Call("Phaser.DOM", args)}
+}
+
+
+
 // The bounds of the Visual viewport, as discussed in 
 // {@link http://www.quirksmode.org/mobile/viewports.html A tale of two viewports — part one}
 // with one difference: the viewport size _excludes_ scrollbars, as found on some desktop browsers.   

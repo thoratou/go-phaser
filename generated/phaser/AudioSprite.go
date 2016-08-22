@@ -14,6 +14,20 @@ type AudioSprite struct {
 }
 
 
+// Audio Sprites are a combination of audio files and a JSON configuration.
+// The JSON follows the format of that created by https://github.com/tonistiigi/audiosprite
+func NewAudioSprite(game *Game, key string) *AudioSprite {
+    return &AudioSprite{js.Global.Call("Phaser.AudioSprite", game, key)}
+}
+
+// Audio Sprites are a combination of audio files and a JSON configuration.
+// The JSON follows the format of that created by https://github.com/tonistiigi/audiosprite
+func NewAudioSpriteI(args ...interface{}) *AudioSprite {
+    return &AudioSprite{js.Global.Call("Phaser.AudioSprite", args)}
+}
+
+
+
 // A reference to the currently running Game.
 func (self *AudioSprite) GetGameA() *Game{
     return &Game{self.Object.Get("game")}

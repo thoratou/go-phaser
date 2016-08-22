@@ -19,6 +19,30 @@ type PhysicsP2BodyDebug struct {
 }
 
 
+// Draws a P2 Body to a Graphics instance for visual debugging.
+// Needless to say, for every body you enable debug drawing on, you are adding processor and graphical overhead.
+// So use sparingly and rarely (if ever) in production code.
+// 
+// Also be aware that the Debug body is only updated when the Sprite it is connected to changes position. If you
+// manipulate the sprite in any other way (such as moving it to another Group or bringToTop, etc) then you will
+// need to manually adjust its BodyDebug as well.
+func NewPhysicsP2BodyDebug(game *Game, body *PhysicsP2Body, settings interface{}) *PhysicsP2BodyDebug {
+    return &PhysicsP2BodyDebug{js.Global.Call("Phaser.Physics.P2.BodyDebug", game, body, settings)}
+}
+
+// Draws a P2 Body to a Graphics instance for visual debugging.
+// Needless to say, for every body you enable debug drawing on, you are adding processor and graphical overhead.
+// So use sparingly and rarely (if ever) in production code.
+// 
+// Also be aware that the Debug body is only updated when the Sprite it is connected to changes position. If you
+// manipulate the sprite in any other way (such as moving it to another Group or bringToTop, etc) then you will
+// need to manually adjust its BodyDebug as well.
+func NewPhysicsP2BodyDebugI(args ...interface{}) *PhysicsP2BodyDebug {
+    return &PhysicsP2BodyDebug{js.Global.Call("Phaser.Physics.P2.BodyDebug", args)}
+}
+
+
+
 // Pixels per Length Unit.
 func (self *PhysicsP2BodyDebug) GetPpuA() int{
     return self.Object.Get("ppu").Int()

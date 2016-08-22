@@ -19,6 +19,96 @@ type Matrix struct {
 }
 
 
+// The Matrix is a 3x3 matrix mostly used for display transforms within the renderer.
+// 
+// It is represented like so:
+// 
+// | a | b | tx |
+// | c | d | ty |
+// | 0 | 0 | 1 |
+func NewMatrix() *Matrix {
+    return &Matrix{js.Global.Call("Phaser.Matrix")}
+}
+
+// The Matrix is a 3x3 matrix mostly used for display transforms within the renderer.
+// 
+// It is represented like so:
+// 
+// | a | b | tx |
+// | c | d | ty |
+// | 0 | 0 | 1 |
+func NewMatrix1O(a int) *Matrix {
+    return &Matrix{js.Global.Call("Phaser.Matrix", a)}
+}
+
+// The Matrix is a 3x3 matrix mostly used for display transforms within the renderer.
+// 
+// It is represented like so:
+// 
+// | a | b | tx |
+// | c | d | ty |
+// | 0 | 0 | 1 |
+func NewMatrix2O(a int, b int) *Matrix {
+    return &Matrix{js.Global.Call("Phaser.Matrix", a, b)}
+}
+
+// The Matrix is a 3x3 matrix mostly used for display transforms within the renderer.
+// 
+// It is represented like so:
+// 
+// | a | b | tx |
+// | c | d | ty |
+// | 0 | 0 | 1 |
+func NewMatrix3O(a int, b int, c int) *Matrix {
+    return &Matrix{js.Global.Call("Phaser.Matrix", a, b, c)}
+}
+
+// The Matrix is a 3x3 matrix mostly used for display transforms within the renderer.
+// 
+// It is represented like so:
+// 
+// | a | b | tx |
+// | c | d | ty |
+// | 0 | 0 | 1 |
+func NewMatrix4O(a int, b int, c int, d int) *Matrix {
+    return &Matrix{js.Global.Call("Phaser.Matrix", a, b, c, d)}
+}
+
+// The Matrix is a 3x3 matrix mostly used for display transforms within the renderer.
+// 
+// It is represented like so:
+// 
+// | a | b | tx |
+// | c | d | ty |
+// | 0 | 0 | 1 |
+func NewMatrix5O(a int, b int, c int, d int, tx int) *Matrix {
+    return &Matrix{js.Global.Call("Phaser.Matrix", a, b, c, d, tx)}
+}
+
+// The Matrix is a 3x3 matrix mostly used for display transforms within the renderer.
+// 
+// It is represented like so:
+// 
+// | a | b | tx |
+// | c | d | ty |
+// | 0 | 0 | 1 |
+func NewMatrix6O(a int, b int, c int, d int, tx int, ty int) *Matrix {
+    return &Matrix{js.Global.Call("Phaser.Matrix", a, b, c, d, tx, ty)}
+}
+
+// The Matrix is a 3x3 matrix mostly used for display transforms within the renderer.
+// 
+// It is represented like so:
+// 
+// | a | b | tx |
+// | c | d | ty |
+// | 0 | 0 | 1 |
+func NewMatrixI(args ...interface{}) *Matrix {
+    return &Matrix{js.Global.Call("Phaser.Matrix", args)}
+}
+
+
+
 // 
 func (self *Matrix) GetAA() int{
     return self.Object.Get("a").Int()

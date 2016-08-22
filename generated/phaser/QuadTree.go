@@ -15,6 +15,43 @@ type QuadTree struct {
 }
 
 
+// A QuadTree implementation. The original code was a conversion of the Java code posted to GameDevTuts.
+// However I've tweaked it massively to add node indexing, removed lots of temp. var creation and significantly increased performance as a result.
+// Original version at https://github.com/timohausmann/quadtree-js/
+func NewQuadTree(x int, y int, width int, height int) *QuadTree {
+    return &QuadTree{js.Global.Call("Phaser.QuadTree", x, y, width, height)}
+}
+
+// A QuadTree implementation. The original code was a conversion of the Java code posted to GameDevTuts.
+// However I've tweaked it massively to add node indexing, removed lots of temp. var creation and significantly increased performance as a result.
+// Original version at https://github.com/timohausmann/quadtree-js/
+func NewQuadTree1O(x int, y int, width int, height int, maxObjects int) *QuadTree {
+    return &QuadTree{js.Global.Call("Phaser.QuadTree", x, y, width, height, maxObjects)}
+}
+
+// A QuadTree implementation. The original code was a conversion of the Java code posted to GameDevTuts.
+// However I've tweaked it massively to add node indexing, removed lots of temp. var creation and significantly increased performance as a result.
+// Original version at https://github.com/timohausmann/quadtree-js/
+func NewQuadTree2O(x int, y int, width int, height int, maxObjects int, maxLevels int) *QuadTree {
+    return &QuadTree{js.Global.Call("Phaser.QuadTree", x, y, width, height, maxObjects, maxLevels)}
+}
+
+// A QuadTree implementation. The original code was a conversion of the Java code posted to GameDevTuts.
+// However I've tweaked it massively to add node indexing, removed lots of temp. var creation and significantly increased performance as a result.
+// Original version at https://github.com/timohausmann/quadtree-js/
+func NewQuadTree3O(x int, y int, width int, height int, maxObjects int, maxLevels int, level int) *QuadTree {
+    return &QuadTree{js.Global.Call("Phaser.QuadTree", x, y, width, height, maxObjects, maxLevels, level)}
+}
+
+// A QuadTree implementation. The original code was a conversion of the Java code posted to GameDevTuts.
+// However I've tweaked it massively to add node indexing, removed lots of temp. var creation and significantly increased performance as a result.
+// Original version at https://github.com/timohausmann/quadtree-js/
+func NewQuadTreeI(args ...interface{}) *QuadTree {
+    return &QuadTree{js.Global.Call("Phaser.QuadTree", args)}
+}
+
+
+
 // The maximum number of objects per node.
 func (self *QuadTree) GetMaxObjectsA() int{
     return self.Object.Get("maxObjects").Int()

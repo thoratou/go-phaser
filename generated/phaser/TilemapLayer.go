@@ -19,6 +19,26 @@ type TilemapLayer struct {
 }
 
 
+// A TilemapLayer is a Phaser.Image/Sprite that renders a specific TileLayer of a Tilemap.
+// 
+// Since a TilemapLayer is a Sprite it can be moved around the display, added to other groups or display objects, etc.
+// 
+// By default TilemapLayers have fixedToCamera set to `true`. Changing this will break Camera follow and scrolling behavior.
+func NewTilemapLayer(game *Game, tilemap *Tilemap, index int, width int, height int) *TilemapLayer {
+    return &TilemapLayer{js.Global.Call("Phaser.TilemapLayer", game, tilemap, index, width, height)}
+}
+
+// A TilemapLayer is a Phaser.Image/Sprite that renders a specific TileLayer of a Tilemap.
+// 
+// Since a TilemapLayer is a Sprite it can be moved around the display, added to other groups or display objects, etc.
+// 
+// By default TilemapLayers have fixedToCamera set to `true`. Changing this will break Camera follow and scrolling behavior.
+func NewTilemapLayerI(args ...interface{}) *TilemapLayer {
+    return &TilemapLayer{js.Global.Call("Phaser.TilemapLayer", args)}
+}
+
+
+
 // The Tilemap to which this layer is bound.
 func (self *TilemapLayer) GetMapA() *Tilemap{
     return &Tilemap{self.Object.Get("map")}

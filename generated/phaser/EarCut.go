@@ -13,4 +13,16 @@ type EarCut struct {
 }
 
 
+// 
+func NewEarCut() *EarCut {
+    return &EarCut{js.Global.Call("PIXI.EarCut")}
+}
+
+// 
+func NewEarCutI(args ...interface{}) *EarCut {
+    return &EarCut{js.Global.Call("PIXI.EarCut", args)}
+}
+
+
+
 

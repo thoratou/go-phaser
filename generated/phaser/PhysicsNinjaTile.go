@@ -18,6 +18,38 @@ type PhysicsNinjaTile struct {
 }
 
 
+// Ninja Physics Tile constructor.
+// A Tile is defined by its width, height and type. It's type can include slope data, such as 45 degree slopes, or convex slopes.
+// Understand that for any type including a slope (types 2 to 29) the Tile must be SQUARE, i.e. have an equal width and height.
+// Also note that as Tiles are primarily used for levels they have gravity disabled and world bounds collision disabled by default.
+// 
+// Note: This class could be massively optimised and reduced in size. I leave that challenge up to you.
+func NewPhysicsNinjaTile(body *PhysicsNinjaBody, x int, y int, width int, height int) *PhysicsNinjaTile {
+    return &PhysicsNinjaTile{js.Global.Call("Phaser.Physics.Ninja.Tile", body, x, y, width, height)}
+}
+
+// Ninja Physics Tile constructor.
+// A Tile is defined by its width, height and type. It's type can include slope data, such as 45 degree slopes, or convex slopes.
+// Understand that for any type including a slope (types 2 to 29) the Tile must be SQUARE, i.e. have an equal width and height.
+// Also note that as Tiles are primarily used for levels they have gravity disabled and world bounds collision disabled by default.
+// 
+// Note: This class could be massively optimised and reduced in size. I leave that challenge up to you.
+func NewPhysicsNinjaTile1O(body *PhysicsNinjaBody, x int, y int, width int, height int, type_ int) *PhysicsNinjaTile {
+    return &PhysicsNinjaTile{js.Global.Call("Phaser.Physics.Ninja.Tile", body, x, y, width, height, type_)}
+}
+
+// Ninja Physics Tile constructor.
+// A Tile is defined by its width, height and type. It's type can include slope data, such as 45 degree slopes, or convex slopes.
+// Understand that for any type including a slope (types 2 to 29) the Tile must be SQUARE, i.e. have an equal width and height.
+// Also note that as Tiles are primarily used for levels they have gravity disabled and world bounds collision disabled by default.
+// 
+// Note: This class could be massively optimised and reduced in size. I leave that challenge up to you.
+func NewPhysicsNinjaTileI(args ...interface{}) *PhysicsNinjaTile {
+    return &PhysicsNinjaTile{js.Global.Call("Phaser.Physics.Ninja.Tile", args)}
+}
+
+
+
 // A reference to the body that owns this shape.
 func (self *PhysicsNinjaTile) GetBodyA() interface{}{
     return self.Object.Get("body")

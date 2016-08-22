@@ -15,6 +15,22 @@ type PolyK struct {
 }
 
 
+// Based on the Polyk library http://polyk.ivank.net released under MIT licence.
+// This is an amazing lib!
+// Slightly modified by Mat Groves (matgroves.com);
+func NewPolyK() *PolyK {
+    return &PolyK{js.Global.Call("PIXI.PolyK")}
+}
+
+// Based on the Polyk library http://polyk.ivank.net released under MIT licence.
+// This is an amazing lib!
+// Slightly modified by Mat Groves (matgroves.com);
+func NewPolyKI(args ...interface{}) *PolyK {
+    return &PolyK{js.Global.Call("PIXI.PolyK", args)}
+}
+
+
+
 
 
 // Triangulates shapes for webGL graphic fills.

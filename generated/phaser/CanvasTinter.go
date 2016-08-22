@@ -15,6 +15,18 @@ type CanvasTinter struct {
 }
 
 
+// Utility methods for Sprite/Texture tinting.
+func NewCanvasTinter() *CanvasTinter {
+    return &CanvasTinter{js.Global.Call("PIXI.CanvasTinter")}
+}
+
+// Utility methods for Sprite/Texture tinting.
+func NewCanvasTinterI(args ...interface{}) *CanvasTinter {
+    return &CanvasTinter{js.Global.Call("PIXI.CanvasTinter", args)}
+}
+
+
+
 // If the browser isn't capable of handling tinting with alpha this will be false.
 // This property is only applicable if using tintWithPerPixel.
 func (self *CanvasTinter) GetCanHandleAlphaA() bool{

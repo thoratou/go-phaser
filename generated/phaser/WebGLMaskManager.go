@@ -13,6 +13,18 @@ type WebGLMaskManager struct {
 }
 
 
+// 
+func NewWebGLMaskManager() *WebGLMaskManager {
+    return &WebGLMaskManager{js.Global.Call("PIXI.WebGLMaskManager")}
+}
+
+// 
+func NewWebGLMaskManagerI(args ...interface{}) *WebGLMaskManager {
+    return &WebGLMaskManager{js.Global.Call("PIXI.WebGLMaskManager", args)}
+}
+
+
+
 
 
 // Sets the drawing context to the one given in parameter.

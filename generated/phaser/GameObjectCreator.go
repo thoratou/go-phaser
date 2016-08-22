@@ -14,6 +14,20 @@ type GameObjectCreator struct {
 }
 
 
+// The GameObjectCreator is a quick way to create common game objects _without_ adding them to the game world.
+// The object creator can be accessed with {@linkcode Phaser.Game#make `game.make`}.
+func NewGameObjectCreator(game *Game) *GameObjectCreator {
+    return &GameObjectCreator{js.Global.Call("Phaser.GameObjectCreator", game)}
+}
+
+// The GameObjectCreator is a quick way to create common game objects _without_ adding them to the game world.
+// The object creator can be accessed with {@linkcode Phaser.Game#make `game.make`}.
+func NewGameObjectCreatorI(args ...interface{}) *GameObjectCreator {
+    return &GameObjectCreator{js.Global.Call("Phaser.GameObjectCreator", args)}
+}
+
+
+
 // A reference to the currently running Game.
 func (self *GameObjectCreator) GetGameA() *Game{
     return &Game{self.Object.Get("game")}

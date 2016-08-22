@@ -13,6 +13,33 @@ type PhysicsP2LockConstraint struct {
 }
 
 
+// Locks the relative position between two bodies.
+func NewPhysicsP2LockConstraint(world *PhysicsP2, bodyA *P2Body, bodyB *P2Body) *PhysicsP2LockConstraint {
+    return &PhysicsP2LockConstraint{js.Global.Call("Phaser.Physics.P2.LockConstraint", world, bodyA, bodyB)}
+}
+
+// Locks the relative position between two bodies.
+func NewPhysicsP2LockConstraint1O(world *PhysicsP2, bodyA *P2Body, bodyB *P2Body, offset []interface{}) *PhysicsP2LockConstraint {
+    return &PhysicsP2LockConstraint{js.Global.Call("Phaser.Physics.P2.LockConstraint", world, bodyA, bodyB, offset)}
+}
+
+// Locks the relative position between two bodies.
+func NewPhysicsP2LockConstraint2O(world *PhysicsP2, bodyA *P2Body, bodyB *P2Body, offset []interface{}, angle int) *PhysicsP2LockConstraint {
+    return &PhysicsP2LockConstraint{js.Global.Call("Phaser.Physics.P2.LockConstraint", world, bodyA, bodyB, offset, angle)}
+}
+
+// Locks the relative position between two bodies.
+func NewPhysicsP2LockConstraint3O(world *PhysicsP2, bodyA *P2Body, bodyB *P2Body, offset []interface{}, angle int, maxForce int) *PhysicsP2LockConstraint {
+    return &PhysicsP2LockConstraint{js.Global.Call("Phaser.Physics.P2.LockConstraint", world, bodyA, bodyB, offset, angle, maxForce)}
+}
+
+// Locks the relative position between two bodies.
+func NewPhysicsP2LockConstraintI(args ...interface{}) *PhysicsP2LockConstraint {
+    return &PhysicsP2LockConstraint{js.Global.Call("Phaser.Physics.P2.LockConstraint", args)}
+}
+
+
+
 // Local reference to game.
 func (self *PhysicsP2LockConstraint) GetGameA() *Game{
     return &Game{self.Object.Get("game")}

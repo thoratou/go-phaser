@@ -14,6 +14,26 @@ type PhysicsP2 struct {
 }
 
 
+// This is your main access to the P2 Physics World.
+// From here you can create materials, listen for events and add bodies into the physics simulation.
+func NewPhysicsP2(game *Game) *PhysicsP2 {
+    return &PhysicsP2{js.Global.Call("Phaser.Physics.P2", game)}
+}
+
+// This is your main access to the P2 Physics World.
+// From here you can create materials, listen for events and add bodies into the physics simulation.
+func NewPhysicsP21O(game *Game, config interface{}) *PhysicsP2 {
+    return &PhysicsP2{js.Global.Call("Phaser.Physics.P2", game, config)}
+}
+
+// This is your main access to the P2 Physics World.
+// From here you can create materials, listen for events and add bodies into the physics simulation.
+func NewPhysicsP2I(args ...interface{}) *PhysicsP2 {
+    return &PhysicsP2{js.Global.Call("Phaser.Physics.P2", args)}
+}
+
+
+
 // Local reference to game.
 func (self *PhysicsP2) GetGameA() *Game{
     return &Game{self.Object.Get("game")}

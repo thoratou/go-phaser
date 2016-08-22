@@ -14,6 +14,20 @@ type Stage struct {
 }
 
 
+// The Stage controls root level display objects upon which everything is displayed.
+// It also handles browser visibility handling and the pausing due to loss of focus.
+func NewStage(game *Game) *Stage {
+    return &Stage{js.Global.Call("Phaser.Stage", game)}
+}
+
+// The Stage controls root level display objects upon which everything is displayed.
+// It also handles browser visibility handling and the pausing due to loss of focus.
+func NewStageI(args ...interface{}) *Stage {
+    return &Stage{js.Global.Call("Phaser.Stage", args)}
+}
+
+
+
 // A reference to the currently running Game.
 func (self *Stage) GetGameA() *Game{
     return &Game{self.Object.Get("game")}

@@ -17,6 +17,57 @@ type Tileset struct {
 }
 
 
+// A Tile set is a combination of an image containing the tiles and collision data per tile.
+// 
+// Tilesets are normally created automatically when Tiled data is loaded.
+func NewTileset(name string, firstgid int) *Tileset {
+    return &Tileset{js.Global.Call("Phaser.Tileset", name, firstgid)}
+}
+
+// A Tile set is a combination of an image containing the tiles and collision data per tile.
+// 
+// Tilesets are normally created automatically when Tiled data is loaded.
+func NewTileset1O(name string, firstgid int, width int) *Tileset {
+    return &Tileset{js.Global.Call("Phaser.Tileset", name, firstgid, width)}
+}
+
+// A Tile set is a combination of an image containing the tiles and collision data per tile.
+// 
+// Tilesets are normally created automatically when Tiled data is loaded.
+func NewTileset2O(name string, firstgid int, width int, height int) *Tileset {
+    return &Tileset{js.Global.Call("Phaser.Tileset", name, firstgid, width, height)}
+}
+
+// A Tile set is a combination of an image containing the tiles and collision data per tile.
+// 
+// Tilesets are normally created automatically when Tiled data is loaded.
+func NewTileset3O(name string, firstgid int, width int, height int, margin int) *Tileset {
+    return &Tileset{js.Global.Call("Phaser.Tileset", name, firstgid, width, height, margin)}
+}
+
+// A Tile set is a combination of an image containing the tiles and collision data per tile.
+// 
+// Tilesets are normally created automatically when Tiled data is loaded.
+func NewTileset4O(name string, firstgid int, width int, height int, margin int, spacing int) *Tileset {
+    return &Tileset{js.Global.Call("Phaser.Tileset", name, firstgid, width, height, margin, spacing)}
+}
+
+// A Tile set is a combination of an image containing the tiles and collision data per tile.
+// 
+// Tilesets are normally created automatically when Tiled data is loaded.
+func NewTileset5O(name string, firstgid int, width int, height int, margin int, spacing int, properties interface{}) *Tileset {
+    return &Tileset{js.Global.Call("Phaser.Tileset", name, firstgid, width, height, margin, spacing, properties)}
+}
+
+// A Tile set is a combination of an image containing the tiles and collision data per tile.
+// 
+// Tilesets are normally created automatically when Tiled data is loaded.
+func NewTilesetI(args ...interface{}) *Tileset {
+    return &Tileset{js.Global.Call("Phaser.Tileset", args)}
+}
+
+
+
 // The name of the Tileset.
 func (self *Tileset) GetNameA() string{
     return self.Object.Get("name").String()

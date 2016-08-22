@@ -13,6 +13,18 @@ type PluginManager struct {
 }
 
 
+// The Plugin Manager is responsible for the loading, running and unloading of Phaser Plugins.
+func NewPluginManager(game *Game) *PluginManager {
+    return &PluginManager{js.Global.Call("Phaser.PluginManager", game)}
+}
+
+// The Plugin Manager is responsible for the loading, running and unloading of Phaser Plugins.
+func NewPluginManagerI(args ...interface{}) *PluginManager {
+    return &PluginManager{js.Global.Call("Phaser.PluginManager", args)}
+}
+
+
+
 // A reference to the currently running game.
 func (self *PluginManager) GetGameA() *Game{
     return &Game{self.Object.Get("game")}

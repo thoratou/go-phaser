@@ -16,6 +16,24 @@ type Filter struct {
 }
 
 
+// This is a base Filter class to use for any Phaser filter development.
+// 
+// The vast majority of filters (including all of those that ship with Phaser) use fragment shaders, and
+// therefore only work in WebGL and are not supported by Canvas at all.
+func NewFilter(game *Game, uniforms interface{}, fragmentSrc interface{}) *Filter {
+    return &Filter{js.Global.Call("Phaser.Filter", game, uniforms, fragmentSrc)}
+}
+
+// This is a base Filter class to use for any Phaser filter development.
+// 
+// The vast majority of filters (including all of those that ship with Phaser) use fragment shaders, and
+// therefore only work in WebGL and are not supported by Canvas at all.
+func NewFilterI(args ...interface{}) *Filter {
+    return &Filter{js.Global.Call("Phaser.Filter", args)}
+}
+
+
+
 // A reference to the currently running game.
 func (self *Filter) GetGameA() *Game{
     return &Game{self.Object.Get("game")}

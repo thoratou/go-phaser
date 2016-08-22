@@ -9,7 +9,7 @@ type Function struct {
 }
 
 func (f *Function) GetNameUpperInitial() string {
-	return UpperInitial(f.Name) + f.Suffix
+	return UpperInitial(f.Name)
 }
 
 func (f *Function) GetDescriptionLines() []string {

@@ -13,4 +13,16 @@ type Quat struct {
 }
 
 
+// 
+func NewQuat() *Quat {
+    return &Quat{js.Global.Call("quat")}
+}
+
+// 
+func NewQuatI(args ...interface{}) *Quat {
+    return &Quat{js.Global.Call("quat", args)}
+}
+
+
+
 

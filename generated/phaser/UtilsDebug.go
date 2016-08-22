@@ -24,6 +24,36 @@ type UtilsDebug struct {
 }
 
 
+// A collection of methods for displaying debug information about game objects.
+// 
+// If your game is running in Canvas mode, then you should invoke all of the Debug methods from
+// your games `render` function. This is because they are drawn directly onto the game canvas
+// itself, so if you call any debug methods outside of `render` they are likely to be overwritten
+// by the game itself.
+// 
+// If your game is running in WebGL then Debug will create a Sprite that is placed at the top of the Stage display list and bind a canvas texture
+// to it, which must be uploaded every frame. Be advised: this is very expensive, especially in browsers like Firefox. So please only enable Debug
+// in WebGL mode if you really need it (or your desktop can cope with it well) and disable it for production!
+func NewUtilsDebug(game *Game) *UtilsDebug {
+    return &UtilsDebug{js.Global.Call("Phaser.Utils.Debug", game)}
+}
+
+// A collection of methods for displaying debug information about game objects.
+// 
+// If your game is running in Canvas mode, then you should invoke all of the Debug methods from
+// your games `render` function. This is because they are drawn directly onto the game canvas
+// itself, so if you call any debug methods outside of `render` they are likely to be overwritten
+// by the game itself.
+// 
+// If your game is running in WebGL then Debug will create a Sprite that is placed at the top of the Stage display list and bind a canvas texture
+// to it, which must be uploaded every frame. Be advised: this is very expensive, especially in browsers like Firefox. So please only enable Debug
+// in WebGL mode if you really need it (or your desktop can cope with it well) and disable it for production!
+func NewUtilsDebugI(args ...interface{}) *UtilsDebug {
+    return &UtilsDebug{js.Global.Call("Phaser.Utils.Debug", args)}
+}
+
+
+
 // A reference to the currently running Game.
 func (self *UtilsDebug) GetGameA() *Game{
     return &Game{self.Object.Get("game")}

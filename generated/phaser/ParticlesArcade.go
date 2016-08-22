@@ -13,4 +13,16 @@ type ParticlesArcade struct {
 }
 
 
+// Arcade Particles is a Particle System integrated with Arcade Physics.
+func NewParticlesArcade() *ParticlesArcade {
+    return &ParticlesArcade{js.Global.Call("Phaser.Particles.Arcade")}
+}
+
+// Arcade Particles is a Particle System integrated with Arcade Physics.
+func NewParticlesArcadeI(args ...interface{}) *ParticlesArcade {
+    return &ParticlesArcade{js.Global.Call("Phaser.Particles.Arcade", args)}
+}
+
+
+
 

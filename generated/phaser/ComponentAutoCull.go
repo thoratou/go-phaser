@@ -14,6 +14,20 @@ type ComponentAutoCull struct {
 }
 
 
+// The AutoCull Component is responsible for providing methods that check if a Game Object is within the bounds of the World Camera.
+// It is used by the InWorld component.
+func NewComponentAutoCull() *ComponentAutoCull {
+    return &ComponentAutoCull{js.Global.Call("Phaser.Component.AutoCull")}
+}
+
+// The AutoCull Component is responsible for providing methods that check if a Game Object is within the bounds of the World Camera.
+// It is used by the InWorld component.
+func NewComponentAutoCullI(args ...interface{}) *ComponentAutoCull {
+    return &ComponentAutoCull{js.Global.Call("Phaser.Component.AutoCull", args)}
+}
+
+
+
 // A Game Object with `autoCull` set to true will check its bounds against the World Camera every frame.
 // If it is not intersecting the Camera bounds at any point then it has its `renderable` property set to `false`.
 // This keeps the Game Object alive and still processing updates, but forces it to skip the render step entirely.

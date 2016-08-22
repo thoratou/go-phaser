@@ -13,4 +13,16 @@ type Vec3 struct {
 }
 
 
+// 
+func NewVec3() *Vec3 {
+    return &Vec3{js.Global.Call("vec3")}
+}
+
+// 
+func NewVec3I(args ...interface{}) *Vec3 {
+    return &Vec3{js.Global.Call("vec3", args)}
+}
+
+
+
 

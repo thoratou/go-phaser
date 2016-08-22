@@ -17,6 +17,26 @@ type Rope struct {
 }
 
 
+// A Rope is a Sprite that has a repeating texture.
+// 
+// The texture will automatically wrap on the edges as it moves.
+// 
+// Please note that Ropes cannot have an input handler.
+func NewRope(game *Game, x int, y int, key interface{}, frame interface{}, points []interface{}) *Rope {
+    return &Rope{js.Global.Call("Phaser.Rope", game, x, y, key, frame, points)}
+}
+
+// A Rope is a Sprite that has a repeating texture.
+// 
+// The texture will automatically wrap on the edges as it moves.
+// 
+// Please note that Ropes cannot have an input handler.
+func NewRopeI(args ...interface{}) *Rope {
+    return &Rope{js.Global.Call("Phaser.Rope", args)}
+}
+
+
+
 // The const type of this object.
 func (self *Rope) GetTypeA() int{
     return self.Object.Get("type").Int()

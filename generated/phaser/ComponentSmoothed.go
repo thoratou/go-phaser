@@ -13,6 +13,18 @@ type ComponentSmoothed struct {
 }
 
 
+// The Smoothed component allows a Game Object to control anti-aliasing of an image based texture.
+func NewComponentSmoothed() *ComponentSmoothed {
+    return &ComponentSmoothed{js.Global.Call("Phaser.Component.Smoothed")}
+}
+
+// The Smoothed component allows a Game Object to control anti-aliasing of an image based texture.
+func NewComponentSmoothedI(args ...interface{}) *ComponentSmoothed {
+    return &ComponentSmoothed{js.Global.Call("Phaser.Component.Smoothed", args)}
+}
+
+
+
 // Enable or disable texture smoothing for this Game Object.
 // 
 // It only takes effect if the Game Object is using an image based texture.

@@ -18,6 +18,38 @@ type ArraySet struct {
 }
 
 
+// ArraySet is a Set data structure (items must be unique within the set) that also maintains order.
+// This allows specific items to be easily added or removed from the Set.
+// 
+// Item equality (and uniqueness) is determined by the behavior of `Array.indexOf`.
+// 
+// This used primarily by the Input subsystem.
+func NewArraySet() *ArraySet {
+    return &ArraySet{js.Global.Call("Phaser.ArraySet")}
+}
+
+// ArraySet is a Set data structure (items must be unique within the set) that also maintains order.
+// This allows specific items to be easily added or removed from the Set.
+// 
+// Item equality (and uniqueness) is determined by the behavior of `Array.indexOf`.
+// 
+// This used primarily by the Input subsystem.
+func NewArraySet1O(list []interface{}) *ArraySet {
+    return &ArraySet{js.Global.Call("Phaser.ArraySet", list)}
+}
+
+// ArraySet is a Set data structure (items must be unique within the set) that also maintains order.
+// This allows specific items to be easily added or removed from the Set.
+// 
+// Item equality (and uniqueness) is determined by the behavior of `Array.indexOf`.
+// 
+// This used primarily by the Input subsystem.
+func NewArraySetI(args ...interface{}) *ArraySet {
+    return &ArraySet{js.Global.Call("Phaser.ArraySet", args)}
+}
+
+
+
 // Current cursor position as established by `first` and `next`.
 func (self *ArraySet) GetPositionA() int{
     return self.Object.Get("position").Int()

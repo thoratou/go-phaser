@@ -13,6 +13,18 @@ type ComponentCore struct {
 }
 
 
+// Core Component Features.
+func NewComponentCore() *ComponentCore {
+    return &ComponentCore{js.Global.Call("Phaser.Component.Core")}
+}
+
+// Core Component Features.
+func NewComponentCoreI(args ...interface{}) *ComponentCore {
+    return &ComponentCore{js.Global.Call("Phaser.Component.Core", args)}
+}
+
+
+
 // A reference to the currently running Game.
 func (self *ComponentCore) GetGameA() *Game{
     return &Game{self.Object.Get("game")}

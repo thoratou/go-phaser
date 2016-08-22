@@ -22,6 +22,36 @@ type MSPointer struct {
 }
 
 
+// The MSPointer class handles Microsoft touch interactions with the game and the resulting Pointer objects.
+// 
+// It will work only in Internet Explorer 10+ and Windows Store or Windows Phone 8 apps using JavaScript.
+// http://msdn.microsoft.com/en-us/library/ie/hh673557(v=vs.85).aspx
+// 
+// You should not normally access this class directly, but instead use a Phaser.Pointer object which 
+// normalises all game input for you including accurate button handling.
+// 
+// Please note that at the current time of writing Phaser does not yet support chorded button interactions:
+// http://www.w3.org/TR/pointerevents/#chorded-button-interactions
+func NewMSPointer(game *Game) *MSPointer {
+    return &MSPointer{js.Global.Call("Phaser.MSPointer", game)}
+}
+
+// The MSPointer class handles Microsoft touch interactions with the game and the resulting Pointer objects.
+// 
+// It will work only in Internet Explorer 10+ and Windows Store or Windows Phone 8 apps using JavaScript.
+// http://msdn.microsoft.com/en-us/library/ie/hh673557(v=vs.85).aspx
+// 
+// You should not normally access this class directly, but instead use a Phaser.Pointer object which 
+// normalises all game input for you including accurate button handling.
+// 
+// Please note that at the current time of writing Phaser does not yet support chorded button interactions:
+// http://www.w3.org/TR/pointerevents/#chorded-button-interactions
+func NewMSPointerI(args ...interface{}) *MSPointer {
+    return &MSPointer{js.Global.Call("Phaser.MSPointer", args)}
+}
+
+
+
 // A reference to the currently running game.
 func (self *MSPointer) GetGameA() *Game{
     return &Game{self.Object.Get("game")}

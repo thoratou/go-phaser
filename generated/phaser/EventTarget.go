@@ -13,6 +13,18 @@ type EventTarget struct {
 }
 
 
+// Mixins event emitter functionality to a class
+func NewEventTarget() *EventTarget {
+    return &EventTarget{js.Global.Call("PIXI.EventTarget")}
+}
+
+// Mixins event emitter functionality to a class
+func NewEventTargetI(args ...interface{}) *EventTarget {
+    return &EventTarget{js.Global.Call("PIXI.EventTarget", args)}
+}
+
+
+
 
 
 // Mixes in the properties of the EventTarget prototype onto another object

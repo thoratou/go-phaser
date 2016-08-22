@@ -21,6 +21,34 @@ type Loader struct {
 }
 
 
+// The Loader handles loading all external content such as Images, Sounds, Texture Atlases and data files.
+// 
+// The loader uses a combination of tag loading (eg. Image elements) and XHR and provides progress and completion callbacks.
+// 
+// Parallel loading (see {@link Phaser.Loader#enableParallel enableParallel}) is supported and enabled by default.
+// Load-before behavior of parallel resources is controlled by synchronization points as discussed in {@link Phaser.Loader#withSyncPoint withSyncPoint}.
+// 
+// Texture Atlases can be created with tools such as [Texture Packer](https://www.codeandweb.com/texturepacker/phaser) and
+// [Shoebox](http://renderhjs.net/shoebox/)
+func NewLoader(game *Game) *Loader {
+    return &Loader{js.Global.Call("Phaser.Loader", game)}
+}
+
+// The Loader handles loading all external content such as Images, Sounds, Texture Atlases and data files.
+// 
+// The loader uses a combination of tag loading (eg. Image elements) and XHR and provides progress and completion callbacks.
+// 
+// Parallel loading (see {@link Phaser.Loader#enableParallel enableParallel}) is supported and enabled by default.
+// Load-before behavior of parallel resources is controlled by synchronization points as discussed in {@link Phaser.Loader#withSyncPoint withSyncPoint}.
+// 
+// Texture Atlases can be created with tools such as [Texture Packer](https://www.codeandweb.com/texturepacker/phaser) and
+// [Shoebox](http://renderhjs.net/shoebox/)
+func NewLoaderI(args ...interface{}) *Loader {
+    return &Loader{js.Global.Call("Phaser.Loader", args)}
+}
+
+
+
 // Local reference to game.
 func (self *Loader) GetGameA() *Game{
     return &Game{self.Object.Get("game")}

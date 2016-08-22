@@ -17,6 +17,26 @@ type World struct {
 }
 
 
+// "This world is but a canvas to our imagination." - Henry David Thoreau
+// 
+// A game has only one world. The world is an abstract place in which all game objects live. It is not bound
+// by stage limits and can be any size. You look into the world via cameras. All game objects live within
+// the world at world-based coordinates. By default a world is created the same size as your Stage.
+func NewWorld(game *Game) *World {
+    return &World{js.Global.Call("Phaser.World", game)}
+}
+
+// "This world is but a canvas to our imagination." - Henry David Thoreau
+// 
+// A game has only one world. The world is an abstract place in which all game objects live. It is not bound
+// by stage limits and can be any size. You look into the world via cameras. All game objects live within
+// the world at world-based coordinates. By default a world is created the same size as your Stage.
+func NewWorldI(args ...interface{}) *World {
+    return &World{js.Global.Call("Phaser.World", args)}
+}
+
+
+
 // The World has no fixed size, but it does have a bounds outside of which objects are no longer considered as being "in world" and you should use this to clean-up the display list and purge dead objects.
 // By default we set the Bounds to be from 0,0 to Game.width,Game.height. I.e. it will match the size given to the game constructor with 0,0 representing the top-left of the display.
 // However 0,0 is actually the center of the world, and if you rotate or scale the world all of that will happen from 0,0.

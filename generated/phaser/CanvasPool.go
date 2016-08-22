@@ -15,6 +15,18 @@ type CanvasPool struct {
 }
 
 
+// The CanvasPool is a global static object that allows Pixi and Phaser to pool canvas DOM elements.
+func NewCanvasPool() *CanvasPool {
+    return &CanvasPool{js.Global.Call("PIXI.CanvasPool")}
+}
+
+// The CanvasPool is a global static object that allows Pixi and Phaser to pool canvas DOM elements.
+func NewCanvasPoolI(args ...interface{}) *CanvasPool {
+    return &CanvasPool{js.Global.Call("PIXI.CanvasPool", args)}
+}
+
+
+
 // The pool into which the canvas dom elements are placed.
 func (self *CanvasPool) GetPoolA() []interface{}{
 	array00 := self.Object.Get("pool")

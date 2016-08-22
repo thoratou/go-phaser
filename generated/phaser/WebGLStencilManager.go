@@ -13,6 +13,18 @@ type WebGLStencilManager struct {
 }
 
 
+// 
+func NewWebGLStencilManager() *WebGLStencilManager {
+    return &WebGLStencilManager{js.Global.Call("PIXI.WebGLStencilManager")}
+}
+
+// 
+func NewWebGLStencilManagerI(args ...interface{}) *WebGLStencilManager {
+    return &WebGLStencilManager{js.Global.Call("PIXI.WebGLStencilManager", args)}
+}
+
+
+
 
 
 // Sets the drawing context to the one given in parameter.

@@ -19,6 +19,30 @@ type TweenManager struct {
 }
 
 
+// Phaser.Game has a single instance of the TweenManager through which all Tween objects are created and updated.
+// Tweens are hooked into the game clock and pause system, adjusting based on the game state.
+// 
+// TweenManager is based heavily on tween.js by http://soledadpenades.com.
+// The difference being that tweens belong to a games instance of TweenManager, rather than to a global TWEEN object.
+// It also has callbacks swapped for Signals and a few issues patched with regard to properties and completion errors.
+// Please see https://github.com/sole/tween.js for a full list of contributors.
+func NewTweenManager(game *Game) *TweenManager {
+    return &TweenManager{js.Global.Call("Phaser.TweenManager", game)}
+}
+
+// Phaser.Game has a single instance of the TweenManager through which all Tween objects are created and updated.
+// Tweens are hooked into the game clock and pause system, adjusting based on the game state.
+// 
+// TweenManager is based heavily on tween.js by http://soledadpenades.com.
+// The difference being that tweens belong to a games instance of TweenManager, rather than to a global TWEEN object.
+// It also has callbacks swapped for Signals and a few issues patched with regard to properties and completion errors.
+// Please see https://github.com/sole/tween.js for a full list of contributors.
+func NewTweenManagerI(args ...interface{}) *TweenManager {
+    return &TweenManager{js.Global.Call("Phaser.TweenManager", args)}
+}
+
+
+
 // Local reference to game.
 func (self *TweenManager) GetGameA() *Game{
     return &Game{self.Object.Get("game")}

@@ -13,4 +13,16 @@ type Mat4 struct {
 }
 
 
+// 
+func NewMat4() *Mat4 {
+    return &Mat4{js.Global.Call("mat4")}
+}
+
+// 
+func NewMat4I(args ...interface{}) *Mat4 {
+    return &Mat4{js.Global.Call("mat4", args)}
+}
+
+
+
 

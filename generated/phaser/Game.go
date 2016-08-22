@@ -19,6 +19,98 @@ type Game struct {
 }
 
 
+// This is where the magic happens. The Game object is the heart of your game,
+// providing quick access to common functions and handling the boot process.
+// 
+// "Hell, there are no rules here - we're trying to accomplish something."
+//                                                       Thomas A. Edison
+func NewGame() *Game {
+    return &Game{js.Global.Call("Phaser.Game")}
+}
+
+// This is where the magic happens. The Game object is the heart of your game,
+// providing quick access to common functions and handling the boot process.
+// 
+// "Hell, there are no rules here - we're trying to accomplish something."
+//                                                       Thomas A. Edison
+func NewGame1O(width interface{}) *Game {
+    return &Game{js.Global.Call("Phaser.Game", width)}
+}
+
+// This is where the magic happens. The Game object is the heart of your game,
+// providing quick access to common functions and handling the boot process.
+// 
+// "Hell, there are no rules here - we're trying to accomplish something."
+//                                                       Thomas A. Edison
+func NewGame2O(width interface{}, height interface{}) *Game {
+    return &Game{js.Global.Call("Phaser.Game", width, height)}
+}
+
+// This is where the magic happens. The Game object is the heart of your game,
+// providing quick access to common functions and handling the boot process.
+// 
+// "Hell, there are no rules here - we're trying to accomplish something."
+//                                                       Thomas A. Edison
+func NewGame3O(width interface{}, height interface{}, renderer int) *Game {
+    return &Game{js.Global.Call("Phaser.Game", width, height, renderer)}
+}
+
+// This is where the magic happens. The Game object is the heart of your game,
+// providing quick access to common functions and handling the boot process.
+// 
+// "Hell, there are no rules here - we're trying to accomplish something."
+//                                                       Thomas A. Edison
+func NewGame4O(width interface{}, height interface{}, renderer int, parent interface{}) *Game {
+    return &Game{js.Global.Call("Phaser.Game", width, height, renderer, parent)}
+}
+
+// This is where the magic happens. The Game object is the heart of your game,
+// providing quick access to common functions and handling the boot process.
+// 
+// "Hell, there are no rules here - we're trying to accomplish something."
+//                                                       Thomas A. Edison
+func NewGame5O(width interface{}, height interface{}, renderer int, parent interface{}, state interface{}) *Game {
+    return &Game{js.Global.Call("Phaser.Game", width, height, renderer, parent, state)}
+}
+
+// This is where the magic happens. The Game object is the heart of your game,
+// providing quick access to common functions and handling the boot process.
+// 
+// "Hell, there are no rules here - we're trying to accomplish something."
+//                                                       Thomas A. Edison
+func NewGame6O(width interface{}, height interface{}, renderer int, parent interface{}, state interface{}, transparent bool) *Game {
+    return &Game{js.Global.Call("Phaser.Game", width, height, renderer, parent, state, transparent)}
+}
+
+// This is where the magic happens. The Game object is the heart of your game,
+// providing quick access to common functions and handling the boot process.
+// 
+// "Hell, there are no rules here - we're trying to accomplish something."
+//                                                       Thomas A. Edison
+func NewGame7O(width interface{}, height interface{}, renderer int, parent interface{}, state interface{}, transparent bool, antialias bool) *Game {
+    return &Game{js.Global.Call("Phaser.Game", width, height, renderer, parent, state, transparent, antialias)}
+}
+
+// This is where the magic happens. The Game object is the heart of your game,
+// providing quick access to common functions and handling the boot process.
+// 
+// "Hell, there are no rules here - we're trying to accomplish something."
+//                                                       Thomas A. Edison
+func NewGame8O(width interface{}, height interface{}, renderer int, parent interface{}, state interface{}, transparent bool, antialias bool, physicsConfig interface{}) *Game {
+    return &Game{js.Global.Call("Phaser.Game", width, height, renderer, parent, state, transparent, antialias, physicsConfig)}
+}
+
+// This is where the magic happens. The Game object is the heart of your game,
+// providing quick access to common functions and handling the boot process.
+// 
+// "Hell, there are no rules here - we're trying to accomplish something."
+//                                                       Thomas A. Edison
+func NewGameI(args ...interface{}) *Game {
+    return &Game{js.Global.Call("Phaser.Game", args)}
+}
+
+
+
 // Phaser Game ID (for when Pixi supports multiple instances).
 func (self *Game) GetIdA() int{
     return self.Object.Get("id").Int()

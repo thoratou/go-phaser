@@ -13,6 +13,18 @@ type TilemapParser struct {
 }
 
 
+// Phaser.TilemapParser parses data objects from Phaser.Loader that need more preparation before they can be inserted into a Tilemap.
+func NewTilemapParser() *TilemapParser {
+    return &TilemapParser{js.Global.Call("Phaser.TilemapParser")}
+}
+
+// Phaser.TilemapParser parses data objects from Phaser.Loader that need more preparation before they can be inserted into a Tilemap.
+func NewTilemapParserI(args ...interface{}) *TilemapParser {
+    return &TilemapParser{js.Global.Call("Phaser.TilemapParser", args)}
+}
+
+
+
 // When scanning the Tiled map data the TilemapParser can either insert a null value (true) or
 // a Phaser.Tile instance with an index of -1 (false, the default). Depending on your game type
 // depends how this should be configured. If you've a large sparsely populated map and the tile

@@ -14,6 +14,44 @@ type Image struct {
 }
 
 
+// An Image is a light-weight object you can use to display anything that doesn't need physics or animation.
+// It can still rotate, scale, crop and receive input events. This makes it perfect for logos, backgrounds, simple buttons and other non-Sprite graphics.
+func NewImage(game *Game) *Image {
+    return &Image{js.Global.Call("Phaser.Image", game)}
+}
+
+// An Image is a light-weight object you can use to display anything that doesn't need physics or animation.
+// It can still rotate, scale, crop and receive input events. This makes it perfect for logos, backgrounds, simple buttons and other non-Sprite graphics.
+func NewImage1O(game *Game, x int) *Image {
+    return &Image{js.Global.Call("Phaser.Image", game, x)}
+}
+
+// An Image is a light-weight object you can use to display anything that doesn't need physics or animation.
+// It can still rotate, scale, crop and receive input events. This makes it perfect for logos, backgrounds, simple buttons and other non-Sprite graphics.
+func NewImage2O(game *Game, x int, y int) *Image {
+    return &Image{js.Global.Call("Phaser.Image", game, x, y)}
+}
+
+// An Image is a light-weight object you can use to display anything that doesn't need physics or animation.
+// It can still rotate, scale, crop and receive input events. This makes it perfect for logos, backgrounds, simple buttons and other non-Sprite graphics.
+func NewImage3O(game *Game, x int, y int, key interface{}) *Image {
+    return &Image{js.Global.Call("Phaser.Image", game, x, y, key)}
+}
+
+// An Image is a light-weight object you can use to display anything that doesn't need physics or animation.
+// It can still rotate, scale, crop and receive input events. This makes it perfect for logos, backgrounds, simple buttons and other non-Sprite graphics.
+func NewImage4O(game *Game, x int, y int, key interface{}, frame interface{}) *Image {
+    return &Image{js.Global.Call("Phaser.Image", game, x, y, key, frame)}
+}
+
+// An Image is a light-weight object you can use to display anything that doesn't need physics or animation.
+// It can still rotate, scale, crop and receive input events. This makes it perfect for logos, backgrounds, simple buttons and other non-Sprite graphics.
+func NewImageI(args ...interface{}) *Image {
+    return &Image{js.Global.Call("Phaser.Image", args)}
+}
+
+
+
 // The const type of this object.
 func (self *Image) GetTypeA() int{
     return self.Object.Get("type").Int()

@@ -26,6 +26,62 @@ type Creature struct {
 }
 
 
+// Creature is a custom Game Object used in conjunction with the Creature Runtime libraries by Kestrel Moon Studios.
+// 
+// It allows you to display animated Game Objects that were created with the [Creature Automated Animation Tool](http://www.kestrelmoon.com/creature/).
+// 
+// Note 1: You can only use Phaser.Creature objects in WebGL enabled games. They do not work in Canvas mode games.
+// 
+// Note 2: You must use a build of Phaser that includes the CreatureMeshBone.js runtime and gl-matrix.js, or have them
+// loaded before your Phaser game boots.
+// 
+// See the Phaser custom build process for more details.
+// 
+// By default the Creature runtimes are NOT included in any pre-configured version of Phaser.
+// 
+// So you'll need to do `grunt custom` to create a build that includes them.
+func NewCreature(game *Game, x int, y int, key interface{}, mesh string) *Creature {
+    return &Creature{js.Global.Call("Phaser.Creature", game, x, y, key, mesh)}
+}
+
+// Creature is a custom Game Object used in conjunction with the Creature Runtime libraries by Kestrel Moon Studios.
+// 
+// It allows you to display animated Game Objects that were created with the [Creature Automated Animation Tool](http://www.kestrelmoon.com/creature/).
+// 
+// Note 1: You can only use Phaser.Creature objects in WebGL enabled games. They do not work in Canvas mode games.
+// 
+// Note 2: You must use a build of Phaser that includes the CreatureMeshBone.js runtime and gl-matrix.js, or have them
+// loaded before your Phaser game boots.
+// 
+// See the Phaser custom build process for more details.
+// 
+// By default the Creature runtimes are NOT included in any pre-configured version of Phaser.
+// 
+// So you'll need to do `grunt custom` to create a build that includes them.
+func NewCreature1O(game *Game, x int, y int, key interface{}, mesh string, animation string) *Creature {
+    return &Creature{js.Global.Call("Phaser.Creature", game, x, y, key, mesh, animation)}
+}
+
+// Creature is a custom Game Object used in conjunction with the Creature Runtime libraries by Kestrel Moon Studios.
+// 
+// It allows you to display animated Game Objects that were created with the [Creature Automated Animation Tool](http://www.kestrelmoon.com/creature/).
+// 
+// Note 1: You can only use Phaser.Creature objects in WebGL enabled games. They do not work in Canvas mode games.
+// 
+// Note 2: You must use a build of Phaser that includes the CreatureMeshBone.js runtime and gl-matrix.js, or have them
+// loaded before your Phaser game boots.
+// 
+// See the Phaser custom build process for more details.
+// 
+// By default the Creature runtimes are NOT included in any pre-configured version of Phaser.
+// 
+// So you'll need to do `grunt custom` to create a build that includes them.
+func NewCreatureI(args ...interface{}) *Creature {
+    return &Creature{js.Global.Call("Phaser.Creature", args)}
+}
+
+
+
 // The const type of this object.
 func (self *Creature) GetTypeA() int{
     return self.Object.Get("type").Int()

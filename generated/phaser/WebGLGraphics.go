@@ -13,6 +13,18 @@ type WebGLGraphics struct {
 }
 
 
+// A set of functions used by the webGL renderer to draw the primitive graphics data
+func NewWebGLGraphics() *WebGLGraphics {
+    return &WebGLGraphics{js.Global.Call("PIXI.WebGLGraphics")}
+}
+
+// A set of functions used by the webGL renderer to draw the primitive graphics data
+func NewWebGLGraphicsI(args ...interface{}) *WebGLGraphics {
+    return &WebGLGraphics{js.Global.Call("PIXI.WebGLGraphics", args)}
+}
+
+
+
 
 
 // Renders the graphics object

@@ -59,6 +59,110 @@ type Signal struct {
 }
 
 
+// Signals are what Phaser uses to handle events and event dispatching.
+// You can listen for a Signal by binding a callback / function to it.
+// This is done by using either `Signal.add` or `Signal.addOnce`.
+// 
+// For example you can listen for a touch or click event from the Input Manager 
+// by using its `onDown` Signal:
+// 
+// `game.input.onDown.add(function() { ... });`
+// 
+// Rather than inline your function, you can pass a reference:
+// 
+// `game.input.onDown.add(clicked, this);`
+// `function clicked () { ... }`
+// 
+// In this case the second argument (`this`) is the context in which your function should be called.
+// 
+// Now every time the InputManager dispatches the `onDown` signal (or event), your function
+// will be called.
+// 
+// Very often a Signal will send arguments to your function.
+// This is specific to the Signal itself.
+// If you're unsure then check the documentation, or failing that simply do:
+// 
+// `Signal.add(function() { console.log(arguments); })`
+// 
+// and it will log all of the arguments your function received from the Signal.
+// 
+// Sprites have lots of default signals you can listen to in their Events class, such as:
+// 
+// `sprite.events.onKilled`
+// 
+// Which is called automatically whenever the Sprite is killed.
+// There are lots of other events, see the Events component for a list.
+// 
+// As well as listening to pre-defined Signals you can also create your own:
+// 
+// `var mySignal = new Phaser.Signal();`
+// 
+// This creates a new Signal. You can bind a callback to it:
+// 
+// `mySignal.add(myCallback, this);`
+// 
+// and then finally when ready you can dispatch the Signal:
+// 
+// `mySignal.dispatch(your arguments);`
+// 
+// And your callback will be invoked. See the dispatch method for more details.
+func NewSignal() *Signal {
+    return &Signal{js.Global.Call("Phaser.Signal")}
+}
+
+// Signals are what Phaser uses to handle events and event dispatching.
+// You can listen for a Signal by binding a callback / function to it.
+// This is done by using either `Signal.add` or `Signal.addOnce`.
+// 
+// For example you can listen for a touch or click event from the Input Manager 
+// by using its `onDown` Signal:
+// 
+// `game.input.onDown.add(function() { ... });`
+// 
+// Rather than inline your function, you can pass a reference:
+// 
+// `game.input.onDown.add(clicked, this);`
+// `function clicked () { ... }`
+// 
+// In this case the second argument (`this`) is the context in which your function should be called.
+// 
+// Now every time the InputManager dispatches the `onDown` signal (or event), your function
+// will be called.
+// 
+// Very often a Signal will send arguments to your function.
+// This is specific to the Signal itself.
+// If you're unsure then check the documentation, or failing that simply do:
+// 
+// `Signal.add(function() { console.log(arguments); })`
+// 
+// and it will log all of the arguments your function received from the Signal.
+// 
+// Sprites have lots of default signals you can listen to in their Events class, such as:
+// 
+// `sprite.events.onKilled`
+// 
+// Which is called automatically whenever the Sprite is killed.
+// There are lots of other events, see the Events component for a list.
+// 
+// As well as listening to pre-defined Signals you can also create your own:
+// 
+// `var mySignal = new Phaser.Signal();`
+// 
+// This creates a new Signal. You can bind a callback to it:
+// 
+// `mySignal.add(myCallback, this);`
+// 
+// and then finally when ready you can dispatch the Signal:
+// 
+// `mySignal.dispatch(your arguments);`
+// 
+// And your callback will be invoked. See the dispatch method for more details.
+func NewSignalI(args ...interface{}) *Signal {
+    return &Signal{js.Global.Call("Phaser.Signal", args)}
+}
+
+
+
 // Memorize the previously dispatched event?
 // 
 // If an event has been memorized it is automatically dispatched when a new listener is added with {@link Phaser.Signal#add add} or {@link Phaser.Signal#addOnce addOnce}.

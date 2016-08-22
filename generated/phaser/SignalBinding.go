@@ -15,6 +15,43 @@ type SignalBinding struct {
 }
 
 
+// Object that represents a binding between a Signal and a listener function.
+// This is an internal constructor and shouldn't be created directly.
+// Inspired by Joa Ebert AS3 SignalBinding and Robert Penner's Slot classes.
+func NewSignalBinding(signal *Signal, listener func(...interface{}), isOnce bool) *SignalBinding {
+    return &SignalBinding{js.Global.Call("Phaser.SignalBinding", signal, listener, isOnce)}
+}
+
+// Object that represents a binding between a Signal and a listener function.
+// This is an internal constructor and shouldn't be created directly.
+// Inspired by Joa Ebert AS3 SignalBinding and Robert Penner's Slot classes.
+func NewSignalBinding1O(signal *Signal, listener func(...interface{}), isOnce bool, listenerContext interface{}) *SignalBinding {
+    return &SignalBinding{js.Global.Call("Phaser.SignalBinding", signal, listener, isOnce, listenerContext)}
+}
+
+// Object that represents a binding between a Signal and a listener function.
+// This is an internal constructor and shouldn't be created directly.
+// Inspired by Joa Ebert AS3 SignalBinding and Robert Penner's Slot classes.
+func NewSignalBinding2O(signal *Signal, listener func(...interface{}), isOnce bool, listenerContext interface{}, priority int) *SignalBinding {
+    return &SignalBinding{js.Global.Call("Phaser.SignalBinding", signal, listener, isOnce, listenerContext, priority)}
+}
+
+// Object that represents a binding between a Signal and a listener function.
+// This is an internal constructor and shouldn't be created directly.
+// Inspired by Joa Ebert AS3 SignalBinding and Robert Penner's Slot classes.
+func NewSignalBinding3O(signal *Signal, listener func(...interface{}), isOnce bool, listenerContext interface{}, priority int, args interface{}) *SignalBinding {
+    return &SignalBinding{js.Global.Call("Phaser.SignalBinding", signal, listener, isOnce, listenerContext, priority, args)}
+}
+
+// Object that represents a binding between a Signal and a listener function.
+// This is an internal constructor and shouldn't be created directly.
+// Inspired by Joa Ebert AS3 SignalBinding and Robert Penner's Slot classes.
+func NewSignalBindingI(args ...interface{}) *SignalBinding {
+    return &SignalBinding{js.Global.Call("Phaser.SignalBinding", args)}
+}
+
+
+
 // Context on which listener will be executed (object that should represent the `this` variable inside listener function).
 func (self *SignalBinding) GetContextA() interface{}{
     return self.Object.Get("context")

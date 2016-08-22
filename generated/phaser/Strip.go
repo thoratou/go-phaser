@@ -13,6 +13,18 @@ type Strip struct {
 }
 
 
+// 
+func NewStrip(texture *Texture, width int, height int) *Strip {
+    return &Strip{js.Global.Call("PIXI.Strip", texture, width, height)}
+}
+
+// 
+func NewStripI(args ...interface{}) *Strip {
+    return &Strip{js.Global.Call("PIXI.Strip", args)}
+}
+
+
+
 // The texture of the strip
 func (self *Strip) GetTextureA() *Texture{
     return &Texture{self.Object.Get("texture")}

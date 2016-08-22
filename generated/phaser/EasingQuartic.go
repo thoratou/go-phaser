@@ -13,6 +13,18 @@ type EasingQuartic struct {
 }
 
 
+// Quartic easing.
+func NewEasingQuartic() *EasingQuartic {
+    return &EasingQuartic{js.Global.Call("Phaser.Easing.Quartic")}
+}
+
+// Quartic easing.
+func NewEasingQuarticI(args ...interface{}) *EasingQuartic {
+    return &EasingQuartic{js.Global.Call("Phaser.Easing.Quartic", args)}
+}
+
+
+
 
 
 // Quartic ease-in.

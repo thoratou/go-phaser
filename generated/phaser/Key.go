@@ -13,6 +13,18 @@ type Key struct {
 }
 
 
+// If you need more fine-grained control over the handling of specific keys you can create and use Phaser.Key objects.
+func NewKey(game *Game, keycode int) *Key {
+    return &Key{js.Global.Call("Phaser.Key", game, keycode)}
+}
+
+// If you need more fine-grained control over the handling of specific keys you can create and use Phaser.Key objects.
+func NewKeyI(args ...interface{}) *Key {
+    return &Key{js.Global.Call("Phaser.Key", args)}
+}
+
+
+
 // A reference to the currently running game.
 func (self *Key) GetGameA() *Game{
     return &Game{self.Object.Get("game")}

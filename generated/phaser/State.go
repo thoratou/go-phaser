@@ -14,6 +14,20 @@ type State struct {
 }
 
 
+// This is a base State class which can be extended if you are creating your own game.
+// It provides quick access to common functions such as the camera, cache, input, match, sound and more.
+func NewState() *State {
+    return &State{js.Global.Call("Phaser.State")}
+}
+
+// This is a base State class which can be extended if you are creating your own game.
+// It provides quick access to common functions such as the camera, cache, input, match, sound and more.
+func NewStateI(args ...interface{}) *State {
+    return &State{js.Global.Call("Phaser.State", args)}
+}
+
+
+
 // This is a reference to the currently running Game.
 func (self *State) GetGameA() *Game{
     return &Game{self.Object.Get("game")}

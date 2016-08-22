@@ -28,6 +28,48 @@ type DeviceButton struct {
 }
 
 
+// DeviceButtons belong to both `Phaser.Pointer` and `Phaser.SinglePad` (Gamepad) instances.
+// 
+// For Pointers they represent the various buttons that can exist on mice and pens, such as the left button, right button,
+// middle button and advanced buttons like back and forward.
+// 
+// Access them via `Pointer.leftbutton`, `Pointer.rightButton` and so on.
+// 
+// On Gamepads they represent all buttons on the pad: from shoulder buttons to action buttons.
+// 
+// At the time of writing this there are device limitations you should be aware of:
+// 
+// - On Windows, if you install a mouse driver, and its utility software allows you to customize button actions 
+//   (e.g., IntelliPoint and SetPoint), the middle (wheel) button, the 4th button, and the 5th button might not be set, 
+//   even when they are pressed.
+// - On Linux (GTK), the 4th button and the 5th button are not supported.
+// - On Mac OS X 10.5 there is no platform API for implementing any advanced buttons.
+func NewDeviceButton(parent interface{}, buttonCode int) *DeviceButton {
+    return &DeviceButton{js.Global.Call("Phaser.DeviceButton", parent, buttonCode)}
+}
+
+// DeviceButtons belong to both `Phaser.Pointer` and `Phaser.SinglePad` (Gamepad) instances.
+// 
+// For Pointers they represent the various buttons that can exist on mice and pens, such as the left button, right button,
+// middle button and advanced buttons like back and forward.
+// 
+// Access them via `Pointer.leftbutton`, `Pointer.rightButton` and so on.
+// 
+// On Gamepads they represent all buttons on the pad: from shoulder buttons to action buttons.
+// 
+// At the time of writing this there are device limitations you should be aware of:
+// 
+// - On Windows, if you install a mouse driver, and its utility software allows you to customize button actions 
+//   (e.g., IntelliPoint and SetPoint), the middle (wheel) button, the 4th button, and the 5th button might not be set, 
+//   even when they are pressed.
+// - On Linux (GTK), the 4th button and the 5th button are not supported.
+// - On Mac OS X 10.5 there is no platform API for implementing any advanced buttons.
+func NewDeviceButtonI(args ...interface{}) *DeviceButton {
+    return &DeviceButton{js.Global.Call("Phaser.DeviceButton", args)}
+}
+
+
+
 // A reference to the Pointer or Gamepad that owns this button.
 func (self *DeviceButton) GetParentA() interface{}{
     return self.Object.Get("parent")

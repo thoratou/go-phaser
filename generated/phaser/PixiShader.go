@@ -14,6 +14,18 @@ type PixiShader struct {
 
 
 // 
+func NewPixiShader(gl *WebGLContext) *PixiShader {
+    return &PixiShader{js.Global.Call("PIXI.PixiShader", gl)}
+}
+
+// 
+func NewPixiShaderI(args ...interface{}) *PixiShader {
+    return &PixiShader{js.Global.Call("PIXI.PixiShader", args)}
+}
+
+
+
+// 
 func (self *PixiShader) GetGlA() WebGLContext{
     return WrapWebGLContext(self.Object.Get("gl"))
 }

@@ -20,6 +20,32 @@ type Keyboard struct {
 }
 
 
+// The Keyboard class monitors keyboard input and dispatches keyboard events.
+// 
+// _Note_: many keyboards are unable to process certain combinations of keys due to hardware limitations known as ghosting.
+// See http://www.html5gamedevs.com/topic/4876-impossible-to-use-more-than-2-keyboard-input-buttons-at-the-same-time/ for more details.
+// 
+// Also please be aware that certain browser extensions can disable or override Phaser keyboard handling.
+// For example the Chrome extension vimium is known to disable Phaser from using the D key. And there are others.
+// So please check your extensions before opening Phaser issues.
+func NewKeyboard(game *Game) *Keyboard {
+    return &Keyboard{js.Global.Call("Phaser.Keyboard", game)}
+}
+
+// The Keyboard class monitors keyboard input and dispatches keyboard events.
+// 
+// _Note_: many keyboards are unable to process certain combinations of keys due to hardware limitations known as ghosting.
+// See http://www.html5gamedevs.com/topic/4876-impossible-to-use-more-than-2-keyboard-input-buttons-at-the-same-time/ for more details.
+// 
+// Also please be aware that certain browser extensions can disable or override Phaser keyboard handling.
+// For example the Chrome extension vimium is known to disable Phaser from using the D key. And there are others.
+// So please check your extensions before opening Phaser issues.
+func NewKeyboardI(args ...interface{}) *Keyboard {
+    return &Keyboard{js.Global.Call("Phaser.Keyboard", args)}
+}
+
+
+
 // Local reference to game.
 func (self *Keyboard) GetGameA() *Game{
     return &Game{self.Object.Get("game")}

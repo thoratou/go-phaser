@@ -13,6 +13,18 @@ type EasingQuintic struct {
 }
 
 
+// Quintic easing.
+func NewEasingQuintic() *EasingQuintic {
+    return &EasingQuintic{js.Global.Call("Phaser.Easing.Quintic")}
+}
+
+// Quintic easing.
+func NewEasingQuinticI(args ...interface{}) *EasingQuintic {
+    return &EasingQuintic{js.Global.Call("Phaser.Easing.Quintic", args)}
+}
+
+
+
 
 
 // Quintic ease-in.

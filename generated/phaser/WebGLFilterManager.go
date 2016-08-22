@@ -14,6 +14,18 @@ type WebGLFilterManager struct {
 
 
 // 
+func NewWebGLFilterManager() *WebGLFilterManager {
+    return &WebGLFilterManager{js.Global.Call("PIXI.WebGLFilterManager")}
+}
+
+// 
+func NewWebGLFilterManagerI(args ...interface{}) *WebGLFilterManager {
+    return &WebGLFilterManager{js.Global.Call("PIXI.WebGLFilterManager", args)}
+}
+
+
+
+// 
 func (self *WebGLFilterManager) GetFilterStackA() []interface{}{
 	array00 := self.Object.Get("filterStack")
 	length00 := array00.Length()

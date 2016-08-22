@@ -21,6 +21,63 @@ type BitmapData struct {
 }
 
 
+// A BitmapData object contains a Canvas element to which you can draw anything you like via normal Canvas context operations.
+// A single BitmapData can be used as the texture for one or many Images / Sprites. 
+// So if you need to dynamically create a Sprite texture then they are a good choice.
+// 
+// Important note: Every BitmapData creates its own Canvas element. Because BitmapData's are now Game Objects themselves, and don't
+// live on the display list, they are NOT automatically cleared when you change State. Therefore you _must_ call BitmapData.destroy
+// in your State's shutdown method if you wish to free-up the resources the BitmapData used, it will not happen for you.
+func NewBitmapData(game *Game, key string) *BitmapData {
+    return &BitmapData{js.Global.Call("Phaser.BitmapData", game, key)}
+}
+
+// A BitmapData object contains a Canvas element to which you can draw anything you like via normal Canvas context operations.
+// A single BitmapData can be used as the texture for one or many Images / Sprites. 
+// So if you need to dynamically create a Sprite texture then they are a good choice.
+// 
+// Important note: Every BitmapData creates its own Canvas element. Because BitmapData's are now Game Objects themselves, and don't
+// live on the display list, they are NOT automatically cleared when you change State. Therefore you _must_ call BitmapData.destroy
+// in your State's shutdown method if you wish to free-up the resources the BitmapData used, it will not happen for you.
+func NewBitmapData1O(game *Game, key string, width int) *BitmapData {
+    return &BitmapData{js.Global.Call("Phaser.BitmapData", game, key, width)}
+}
+
+// A BitmapData object contains a Canvas element to which you can draw anything you like via normal Canvas context operations.
+// A single BitmapData can be used as the texture for one or many Images / Sprites. 
+// So if you need to dynamically create a Sprite texture then they are a good choice.
+// 
+// Important note: Every BitmapData creates its own Canvas element. Because BitmapData's are now Game Objects themselves, and don't
+// live on the display list, they are NOT automatically cleared when you change State. Therefore you _must_ call BitmapData.destroy
+// in your State's shutdown method if you wish to free-up the resources the BitmapData used, it will not happen for you.
+func NewBitmapData2O(game *Game, key string, width int, height int) *BitmapData {
+    return &BitmapData{js.Global.Call("Phaser.BitmapData", game, key, width, height)}
+}
+
+// A BitmapData object contains a Canvas element to which you can draw anything you like via normal Canvas context operations.
+// A single BitmapData can be used as the texture for one or many Images / Sprites. 
+// So if you need to dynamically create a Sprite texture then they are a good choice.
+// 
+// Important note: Every BitmapData creates its own Canvas element. Because BitmapData's are now Game Objects themselves, and don't
+// live on the display list, they are NOT automatically cleared when you change State. Therefore you _must_ call BitmapData.destroy
+// in your State's shutdown method if you wish to free-up the resources the BitmapData used, it will not happen for you.
+func NewBitmapData3O(game *Game, key string, width int, height int, skipPool bool) *BitmapData {
+    return &BitmapData{js.Global.Call("Phaser.BitmapData", game, key, width, height, skipPool)}
+}
+
+// A BitmapData object contains a Canvas element to which you can draw anything you like via normal Canvas context operations.
+// A single BitmapData can be used as the texture for one or many Images / Sprites. 
+// So if you need to dynamically create a Sprite texture then they are a good choice.
+// 
+// Important note: Every BitmapData creates its own Canvas element. Because BitmapData's are now Game Objects themselves, and don't
+// live on the display list, they are NOT automatically cleared when you change State. Therefore you _must_ call BitmapData.destroy
+// in your State's shutdown method if you wish to free-up the resources the BitmapData used, it will not happen for you.
+func NewBitmapDataI(args ...interface{}) *BitmapData {
+    return &BitmapData{js.Global.Call("Phaser.BitmapData", args)}
+}
+
+
+
 // A reference to the currently running game.
 func (self *BitmapData) GetGameA() *Game{
     return &Game{self.Object.Get("game")}

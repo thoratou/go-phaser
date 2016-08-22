@@ -16,6 +16,20 @@ type CanvasRenderer struct {
 }
 
 
+// The CanvasRenderer draws the Stage and all its content onto a 2d canvas. This renderer should be used for browsers that do not support webGL.
+// Don't forget to add the CanvasRenderer.view to your DOM or you will not see anything :)
+func NewCanvasRenderer(game *PhaserGame) *CanvasRenderer {
+    return &CanvasRenderer{js.Global.Call("PIXI.CanvasRenderer", game)}
+}
+
+// The CanvasRenderer draws the Stage and all its content onto a 2d canvas. This renderer should be used for browsers that do not support webGL.
+// Don't forget to add the CanvasRenderer.view to your DOM or you will not see anything :)
+func NewCanvasRendererI(args ...interface{}) *CanvasRenderer {
+    return &CanvasRenderer{js.Global.Call("PIXI.CanvasRenderer", args)}
+}
+
+
+
 // 
 func (self *CanvasRenderer) GetGameA() *PhaserGame{
     return &PhaserGame{self.Object.Get("game")}

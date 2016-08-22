@@ -19,6 +19,30 @@ type PointerMode struct {
 }
 
 
+// Enumeration categorizing operational modes of pointers.
+// 
+// PointerType values represent valid bitmasks.
+// For example, a value representing both Mouse and Touch devices
+// can be expressed as `PointerMode.CURSOR | PointerMode.CONTACT`.
+// 
+// Values may be added for future mode categorizations.
+func NewPointerMode() *PointerMode {
+    return &PointerMode{js.Global.Call("Phaser.PointerMode")}
+}
+
+// Enumeration categorizing operational modes of pointers.
+// 
+// PointerType values represent valid bitmasks.
+// For example, a value representing both Mouse and Touch devices
+// can be expressed as `PointerMode.CURSOR | PointerMode.CONTACT`.
+// 
+// Values may be added for future mode categorizations.
+func NewPointerModeI(args ...interface{}) *PointerMode {
+    return &PointerMode{js.Global.Call("Phaser.PointerMode", args)}
+}
+
+
+
 // A 'CURSOR' is a pointer with a *passive cursor* such as a mouse, touchpad, watcom stylus, or even TV-control arrow-pad.
 // 
 // It has the property that a cursor is passively moved without activating the input.

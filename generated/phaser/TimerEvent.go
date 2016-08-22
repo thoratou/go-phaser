@@ -20,6 +20,32 @@ type TimerEvent struct {
 }
 
 
+// A TimerEvent is a single event that is processed by a Phaser.Timer.
+// 
+// It consists of a delay, which is a value in milliseconds after which the event will fire.
+// When the event fires it calls a specific callback with the specified arguments.
+// 
+// TimerEvents are removed by their parent timer once finished firing or repeating.
+// 
+// Use {@link Phaser.Timer#add}, {@link Phaser.Timer#repeat}, or {@link Phaser.Timer#loop} methods to create a new event.
+func NewTimerEvent(timer *Timer, delay int, tick int, repeatCount int, loop bool, callback func(...interface{}), callbackContext interface{}, arguments []interface{}) *TimerEvent {
+    return &TimerEvent{js.Global.Call("Phaser.TimerEvent", timer, delay, tick, repeatCount, loop, callback, callbackContext, arguments)}
+}
+
+// A TimerEvent is a single event that is processed by a Phaser.Timer.
+// 
+// It consists of a delay, which is a value in milliseconds after which the event will fire.
+// When the event fires it calls a specific callback with the specified arguments.
+// 
+// TimerEvents are removed by their parent timer once finished firing or repeating.
+// 
+// Use {@link Phaser.Timer#add}, {@link Phaser.Timer#repeat}, or {@link Phaser.Timer#loop} methods to create a new event.
+func NewTimerEventI(args ...interface{}) *TimerEvent {
+    return &TimerEvent{js.Global.Call("Phaser.TimerEvent", args)}
+}
+
+
+
 // The Timer object that this TimerEvent belongs to.
 func (self *TimerEvent) GetTimerA() *Timer{
     return &Timer{self.Object.Get("timer")}

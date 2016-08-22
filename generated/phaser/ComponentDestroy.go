@@ -13,6 +13,18 @@ type ComponentDestroy struct {
 }
 
 
+// The Destroy component is responsible for destroying a Game Object.
+func NewComponentDestroy() *ComponentDestroy {
+    return &ComponentDestroy{js.Global.Call("Phaser.Component.Destroy")}
+}
+
+// The Destroy component is responsible for destroying a Game Object.
+func NewComponentDestroyI(args ...interface{}) *ComponentDestroy {
+    return &ComponentDestroy{js.Global.Call("Phaser.Component.Destroy", args)}
+}
+
+
+
 // As a Game Object runs through its destroy method this flag is set to true, 
 // and can be checked in any sub-systems or plugins it is being destroyed from.
 func (self *ComponentDestroy) GetDestroyPhaseA() bool{

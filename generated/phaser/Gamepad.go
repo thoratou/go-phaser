@@ -20,6 +20,32 @@ type Gamepad struct {
 }
 
 
+// The Gamepad class handles gamepad input and dispatches gamepad events.
+// 
+// Remember to call `gamepad.start()`.
+// 
+// HTML5 GAMEPAD API SUPPORT IS AT AN EXPERIMENTAL STAGE!
+// At moment of writing this (end of 2013) only Chrome supports parts of it out of the box. Firefox supports it
+// via prefs flags (about:config, search gamepad). The browsers map the same controllers differently.
+// This class has constants for Windows 7 Chrome mapping of XBOX 360 controller.
+func NewGamepad(game *Game) *Gamepad {
+    return &Gamepad{js.Global.Call("Phaser.Gamepad", game)}
+}
+
+// The Gamepad class handles gamepad input and dispatches gamepad events.
+// 
+// Remember to call `gamepad.start()`.
+// 
+// HTML5 GAMEPAD API SUPPORT IS AT AN EXPERIMENTAL STAGE!
+// At moment of writing this (end of 2013) only Chrome supports parts of it out of the box. Firefox supports it
+// via prefs flags (about:config, search gamepad). The browsers map the same controllers differently.
+// This class has constants for Windows 7 Chrome mapping of XBOX 360 controller.
+func NewGamepadI(args ...interface{}) *Gamepad {
+    return &Gamepad{js.Global.Call("Phaser.Gamepad", args)}
+}
+
+
+
 // Local reference to game.
 func (self *Gamepad) GetGameA() *Game{
     return &Game{self.Object.Get("game")}

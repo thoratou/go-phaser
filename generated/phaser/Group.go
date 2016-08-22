@@ -20,6 +20,92 @@ type Group struct {
 }
 
 
+// A Group is a container for {@link DisplayObject display objects} including {@link Phaser.Sprite Sprites} and {@link Phaser.Image Images}.
+// 
+// Groups form the logical tree structure of the display/scene graph where local transformations are applied to children.
+// For instance, all children are also moved/rotated/scaled when the group is moved/rotated/scaled.
+// 
+// In addition, Groups provides support for fast pooling and object recycling.
+// 
+// Groups are also display objects and can be nested as children within other Groups.
+func NewGroup(game *Game) *Group {
+    return &Group{js.Global.Call("Phaser.Group", game)}
+}
+
+// A Group is a container for {@link DisplayObject display objects} including {@link Phaser.Sprite Sprites} and {@link Phaser.Image Images}.
+// 
+// Groups form the logical tree structure of the display/scene graph where local transformations are applied to children.
+// For instance, all children are also moved/rotated/scaled when the group is moved/rotated/scaled.
+// 
+// In addition, Groups provides support for fast pooling and object recycling.
+// 
+// Groups are also display objects and can be nested as children within other Groups.
+func NewGroup1O(game *Game, parent interface{}) *Group {
+    return &Group{js.Global.Call("Phaser.Group", game, parent)}
+}
+
+// A Group is a container for {@link DisplayObject display objects} including {@link Phaser.Sprite Sprites} and {@link Phaser.Image Images}.
+// 
+// Groups form the logical tree structure of the display/scene graph where local transformations are applied to children.
+// For instance, all children are also moved/rotated/scaled when the group is moved/rotated/scaled.
+// 
+// In addition, Groups provides support for fast pooling and object recycling.
+// 
+// Groups are also display objects and can be nested as children within other Groups.
+func NewGroup2O(game *Game, parent interface{}, name string) *Group {
+    return &Group{js.Global.Call("Phaser.Group", game, parent, name)}
+}
+
+// A Group is a container for {@link DisplayObject display objects} including {@link Phaser.Sprite Sprites} and {@link Phaser.Image Images}.
+// 
+// Groups form the logical tree structure of the display/scene graph where local transformations are applied to children.
+// For instance, all children are also moved/rotated/scaled when the group is moved/rotated/scaled.
+// 
+// In addition, Groups provides support for fast pooling and object recycling.
+// 
+// Groups are also display objects and can be nested as children within other Groups.
+func NewGroup3O(game *Game, parent interface{}, name string, addToStage bool) *Group {
+    return &Group{js.Global.Call("Phaser.Group", game, parent, name, addToStage)}
+}
+
+// A Group is a container for {@link DisplayObject display objects} including {@link Phaser.Sprite Sprites} and {@link Phaser.Image Images}.
+// 
+// Groups form the logical tree structure of the display/scene graph where local transformations are applied to children.
+// For instance, all children are also moved/rotated/scaled when the group is moved/rotated/scaled.
+// 
+// In addition, Groups provides support for fast pooling and object recycling.
+// 
+// Groups are also display objects and can be nested as children within other Groups.
+func NewGroup4O(game *Game, parent interface{}, name string, addToStage bool, enableBody bool) *Group {
+    return &Group{js.Global.Call("Phaser.Group", game, parent, name, addToStage, enableBody)}
+}
+
+// A Group is a container for {@link DisplayObject display objects} including {@link Phaser.Sprite Sprites} and {@link Phaser.Image Images}.
+// 
+// Groups form the logical tree structure of the display/scene graph where local transformations are applied to children.
+// For instance, all children are also moved/rotated/scaled when the group is moved/rotated/scaled.
+// 
+// In addition, Groups provides support for fast pooling and object recycling.
+// 
+// Groups are also display objects and can be nested as children within other Groups.
+func NewGroup5O(game *Game, parent interface{}, name string, addToStage bool, enableBody bool, physicsBodyType int) *Group {
+    return &Group{js.Global.Call("Phaser.Group", game, parent, name, addToStage, enableBody, physicsBodyType)}
+}
+
+// A Group is a container for {@link DisplayObject display objects} including {@link Phaser.Sprite Sprites} and {@link Phaser.Image Images}.
+// 
+// Groups form the logical tree structure of the display/scene graph where local transformations are applied to children.
+// For instance, all children are also moved/rotated/scaled when the group is moved/rotated/scaled.
+// 
+// In addition, Groups provides support for fast pooling and object recycling.
+// 
+// Groups are also display objects and can be nested as children within other Groups.
+func NewGroupI(args ...interface{}) *Group {
+    return &Group{js.Global.Call("Phaser.Group", args)}
+}
+
+
+
 // A reference to the currently running Game.
 func (self *Group) GetGameA() *Game{
     return &Game{self.Object.Get("game")}

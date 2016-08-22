@@ -24,6 +24,184 @@ type Button struct {
 }
 
 
+// Create a new `Button` object. A Button is a special type of Sprite that is set-up to handle Pointer events automatically.
+// 
+// The four states a Button responds to are:
+// 
+// * 'Over' - when the Pointer moves over the Button. This is also commonly known as 'hover'.
+// * 'Out' - when the Pointer that was previously over the Button moves out of it.
+// * 'Down' - when the Pointer is pressed down on the Button. I.e. touched on a touch enabled device or clicked with the mouse.
+// * 'Up' - when the Pointer that was pressed down on the Button is released again.
+// 
+// A different texture/frame and activation sound can be specified for any of the states.
+// 
+// Frames can be specified as either an integer (the frame ID) or a string (the frame name); the same values that can be used with a Sprite constructor.
+func NewButton(game *Game) *Button {
+    return &Button{js.Global.Call("Phaser.Button", game)}
+}
+
+// Create a new `Button` object. A Button is a special type of Sprite that is set-up to handle Pointer events automatically.
+// 
+// The four states a Button responds to are:
+// 
+// * 'Over' - when the Pointer moves over the Button. This is also commonly known as 'hover'.
+// * 'Out' - when the Pointer that was previously over the Button moves out of it.
+// * 'Down' - when the Pointer is pressed down on the Button. I.e. touched on a touch enabled device or clicked with the mouse.
+// * 'Up' - when the Pointer that was pressed down on the Button is released again.
+// 
+// A different texture/frame and activation sound can be specified for any of the states.
+// 
+// Frames can be specified as either an integer (the frame ID) or a string (the frame name); the same values that can be used with a Sprite constructor.
+func NewButton1O(game *Game, x int) *Button {
+    return &Button{js.Global.Call("Phaser.Button", game, x)}
+}
+
+// Create a new `Button` object. A Button is a special type of Sprite that is set-up to handle Pointer events automatically.
+// 
+// The four states a Button responds to are:
+// 
+// * 'Over' - when the Pointer moves over the Button. This is also commonly known as 'hover'.
+// * 'Out' - when the Pointer that was previously over the Button moves out of it.
+// * 'Down' - when the Pointer is pressed down on the Button. I.e. touched on a touch enabled device or clicked with the mouse.
+// * 'Up' - when the Pointer that was pressed down on the Button is released again.
+// 
+// A different texture/frame and activation sound can be specified for any of the states.
+// 
+// Frames can be specified as either an integer (the frame ID) or a string (the frame name); the same values that can be used with a Sprite constructor.
+func NewButton2O(game *Game, x int, y int) *Button {
+    return &Button{js.Global.Call("Phaser.Button", game, x, y)}
+}
+
+// Create a new `Button` object. A Button is a special type of Sprite that is set-up to handle Pointer events automatically.
+// 
+// The four states a Button responds to are:
+// 
+// * 'Over' - when the Pointer moves over the Button. This is also commonly known as 'hover'.
+// * 'Out' - when the Pointer that was previously over the Button moves out of it.
+// * 'Down' - when the Pointer is pressed down on the Button. I.e. touched on a touch enabled device or clicked with the mouse.
+// * 'Up' - when the Pointer that was pressed down on the Button is released again.
+// 
+// A different texture/frame and activation sound can be specified for any of the states.
+// 
+// Frames can be specified as either an integer (the frame ID) or a string (the frame name); the same values that can be used with a Sprite constructor.
+func NewButton3O(game *Game, x int, y int, key string) *Button {
+    return &Button{js.Global.Call("Phaser.Button", game, x, y, key)}
+}
+
+// Create a new `Button` object. A Button is a special type of Sprite that is set-up to handle Pointer events automatically.
+// 
+// The four states a Button responds to are:
+// 
+// * 'Over' - when the Pointer moves over the Button. This is also commonly known as 'hover'.
+// * 'Out' - when the Pointer that was previously over the Button moves out of it.
+// * 'Down' - when the Pointer is pressed down on the Button. I.e. touched on a touch enabled device or clicked with the mouse.
+// * 'Up' - when the Pointer that was pressed down on the Button is released again.
+// 
+// A different texture/frame and activation sound can be specified for any of the states.
+// 
+// Frames can be specified as either an integer (the frame ID) or a string (the frame name); the same values that can be used with a Sprite constructor.
+func NewButton4O(game *Game, x int, y int, key string, callback func(...interface{})) *Button {
+    return &Button{js.Global.Call("Phaser.Button", game, x, y, key, callback)}
+}
+
+// Create a new `Button` object. A Button is a special type of Sprite that is set-up to handle Pointer events automatically.
+// 
+// The four states a Button responds to are:
+// 
+// * 'Over' - when the Pointer moves over the Button. This is also commonly known as 'hover'.
+// * 'Out' - when the Pointer that was previously over the Button moves out of it.
+// * 'Down' - when the Pointer is pressed down on the Button. I.e. touched on a touch enabled device or clicked with the mouse.
+// * 'Up' - when the Pointer that was pressed down on the Button is released again.
+// 
+// A different texture/frame and activation sound can be specified for any of the states.
+// 
+// Frames can be specified as either an integer (the frame ID) or a string (the frame name); the same values that can be used with a Sprite constructor.
+func NewButton5O(game *Game, x int, y int, key string, callback func(...interface{}), callbackContext interface{}) *Button {
+    return &Button{js.Global.Call("Phaser.Button", game, x, y, key, callback, callbackContext)}
+}
+
+// Create a new `Button` object. A Button is a special type of Sprite that is set-up to handle Pointer events automatically.
+// 
+// The four states a Button responds to are:
+// 
+// * 'Over' - when the Pointer moves over the Button. This is also commonly known as 'hover'.
+// * 'Out' - when the Pointer that was previously over the Button moves out of it.
+// * 'Down' - when the Pointer is pressed down on the Button. I.e. touched on a touch enabled device or clicked with the mouse.
+// * 'Up' - when the Pointer that was pressed down on the Button is released again.
+// 
+// A different texture/frame and activation sound can be specified for any of the states.
+// 
+// Frames can be specified as either an integer (the frame ID) or a string (the frame name); the same values that can be used with a Sprite constructor.
+func NewButton6O(game *Game, x int, y int, key string, callback func(...interface{}), callbackContext interface{}, overFrame interface{}) *Button {
+    return &Button{js.Global.Call("Phaser.Button", game, x, y, key, callback, callbackContext, overFrame)}
+}
+
+// Create a new `Button` object. A Button is a special type of Sprite that is set-up to handle Pointer events automatically.
+// 
+// The four states a Button responds to are:
+// 
+// * 'Over' - when the Pointer moves over the Button. This is also commonly known as 'hover'.
+// * 'Out' - when the Pointer that was previously over the Button moves out of it.
+// * 'Down' - when the Pointer is pressed down on the Button. I.e. touched on a touch enabled device or clicked with the mouse.
+// * 'Up' - when the Pointer that was pressed down on the Button is released again.
+// 
+// A different texture/frame and activation sound can be specified for any of the states.
+// 
+// Frames can be specified as either an integer (the frame ID) or a string (the frame name); the same values that can be used with a Sprite constructor.
+func NewButton7O(game *Game, x int, y int, key string, callback func(...interface{}), callbackContext interface{}, overFrame interface{}, outFrame interface{}) *Button {
+    return &Button{js.Global.Call("Phaser.Button", game, x, y, key, callback, callbackContext, overFrame, outFrame)}
+}
+
+// Create a new `Button` object. A Button is a special type of Sprite that is set-up to handle Pointer events automatically.
+// 
+// The four states a Button responds to are:
+// 
+// * 'Over' - when the Pointer moves over the Button. This is also commonly known as 'hover'.
+// * 'Out' - when the Pointer that was previously over the Button moves out of it.
+// * 'Down' - when the Pointer is pressed down on the Button. I.e. touched on a touch enabled device or clicked with the mouse.
+// * 'Up' - when the Pointer that was pressed down on the Button is released again.
+// 
+// A different texture/frame and activation sound can be specified for any of the states.
+// 
+// Frames can be specified as either an integer (the frame ID) or a string (the frame name); the same values that can be used with a Sprite constructor.
+func NewButton8O(game *Game, x int, y int, key string, callback func(...interface{}), callbackContext interface{}, overFrame interface{}, outFrame interface{}, downFrame interface{}) *Button {
+    return &Button{js.Global.Call("Phaser.Button", game, x, y, key, callback, callbackContext, overFrame, outFrame, downFrame)}
+}
+
+// Create a new `Button` object. A Button is a special type of Sprite that is set-up to handle Pointer events automatically.
+// 
+// The four states a Button responds to are:
+// 
+// * 'Over' - when the Pointer moves over the Button. This is also commonly known as 'hover'.
+// * 'Out' - when the Pointer that was previously over the Button moves out of it.
+// * 'Down' - when the Pointer is pressed down on the Button. I.e. touched on a touch enabled device or clicked with the mouse.
+// * 'Up' - when the Pointer that was pressed down on the Button is released again.
+// 
+// A different texture/frame and activation sound can be specified for any of the states.
+// 
+// Frames can be specified as either an integer (the frame ID) or a string (the frame name); the same values that can be used with a Sprite constructor.
+func NewButton9O(game *Game, x int, y int, key string, callback func(...interface{}), callbackContext interface{}, overFrame interface{}, outFrame interface{}, downFrame interface{}, upFrame interface{}) *Button {
+    return &Button{js.Global.Call("Phaser.Button", game, x, y, key, callback, callbackContext, overFrame, outFrame, downFrame, upFrame)}
+}
+
+// Create a new `Button` object. A Button is a special type of Sprite that is set-up to handle Pointer events automatically.
+// 
+// The four states a Button responds to are:
+// 
+// * 'Over' - when the Pointer moves over the Button. This is also commonly known as 'hover'.
+// * 'Out' - when the Pointer that was previously over the Button moves out of it.
+// * 'Down' - when the Pointer is pressed down on the Button. I.e. touched on a touch enabled device or clicked with the mouse.
+// * 'Up' - when the Pointer that was pressed down on the Button is released again.
+// 
+// A different texture/frame and activation sound can be specified for any of the states.
+// 
+// Frames can be specified as either an integer (the frame ID) or a string (the frame name); the same values that can be used with a Sprite constructor.
+func NewButtonI(args ...interface{}) *Button {
+    return &Button{js.Global.Call("Phaser.Button", args)}
+}
+
+
+
 // The Phaser Object Type.
 func (self *Button) GetTypeA() int{
     return self.Object.Get("type").Int()

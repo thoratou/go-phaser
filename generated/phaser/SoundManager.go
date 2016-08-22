@@ -25,6 +25,42 @@ type SoundManager struct {
 }
 
 
+// The Sound Manager is responsible for playing back audio via either the Legacy HTML Audio tag or via Web Audio if the browser supports it.
+// Note: On Firefox 25+ on Linux if you have media.gstreamer disabled in about:config then it cannot play back mp3 or m4a files.
+// The audio file type and the encoding of those files are extremely important. Not all browsers can play all audio formats.
+// There is a good guide to what's supported here: http://hpr.dogphilosophy.net/test/
+// 
+// If you are reloading a Phaser Game on a page that never properly refreshes (such as in an AngularJS project) then you will quickly run out
+// of AudioContext nodes. If this is the case create a global var called PhaserGlobal on the window object before creating the game. The active
+// AudioContext will then be saved to window.PhaserGlobal.audioContext when the Phaser game is destroyed, and re-used when it starts again.
+// 
+// Mobile warning: There are some mobile devices (certain iPad 2 and iPad Mini revisions) that cannot play 48000 Hz audio.
+// When they try to play the audio becomes extremely distorted and buzzes, eventually crashing the sound system.
+// The solution is to use a lower encoding rate such as 44100 Hz. Sometimes the audio context will
+// be created with a sampleRate of 48000. If this happens and audio distorts you should re-create the context.
+func NewSoundManager(game *Game) *SoundManager {
+    return &SoundManager{js.Global.Call("Phaser.SoundManager", game)}
+}
+
+// The Sound Manager is responsible for playing back audio via either the Legacy HTML Audio tag or via Web Audio if the browser supports it.
+// Note: On Firefox 25+ on Linux if you have media.gstreamer disabled in about:config then it cannot play back mp3 or m4a files.
+// The audio file type and the encoding of those files are extremely important. Not all browsers can play all audio formats.
+// There is a good guide to what's supported here: http://hpr.dogphilosophy.net/test/
+// 
+// If you are reloading a Phaser Game on a page that never properly refreshes (such as in an AngularJS project) then you will quickly run out
+// of AudioContext nodes. If this is the case create a global var called PhaserGlobal on the window object before creating the game. The active
+// AudioContext will then be saved to window.PhaserGlobal.audioContext when the Phaser game is destroyed, and re-used when it starts again.
+// 
+// Mobile warning: There are some mobile devices (certain iPad 2 and iPad Mini revisions) that cannot play 48000 Hz audio.
+// When they try to play the audio becomes extremely distorted and buzzes, eventually crashing the sound system.
+// The solution is to use a lower encoding rate such as 44100 Hz. Sometimes the audio context will
+// be created with a sampleRate of 48000. If this happens and audio distorts you should re-create the context.
+func NewSoundManagerI(args ...interface{}) *SoundManager {
+    return &SoundManager{js.Global.Call("Phaser.SoundManager", args)}
+}
+
+
+
 // Local reference to game.
 func (self *SoundManager) GetGameA() *Game{
     return &Game{self.Object.Get("game")}

@@ -15,6 +15,22 @@ type Touch struct {
 }
 
 
+// Phaser.Touch handles touch events with your game. Note: Android 2.x only supports 1 touch event at once, no multi-touch.
+// 
+// You should not normally access this class directly, but instead use a Phaser.Pointer object which normalises all game input for you.
+func NewTouch(game *Game) *Touch {
+    return &Touch{js.Global.Call("Phaser.Touch", game)}
+}
+
+// Phaser.Touch handles touch events with your game. Note: Android 2.x only supports 1 touch event at once, no multi-touch.
+// 
+// You should not normally access this class directly, but instead use a Phaser.Pointer object which normalises all game input for you.
+func NewTouchI(args ...interface{}) *Touch {
+    return &Touch{js.Global.Call("Phaser.Touch", args)}
+}
+
+
+
 // A reference to the currently running game.
 func (self *Touch) GetGameA() *Game{
     return &Game{self.Object.Get("game")}
