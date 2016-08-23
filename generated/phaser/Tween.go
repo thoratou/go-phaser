@@ -23,7 +23,7 @@ type Tween struct {
 // by calling Tween.to multiple times on the same Tween. Additional tweens specified in this way become "child" tweens and
 // are played through in sequence. You can use Tween.timeScale and Tween.reverse to control the playback of this Tween and all of its children.
 func NewTween(target interface{}, game *Game, manager *TweenManager) *Tween {
-    return &Tween{js.Global.Call("Phaser.Tween", target, game, manager)}
+    return &Tween{js.Global.Get("Phaser").Get("Tween").New(target, game, manager)}
 }
 
 // A Tween allows you to alter one or more properties of a target object over a defined period of time.
@@ -32,13 +32,13 @@ func NewTween(target interface{}, game *Game, manager *TweenManager) *Tween {
 // by calling Tween.to multiple times on the same Tween. Additional tweens specified in this way become "child" tweens and
 // are played through in sequence. You can use Tween.timeScale and Tween.reverse to control the playback of this Tween and all of its children.
 func NewTweenI(args ...interface{}) *Tween {
-    return &Tween{js.Global.Call("Phaser.Tween", args)}
+    return &Tween{js.Global.Get("Phaser").Get("Tween").New(args)}
 }
 
 
 
 // A reference to the currently running Game.
-func (self *Tween) GetGameA() *Game{
+func (self *Tween) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -48,7 +48,7 @@ func (self *Tween) SetGameA(member *Game) {
 }
 
 // The target object, such as a Phaser.Sprite or property like Phaser.Sprite.scale.
-func (self *Tween) GetTargetA() interface{}{
+func (self *Tween) Target() interface{}{
     return self.Object.Get("target")
 }
 
@@ -58,7 +58,7 @@ func (self *Tween) SetTargetA(member interface{}) {
 }
 
 // Reference to the TweenManager responsible for updating this Tween.
-func (self *Tween) GetManagerA() *TweenManager{
+func (self *Tween) Manager() *TweenManager{
     return &TweenManager{self.Object.Get("manager")}
 }
 
@@ -68,12 +68,12 @@ func (self *Tween) SetManagerA(member *TweenManager) {
 }
 
 // An Array of TweenData objects that comprise the different parts of this Tween.
-func (self *Tween) GetTimelineA() []interface{}{
+func (self *Tween) Timeline() []interface{}{
 	array00 := self.Object.Get("timeline")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -86,7 +86,7 @@ func (self *Tween) SetTimelineA(member []interface{}) {
 // If set to `true` the current tween will play in reverse.
 // If the tween hasn't yet started this has no effect.
 // If there are child tweens then all child tweens will play in reverse from the current point.
-func (self *Tween) GetReverseA() bool{
+func (self *Tween) Reverse() bool{
     return self.Object.Get("reverse").Bool()
 }
 
@@ -99,7 +99,7 @@ func (self *Tween) SetReverseA(member bool) {
 
 // The speed at which the tweens will run. A value of 1 means it will match the game frame rate. 0.5 will run at half the frame rate. 2 at double the frame rate, etc.
 // If a tweens duration is 1 second but timeScale is 0.5 then it will take 2 seconds to complete.
-func (self *Tween) GetTimeScaleA() int{
+func (self *Tween) TimeScale() int{
     return self.Object.Get("timeScale").Int()
 }
 
@@ -110,7 +110,7 @@ func (self *Tween) SetTimeScaleA(member int) {
 }
 
 // If the Tween and any child tweens are set to repeat this contains the current repeat count.
-func (self *Tween) GetRepeatCounterA() int{
+func (self *Tween) RepeatCounter() int{
     return self.Object.Get("repeatCounter").Int()
 }
 
@@ -120,7 +120,7 @@ func (self *Tween) SetRepeatCounterA(member int) {
 }
 
 // True if this Tween is ready to be deleted by the TweenManager.
-func (self *Tween) GetPendingDeleteA() bool{
+func (self *Tween) PendingDelete() bool{
     return self.Object.Get("pendingDelete").Bool()
 }
 
@@ -131,7 +131,7 @@ func (self *Tween) SetPendingDeleteA(member bool) {
 
 // The onStart event is fired when the Tween begins. If there is a delay before the tween starts then onStart fires after the delay is finished.
 // It will be sent 2 parameters: the target object and this tween.
-func (self *Tween) GetOnStartA() *Signal{
+func (self *Tween) OnStart() *Signal{
     return &Signal{self.Object.Get("onStart")}
 }
 
@@ -143,7 +143,7 @@ func (self *Tween) SetOnStartA(member *Signal) {
 
 // The onLoop event is fired if the Tween, or any child tweens loop.
 // It will be sent 2 parameters: the target object and this tween.
-func (self *Tween) GetOnLoopA() *Signal{
+func (self *Tween) OnLoop() *Signal{
     return &Signal{self.Object.Get("onLoop")}
 }
 
@@ -155,7 +155,7 @@ func (self *Tween) SetOnLoopA(member *Signal) {
 
 // The onRepeat event is fired if the Tween and all of its children repeats. If this tween has no children this will never be fired.
 // It will be sent 2 parameters: the target object and this tween.
-func (self *Tween) GetOnRepeatA() *Signal{
+func (self *Tween) OnRepeat() *Signal{
     return &Signal{self.Object.Get("onRepeat")}
 }
 
@@ -168,7 +168,7 @@ func (self *Tween) SetOnRepeatA(member *Signal) {
 // The onChildComplete event is fired when the Tween or any of its children completes.
 // Fires every time a child completes unless a child is set to repeat forever.
 // It will be sent 2 parameters: the target object and this tween.
-func (self *Tween) GetOnChildCompleteA() *Signal{
+func (self *Tween) OnChildComplete() *Signal{
     return &Signal{self.Object.Get("onChildComplete")}
 }
 
@@ -181,7 +181,7 @@ func (self *Tween) SetOnChildCompleteA(member *Signal) {
 
 // The onComplete event is fired when the Tween and all of its children completes. Does not fire if the Tween is set to loop or repeatAll(-1).
 // It will be sent 2 parameters: the target object and this tween.
-func (self *Tween) GetOnCompleteA() *Signal{
+func (self *Tween) OnComplete() *Signal{
     return &Signal{self.Object.Get("onComplete")}
 }
 
@@ -192,7 +192,7 @@ func (self *Tween) SetOnCompleteA(member *Signal) {
 }
 
 // If the tween is running this is set to true, otherwise false. Tweens that are in a delayed state or waiting to start are considered as being running.
-func (self *Tween) GetIsRunningA() bool{
+func (self *Tween) IsRunning() bool{
     return self.Object.Get("isRunning").Bool()
 }
 
@@ -202,7 +202,7 @@ func (self *Tween) SetIsRunningA(member bool) {
 }
 
 // The current Tween child being run.
-func (self *Tween) GetCurrentA() int{
+func (self *Tween) Current() int{
     return self.Object.Get("current").Int()
 }
 
@@ -212,7 +212,7 @@ func (self *Tween) SetCurrentA(member int) {
 }
 
 // Target property cache used when building the child data values.
-func (self *Tween) GetPropertiesA() interface{}{
+func (self *Tween) Properties() interface{}{
     return self.Object.Get("properties")
 }
 
@@ -222,7 +222,7 @@ func (self *Tween) SetPropertiesA(member interface{}) {
 }
 
 // If this Tween is chained to another this holds a reference to it.
-func (self *Tween) GetChainedTweenA() *Tween{
+func (self *Tween) ChainedTween() *Tween{
     return &Tween{self.Object.Get("chainedTween")}
 }
 
@@ -232,7 +232,7 @@ func (self *Tween) SetChainedTweenA(member *Tween) {
 }
 
 // Is this Tween paused or not?
-func (self *Tween) GetIsPausedA() bool{
+func (self *Tween) IsPaused() bool{
     return self.Object.Get("isPaused").Bool()
 }
 
@@ -250,7 +250,7 @@ func (self *Tween) SetIsPausedA(member bool) {
 // has actually been through. For very short tweens you may wish to experiment with a frame based update instead.
 // 
 // The default value is whatever you've set in TweenManager.frameBased.
-func (self *Tween) GetFrameBasedA() bool{
+func (self *Tween) FrameBased() bool{
     return self.Object.Get("frameBased").Bool()
 }
 
@@ -268,7 +268,7 @@ func (self *Tween) SetFrameBasedA(member bool) {
 }
 
 // Gets the total duration of this Tween, including all child tweens, in milliseconds.
-func (self *Tween) GetTotalDurationA() *TweenData{
+func (self *Tween) TotalDuration() *TweenData{
     return &TweenData{self.Object.Get("totalDuration")}
 }
 
@@ -638,7 +638,7 @@ func (self *Tween) EasingI(args ...interface{}) *Tween{
 // Also available: Phaser.Math.bezierInterpolation and Phaser.Math.catmullRomInterpolation.
 // The interpolation function is only used if the target properties is an array.
 // If you have child tweens and pass -1 as the index value and it will set the interpolation function across all of them.
-func (self *Tween) Interpolation(interpolation func(...interface{})) *Tween{
+func (self *Tween) Interpolation(interpolation interface{}) *Tween{
     return &Tween{self.Object.Call("interpolation", interpolation)}
 }
 
@@ -646,7 +646,7 @@ func (self *Tween) Interpolation(interpolation func(...interface{})) *Tween{
 // Also available: Phaser.Math.bezierInterpolation and Phaser.Math.catmullRomInterpolation.
 // The interpolation function is only used if the target properties is an array.
 // If you have child tweens and pass -1 as the index value and it will set the interpolation function across all of them.
-func (self *Tween) Interpolation1O(interpolation func(...interface{}), context interface{}) *Tween{
+func (self *Tween) Interpolation1O(interpolation interface{}, context interface{}) *Tween{
     return &Tween{self.Object.Call("interpolation", interpolation, context)}
 }
 
@@ -654,7 +654,7 @@ func (self *Tween) Interpolation1O(interpolation func(...interface{}), context i
 // Also available: Phaser.Math.bezierInterpolation and Phaser.Math.catmullRomInterpolation.
 // The interpolation function is only used if the target properties is an array.
 // If you have child tweens and pass -1 as the index value and it will set the interpolation function across all of them.
-func (self *Tween) Interpolation2O(interpolation func(...interface{}), context interface{}, index int) *Tween{
+func (self *Tween) Interpolation2O(interpolation interface{}, context interface{}, index int) *Tween{
     return &Tween{self.Object.Call("interpolation", interpolation, context, index)}
 }
 
@@ -754,7 +754,7 @@ func (self *Tween) LoopI(args ...interface{}) *Tween{
 }
 
 // Sets a callback to be fired each time this tween updates.
-func (self *Tween) OnUpdateCallback(callback func(...interface{}), callbackContext interface{}) *Tween{
+func (self *Tween) OnUpdateCallback(callback interface{}, callbackContext interface{}) *Tween{
     return &Tween{self.Object.Call("onUpdateCallback", callback, callbackContext)}
 }
 
@@ -822,7 +822,7 @@ func (self *Tween) GenerateData() []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -836,7 +836,7 @@ func (self *Tween) GenerateData1O(frameRate int) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -850,7 +850,7 @@ func (self *Tween) GenerateData2O(frameRate int, data []interface{}) []interface
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -864,7 +864,7 @@ func (self *Tween) GenerateDataI(args ...interface{}) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }

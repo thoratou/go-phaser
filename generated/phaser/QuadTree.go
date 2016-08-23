@@ -19,41 +19,41 @@ type QuadTree struct {
 // However I've tweaked it massively to add node indexing, removed lots of temp. var creation and significantly increased performance as a result.
 // Original version at https://github.com/timohausmann/quadtree-js/
 func NewQuadTree(x int, y int, width int, height int) *QuadTree {
-    return &QuadTree{js.Global.Call("Phaser.QuadTree", x, y, width, height)}
+    return &QuadTree{js.Global.Get("Phaser").Get("QuadTree").New(x, y, width, height)}
 }
 
 // A QuadTree implementation. The original code was a conversion of the Java code posted to GameDevTuts.
 // However I've tweaked it massively to add node indexing, removed lots of temp. var creation and significantly increased performance as a result.
 // Original version at https://github.com/timohausmann/quadtree-js/
 func NewQuadTree1O(x int, y int, width int, height int, maxObjects int) *QuadTree {
-    return &QuadTree{js.Global.Call("Phaser.QuadTree", x, y, width, height, maxObjects)}
+    return &QuadTree{js.Global.Get("Phaser").Get("QuadTree").New(x, y, width, height, maxObjects)}
 }
 
 // A QuadTree implementation. The original code was a conversion of the Java code posted to GameDevTuts.
 // However I've tweaked it massively to add node indexing, removed lots of temp. var creation and significantly increased performance as a result.
 // Original version at https://github.com/timohausmann/quadtree-js/
 func NewQuadTree2O(x int, y int, width int, height int, maxObjects int, maxLevels int) *QuadTree {
-    return &QuadTree{js.Global.Call("Phaser.QuadTree", x, y, width, height, maxObjects, maxLevels)}
+    return &QuadTree{js.Global.Get("Phaser").Get("QuadTree").New(x, y, width, height, maxObjects, maxLevels)}
 }
 
 // A QuadTree implementation. The original code was a conversion of the Java code posted to GameDevTuts.
 // However I've tweaked it massively to add node indexing, removed lots of temp. var creation and significantly increased performance as a result.
 // Original version at https://github.com/timohausmann/quadtree-js/
 func NewQuadTree3O(x int, y int, width int, height int, maxObjects int, maxLevels int, level int) *QuadTree {
-    return &QuadTree{js.Global.Call("Phaser.QuadTree", x, y, width, height, maxObjects, maxLevels, level)}
+    return &QuadTree{js.Global.Get("Phaser").Get("QuadTree").New(x, y, width, height, maxObjects, maxLevels, level)}
 }
 
 // A QuadTree implementation. The original code was a conversion of the Java code posted to GameDevTuts.
 // However I've tweaked it massively to add node indexing, removed lots of temp. var creation and significantly increased performance as a result.
 // Original version at https://github.com/timohausmann/quadtree-js/
 func NewQuadTreeI(args ...interface{}) *QuadTree {
-    return &QuadTree{js.Global.Call("Phaser.QuadTree", args)}
+    return &QuadTree{js.Global.Get("Phaser").Get("QuadTree").New(args)}
 }
 
 
 
 // The maximum number of objects per node.
-func (self *QuadTree) GetMaxObjectsA() int{
+func (self *QuadTree) MaxObjects() int{
     return self.Object.Get("maxObjects").Int()
 }
 
@@ -63,7 +63,7 @@ func (self *QuadTree) SetMaxObjectsA(member int) {
 }
 
 // The maximum number of levels to break down to.
-func (self *QuadTree) GetMaxLevelsA() int{
+func (self *QuadTree) MaxLevels() int{
     return self.Object.Get("maxLevels").Int()
 }
 
@@ -73,7 +73,7 @@ func (self *QuadTree) SetMaxLevelsA(member int) {
 }
 
 // The current level.
-func (self *QuadTree) GetLevelA() int{
+func (self *QuadTree) Level() int{
     return self.Object.Get("level").Int()
 }
 
@@ -83,7 +83,7 @@ func (self *QuadTree) SetLevelA(member int) {
 }
 
 // Object that contains the quadtree bounds.
-func (self *QuadTree) GetBoundsA() interface{}{
+func (self *QuadTree) Bounds() interface{}{
     return self.Object.Get("bounds")
 }
 
@@ -93,12 +93,12 @@ func (self *QuadTree) SetBoundsA(member interface{}) {
 }
 
 // Array of quadtree children.
-func (self *QuadTree) GetObjectsA() []interface{}{
+func (self *QuadTree) Objects() []interface{}{
 	array00 := self.Object.Get("objects")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -109,12 +109,12 @@ func (self *QuadTree) SetObjectsA(member []interface{}) {
 }
 
 // Array of associated child nodes.
-func (self *QuadTree) GetNodesA() []interface{}{
+func (self *QuadTree) Nodes() []interface{}{
 	array00 := self.Object.Get("nodes")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -207,7 +207,7 @@ func (self *QuadTree) Retrieve(source interface{}) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -218,7 +218,7 @@ func (self *QuadTree) RetrieveI(args ...interface{}) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }

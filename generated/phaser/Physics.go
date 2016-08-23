@@ -27,7 +27,7 @@ type Physics struct {
 // For example you could have P2 managing a polygon-built terrain landscape that an vehicle drives over, while it could be firing bullets that use the
 // faster (due to being much simpler) Arcade Physics system.
 func NewPhysics(game *Game) *Physics {
-    return &Physics{js.Global.Call("Phaser.Physics", game)}
+    return &Physics{js.Global.Get("Phaser").Get("Physics").New(game)}
 }
 
 // The Physics Manager is responsible for looking after all of the running physics systems.
@@ -38,7 +38,7 @@ func NewPhysics(game *Game) *Physics {
 // For example you could have P2 managing a polygon-built terrain landscape that an vehicle drives over, while it could be firing bullets that use the
 // faster (due to being much simpler) Arcade Physics system.
 func NewPhysics1O(game *Game, physicsConfig interface{}) *Physics {
-    return &Physics{js.Global.Call("Phaser.Physics", game, physicsConfig)}
+    return &Physics{js.Global.Get("Phaser").Get("Physics").New(game, physicsConfig)}
 }
 
 // The Physics Manager is responsible for looking after all of the running physics systems.
@@ -49,13 +49,13 @@ func NewPhysics1O(game *Game, physicsConfig interface{}) *Physics {
 // For example you could have P2 managing a polygon-built terrain landscape that an vehicle drives over, while it could be firing bullets that use the
 // faster (due to being much simpler) Arcade Physics system.
 func NewPhysicsI(args ...interface{}) *Physics {
-    return &Physics{js.Global.Call("Phaser.Physics", args)}
+    return &Physics{js.Global.Get("Phaser").Get("Physics").New(args)}
 }
 
 
 
 // Local reference to game.
-func (self *Physics) GetGameA() *Game{
+func (self *Physics) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -65,7 +65,7 @@ func (self *Physics) SetGameA(member *Game) {
 }
 
 // The physics configuration object as passed to the game on creation.
-func (self *Physics) GetConfigA() interface{}{
+func (self *Physics) Config() interface{}{
     return self.Object.Get("config")
 }
 
@@ -75,7 +75,7 @@ func (self *Physics) SetConfigA(member interface{}) {
 }
 
 // The Arcade Physics system.
-func (self *Physics) GetArcadeA() *PhysicsArcade{
+func (self *Physics) Arcade() *PhysicsArcade{
     return &PhysicsArcade{self.Object.Get("arcade")}
 }
 
@@ -85,7 +85,7 @@ func (self *Physics) SetArcadeA(member *PhysicsArcade) {
 }
 
 // The P2.JS Physics system.
-func (self *Physics) GetP2A() *PhysicsP2{
+func (self *Physics) P2() *PhysicsP2{
     return &PhysicsP2{self.Object.Get("p2")}
 }
 
@@ -95,7 +95,7 @@ func (self *Physics) SetP2A(member *PhysicsP2) {
 }
 
 // The N+ Ninja Physics system.
-func (self *Physics) GetNinjaA() *PhysicsNinja{
+func (self *Physics) Ninja() *PhysicsNinja{
     return &PhysicsNinja{self.Object.Get("ninja")}
 }
 
@@ -105,7 +105,7 @@ func (self *Physics) SetNinjaA(member *PhysicsNinja) {
 }
 
 // The Box2D Physics system.
-func (self *Physics) GetBox2dA() *PhysicsBox2D{
+func (self *Physics) Box2d() *PhysicsBox2D{
     return &PhysicsBox2D{self.Object.Get("box2d")}
 }
 
@@ -115,7 +115,7 @@ func (self *Physics) SetBox2dA(member *PhysicsBox2D) {
 }
 
 // The Chipmunk Physics system (to be done).
-func (self *Physics) GetChipmunkA() *PhysicsChipmunk{
+func (self *Physics) Chipmunk() *PhysicsChipmunk{
     return &PhysicsChipmunk{self.Object.Get("chipmunk")}
 }
 
@@ -125,7 +125,7 @@ func (self *Physics) SetChipmunkA(member *PhysicsChipmunk) {
 }
 
 // The MatterJS Physics system (coming soon).
-func (self *Physics) GetMatterA() *PhysicsMatter{
+func (self *Physics) Matter() *PhysicsMatter{
     return &PhysicsMatter{self.Object.Get("matter")}
 }
 
@@ -135,7 +135,7 @@ func (self *Physics) SetMatterA(member *PhysicsMatter) {
 }
 
 // 
-func (self *Physics) GetARCADEA() int{
+func (self *Physics) ARCADE() int{
     return self.Object.Get("ARCADE").Int()
 }
 
@@ -145,7 +145,7 @@ func (self *Physics) SetARCADEA(member int) {
 }
 
 // 
-func (self *Physics) GetP2JSA() int{
+func (self *Physics) P2JS() int{
     return self.Object.Get("P2JS").Int()
 }
 
@@ -155,7 +155,7 @@ func (self *Physics) SetP2JSA(member int) {
 }
 
 // 
-func (self *Physics) GetNINJAA() int{
+func (self *Physics) NINJA() int{
     return self.Object.Get("NINJA").Int()
 }
 
@@ -165,7 +165,7 @@ func (self *Physics) SetNINJAA(member int) {
 }
 
 // 
-func (self *Physics) GetBOX2DA() int{
+func (self *Physics) BOX2D() int{
     return self.Object.Get("BOX2D").Int()
 }
 
@@ -175,7 +175,7 @@ func (self *Physics) SetBOX2DA(member int) {
 }
 
 // 
-func (self *Physics) GetCHIPMUNKA() int{
+func (self *Physics) CHIPMUNK() int{
     return self.Object.Get("CHIPMUNK").Int()
 }
 
@@ -185,7 +185,7 @@ func (self *Physics) SetCHIPMUNKA(member int) {
 }
 
 // 
-func (self *Physics) GetMATTERJSA() int{
+func (self *Physics) MATTERJS() int{
     return self.Object.Get("MATTERJS").Int()
 }
 

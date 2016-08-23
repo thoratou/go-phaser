@@ -19,55 +19,55 @@ type ImageCollection struct {
 // 
 // Image Collections are normally created automatically when Tiled data is loaded.
 func NewImageCollection(name string, firstgid int) *ImageCollection {
-    return &ImageCollection{js.Global.Call("Phaser.ImageCollection", name, firstgid)}
+    return &ImageCollection{js.Global.Get("Phaser").Get("ImageCollection").New(name, firstgid)}
 }
 
 // An Image Collection is a special tileset containing mulitple images, with no slicing into each image.
 // 
 // Image Collections are normally created automatically when Tiled data is loaded.
 func NewImageCollection1O(name string, firstgid int, width int) *ImageCollection {
-    return &ImageCollection{js.Global.Call("Phaser.ImageCollection", name, firstgid, width)}
+    return &ImageCollection{js.Global.Get("Phaser").Get("ImageCollection").New(name, firstgid, width)}
 }
 
 // An Image Collection is a special tileset containing mulitple images, with no slicing into each image.
 // 
 // Image Collections are normally created automatically when Tiled data is loaded.
 func NewImageCollection2O(name string, firstgid int, width int, height int) *ImageCollection {
-    return &ImageCollection{js.Global.Call("Phaser.ImageCollection", name, firstgid, width, height)}
+    return &ImageCollection{js.Global.Get("Phaser").Get("ImageCollection").New(name, firstgid, width, height)}
 }
 
 // An Image Collection is a special tileset containing mulitple images, with no slicing into each image.
 // 
 // Image Collections are normally created automatically when Tiled data is loaded.
 func NewImageCollection3O(name string, firstgid int, width int, height int, margin int) *ImageCollection {
-    return &ImageCollection{js.Global.Call("Phaser.ImageCollection", name, firstgid, width, height, margin)}
+    return &ImageCollection{js.Global.Get("Phaser").Get("ImageCollection").New(name, firstgid, width, height, margin)}
 }
 
 // An Image Collection is a special tileset containing mulitple images, with no slicing into each image.
 // 
 // Image Collections are normally created automatically when Tiled data is loaded.
 func NewImageCollection4O(name string, firstgid int, width int, height int, margin int, spacing int) *ImageCollection {
-    return &ImageCollection{js.Global.Call("Phaser.ImageCollection", name, firstgid, width, height, margin, spacing)}
+    return &ImageCollection{js.Global.Get("Phaser").Get("ImageCollection").New(name, firstgid, width, height, margin, spacing)}
 }
 
 // An Image Collection is a special tileset containing mulitple images, with no slicing into each image.
 // 
 // Image Collections are normally created automatically when Tiled data is loaded.
 func NewImageCollection5O(name string, firstgid int, width int, height int, margin int, spacing int, properties interface{}) *ImageCollection {
-    return &ImageCollection{js.Global.Call("Phaser.ImageCollection", name, firstgid, width, height, margin, spacing, properties)}
+    return &ImageCollection{js.Global.Get("Phaser").Get("ImageCollection").New(name, firstgid, width, height, margin, spacing, properties)}
 }
 
 // An Image Collection is a special tileset containing mulitple images, with no slicing into each image.
 // 
 // Image Collections are normally created automatically when Tiled data is loaded.
 func NewImageCollectionI(args ...interface{}) *ImageCollection {
-    return &ImageCollection{js.Global.Call("Phaser.ImageCollection", args)}
+    return &ImageCollection{js.Global.Get("Phaser").Get("ImageCollection").New(args)}
 }
 
 
 
 // The name of the Image Collection.
-func (self *ImageCollection) GetNameA() string{
+func (self *ImageCollection) Name() string{
     return self.Object.Get("name").String()
 }
 
@@ -78,7 +78,7 @@ func (self *ImageCollection) SetNameA(member string) {
 
 // The Tiled firstgid value.
 // This is the starting index of the first image index this Image Collection contains.
-func (self *ImageCollection) GetFirstgidA() int{
+func (self *ImageCollection) Firstgid() int{
     return self.Object.Get("firstgid").Int()
 }
 
@@ -89,7 +89,7 @@ func (self *ImageCollection) SetFirstgidA(member int) {
 }
 
 // The width of the widest image (in pixels).
-func (self *ImageCollection) GetImageWidthA() int{
+func (self *ImageCollection) ImageWidth() int{
     return self.Object.Get("imageWidth").Int()
 }
 
@@ -99,7 +99,7 @@ func (self *ImageCollection) SetImageWidthA(member int) {
 }
 
 // The height of the tallest image (in pixels).
-func (self *ImageCollection) GetImageHeightA() int{
+func (self *ImageCollection) ImageHeight() int{
     return self.Object.Get("imageHeight").Int()
 }
 
@@ -110,7 +110,7 @@ func (self *ImageCollection) SetImageHeightA(member int) {
 
 // The margin around the images in the collection (in pixels).
 // Use `setSpacing` to change.
-func (self *ImageCollection) GetImageMarginA() interface{}{
+func (self *ImageCollection) ImageMargin() interface{}{
     return self.Object.Get("imageMargin")
 }
 
@@ -122,7 +122,7 @@ func (self *ImageCollection) SetImageMarginA(member interface{}) {
 
 // The spacing between each image in the collection (in pixels).
 // Use `setSpacing` to change.
-func (self *ImageCollection) GetImageSpacingA() int{
+func (self *ImageCollection) ImageSpacing() int{
     return self.Object.Get("imageSpacing").Int()
 }
 
@@ -133,7 +133,7 @@ func (self *ImageCollection) SetImageSpacingA(member int) {
 }
 
 // Image Collection-specific properties that are typically defined in the Tiled editor.
-func (self *ImageCollection) GetPropertiesA() interface{}{
+func (self *ImageCollection) Properties() interface{}{
     return self.Object.Get("properties")
 }
 
@@ -143,12 +143,12 @@ func (self *ImageCollection) SetPropertiesA(member interface{}) {
 }
 
 // The cached images that are a part of this collection.
-func (self *ImageCollection) GetImagesA() []interface{}{
+func (self *ImageCollection) Images() []interface{}{
 	array00 := self.Object.Get("images")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -159,7 +159,7 @@ func (self *ImageCollection) SetImagesA(member []interface{}) {
 }
 
 // The total number of images in the image collection.
-func (self *ImageCollection) GetTotalA() int{
+func (self *ImageCollection) Total() int{
     return self.Object.Get("total").Int()
 }
 

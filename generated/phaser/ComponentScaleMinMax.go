@@ -15,23 +15,28 @@ type ComponentScaleMinMax struct {
 
 // The ScaleMinMax component allows a Game Object to limit how far it can be scaled by its parent.
 func NewComponentScaleMinMax() *ComponentScaleMinMax {
-    return &ComponentScaleMinMax{js.Global.Call("Phaser.Component.ScaleMinMax")}
+    return &ComponentScaleMinMax{js.Global.Get("Phaser").Get("Component").Get("ScaleMinMax").New()}
 }
 
 // The ScaleMinMax component allows a Game Object to limit how far it can be scaled by its parent.
 func NewComponentScaleMinMaxI(args ...interface{}) *ComponentScaleMinMax {
-    return &ComponentScaleMinMax{js.Global.Call("Phaser.Component.ScaleMinMax", args)}
+    return &ComponentScaleMinMax{js.Global.Get("Phaser").Get("Component").Get("ScaleMinMax").New(args)}
 }
 
 
 
 // The callback that will apply any scale limiting to the worldTransform.
-func (self *ComponentScaleMinMax) SetTransformCallbackA(member func(...interface{})) {
+func (self *ComponentScaleMinMax) TransformCallback() interface{}{
+    return self.Object.Get("transformCallback")
+}
+
+// The callback that will apply any scale limiting to the worldTransform.
+func (self *ComponentScaleMinMax) SetTransformCallbackA(member interface{}) {
     self.Object.Set("transformCallback", member)
 }
 
 // The context under which `transformCallback` is called.
-func (self *ComponentScaleMinMax) GetTransformCallbackContextA() interface{}{
+func (self *ComponentScaleMinMax) TransformCallbackContext() interface{}{
     return self.Object.Get("transformCallbackContext")
 }
 
@@ -45,7 +50,7 @@ func (self *ComponentScaleMinMax) SetTransformCallbackContextA(member interface{
 // It allows you to prevent a parent from scaling this Game Object lower than the given value.
 // 
 // Set it to `null` to remove the limit.
-func (self *ComponentScaleMinMax) GetScaleMinA() *Point{
+func (self *ComponentScaleMinMax) ScaleMin() *Point{
     return &Point{self.Object.Get("scaleMin")}
 }
 
@@ -63,7 +68,7 @@ func (self *ComponentScaleMinMax) SetScaleMinA(member *Point) {
 // It allows you to prevent a parent from scaling this Game Object higher than the given value.
 // 
 // Set it to `null` to remove the limit.
-func (self *ComponentScaleMinMax) GetScaleMaxA() *Point{
+func (self *ComponentScaleMinMax) ScaleMax() *Point{
     return &Point{self.Object.Get("scaleMax")}
 }
 

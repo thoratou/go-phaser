@@ -17,43 +17,43 @@ type Image struct {
 // An Image is a light-weight object you can use to display anything that doesn't need physics or animation.
 // It can still rotate, scale, crop and receive input events. This makes it perfect for logos, backgrounds, simple buttons and other non-Sprite graphics.
 func NewImage(game *Game) *Image {
-    return &Image{js.Global.Call("Phaser.Image", game)}
+    return &Image{js.Global.Get("Phaser").Get("Image").New(game)}
 }
 
 // An Image is a light-weight object you can use to display anything that doesn't need physics or animation.
 // It can still rotate, scale, crop and receive input events. This makes it perfect for logos, backgrounds, simple buttons and other non-Sprite graphics.
 func NewImage1O(game *Game, x int) *Image {
-    return &Image{js.Global.Call("Phaser.Image", game, x)}
+    return &Image{js.Global.Get("Phaser").Get("Image").New(game, x)}
 }
 
 // An Image is a light-weight object you can use to display anything that doesn't need physics or animation.
 // It can still rotate, scale, crop and receive input events. This makes it perfect for logos, backgrounds, simple buttons and other non-Sprite graphics.
 func NewImage2O(game *Game, x int, y int) *Image {
-    return &Image{js.Global.Call("Phaser.Image", game, x, y)}
+    return &Image{js.Global.Get("Phaser").Get("Image").New(game, x, y)}
 }
 
 // An Image is a light-weight object you can use to display anything that doesn't need physics or animation.
 // It can still rotate, scale, crop and receive input events. This makes it perfect for logos, backgrounds, simple buttons and other non-Sprite graphics.
 func NewImage3O(game *Game, x int, y int, key interface{}) *Image {
-    return &Image{js.Global.Call("Phaser.Image", game, x, y, key)}
+    return &Image{js.Global.Get("Phaser").Get("Image").New(game, x, y, key)}
 }
 
 // An Image is a light-weight object you can use to display anything that doesn't need physics or animation.
 // It can still rotate, scale, crop and receive input events. This makes it perfect for logos, backgrounds, simple buttons and other non-Sprite graphics.
 func NewImage4O(game *Game, x int, y int, key interface{}, frame interface{}) *Image {
-    return &Image{js.Global.Call("Phaser.Image", game, x, y, key, frame)}
+    return &Image{js.Global.Get("Phaser").Get("Image").New(game, x, y, key, frame)}
 }
 
 // An Image is a light-weight object you can use to display anything that doesn't need physics or animation.
 // It can still rotate, scale, crop and receive input events. This makes it perfect for logos, backgrounds, simple buttons and other non-Sprite graphics.
 func NewImageI(args ...interface{}) *Image {
-    return &Image{js.Global.Call("Phaser.Image", args)}
+    return &Image{js.Global.Get("Phaser").Get("Image").New(args)}
 }
 
 
 
 // The const type of this object.
-func (self *Image) GetTypeA() int{
+func (self *Image) Type() int{
     return self.Object.Get("type").Int()
 }
 
@@ -66,7 +66,7 @@ func (self *Image) SetTypeA(member int) {
 // The default is 0,0 this means the texture's origin is the top left
 // Setting than anchor to 0.5,0.5 means the textures origin is centered
 // Setting the anchor to 1,1 would mean the textures origin points will be the bottom right corner
-func (self *Image) GetAnchorA() *Point{
+func (self *Image) Anchor() *Point{
     return &Point{self.Object.Get("anchor")}
 }
 
@@ -79,7 +79,7 @@ func (self *Image) SetAnchorA(member *Point) {
 }
 
 // The texture that the sprite is using
-func (self *Image) GetTextureA() *Texture{
+func (self *Image) Texture() *Texture{
     return &Texture{self.Object.Get("texture")}
 }
 
@@ -89,7 +89,7 @@ func (self *Image) SetTextureA(member *Texture) {
 }
 
 // The tint applied to the sprite. This is a hex value. A value of 0xFFFFFF will remove any tint effect.
-func (self *Image) GetTintA() int{
+func (self *Image) Tint() int{
     return self.Object.Get("tint").Int()
 }
 
@@ -99,7 +99,7 @@ func (self *Image) SetTintA(member int) {
 }
 
 // A canvas that contains the tinted version of the Sprite (in Canvas mode, WebGL doesn't populate this)
-func (self *Image) GetTintedTextureA() *Canvas{
+func (self *Image) TintedTexture() *Canvas{
     return &Canvas{self.Object.Get("tintedTexture")}
 }
 
@@ -111,7 +111,7 @@ func (self *Image) SetTintedTextureA(member *Canvas) {
 // The blend mode to be applied to the sprite. Set to PIXI.blendModes.NORMAL to remove any blend mode.
 // 
 // Warning: You cannot have a blend mode and a filter active on the same Sprite. Doing so will render the sprite invisible.
-func (self *Image) GetBlendModeA() int{
+func (self *Image) BlendMode() int{
     return self.Object.Get("blendMode").Int()
 }
 
@@ -123,7 +123,7 @@ func (self *Image) SetBlendModeA(member int) {
 }
 
 // The shader that will be used to render the texture to the stage. Set to null to remove a current shader.
-func (self *Image) GetShaderA() *AbstractFilter{
+func (self *Image) Shader() *AbstractFilter{
     return &AbstractFilter{self.Object.Get("shader")}
 }
 
@@ -133,7 +133,7 @@ func (self *Image) SetShaderA(member *AbstractFilter) {
 }
 
 // Controls if this Sprite is processed by the core Phaser game loops and Group loops.
-func (self *Image) GetExistsA() bool{
+func (self *Image) Exists() bool{
     return self.Object.Get("exists").Bool()
 }
 
@@ -143,7 +143,7 @@ func (self *Image) SetExistsA(member bool) {
 }
 
 // The width of the sprite, setting this will actually modify the scale to achieve the value set
-func (self *Image) GetWidthA() int{
+func (self *Image) Width() int{
     return self.Object.Get("width").Int()
 }
 
@@ -153,7 +153,7 @@ func (self *Image) SetWidthA(member int) {
 }
 
 // The height of the sprite, setting this will actually modify the scale to achieve the value set
-func (self *Image) GetHeightA() int{
+func (self *Image) Height() int{
     return self.Object.Get("height").Int()
 }
 
@@ -163,7 +163,7 @@ func (self *Image) SetHeightA(member int) {
 }
 
 // [read-only] The array of children of this container.
-func (self *Image) GetChildrenA() []DisplayObject{
+func (self *Image) Children() []DisplayObject{
 	array00 := self.Object.Get("children")
 	length00 := array00.Length()
 	out00 := make([]DisplayObject, length00, length00)
@@ -183,7 +183,7 @@ func (self *Image) SetChildrenA(member []DisplayObject) {
 // If this property is `true` then the children will _not_ be considered as valid for Input events.
 // 
 // Note that this property isn't recursive: only immediate children are influenced, it doesn't scan further down.
-func (self *Image) GetIgnoreChildInputA() bool{
+func (self *Image) IgnoreChildInput() bool{
     return self.Object.Get("ignoreChildInput").Bool()
 }
 
@@ -197,7 +197,7 @@ func (self *Image) SetIgnoreChildInputA(member bool) {
 }
 
 // A reference to the currently running Game.
-func (self *Image) GetGameA() *Game{
+func (self *Image) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -208,7 +208,7 @@ func (self *Image) SetGameA(member *Game) {
 
 // A user defined name given to this Game Object.
 // This value isn't ever used internally by Phaser, it is meant as a game level property.
-func (self *Image) GetNameA() string{
+func (self *Image) Name() string{
     return self.Object.Get("name").String()
 }
 
@@ -222,7 +222,7 @@ func (self *Image) SetNameA(member string) {
 // This value isn't ever used internally by Phaser, but may be used by your own code, or
 // by Phaser Plugins, to store data that needs to be associated with the Game Object,
 // without polluting the Game Object directly.
-func (self *Image) GetDataA() interface{}{
+func (self *Image) Data() interface{}{
     return self.Object.Get("data")
 }
 
@@ -235,7 +235,7 @@ func (self *Image) SetDataA(member interface{}) {
 }
 
 // The components this Game Object has installed.
-func (self *Image) GetComponentsA() interface{}{
+func (self *Image) Components() interface{}{
     return self.Object.Get("components")
 }
 
@@ -248,7 +248,7 @@ func (self *Image) SetComponentsA(member interface{}) {
 // No two objects in a Group can have the same z value.
 // This value is adjusted automatically whenever the Group hierarchy changes.
 // If you wish to re-order the layering of a Game Object then see methods like Group.moveUp or Group.bringToTop.
-func (self *Image) GetZA() int{
+func (self *Image) Z() int{
     return self.Object.Get("z").Int()
 }
 
@@ -262,7 +262,7 @@ func (self *Image) SetZA(member int) {
 
 // All Phaser Game Objects have an Events class which contains all of the events that are dispatched when certain things happen to this
 // Game Object, or any of its components.
-func (self *Image) GetEventsA() *Events{
+func (self *Image) Events() *Events{
     return &Events{self.Object.Get("events")}
 }
 
@@ -274,7 +274,7 @@ func (self *Image) SetEventsA(member *Events) {
 
 // If the Game Object is enabled for animation (such as a Phaser.Sprite) this is a reference to its AnimationManager instance.
 // Through it you can create, play, pause and stop animations.
-func (self *Image) GetAnimationsA() *AnimationManager{
+func (self *Image) Animations() *AnimationManager{
     return &AnimationManager{self.Object.Get("animations")}
 }
 
@@ -289,7 +289,7 @@ func (self *Image) SetAnimationsA(member *AnimationManager) {
 // It can also be an instance of a RenderTexture, BitmapData, Video or PIXI.Texture.
 // If a Game Object is created without a key it is automatically assigned the key `__default` which is a 32x32 transparent PNG stored within the Cache.
 // If a Game Object is given a key which doesn't exist in the Image Cache it is re-assigned the key `__missing` which is a 32x32 PNG of a green box with a line through it.
-func (self *Image) GetKeyA() interface{}{
+func (self *Image) Key() interface{}{
     return self.Object.Get("key")
 }
 
@@ -305,7 +305,7 @@ func (self *Image) SetKeyA(member interface{}) {
 // The world coordinates of this Game Object in pixels.
 // Depending on where in the display list this Game Object is placed this value can differ from `position`, 
 // which contains the x/y coordinates relative to the Game Objects parent.
-func (self *Image) GetWorldA() *Point{
+func (self *Image) World() *Point{
     return &Point{self.Object.Get("world")}
 }
 
@@ -317,7 +317,7 @@ func (self *Image) SetWorldA(member *Point) {
 }
 
 // A debug flag designed for use with `Game.enableStep`.
-func (self *Image) GetDebugA() bool{
+func (self *Image) Debug() bool{
     return self.Object.Get("debug").Bool()
 }
 
@@ -327,7 +327,7 @@ func (self *Image) SetDebugA(member bool) {
 }
 
 // The position the Game Object was located in the previous frame.
-func (self *Image) GetPreviousPositionA() *Point{
+func (self *Image) PreviousPosition() *Point{
     return &Point{self.Object.Get("previousPosition")}
 }
 
@@ -337,7 +337,7 @@ func (self *Image) SetPreviousPositionA(member *Point) {
 }
 
 // The rotation the Game Object was in set to in the previous frame. Value is in radians.
-func (self *Image) GetPreviousRotationA() int{
+func (self *Image) PreviousRotation() int{
     return self.Object.Get("previousRotation").Int()
 }
 
@@ -348,7 +348,7 @@ func (self *Image) SetPreviousRotationA(member int) {
 
 // The render order ID is used internally by the renderer and Input Manager and should not be modified.
 // This property is mostly used internally by the renderers, but is exposed for the use of plugins.
-func (self *Image) GetRenderOrderIDA() int{
+func (self *Image) RenderOrderID() int{
     return self.Object.Get("renderOrderID").Int()
 }
 
@@ -360,7 +360,7 @@ func (self *Image) SetRenderOrderIDA(member int) {
 
 // A Game Object is considered `fresh` if it has just been created or reset and is yet to receive a renderer transform update.
 // This property is mostly used internally by the physics systems, but is exposed for the use of plugins.
-func (self *Image) GetFreshA() bool{
+func (self *Image) Fresh() bool{
     return self.Object.Get("fresh").Bool()
 }
 
@@ -375,7 +375,7 @@ func (self *Image) SetFreshA(member bool) {
 // 
 // This is extremely useful if you wish to destroy an object from within one of its own callbacks 
 // such as with Buttons or other Input events.
-func (self *Image) GetPendingDestroyA() bool{
+func (self *Image) PendingDestroy() bool{
     return self.Object.Get("pendingDestroy").Bool()
 }
 
@@ -397,7 +397,7 @@ func (self *Image) SetPendingDestroyA(member bool) {
 // 
 // If you wish to work in radians instead of degrees you can use the property `rotation` instead. 
 // Working in radians is slightly faster as it doesn't have to perform any calculations.
-func (self *Image) GetAngleA() int{
+func (self *Image) Angle() int{
     return self.Object.Get("angle").Int()
 }
 
@@ -420,7 +420,7 @@ func (self *Image) SetAngleA(member int) {
 // 
 // This is a relatively expensive operation, especially if enabled on hundreds of Game Objects. So enable it only if you know it's required,
 // or you have tested performance and find it acceptable.
-func (self *Image) GetAutoCullA() bool{
+func (self *Image) AutoCull() bool{
     return self.Object.Get("autoCull").Bool()
 }
 
@@ -436,7 +436,7 @@ func (self *Image) SetAutoCullA(member bool) {
 
 // Checks if the Game Objects bounds intersect with the Game Camera bounds.
 // Returns `true` if they do, otherwise `false` if fully outside of the Cameras bounds.
-func (self *Image) GetInCameraA() bool{
+func (self *Image) InCamera() bool{
     return self.Object.Get("inCamera").Bool()
 }
 
@@ -449,7 +449,7 @@ func (self *Image) SetInCameraA(member bool) {
 // The amount the Game Object is visually offset from its x coordinate.
 // This is the same as `width * anchor.x`.
 // It will only be > 0 if anchor.x is not equal to zero.
-func (self *Image) GetOffsetXA() int{
+func (self *Image) OffsetX() int{
     return self.Object.Get("offsetX").Int()
 }
 
@@ -463,7 +463,7 @@ func (self *Image) SetOffsetXA(member int) {
 // The amount the Game Object is visually offset from its y coordinate.
 // This is the same as `height * anchor.y`.
 // It will only be > 0 if anchor.y is not equal to zero.
-func (self *Image) GetOffsetYA() int{
+func (self *Image) OffsetY() int{
     return self.Object.Get("offsetY").Int()
 }
 
@@ -476,7 +476,7 @@ func (self *Image) SetOffsetYA(member int) {
 
 // The center x coordinate of the Game Object.
 // This is the same as `(x - offsetX) + (width / 2)`.
-func (self *Image) GetCenterXA() int{
+func (self *Image) CenterX() int{
     return self.Object.Get("centerX").Int()
 }
 
@@ -488,7 +488,7 @@ func (self *Image) SetCenterXA(member int) {
 
 // The center y coordinate of the Game Object.
 // This is the same as `(y - offsetY) + (height / 2)`.
-func (self *Image) GetCenterYA() int{
+func (self *Image) CenterY() int{
     return self.Object.Get("centerY").Int()
 }
 
@@ -500,7 +500,7 @@ func (self *Image) SetCenterYA(member int) {
 
 // The left coordinate of the Game Object.
 // This is the same as `x - offsetX`.
-func (self *Image) GetLeftA() int{
+func (self *Image) Left() int{
     return self.Object.Get("left").Int()
 }
 
@@ -512,7 +512,7 @@ func (self *Image) SetLeftA(member int) {
 
 // The right coordinate of the Game Object.
 // This is the same as `x + width - offsetX`.
-func (self *Image) GetRightA() int{
+func (self *Image) Right() int{
     return self.Object.Get("right").Int()
 }
 
@@ -524,7 +524,7 @@ func (self *Image) SetRightA(member int) {
 
 // The y coordinate of the Game Object.
 // This is the same as `y - offsetY`.
-func (self *Image) GetTopA() int{
+func (self *Image) Top() int{
     return self.Object.Get("top").Int()
 }
 
@@ -536,7 +536,7 @@ func (self *Image) SetTopA(member int) {
 
 // The sum of the y and height properties.
 // This is the same as `y + height - offsetY`.
-func (self *Image) GetBottomA() int{
+func (self *Image) Bottom() int{
     return self.Object.Get("bottom").Int()
 }
 
@@ -549,7 +549,7 @@ func (self *Image) SetBottomA(member int) {
 // The Rectangle used to crop the texture this Game Object uses.
 // Set this property via `crop`. 
 // If you modify this property directly you must call `updateCrop` in order to have the change take effect.
-func (self *Image) GetCropRectA() *Rectangle{
+func (self *Image) CropRect() *Rectangle{
     return &Rectangle{self.Object.Get("cropRect")}
 }
 
@@ -562,7 +562,7 @@ func (self *Image) SetCropRectA(member *Rectangle) {
 
 // As a Game Object runs through its destroy method this flag is set to true, 
 // and can be checked in any sub-systems or plugins it is being destroyed from.
-func (self *Image) GetDestroyPhaseA() bool{
+func (self *Image) DestroyPhase() bool{
     return self.Object.Get("destroyPhase").Bool()
 }
 
@@ -585,7 +585,7 @@ func (self *Image) SetDestroyPhaseA(member bool) {
 // Note that the `cameraOffset` values are in addition to any parent of this Game Object on the display list.
 // 
 // Be careful not to set `fixedToCamera` on Game Objects which are in Groups that already have `fixedToCamera` enabled on them.
-func (self *Image) GetFixedToCameraA() bool{
+func (self *Image) FixedToCamera() bool{
     return self.Object.Get("fixedToCamera").Bool()
 }
 
@@ -609,7 +609,7 @@ func (self *Image) SetFixedToCameraA(member bool) {
 // The x/y coordinate offset applied to the top-left of the camera that this Game Object will be drawn at if `fixedToCamera` is true.
 // 
 // The values are relative to the top-left of the camera view and in addition to any parent of the Game Object on the display list.
-func (self *Image) GetCameraOffsetA() *Point{
+func (self *Image) CameraOffset() *Point{
     return &Point{self.Object.Get("cameraOffset")}
 }
 
@@ -625,7 +625,7 @@ func (self *Image) SetCameraOffsetA(member *Point) {
 // By default it is disabled. If you wish this Game Object to process input events you should enable it with: `inputEnabled = true`.
 // 
 // After you have done this, this property will be a reference to the Phaser InputHandler.
-func (self *Image) GetInputA() interface{}{
+func (self *Image) Input() interface{}{
     return self.Object.Get("input")
 }
 
@@ -650,7 +650,7 @@ func (self *Image) SetInputA(member interface{}) {
 // If you want to _temporarily_ disable input for a Game Object, then it's better to set
 // `input.enabled = false`, as it won't reset any of the Input Handlers internal properties.
 // You can then toggle this back on as needed.
-func (self *Image) GetInputEnabledA() bool{
+func (self *Image) InputEnabled() bool{
     return self.Object.Get("inputEnabled").Bool()
 }
 
@@ -677,7 +677,7 @@ func (self *Image) SetInputEnabledA(member bool) {
 // 
 // This property is mostly just provided to be used by your game - it doesn't effect rendering or logic updates.
 // However you can use `Group.getFirstAlive` in conjunction with this property for fast object pooling and recycling.
-func (self *Image) GetAliveA() bool{
+func (self *Image) Alive() bool{
     return self.Object.Get("alive").Bool()
 }
 
@@ -700,7 +700,7 @@ func (self *Image) SetAliveA(member bool) {
 // When it reaches zero it will call the `kill` method.
 // 
 // Very handy for particles, bullets, collectibles, or any other short-lived entity.
-func (self *Image) GetLifespanA() int{
+func (self *Image) Lifespan() int{
     return self.Object.Get("lifespan").Int()
 }
 
@@ -726,7 +726,7 @@ func (self *Image) SetLifespanA(member int) {
 // If you are using a texture atlas then you should use the `frameName` property instead.
 // 
 // If you wish to fully replace the texture being used see `loadTexture`.
-func (self *Image) GetFrameA() int{
+func (self *Image) Frame() int{
     return self.Object.Get("frame").Int()
 }
 
@@ -754,7 +754,7 @@ func (self *Image) SetFrameA(member int) {
 // If you are using a sprite sheet then you should use the `frame` property instead.
 // 
 // If you wish to fully replace the texture being used see `loadTexture`.
-func (self *Image) GetFrameNameA() string{
+func (self *Image) FrameName() string{
     return self.Object.Get("frameName").String()
 }
 
@@ -777,7 +777,7 @@ func (self *Image) SetFrameNameA(member string) {
 // It only takes effect if the Game Object is using an image based texture.
 // 
 // Smoothing is enabled by default.
-func (self *Image) GetSmoothedA() bool{
+func (self *Image) Smoothed() bool{
     return self.Object.Get("smoothed").Bool()
 }
 

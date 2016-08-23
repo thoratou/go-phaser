@@ -15,23 +15,23 @@ type StateManager struct {
 
 // The State Manager is responsible for loading, setting up and switching game states.
 func NewStateManager(game *Game) *StateManager {
-    return &StateManager{js.Global.Call("Phaser.StateManager", game)}
+    return &StateManager{js.Global.Get("Phaser").Get("StateManager").New(game)}
 }
 
 // The State Manager is responsible for loading, setting up and switching game states.
 func NewStateManager1O(game *Game, pendingState interface{}) *StateManager {
-    return &StateManager{js.Global.Call("Phaser.StateManager", game, pendingState)}
+    return &StateManager{js.Global.Get("Phaser").Get("StateManager").New(game, pendingState)}
 }
 
 // The State Manager is responsible for loading, setting up and switching game states.
 func NewStateManagerI(args ...interface{}) *StateManager {
-    return &StateManager{js.Global.Call("Phaser.StateManager", args)}
+    return &StateManager{js.Global.Get("Phaser").Get("StateManager").New(args)}
 }
 
 
 
 // A reference to the currently running game.
-func (self *StateManager) GetGameA() *Game{
+func (self *StateManager) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -41,7 +41,7 @@ func (self *StateManager) SetGameA(member *Game) {
 }
 
 // The object containing Phaser.States.
-func (self *StateManager) GetStatesA() interface{}{
+func (self *StateManager) States() interface{}{
     return self.Object.Get("states")
 }
 
@@ -51,7 +51,7 @@ func (self *StateManager) SetStatesA(member interface{}) {
 }
 
 // The current active State object.
-func (self *StateManager) GetCurrentA() string{
+func (self *StateManager) Current() string{
     return self.Object.Get("current").String()
 }
 
@@ -68,7 +68,7 @@ func (self *StateManager) SetCurrentA(member string) {
 // 
 // The callback you specify is sent two parameters: the string based key of the new state, 
 // and the second parameter is the string based key of the old / previous state.
-func (self *StateManager) GetOnStateChangeA() *Signal{
+func (self *StateManager) OnStateChange() *Signal{
     return &Signal{self.Object.Get("onStateChange")}
 }
 
@@ -85,72 +85,137 @@ func (self *StateManager) SetOnStateChangeA(member *Signal) {
 }
 
 // This is called when the state is set as the active state.
-func (self *StateManager) SetOnInitCallbackA(member func(...interface{})) {
+func (self *StateManager) OnInitCallback() interface{}{
+    return self.Object.Get("onInitCallback")
+}
+
+// This is called when the state is set as the active state.
+func (self *StateManager) SetOnInitCallbackA(member interface{}) {
     self.Object.Set("onInitCallback", member)
 }
 
 // This is called when the state starts to load assets.
-func (self *StateManager) SetOnPreloadCallbackA(member func(...interface{})) {
+func (self *StateManager) OnPreloadCallback() interface{}{
+    return self.Object.Get("onPreloadCallback")
+}
+
+// This is called when the state starts to load assets.
+func (self *StateManager) SetOnPreloadCallbackA(member interface{}) {
     self.Object.Set("onPreloadCallback", member)
 }
 
 // This is called when the state preload has finished and creation begins.
-func (self *StateManager) SetOnCreateCallbackA(member func(...interface{})) {
+func (self *StateManager) OnCreateCallback() interface{}{
+    return self.Object.Get("onCreateCallback")
+}
+
+// This is called when the state preload has finished and creation begins.
+func (self *StateManager) SetOnCreateCallbackA(member interface{}) {
     self.Object.Set("onCreateCallback", member)
 }
 
 // This is called when the state is updated, every game loop. It doesn't happen during preload (@see onLoadUpdateCallback).
-func (self *StateManager) SetOnUpdateCallbackA(member func(...interface{})) {
+func (self *StateManager) OnUpdateCallback() interface{}{
+    return self.Object.Get("onUpdateCallback")
+}
+
+// This is called when the state is updated, every game loop. It doesn't happen during preload (@see onLoadUpdateCallback).
+func (self *StateManager) SetOnUpdateCallbackA(member interface{}) {
     self.Object.Set("onUpdateCallback", member)
 }
 
 // This is called post-render. It doesn't happen during preload (see onLoadRenderCallback).
-func (self *StateManager) SetOnRenderCallbackA(member func(...interface{})) {
+func (self *StateManager) OnRenderCallback() interface{}{
+    return self.Object.Get("onRenderCallback")
+}
+
+// This is called post-render. It doesn't happen during preload (see onLoadRenderCallback).
+func (self *StateManager) SetOnRenderCallbackA(member interface{}) {
     self.Object.Set("onRenderCallback", member)
 }
 
 // This is called if ScaleManager.scalemode is RESIZE and a resize event occurs. It's passed the new width and height.
-func (self *StateManager) SetOnResizeCallbackA(member func(...interface{})) {
+func (self *StateManager) OnResizeCallback() interface{}{
+    return self.Object.Get("onResizeCallback")
+}
+
+// This is called if ScaleManager.scalemode is RESIZE and a resize event occurs. It's passed the new width and height.
+func (self *StateManager) SetOnResizeCallbackA(member interface{}) {
     self.Object.Set("onResizeCallback", member)
 }
 
 // This is called before the state is rendered and before the stage is cleared but after all game objects have had their final properties adjusted.
-func (self *StateManager) SetOnPreRenderCallbackA(member func(...interface{})) {
+func (self *StateManager) OnPreRenderCallback() interface{}{
+    return self.Object.Get("onPreRenderCallback")
+}
+
+// This is called before the state is rendered and before the stage is cleared but after all game objects have had their final properties adjusted.
+func (self *StateManager) SetOnPreRenderCallbackA(member interface{}) {
     self.Object.Set("onPreRenderCallback", member)
 }
 
 // This is called when the State is updated during the preload phase.
-func (self *StateManager) SetOnLoadUpdateCallbackA(member func(...interface{})) {
+func (self *StateManager) OnLoadUpdateCallback() interface{}{
+    return self.Object.Get("onLoadUpdateCallback")
+}
+
+// This is called when the State is updated during the preload phase.
+func (self *StateManager) SetOnLoadUpdateCallbackA(member interface{}) {
     self.Object.Set("onLoadUpdateCallback", member)
 }
 
 // This is called when the State is rendered during the preload phase.
-func (self *StateManager) SetOnLoadRenderCallbackA(member func(...interface{})) {
+func (self *StateManager) OnLoadRenderCallback() interface{}{
+    return self.Object.Get("onLoadRenderCallback")
+}
+
+// This is called when the State is rendered during the preload phase.
+func (self *StateManager) SetOnLoadRenderCallbackA(member interface{}) {
     self.Object.Set("onLoadRenderCallback", member)
 }
 
 // This is called when the game is paused.
-func (self *StateManager) SetOnPausedCallbackA(member func(...interface{})) {
+func (self *StateManager) OnPausedCallback() interface{}{
+    return self.Object.Get("onPausedCallback")
+}
+
+// This is called when the game is paused.
+func (self *StateManager) SetOnPausedCallbackA(member interface{}) {
     self.Object.Set("onPausedCallback", member)
 }
 
 // This is called when the game is resumed from a paused state.
-func (self *StateManager) SetOnResumedCallbackA(member func(...interface{})) {
+func (self *StateManager) OnResumedCallback() interface{}{
+    return self.Object.Get("onResumedCallback")
+}
+
+// This is called when the game is resumed from a paused state.
+func (self *StateManager) SetOnResumedCallbackA(member interface{}) {
     self.Object.Set("onResumedCallback", member)
 }
 
 // This is called every frame while the game is paused.
-func (self *StateManager) SetOnPauseUpdateCallbackA(member func(...interface{})) {
+func (self *StateManager) OnPauseUpdateCallback() interface{}{
+    return self.Object.Get("onPauseUpdateCallback")
+}
+
+// This is called every frame while the game is paused.
+func (self *StateManager) SetOnPauseUpdateCallbackA(member interface{}) {
     self.Object.Set("onPauseUpdateCallback", member)
 }
 
 // This is called when the state is shut down (i.e. swapped to another state).
-func (self *StateManager) SetOnShutDownCallbackA(member func(...interface{})) {
+func (self *StateManager) OnShutDownCallback() interface{}{
+    return self.Object.Get("onShutDownCallback")
+}
+
+// This is called when the state is shut down (i.e. swapped to another state).
+func (self *StateManager) SetOnShutDownCallbackA(member interface{}) {
     self.Object.Set("onShutDownCallback", member)
 }
 
 // True if the current state has had its `create` method run (if it has one, if not this is true by default).
-func (self *StateManager) GetCreatedA() bool{
+func (self *StateManager) Created() bool{
     return self.Object.Get("created").Bool()
 }
 

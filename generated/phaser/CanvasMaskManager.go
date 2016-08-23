@@ -15,12 +15,12 @@ type CanvasMaskManager struct {
 
 // A set of functions used to handle masking.
 func NewCanvasMaskManager() *CanvasMaskManager {
-    return &CanvasMaskManager{js.Global.Call("PIXI.CanvasMaskManager")}
+    return &CanvasMaskManager{js.Global.Get("PIXI").Get("CanvasMaskManager").New()}
 }
 
 // A set of functions used to handle masking.
 func NewCanvasMaskManagerI(args ...interface{}) *CanvasMaskManager {
-    return &CanvasMaskManager{js.Global.Call("PIXI.CanvasMaskManager", args)}
+    return &CanvasMaskManager{js.Global.Get("PIXI").Get("CanvasMaskManager").New(args)}
 }
 
 

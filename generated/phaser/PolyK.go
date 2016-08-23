@@ -19,14 +19,14 @@ type PolyK struct {
 // This is an amazing lib!
 // Slightly modified by Mat Groves (matgroves.com);
 func NewPolyK() *PolyK {
-    return &PolyK{js.Global.Call("PIXI.PolyK")}
+    return &PolyK{js.Global.Get("PIXI").Get("PolyK").New()}
 }
 
 // Based on the Polyk library http://polyk.ivank.net released under MIT licence.
 // This is an amazing lib!
 // Slightly modified by Mat Groves (matgroves.com);
 func NewPolyKI(args ...interface{}) *PolyK {
-    return &PolyK{js.Global.Call("PIXI.PolyK", args)}
+    return &PolyK{js.Global.Get("PIXI").Get("PolyK").New(args)}
 }
 
 

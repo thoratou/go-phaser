@@ -29,7 +29,7 @@ type Gamepad struct {
 // via prefs flags (about:config, search gamepad). The browsers map the same controllers differently.
 // This class has constants for Windows 7 Chrome mapping of XBOX 360 controller.
 func NewGamepad(game *Game) *Gamepad {
-    return &Gamepad{js.Global.Call("Phaser.Gamepad", game)}
+    return &Gamepad{js.Global.Get("Phaser").Get("Gamepad").New(game)}
 }
 
 // The Gamepad class handles gamepad input and dispatches gamepad events.
@@ -41,13 +41,13 @@ func NewGamepad(game *Game) *Gamepad {
 // via prefs flags (about:config, search gamepad). The browsers map the same controllers differently.
 // This class has constants for Windows 7 Chrome mapping of XBOX 360 controller.
 func NewGamepadI(args ...interface{}) *Gamepad {
-    return &Gamepad{js.Global.Call("Phaser.Gamepad", args)}
+    return &Gamepad{js.Global.Get("Phaser").Get("Gamepad").New(args)}
 }
 
 
 
 // Local reference to game.
-func (self *Gamepad) GetGameA() *Game{
+func (self *Gamepad) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -57,7 +57,7 @@ func (self *Gamepad) SetGameA(member *Game) {
 }
 
 // Gamepad input will only be processed if enabled.
-func (self *Gamepad) GetEnabledA() bool{
+func (self *Gamepad) Enabled() bool{
     return self.Object.Get("enabled").Bool()
 }
 
@@ -67,7 +67,7 @@ func (self *Gamepad) SetEnabledA(member bool) {
 }
 
 // The context under which the callbacks are run.
-func (self *Gamepad) GetCallbackContextA() interface{}{
+func (self *Gamepad) CallbackContext() interface{}{
     return self.Object.Get("callbackContext")
 }
 
@@ -77,37 +77,67 @@ func (self *Gamepad) SetCallbackContextA(member interface{}) {
 }
 
 // This callback is invoked every time any gamepad is connected
-func (self *Gamepad) SetOnConnectCallbackA(member func(...interface{})) {
+func (self *Gamepad) OnConnectCallback() interface{}{
+    return self.Object.Get("onConnectCallback")
+}
+
+// This callback is invoked every time any gamepad is connected
+func (self *Gamepad) SetOnConnectCallbackA(member interface{}) {
     self.Object.Set("onConnectCallback", member)
 }
 
 // This callback is invoked every time any gamepad is disconnected
-func (self *Gamepad) SetOnDisconnectCallbackA(member func(...interface{})) {
+func (self *Gamepad) OnDisconnectCallback() interface{}{
+    return self.Object.Get("onDisconnectCallback")
+}
+
+// This callback is invoked every time any gamepad is disconnected
+func (self *Gamepad) SetOnDisconnectCallbackA(member interface{}) {
     self.Object.Set("onDisconnectCallback", member)
 }
 
 // This callback is invoked every time any gamepad button is pressed down.
-func (self *Gamepad) SetOnDownCallbackA(member func(...interface{})) {
+func (self *Gamepad) OnDownCallback() interface{}{
+    return self.Object.Get("onDownCallback")
+}
+
+// This callback is invoked every time any gamepad button is pressed down.
+func (self *Gamepad) SetOnDownCallbackA(member interface{}) {
     self.Object.Set("onDownCallback", member)
 }
 
 // This callback is invoked every time any gamepad button is released.
-func (self *Gamepad) SetOnUpCallbackA(member func(...interface{})) {
+func (self *Gamepad) OnUpCallback() interface{}{
+    return self.Object.Get("onUpCallback")
+}
+
+// This callback is invoked every time any gamepad button is released.
+func (self *Gamepad) SetOnUpCallbackA(member interface{}) {
     self.Object.Set("onUpCallback", member)
 }
 
 // This callback is invoked every time any gamepad axis is changed.
-func (self *Gamepad) SetOnAxisCallbackA(member func(...interface{})) {
+func (self *Gamepad) OnAxisCallback() interface{}{
+    return self.Object.Get("onAxisCallback")
+}
+
+// This callback is invoked every time any gamepad axis is changed.
+func (self *Gamepad) SetOnAxisCallbackA(member interface{}) {
     self.Object.Set("onAxisCallback", member)
 }
 
 // This callback is invoked every time any gamepad button is changed to a value where value > 0 and value < 1.
-func (self *Gamepad) SetOnFloatCallbackA(member func(...interface{})) {
+func (self *Gamepad) OnFloatCallback() interface{}{
+    return self.Object.Get("onFloatCallback")
+}
+
+// This callback is invoked every time any gamepad button is changed to a value where value > 0 and value < 1.
+func (self *Gamepad) SetOnFloatCallbackA(member interface{}) {
     self.Object.Set("onFloatCallback", member)
 }
 
 // If the gamepad input is active or not - if not active it should not be updated from Input.js
-func (self *Gamepad) GetActiveA() bool{
+func (self *Gamepad) Active() bool{
     return self.Object.Get("active").Bool()
 }
 
@@ -117,7 +147,7 @@ func (self *Gamepad) SetActiveA(member bool) {
 }
 
 // Whether or not gamepads are supported in current browser.
-func (self *Gamepad) GetSupportedA() bool{
+func (self *Gamepad) Supported() bool{
     return self.Object.Get("supported").Bool()
 }
 
@@ -127,7 +157,7 @@ func (self *Gamepad) SetSupportedA(member bool) {
 }
 
 // How many live gamepads are currently connected.
-func (self *Gamepad) GetPadsConnectedA() int{
+func (self *Gamepad) PadsConnected() int{
     return self.Object.Get("padsConnected").Int()
 }
 
@@ -137,7 +167,7 @@ func (self *Gamepad) SetPadsConnectedA(member int) {
 }
 
 // Gamepad #1
-func (self *Gamepad) GetPad1A() *SinglePad{
+func (self *Gamepad) Pad1() *SinglePad{
     return &SinglePad{self.Object.Get("pad1")}
 }
 
@@ -147,7 +177,7 @@ func (self *Gamepad) SetPad1A(member *SinglePad) {
 }
 
 // Gamepad #2
-func (self *Gamepad) GetPad2A() *SinglePad{
+func (self *Gamepad) Pad2() *SinglePad{
     return &SinglePad{self.Object.Get("pad2")}
 }
 
@@ -157,7 +187,7 @@ func (self *Gamepad) SetPad2A(member *SinglePad) {
 }
 
 // Gamepad #3
-func (self *Gamepad) GetPad3A() *SinglePad{
+func (self *Gamepad) Pad3() *SinglePad{
     return &SinglePad{self.Object.Get("pad3")}
 }
 
@@ -167,7 +197,7 @@ func (self *Gamepad) SetPad3A(member *SinglePad) {
 }
 
 // Gamepad #4
-func (self *Gamepad) GetPad4A() *SinglePad{
+func (self *Gamepad) Pad4() *SinglePad{
     return &SinglePad{self.Object.Get("pad4")}
 }
 

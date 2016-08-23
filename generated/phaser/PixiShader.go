@@ -15,18 +15,18 @@ type PixiShader struct {
 
 // 
 func NewPixiShader(gl *WebGLContext) *PixiShader {
-    return &PixiShader{js.Global.Call("PIXI.PixiShader", gl)}
+    return &PixiShader{js.Global.Get("PIXI").Get("PixiShader").New(gl)}
 }
 
 // 
 func NewPixiShaderI(args ...interface{}) *PixiShader {
-    return &PixiShader{js.Global.Call("PIXI.PixiShader", args)}
+    return &PixiShader{js.Global.Get("PIXI").Get("PixiShader").New(args)}
 }
 
 
 
 // 
-func (self *PixiShader) GetGlA() WebGLContext{
+func (self *PixiShader) Gl() WebGLContext{
     return WrapWebGLContext(self.Object.Get("gl"))
 }
 
@@ -36,7 +36,7 @@ func (self *PixiShader) SetGlA(member WebGLContext) {
 }
 
 // The WebGL program.
-func (self *PixiShader) GetProgramA() interface{}{
+func (self *PixiShader) Program() interface{}{
     return self.Object.Get("program")
 }
 
@@ -46,12 +46,12 @@ func (self *PixiShader) SetProgramA(member interface{}) {
 }
 
 // The fragment shader.
-func (self *PixiShader) GetFragmentSrcA() []interface{}{
+func (self *PixiShader) FragmentSrc() []interface{}{
 	array00 := self.Object.Get("fragmentSrc")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -62,7 +62,7 @@ func (self *PixiShader) SetFragmentSrcA(member []interface{}) {
 }
 
 // A local texture counter for multi-texture shaders.
-func (self *PixiShader) GetTextureCountA() int{
+func (self *PixiShader) TextureCount() int{
     return self.Object.Get("textureCount").Int()
 }
 
@@ -72,7 +72,7 @@ func (self *PixiShader) SetTextureCountA(member int) {
 }
 
 // A dirty flag
-func (self *PixiShader) GetDirtyA() bool{
+func (self *PixiShader) Dirty() bool{
     return self.Object.Get("dirty").Bool()
 }
 
@@ -82,7 +82,7 @@ func (self *PixiShader) SetDirtyA(member bool) {
 }
 
 // The Default Vertex shader source.
-func (self *PixiShader) GetDefaultVertexSrcA() string{
+func (self *PixiShader) DefaultVertexSrc() string{
     return self.Object.Get("defaultVertexSrc").String()
 }
 

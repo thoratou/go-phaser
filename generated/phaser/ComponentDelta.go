@@ -15,12 +15,12 @@ type ComponentDelta struct {
 
 // The Delta component provides access to delta values between the Game Objects current and previous position.
 func NewComponentDelta() *ComponentDelta {
-    return &ComponentDelta{js.Global.Call("Phaser.Component.Delta")}
+    return &ComponentDelta{js.Global.Get("Phaser").Get("Component").Get("Delta").New()}
 }
 
 // The Delta component provides access to delta values between the Game Objects current and previous position.
 func NewComponentDeltaI(args ...interface{}) *ComponentDelta {
-    return &ComponentDelta{js.Global.Call("Phaser.Component.Delta", args)}
+    return &ComponentDelta{js.Global.Get("Phaser").Get("Component").Get("Delta").New(args)}
 }
 
 
@@ -28,7 +28,7 @@ func NewComponentDeltaI(args ...interface{}) *ComponentDelta {
 // Returns the delta x value. The difference between world.x now and in the previous frame.
 // 
 // The value will be positive if the Game Object has moved to the right or negative if to the left.
-func (self *ComponentDelta) GetDeltaXA() int{
+func (self *ComponentDelta) DeltaX() int{
     return self.Object.Get("deltaX").Int()
 }
 
@@ -42,7 +42,7 @@ func (self *ComponentDelta) SetDeltaXA(member int) {
 // Returns the delta y value. The difference between world.y now and in the previous frame.
 // 
 // The value will be positive if the Game Object has moved down or negative if up.
-func (self *ComponentDelta) GetDeltaYA() int{
+func (self *ComponentDelta) DeltaY() int{
     return self.Object.Get("deltaY").Int()
 }
 
@@ -54,7 +54,7 @@ func (self *ComponentDelta) SetDeltaYA(member int) {
 }
 
 // Returns the delta z value. The difference between rotation now and in the previous frame. The delta value.
-func (self *ComponentDelta) GetDeltaZA() int{
+func (self *ComponentDelta) DeltaZ() int{
     return self.Object.Get("deltaZ").Int()
 }
 

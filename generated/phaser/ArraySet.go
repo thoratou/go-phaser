@@ -25,7 +25,7 @@ type ArraySet struct {
 // 
 // This used primarily by the Input subsystem.
 func NewArraySet() *ArraySet {
-    return &ArraySet{js.Global.Call("Phaser.ArraySet")}
+    return &ArraySet{js.Global.Get("Phaser").Get("ArraySet").New()}
 }
 
 // ArraySet is a Set data structure (items must be unique within the set) that also maintains order.
@@ -35,7 +35,7 @@ func NewArraySet() *ArraySet {
 // 
 // This used primarily by the Input subsystem.
 func NewArraySet1O(list []interface{}) *ArraySet {
-    return &ArraySet{js.Global.Call("Phaser.ArraySet", list)}
+    return &ArraySet{js.Global.Get("Phaser").Get("ArraySet").New(list)}
 }
 
 // ArraySet is a Set data structure (items must be unique within the set) that also maintains order.
@@ -45,13 +45,13 @@ func NewArraySet1O(list []interface{}) *ArraySet {
 // 
 // This used primarily by the Input subsystem.
 func NewArraySetI(args ...interface{}) *ArraySet {
-    return &ArraySet{js.Global.Call("Phaser.ArraySet", args)}
+    return &ArraySet{js.Global.Get("Phaser").Get("ArraySet").New(args)}
 }
 
 
 
 // Current cursor position as established by `first` and `next`.
-func (self *ArraySet) GetPositionA() int{
+func (self *ArraySet) Position() int{
     return self.Object.Get("position").Int()
 }
 
@@ -61,12 +61,12 @@ func (self *ArraySet) SetPositionA(member int) {
 }
 
 // The backing array.
-func (self *ArraySet) GetListA() []interface{}{
+func (self *ArraySet) List() []interface{}{
 	array00 := self.Object.Get("list")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -77,7 +77,7 @@ func (self *ArraySet) SetListA(member []interface{}) {
 }
 
 // Number of items in the ArraySet. Same as `list.length`.
-func (self *ArraySet) GetTotalA() int{
+func (self *ArraySet) Total() int{
     return self.Object.Get("total").Int()
 }
 
@@ -87,7 +87,7 @@ func (self *ArraySet) SetTotalA(member int) {
 }
 
 // Returns the first item and resets the cursor to the start.
-func (self *ArraySet) GetFirstA() interface{}{
+func (self *ArraySet) First() interface{}{
     return self.Object.Get("first")
 }
 
@@ -97,7 +97,7 @@ func (self *ArraySet) SetFirstA(member interface{}) {
 }
 
 // Returns the the next item (based on the cursor) and advances the cursor.
-func (self *ArraySet) GetNextA() interface{}{
+func (self *ArraySet) Next() interface{}{
     return self.Object.Get("next")
 }
 

@@ -15,12 +15,12 @@ type WebGLMaskManager struct {
 
 // 
 func NewWebGLMaskManager() *WebGLMaskManager {
-    return &WebGLMaskManager{js.Global.Call("PIXI.WebGLMaskManager")}
+    return &WebGLMaskManager{js.Global.Get("PIXI").Get("WebGLMaskManager").New()}
 }
 
 // 
 func NewWebGLMaskManagerI(args ...interface{}) *WebGLMaskManager {
-    return &WebGLMaskManager{js.Global.Call("PIXI.WebGLMaskManager", args)}
+    return &WebGLMaskManager{js.Global.Get("PIXI").Get("WebGLMaskManager").New(args)}
 }
 
 

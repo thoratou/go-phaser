@@ -15,12 +15,12 @@ type ComponentAngle struct {
 
 // The Angle Component provides access to an `angle` property; the rotation of a Game Object in degrees.
 func NewComponentAngle() *ComponentAngle {
-    return &ComponentAngle{js.Global.Call("Phaser.Component.Angle")}
+    return &ComponentAngle{js.Global.Get("Phaser").Get("Component").Get("Angle").New()}
 }
 
 // The Angle Component provides access to an `angle` property; the rotation of a Game Object in degrees.
 func NewComponentAngleI(args ...interface{}) *ComponentAngle {
-    return &ComponentAngle{js.Global.Call("Phaser.Component.Angle", args)}
+    return &ComponentAngle{js.Global.Get("Phaser").Get("Component").Get("Angle").New(args)}
 }
 
 
@@ -34,7 +34,7 @@ func NewComponentAngleI(args ...interface{}) *ComponentAngle {
 // 
 // If you wish to work in radians instead of degrees you can use the property `rotation` instead. 
 // Working in radians is slightly faster as it doesn't have to perform any calculations.
-func (self *ComponentAngle) GetAngleA() int{
+func (self *ComponentAngle) Angle() int{
     return self.Object.Get("angle").Int()
 }
 

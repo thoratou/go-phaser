@@ -15,28 +15,28 @@ type PhysicsP2GearConstraint struct {
 
 // Connects two bodies at given offset points, letting them rotate relative to each other around this point.
 func NewPhysicsP2GearConstraint(world *PhysicsP2, bodyA *P2Body, bodyB *P2Body) *PhysicsP2GearConstraint {
-    return &PhysicsP2GearConstraint{js.Global.Call("Phaser.Physics.P2.GearConstraint", world, bodyA, bodyB)}
+    return &PhysicsP2GearConstraint{js.Global.Get("Phaser").Get("Physics").Get("P2").Get("GearConstraint").New(world, bodyA, bodyB)}
 }
 
 // Connects two bodies at given offset points, letting them rotate relative to each other around this point.
 func NewPhysicsP2GearConstraint1O(world *PhysicsP2, bodyA *P2Body, bodyB *P2Body, angle int) *PhysicsP2GearConstraint {
-    return &PhysicsP2GearConstraint{js.Global.Call("Phaser.Physics.P2.GearConstraint", world, bodyA, bodyB, angle)}
+    return &PhysicsP2GearConstraint{js.Global.Get("Phaser").Get("Physics").Get("P2").Get("GearConstraint").New(world, bodyA, bodyB, angle)}
 }
 
 // Connects two bodies at given offset points, letting them rotate relative to each other around this point.
 func NewPhysicsP2GearConstraint2O(world *PhysicsP2, bodyA *P2Body, bodyB *P2Body, angle int, ratio int) *PhysicsP2GearConstraint {
-    return &PhysicsP2GearConstraint{js.Global.Call("Phaser.Physics.P2.GearConstraint", world, bodyA, bodyB, angle, ratio)}
+    return &PhysicsP2GearConstraint{js.Global.Get("Phaser").Get("Physics").Get("P2").Get("GearConstraint").New(world, bodyA, bodyB, angle, ratio)}
 }
 
 // Connects two bodies at given offset points, letting them rotate relative to each other around this point.
 func NewPhysicsP2GearConstraintI(args ...interface{}) *PhysicsP2GearConstraint {
-    return &PhysicsP2GearConstraint{js.Global.Call("Phaser.Physics.P2.GearConstraint", args)}
+    return &PhysicsP2GearConstraint{js.Global.Get("Phaser").Get("Physics").Get("P2").Get("GearConstraint").New(args)}
 }
 
 
 
 // Local reference to game.
-func (self *PhysicsP2GearConstraint) GetGameA() *Game{
+func (self *PhysicsP2GearConstraint) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -46,7 +46,7 @@ func (self *PhysicsP2GearConstraint) SetGameA(member *Game) {
 }
 
 // Local reference to P2 World.
-func (self *PhysicsP2GearConstraint) GetWorldA() *PhysicsP2{
+func (self *PhysicsP2GearConstraint) World() *PhysicsP2{
     return &PhysicsP2{self.Object.Get("world")}
 }
 

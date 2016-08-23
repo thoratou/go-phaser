@@ -15,18 +15,18 @@ type FilterTexture struct {
 
 // 
 func NewFilterTexture(gl *WebGLContext, width int, height int, scaleMode int) *FilterTexture {
-    return &FilterTexture{js.Global.Call("PIXI.FilterTexture", gl, width, height, scaleMode)}
+    return &FilterTexture{js.Global.Get("PIXI").Get("FilterTexture").New(gl, width, height, scaleMode)}
 }
 
 // 
 func NewFilterTextureI(args ...interface{}) *FilterTexture {
-    return &FilterTexture{js.Global.Call("PIXI.FilterTexture", args)}
+    return &FilterTexture{js.Global.Get("PIXI").Get("FilterTexture").New(args)}
 }
 
 
 
 // 
-func (self *FilterTexture) GetGlA() WebGLContext{
+func (self *FilterTexture) Gl() WebGLContext{
     return WrapWebGLContext(self.Object.Get("gl"))
 }
 
@@ -36,7 +36,7 @@ func (self *FilterTexture) SetGlA(member WebGLContext) {
 }
 
 // 
-func (self *FilterTexture) GetFrameBufferA() interface{}{
+func (self *FilterTexture) FrameBuffer() interface{}{
     return self.Object.Get("frameBuffer")
 }
 
@@ -46,7 +46,7 @@ func (self *FilterTexture) SetFrameBufferA(member interface{}) {
 }
 
 // 
-func (self *FilterTexture) GetTextureA() interface{}{
+func (self *FilterTexture) Texture() interface{}{
     return self.Object.Get("texture")
 }
 
@@ -56,7 +56,7 @@ func (self *FilterTexture) SetTextureA(member interface{}) {
 }
 
 // 
-func (self *FilterTexture) GetScaleModeA() int{
+func (self *FilterTexture) ScaleMode() int{
     return self.Object.Get("scaleMode").Int()
 }
 

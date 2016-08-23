@@ -28,8 +28,8 @@ type TimerEvent struct {
 // TimerEvents are removed by their parent timer once finished firing or repeating.
 // 
 // Use {@link Phaser.Timer#add}, {@link Phaser.Timer#repeat}, or {@link Phaser.Timer#loop} methods to create a new event.
-func NewTimerEvent(timer *Timer, delay int, tick int, repeatCount int, loop bool, callback func(...interface{}), callbackContext interface{}, arguments []interface{}) *TimerEvent {
-    return &TimerEvent{js.Global.Call("Phaser.TimerEvent", timer, delay, tick, repeatCount, loop, callback, callbackContext, arguments)}
+func NewTimerEvent(timer *Timer, delay int, tick int, repeatCount int, loop bool, callback interface{}, callbackContext interface{}, arguments []interface{}) *TimerEvent {
+    return &TimerEvent{js.Global.Get("Phaser").Get("TimerEvent").New(timer, delay, tick, repeatCount, loop, callback, callbackContext, arguments)}
 }
 
 // A TimerEvent is a single event that is processed by a Phaser.Timer.
@@ -41,13 +41,13 @@ func NewTimerEvent(timer *Timer, delay int, tick int, repeatCount int, loop bool
 // 
 // Use {@link Phaser.Timer#add}, {@link Phaser.Timer#repeat}, or {@link Phaser.Timer#loop} methods to create a new event.
 func NewTimerEventI(args ...interface{}) *TimerEvent {
-    return &TimerEvent{js.Global.Call("Phaser.TimerEvent", args)}
+    return &TimerEvent{js.Global.Get("Phaser").Get("TimerEvent").New(args)}
 }
 
 
 
 // The Timer object that this TimerEvent belongs to.
-func (self *TimerEvent) GetTimerA() *Timer{
+func (self *TimerEvent) Timer() *Timer{
     return &Timer{self.Object.Get("timer")}
 }
 
@@ -57,7 +57,7 @@ func (self *TimerEvent) SetTimerA(member *Timer) {
 }
 
 // The delay in ms at which this TimerEvent fires.
-func (self *TimerEvent) GetDelayA() int{
+func (self *TimerEvent) Delay() int{
     return self.Object.Get("delay").Int()
 }
 
@@ -67,7 +67,7 @@ func (self *TimerEvent) SetDelayA(member int) {
 }
 
 // The tick is the next game clock time that this event will fire at.
-func (self *TimerEvent) GetTickA() int{
+func (self *TimerEvent) Tick() int{
     return self.Object.Get("tick").Int()
 }
 
@@ -77,7 +77,7 @@ func (self *TimerEvent) SetTickA(member int) {
 }
 
 // If this TimerEvent repeats it will do so this many times.
-func (self *TimerEvent) GetRepeatCountA() int{
+func (self *TimerEvent) RepeatCount() int{
     return self.Object.Get("repeatCount").Int()
 }
 
@@ -87,7 +87,7 @@ func (self *TimerEvent) SetRepeatCountA(member int) {
 }
 
 // True if this TimerEvent loops, otherwise false.
-func (self *TimerEvent) GetLoopA() bool{
+func (self *TimerEvent) Loop() bool{
     return self.Object.Get("loop").Bool()
 }
 
@@ -97,12 +97,17 @@ func (self *TimerEvent) SetLoopA(member bool) {
 }
 
 // The callback that will be called when the TimerEvent occurs.
-func (self *TimerEvent) SetCallbackA(member func(...interface{})) {
+func (self *TimerEvent) Callback() interface{}{
+    return self.Object.Get("callback")
+}
+
+// The callback that will be called when the TimerEvent occurs.
+func (self *TimerEvent) SetCallbackA(member interface{}) {
     self.Object.Set("callback", member)
 }
 
 // The context in which the callback will be called.
-func (self *TimerEvent) GetCallbackContextA() interface{}{
+func (self *TimerEvent) CallbackContext() interface{}{
     return self.Object.Get("callbackContext")
 }
 
@@ -112,7 +117,7 @@ func (self *TimerEvent) SetCallbackContextA(member interface{}) {
 }
 
 // Additional arguments to be passed to the callback.
-func (self *TimerEvent) GetArgsA() interface{}{
+func (self *TimerEvent) Args() interface{}{
     return self.Object.Get("args")
 }
 
@@ -122,7 +127,7 @@ func (self *TimerEvent) SetArgsA(member interface{}) {
 }
 
 // A flag that controls if the TimerEvent is pending deletion.
-func (self *TimerEvent) GetPendingDeleteA() bool{
+func (self *TimerEvent) PendingDelete() bool{
     return self.Object.Get("pendingDelete").Bool()
 }
 

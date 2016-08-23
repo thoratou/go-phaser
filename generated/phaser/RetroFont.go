@@ -19,49 +19,49 @@ type RetroFont struct {
 // A Retro Font is similar to a BitmapFont, in that it uses a texture to render the text. However unlike a BitmapFont every character in a RetroFont
 // is the same size. This makes it similar to a sprite sheet. You typically find font sheets like this from old 8/16-bit games and demos.
 func NewRetroFont(game *Game, key string, characterWidth int, characterHeight int, chars string) *RetroFont {
-    return &RetroFont{js.Global.Call("Phaser.RetroFont", game, key, characterWidth, characterHeight, chars)}
+    return &RetroFont{js.Global.Get("Phaser").Get("RetroFont").New(game, key, characterWidth, characterHeight, chars)}
 }
 
 // A Retro Font is similar to a BitmapFont, in that it uses a texture to render the text. However unlike a BitmapFont every character in a RetroFont
 // is the same size. This makes it similar to a sprite sheet. You typically find font sheets like this from old 8/16-bit games and demos.
 func NewRetroFont1O(game *Game, key string, characterWidth int, characterHeight int, chars string, charsPerRow int) *RetroFont {
-    return &RetroFont{js.Global.Call("Phaser.RetroFont", game, key, characterWidth, characterHeight, chars, charsPerRow)}
+    return &RetroFont{js.Global.Get("Phaser").Get("RetroFont").New(game, key, characterWidth, characterHeight, chars, charsPerRow)}
 }
 
 // A Retro Font is similar to a BitmapFont, in that it uses a texture to render the text. However unlike a BitmapFont every character in a RetroFont
 // is the same size. This makes it similar to a sprite sheet. You typically find font sheets like this from old 8/16-bit games and demos.
 func NewRetroFont2O(game *Game, key string, characterWidth int, characterHeight int, chars string, charsPerRow int, xSpacing int) *RetroFont {
-    return &RetroFont{js.Global.Call("Phaser.RetroFont", game, key, characterWidth, characterHeight, chars, charsPerRow, xSpacing)}
+    return &RetroFont{js.Global.Get("Phaser").Get("RetroFont").New(game, key, characterWidth, characterHeight, chars, charsPerRow, xSpacing)}
 }
 
 // A Retro Font is similar to a BitmapFont, in that it uses a texture to render the text. However unlike a BitmapFont every character in a RetroFont
 // is the same size. This makes it similar to a sprite sheet. You typically find font sheets like this from old 8/16-bit games and demos.
 func NewRetroFont3O(game *Game, key string, characterWidth int, characterHeight int, chars string, charsPerRow int, xSpacing int, ySpacing int) *RetroFont {
-    return &RetroFont{js.Global.Call("Phaser.RetroFont", game, key, characterWidth, characterHeight, chars, charsPerRow, xSpacing, ySpacing)}
+    return &RetroFont{js.Global.Get("Phaser").Get("RetroFont").New(game, key, characterWidth, characterHeight, chars, charsPerRow, xSpacing, ySpacing)}
 }
 
 // A Retro Font is similar to a BitmapFont, in that it uses a texture to render the text. However unlike a BitmapFont every character in a RetroFont
 // is the same size. This makes it similar to a sprite sheet. You typically find font sheets like this from old 8/16-bit games and demos.
 func NewRetroFont4O(game *Game, key string, characterWidth int, characterHeight int, chars string, charsPerRow int, xSpacing int, ySpacing int, xOffset int) *RetroFont {
-    return &RetroFont{js.Global.Call("Phaser.RetroFont", game, key, characterWidth, characterHeight, chars, charsPerRow, xSpacing, ySpacing, xOffset)}
+    return &RetroFont{js.Global.Get("Phaser").Get("RetroFont").New(game, key, characterWidth, characterHeight, chars, charsPerRow, xSpacing, ySpacing, xOffset)}
 }
 
 // A Retro Font is similar to a BitmapFont, in that it uses a texture to render the text. However unlike a BitmapFont every character in a RetroFont
 // is the same size. This makes it similar to a sprite sheet. You typically find font sheets like this from old 8/16-bit games and demos.
 func NewRetroFont5O(game *Game, key string, characterWidth int, characterHeight int, chars string, charsPerRow int, xSpacing int, ySpacing int, xOffset int, yOffset int) *RetroFont {
-    return &RetroFont{js.Global.Call("Phaser.RetroFont", game, key, characterWidth, characterHeight, chars, charsPerRow, xSpacing, ySpacing, xOffset, yOffset)}
+    return &RetroFont{js.Global.Get("Phaser").Get("RetroFont").New(game, key, characterWidth, characterHeight, chars, charsPerRow, xSpacing, ySpacing, xOffset, yOffset)}
 }
 
 // A Retro Font is similar to a BitmapFont, in that it uses a texture to render the text. However unlike a BitmapFont every character in a RetroFont
 // is the same size. This makes it similar to a sprite sheet. You typically find font sheets like this from old 8/16-bit games and demos.
 func NewRetroFontI(args ...interface{}) *RetroFont {
-    return &RetroFont{js.Global.Call("Phaser.RetroFont", args)}
+    return &RetroFont{js.Global.Get("Phaser").Get("RetroFont").New(args)}
 }
 
 
 
 // The width of each character in the font set.
-func (self *RetroFont) GetCharacterWidthA() int{
+func (self *RetroFont) CharacterWidth() int{
     return self.Object.Get("characterWidth").Int()
 }
 
@@ -71,7 +71,7 @@ func (self *RetroFont) SetCharacterWidthA(member int) {
 }
 
 // The height of each character in the font set.
-func (self *RetroFont) GetCharacterHeightA() int{
+func (self *RetroFont) CharacterHeight() int{
     return self.Object.Get("characterHeight").Int()
 }
 
@@ -81,7 +81,7 @@ func (self *RetroFont) SetCharacterHeightA(member int) {
 }
 
 // If the characters in the font set have horizontal spacing between them set the required amount here.
-func (self *RetroFont) GetCharacterSpacingXA() int{
+func (self *RetroFont) CharacterSpacingX() int{
     return self.Object.Get("characterSpacingX").Int()
 }
 
@@ -91,7 +91,7 @@ func (self *RetroFont) SetCharacterSpacingXA(member int) {
 }
 
 // If the characters in the font set have vertical spacing between them set the required amount here.
-func (self *RetroFont) GetCharacterSpacingYA() int{
+func (self *RetroFont) CharacterSpacingY() int{
     return self.Object.Get("characterSpacingY").Int()
 }
 
@@ -101,7 +101,7 @@ func (self *RetroFont) SetCharacterSpacingYA(member int) {
 }
 
 // The number of characters per row in the font set.
-func (self *RetroFont) GetCharacterPerRowA() int{
+func (self *RetroFont) CharacterPerRow() int{
     return self.Object.Get("characterPerRow").Int()
 }
 
@@ -111,7 +111,7 @@ func (self *RetroFont) SetCharacterPerRowA(member int) {
 }
 
 // If the font set doesn't start at the top left of the given image, specify the X coordinate offset here.
-func (self *RetroFont) GetOffsetXA() int{
+func (self *RetroFont) OffsetX() int{
     return self.Object.Get("offsetX").Int()
 }
 
@@ -121,7 +121,7 @@ func (self *RetroFont) SetOffsetXA(member int) {
 }
 
 // If the font set doesn't start at the top left of the given image, specify the Y coordinate offset here.
-func (self *RetroFont) GetOffsetYA() int{
+func (self *RetroFont) OffsetY() int{
     return self.Object.Get("offsetY").Int()
 }
 
@@ -131,7 +131,7 @@ func (self *RetroFont) SetOffsetYA(member int) {
 }
 
 // Alignment of the text when multiLine = true or a fixedWidth is set. Set to RetroFont.ALIGN_LEFT (default), RetroFont.ALIGN_RIGHT or RetroFont.ALIGN_CENTER.
-func (self *RetroFont) GetAlignA() string{
+func (self *RetroFont) Align() string{
     return self.Object.Get("align").String()
 }
 
@@ -141,7 +141,7 @@ func (self *RetroFont) SetAlignA(member string) {
 }
 
 // If set to true all carriage-returns in text will form new lines (see align). If false the font will only contain one single line of text (the default)
-func (self *RetroFont) GetMultiLineA() bool{
+func (self *RetroFont) MultiLine() bool{
     return self.Object.Get("multiLine").Bool()
 }
 
@@ -151,7 +151,7 @@ func (self *RetroFont) SetMultiLineA(member bool) {
 }
 
 // Automatically convert any text to upper case. Lots of old bitmap fonts only contain upper-case characters, so the default is true.
-func (self *RetroFont) GetAutoUpperCaseA() bool{
+func (self *RetroFont) AutoUpperCase() bool{
     return self.Object.Get("autoUpperCase").Bool()
 }
 
@@ -161,7 +161,7 @@ func (self *RetroFont) SetAutoUpperCaseA(member bool) {
 }
 
 // Adds horizontal spacing between each character of the font, in pixels.
-func (self *RetroFont) GetCustomSpacingXA() int{
+func (self *RetroFont) CustomSpacingX() int{
     return self.Object.Get("customSpacingX").Int()
 }
 
@@ -171,7 +171,7 @@ func (self *RetroFont) SetCustomSpacingXA(member int) {
 }
 
 // Adds vertical spacing between each line of multi-line text, set in pixels.
-func (self *RetroFont) GetCustomSpacingYA() int{
+func (self *RetroFont) CustomSpacingY() int{
     return self.Object.Get("customSpacingY").Int()
 }
 
@@ -182,7 +182,7 @@ func (self *RetroFont) SetCustomSpacingYA(member int) {
 
 // If you need this RetroFont image to have a fixed width you can set the width in this value.
 // If text is wider than the width specified it will be cropped off.
-func (self *RetroFont) GetFixedWidthA() int{
+func (self *RetroFont) FixedWidth() int{
     return self.Object.Get("fixedWidth").Int()
 }
 
@@ -193,7 +193,7 @@ func (self *RetroFont) SetFixedWidthA(member int) {
 }
 
 // A reference to the image stored in the Game.Cache that contains the font.
-func (self *RetroFont) GetFontSetA() *Image{
+func (self *RetroFont) FontSet() *Image{
     return &Image{self.Object.Get("fontSet")}
 }
 
@@ -203,7 +203,7 @@ func (self *RetroFont) SetFontSetA(member *Image) {
 }
 
 // The FrameData representing this Retro Font.
-func (self *RetroFont) GetFrameDataA() *FrameData{
+func (self *RetroFont) FrameData() *FrameData{
     return &FrameData{self.Object.Get("frameData")}
 }
 
@@ -213,7 +213,7 @@ func (self *RetroFont) SetFrameDataA(member *FrameData) {
 }
 
 // The image that is stamped to the RenderTexture for each character in the font.
-func (self *RetroFont) GetStampA() *Image{
+func (self *RetroFont) Stamp() *Image{
     return &Image{self.Object.Get("stamp")}
 }
 
@@ -223,7 +223,7 @@ func (self *RetroFont) SetStampA(member *Image) {
 }
 
 // Base Phaser object type.
-func (self *RetroFont) GetTypeA() int{
+func (self *RetroFont) Type() int{
     return self.Object.Get("type").Int()
 }
 
@@ -233,7 +233,7 @@ func (self *RetroFont) SetTypeA(member int) {
 }
 
 // Align each line of multi-line text to the left.
-func (self *RetroFont) GetALIGN_LEFTA() string{
+func (self *RetroFont) ALIGN_LEFT() string{
     return self.Object.Get("ALIGN_LEFT").String()
 }
 
@@ -243,7 +243,7 @@ func (self *RetroFont) SetALIGN_LEFTA(member string) {
 }
 
 // Align each line of multi-line text to the right.
-func (self *RetroFont) GetALIGN_RIGHTA() string{
+func (self *RetroFont) ALIGN_RIGHT() string{
     return self.Object.Get("ALIGN_RIGHT").String()
 }
 
@@ -253,7 +253,7 @@ func (self *RetroFont) SetALIGN_RIGHTA(member string) {
 }
 
 // Align each line of multi-line text in the center.
-func (self *RetroFont) GetALIGN_CENTERA() string{
+func (self *RetroFont) ALIGN_CENTER() string{
     return self.Object.Get("ALIGN_CENTER").String()
 }
 
@@ -263,7 +263,7 @@ func (self *RetroFont) SetALIGN_CENTERA(member string) {
 }
 
 // Text Set 1 =  !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
-func (self *RetroFont) GetTEXT_SET1A() string{
+func (self *RetroFont) TEXT_SET1() string{
     return self.Object.Get("TEXT_SET1").String()
 }
 
@@ -273,7 +273,7 @@ func (self *RetroFont) SetTEXT_SET1A(member string) {
 }
 
 // Text Set 2 =  !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ
-func (self *RetroFont) GetTEXT_SET2A() string{
+func (self *RetroFont) TEXT_SET2() string{
     return self.Object.Get("TEXT_SET2").String()
 }
 
@@ -283,7 +283,7 @@ func (self *RetroFont) SetTEXT_SET2A(member string) {
 }
 
 // Text Set 3 = ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789
-func (self *RetroFont) GetTEXT_SET3A() string{
+func (self *RetroFont) TEXT_SET3() string{
     return self.Object.Get("TEXT_SET3").String()
 }
 
@@ -293,7 +293,7 @@ func (self *RetroFont) SetTEXT_SET3A(member string) {
 }
 
 // Text Set 4 = ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789
-func (self *RetroFont) GetTEXT_SET4A() string{
+func (self *RetroFont) TEXT_SET4() string{
     return self.Object.Get("TEXT_SET4").String()
 }
 
@@ -303,7 +303,7 @@ func (self *RetroFont) SetTEXT_SET4A(member string) {
 }
 
 // Text Set 5 = ABCDEFGHIJKLMNOPQRSTUVWXYZ.,/() '!?-*:0123456789
-func (self *RetroFont) GetTEXT_SET5A() string{
+func (self *RetroFont) TEXT_SET5() string{
     return self.Object.Get("TEXT_SET5").String()
 }
 
@@ -313,7 +313,7 @@ func (self *RetroFont) SetTEXT_SET5A(member string) {
 }
 
 // Text Set 6 = ABCDEFGHIJKLMNOPQRSTUVWXYZ!?:;0123456789"(),-.'
-func (self *RetroFont) GetTEXT_SET6A() string{
+func (self *RetroFont) TEXT_SET6() string{
     return self.Object.Get("TEXT_SET6").String()
 }
 
@@ -323,7 +323,7 @@ func (self *RetroFont) SetTEXT_SET6A(member string) {
 }
 
 // Text Set 7 = AGMSY+:4BHNTZ!;5CIOU.?06DJPV,(17EKQW")28FLRX-'39
-func (self *RetroFont) GetTEXT_SET7A() string{
+func (self *RetroFont) TEXT_SET7() string{
     return self.Object.Get("TEXT_SET7").String()
 }
 
@@ -333,7 +333,7 @@ func (self *RetroFont) SetTEXT_SET7A(member string) {
 }
 
 // Text Set 8 = 0123456789 .ABCDEFGHIJKLMNOPQRSTUVWXYZ
-func (self *RetroFont) GetTEXT_SET8A() string{
+func (self *RetroFont) TEXT_SET8() string{
     return self.Object.Get("TEXT_SET8").String()
 }
 
@@ -343,7 +343,7 @@ func (self *RetroFont) SetTEXT_SET8A(member string) {
 }
 
 // Text Set 9 = ABCDEFGHIJKLMNOPQRSTUVWXYZ()-0123456789.:,'"?!
-func (self *RetroFont) GetTEXT_SET9A() string{
+func (self *RetroFont) TEXT_SET9() string{
     return self.Object.Get("TEXT_SET9").String()
 }
 
@@ -353,7 +353,7 @@ func (self *RetroFont) SetTEXT_SET9A(member string) {
 }
 
 // Text Set 10 = ABCDEFGHIJKLMNOPQRSTUVWXYZ
-func (self *RetroFont) GetTEXT_SET10A() string{
+func (self *RetroFont) TEXT_SET10() string{
     return self.Object.Get("TEXT_SET10").String()
 }
 
@@ -363,7 +363,7 @@ func (self *RetroFont) SetTEXT_SET10A(member string) {
 }
 
 // Text Set 11 = ABCDEFGHIJKLMNOPQRSTUVWXYZ.,"-+!?()':;0123456789
-func (self *RetroFont) GetTEXT_SET11A() string{
+func (self *RetroFont) TEXT_SET11() string{
     return self.Object.Get("TEXT_SET11").String()
 }
 
@@ -373,7 +373,7 @@ func (self *RetroFont) SetTEXT_SET11A(member string) {
 }
 
 // Set this value to update the text in this sprite. Carriage returns are automatically stripped out if multiLine is false. Text is converted to upper case if autoUpperCase is true.
-func (self *RetroFont) GetTextA() string{
+func (self *RetroFont) Text() string{
     return self.Object.Get("text").String()
 }
 
@@ -383,7 +383,7 @@ func (self *RetroFont) SetTextA(member string) {
 }
 
 // Sets if the stamp is smoothed or not.
-func (self *RetroFont) GetSmoothedA() bool{
+func (self *RetroFont) Smoothed() bool{
     return self.Object.Get("smoothed").Bool()
 }
 
@@ -393,7 +393,7 @@ func (self *RetroFont) SetSmoothedA(member bool) {
 }
 
 // A reference to the currently running game.
-func (self *RetroFont) GetGameA() *Game{
+func (self *RetroFont) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -403,7 +403,7 @@ func (self *RetroFont) SetGameA(member *Game) {
 }
 
 // The key of the RenderTexture in the Cache, if stored there.
-func (self *RetroFont) GetKeyA() string{
+func (self *RetroFont) Key() string{
     return self.Object.Get("key").String()
 }
 
@@ -413,7 +413,7 @@ func (self *RetroFont) SetKeyA(member string) {
 }
 
 // The with of the render texture
-func (self *RetroFont) GetWidthA() int{
+func (self *RetroFont) Width() int{
     return self.Object.Get("width").Int()
 }
 
@@ -423,7 +423,7 @@ func (self *RetroFont) SetWidthA(member int) {
 }
 
 // The height of the render texture
-func (self *RetroFont) GetHeightA() int{
+func (self *RetroFont) Height() int{
     return self.Object.Get("height").Int()
 }
 
@@ -433,7 +433,7 @@ func (self *RetroFont) SetHeightA(member int) {
 }
 
 // The Resolution of the texture.
-func (self *RetroFont) GetResolutionA() int{
+func (self *RetroFont) Resolution() int{
     return self.Object.Get("resolution").Int()
 }
 
@@ -443,7 +443,7 @@ func (self *RetroFont) SetResolutionA(member int) {
 }
 
 // The framing rectangle of the render texture
-func (self *RetroFont) GetFrameA() *Rectangle{
+func (self *RetroFont) Frame() *Rectangle{
     return &Rectangle{self.Object.Get("frame")}
 }
 
@@ -454,7 +454,7 @@ func (self *RetroFont) SetFrameA(member *Rectangle) {
 
 // This is the area of the BaseTexture image to actually copy to the Canvas / WebGL when rendering,
 // irrespective of the actual frame size or placement (which can be influenced by trimmed texture atlases)
-func (self *RetroFont) GetCropA() *Rectangle{
+func (self *RetroFont) Crop() *Rectangle{
     return &Rectangle{self.Object.Get("crop")}
 }
 
@@ -465,7 +465,7 @@ func (self *RetroFont) SetCropA(member *Rectangle) {
 }
 
 // The base texture object that this texture uses
-func (self *RetroFont) GetBaseTextureA() *BaseTexture{
+func (self *RetroFont) BaseTexture() *BaseTexture{
     return &BaseTexture{self.Object.Get("baseTexture")}
 }
 
@@ -475,7 +475,7 @@ func (self *RetroFont) SetBaseTextureA(member *BaseTexture) {
 }
 
 // The renderer this RenderTexture uses. A RenderTexture can only belong to one renderer at the moment if its webGL.
-func (self *RetroFont) GetRendererA() interface{}{
+func (self *RetroFont) Renderer() interface{}{
     return self.Object.Get("renderer")
 }
 
@@ -485,7 +485,7 @@ func (self *RetroFont) SetRendererA(member interface{}) {
 }
 
 // 
-func (self *RetroFont) GetValidA() bool{
+func (self *RetroFont) Valid() bool{
     return self.Object.Get("valid").Bool()
 }
 
@@ -495,7 +495,7 @@ func (self *RetroFont) SetValidA(member bool) {
 }
 
 // Does this Texture have any frame data assigned to it?
-func (self *RetroFont) GetNoFrameA() bool{
+func (self *RetroFont) NoFrame() bool{
     return self.Object.Get("noFrame").Bool()
 }
 
@@ -505,7 +505,7 @@ func (self *RetroFont) SetNoFrameA(member bool) {
 }
 
 // The texture trim data.
-func (self *RetroFont) GetTrimA() *Rectangle{
+func (self *RetroFont) Trim() *Rectangle{
     return &Rectangle{self.Object.Get("trim")}
 }
 
@@ -515,7 +515,7 @@ func (self *RetroFont) SetTrimA(member *Rectangle) {
 }
 
 // Is this a tiling texture? As used by the likes of a TilingSprite.
-func (self *RetroFont) GetIsTilingA() bool{
+func (self *RetroFont) IsTiling() bool{
     return self.Object.Get("isTiling").Bool()
 }
 
@@ -525,7 +525,7 @@ func (self *RetroFont) SetIsTilingA(member bool) {
 }
 
 // This will let a renderer know that a texture has been updated (used mainly for webGL uv updates)
-func (self *RetroFont) GetRequiresUpdateA() bool{
+func (self *RetroFont) RequiresUpdate() bool{
     return self.Object.Get("requiresUpdate").Bool()
 }
 
@@ -535,7 +535,7 @@ func (self *RetroFont) SetRequiresUpdateA(member bool) {
 }
 
 // This will let a renderer know that a tinted parent has updated its texture.
-func (self *RetroFont) GetRequiresReTintA() bool{
+func (self *RetroFont) RequiresReTint() bool{
     return self.Object.Get("requiresReTint").Bool()
 }
 

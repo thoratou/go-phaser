@@ -27,7 +27,7 @@ type PhysicsP2BodyDebug struct {
 // manipulate the sprite in any other way (such as moving it to another Group or bringToTop, etc) then you will
 // need to manually adjust its BodyDebug as well.
 func NewPhysicsP2BodyDebug(game *Game, body *PhysicsP2Body, settings interface{}) *PhysicsP2BodyDebug {
-    return &PhysicsP2BodyDebug{js.Global.Call("Phaser.Physics.P2.BodyDebug", game, body, settings)}
+    return &PhysicsP2BodyDebug{js.Global.Get("Phaser").Get("Physics").Get("P2").Get("BodyDebug").New(game, body, settings)}
 }
 
 // Draws a P2 Body to a Graphics instance for visual debugging.
@@ -38,13 +38,13 @@ func NewPhysicsP2BodyDebug(game *Game, body *PhysicsP2Body, settings interface{}
 // manipulate the sprite in any other way (such as moving it to another Group or bringToTop, etc) then you will
 // need to manually adjust its BodyDebug as well.
 func NewPhysicsP2BodyDebugI(args ...interface{}) *PhysicsP2BodyDebug {
-    return &PhysicsP2BodyDebug{js.Global.Call("Phaser.Physics.P2.BodyDebug", args)}
+    return &PhysicsP2BodyDebug{js.Global.Get("Phaser").Get("Physics").Get("P2").Get("BodyDebug").New(args)}
 }
 
 
 
 // Pixels per Length Unit.
-func (self *PhysicsP2BodyDebug) GetPpuA() int{
+func (self *PhysicsP2BodyDebug) Ppu() int{
     return self.Object.Get("ppu").Int()
 }
 
@@ -54,7 +54,7 @@ func (self *PhysicsP2BodyDebug) SetPpuA(member int) {
 }
 
 // The P2 Body to display debug data for.
-func (self *PhysicsP2BodyDebug) GetBodyA() *PhysicsP2Body{
+func (self *PhysicsP2BodyDebug) Body() *PhysicsP2Body{
     return &PhysicsP2Body{self.Object.Get("body")}
 }
 
@@ -64,7 +64,7 @@ func (self *PhysicsP2BodyDebug) SetBodyA(member *PhysicsP2Body) {
 }
 
 // The canvas to render the debug info to.
-func (self *PhysicsP2BodyDebug) GetCanvasA() *Graphics{
+func (self *PhysicsP2BodyDebug) Canvas() *Graphics{
     return &Graphics{self.Object.Get("canvas")}
 }
 
@@ -74,7 +74,7 @@ func (self *PhysicsP2BodyDebug) SetCanvasA(member *Graphics) {
 }
 
 // A reference to the currently running Game.
-func (self *PhysicsP2BodyDebug) GetGameA() *Game{
+func (self *PhysicsP2BodyDebug) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -84,7 +84,7 @@ func (self *PhysicsP2BodyDebug) SetGameA(member *Game) {
 }
 
 // A name for this group. Not used internally but useful for debugging.
-func (self *PhysicsP2BodyDebug) GetNameA() string{
+func (self *PhysicsP2BodyDebug) Name() string{
     return self.Object.Get("name").String()
 }
 
@@ -95,7 +95,7 @@ func (self *PhysicsP2BodyDebug) SetNameA(member string) {
 
 // The z-depth value of this object within its parent container/Group - the World is a Group as well.
 // This value must be unique for each child in a Group.
-func (self *PhysicsP2BodyDebug) GetZA() int{
+func (self *PhysicsP2BodyDebug) Z() int{
     return self.Object.Get("z").Int()
 }
 
@@ -106,7 +106,7 @@ func (self *PhysicsP2BodyDebug) SetZA(member int) {
 }
 
 // Internal Phaser Type value.
-func (self *PhysicsP2BodyDebug) GetTypeA() int{
+func (self *PhysicsP2BodyDebug) Type() int{
     return self.Object.Get("type").Int()
 }
 
@@ -116,7 +116,7 @@ func (self *PhysicsP2BodyDebug) SetTypeA(member int) {
 }
 
 // The const physics body type of this object.
-func (self *PhysicsP2BodyDebug) GetPhysicsTypeA() int{
+func (self *PhysicsP2BodyDebug) PhysicsType() int{
     return self.Object.Get("physicsType").Int()
 }
 
@@ -126,7 +126,7 @@ func (self *PhysicsP2BodyDebug) SetPhysicsTypeA(member int) {
 }
 
 // The alive property is useful for Groups that are children of other Groups and need to be included/excluded in checks like forEachAlive.
-func (self *PhysicsP2BodyDebug) GetAliveA() bool{
+func (self *PhysicsP2BodyDebug) Alive() bool{
     return self.Object.Get("alive").Bool()
 }
 
@@ -136,7 +136,7 @@ func (self *PhysicsP2BodyDebug) SetAliveA(member bool) {
 }
 
 // If exists is true the group is updated, otherwise it is skipped.
-func (self *PhysicsP2BodyDebug) GetExistsA() bool{
+func (self *PhysicsP2BodyDebug) Exists() bool{
     return self.Object.Get("exists").Bool()
 }
 
@@ -146,7 +146,7 @@ func (self *PhysicsP2BodyDebug) SetExistsA(member bool) {
 }
 
 // A group with `ignoreDestroy` set to `true` ignores all calls to its `destroy` method.
-func (self *PhysicsP2BodyDebug) GetIgnoreDestroyA() bool{
+func (self *PhysicsP2BodyDebug) IgnoreDestroy() bool{
     return self.Object.Get("ignoreDestroy").Bool()
 }
 
@@ -161,7 +161,7 @@ func (self *PhysicsP2BodyDebug) SetIgnoreDestroyA(member bool) {
 // 
 // This is extremely useful if you wish to destroy a Group from within one of its own callbacks
 // or a callback of one of its children.
-func (self *PhysicsP2BodyDebug) GetPendingDestroyA() bool{
+func (self *PhysicsP2BodyDebug) PendingDestroy() bool{
     return self.Object.Get("pendingDestroy").Bool()
 }
 
@@ -179,7 +179,7 @@ func (self *PhysicsP2BodyDebug) SetPendingDestroyA(member bool) {
 // 
 // Any object may be used but it should extend either Sprite or Image and accept the same constructor arguments:
 // when a new object is created it is passed the following parameters to its constructor: `(game, x, y, key, frame)`.
-func (self *PhysicsP2BodyDebug) GetClassTypeA() interface{}{
+func (self *PhysicsP2BodyDebug) ClassType() interface{}{
     return self.Object.Get("classType")
 }
 
@@ -194,7 +194,7 @@ func (self *PhysicsP2BodyDebug) SetClassTypeA(member interface{}) {
 // The current display object that the group cursor is pointing to, if any. (Can be set manually.)
 // 
 // The cursor is a way to iterate through the children in a Group using {@link Phaser.Group#next next} and {@link Phaser.Group#previous previous}.
-func (self *PhysicsP2BodyDebug) GetCursorA() *DisplayObject{
+func (self *PhysicsP2BodyDebug) Cursor() *DisplayObject{
     return &DisplayObject{self.Object.Get("cursor")}
 }
 
@@ -209,7 +209,7 @@ func (self *PhysicsP2BodyDebug) SetCursorA(member *DisplayObject) {
 // on any children _added_ to, or _created by_, this Group.
 // 
 // If there are children already in the Group at the time you set this property, they are not changed.
-func (self *PhysicsP2BodyDebug) GetInputEnableChildrenA() bool{
+func (self *PhysicsP2BodyDebug) InputEnableChildren() bool{
     return self.Object.Get("inputEnableChildren").Bool()
 }
 
@@ -227,7 +227,7 @@ func (self *PhysicsP2BodyDebug) SetInputEnableChildrenA(member bool) {
 // 
 // This Signal is sent 2 arguments: A reference to the Sprite that triggered the signal, and
 // a reference to the Pointer that caused it.
-func (self *PhysicsP2BodyDebug) GetOnChildInputDownA() *Signal{
+func (self *PhysicsP2BodyDebug) OnChildInputDown() *Signal{
     return &Signal{self.Object.Get("onChildInputDown")}
 }
 
@@ -248,7 +248,7 @@ func (self *PhysicsP2BodyDebug) SetOnChildInputDownA(member *Signal) {
 // This Signal is sent 3 arguments: A reference to the Sprite that triggered the signal, 
 // a reference to the Pointer that caused it, and a boolean value `isOver` that tells you if the Pointer
 // is still over the Sprite or not.
-func (self *PhysicsP2BodyDebug) GetOnChildInputUpA() *Signal{
+func (self *PhysicsP2BodyDebug) OnChildInputUp() *Signal{
     return &Signal{self.Object.Get("onChildInputUp")}
 }
 
@@ -269,7 +269,7 @@ func (self *PhysicsP2BodyDebug) SetOnChildInputUpA(member *Signal) {
 // 
 // This Signal is sent 2 arguments: A reference to the Sprite that triggered the signal, and
 // a reference to the Pointer that caused it.
-func (self *PhysicsP2BodyDebug) GetOnChildInputOverA() *Signal{
+func (self *PhysicsP2BodyDebug) OnChildInputOver() *Signal{
     return &Signal{self.Object.Get("onChildInputOver")}
 }
 
@@ -289,7 +289,7 @@ func (self *PhysicsP2BodyDebug) SetOnChildInputOverA(member *Signal) {
 // 
 // This Signal is sent 2 arguments: A reference to the Sprite that triggered the signal, and
 // a reference to the Pointer that caused it.
-func (self *PhysicsP2BodyDebug) GetOnChildInputOutA() *Signal{
+func (self *PhysicsP2BodyDebug) OnChildInputOut() *Signal{
     return &Signal{self.Object.Get("onChildInputOut")}
 }
 
@@ -308,7 +308,7 @@ func (self *PhysicsP2BodyDebug) SetOnChildInputOutA(member *Signal) {
 // If there are children already in the Group at the time you set this property, they are not changed.
 // 
 // The default body type is controlled with {@link Phaser.Group#physicsBodyType physicsBodyType}.
-func (self *PhysicsP2BodyDebug) GetEnableBodyA() bool{
+func (self *PhysicsP2BodyDebug) EnableBody() bool{
     return self.Object.Get("enableBody").Bool()
 }
 
@@ -324,7 +324,7 @@ func (self *PhysicsP2BodyDebug) SetEnableBodyA(member bool) {
 // If true when a physics body is created (via {@link Phaser.Group#enableBody enableBody}) it will create a physics debug object as well.
 // 
 // This only works for P2 bodies.
-func (self *PhysicsP2BodyDebug) GetEnableBodyDebugA() bool{
+func (self *PhysicsP2BodyDebug) EnableBodyDebug() bool{
     return self.Object.Get("enableBodyDebug").Bool()
 }
 
@@ -338,7 +338,7 @@ func (self *PhysicsP2BodyDebug) SetEnableBodyDebugA(member bool) {
 // If {@link Phaser.Group#enableBody enableBody} is true this is the type of physics body that is created on new Sprites.
 // 
 // The valid values are {@link Phaser.Physics.ARCADE}, {@link Phaser.Physics.P2JS}, {@link Phaser.Physics.NINJA}, etc.
-func (self *PhysicsP2BodyDebug) GetPhysicsBodyTypeA() int{
+func (self *PhysicsP2BodyDebug) PhysicsBodyType() int{
     return self.Object.Get("physicsBodyType").Int()
 }
 
@@ -360,7 +360,7 @@ func (self *PhysicsP2BodyDebug) SetPhysicsBodyTypeA(member int) {
 // Phaser.Physics.Arcade.BOTTOM_TOP
 // 
 // If set to `null` the Group will use whatever Phaser.Physics.Arcade.sortDirection is set to. This is the default behavior.
-func (self *PhysicsP2BodyDebug) GetPhysicsSortDirectionA() int{
+func (self *PhysicsP2BodyDebug) PhysicsSortDirection() int{
     return self.Object.Get("physicsSortDirection").Int()
 }
 
@@ -380,7 +380,7 @@ func (self *PhysicsP2BodyDebug) SetPhysicsSortDirectionA(member int) {
 }
 
 // This signal is dispatched when the group is destroyed.
-func (self *PhysicsP2BodyDebug) GetOnDestroyA() *Signal{
+func (self *PhysicsP2BodyDebug) OnDestroy() *Signal{
     return &Signal{self.Object.Get("onDestroy")}
 }
 
@@ -390,7 +390,7 @@ func (self *PhysicsP2BodyDebug) SetOnDestroyA(member *Signal) {
 }
 
 // The current index of the Group cursor. Advance it with Group.next.
-func (self *PhysicsP2BodyDebug) GetCursorIndexA() int{
+func (self *PhysicsP2BodyDebug) CursorIndex() int{
     return self.Object.Get("cursorIndex").Int()
 }
 
@@ -403,7 +403,7 @@ func (self *PhysicsP2BodyDebug) SetCursorIndexA(member int) {
 // 
 // Note that the cameraOffset values are in addition to any parent in the display list.
 // So if this Group was in a Group that has x: 200, then this will be added to the cameraOffset.x
-func (self *PhysicsP2BodyDebug) GetFixedToCameraA() bool{
+func (self *PhysicsP2BodyDebug) FixedToCamera() bool{
     return self.Object.Get("fixedToCamera").Bool()
 }
 
@@ -417,7 +417,7 @@ func (self *PhysicsP2BodyDebug) SetFixedToCameraA(member bool) {
 
 // If this object is {@link Phaser.Group#fixedToCamera fixedToCamera} then this stores the x/y position offset relative to the top-left of the camera view.
 // If the parent of this Group is also `fixedToCamera` then the offset here is in addition to that and should typically be disabled.
-func (self *PhysicsP2BodyDebug) GetCameraOffsetA() *Point{
+func (self *PhysicsP2BodyDebug) CameraOffset() *Point{
     return &Point{self.Object.Get("cameraOffset")}
 }
 
@@ -434,12 +434,12 @@ func (self *PhysicsP2BodyDebug) SetCameraOffsetA(member *Point) {
 // This hash is used automatically by Phaser Arcade Physics in order to perform non z-index based destructive sorting.
 // However if you don't use Arcade Physics, or this isn't a physics enabled Group, then you can use the hash to perform your own
 // sorting and filtering of Group children without touching their z-index (and therefore display draw order)
-func (self *PhysicsP2BodyDebug) GetHashA() []interface{}{
+func (self *PhysicsP2BodyDebug) Hash() []interface{}{
 	array00 := self.Object.Get("hash")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -456,7 +456,7 @@ func (self *PhysicsP2BodyDebug) SetHashA(member []interface{}) {
 }
 
 // Total number of existing children in the group.
-func (self *PhysicsP2BodyDebug) GetTotalA() int{
+func (self *PhysicsP2BodyDebug) Total() int{
     return self.Object.Get("total").Int()
 }
 
@@ -466,7 +466,7 @@ func (self *PhysicsP2BodyDebug) SetTotalA(member int) {
 }
 
 // Total number of children in this group, regardless of exists/alive status.
-func (self *PhysicsP2BodyDebug) GetLengthA() int{
+func (self *PhysicsP2BodyDebug) Length() int{
     return self.Object.Get("length").Int()
 }
 
@@ -481,7 +481,7 @@ func (self *PhysicsP2BodyDebug) SetLengthA(member int) {
 // 
 // This has no impact on the rotation/angle properties of the children, but it will update their worldTransform
 // and on-screen orientation and position.
-func (self *PhysicsP2BodyDebug) GetAngleA() int{
+func (self *PhysicsP2BodyDebug) Angle() int{
     return self.Object.Get("angle").Int()
 }
 
@@ -504,7 +504,7 @@ func (self *PhysicsP2BodyDebug) SetAngleA(member int) {
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *PhysicsP2BodyDebug) GetCenterXA() int{
+func (self *PhysicsP2BodyDebug) CenterX() int{
     return self.Object.Get("centerX").Int()
 }
 
@@ -530,7 +530,7 @@ func (self *PhysicsP2BodyDebug) SetCenterXA(member int) {
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *PhysicsP2BodyDebug) GetCenterYA() int{
+func (self *PhysicsP2BodyDebug) CenterY() int{
     return self.Object.Get("centerY").Int()
 }
 
@@ -556,7 +556,7 @@ func (self *PhysicsP2BodyDebug) SetCenterYA(member int) {
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *PhysicsP2BodyDebug) GetLeftA() int{
+func (self *PhysicsP2BodyDebug) Left() int{
     return self.Object.Get("left").Int()
 }
 
@@ -582,7 +582,7 @@ func (self *PhysicsP2BodyDebug) SetLeftA(member int) {
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *PhysicsP2BodyDebug) GetRightA() int{
+func (self *PhysicsP2BodyDebug) Right() int{
     return self.Object.Get("right").Int()
 }
 
@@ -608,7 +608,7 @@ func (self *PhysicsP2BodyDebug) SetRightA(member int) {
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *PhysicsP2BodyDebug) GetTopA() int{
+func (self *PhysicsP2BodyDebug) Top() int{
     return self.Object.Get("top").Int()
 }
 
@@ -634,7 +634,7 @@ func (self *PhysicsP2BodyDebug) SetTopA(member int) {
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *PhysicsP2BodyDebug) GetBottomA() int{
+func (self *PhysicsP2BodyDebug) Bottom() int{
     return self.Object.Get("bottom").Int()
 }
 
@@ -655,7 +655,7 @@ func (self *PhysicsP2BodyDebug) SetBottomA(member int) {
 // 
 // You can adjust the group container itself by modifying its coordinates.
 // This will have no impact on the x/y coordinates of its children, but it will update their worldTransform and on-screen position.
-func (self *PhysicsP2BodyDebug) GetXA() int{
+func (self *PhysicsP2BodyDebug) X() int{
     return self.Object.Get("x").Int()
 }
 
@@ -671,7 +671,7 @@ func (self *PhysicsP2BodyDebug) SetXA(member int) {
 // 
 // You can adjust the group container itself by modifying its coordinates.
 // This will have no impact on the x/y coordinates of its children, but it will update their worldTransform and on-screen position.
-func (self *PhysicsP2BodyDebug) GetYA() int{
+func (self *PhysicsP2BodyDebug) Y() int{
     return self.Object.Get("y").Int()
 }
 
@@ -687,7 +687,7 @@ func (self *PhysicsP2BodyDebug) SetYA(member int) {
 // 
 // This will adjust the group container itself by modifying its rotation.
 // This will have no impact on the rotation value of its children, but it will update their worldTransform and on-screen position.
-func (self *PhysicsP2BodyDebug) GetRotationA() int{
+func (self *PhysicsP2BodyDebug) Rotation() int{
     return self.Object.Get("rotation").Int()
 }
 
@@ -700,7 +700,7 @@ func (self *PhysicsP2BodyDebug) SetRotationA(member int) {
 }
 
 // The visible state of the group. Non-visible Groups and all of their children are not rendered.
-func (self *PhysicsP2BodyDebug) GetVisibleA() bool{
+func (self *PhysicsP2BodyDebug) Visible() bool{
     return self.Object.Get("visible").Bool()
 }
 
@@ -710,7 +710,7 @@ func (self *PhysicsP2BodyDebug) SetVisibleA(member bool) {
 }
 
 // The alpha value of the group container.
-func (self *PhysicsP2BodyDebug) GetAlphaA() int{
+func (self *PhysicsP2BodyDebug) Alpha() int{
     return self.Object.Get("alpha").Int()
 }
 
@@ -720,7 +720,7 @@ func (self *PhysicsP2BodyDebug) SetAlphaA(member int) {
 }
 
 // [read-only] The array of children of this container.
-func (self *PhysicsP2BodyDebug) GetChildrenA() []DisplayObject{
+func (self *PhysicsP2BodyDebug) Children() []DisplayObject{
 	array00 := self.Object.Get("children")
 	length00 := array00.Length()
 	out00 := make([]DisplayObject, length00, length00)
@@ -740,7 +740,7 @@ func (self *PhysicsP2BodyDebug) SetChildrenA(member []DisplayObject) {
 // If this property is `true` then the children will _not_ be considered as valid for Input events.
 // 
 // Note that this property isn't recursive: only immediate children are influenced, it doesn't scan further down.
-func (self *PhysicsP2BodyDebug) GetIgnoreChildInputA() bool{
+func (self *PhysicsP2BodyDebug) IgnoreChildInput() bool{
     return self.Object.Get("ignoreChildInput").Bool()
 }
 
@@ -754,7 +754,7 @@ func (self *PhysicsP2BodyDebug) SetIgnoreChildInputA(member bool) {
 }
 
 // The width of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *PhysicsP2BodyDebug) GetWidthA() int{
+func (self *PhysicsP2BodyDebug) Width() int{
     return self.Object.Get("width").Int()
 }
 
@@ -764,7 +764,7 @@ func (self *PhysicsP2BodyDebug) SetWidthA(member int) {
 }
 
 // The height of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *PhysicsP2BodyDebug) GetHeightA() int{
+func (self *PhysicsP2BodyDebug) Height() int{
     return self.Object.Get("height").Int()
 }
 
@@ -1226,7 +1226,7 @@ func (self *PhysicsP2BodyDebug) CreateMultiple(quantity int, key interface{}) []
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -1274,7 +1274,7 @@ func (self *PhysicsP2BodyDebug) CreateMultiple1O(quantity int, key interface{}, 
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -1322,7 +1322,7 @@ func (self *PhysicsP2BodyDebug) CreateMultiple2O(quantity int, key interface{}, 
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -1370,7 +1370,7 @@ func (self *PhysicsP2BodyDebug) CreateMultipleI(args ...interface{}) []interface
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -2148,7 +2148,7 @@ func (self *PhysicsP2BodyDebug) PostUpdateI(args ...interface{}) {
 //     healthyList.callAll('attack');
 // 
 // Note: Currently this will skip any children which are Groups themselves.
-func (self *PhysicsP2BodyDebug) Filter(predicate func(...interface{})) *ArraySet{
+func (self *PhysicsP2BodyDebug) Filter(predicate interface{}) *ArraySet{
     return &ArraySet{self.Object.Call("filter", predicate)}
 }
 
@@ -2162,7 +2162,7 @@ func (self *PhysicsP2BodyDebug) Filter(predicate func(...interface{})) *ArraySet
 //     healthyList.callAll('attack');
 // 
 // Note: Currently this will skip any children which are Groups themselves.
-func (self *PhysicsP2BodyDebug) Filter1O(predicate func(...interface{}), checkExists bool) *ArraySet{
+func (self *PhysicsP2BodyDebug) Filter1O(predicate interface{}, checkExists bool) *ArraySet{
     return &ArraySet{self.Object.Call("filter", predicate, checkExists)}
 }
 
@@ -2189,7 +2189,7 @@ func (self *PhysicsP2BodyDebug) FilterI(args ...interface{}) *ArraySet{
 // would invoke `awardBonusGold` function with the parameters `(child, 100, 500)`.
 // 
 // Note: This check will skip any children which are Groups themselves.
-func (self *PhysicsP2BodyDebug) ForEach(callback func(...interface{}), callbackContext interface{}) {
+func (self *PhysicsP2BodyDebug) ForEach(callback interface{}, callbackContext interface{}) {
     self.Object.Call("forEach", callback, callbackContext)
 }
 
@@ -2202,7 +2202,7 @@ func (self *PhysicsP2BodyDebug) ForEach(callback func(...interface{}), callbackC
 // would invoke `awardBonusGold` function with the parameters `(child, 100, 500)`.
 // 
 // Note: This check will skip any children which are Groups themselves.
-func (self *PhysicsP2BodyDebug) ForEach1O(callback func(...interface{}), callbackContext interface{}, checkExists bool) {
+func (self *PhysicsP2BodyDebug) ForEach1O(callback interface{}, callbackContext interface{}, checkExists bool) {
     self.Object.Call("forEach", callback, callbackContext, checkExists)
 }
 
@@ -2215,7 +2215,7 @@ func (self *PhysicsP2BodyDebug) ForEach1O(callback func(...interface{}), callbac
 // would invoke `awardBonusGold` function with the parameters `(child, 100, 500)`.
 // 
 // Note: This check will skip any children which are Groups themselves.
-func (self *PhysicsP2BodyDebug) ForEach2O(callback func(...interface{}), callbackContext interface{}, checkExists bool, args interface{}) {
+func (self *PhysicsP2BodyDebug) ForEach2O(callback interface{}, callbackContext interface{}, checkExists bool, args interface{}) {
     self.Object.Call("forEach", callback, callbackContext, checkExists, args)
 }
 
@@ -2235,14 +2235,14 @@ func (self *PhysicsP2BodyDebug) ForEachI(args ...interface{}) {
 // Call a function on each existing child in this group.
 // 
 // See {@link Phaser.Group#forEach forEach} for details.
-func (self *PhysicsP2BodyDebug) ForEachExists(callback func(...interface{}), callbackContext interface{}) {
+func (self *PhysicsP2BodyDebug) ForEachExists(callback interface{}, callbackContext interface{}) {
     self.Object.Call("forEachExists", callback, callbackContext)
 }
 
 // Call a function on each existing child in this group.
 // 
 // See {@link Phaser.Group#forEach forEach} for details.
-func (self *PhysicsP2BodyDebug) ForEachExists1O(callback func(...interface{}), callbackContext interface{}, args interface{}) {
+func (self *PhysicsP2BodyDebug) ForEachExists1O(callback interface{}, callbackContext interface{}, args interface{}) {
     self.Object.Call("forEachExists", callback, callbackContext, args)
 }
 
@@ -2256,14 +2256,14 @@ func (self *PhysicsP2BodyDebug) ForEachExistsI(args ...interface{}) {
 // Call a function on each alive child in this group.
 // 
 // See {@link Phaser.Group#forEach forEach} for details.
-func (self *PhysicsP2BodyDebug) ForEachAlive(callback func(...interface{}), callbackContext interface{}) {
+func (self *PhysicsP2BodyDebug) ForEachAlive(callback interface{}, callbackContext interface{}) {
     self.Object.Call("forEachAlive", callback, callbackContext)
 }
 
 // Call a function on each alive child in this group.
 // 
 // See {@link Phaser.Group#forEach forEach} for details.
-func (self *PhysicsP2BodyDebug) ForEachAlive1O(callback func(...interface{}), callbackContext interface{}, args interface{}) {
+func (self *PhysicsP2BodyDebug) ForEachAlive1O(callback interface{}, callbackContext interface{}, args interface{}) {
     self.Object.Call("forEachAlive", callback, callbackContext, args)
 }
 
@@ -2277,14 +2277,14 @@ func (self *PhysicsP2BodyDebug) ForEachAliveI(args ...interface{}) {
 // Call a function on each dead child in this group.
 // 
 // See {@link Phaser.Group#forEach forEach} for details.
-func (self *PhysicsP2BodyDebug) ForEachDead(callback func(...interface{}), callbackContext interface{}) {
+func (self *PhysicsP2BodyDebug) ForEachDead(callback interface{}, callbackContext interface{}) {
     self.Object.Call("forEachDead", callback, callbackContext)
 }
 
 // Call a function on each dead child in this group.
 // 
 // See {@link Phaser.Group#forEach forEach} for details.
-func (self *PhysicsP2BodyDebug) ForEachDead1O(callback func(...interface{}), callbackContext interface{}, args interface{}) {
+func (self *PhysicsP2BodyDebug) ForEachDead1O(callback interface{}, callbackContext interface{}, args interface{}) {
     self.Object.Call("forEachDead", callback, callbackContext, args)
 }
 
@@ -2347,7 +2347,7 @@ func (self *PhysicsP2BodyDebug) SortI(args ...interface{}) {
 // 
 // The `sortHandler` is provided the two parameters: the two children involved in the comparison (a and b).
 // It should return -1 if `a > b`, 1 if `a < b` or 0 if `a === b`.
-func (self *PhysicsP2BodyDebug) CustomSort(sortHandler func(...interface{})) {
+func (self *PhysicsP2BodyDebug) CustomSort(sortHandler interface{}) {
     self.Object.Call("customSort", sortHandler)
 }
 
@@ -2355,7 +2355,7 @@ func (self *PhysicsP2BodyDebug) CustomSort(sortHandler func(...interface{})) {
 // 
 // The `sortHandler` is provided the two parameters: the two children involved in the comparison (a and b).
 // It should return -1 if `a > b`, 1 if `a < b` or 0 if `a === b`.
-func (self *PhysicsP2BodyDebug) CustomSort1O(sortHandler func(...interface{}), context interface{}) {
+func (self *PhysicsP2BodyDebug) CustomSort1O(sortHandler interface{}, context interface{}) {
     self.Object.Call("customSort", sortHandler, context)
 }
 
@@ -2425,7 +2425,7 @@ func (self *PhysicsP2BodyDebug) Iterate(key string, value interface{}, returnTyp
 // 
 // If `args` is specified it must be an array. The matched child will be assigned to the first
 // element and the entire array will be applied to the callback function.
-func (self *PhysicsP2BodyDebug) Iterate1O(key string, value interface{}, returnType int, callback func(...interface{})) interface{}{
+func (self *PhysicsP2BodyDebug) Iterate1O(key string, value interface{}, returnType int, callback interface{}) interface{}{
     return self.Object.Call("iterate", key, value, returnType, callback)
 }
 
@@ -2446,7 +2446,7 @@ func (self *PhysicsP2BodyDebug) Iterate1O(key string, value interface{}, returnT
 // 
 // If `args` is specified it must be an array. The matched child will be assigned to the first
 // element and the entire array will be applied to the callback function.
-func (self *PhysicsP2BodyDebug) Iterate2O(key string, value interface{}, returnType int, callback func(...interface{}), callbackContext interface{}) interface{}{
+func (self *PhysicsP2BodyDebug) Iterate2O(key string, value interface{}, returnType int, callback interface{}, callbackContext interface{}) interface{}{
     return self.Object.Call("iterate", key, value, returnType, callback, callbackContext)
 }
 
@@ -2467,7 +2467,7 @@ func (self *PhysicsP2BodyDebug) Iterate2O(key string, value interface{}, returnT
 // 
 // If `args` is specified it must be an array. The matched child will be assigned to the first
 // element and the entire array will be applied to the callback function.
-func (self *PhysicsP2BodyDebug) Iterate3O(key string, value interface{}, returnType int, callback func(...interface{}), callbackContext interface{}, args []interface{}) interface{}{
+func (self *PhysicsP2BodyDebug) Iterate3O(key string, value interface{}, returnType int, callback interface{}, callbackContext interface{}, args []interface{}) interface{}{
     return self.Object.Call("iterate", key, value, returnType, callback, callbackContext, args)
 }
 
@@ -2890,7 +2890,7 @@ func (self *PhysicsP2BodyDebug) GetClosestTo(object interface{}) interface{}{
 // If the child is closer then the previous child, it will be sent to `callback` as the first argument,
 // with the distance as the second. The callback should return `true` if it passes your 
 // filtering criteria, otherwise it should return `false`.
-func (self *PhysicsP2BodyDebug) GetClosestTo1O(object interface{}, callback func(...interface{})) interface{}{
+func (self *PhysicsP2BodyDebug) GetClosestTo1O(object interface{}, callback interface{}) interface{}{
     return self.Object.Call("getClosestTo", object, callback)
 }
 
@@ -2904,7 +2904,7 @@ func (self *PhysicsP2BodyDebug) GetClosestTo1O(object interface{}, callback func
 // If the child is closer then the previous child, it will be sent to `callback` as the first argument,
 // with the distance as the second. The callback should return `true` if it passes your 
 // filtering criteria, otherwise it should return `false`.
-func (self *PhysicsP2BodyDebug) GetClosestTo2O(object interface{}, callback func(...interface{}), callbackContext interface{}) interface{}{
+func (self *PhysicsP2BodyDebug) GetClosestTo2O(object interface{}, callback interface{}, callbackContext interface{}) interface{}{
     return self.Object.Call("getClosestTo", object, callback, callbackContext)
 }
 
@@ -2946,7 +2946,7 @@ func (self *PhysicsP2BodyDebug) GetFurthestFrom(object interface{}) interface{}{
 // If the child is closer then the previous child, it will be sent to `callback` as the first argument,
 // with the distance as the second. The callback should return `true` if it passes your 
 // filtering criteria, otherwise it should return `false`.
-func (self *PhysicsP2BodyDebug) GetFurthestFrom1O(object interface{}, callback func(...interface{})) interface{}{
+func (self *PhysicsP2BodyDebug) GetFurthestFrom1O(object interface{}, callback interface{}) interface{}{
     return self.Object.Call("getFurthestFrom", object, callback)
 }
 
@@ -2960,7 +2960,7 @@ func (self *PhysicsP2BodyDebug) GetFurthestFrom1O(object interface{}, callback f
 // If the child is closer then the previous child, it will be sent to `callback` as the first argument,
 // with the distance as the second. The callback should return `true` if it passes your 
 // filtering criteria, otherwise it should return `false`.
-func (self *PhysicsP2BodyDebug) GetFurthestFrom2O(object interface{}, callback func(...interface{}), callbackContext interface{}) interface{}{
+func (self *PhysicsP2BodyDebug) GetFurthestFrom2O(object interface{}, callback interface{}, callbackContext interface{}) interface{}{
     return self.Object.Call("getFurthestFrom", object, callback, callbackContext)
 }
 

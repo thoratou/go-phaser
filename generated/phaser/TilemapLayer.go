@@ -25,7 +25,7 @@ type TilemapLayer struct {
 // 
 // By default TilemapLayers have fixedToCamera set to `true`. Changing this will break Camera follow and scrolling behavior.
 func NewTilemapLayer(game *Game, tilemap *Tilemap, index int, width int, height int) *TilemapLayer {
-    return &TilemapLayer{js.Global.Call("Phaser.TilemapLayer", game, tilemap, index, width, height)}
+    return &TilemapLayer{js.Global.Get("Phaser").Get("TilemapLayer").New(game, tilemap, index, width, height)}
 }
 
 // A TilemapLayer is a Phaser.Image/Sprite that renders a specific TileLayer of a Tilemap.
@@ -34,13 +34,13 @@ func NewTilemapLayer(game *Game, tilemap *Tilemap, index int, width int, height 
 // 
 // By default TilemapLayers have fixedToCamera set to `true`. Changing this will break Camera follow and scrolling behavior.
 func NewTilemapLayerI(args ...interface{}) *TilemapLayer {
-    return &TilemapLayer{js.Global.Call("Phaser.TilemapLayer", args)}
+    return &TilemapLayer{js.Global.Get("Phaser").Get("TilemapLayer").New(args)}
 }
 
 
 
 // The Tilemap to which this layer is bound.
-func (self *TilemapLayer) GetMapA() *Tilemap{
+func (self *TilemapLayer) Map() *Tilemap{
     return &Tilemap{self.Object.Get("map")}
 }
 
@@ -50,7 +50,7 @@ func (self *TilemapLayer) SetMapA(member *Tilemap) {
 }
 
 // The index of this layer within the Tilemap.
-func (self *TilemapLayer) GetIndexA() int{
+func (self *TilemapLayer) Index() int{
     return self.Object.Get("index").Int()
 }
 
@@ -60,7 +60,7 @@ func (self *TilemapLayer) SetIndexA(member int) {
 }
 
 // The layer object within the Tilemap that this layer represents.
-func (self *TilemapLayer) GetLayerA() interface{}{
+func (self *TilemapLayer) Layer() interface{}{
     return self.Object.Get("layer")
 }
 
@@ -70,7 +70,7 @@ func (self *TilemapLayer) SetLayerA(member interface{}) {
 }
 
 // The canvas to which this TilemapLayer draws.
-func (self *TilemapLayer) GetCanvasA() dom.HTMLCanvasElement{
+func (self *TilemapLayer) Canvas() dom.HTMLCanvasElement{
     return WrapHTMLCanvasElement(self.Object.Get("canvas"))
 }
 
@@ -80,7 +80,7 @@ func (self *TilemapLayer) SetCanvasA(member dom.HTMLCanvasElement) {
 }
 
 // The const type of this object.
-func (self *TilemapLayer) GetTypeA() int{
+func (self *TilemapLayer) Type() int{
     return self.Object.Get("type").Int()
 }
 
@@ -90,7 +90,7 @@ func (self *TilemapLayer) SetTypeA(member int) {
 }
 
 // The const physics body type of this object.
-func (self *TilemapLayer) GetPhysicsTypeA() int{
+func (self *TilemapLayer) PhysicsType() int{
     return self.Object.Get("physicsType").Int()
 }
 
@@ -100,7 +100,7 @@ func (self *TilemapLayer) SetPhysicsTypeA(member int) {
 }
 
 // Settings that control standard (non-diagnostic) rendering.
-func (self *TilemapLayer) GetRenderSettingsA() interface{}{
+func (self *TilemapLayer) RenderSettings() interface{}{
     return self.Object.Get("renderSettings")
 }
 
@@ -110,7 +110,7 @@ func (self *TilemapLayer) SetRenderSettingsA(member interface{}) {
 }
 
 // Enable an additional "debug rendering" pass to display collision information.
-func (self *TilemapLayer) GetDebugA() bool{
+func (self *TilemapLayer) Debug() bool{
     return self.Object.Get("debug").Bool()
 }
 
@@ -120,7 +120,7 @@ func (self *TilemapLayer) SetDebugA(member bool) {
 }
 
 // Controls if the core game loop and physics update this game object or not.
-func (self *TilemapLayer) GetExistsA() bool{
+func (self *TilemapLayer) Exists() bool{
     return self.Object.Get("exists").Bool()
 }
 
@@ -130,7 +130,7 @@ func (self *TilemapLayer) SetExistsA(member bool) {
 }
 
 // Settings used for debugging and diagnostics.
-func (self *TilemapLayer) GetDebugSettingsA() interface{}{
+func (self *TilemapLayer) DebugSettings() interface{}{
     return self.Object.Get("debugSettings")
 }
 
@@ -140,7 +140,7 @@ func (self *TilemapLayer) SetDebugSettingsA(member interface{}) {
 }
 
 // Speed at which this layer scrolls horizontally, relative to the camera (e.g. scrollFactorX of 0.5 scrolls half as quickly as the 'normal' camera-locked layers do).
-func (self *TilemapLayer) GetScrollFactorXA() int{
+func (self *TilemapLayer) ScrollFactorX() int{
     return self.Object.Get("scrollFactorX").Int()
 }
 
@@ -150,7 +150,7 @@ func (self *TilemapLayer) SetScrollFactorXA(member int) {
 }
 
 // Speed at which this layer scrolls vertically, relative to the camera (e.g. scrollFactorY of 0.5 scrolls half as quickly as the 'normal' camera-locked layers do)
-func (self *TilemapLayer) GetScrollFactorYA() int{
+func (self *TilemapLayer) ScrollFactorY() int{
     return self.Object.Get("scrollFactorY").Int()
 }
 
@@ -160,7 +160,7 @@ func (self *TilemapLayer) SetScrollFactorYA(member int) {
 }
 
 // If true tiles will be force rendered, even if such is not believed to be required.
-func (self *TilemapLayer) GetDirtyA() bool{
+func (self *TilemapLayer) Dirty() bool{
     return self.Object.Get("dirty").Bool()
 }
 
@@ -170,7 +170,7 @@ func (self *TilemapLayer) SetDirtyA(member bool) {
 }
 
 // When ray-casting against tiles this is the number of steps it will jump. For larger tile sizes you can increase this to improve performance.
-func (self *TilemapLayer) GetRayStepRateA() int{
+func (self *TilemapLayer) RayStepRate() int{
     return self.Object.Get("rayStepRate").Int()
 }
 
@@ -183,7 +183,7 @@ func (self *TilemapLayer) SetRayStepRateA(member int) {
 // The default is 0,0 this means the texture's origin is the top left
 // Setting than anchor to 0.5,0.5 means the textures origin is centered
 // Setting the anchor to 1,1 would mean the textures origin points will be the bottom right corner
-func (self *TilemapLayer) GetAnchorA() *Point{
+func (self *TilemapLayer) Anchor() *Point{
     return &Point{self.Object.Get("anchor")}
 }
 
@@ -196,7 +196,7 @@ func (self *TilemapLayer) SetAnchorA(member *Point) {
 }
 
 // The texture that the sprite is using
-func (self *TilemapLayer) GetTextureA() *Texture{
+func (self *TilemapLayer) Texture() *Texture{
     return &Texture{self.Object.Get("texture")}
 }
 
@@ -206,7 +206,7 @@ func (self *TilemapLayer) SetTextureA(member *Texture) {
 }
 
 // The tint applied to the sprite. This is a hex value. A value of 0xFFFFFF will remove any tint effect.
-func (self *TilemapLayer) GetTintA() int{
+func (self *TilemapLayer) Tint() int{
     return self.Object.Get("tint").Int()
 }
 
@@ -216,7 +216,7 @@ func (self *TilemapLayer) SetTintA(member int) {
 }
 
 // A canvas that contains the tinted version of the Sprite (in Canvas mode, WebGL doesn't populate this)
-func (self *TilemapLayer) GetTintedTextureA() *Canvas{
+func (self *TilemapLayer) TintedTexture() *Canvas{
     return &Canvas{self.Object.Get("tintedTexture")}
 }
 
@@ -228,7 +228,7 @@ func (self *TilemapLayer) SetTintedTextureA(member *Canvas) {
 // The blend mode to be applied to the sprite. Set to PIXI.blendModes.NORMAL to remove any blend mode.
 // 
 // Warning: You cannot have a blend mode and a filter active on the same Sprite. Doing so will render the sprite invisible.
-func (self *TilemapLayer) GetBlendModeA() int{
+func (self *TilemapLayer) BlendMode() int{
     return self.Object.Get("blendMode").Int()
 }
 
@@ -240,7 +240,7 @@ func (self *TilemapLayer) SetBlendModeA(member int) {
 }
 
 // The shader that will be used to render the texture to the stage. Set to null to remove a current shader.
-func (self *TilemapLayer) GetShaderA() *AbstractFilter{
+func (self *TilemapLayer) Shader() *AbstractFilter{
     return &AbstractFilter{self.Object.Get("shader")}
 }
 
@@ -250,7 +250,7 @@ func (self *TilemapLayer) SetShaderA(member *AbstractFilter) {
 }
 
 // The width of the sprite, setting this will actually modify the scale to achieve the value set
-func (self *TilemapLayer) GetWidthA() int{
+func (self *TilemapLayer) Width() int{
     return self.Object.Get("width").Int()
 }
 
@@ -260,7 +260,7 @@ func (self *TilemapLayer) SetWidthA(member int) {
 }
 
 // The height of the sprite, setting this will actually modify the scale to achieve the value set
-func (self *TilemapLayer) GetHeightA() int{
+func (self *TilemapLayer) Height() int{
     return self.Object.Get("height").Int()
 }
 
@@ -270,7 +270,7 @@ func (self *TilemapLayer) SetHeightA(member int) {
 }
 
 // [read-only] The array of children of this container.
-func (self *TilemapLayer) GetChildrenA() []DisplayObject{
+func (self *TilemapLayer) Children() []DisplayObject{
 	array00 := self.Object.Get("children")
 	length00 := array00.Length()
 	out00 := make([]DisplayObject, length00, length00)
@@ -290,7 +290,7 @@ func (self *TilemapLayer) SetChildrenA(member []DisplayObject) {
 // If this property is `true` then the children will _not_ be considered as valid for Input events.
 // 
 // Note that this property isn't recursive: only immediate children are influenced, it doesn't scan further down.
-func (self *TilemapLayer) GetIgnoreChildInputA() bool{
+func (self *TilemapLayer) IgnoreChildInput() bool{
     return self.Object.Get("ignoreChildInput").Bool()
 }
 
@@ -304,7 +304,7 @@ func (self *TilemapLayer) SetIgnoreChildInputA(member bool) {
 }
 
 // A reference to the currently running Game.
-func (self *TilemapLayer) GetGameA() *Game{
+func (self *TilemapLayer) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -315,7 +315,7 @@ func (self *TilemapLayer) SetGameA(member *Game) {
 
 // A user defined name given to this Game Object.
 // This value isn't ever used internally by Phaser, it is meant as a game level property.
-func (self *TilemapLayer) GetNameA() string{
+func (self *TilemapLayer) Name() string{
     return self.Object.Get("name").String()
 }
 
@@ -329,7 +329,7 @@ func (self *TilemapLayer) SetNameA(member string) {
 // This value isn't ever used internally by Phaser, but may be used by your own code, or
 // by Phaser Plugins, to store data that needs to be associated with the Game Object,
 // without polluting the Game Object directly.
-func (self *TilemapLayer) GetDataA() interface{}{
+func (self *TilemapLayer) Data() interface{}{
     return self.Object.Get("data")
 }
 
@@ -342,7 +342,7 @@ func (self *TilemapLayer) SetDataA(member interface{}) {
 }
 
 // The components this Game Object has installed.
-func (self *TilemapLayer) GetComponentsA() interface{}{
+func (self *TilemapLayer) Components() interface{}{
     return self.Object.Get("components")
 }
 
@@ -355,7 +355,7 @@ func (self *TilemapLayer) SetComponentsA(member interface{}) {
 // No two objects in a Group can have the same z value.
 // This value is adjusted automatically whenever the Group hierarchy changes.
 // If you wish to re-order the layering of a Game Object then see methods like Group.moveUp or Group.bringToTop.
-func (self *TilemapLayer) GetZA() int{
+func (self *TilemapLayer) Z() int{
     return self.Object.Get("z").Int()
 }
 
@@ -369,7 +369,7 @@ func (self *TilemapLayer) SetZA(member int) {
 
 // All Phaser Game Objects have an Events class which contains all of the events that are dispatched when certain things happen to this
 // Game Object, or any of its components.
-func (self *TilemapLayer) GetEventsA() *Events{
+func (self *TilemapLayer) Events() *Events{
     return &Events{self.Object.Get("events")}
 }
 
@@ -381,7 +381,7 @@ func (self *TilemapLayer) SetEventsA(member *Events) {
 
 // If the Game Object is enabled for animation (such as a Phaser.Sprite) this is a reference to its AnimationManager instance.
 // Through it you can create, play, pause and stop animations.
-func (self *TilemapLayer) GetAnimationsA() *AnimationManager{
+func (self *TilemapLayer) Animations() *AnimationManager{
     return &AnimationManager{self.Object.Get("animations")}
 }
 
@@ -396,7 +396,7 @@ func (self *TilemapLayer) SetAnimationsA(member *AnimationManager) {
 // It can also be an instance of a RenderTexture, BitmapData, Video or PIXI.Texture.
 // If a Game Object is created without a key it is automatically assigned the key `__default` which is a 32x32 transparent PNG stored within the Cache.
 // If a Game Object is given a key which doesn't exist in the Image Cache it is re-assigned the key `__missing` which is a 32x32 PNG of a green box with a line through it.
-func (self *TilemapLayer) GetKeyA() interface{}{
+func (self *TilemapLayer) Key() interface{}{
     return self.Object.Get("key")
 }
 
@@ -412,7 +412,7 @@ func (self *TilemapLayer) SetKeyA(member interface{}) {
 // The world coordinates of this Game Object in pixels.
 // Depending on where in the display list this Game Object is placed this value can differ from `position`, 
 // which contains the x/y coordinates relative to the Game Objects parent.
-func (self *TilemapLayer) GetWorldA() *Point{
+func (self *TilemapLayer) World() *Point{
     return &Point{self.Object.Get("world")}
 }
 
@@ -424,7 +424,7 @@ func (self *TilemapLayer) SetWorldA(member *Point) {
 }
 
 // The position the Game Object was located in the previous frame.
-func (self *TilemapLayer) GetPreviousPositionA() *Point{
+func (self *TilemapLayer) PreviousPosition() *Point{
     return &Point{self.Object.Get("previousPosition")}
 }
 
@@ -434,7 +434,7 @@ func (self *TilemapLayer) SetPreviousPositionA(member *Point) {
 }
 
 // The rotation the Game Object was in set to in the previous frame. Value is in radians.
-func (self *TilemapLayer) GetPreviousRotationA() int{
+func (self *TilemapLayer) PreviousRotation() int{
     return self.Object.Get("previousRotation").Int()
 }
 
@@ -445,7 +445,7 @@ func (self *TilemapLayer) SetPreviousRotationA(member int) {
 
 // The render order ID is used internally by the renderer and Input Manager and should not be modified.
 // This property is mostly used internally by the renderers, but is exposed for the use of plugins.
-func (self *TilemapLayer) GetRenderOrderIDA() int{
+func (self *TilemapLayer) RenderOrderID() int{
     return self.Object.Get("renderOrderID").Int()
 }
 
@@ -457,7 +457,7 @@ func (self *TilemapLayer) SetRenderOrderIDA(member int) {
 
 // A Game Object is considered `fresh` if it has just been created or reset and is yet to receive a renderer transform update.
 // This property is mostly used internally by the physics systems, but is exposed for the use of plugins.
-func (self *TilemapLayer) GetFreshA() bool{
+func (self *TilemapLayer) Fresh() bool{
     return self.Object.Get("fresh").Bool()
 }
 
@@ -472,7 +472,7 @@ func (self *TilemapLayer) SetFreshA(member bool) {
 // 
 // This is extremely useful if you wish to destroy an object from within one of its own callbacks 
 // such as with Buttons or other Input events.
-func (self *TilemapLayer) GetPendingDestroyA() bool{
+func (self *TilemapLayer) PendingDestroy() bool{
     return self.Object.Get("pendingDestroy").Bool()
 }
 
@@ -494,7 +494,7 @@ func (self *TilemapLayer) SetPendingDestroyA(member bool) {
 // 
 // If you wish to work in radians instead of degrees you can use the property `rotation` instead. 
 // Working in radians is slightly faster as it doesn't have to perform any calculations.
-func (self *TilemapLayer) GetAngleA() int{
+func (self *TilemapLayer) Angle() int{
     return self.Object.Get("angle").Int()
 }
 
@@ -517,7 +517,7 @@ func (self *TilemapLayer) SetAngleA(member int) {
 // 
 // This is a relatively expensive operation, especially if enabled on hundreds of Game Objects. So enable it only if you know it's required,
 // or you have tested performance and find it acceptable.
-func (self *TilemapLayer) GetAutoCullA() bool{
+func (self *TilemapLayer) AutoCull() bool{
     return self.Object.Get("autoCull").Bool()
 }
 
@@ -533,7 +533,7 @@ func (self *TilemapLayer) SetAutoCullA(member bool) {
 
 // Checks if the Game Objects bounds intersect with the Game Camera bounds.
 // Returns `true` if they do, otherwise `false` if fully outside of the Cameras bounds.
-func (self *TilemapLayer) GetInCameraA() bool{
+func (self *TilemapLayer) InCamera() bool{
     return self.Object.Get("inCamera").Bool()
 }
 
@@ -546,7 +546,7 @@ func (self *TilemapLayer) SetInCameraA(member bool) {
 // The amount the Game Object is visually offset from its x coordinate.
 // This is the same as `width * anchor.x`.
 // It will only be > 0 if anchor.x is not equal to zero.
-func (self *TilemapLayer) GetOffsetXA() int{
+func (self *TilemapLayer) OffsetX() int{
     return self.Object.Get("offsetX").Int()
 }
 
@@ -560,7 +560,7 @@ func (self *TilemapLayer) SetOffsetXA(member int) {
 // The amount the Game Object is visually offset from its y coordinate.
 // This is the same as `height * anchor.y`.
 // It will only be > 0 if anchor.y is not equal to zero.
-func (self *TilemapLayer) GetOffsetYA() int{
+func (self *TilemapLayer) OffsetY() int{
     return self.Object.Get("offsetY").Int()
 }
 
@@ -573,7 +573,7 @@ func (self *TilemapLayer) SetOffsetYA(member int) {
 
 // The center x coordinate of the Game Object.
 // This is the same as `(x - offsetX) + (width / 2)`.
-func (self *TilemapLayer) GetCenterXA() int{
+func (self *TilemapLayer) CenterX() int{
     return self.Object.Get("centerX").Int()
 }
 
@@ -585,7 +585,7 @@ func (self *TilemapLayer) SetCenterXA(member int) {
 
 // The center y coordinate of the Game Object.
 // This is the same as `(y - offsetY) + (height / 2)`.
-func (self *TilemapLayer) GetCenterYA() int{
+func (self *TilemapLayer) CenterY() int{
     return self.Object.Get("centerY").Int()
 }
 
@@ -597,7 +597,7 @@ func (self *TilemapLayer) SetCenterYA(member int) {
 
 // The left coordinate of the Game Object.
 // This is the same as `x - offsetX`.
-func (self *TilemapLayer) GetLeftA() int{
+func (self *TilemapLayer) Left() int{
     return self.Object.Get("left").Int()
 }
 
@@ -609,7 +609,7 @@ func (self *TilemapLayer) SetLeftA(member int) {
 
 // The right coordinate of the Game Object.
 // This is the same as `x + width - offsetX`.
-func (self *TilemapLayer) GetRightA() int{
+func (self *TilemapLayer) Right() int{
     return self.Object.Get("right").Int()
 }
 
@@ -621,7 +621,7 @@ func (self *TilemapLayer) SetRightA(member int) {
 
 // The y coordinate of the Game Object.
 // This is the same as `y - offsetY`.
-func (self *TilemapLayer) GetTopA() int{
+func (self *TilemapLayer) Top() int{
     return self.Object.Get("top").Int()
 }
 
@@ -633,7 +633,7 @@ func (self *TilemapLayer) SetTopA(member int) {
 
 // The sum of the y and height properties.
 // This is the same as `y + height - offsetY`.
-func (self *TilemapLayer) GetBottomA() int{
+func (self *TilemapLayer) Bottom() int{
     return self.Object.Get("bottom").Int()
 }
 
@@ -646,7 +646,7 @@ func (self *TilemapLayer) SetBottomA(member int) {
 // The Rectangle used to crop the texture this Game Object uses.
 // Set this property via `crop`. 
 // If you modify this property directly you must call `updateCrop` in order to have the change take effect.
-func (self *TilemapLayer) GetCropRectA() *Rectangle{
+func (self *TilemapLayer) CropRect() *Rectangle{
     return &Rectangle{self.Object.Get("cropRect")}
 }
 
@@ -660,7 +660,7 @@ func (self *TilemapLayer) SetCropRectA(member *Rectangle) {
 // Returns the delta x value. The difference between world.x now and in the previous frame.
 // 
 // The value will be positive if the Game Object has moved to the right or negative if to the left.
-func (self *TilemapLayer) GetDeltaXA() int{
+func (self *TilemapLayer) DeltaX() int{
     return self.Object.Get("deltaX").Int()
 }
 
@@ -674,7 +674,7 @@ func (self *TilemapLayer) SetDeltaXA(member int) {
 // Returns the delta y value. The difference between world.y now and in the previous frame.
 // 
 // The value will be positive if the Game Object has moved down or negative if up.
-func (self *TilemapLayer) GetDeltaYA() int{
+func (self *TilemapLayer) DeltaY() int{
     return self.Object.Get("deltaY").Int()
 }
 
@@ -686,7 +686,7 @@ func (self *TilemapLayer) SetDeltaYA(member int) {
 }
 
 // Returns the delta z value. The difference between rotation now and in the previous frame. The delta value.
-func (self *TilemapLayer) GetDeltaZA() int{
+func (self *TilemapLayer) DeltaZ() int{
     return self.Object.Get("deltaZ").Int()
 }
 
@@ -697,7 +697,7 @@ func (self *TilemapLayer) SetDeltaZA(member int) {
 
 // As a Game Object runs through its destroy method this flag is set to true, 
 // and can be checked in any sub-systems or plugins it is being destroyed from.
-func (self *TilemapLayer) GetDestroyPhaseA() bool{
+func (self *TilemapLayer) DestroyPhase() bool{
     return self.Object.Get("destroyPhase").Bool()
 }
 
@@ -720,7 +720,7 @@ func (self *TilemapLayer) SetDestroyPhaseA(member bool) {
 // Note that the `cameraOffset` values are in addition to any parent of this Game Object on the display list.
 // 
 // Be careful not to set `fixedToCamera` on Game Objects which are in Groups that already have `fixedToCamera` enabled on them.
-func (self *TilemapLayer) GetFixedToCameraA() bool{
+func (self *TilemapLayer) FixedToCamera() bool{
     return self.Object.Get("fixedToCamera").Bool()
 }
 
@@ -744,7 +744,7 @@ func (self *TilemapLayer) SetFixedToCameraA(member bool) {
 // The x/y coordinate offset applied to the top-left of the camera that this Game Object will be drawn at if `fixedToCamera` is true.
 // 
 // The values are relative to the top-left of the camera view and in addition to any parent of the Game Object on the display list.
-func (self *TilemapLayer) GetCameraOffsetA() *Point{
+func (self *TilemapLayer) CameraOffset() *Point{
     return &Point{self.Object.Get("cameraOffset")}
 }
 
@@ -758,7 +758,7 @@ func (self *TilemapLayer) SetCameraOffsetA(member *Point) {
 // The Game Objects health value. This is a handy property for setting and manipulating health on a Game Object.
 // 
 // It can be used in combination with the `damage` method or modified directly.
-func (self *TilemapLayer) GetHealthA() int{
+func (self *TilemapLayer) Health() int{
     return self.Object.Get("health").Int()
 }
 
@@ -771,7 +771,7 @@ func (self *TilemapLayer) SetHealthA(member int) {
 
 // The Game Objects maximum health value. This works in combination with the `heal` method to ensure
 // the health value never exceeds the maximum.
-func (self *TilemapLayer) GetMaxHealthA() int{
+func (self *TilemapLayer) MaxHealth() int{
     return self.Object.Get("maxHealth").Int()
 }
 
@@ -784,7 +784,7 @@ func (self *TilemapLayer) SetMaxHealthA(member int) {
 // Damages the Game Object. This removes the given amount of health from the `health` property.
 // 
 // If health is taken below or is equal to zero then the `kill` method is called.
-func (self *TilemapLayer) GetDamageA() interface{}{
+func (self *TilemapLayer) Damage() interface{}{
     return self.Object.Get("damage")
 }
 
@@ -797,7 +797,7 @@ func (self *TilemapLayer) SetDamageA(member interface{}) {
 
 // Sets the health property of the Game Object to the given amount.
 // Will never exceed the `maxHealth` value.
-func (self *TilemapLayer) GetSetHealthA() interface{}{
+func (self *TilemapLayer) SetHealth() interface{}{
     return self.Object.Get("setHealth")
 }
 
@@ -808,7 +808,7 @@ func (self *TilemapLayer) SetSetHealthA(member interface{}) {
 }
 
 // Heal the Game Object. This adds the given amount of health to the `health` property.
-func (self *TilemapLayer) GetHealA() interface{}{
+func (self *TilemapLayer) Heal() interface{}{
     return self.Object.Get("heal")
 }
 
@@ -822,7 +822,7 @@ func (self *TilemapLayer) SetHealA(member interface{}) {
 // By default it is disabled. If you wish this Game Object to process input events you should enable it with: `inputEnabled = true`.
 // 
 // After you have done this, this property will be a reference to the Phaser InputHandler.
-func (self *TilemapLayer) GetInputA() interface{}{
+func (self *TilemapLayer) Input() interface{}{
     return self.Object.Get("input")
 }
 
@@ -847,7 +847,7 @@ func (self *TilemapLayer) SetInputA(member interface{}) {
 // If you want to _temporarily_ disable input for a Game Object, then it's better to set
 // `input.enabled = false`, as it won't reset any of the Input Handlers internal properties.
 // You can then toggle this back on as needed.
-func (self *TilemapLayer) GetInputEnabledA() bool{
+func (self *TilemapLayer) InputEnabled() bool{
     return self.Object.Get("inputEnabled").Bool()
 }
 
@@ -879,7 +879,7 @@ func (self *TilemapLayer) SetInputEnabledA(member bool) {
 // 
 // This is a relatively expensive operation, especially if enabled on hundreds of Game Objects. So enable it only if you know it's required,
 // or you have tested performance and find it acceptable.
-func (self *TilemapLayer) GetCheckWorldBoundsA() bool{
+func (self *TilemapLayer) CheckWorldBounds() bool{
     return self.Object.Get("checkWorldBounds").Bool()
 }
 
@@ -900,7 +900,7 @@ func (self *TilemapLayer) SetCheckWorldBoundsA(member bool) {
 }
 
 // If this and the `checkWorldBounds` property are both set to `true` then the `kill` method is called as soon as `inWorld` returns false.
-func (self *TilemapLayer) GetOutOfBoundsKillA() bool{
+func (self *TilemapLayer) OutOfBoundsKill() bool{
     return self.Object.Get("outOfBoundsKill").Bool()
 }
 
@@ -911,7 +911,7 @@ func (self *TilemapLayer) SetOutOfBoundsKillA(member bool) {
 
 // If this and the `autoCull` property are both set to `true`, then the `kill` method
 // is called as soon as the Game Object leaves the camera bounds.
-func (self *TilemapLayer) GetOutOfCameraBoundsKillA() bool{
+func (self *TilemapLayer) OutOfCameraBoundsKill() bool{
     return self.Object.Get("outOfCameraBoundsKill").Bool()
 }
 
@@ -922,7 +922,7 @@ func (self *TilemapLayer) SetOutOfCameraBoundsKillA(member bool) {
 }
 
 // Checks if the Game Objects bounds are within, or intersect at any point with the Game World bounds.
-func (self *TilemapLayer) GetInWorldA() bool{
+func (self *TilemapLayer) InWorld() bool{
     return self.Object.Get("inWorld").Bool()
 }
 
@@ -938,7 +938,7 @@ func (self *TilemapLayer) SetInWorldA(member bool) {
 // 
 // This property is mostly just provided to be used by your game - it doesn't effect rendering or logic updates.
 // However you can use `Group.getFirstAlive` in conjunction with this property for fast object pooling and recycling.
-func (self *TilemapLayer) GetAliveA() bool{
+func (self *TilemapLayer) Alive() bool{
     return self.Object.Get("alive").Bool()
 }
 
@@ -961,7 +961,7 @@ func (self *TilemapLayer) SetAliveA(member bool) {
 // When it reaches zero it will call the `kill` method.
 // 
 // Very handy for particles, bullets, collectibles, or any other short-lived entity.
-func (self *TilemapLayer) GetLifespanA() int{
+func (self *TilemapLayer) Lifespan() int{
     return self.Object.Get("lifespan").Int()
 }
 
@@ -987,7 +987,7 @@ func (self *TilemapLayer) SetLifespanA(member int) {
 // If you are using a texture atlas then you should use the `frameName` property instead.
 // 
 // If you wish to fully replace the texture being used see `loadTexture`.
-func (self *TilemapLayer) GetFrameA() int{
+func (self *TilemapLayer) Frame() int{
     return self.Object.Get("frame").Int()
 }
 
@@ -1015,7 +1015,7 @@ func (self *TilemapLayer) SetFrameA(member int) {
 // If you are using a sprite sheet then you should use the `frame` property instead.
 // 
 // If you wish to fully replace the texture being used see `loadTexture`.
-func (self *TilemapLayer) GetFrameNameA() string{
+func (self *TilemapLayer) FrameName() string{
     return self.Object.Get("frameName").String()
 }
 
@@ -1047,7 +1047,7 @@ func (self *TilemapLayer) SetFrameNameA(member string) {
 // so the physics body is centered on the Game Object.
 // 
 // If you need a different result then adjust or re-create the Body shape offsets manually or reset the anchor after enabling physics.
-func (self *TilemapLayer) GetBodyA() interface{}{
+func (self *TilemapLayer) Body() interface{}{
     return self.Object.Get("body")
 }
 
@@ -1070,7 +1070,7 @@ func (self *TilemapLayer) SetBodyA(member interface{}) {
 }
 
 // The position of the Game Object on the x axis relative to the local coordinates of the parent.
-func (self *TilemapLayer) GetXA() int{
+func (self *TilemapLayer) X() int{
     return self.Object.Get("x").Int()
 }
 
@@ -1080,7 +1080,7 @@ func (self *TilemapLayer) SetXA(member int) {
 }
 
 // The position of the Game Object on the y axis relative to the local coordinates of the parent.
-func (self *TilemapLayer) GetYA() int{
+func (self *TilemapLayer) Y() int{
     return self.Object.Get("y").Int()
 }
 
@@ -1090,12 +1090,17 @@ func (self *TilemapLayer) SetYA(member int) {
 }
 
 // The callback that will apply any scale limiting to the worldTransform.
-func (self *TilemapLayer) SetTransformCallbackA(member func(...interface{})) {
+func (self *TilemapLayer) TransformCallback() interface{}{
+    return self.Object.Get("transformCallback")
+}
+
+// The callback that will apply any scale limiting to the worldTransform.
+func (self *TilemapLayer) SetTransformCallbackA(member interface{}) {
     self.Object.Set("transformCallback", member)
 }
 
 // The context under which `transformCallback` is called.
-func (self *TilemapLayer) GetTransformCallbackContextA() interface{}{
+func (self *TilemapLayer) TransformCallbackContext() interface{}{
     return self.Object.Get("transformCallbackContext")
 }
 
@@ -1109,7 +1114,7 @@ func (self *TilemapLayer) SetTransformCallbackContextA(member interface{}) {
 // It allows you to prevent a parent from scaling this Game Object lower than the given value.
 // 
 // Set it to `null` to remove the limit.
-func (self *TilemapLayer) GetScaleMinA() *Point{
+func (self *TilemapLayer) ScaleMin() *Point{
     return &Point{self.Object.Get("scaleMin")}
 }
 
@@ -1127,7 +1132,7 @@ func (self *TilemapLayer) SetScaleMinA(member *Point) {
 // It allows you to prevent a parent from scaling this Game Object higher than the given value.
 // 
 // Set it to `null` to remove the limit.
-func (self *TilemapLayer) GetScaleMaxA() *Point{
+func (self *TilemapLayer) ScaleMax() *Point{
     return &Point{self.Object.Get("scaleMax")}
 }
 
@@ -1145,7 +1150,7 @@ func (self *TilemapLayer) SetScaleMaxA(member *Point) {
 // It only takes effect if the Game Object is using an image based texture.
 // 
 // Smoothing is enabled by default.
-func (self *TilemapLayer) GetSmoothedA() bool{
+func (self *TilemapLayer) Smoothed() bool{
     return self.Object.Get("smoothed").Bool()
 }
 

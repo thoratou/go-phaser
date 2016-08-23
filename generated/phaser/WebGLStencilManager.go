@@ -15,12 +15,12 @@ type WebGLStencilManager struct {
 
 // 
 func NewWebGLStencilManager() *WebGLStencilManager {
-    return &WebGLStencilManager{js.Global.Call("PIXI.WebGLStencilManager")}
+    return &WebGLStencilManager{js.Global.Get("PIXI").Get("WebGLStencilManager").New()}
 }
 
 // 
 func NewWebGLStencilManagerI(args ...interface{}) *WebGLStencilManager {
-    return &WebGLStencilManager{js.Global.Call("PIXI.WebGLStencilManager", args)}
+    return &WebGLStencilManager{js.Global.Get("PIXI").Get("WebGLStencilManager").New(args)}
 }
 
 

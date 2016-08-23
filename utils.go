@@ -98,9 +98,9 @@ func GoType(str string, typePackage string) string {
 	case "Rectangle-like":
 		return "interface{}"
 	case "function":
-		return "func(...interface{})"
+		return "interface{}"
 	case "Functon":
-		return "func(...interface{})"
+		return "interface{}"
 	case "array":
 		return "[]interface{}"
 	case "Array":

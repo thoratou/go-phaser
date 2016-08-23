@@ -15,18 +15,18 @@ type WebGLShaderManager struct {
 
 // 
 func NewWebGLShaderManager() *WebGLShaderManager {
-    return &WebGLShaderManager{js.Global.Call("PIXI.WebGLShaderManager")}
+    return &WebGLShaderManager{js.Global.Get("PIXI").Get("WebGLShaderManager").New()}
 }
 
 // 
 func NewWebGLShaderManagerI(args ...interface{}) *WebGLShaderManager {
-    return &WebGLShaderManager{js.Global.Call("PIXI.WebGLShaderManager", args)}
+    return &WebGLShaderManager{js.Global.Get("PIXI").Get("WebGLShaderManager").New(args)}
 }
 
 
 
 // 
-func (self *WebGLShaderManager) GetMaxAttibsA() int{
+func (self *WebGLShaderManager) MaxAttibs() int{
     return self.Object.Get("maxAttibs").Int()
 }
 
@@ -36,12 +36,12 @@ func (self *WebGLShaderManager) SetMaxAttibsA(member int) {
 }
 
 // 
-func (self *WebGLShaderManager) GetAttribStateA() []interface{}{
+func (self *WebGLShaderManager) AttribState() []interface{}{
 	array00 := self.Object.Get("attribState")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -52,12 +52,12 @@ func (self *WebGLShaderManager) SetAttribStateA(member []interface{}) {
 }
 
 // 
-func (self *WebGLShaderManager) GetTempAttribStateA() []interface{}{
+func (self *WebGLShaderManager) TempAttribState() []interface{}{
 	array00 := self.Object.Get("tempAttribState")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -68,12 +68,12 @@ func (self *WebGLShaderManager) SetTempAttribStateA(member []interface{}) {
 }
 
 // 
-func (self *WebGLShaderManager) GetStackA() []interface{}{
+func (self *WebGLShaderManager) Stack() []interface{}{
 	array00 := self.Object.Get("stack")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }

@@ -17,49 +17,49 @@ type RoundedRectangle struct {
 // The Rounded Rectangle object is an area defined by its position and has nice rounded corners, 
 // as indicated by its top-left corner point (x, y) and by its width and its height.
 func NewRoundedRectangle() *RoundedRectangle {
-    return &RoundedRectangle{js.Global.Call("Phaser.RoundedRectangle")}
+    return &RoundedRectangle{js.Global.Get("Phaser").Get("RoundedRectangle").New()}
 }
 
 // The Rounded Rectangle object is an area defined by its position and has nice rounded corners, 
 // as indicated by its top-left corner point (x, y) and by its width and its height.
 func NewRoundedRectangle1O(x int) *RoundedRectangle {
-    return &RoundedRectangle{js.Global.Call("Phaser.RoundedRectangle", x)}
+    return &RoundedRectangle{js.Global.Get("Phaser").Get("RoundedRectangle").New(x)}
 }
 
 // The Rounded Rectangle object is an area defined by its position and has nice rounded corners, 
 // as indicated by its top-left corner point (x, y) and by its width and its height.
 func NewRoundedRectangle2O(x int, y int) *RoundedRectangle {
-    return &RoundedRectangle{js.Global.Call("Phaser.RoundedRectangle", x, y)}
+    return &RoundedRectangle{js.Global.Get("Phaser").Get("RoundedRectangle").New(x, y)}
 }
 
 // The Rounded Rectangle object is an area defined by its position and has nice rounded corners, 
 // as indicated by its top-left corner point (x, y) and by its width and its height.
 func NewRoundedRectangle3O(x int, y int, width int) *RoundedRectangle {
-    return &RoundedRectangle{js.Global.Call("Phaser.RoundedRectangle", x, y, width)}
+    return &RoundedRectangle{js.Global.Get("Phaser").Get("RoundedRectangle").New(x, y, width)}
 }
 
 // The Rounded Rectangle object is an area defined by its position and has nice rounded corners, 
 // as indicated by its top-left corner point (x, y) and by its width and its height.
 func NewRoundedRectangle4O(x int, y int, width int, height int) *RoundedRectangle {
-    return &RoundedRectangle{js.Global.Call("Phaser.RoundedRectangle", x, y, width, height)}
+    return &RoundedRectangle{js.Global.Get("Phaser").Get("RoundedRectangle").New(x, y, width, height)}
 }
 
 // The Rounded Rectangle object is an area defined by its position and has nice rounded corners, 
 // as indicated by its top-left corner point (x, y) and by its width and its height.
 func NewRoundedRectangle5O(x int, y int, width int, height int, radius int) *RoundedRectangle {
-    return &RoundedRectangle{js.Global.Call("Phaser.RoundedRectangle", x, y, width, height, radius)}
+    return &RoundedRectangle{js.Global.Get("Phaser").Get("RoundedRectangle").New(x, y, width, height, radius)}
 }
 
 // The Rounded Rectangle object is an area defined by its position and has nice rounded corners, 
 // as indicated by its top-left corner point (x, y) and by its width and its height.
 func NewRoundedRectangleI(args ...interface{}) *RoundedRectangle {
-    return &RoundedRectangle{js.Global.Call("Phaser.RoundedRectangle", args)}
+    return &RoundedRectangle{js.Global.Get("Phaser").Get("RoundedRectangle").New(args)}
 }
 
 
 
 // The x coordinate of the top-left corner of the Rectangle.
-func (self *RoundedRectangle) GetXA() int{
+func (self *RoundedRectangle) X() int{
     return self.Object.Get("x").Int()
 }
 
@@ -69,7 +69,7 @@ func (self *RoundedRectangle) SetXA(member int) {
 }
 
 // The y coordinate of the top-left corner of the Rectangle.
-func (self *RoundedRectangle) GetYA() int{
+func (self *RoundedRectangle) Y() int{
     return self.Object.Get("y").Int()
 }
 
@@ -79,7 +79,7 @@ func (self *RoundedRectangle) SetYA(member int) {
 }
 
 // The width of the Rectangle. This value should never be set to a negative.
-func (self *RoundedRectangle) GetWidthA() int{
+func (self *RoundedRectangle) Width() int{
     return self.Object.Get("width").Int()
 }
 
@@ -89,7 +89,7 @@ func (self *RoundedRectangle) SetWidthA(member int) {
 }
 
 // The height of the Rectangle. This value should never be set to a negative.
-func (self *RoundedRectangle) GetHeightA() int{
+func (self *RoundedRectangle) Height() int{
     return self.Object.Get("height").Int()
 }
 
@@ -99,7 +99,7 @@ func (self *RoundedRectangle) SetHeightA(member int) {
 }
 
 // The radius of the rounded corners.
-func (self *RoundedRectangle) GetRadiusA() int{
+func (self *RoundedRectangle) Radius() int{
     return self.Object.Get("radius").Int()
 }
 
@@ -109,7 +109,7 @@ func (self *RoundedRectangle) SetRadiusA(member int) {
 }
 
 // The const type of this object.
-func (self *RoundedRectangle) GetTypeA() int{
+func (self *RoundedRectangle) Type() int{
     return self.Object.Get("type").Int()
 }
 

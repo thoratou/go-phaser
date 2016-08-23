@@ -17,19 +17,19 @@ type PhysicsArcadeBody struct {
 // The Physics Body is linked to a single Sprite. All physics operations should be performed against the body rather than
 // the Sprite itself. For example you can set the velocity, acceleration, bounce values etc all on the Body.
 func NewPhysicsArcadeBody(sprite *Sprite) *PhysicsArcadeBody {
-    return &PhysicsArcadeBody{js.Global.Call("Phaser.Physics.Arcade.Body", sprite)}
+    return &PhysicsArcadeBody{js.Global.Get("Phaser").Get("Physics").Get("Arcade").Get("Body").New(sprite)}
 }
 
 // The Physics Body is linked to a single Sprite. All physics operations should be performed against the body rather than
 // the Sprite itself. For example you can set the velocity, acceleration, bounce values etc all on the Body.
 func NewPhysicsArcadeBodyI(args ...interface{}) *PhysicsArcadeBody {
-    return &PhysicsArcadeBody{js.Global.Call("Phaser.Physics.Arcade.Body", args)}
+    return &PhysicsArcadeBody{js.Global.Get("Phaser").Get("Physics").Get("Arcade").Get("Body").New(args)}
 }
 
 
 
 // Reference to the parent Sprite.
-func (self *PhysicsArcadeBody) GetSpriteA() *Sprite{
+func (self *PhysicsArcadeBody) Sprite() *Sprite{
     return &Sprite{self.Object.Get("sprite")}
 }
 
@@ -39,7 +39,7 @@ func (self *PhysicsArcadeBody) SetSpriteA(member *Sprite) {
 }
 
 // Local reference to game.
-func (self *PhysicsArcadeBody) GetGameA() *Game{
+func (self *PhysicsArcadeBody) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -49,7 +49,7 @@ func (self *PhysicsArcadeBody) SetGameA(member *Game) {
 }
 
 // The type of physics system this body belongs to.
-func (self *PhysicsArcadeBody) GetTypeA() int{
+func (self *PhysicsArcadeBody) Type() int{
     return self.Object.Get("type").Int()
 }
 
@@ -59,7 +59,7 @@ func (self *PhysicsArcadeBody) SetTypeA(member int) {
 }
 
 // A disabled body won't be checked for any form of collision or overlap or have its pre/post updates run.
-func (self *PhysicsArcadeBody) GetEnableA() bool{
+func (self *PhysicsArcadeBody) Enable() bool{
     return self.Object.Get("enable").Bool()
 }
 
@@ -70,7 +70,7 @@ func (self *PhysicsArcadeBody) SetEnableA(member bool) {
 
 // If `true` this Body is using circular collision detection. If `false` it is using rectangular.
 // Use `Body.setCircle` to control the collision shape this Body uses.
-func (self *PhysicsArcadeBody) GetIsCircleA() bool{
+func (self *PhysicsArcadeBody) IsCircle() bool{
     return self.Object.Get("isCircle").Bool()
 }
 
@@ -83,7 +83,7 @@ func (self *PhysicsArcadeBody) SetIsCircleA(member bool) {
 // The radius of the circular collision shape this Body is using if Body.setCircle has been enabled.
 // If you wish to change the radius then call `setCircle` again with the new value.
 // If you wish to stop the Body using a circle then call `setCircle` with a radius of zero (or undefined).
-func (self *PhysicsArcadeBody) GetRadiusA() int{
+func (self *PhysicsArcadeBody) Radius() int{
     return self.Object.Get("radius").Int()
 }
 
@@ -95,7 +95,7 @@ func (self *PhysicsArcadeBody) SetRadiusA(member int) {
 }
 
 // The offset of the Physics Body from the Sprite x/y position.
-func (self *PhysicsArcadeBody) GetOffsetA() *Point{
+func (self *PhysicsArcadeBody) Offset() *Point{
     return &Point{self.Object.Get("offset")}
 }
 
@@ -105,7 +105,7 @@ func (self *PhysicsArcadeBody) SetOffsetA(member *Point) {
 }
 
 // The position of the physics body.
-func (self *PhysicsArcadeBody) GetPositionA() *Point{
+func (self *PhysicsArcadeBody) Position() *Point{
     return &Point{self.Object.Get("position")}
 }
 
@@ -115,7 +115,7 @@ func (self *PhysicsArcadeBody) SetPositionA(member *Point) {
 }
 
 // The previous position of the physics body.
-func (self *PhysicsArcadeBody) GetPrevA() *Point{
+func (self *PhysicsArcadeBody) Prev() *Point{
     return &Point{self.Object.Get("prev")}
 }
 
@@ -125,7 +125,7 @@ func (self *PhysicsArcadeBody) SetPrevA(member *Point) {
 }
 
 // Allow this Body to be rotated? (via angularVelocity, etc)
-func (self *PhysicsArcadeBody) GetAllowRotationA() bool{
+func (self *PhysicsArcadeBody) AllowRotation() bool{
     return self.Object.Get("allowRotation").Bool()
 }
 
@@ -136,7 +136,7 @@ func (self *PhysicsArcadeBody) SetAllowRotationA(member bool) {
 
 // An Arcade Physics Body can have angularVelocity and angularAcceleration. Please understand that the collision Body
 // itself never rotates, it is always axis-aligned. However these values are passed up to the parent Sprite and updates its rotation.
-func (self *PhysicsArcadeBody) GetRotationA() int{
+func (self *PhysicsArcadeBody) Rotation() int{
     return self.Object.Get("rotation").Int()
 }
 
@@ -147,7 +147,7 @@ func (self *PhysicsArcadeBody) SetRotationA(member int) {
 }
 
 // The previous rotation of the physics body.
-func (self *PhysicsArcadeBody) GetPreRotationA() int{
+func (self *PhysicsArcadeBody) PreRotation() int{
     return self.Object.Get("preRotation").Int()
 }
 
@@ -157,7 +157,7 @@ func (self *PhysicsArcadeBody) SetPreRotationA(member int) {
 }
 
 // The calculated width of the physics body.
-func (self *PhysicsArcadeBody) GetWidthA() int{
+func (self *PhysicsArcadeBody) Width() int{
     return self.Object.Get("width").Int()
 }
 
@@ -167,7 +167,7 @@ func (self *PhysicsArcadeBody) SetWidthA(member int) {
 }
 
 // The calculated height of the physics body.
-func (self *PhysicsArcadeBody) GetHeightA() int{
+func (self *PhysicsArcadeBody) Height() int{
     return self.Object.Get("height").Int()
 }
 
@@ -177,7 +177,7 @@ func (self *PhysicsArcadeBody) SetHeightA(member int) {
 }
 
 // The un-scaled original size.
-func (self *PhysicsArcadeBody) GetSourceWidthA() int{
+func (self *PhysicsArcadeBody) SourceWidth() int{
     return self.Object.Get("sourceWidth").Int()
 }
 
@@ -187,7 +187,7 @@ func (self *PhysicsArcadeBody) SetSourceWidthA(member int) {
 }
 
 // The un-scaled original size.
-func (self *PhysicsArcadeBody) GetSourceHeightA() int{
+func (self *PhysicsArcadeBody) SourceHeight() int{
     return self.Object.Get("sourceHeight").Int()
 }
 
@@ -197,7 +197,7 @@ func (self *PhysicsArcadeBody) SetSourceHeightA(member int) {
 }
 
 // The calculated width / 2 of the physics body.
-func (self *PhysicsArcadeBody) GetHalfWidthA() int{
+func (self *PhysicsArcadeBody) HalfWidth() int{
     return self.Object.Get("halfWidth").Int()
 }
 
@@ -207,7 +207,7 @@ func (self *PhysicsArcadeBody) SetHalfWidthA(member int) {
 }
 
 // The calculated height / 2 of the physics body.
-func (self *PhysicsArcadeBody) GetHalfHeightA() int{
+func (self *PhysicsArcadeBody) HalfHeight() int{
     return self.Object.Get("halfHeight").Int()
 }
 
@@ -217,7 +217,7 @@ func (self *PhysicsArcadeBody) SetHalfHeightA(member int) {
 }
 
 // The center coordinate of the Physics Body.
-func (self *PhysicsArcadeBody) GetCenterA() *Point{
+func (self *PhysicsArcadeBody) Center() *Point{
     return &Point{self.Object.Get("center")}
 }
 
@@ -227,7 +227,7 @@ func (self *PhysicsArcadeBody) SetCenterA(member *Point) {
 }
 
 // The velocity, or rate of change in speed of the Body. Measured in pixels per second.
-func (self *PhysicsArcadeBody) GetVelocityA() *Point{
+func (self *PhysicsArcadeBody) Velocity() *Point{
     return &Point{self.Object.Get("velocity")}
 }
 
@@ -237,7 +237,7 @@ func (self *PhysicsArcadeBody) SetVelocityA(member *Point) {
 }
 
 // The new velocity. Calculated during the Body.preUpdate and applied to its position.
-func (self *PhysicsArcadeBody) GetNewVelocityA() *Point{
+func (self *PhysicsArcadeBody) NewVelocity() *Point{
     return &Point{self.Object.Get("newVelocity")}
 }
 
@@ -247,7 +247,7 @@ func (self *PhysicsArcadeBody) SetNewVelocityA(member *Point) {
 }
 
 // The Sprite position is updated based on the delta x/y values. You can set a cap on those (both +-) using deltaMax.
-func (self *PhysicsArcadeBody) GetDeltaMaxA() *Point{
+func (self *PhysicsArcadeBody) DeltaMax() *Point{
     return &Point{self.Object.Get("deltaMax")}
 }
 
@@ -257,7 +257,7 @@ func (self *PhysicsArcadeBody) SetDeltaMaxA(member *Point) {
 }
 
 // The acceleration is the rate of change of the velocity. Measured in pixels per second squared.
-func (self *PhysicsArcadeBody) GetAccelerationA() *Point{
+func (self *PhysicsArcadeBody) Acceleration() *Point{
     return &Point{self.Object.Get("acceleration")}
 }
 
@@ -267,7 +267,7 @@ func (self *PhysicsArcadeBody) SetAccelerationA(member *Point) {
 }
 
 // The drag applied to the motion of the Body.
-func (self *PhysicsArcadeBody) GetDragA() *Point{
+func (self *PhysicsArcadeBody) Drag() *Point{
     return &Point{self.Object.Get("drag")}
 }
 
@@ -277,7 +277,7 @@ func (self *PhysicsArcadeBody) SetDragA(member *Point) {
 }
 
 // Allow this Body to be influenced by gravity? Either world or local.
-func (self *PhysicsArcadeBody) GetAllowGravityA() bool{
+func (self *PhysicsArcadeBody) AllowGravity() bool{
     return self.Object.Get("allowGravity").Bool()
 }
 
@@ -287,7 +287,7 @@ func (self *PhysicsArcadeBody) SetAllowGravityA(member bool) {
 }
 
 // A local gravity applied to this Body. If non-zero this over rides any world gravity, unless Body.allowGravity is set to false.
-func (self *PhysicsArcadeBody) GetGravityA() *Point{
+func (self *PhysicsArcadeBody) Gravity() *Point{
     return &Point{self.Object.Get("gravity")}
 }
 
@@ -297,7 +297,7 @@ func (self *PhysicsArcadeBody) SetGravityA(member *Point) {
 }
 
 // The elasticity of the Body when colliding. bounce.x/y = 1 means full rebound, bounce.x/y = 0.5 means 50% rebound velocity.
-func (self *PhysicsArcadeBody) GetBounceA() *Point{
+func (self *PhysicsArcadeBody) Bounce() *Point{
     return &Point{self.Object.Get("bounce")}
 }
 
@@ -309,7 +309,7 @@ func (self *PhysicsArcadeBody) SetBounceA(member *Point) {
 // The elasticity of the Body when colliding with the World bounds.
 // By default this property is `null`, in which case `Body.bounce` is used instead. Set this property
 // to a Phaser.Point object in order to enable a World bounds specific bounce value.
-func (self *PhysicsArcadeBody) GetWorldBounceA() *Point{
+func (self *PhysicsArcadeBody) WorldBounce() *Point{
     return &Point{self.Object.Get("worldBounce")}
 }
 
@@ -327,7 +327,7 @@ func (self *PhysicsArcadeBody) SetWorldBounceA(member *Point) {
 // `onWorldBounds(sprite, up, down, left, right)`
 // where the Sprite is a reference to the Sprite that owns this Body, and the other arguments are booleans
 // indicating on which side of the world the Body collided.
-func (self *PhysicsArcadeBody) GetOnWorldBoundsA() *Signal{
+func (self *PhysicsArcadeBody) OnWorldBounds() *Signal{
     return &Signal{self.Object.Get("onWorldBounds")}
 }
 
@@ -357,7 +357,7 @@ func (self *PhysicsArcadeBody) SetOnWorldBoundsA(member *Signal) {
 // The first sprite in the argument is always the owner of this Body.
 // 
 // If two Bodies with this Signal set collide, both will dispatch the Signal.
-func (self *PhysicsArcadeBody) GetOnCollideA() *Signal{
+func (self *PhysicsArcadeBody) OnCollide() *Signal{
     return &Signal{self.Object.Get("onCollide")}
 }
 
@@ -395,7 +395,7 @@ func (self *PhysicsArcadeBody) SetOnCollideA(member *Signal) {
 // The first sprite in the argument is always the owner of this Body.
 // 
 // If two Bodies with this Signal set collide, both will dispatch the Signal.
-func (self *PhysicsArcadeBody) GetOnOverlapA() *Signal{
+func (self *PhysicsArcadeBody) OnOverlap() *Signal{
     return &Signal{self.Object.Get("onOverlap")}
 }
 
@@ -419,7 +419,7 @@ func (self *PhysicsArcadeBody) SetOnOverlapA(member *Signal) {
 }
 
 // The maximum velocity in pixels per second sq. that the Body can reach.
-func (self *PhysicsArcadeBody) GetMaxVelocityA() *Point{
+func (self *PhysicsArcadeBody) MaxVelocity() *Point{
     return &Point{self.Object.Get("maxVelocity")}
 }
 
@@ -429,7 +429,7 @@ func (self *PhysicsArcadeBody) SetMaxVelocityA(member *Point) {
 }
 
 // The amount of movement that will occur if another object 'rides' this one.
-func (self *PhysicsArcadeBody) GetFrictionA() *Point{
+func (self *PhysicsArcadeBody) Friction() *Point{
     return &Point{self.Object.Get("friction")}
 }
 
@@ -439,7 +439,7 @@ func (self *PhysicsArcadeBody) SetFrictionA(member *Point) {
 }
 
 // The angular velocity controls the rotation speed of the Body. It is measured in radians per second.
-func (self *PhysicsArcadeBody) GetAngularVelocityA() int{
+func (self *PhysicsArcadeBody) AngularVelocity() int{
     return self.Object.Get("angularVelocity").Int()
 }
 
@@ -449,7 +449,7 @@ func (self *PhysicsArcadeBody) SetAngularVelocityA(member int) {
 }
 
 // The angular acceleration is the rate of change of the angular velocity. Measured in radians per second squared.
-func (self *PhysicsArcadeBody) GetAngularAccelerationA() int{
+func (self *PhysicsArcadeBody) AngularAcceleration() int{
     return self.Object.Get("angularAcceleration").Int()
 }
 
@@ -459,7 +459,7 @@ func (self *PhysicsArcadeBody) SetAngularAccelerationA(member int) {
 }
 
 // The drag applied during the rotation of the Body.
-func (self *PhysicsArcadeBody) GetAngularDragA() int{
+func (self *PhysicsArcadeBody) AngularDrag() int{
     return self.Object.Get("angularDrag").Int()
 }
 
@@ -469,7 +469,7 @@ func (self *PhysicsArcadeBody) SetAngularDragA(member int) {
 }
 
 // The maximum angular velocity in radians per second that the Body can reach.
-func (self *PhysicsArcadeBody) GetMaxAngularA() int{
+func (self *PhysicsArcadeBody) MaxAngular() int{
     return self.Object.Get("maxAngular").Int()
 }
 
@@ -479,7 +479,7 @@ func (self *PhysicsArcadeBody) SetMaxAngularA(member int) {
 }
 
 // The mass of the Body. When two bodies collide their mass is used in the calculation to determine the exchange of velocity.
-func (self *PhysicsArcadeBody) GetMassA() int{
+func (self *PhysicsArcadeBody) Mass() int{
     return self.Object.Get("mass").Int()
 }
 
@@ -489,7 +489,7 @@ func (self *PhysicsArcadeBody) SetMassA(member int) {
 }
 
 // The angle of the Body in radians, as calculated by its angularVelocity.
-func (self *PhysicsArcadeBody) GetAngleA() int{
+func (self *PhysicsArcadeBody) Angle() int{
     return self.Object.Get("angle").Int()
 }
 
@@ -499,7 +499,7 @@ func (self *PhysicsArcadeBody) SetAngleA(member int) {
 }
 
 // The speed of the Body as calculated by its velocity.
-func (self *PhysicsArcadeBody) GetSpeedA() int{
+func (self *PhysicsArcadeBody) Speed() int{
     return self.Object.Get("speed").Int()
 }
 
@@ -509,7 +509,7 @@ func (self *PhysicsArcadeBody) SetSpeedA(member int) {
 }
 
 // A const reference to the direction the Body is traveling or facing.
-func (self *PhysicsArcadeBody) GetFacingA() int{
+func (self *PhysicsArcadeBody) Facing() int{
     return self.Object.Get("facing").Int()
 }
 
@@ -519,7 +519,7 @@ func (self *PhysicsArcadeBody) SetFacingA(member int) {
 }
 
 // An immovable Body will not receive any impacts from other bodies.
-func (self *PhysicsArcadeBody) GetImmovableA() bool{
+func (self *PhysicsArcadeBody) Immovable() bool{
     return self.Object.Get("immovable").Bool()
 }
 
@@ -531,7 +531,7 @@ func (self *PhysicsArcadeBody) SetImmovableA(member bool) {
 // If you have a Body that is being moved around the world via a tween or a Group motion, but its local x/y position never
 // actually changes, then you should set Body.moves = false. Otherwise it will most likely fly off the screen.
 // If you want the physics system to move the body around, then set moves to true. Set to true to allow the Physics system to move this Body, otherwise false to move it manually.
-func (self *PhysicsArcadeBody) GetMovesA() bool{
+func (self *PhysicsArcadeBody) Moves() bool{
     return self.Object.Get("moves").Bool()
 }
 
@@ -544,7 +544,7 @@ func (self *PhysicsArcadeBody) SetMovesA(member bool) {
 
 // This flag allows you to disable the custom x separation that takes place by Physics.Arcade.separate.
 // Used in combination with your own collision processHandler you can create whatever type of collision response you need. Use a custom separation system or the built-in one?
-func (self *PhysicsArcadeBody) GetCustomSeparateXA() bool{
+func (self *PhysicsArcadeBody) CustomSeparateX() bool{
     return self.Object.Get("customSeparateX").Bool()
 }
 
@@ -556,7 +556,7 @@ func (self *PhysicsArcadeBody) SetCustomSeparateXA(member bool) {
 
 // This flag allows you to disable the custom y separation that takes place by Physics.Arcade.separate.
 // Used in combination with your own collision processHandler you can create whatever type of collision response you need. Use a custom separation system or the built-in one?
-func (self *PhysicsArcadeBody) GetCustomSeparateYA() bool{
+func (self *PhysicsArcadeBody) CustomSeparateY() bool{
     return self.Object.Get("customSeparateY").Bool()
 }
 
@@ -567,7 +567,7 @@ func (self *PhysicsArcadeBody) SetCustomSeparateYA(member bool) {
 }
 
 // When this body collides with another, the amount of overlap is stored here. The amount of horizontal overlap during the collision.
-func (self *PhysicsArcadeBody) GetOverlapXA() int{
+func (self *PhysicsArcadeBody) OverlapX() int{
     return self.Object.Get("overlapX").Int()
 }
 
@@ -577,7 +577,7 @@ func (self *PhysicsArcadeBody) SetOverlapXA(member int) {
 }
 
 // When this body collides with another, the amount of overlap is stored here. The amount of vertical overlap during the collision.
-func (self *PhysicsArcadeBody) GetOverlapYA() int{
+func (self *PhysicsArcadeBody) OverlapY() int{
     return self.Object.Get("overlapY").Int()
 }
 
@@ -587,7 +587,7 @@ func (self *PhysicsArcadeBody) SetOverlapYA(member int) {
 }
 
 // If `Body.isCircle` is true, and this body collides with another circular body, the amount of overlap is stored here. The amount of overlap during the collision.
-func (self *PhysicsArcadeBody) GetOverlapRA() int{
+func (self *PhysicsArcadeBody) OverlapR() int{
     return self.Object.Get("overlapR").Int()
 }
 
@@ -597,7 +597,7 @@ func (self *PhysicsArcadeBody) SetOverlapRA(member int) {
 }
 
 // If a body is overlapping with another body, but neither of them are moving (maybe they spawned on-top of each other?) this is set to true. Body embed value.
-func (self *PhysicsArcadeBody) GetEmbeddedA() bool{
+func (self *PhysicsArcadeBody) Embedded() bool{
     return self.Object.Get("embedded").Bool()
 }
 
@@ -607,7 +607,7 @@ func (self *PhysicsArcadeBody) SetEmbeddedA(member bool) {
 }
 
 // A Body can be set to collide against the World bounds automatically and rebound back into the World if this is set to true. Otherwise it will leave the World. Should the Body collide with the World bounds?
-func (self *PhysicsArcadeBody) GetCollideWorldBoundsA() bool{
+func (self *PhysicsArcadeBody) CollideWorldBounds() bool{
     return self.Object.Get("collideWorldBounds").Bool()
 }
 
@@ -618,7 +618,7 @@ func (self *PhysicsArcadeBody) SetCollideWorldBoundsA(member bool) {
 
 // Set the checkCollision properties to control which directions collision is processed for this Body.
 // For example checkCollision.up = false means it won't collide when the collision happened while moving up. An object containing allowed collision.
-func (self *PhysicsArcadeBody) GetCheckCollisionA() interface{}{
+func (self *PhysicsArcadeBody) CheckCollision() interface{}{
     return self.Object.Get("checkCollision")
 }
 
@@ -630,7 +630,7 @@ func (self *PhysicsArcadeBody) SetCheckCollisionA(member interface{}) {
 
 // This object is populated with boolean values when the Body collides with another.
 // touching.up = true means the collision happened to the top of this Body for example. An object containing touching results.
-func (self *PhysicsArcadeBody) GetTouchingA() interface{}{
+func (self *PhysicsArcadeBody) Touching() interface{}{
     return self.Object.Get("touching")
 }
 
@@ -641,7 +641,7 @@ func (self *PhysicsArcadeBody) SetTouchingA(member interface{}) {
 }
 
 // This object is populated with previous touching values from the bodies previous collision. An object containing previous touching results.
-func (self *PhysicsArcadeBody) GetWasTouchingA() interface{}{
+func (self *PhysicsArcadeBody) WasTouching() interface{}{
     return self.Object.Get("wasTouching")
 }
 
@@ -652,7 +652,7 @@ func (self *PhysicsArcadeBody) SetWasTouchingA(member interface{}) {
 
 // This object is populated with boolean values when the Body collides with the World bounds or a Tile.
 // For example if blocked.up is true then the Body cannot move up. An object containing on which faces this Body is blocked from moving, if any.
-func (self *PhysicsArcadeBody) GetBlockedA() interface{}{
+func (self *PhysicsArcadeBody) Blocked() interface{}{
     return self.Object.Get("blocked")
 }
 
@@ -664,7 +664,7 @@ func (self *PhysicsArcadeBody) SetBlockedA(member interface{}) {
 
 // If this is an especially small or fast moving object then it can sometimes skip over tilemap collisions if it moves through a tile in a step.
 // Set this padding value to add extra padding to its bounds. tilePadding.x applied to its width, y to its height. Extra padding to be added to this sprite's dimensions when checking for tile collision.
-func (self *PhysicsArcadeBody) GetTilePaddingA() *Point{
+func (self *PhysicsArcadeBody) TilePadding() *Point{
     return &Point{self.Object.Get("tilePadding")}
 }
 
@@ -675,7 +675,7 @@ func (self *PhysicsArcadeBody) SetTilePaddingA(member *Point) {
 }
 
 // If this Body in a preUpdate (true) or postUpdate (false) state?
-func (self *PhysicsArcadeBody) GetDirtyA() bool{
+func (self *PhysicsArcadeBody) Dirty() bool{
     return self.Object.Get("dirty").Bool()
 }
 
@@ -685,7 +685,7 @@ func (self *PhysicsArcadeBody) SetDirtyA(member bool) {
 }
 
 // If true and you collide this Sprite against a Group, it will disable the collision check from using a QuadTree.
-func (self *PhysicsArcadeBody) GetSkipQuadTreeA() bool{
+func (self *PhysicsArcadeBody) SkipQuadTree() bool{
     return self.Object.Get("skipQuadTree").Bool()
 }
 
@@ -698,7 +698,7 @@ func (self *PhysicsArcadeBody) SetSkipQuadTreeA(member bool) {
 // If false it will compare its dimensions against the Sprite scale instead, and adjust its width height if the scale has changed.
 // Typically you would need to enable syncBounds if your sprite is the child of a responsive display object such as a FlexLayer, 
 // or in any situation where the Sprite scale doesn't change, but its parents scale is effecting the dimensions regardless.
-func (self *PhysicsArcadeBody) GetSyncBoundsA() bool{
+func (self *PhysicsArcadeBody) SyncBounds() bool{
     return self.Object.Get("syncBounds").Bool()
 }
 
@@ -711,7 +711,7 @@ func (self *PhysicsArcadeBody) SetSyncBoundsA(member bool) {
 }
 
 // Set by the `moveTo` and `moveFrom` methods.
-func (self *PhysicsArcadeBody) GetIsMovingA() bool{
+func (self *PhysicsArcadeBody) IsMoving() bool{
     return self.Object.Get("isMoving").Bool()
 }
 
@@ -721,7 +721,7 @@ func (self *PhysicsArcadeBody) SetIsMovingA(member bool) {
 }
 
 // Set by the `moveTo` and `moveFrom` methods.
-func (self *PhysicsArcadeBody) GetStopVelocityOnCollideA() bool{
+func (self *PhysicsArcadeBody) StopVelocityOnCollide() bool{
     return self.Object.Get("stopVelocityOnCollide").Bool()
 }
 
@@ -731,7 +731,7 @@ func (self *PhysicsArcadeBody) SetStopVelocityOnCollideA(member bool) {
 }
 
 // Listen for the completion of `moveTo` or `moveFrom` events.
-func (self *PhysicsArcadeBody) GetOnMoveCompleteA() *Signal{
+func (self *PhysicsArcadeBody) OnMoveComplete() *Signal{
     return &Signal{self.Object.Get("onMoveComplete")}
 }
 
@@ -741,12 +741,17 @@ func (self *PhysicsArcadeBody) SetOnMoveCompleteA(member *Signal) {
 }
 
 // Optional callback. If set, invoked during the running of `moveTo` or `moveFrom` events.
-func (self *PhysicsArcadeBody) SetMovementCallbackA(member func(...interface{})) {
+func (self *PhysicsArcadeBody) MovementCallback() interface{}{
+    return self.Object.Get("movementCallback")
+}
+
+// Optional callback. If set, invoked during the running of `moveTo` or `moveFrom` events.
+func (self *PhysicsArcadeBody) SetMovementCallbackA(member interface{}) {
     self.Object.Set("movementCallback", member)
 }
 
 // Context in which to call the movementCallback.
-func (self *PhysicsArcadeBody) GetMovementCallbackContextA() interface{}{
+func (self *PhysicsArcadeBody) MovementCallbackContext() interface{}{
     return self.Object.Get("movementCallbackContext")
 }
 
@@ -756,7 +761,7 @@ func (self *PhysicsArcadeBody) SetMovementCallbackContextA(member interface{}) {
 }
 
 // The x position of the Body. The same as `Body.x`.
-func (self *PhysicsArcadeBody) GetLeftA() int{
+func (self *PhysicsArcadeBody) Left() int{
     return self.Object.Get("left").Int()
 }
 
@@ -766,7 +771,7 @@ func (self *PhysicsArcadeBody) SetLeftA(member int) {
 }
 
 // The right value of this Body (same as Body.x + Body.width)
-func (self *PhysicsArcadeBody) GetRightA() int{
+func (self *PhysicsArcadeBody) Right() int{
     return self.Object.Get("right").Int()
 }
 
@@ -776,7 +781,7 @@ func (self *PhysicsArcadeBody) SetRightA(member int) {
 }
 
 // The y position of the Body. The same as `Body.y`.
-func (self *PhysicsArcadeBody) GetTopA() int{
+func (self *PhysicsArcadeBody) Top() int{
     return self.Object.Get("top").Int()
 }
 
@@ -786,7 +791,7 @@ func (self *PhysicsArcadeBody) SetTopA(member int) {
 }
 
 // The bottom value of this Body (same as Body.y + Body.height)
-func (self *PhysicsArcadeBody) GetBottomA() int{
+func (self *PhysicsArcadeBody) Bottom() int{
     return self.Object.Get("bottom").Int()
 }
 
@@ -796,7 +801,7 @@ func (self *PhysicsArcadeBody) SetBottomA(member int) {
 }
 
 // The x position.
-func (self *PhysicsArcadeBody) GetXA() int{
+func (self *PhysicsArcadeBody) X() int{
     return self.Object.Get("x").Int()
 }
 
@@ -806,7 +811,7 @@ func (self *PhysicsArcadeBody) SetXA(member int) {
 }
 
 // The y position.
-func (self *PhysicsArcadeBody) GetYA() int{
+func (self *PhysicsArcadeBody) Y() int{
     return self.Object.Get("y").Int()
 }
 

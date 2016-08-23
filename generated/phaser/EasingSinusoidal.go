@@ -15,12 +15,12 @@ type EasingSinusoidal struct {
 
 // Sinusoidal easing.
 func NewEasingSinusoidal() *EasingSinusoidal {
-    return &EasingSinusoidal{js.Global.Call("Phaser.Easing.Sinusoidal")}
+    return &EasingSinusoidal{js.Global.Get("Phaser").Get("Easing").Get("Sinusoidal").New()}
 }
 
 // Sinusoidal easing.
 func NewEasingSinusoidalI(args ...interface{}) *EasingSinusoidal {
-    return &EasingSinusoidal{js.Global.Call("Phaser.Easing.Sinusoidal", args)}
+    return &EasingSinusoidal{js.Global.Get("Phaser").Get("Easing").Get("Sinusoidal").New(args)}
 }
 
 

@@ -15,12 +15,12 @@ type EasingQuadratic struct {
 
 // Quadratic easing.
 func NewEasingQuadratic() *EasingQuadratic {
-    return &EasingQuadratic{js.Global.Call("Phaser.Easing.Quadratic")}
+    return &EasingQuadratic{js.Global.Get("Phaser").Get("Easing").Get("Quadratic").New()}
 }
 
 // Quadratic easing.
 func NewEasingQuadraticI(args ...interface{}) *EasingQuadratic {
-    return &EasingQuadratic{js.Global.Call("Phaser.Easing.Quadratic", args)}
+    return &EasingQuadratic{js.Global.Get("Phaser").Get("Easing").Get("Quadratic").New(args)}
 }
 
 

@@ -21,55 +21,55 @@ type Tileset struct {
 // 
 // Tilesets are normally created automatically when Tiled data is loaded.
 func NewTileset(name string, firstgid int) *Tileset {
-    return &Tileset{js.Global.Call("Phaser.Tileset", name, firstgid)}
+    return &Tileset{js.Global.Get("Phaser").Get("Tileset").New(name, firstgid)}
 }
 
 // A Tile set is a combination of an image containing the tiles and collision data per tile.
 // 
 // Tilesets are normally created automatically when Tiled data is loaded.
 func NewTileset1O(name string, firstgid int, width int) *Tileset {
-    return &Tileset{js.Global.Call("Phaser.Tileset", name, firstgid, width)}
+    return &Tileset{js.Global.Get("Phaser").Get("Tileset").New(name, firstgid, width)}
 }
 
 // A Tile set is a combination of an image containing the tiles and collision data per tile.
 // 
 // Tilesets are normally created automatically when Tiled data is loaded.
 func NewTileset2O(name string, firstgid int, width int, height int) *Tileset {
-    return &Tileset{js.Global.Call("Phaser.Tileset", name, firstgid, width, height)}
+    return &Tileset{js.Global.Get("Phaser").Get("Tileset").New(name, firstgid, width, height)}
 }
 
 // A Tile set is a combination of an image containing the tiles and collision data per tile.
 // 
 // Tilesets are normally created automatically when Tiled data is loaded.
 func NewTileset3O(name string, firstgid int, width int, height int, margin int) *Tileset {
-    return &Tileset{js.Global.Call("Phaser.Tileset", name, firstgid, width, height, margin)}
+    return &Tileset{js.Global.Get("Phaser").Get("Tileset").New(name, firstgid, width, height, margin)}
 }
 
 // A Tile set is a combination of an image containing the tiles and collision data per tile.
 // 
 // Tilesets are normally created automatically when Tiled data is loaded.
 func NewTileset4O(name string, firstgid int, width int, height int, margin int, spacing int) *Tileset {
-    return &Tileset{js.Global.Call("Phaser.Tileset", name, firstgid, width, height, margin, spacing)}
+    return &Tileset{js.Global.Get("Phaser").Get("Tileset").New(name, firstgid, width, height, margin, spacing)}
 }
 
 // A Tile set is a combination of an image containing the tiles and collision data per tile.
 // 
 // Tilesets are normally created automatically when Tiled data is loaded.
 func NewTileset5O(name string, firstgid int, width int, height int, margin int, spacing int, properties interface{}) *Tileset {
-    return &Tileset{js.Global.Call("Phaser.Tileset", name, firstgid, width, height, margin, spacing, properties)}
+    return &Tileset{js.Global.Get("Phaser").Get("Tileset").New(name, firstgid, width, height, margin, spacing, properties)}
 }
 
 // A Tile set is a combination of an image containing the tiles and collision data per tile.
 // 
 // Tilesets are normally created automatically when Tiled data is loaded.
 func NewTilesetI(args ...interface{}) *Tileset {
-    return &Tileset{js.Global.Call("Phaser.Tileset", args)}
+    return &Tileset{js.Global.Get("Phaser").Get("Tileset").New(args)}
 }
 
 
 
 // The name of the Tileset.
-func (self *Tileset) GetNameA() string{
+func (self *Tileset) Name() string{
     return self.Object.Get("name").String()
 }
 
@@ -80,7 +80,7 @@ func (self *Tileset) SetNameA(member string) {
 
 // The Tiled firstgid value.
 // This is the starting index of the first tile index this Tileset contains.
-func (self *Tileset) GetFirstgidA() int{
+func (self *Tileset) Firstgid() int{
     return self.Object.Get("firstgid").Int()
 }
 
@@ -91,7 +91,7 @@ func (self *Tileset) SetFirstgidA(member int) {
 }
 
 // The width of each tile (in pixels).
-func (self *Tileset) GetTileWidthA() int{
+func (self *Tileset) TileWidth() int{
     return self.Object.Get("tileWidth").Int()
 }
 
@@ -101,7 +101,7 @@ func (self *Tileset) SetTileWidthA(member int) {
 }
 
 // The height of each tile (in pixels).
-func (self *Tileset) GetTileHeightA() int{
+func (self *Tileset) TileHeight() int{
     return self.Object.Get("tileHeight").Int()
 }
 
@@ -112,7 +112,7 @@ func (self *Tileset) SetTileHeightA(member int) {
 
 // The margin around the tiles in the sheet (in pixels).
 // Use `setSpacing` to change.
-func (self *Tileset) GetTileMarginA() interface{}{
+func (self *Tileset) TileMargin() interface{}{
     return self.Object.Get("tileMargin")
 }
 
@@ -124,7 +124,7 @@ func (self *Tileset) SetTileMarginA(member interface{}) {
 
 // The spacing between each tile in the sheet (in pixels).
 // Use `setSpacing` to change.
-func (self *Tileset) GetTileSpacingA() int{
+func (self *Tileset) TileSpacing() int{
     return self.Object.Get("tileSpacing").Int()
 }
 
@@ -135,7 +135,7 @@ func (self *Tileset) SetTileSpacingA(member int) {
 }
 
 // Tileset-specific properties that are typically defined in the Tiled editor.
-func (self *Tileset) GetPropertiesA() interface{}{
+func (self *Tileset) Properties() interface{}{
     return self.Object.Get("properties")
 }
 
@@ -145,7 +145,7 @@ func (self *Tileset) SetPropertiesA(member interface{}) {
 }
 
 // The cached image that contains the individual tiles. Use {@link Phaser.Tileset.setImage setImage} to set.
-func (self *Tileset) GetImageA() interface{}{
+func (self *Tileset) Image() interface{}{
     return self.Object.Get("image")
 }
 
@@ -155,7 +155,7 @@ func (self *Tileset) SetImageA(member interface{}) {
 }
 
 // The number of tile rows in the the tileset.
-func (self *Tileset) GetRowsA() interface{}{
+func (self *Tileset) Rows() interface{}{
     return self.Object.Get("rows")
 }
 
@@ -165,7 +165,7 @@ func (self *Tileset) SetRowsA(member interface{}) {
 }
 
 // The number of tile columns in the tileset.
-func (self *Tileset) GetColumnsA() int{
+func (self *Tileset) Columns() int{
     return self.Object.Get("columns").Int()
 }
 
@@ -175,7 +175,7 @@ func (self *Tileset) SetColumnsA(member int) {
 }
 
 // The total number of tiles in the tileset.
-func (self *Tileset) GetTotalA() int{
+func (self *Tileset) Total() int{
     return self.Object.Get("total").Int()
 }
 

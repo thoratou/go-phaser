@@ -15,38 +15,38 @@ type Line struct {
 
 // Creates a new Line object with a start and an end point.
 func NewLine() *Line {
-    return &Line{js.Global.Call("Phaser.Line")}
+    return &Line{js.Global.Get("Phaser").Get("Line").New()}
 }
 
 // Creates a new Line object with a start and an end point.
 func NewLine1O(x1 int) *Line {
-    return &Line{js.Global.Call("Phaser.Line", x1)}
+    return &Line{js.Global.Get("Phaser").Get("Line").New(x1)}
 }
 
 // Creates a new Line object with a start and an end point.
 func NewLine2O(x1 int, y1 int) *Line {
-    return &Line{js.Global.Call("Phaser.Line", x1, y1)}
+    return &Line{js.Global.Get("Phaser").Get("Line").New(x1, y1)}
 }
 
 // Creates a new Line object with a start and an end point.
 func NewLine3O(x1 int, y1 int, x2 int) *Line {
-    return &Line{js.Global.Call("Phaser.Line", x1, y1, x2)}
+    return &Line{js.Global.Get("Phaser").Get("Line").New(x1, y1, x2)}
 }
 
 // Creates a new Line object with a start and an end point.
 func NewLine4O(x1 int, y1 int, x2 int, y2 int) *Line {
-    return &Line{js.Global.Call("Phaser.Line", x1, y1, x2, y2)}
+    return &Line{js.Global.Get("Phaser").Get("Line").New(x1, y1, x2, y2)}
 }
 
 // Creates a new Line object with a start and an end point.
 func NewLineI(args ...interface{}) *Line {
-    return &Line{js.Global.Call("Phaser.Line", args)}
+    return &Line{js.Global.Get("Phaser").Get("Line").New(args)}
 }
 
 
 
 // The start point of the line.
-func (self *Line) GetStartA() *Point{
+func (self *Line) Start() *Point{
     return &Point{self.Object.Get("start")}
 }
 
@@ -56,7 +56,7 @@ func (self *Line) SetStartA(member *Point) {
 }
 
 // The end point of the line.
-func (self *Line) GetEndA() *Point{
+func (self *Line) End() *Point{
     return &Point{self.Object.Get("end")}
 }
 
@@ -66,7 +66,7 @@ func (self *Line) SetEndA(member *Point) {
 }
 
 // The const type of this object.
-func (self *Line) GetTypeA() int{
+func (self *Line) Type() int{
     return self.Object.Get("type").Int()
 }
 
@@ -76,7 +76,7 @@ func (self *Line) SetTypeA(member int) {
 }
 
 // Gets the length of the line segment.
-func (self *Line) GetLengthA() int{
+func (self *Line) Length() int{
     return self.Object.Get("length").Int()
 }
 
@@ -86,7 +86,7 @@ func (self *Line) SetLengthA(member int) {
 }
 
 // Gets the angle of the line in radians.
-func (self *Line) GetAngleA() int{
+func (self *Line) Angle() int{
     return self.Object.Get("angle").Int()
 }
 
@@ -96,7 +96,7 @@ func (self *Line) SetAngleA(member int) {
 }
 
 // Gets the slope of the line (y/x).
-func (self *Line) GetSlopeA() int{
+func (self *Line) Slope() int{
     return self.Object.Get("slope").Int()
 }
 
@@ -106,7 +106,7 @@ func (self *Line) SetSlopeA(member int) {
 }
 
 // Gets the perpendicular slope of the line (x/y).
-func (self *Line) GetPerpSlopeA() int{
+func (self *Line) PerpSlope() int{
     return self.Object.Get("perpSlope").Int()
 }
 
@@ -116,7 +116,7 @@ func (self *Line) SetPerpSlopeA(member int) {
 }
 
 // Gets the x coordinate of the top left of the bounds around this line.
-func (self *Line) GetXA() int{
+func (self *Line) X() int{
     return self.Object.Get("x").Int()
 }
 
@@ -126,7 +126,7 @@ func (self *Line) SetXA(member int) {
 }
 
 // Gets the y coordinate of the top left of the bounds around this line.
-func (self *Line) GetYA() int{
+func (self *Line) Y() int{
     return self.Object.Get("y").Int()
 }
 
@@ -136,7 +136,7 @@ func (self *Line) SetYA(member int) {
 }
 
 // Gets the left-most point of this line.
-func (self *Line) GetLeftA() int{
+func (self *Line) Left() int{
     return self.Object.Get("left").Int()
 }
 
@@ -146,7 +146,7 @@ func (self *Line) SetLeftA(member int) {
 }
 
 // Gets the right-most point of this line.
-func (self *Line) GetRightA() int{
+func (self *Line) Right() int{
     return self.Object.Get("right").Int()
 }
 
@@ -156,7 +156,7 @@ func (self *Line) SetRightA(member int) {
 }
 
 // Gets the top-most point of this line.
-func (self *Line) GetTopA() int{
+func (self *Line) Top() int{
     return self.Object.Get("top").Int()
 }
 
@@ -166,7 +166,7 @@ func (self *Line) SetTopA(member int) {
 }
 
 // Gets the bottom-most point of this line.
-func (self *Line) GetBottomA() int{
+func (self *Line) Bottom() int{
     return self.Object.Get("bottom").Int()
 }
 
@@ -176,7 +176,7 @@ func (self *Line) SetBottomA(member int) {
 }
 
 // Gets the width of this bounds of this line.
-func (self *Line) GetWidthA() int{
+func (self *Line) Width() int{
     return self.Object.Get("width").Int()
 }
 
@@ -186,7 +186,7 @@ func (self *Line) SetWidthA(member int) {
 }
 
 // Gets the height of this bounds of this line.
-func (self *Line) GetHeightA() int{
+func (self *Line) Height() int{
     return self.Object.Get("height").Int()
 }
 
@@ -196,7 +196,7 @@ func (self *Line) SetHeightA(member int) {
 }
 
 // Gets the x component of the left-hand normal of this line.
-func (self *Line) GetNormalXA() int{
+func (self *Line) NormalX() int{
     return self.Object.Get("normalX").Int()
 }
 
@@ -206,7 +206,7 @@ func (self *Line) SetNormalXA(member int) {
 }
 
 // Gets the y component of the left-hand normal of this line.
-func (self *Line) GetNormalYA() int{
+func (self *Line) NormalY() int{
     return self.Object.Get("normalY").Int()
 }
 
@@ -216,7 +216,7 @@ func (self *Line) SetNormalYA(member int) {
 }
 
 // Gets the angle in radians of the normal of this line (line.angle - 90 degrees.)
-func (self *Line) GetNormalAngleA() int{
+func (self *Line) NormalAngle() int{
     return self.Object.Get("normalAngle").Int()
 }
 
@@ -449,7 +449,7 @@ func (self *Line) CoordinatesOnLine() []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -461,7 +461,7 @@ func (self *Line) CoordinatesOnLine1O(stepRate int) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -473,7 +473,7 @@ func (self *Line) CoordinatesOnLine2O(stepRate int, results []interface{}) []int
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -485,7 +485,7 @@ func (self *Line) CoordinatesOnLineI(args ...interface{}) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }

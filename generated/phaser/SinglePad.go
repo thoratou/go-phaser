@@ -15,18 +15,18 @@ type SinglePad struct {
 
 // A single Phaser Gamepad
 func NewSinglePad(game *Game, padParent interface{}) *SinglePad {
-    return &SinglePad{js.Global.Call("Phaser.SinglePad", game, padParent)}
+    return &SinglePad{js.Global.Get("Phaser").Get("SinglePad").New(game, padParent)}
 }
 
 // A single Phaser Gamepad
 func NewSinglePadI(args ...interface{}) *SinglePad {
-    return &SinglePad{js.Global.Call("Phaser.SinglePad", args)}
+    return &SinglePad{js.Global.Get("Phaser").Get("SinglePad").New(args)}
 }
 
 
 
 // Local reference to game.
-func (self *SinglePad) GetGameA() *Game{
+func (self *SinglePad) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -36,7 +36,7 @@ func (self *SinglePad) SetGameA(member *Game) {
 }
 
 // The gamepad index as per browsers data
-func (self *SinglePad) GetIndexA() int{
+func (self *SinglePad) Index() int{
     return self.Object.Get("index").Int()
 }
 
@@ -46,7 +46,7 @@ func (self *SinglePad) SetIndexA(member int) {
 }
 
 // Whether or not this particular gamepad is connected or not.
-func (self *SinglePad) GetConnectedA() bool{
+func (self *SinglePad) Connected() bool{
     return self.Object.Get("connected").Bool()
 }
 
@@ -56,7 +56,7 @@ func (self *SinglePad) SetConnectedA(member bool) {
 }
 
 // The context under which the callbacks are run.
-func (self *SinglePad) GetCallbackContextA() interface{}{
+func (self *SinglePad) CallbackContext() interface{}{
     return self.Object.Get("callbackContext")
 }
 
@@ -66,37 +66,67 @@ func (self *SinglePad) SetCallbackContextA(member interface{}) {
 }
 
 // This callback is invoked every time this gamepad is connected
-func (self *SinglePad) SetOnConnectCallbackA(member func(...interface{})) {
+func (self *SinglePad) OnConnectCallback() interface{}{
+    return self.Object.Get("onConnectCallback")
+}
+
+// This callback is invoked every time this gamepad is connected
+func (self *SinglePad) SetOnConnectCallbackA(member interface{}) {
     self.Object.Set("onConnectCallback", member)
 }
 
 // This callback is invoked every time this gamepad is disconnected
-func (self *SinglePad) SetOnDisconnectCallbackA(member func(...interface{})) {
+func (self *SinglePad) OnDisconnectCallback() interface{}{
+    return self.Object.Get("onDisconnectCallback")
+}
+
+// This callback is invoked every time this gamepad is disconnected
+func (self *SinglePad) SetOnDisconnectCallbackA(member interface{}) {
     self.Object.Set("onDisconnectCallback", member)
 }
 
 // This callback is invoked every time a button is pressed down.
-func (self *SinglePad) SetOnDownCallbackA(member func(...interface{})) {
+func (self *SinglePad) OnDownCallback() interface{}{
+    return self.Object.Get("onDownCallback")
+}
+
+// This callback is invoked every time a button is pressed down.
+func (self *SinglePad) SetOnDownCallbackA(member interface{}) {
     self.Object.Set("onDownCallback", member)
 }
 
 // This callback is invoked every time a gamepad button is released.
-func (self *SinglePad) SetOnUpCallbackA(member func(...interface{})) {
+func (self *SinglePad) OnUpCallback() interface{}{
+    return self.Object.Get("onUpCallback")
+}
+
+// This callback is invoked every time a gamepad button is released.
+func (self *SinglePad) SetOnUpCallbackA(member interface{}) {
     self.Object.Set("onUpCallback", member)
 }
 
 // This callback is invoked every time an axis is changed.
-func (self *SinglePad) SetOnAxisCallbackA(member func(...interface{})) {
+func (self *SinglePad) OnAxisCallback() interface{}{
+    return self.Object.Get("onAxisCallback")
+}
+
+// This callback is invoked every time an axis is changed.
+func (self *SinglePad) SetOnAxisCallbackA(member interface{}) {
     self.Object.Set("onAxisCallback", member)
 }
 
 // This callback is invoked every time a button is changed to a value where value > 0 and value < 1.
-func (self *SinglePad) SetOnFloatCallbackA(member func(...interface{})) {
+func (self *SinglePad) OnFloatCallback() interface{}{
+    return self.Object.Get("onFloatCallback")
+}
+
+// This callback is invoked every time a button is changed to a value where value > 0 and value < 1.
+func (self *SinglePad) SetOnFloatCallbackA(member interface{}) {
     self.Object.Set("onFloatCallback", member)
 }
 
 // Dead zone for axis feedback - within this value you won't trigger updates.
-func (self *SinglePad) GetDeadZoneA() int{
+func (self *SinglePad) DeadZone() int{
     return self.Object.Get("deadZone").Int()
 }
 

@@ -21,7 +21,7 @@ type Filter struct {
 // The vast majority of filters (including all of those that ship with Phaser) use fragment shaders, and
 // therefore only work in WebGL and are not supported by Canvas at all.
 func NewFilter(game *Game, uniforms interface{}, fragmentSrc interface{}) *Filter {
-    return &Filter{js.Global.Call("Phaser.Filter", game, uniforms, fragmentSrc)}
+    return &Filter{js.Global.Get("Phaser").Get("Filter").New(game, uniforms, fragmentSrc)}
 }
 
 // This is a base Filter class to use for any Phaser filter development.
@@ -29,13 +29,13 @@ func NewFilter(game *Game, uniforms interface{}, fragmentSrc interface{}) *Filte
 // The vast majority of filters (including all of those that ship with Phaser) use fragment shaders, and
 // therefore only work in WebGL and are not supported by Canvas at all.
 func NewFilterI(args ...interface{}) *Filter {
-    return &Filter{js.Global.Call("Phaser.Filter", args)}
+    return &Filter{js.Global.Get("Phaser").Get("Filter").New(args)}
 }
 
 
 
 // A reference to the currently running game.
-func (self *Filter) GetGameA() *Game{
+func (self *Filter) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -45,7 +45,7 @@ func (self *Filter) SetGameA(member *Game) {
 }
 
 // The const type of this object, either Phaser.WEBGL_FILTER or Phaser.CANVAS_FILTER.
-func (self *Filter) GetTypeA() int{
+func (self *Filter) Type() int{
     return self.Object.Get("type").Int()
 }
 
@@ -55,7 +55,7 @@ func (self *Filter) SetTypeA(member int) {
 }
 
 // Internal PIXI var.
-func (self *Filter) GetDirtyA() bool{
+func (self *Filter) Dirty() bool{
     return self.Object.Get("dirty").Bool()
 }
 
@@ -65,7 +65,7 @@ func (self *Filter) SetDirtyA(member bool) {
 }
 
 // Internal PIXI var.
-func (self *Filter) GetPaddingA() int{
+func (self *Filter) Padding() int{
     return self.Object.Get("padding").Int()
 }
 
@@ -75,7 +75,7 @@ func (self *Filter) SetPaddingA(member int) {
 }
 
 // The previous position of the pointer (we don't update the uniform if the same)
-func (self *Filter) GetPrevPointA() *Point{
+func (self *Filter) PrevPoint() *Point{
     return &Point{self.Object.Get("prevPoint")}
 }
 
@@ -85,7 +85,7 @@ func (self *Filter) SetPrevPointA(member *Point) {
 }
 
 // Default uniform mappings. Compatible with ShaderToy and GLSLSandbox.
-func (self *Filter) GetUniformsA() interface{}{
+func (self *Filter) Uniforms() interface{}{
     return self.Object.Get("uniforms")
 }
 
@@ -95,7 +95,7 @@ func (self *Filter) SetUniformsA(member interface{}) {
 }
 
 // The fragment shader code.
-func (self *Filter) GetFragmentSrcA() interface{}{
+func (self *Filter) FragmentSrc() interface{}{
     return self.Object.Get("fragmentSrc")
 }
 
@@ -105,7 +105,7 @@ func (self *Filter) SetFragmentSrcA(member interface{}) {
 }
 
 // The width (resolution uniform)
-func (self *Filter) GetWidthA() int{
+func (self *Filter) Width() int{
     return self.Object.Get("width").Int()
 }
 
@@ -115,7 +115,7 @@ func (self *Filter) SetWidthA(member int) {
 }
 
 // The height (resolution uniform)
-func (self *Filter) GetHeightA() int{
+func (self *Filter) Height() int{
     return self.Object.Get("height").Int()
 }
 

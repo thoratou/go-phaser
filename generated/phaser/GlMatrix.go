@@ -15,12 +15,12 @@ type GlMatrix struct {
 
 // 
 func NewGlMatrix() *GlMatrix {
-    return &GlMatrix{js.Global.Call("glMatrix")}
+    return &GlMatrix{js.Global.Get("glMatrix").New()}
 }
 
 // 
 func NewGlMatrixI(args ...interface{}) *GlMatrix {
-    return &GlMatrix{js.Global.Call("glMatrix", args)}
+    return &GlMatrix{js.Global.Get("glMatrix").New(args)}
 }
 
 

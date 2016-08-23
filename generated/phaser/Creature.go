@@ -41,7 +41,7 @@ type Creature struct {
 // 
 // So you'll need to do `grunt custom` to create a build that includes them.
 func NewCreature(game *Game, x int, y int, key interface{}, mesh string) *Creature {
-    return &Creature{js.Global.Call("Phaser.Creature", game, x, y, key, mesh)}
+    return &Creature{js.Global.Get("Phaser").Get("Creature").New(game, x, y, key, mesh)}
 }
 
 // Creature is a custom Game Object used in conjunction with the Creature Runtime libraries by Kestrel Moon Studios.
@@ -59,7 +59,7 @@ func NewCreature(game *Game, x int, y int, key interface{}, mesh string) *Creatu
 // 
 // So you'll need to do `grunt custom` to create a build that includes them.
 func NewCreature1O(game *Game, x int, y int, key interface{}, mesh string, animation string) *Creature {
-    return &Creature{js.Global.Call("Phaser.Creature", game, x, y, key, mesh, animation)}
+    return &Creature{js.Global.Get("Phaser").Get("Creature").New(game, x, y, key, mesh, animation)}
 }
 
 // Creature is a custom Game Object used in conjunction with the Creature Runtime libraries by Kestrel Moon Studios.
@@ -77,13 +77,13 @@ func NewCreature1O(game *Game, x int, y int, key interface{}, mesh string, anima
 // 
 // So you'll need to do `grunt custom` to create a build that includes them.
 func NewCreatureI(args ...interface{}) *Creature {
-    return &Creature{js.Global.Call("Phaser.Creature", args)}
+    return &Creature{js.Global.Get("Phaser").Get("Creature").New(args)}
 }
 
 
 
 // The const type of this object.
-func (self *Creature) GetTypeA() int{
+func (self *Creature) Type() int{
     return self.Object.Get("type").Int()
 }
 
@@ -93,7 +93,7 @@ func (self *Creature) SetTypeA(member int) {
 }
 
 // The CreatureAnimation instance.
-func (self *Creature) GetAnimationA() *CreatureAnimation{
+func (self *Creature) Animation() *CreatureAnimation{
     return &CreatureAnimation{self.Object.Get("animation")}
 }
 
@@ -103,7 +103,7 @@ func (self *Creature) SetAnimationA(member *CreatureAnimation) {
 }
 
 // The CreatureManager instance for this object.
-func (self *Creature) GetManagerA() *CreatureManager{
+func (self *Creature) Manager() *CreatureManager{
     return &CreatureManager{self.Object.Get("manager")}
 }
 
@@ -113,7 +113,7 @@ func (self *Creature) SetManagerA(member *CreatureManager) {
 }
 
 // How quickly the animation advances.
-func (self *Creature) GetTimeDeltaA() int{
+func (self *Creature) TimeDelta() int{
     return self.Object.Get("timeDelta").Int()
 }
 
@@ -123,7 +123,7 @@ func (self *Creature) SetTimeDeltaA(member int) {
 }
 
 // The texture the animation is using.
-func (self *Creature) GetTextureA() *Texture{
+func (self *Creature) Texture() *Texture{
     return &Texture{self.Object.Get("texture")}
 }
 
@@ -133,7 +133,7 @@ func (self *Creature) SetTextureA(member *Texture) {
 }
 
 // The minimum bounds point.
-func (self *Creature) GetCreatureBoundsMinA() *Point{
+func (self *Creature) CreatureBoundsMin() *Point{
     return &Point{self.Object.Get("creatureBoundsMin")}
 }
 
@@ -143,7 +143,7 @@ func (self *Creature) SetCreatureBoundsMinA(member *Point) {
 }
 
 // The maximum bounds point.
-func (self *Creature) GetCreatureBoundsMaxA() *Point{
+func (self *Creature) CreatureBoundsMax() *Point{
     return &Point{self.Object.Get("creatureBoundsMax")}
 }
 
@@ -153,7 +153,7 @@ func (self *Creature) SetCreatureBoundsMaxA(member *Point) {
 }
 
 // The vertices data.
-func (self *Creature) GetVerticesA() *Float32Array{
+func (self *Creature) Vertices() *Float32Array{
     return &Float32Array{self.Object.Get("vertices")}
 }
 
@@ -163,7 +163,7 @@ func (self *Creature) SetVerticesA(member *Float32Array) {
 }
 
 // The UV data.
-func (self *Creature) GetUvsA() *Float32Array{
+func (self *Creature) Uvs() *Float32Array{
     return &Float32Array{self.Object.Get("uvs")}
 }
 
@@ -173,7 +173,7 @@ func (self *Creature) SetUvsA(member *Float32Array) {
 }
 
 // 
-func (self *Creature) GetIndicesA() *Uint16Array{
+func (self *Creature) Indices() *Uint16Array{
     return &Uint16Array{self.Object.Get("indices")}
 }
 
@@ -183,7 +183,7 @@ func (self *Creature) SetIndicesA(member *Uint16Array) {
 }
 
 // The vertices colors
-func (self *Creature) GetColorsA() *Uint16Array{
+func (self *Creature) Colors() *Uint16Array{
     return &Uint16Array{self.Object.Get("colors")}
 }
 
@@ -193,7 +193,7 @@ func (self *Creature) SetColorsA(member *Uint16Array) {
 }
 
 // Is the _current_ animation playing?
-func (self *Creature) GetIsPlayingA() bool{
+func (self *Creature) IsPlaying() bool{
     return self.Object.Get("isPlaying").Bool()
 }
 
@@ -203,7 +203,7 @@ func (self *Creature) SetIsPlayingA(member bool) {
 }
 
 // Should the _current_ animation loop or not?
-func (self *Creature) GetLoopA() bool{
+func (self *Creature) Loop() bool{
     return self.Object.Get("loop").Bool()
 }
 
@@ -213,7 +213,7 @@ func (self *Creature) SetLoopA(member bool) {
 }
 
 // [read-only] The array of children of this container.
-func (self *Creature) GetChildrenA() []DisplayObject{
+func (self *Creature) Children() []DisplayObject{
 	array00 := self.Object.Get("children")
 	length00 := array00.Length()
 	out00 := make([]DisplayObject, length00, length00)
@@ -233,7 +233,7 @@ func (self *Creature) SetChildrenA(member []DisplayObject) {
 // If this property is `true` then the children will _not_ be considered as valid for Input events.
 // 
 // Note that this property isn't recursive: only immediate children are influenced, it doesn't scan further down.
-func (self *Creature) GetIgnoreChildInputA() bool{
+func (self *Creature) IgnoreChildInput() bool{
     return self.Object.Get("ignoreChildInput").Bool()
 }
 
@@ -247,7 +247,7 @@ func (self *Creature) SetIgnoreChildInputA(member bool) {
 }
 
 // The width of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *Creature) GetWidthA() int{
+func (self *Creature) Width() int{
     return self.Object.Get("width").Int()
 }
 
@@ -257,7 +257,7 @@ func (self *Creature) SetWidthA(member int) {
 }
 
 // The height of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *Creature) GetHeightA() int{
+func (self *Creature) Height() int{
     return self.Object.Get("height").Int()
 }
 
@@ -267,7 +267,7 @@ func (self *Creature) SetHeightA(member int) {
 }
 
 // A reference to the currently running Game.
-func (self *Creature) GetGameA() *Game{
+func (self *Creature) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -278,7 +278,7 @@ func (self *Creature) SetGameA(member *Game) {
 
 // A user defined name given to this Game Object.
 // This value isn't ever used internally by Phaser, it is meant as a game level property.
-func (self *Creature) GetNameA() string{
+func (self *Creature) Name() string{
     return self.Object.Get("name").String()
 }
 
@@ -292,7 +292,7 @@ func (self *Creature) SetNameA(member string) {
 // This value isn't ever used internally by Phaser, but may be used by your own code, or
 // by Phaser Plugins, to store data that needs to be associated with the Game Object,
 // without polluting the Game Object directly.
-func (self *Creature) GetDataA() interface{}{
+func (self *Creature) Data() interface{}{
     return self.Object.Get("data")
 }
 
@@ -305,7 +305,7 @@ func (self *Creature) SetDataA(member interface{}) {
 }
 
 // The components this Game Object has installed.
-func (self *Creature) GetComponentsA() interface{}{
+func (self *Creature) Components() interface{}{
     return self.Object.Get("components")
 }
 
@@ -318,7 +318,7 @@ func (self *Creature) SetComponentsA(member interface{}) {
 // No two objects in a Group can have the same z value.
 // This value is adjusted automatically whenever the Group hierarchy changes.
 // If you wish to re-order the layering of a Game Object then see methods like Group.moveUp or Group.bringToTop.
-func (self *Creature) GetZA() int{
+func (self *Creature) Z() int{
     return self.Object.Get("z").Int()
 }
 
@@ -332,7 +332,7 @@ func (self *Creature) SetZA(member int) {
 
 // All Phaser Game Objects have an Events class which contains all of the events that are dispatched when certain things happen to this
 // Game Object, or any of its components.
-func (self *Creature) GetEventsA() *Events{
+func (self *Creature) Events() *Events{
     return &Events{self.Object.Get("events")}
 }
 
@@ -344,7 +344,7 @@ func (self *Creature) SetEventsA(member *Events) {
 
 // If the Game Object is enabled for animation (such as a Phaser.Sprite) this is a reference to its AnimationManager instance.
 // Through it you can create, play, pause and stop animations.
-func (self *Creature) GetAnimationsA() *AnimationManager{
+func (self *Creature) Animations() *AnimationManager{
     return &AnimationManager{self.Object.Get("animations")}
 }
 
@@ -359,7 +359,7 @@ func (self *Creature) SetAnimationsA(member *AnimationManager) {
 // It can also be an instance of a RenderTexture, BitmapData, Video or PIXI.Texture.
 // If a Game Object is created without a key it is automatically assigned the key `__default` which is a 32x32 transparent PNG stored within the Cache.
 // If a Game Object is given a key which doesn't exist in the Image Cache it is re-assigned the key `__missing` which is a 32x32 PNG of a green box with a line through it.
-func (self *Creature) GetKeyA() interface{}{
+func (self *Creature) Key() interface{}{
     return self.Object.Get("key")
 }
 
@@ -375,7 +375,7 @@ func (self *Creature) SetKeyA(member interface{}) {
 // The world coordinates of this Game Object in pixels.
 // Depending on where in the display list this Game Object is placed this value can differ from `position`, 
 // which contains the x/y coordinates relative to the Game Objects parent.
-func (self *Creature) GetWorldA() *Point{
+func (self *Creature) World() *Point{
     return &Point{self.Object.Get("world")}
 }
 
@@ -387,7 +387,7 @@ func (self *Creature) SetWorldA(member *Point) {
 }
 
 // A debug flag designed for use with `Game.enableStep`.
-func (self *Creature) GetDebugA() bool{
+func (self *Creature) Debug() bool{
     return self.Object.Get("debug").Bool()
 }
 
@@ -397,7 +397,7 @@ func (self *Creature) SetDebugA(member bool) {
 }
 
 // The position the Game Object was located in the previous frame.
-func (self *Creature) GetPreviousPositionA() *Point{
+func (self *Creature) PreviousPosition() *Point{
     return &Point{self.Object.Get("previousPosition")}
 }
 
@@ -407,7 +407,7 @@ func (self *Creature) SetPreviousPositionA(member *Point) {
 }
 
 // The rotation the Game Object was in set to in the previous frame. Value is in radians.
-func (self *Creature) GetPreviousRotationA() int{
+func (self *Creature) PreviousRotation() int{
     return self.Object.Get("previousRotation").Int()
 }
 
@@ -418,7 +418,7 @@ func (self *Creature) SetPreviousRotationA(member int) {
 
 // The render order ID is used internally by the renderer and Input Manager and should not be modified.
 // This property is mostly used internally by the renderers, but is exposed for the use of plugins.
-func (self *Creature) GetRenderOrderIDA() int{
+func (self *Creature) RenderOrderID() int{
     return self.Object.Get("renderOrderID").Int()
 }
 
@@ -430,7 +430,7 @@ func (self *Creature) SetRenderOrderIDA(member int) {
 
 // A Game Object is considered `fresh` if it has just been created or reset and is yet to receive a renderer transform update.
 // This property is mostly used internally by the physics systems, but is exposed for the use of plugins.
-func (self *Creature) GetFreshA() bool{
+func (self *Creature) Fresh() bool{
     return self.Object.Get("fresh").Bool()
 }
 
@@ -445,7 +445,7 @@ func (self *Creature) SetFreshA(member bool) {
 // 
 // This is extremely useful if you wish to destroy an object from within one of its own callbacks 
 // such as with Buttons or other Input events.
-func (self *Creature) GetPendingDestroyA() bool{
+func (self *Creature) PendingDestroy() bool{
     return self.Object.Get("pendingDestroy").Bool()
 }
 
@@ -465,7 +465,7 @@ func (self *Creature) SetPendingDestroyA(member bool) {
 // 
 // Setting `exists` to true will add its physics body back in to the physics world, if it has one.
 // It will also set the `visible` property to `true`.
-func (self *Creature) GetExistsA() bool{
+func (self *Creature) Exists() bool{
     return self.Object.Get("exists").Bool()
 }
 
@@ -489,7 +489,7 @@ func (self *Creature) SetExistsA(member bool) {
 // 
 // If you wish to work in radians instead of degrees you can use the property `rotation` instead. 
 // Working in radians is slightly faster as it doesn't have to perform any calculations.
-func (self *Creature) GetAngleA() int{
+func (self *Creature) Angle() int{
     return self.Object.Get("angle").Int()
 }
 
@@ -512,7 +512,7 @@ func (self *Creature) SetAngleA(member int) {
 // 
 // This is a relatively expensive operation, especially if enabled on hundreds of Game Objects. So enable it only if you know it's required,
 // or you have tested performance and find it acceptable.
-func (self *Creature) GetAutoCullA() bool{
+func (self *Creature) AutoCull() bool{
     return self.Object.Get("autoCull").Bool()
 }
 
@@ -528,7 +528,7 @@ func (self *Creature) SetAutoCullA(member bool) {
 
 // Checks if the Game Objects bounds intersect with the Game Camera bounds.
 // Returns `true` if they do, otherwise `false` if fully outside of the Cameras bounds.
-func (self *Creature) GetInCameraA() bool{
+func (self *Creature) InCamera() bool{
     return self.Object.Get("inCamera").Bool()
 }
 
@@ -540,7 +540,7 @@ func (self *Creature) SetInCameraA(member bool) {
 
 // As a Game Object runs through its destroy method this flag is set to true, 
 // and can be checked in any sub-systems or plugins it is being destroyed from.
-func (self *Creature) GetDestroyPhaseA() bool{
+func (self *Creature) DestroyPhase() bool{
     return self.Object.Get("destroyPhase").Bool()
 }
 
@@ -563,7 +563,7 @@ func (self *Creature) SetDestroyPhaseA(member bool) {
 // Note that the `cameraOffset` values are in addition to any parent of this Game Object on the display list.
 // 
 // Be careful not to set `fixedToCamera` on Game Objects which are in Groups that already have `fixedToCamera` enabled on them.
-func (self *Creature) GetFixedToCameraA() bool{
+func (self *Creature) FixedToCamera() bool{
     return self.Object.Get("fixedToCamera").Bool()
 }
 
@@ -587,7 +587,7 @@ func (self *Creature) SetFixedToCameraA(member bool) {
 // The x/y coordinate offset applied to the top-left of the camera that this Game Object will be drawn at if `fixedToCamera` is true.
 // 
 // The values are relative to the top-left of the camera view and in addition to any parent of the Game Object on the display list.
-func (self *Creature) GetCameraOffsetA() *Point{
+func (self *Creature) CameraOffset() *Point{
     return &Point{self.Object.Get("cameraOffset")}
 }
 
@@ -605,7 +605,7 @@ func (self *Creature) SetCameraOffsetA(member *Point) {
 // 
 // This property is mostly just provided to be used by your game - it doesn't effect rendering or logic updates.
 // However you can use `Group.getFirstAlive` in conjunction with this property for fast object pooling and recycling.
-func (self *Creature) GetAliveA() bool{
+func (self *Creature) Alive() bool{
     return self.Object.Get("alive").Bool()
 }
 
@@ -628,7 +628,7 @@ func (self *Creature) SetAliveA(member bool) {
 // When it reaches zero it will call the `kill` method.
 // 
 // Very handy for particles, bullets, collectibles, or any other short-lived entity.
-func (self *Creature) GetLifespanA() int{
+func (self *Creature) Lifespan() int{
     return self.Object.Get("lifespan").Int()
 }
 

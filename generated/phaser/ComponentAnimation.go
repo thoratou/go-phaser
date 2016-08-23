@@ -15,12 +15,12 @@ type ComponentAnimation struct {
 
 // The Animation Component provides a `play` method, which is a proxy to the `AnimationManager.play` method.
 func NewComponentAnimation() *ComponentAnimation {
-    return &ComponentAnimation{js.Global.Call("Phaser.Component.Animation")}
+    return &ComponentAnimation{js.Global.Get("Phaser").Get("Component").Get("Animation").New()}
 }
 
 // The Animation Component provides a `play` method, which is a proxy to the `AnimationManager.play` method.
 func NewComponentAnimationI(args ...interface{}) *ComponentAnimation {
-    return &ComponentAnimation{js.Global.Call("Phaser.Component.Animation", args)}
+    return &ComponentAnimation{js.Global.Get("Phaser").Get("Component").Get("Animation").New(args)}
 }
 
 

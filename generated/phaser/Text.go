@@ -27,7 +27,7 @@ type Text struct {
 // 
 // See {@link http://www.jordanm.co.uk/tinytype this compatibility table} for the available default fonts across mobile browsers.
 func NewText(game *Game, x int, y int, text string) *Text {
-    return &Text{js.Global.Call("Phaser.Text", game, x, y, text)}
+    return &Text{js.Global.Get("Phaser").Get("Text").New(game, x, y, text)}
 }
 
 // Create a new game object for displaying Text.
@@ -37,7 +37,7 @@ func NewText(game *Game, x int, y int, text string) *Text {
 // 
 // See {@link http://www.jordanm.co.uk/tinytype this compatibility table} for the available default fonts across mobile browsers.
 func NewText1O(game *Game, x int, y int, text string, style interface{}) *Text {
-    return &Text{js.Global.Call("Phaser.Text", game, x, y, text, style)}
+    return &Text{js.Global.Get("Phaser").Get("Text").New(game, x, y, text, style)}
 }
 
 // Create a new game object for displaying Text.
@@ -47,7 +47,7 @@ func NewText1O(game *Game, x int, y int, text string, style interface{}) *Text {
 // 
 // See {@link http://www.jordanm.co.uk/tinytype this compatibility table} for the available default fonts across mobile browsers.
 func NewText2O(game *Game, x int, y int, text string, style interface{}) *Text {
-    return &Text{js.Global.Call("Phaser.Text", game, x, y, text, style)}
+    return &Text{js.Global.Get("Phaser").Get("Text").New(game, x, y, text, style)}
 }
 
 // Create a new game object for displaying Text.
@@ -57,7 +57,7 @@ func NewText2O(game *Game, x int, y int, text string, style interface{}) *Text {
 // 
 // See {@link http://www.jordanm.co.uk/tinytype this compatibility table} for the available default fonts across mobile browsers.
 func NewText3O(game *Game, x int, y int, text string, style interface{}) *Text {
-    return &Text{js.Global.Call("Phaser.Text", game, x, y, text, style)}
+    return &Text{js.Global.Get("Phaser").Get("Text").New(game, x, y, text, style)}
 }
 
 // Create a new game object for displaying Text.
@@ -67,7 +67,7 @@ func NewText3O(game *Game, x int, y int, text string, style interface{}) *Text {
 // 
 // See {@link http://www.jordanm.co.uk/tinytype this compatibility table} for the available default fonts across mobile browsers.
 func NewText4O(game *Game, x int, y int, text string, style interface{}) *Text {
-    return &Text{js.Global.Call("Phaser.Text", game, x, y, text, style)}
+    return &Text{js.Global.Get("Phaser").Get("Text").New(game, x, y, text, style)}
 }
 
 // Create a new game object for displaying Text.
@@ -77,7 +77,7 @@ func NewText4O(game *Game, x int, y int, text string, style interface{}) *Text {
 // 
 // See {@link http://www.jordanm.co.uk/tinytype this compatibility table} for the available default fonts across mobile browsers.
 func NewText5O(game *Game, x int, y int, text string, style interface{}) *Text {
-    return &Text{js.Global.Call("Phaser.Text", game, x, y, text, style)}
+    return &Text{js.Global.Get("Phaser").Get("Text").New(game, x, y, text, style)}
 }
 
 // Create a new game object for displaying Text.
@@ -87,7 +87,7 @@ func NewText5O(game *Game, x int, y int, text string, style interface{}) *Text {
 // 
 // See {@link http://www.jordanm.co.uk/tinytype this compatibility table} for the available default fonts across mobile browsers.
 func NewText6O(game *Game, x int, y int, text string, style interface{}) *Text {
-    return &Text{js.Global.Call("Phaser.Text", game, x, y, text, style)}
+    return &Text{js.Global.Get("Phaser").Get("Text").New(game, x, y, text, style)}
 }
 
 // Create a new game object for displaying Text.
@@ -97,7 +97,7 @@ func NewText6O(game *Game, x int, y int, text string, style interface{}) *Text {
 // 
 // See {@link http://www.jordanm.co.uk/tinytype this compatibility table} for the available default fonts across mobile browsers.
 func NewText7O(game *Game, x int, y int, text string, style interface{}) *Text {
-    return &Text{js.Global.Call("Phaser.Text", game, x, y, text, style)}
+    return &Text{js.Global.Get("Phaser").Get("Text").New(game, x, y, text, style)}
 }
 
 // Create a new game object for displaying Text.
@@ -107,7 +107,7 @@ func NewText7O(game *Game, x int, y int, text string, style interface{}) *Text {
 // 
 // See {@link http://www.jordanm.co.uk/tinytype this compatibility table} for the available default fonts across mobile browsers.
 func NewText8O(game *Game, x int, y int, text string, style interface{}) *Text {
-    return &Text{js.Global.Call("Phaser.Text", game, x, y, text, style)}
+    return &Text{js.Global.Get("Phaser").Get("Text").New(game, x, y, text, style)}
 }
 
 // Create a new game object for displaying Text.
@@ -117,7 +117,7 @@ func NewText8O(game *Game, x int, y int, text string, style interface{}) *Text {
 // 
 // See {@link http://www.jordanm.co.uk/tinytype this compatibility table} for the available default fonts across mobile browsers.
 func NewText9O(game *Game, x int, y int, text string, style interface{}) *Text {
-    return &Text{js.Global.Call("Phaser.Text", game, x, y, text, style)}
+    return &Text{js.Global.Get("Phaser").Get("Text").New(game, x, y, text, style)}
 }
 
 // Create a new game object for displaying Text.
@@ -127,7 +127,7 @@ func NewText9O(game *Game, x int, y int, text string, style interface{}) *Text {
 // 
 // See {@link http://www.jordanm.co.uk/tinytype this compatibility table} for the available default fonts across mobile browsers.
 func NewText10O(game *Game, x int, y int, text string, style interface{}) *Text {
-    return &Text{js.Global.Call("Phaser.Text", game, x, y, text, style)}
+    return &Text{js.Global.Get("Phaser").Get("Text").New(game, x, y, text, style)}
 }
 
 // Create a new game object for displaying Text.
@@ -137,7 +137,7 @@ func NewText10O(game *Game, x int, y int, text string, style interface{}) *Text 
 // 
 // See {@link http://www.jordanm.co.uk/tinytype this compatibility table} for the available default fonts across mobile browsers.
 func NewText11O(game *Game, x int, y int, text string, style interface{}) *Text {
-    return &Text{js.Global.Call("Phaser.Text", game, x, y, text, style)}
+    return &Text{js.Global.Get("Phaser").Get("Text").New(game, x, y, text, style)}
 }
 
 // Create a new game object for displaying Text.
@@ -147,7 +147,7 @@ func NewText11O(game *Game, x int, y int, text string, style interface{}) *Text 
 // 
 // See {@link http://www.jordanm.co.uk/tinytype this compatibility table} for the available default fonts across mobile browsers.
 func NewText12O(game *Game, x int, y int, text string, style interface{}) *Text {
-    return &Text{js.Global.Call("Phaser.Text", game, x, y, text, style)}
+    return &Text{js.Global.Get("Phaser").Get("Text").New(game, x, y, text, style)}
 }
 
 // Create a new game object for displaying Text.
@@ -157,7 +157,7 @@ func NewText12O(game *Game, x int, y int, text string, style interface{}) *Text 
 // 
 // See {@link http://www.jordanm.co.uk/tinytype this compatibility table} for the available default fonts across mobile browsers.
 func NewText13O(game *Game, x int, y int, text string, style interface{}) *Text {
-    return &Text{js.Global.Call("Phaser.Text", game, x, y, text, style)}
+    return &Text{js.Global.Get("Phaser").Get("Text").New(game, x, y, text, style)}
 }
 
 // Create a new game object for displaying Text.
@@ -167,7 +167,7 @@ func NewText13O(game *Game, x int, y int, text string, style interface{}) *Text 
 // 
 // See {@link http://www.jordanm.co.uk/tinytype this compatibility table} for the available default fonts across mobile browsers.
 func NewText14O(game *Game, x int, y int, text string, style interface{}) *Text {
-    return &Text{js.Global.Call("Phaser.Text", game, x, y, text, style)}
+    return &Text{js.Global.Get("Phaser").Get("Text").New(game, x, y, text, style)}
 }
 
 // Create a new game object for displaying Text.
@@ -177,7 +177,7 @@ func NewText14O(game *Game, x int, y int, text string, style interface{}) *Text 
 // 
 // See {@link http://www.jordanm.co.uk/tinytype this compatibility table} for the available default fonts across mobile browsers.
 func NewText15O(game *Game, x int, y int, text string, style interface{}) *Text {
-    return &Text{js.Global.Call("Phaser.Text", game, x, y, text, style)}
+    return &Text{js.Global.Get("Phaser").Get("Text").New(game, x, y, text, style)}
 }
 
 // Create a new game object for displaying Text.
@@ -187,7 +187,7 @@ func NewText15O(game *Game, x int, y int, text string, style interface{}) *Text 
 // 
 // See {@link http://www.jordanm.co.uk/tinytype this compatibility table} for the available default fonts across mobile browsers.
 func NewText16O(game *Game, x int, y int, text string, style interface{}) *Text {
-    return &Text{js.Global.Call("Phaser.Text", game, x, y, text, style)}
+    return &Text{js.Global.Get("Phaser").Get("Text").New(game, x, y, text, style)}
 }
 
 // Create a new game object for displaying Text.
@@ -197,7 +197,7 @@ func NewText16O(game *Game, x int, y int, text string, style interface{}) *Text 
 // 
 // See {@link http://www.jordanm.co.uk/tinytype this compatibility table} for the available default fonts across mobile browsers.
 func NewText17O(game *Game, x int, y int, text string, style interface{}) *Text {
-    return &Text{js.Global.Call("Phaser.Text", game, x, y, text, style)}
+    return &Text{js.Global.Get("Phaser").Get("Text").New(game, x, y, text, style)}
 }
 
 // Create a new game object for displaying Text.
@@ -207,13 +207,13 @@ func NewText17O(game *Game, x int, y int, text string, style interface{}) *Text 
 // 
 // See {@link http://www.jordanm.co.uk/tinytype this compatibility table} for the available default fonts across mobile browsers.
 func NewTextI(args ...interface{}) *Text {
-    return &Text{js.Global.Call("Phaser.Text", args)}
+    return &Text{js.Global.Get("Phaser").Get("Text").New(args)}
 }
 
 
 
 // The const type of this object.
-func (self *Text) GetTypeA() int{
+func (self *Text) Type() int{
     return self.Object.Get("type").Int()
 }
 
@@ -223,7 +223,7 @@ func (self *Text) SetTypeA(member int) {
 }
 
 // The const physics body type of this object.
-func (self *Text) GetPhysicsTypeA() int{
+func (self *Text) PhysicsType() int{
     return self.Object.Get("physicsType").Int()
 }
 
@@ -234,7 +234,7 @@ func (self *Text) SetPhysicsTypeA(member int) {
 
 // Specify a padding value which is added to the line width and height when calculating the Text size.
 // ALlows you to add extra spacing if Phaser is unable to accurately determine the true font dimensions.
-func (self *Text) GetPaddingA() *Point{
+func (self *Text) Padding() *Point{
     return &Point{self.Object.Get("padding")}
 }
 
@@ -246,7 +246,7 @@ func (self *Text) SetPaddingA(member *Point) {
 
 // The textBounds property allows you to specify a rectangular region upon which text alignment is based.
 // See `Text.setTextBounds` for more details.
-func (self *Text) GetTextBoundsA() *Rectangle{
+func (self *Text) TextBounds() *Rectangle{
     return &Rectangle{self.Object.Get("textBounds")}
 }
 
@@ -257,7 +257,7 @@ func (self *Text) SetTextBoundsA(member *Rectangle) {
 }
 
 // The canvas element that the text is rendered.
-func (self *Text) GetCanvasA() dom.HTMLCanvasElement{
+func (self *Text) Canvas() dom.HTMLCanvasElement{
     return WrapHTMLCanvasElement(self.Object.Get("canvas"))
 }
 
@@ -267,7 +267,7 @@ func (self *Text) SetCanvasA(member dom.HTMLCanvasElement) {
 }
 
 // The context of the canvas element that the text is rendered to.
-func (self *Text) GetContextA() dom.HTMLCanvasElement{
+func (self *Text) Context() dom.HTMLCanvasElement{
     return WrapHTMLCanvasElement(self.Object.Get("context"))
 }
 
@@ -277,12 +277,12 @@ func (self *Text) SetContextA(member dom.HTMLCanvasElement) {
 }
 
 // An array of the color values as specified by {@link Phaser.Text#addColor addColor}.
-func (self *Text) GetColorsA() []interface{}{
+func (self *Text) Colors() []interface{}{
 	array00 := self.Object.Get("colors")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -293,12 +293,12 @@ func (self *Text) SetColorsA(member []interface{}) {
 }
 
 // An array of the stroke color values as specified by {@link Phaser.Text#addStrokeColor addStrokeColor}.
-func (self *Text) GetStrokeColorsA() []interface{}{
+func (self *Text) StrokeColors() []interface{}{
 	array00 := self.Object.Get("strokeColors")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -309,12 +309,12 @@ func (self *Text) SetStrokeColorsA(member []interface{}) {
 }
 
 // An array of the font styles values as specified by {@link Phaser.Text#addFontStyle addFontStyle}.
-func (self *Text) GetFontStylesA() []interface{}{
+func (self *Text) FontStyles() []interface{}{
 	array00 := self.Object.Get("fontStyles")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -325,12 +325,12 @@ func (self *Text) SetFontStylesA(member []interface{}) {
 }
 
 // An array of the font weights values as specified by {@link Phaser.Text#addFontWeight addFontWeight}.
-func (self *Text) GetFontWeightsA() []interface{}{
+func (self *Text) FontWeights() []interface{}{
 	array00 := self.Object.Get("fontWeights")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -342,7 +342,7 @@ func (self *Text) SetFontWeightsA(member []interface{}) {
 
 // Should the linePositionX and Y values be automatically rounded before rendering the Text?
 // You may wish to enable this if you want to remove the effect of sub-pixel aliasing from text.
-func (self *Text) GetAutoRoundA() bool{
+func (self *Text) AutoRound() bool{
     return self.Object.Get("autoRound").Bool()
 }
 
@@ -359,7 +359,7 @@ func (self *Text) SetAutoRoundA(member bool) {
 // Lines are trimmed of white space before processing.
 // 
 // It throws an error if wordWrapWidth is less than a single character.
-func (self *Text) GetUseAdvancedWrapA() bool{
+func (self *Text) UseAdvancedWrap() bool{
     return self.Object.Get("useAdvancedWrap").Bool()
 }
 
@@ -377,7 +377,7 @@ func (self *Text) SetUseAdvancedWrapA(member bool) {
 // The text to be displayed by this Text object.
 // Use a \n to insert a carriage return and split the text.
 // The text will be rendered with any style currently set.
-func (self *Text) GetTextA() string{
+func (self *Text) Text() string{
     return self.Object.Get("text").String()
 }
 
@@ -394,7 +394,7 @@ func (self *Text) SetTextA(member string) {
 // that unlike using `setStyle` this will not change any current font fill/color settings.
 // 
 // The CSS font string can also be individually altered with the `font`, `fontSize`, `fontWeight`, `fontStyle`, and `fontVariant` properties.
-func (self *Text) GetCssFontA() string{
+func (self *Text) CssFont() string{
     return self.Object.Get("cssFont").String()
 }
 
@@ -414,7 +414,7 @@ func (self *Text) SetCssFontA(member string) {
 // {@link http://www.w3.org/TR/CSS2/fonts.html#propdef-font-family CSS font-family rules} are followed.
 // 
 // To change the entire font string use {@link Phaser.Text#cssFont cssFont} instead: eg. `text.cssFont = 'bold 20pt Arial'`.
-func (self *Text) GetFontA() string{
+func (self *Text) Font() string{
     return self.Object.Get("font").String()
 }
 
@@ -432,7 +432,7 @@ func (self *Text) SetFontA(member string) {
 // 
 // If the font size is specified in pixels (eg. `32` or `'32px`') then a number (ie. `32`) representing
 // the font size in pixels is returned; otherwise the value with CSS unit is returned as a string (eg. `'12pt'`).
-func (self *Text) GetFontSizeA() interface{}{
+func (self *Text) FontSize() interface{}{
     return self.Object.Get("fontSize")
 }
 
@@ -445,7 +445,7 @@ func (self *Text) SetFontSizeA(member interface{}) {
 }
 
 // The weight of the font: 'normal', 'bold', or {@link http://www.w3.org/TR/CSS2/fonts.html#propdef-font-weight a valid CSS font weight}.
-func (self *Text) GetFontWeightA() string{
+func (self *Text) FontWeight() string{
     return self.Object.Get("fontWeight").String()
 }
 
@@ -455,7 +455,7 @@ func (self *Text) SetFontWeightA(member string) {
 }
 
 // The style of the font: 'normal', 'italic', 'oblique'
-func (self *Text) GetFontStyleA() string{
+func (self *Text) FontStyle() string{
     return self.Object.Get("fontStyle").String()
 }
 
@@ -465,7 +465,7 @@ func (self *Text) SetFontStyleA(member string) {
 }
 
 // The variant the font: 'normal', 'small-caps'
-func (self *Text) GetFontVariantA() string{
+func (self *Text) FontVariant() string{
     return self.Object.Get("fontVariant").String()
 }
 
@@ -475,7 +475,7 @@ func (self *Text) SetFontVariantA(member string) {
 }
 
 // A canvas fillstyle that will be used on the text eg 'red', '#00FF00'.
-func (self *Text) GetFillA() interface{}{
+func (self *Text) Fill() interface{}{
     return self.Object.Get("fill")
 }
 
@@ -487,7 +487,7 @@ func (self *Text) SetFillA(member interface{}) {
 // Controls the horizontal alignment for multiline text.
 // Can be: 'left', 'center' or 'right'.
 // Does not affect single lines of text. For that please see `setTextBounds`.
-func (self *Text) GetAlignA() string{
+func (self *Text) Align() string{
     return self.Object.Get("align").String()
 }
 
@@ -500,7 +500,7 @@ func (self *Text) SetAlignA(member string) {
 
 // The resolution of the canvas the text is rendered to.
 // This defaults to match the resolution of the renderer, but can be changed on a per Text object basis.
-func (self *Text) GetResolutionA() int{
+func (self *Text) Resolution() int{
     return self.Object.Get("resolution").Int()
 }
 
@@ -514,7 +514,7 @@ func (self *Text) SetResolutionA(member int) {
 // Can be an integer or an array of varying tab sizes, one tab per element.
 // For example if you set tabs to 100 then when Text encounters a tab it will jump ahead 100 pixels.
 // If you set tabs to be `[100,200]` then it will set the first tab at 100px and the second at 200px.
-func (self *Text) GetTabsA() interface{}{
+func (self *Text) Tabs() interface{}{
     return self.Object.Get("tabs")
 }
 
@@ -527,7 +527,7 @@ func (self *Text) SetTabsA(member interface{}) {
 }
 
 // Horizontal alignment of the text within the `textBounds`. Can be: 'left', 'center' or 'right'.
-func (self *Text) GetBoundsAlignHA() string{
+func (self *Text) BoundsAlignH() string{
     return self.Object.Get("boundsAlignH").String()
 }
 
@@ -537,7 +537,7 @@ func (self *Text) SetBoundsAlignHA(member string) {
 }
 
 // Vertical alignment of the text within the `textBounds`. Can be: 'top', 'middle' or 'bottom'.
-func (self *Text) GetBoundsAlignVA() string{
+func (self *Text) BoundsAlignV() string{
     return self.Object.Get("boundsAlignV").String()
 }
 
@@ -547,7 +547,7 @@ func (self *Text) SetBoundsAlignVA(member string) {
 }
 
 // A canvas fillstyle that will be used on the text stroke eg 'blue', '#FCFF00'.
-func (self *Text) GetStrokeA() string{
+func (self *Text) Stroke() string{
     return self.Object.Get("stroke").String()
 }
 
@@ -557,7 +557,7 @@ func (self *Text) SetStrokeA(member string) {
 }
 
 // A number that represents the thickness of the stroke. Default is 0 (no stroke)
-func (self *Text) GetStrokeThicknessA() int{
+func (self *Text) StrokeThickness() int{
     return self.Object.Get("strokeThickness").Int()
 }
 
@@ -567,7 +567,7 @@ func (self *Text) SetStrokeThicknessA(member int) {
 }
 
 // Indicates if word wrap should be used.
-func (self *Text) GetWordWrapA() bool{
+func (self *Text) WordWrap() bool{
     return self.Object.Get("wordWrap").Bool()
 }
 
@@ -577,7 +577,7 @@ func (self *Text) SetWordWrapA(member bool) {
 }
 
 // The width at which text will wrap.
-func (self *Text) GetWordWrapWidthA() int{
+func (self *Text) WordWrapWidth() int{
     return self.Object.Get("wordWrapWidth").Int()
 }
 
@@ -587,7 +587,7 @@ func (self *Text) SetWordWrapWidthA(member int) {
 }
 
 // Additional spacing (in pixels) between each line of text if multi-line.
-func (self *Text) GetLineSpacingA() int{
+func (self *Text) LineSpacing() int{
     return self.Object.Get("lineSpacing").Int()
 }
 
@@ -597,7 +597,7 @@ func (self *Text) SetLineSpacingA(member int) {
 }
 
 // The shadowOffsetX value in pixels. This is how far offset horizontally the shadow effect will be.
-func (self *Text) GetShadowOffsetXA() int{
+func (self *Text) ShadowOffsetX() int{
     return self.Object.Get("shadowOffsetX").Int()
 }
 
@@ -607,7 +607,7 @@ func (self *Text) SetShadowOffsetXA(member int) {
 }
 
 // The shadowOffsetY value in pixels. This is how far offset vertically the shadow effect will be.
-func (self *Text) GetShadowOffsetYA() int{
+func (self *Text) ShadowOffsetY() int{
     return self.Object.Get("shadowOffsetY").Int()
 }
 
@@ -617,7 +617,7 @@ func (self *Text) SetShadowOffsetYA(member int) {
 }
 
 // The color of the shadow, as given in CSS rgba format. Set the alpha component to 0 to disable the shadow.
-func (self *Text) GetShadowColorA() string{
+func (self *Text) ShadowColor() string{
     return self.Object.Get("shadowColor").String()
 }
 
@@ -627,7 +627,7 @@ func (self *Text) SetShadowColorA(member string) {
 }
 
 // The shadowBlur value. Make the shadow softer by applying a Gaussian blur to it. A number from 0 (no blur) up to approx. 10 (depending on scene).
-func (self *Text) GetShadowBlurA() int{
+func (self *Text) ShadowBlur() int{
     return self.Object.Get("shadowBlur").Int()
 }
 
@@ -637,7 +637,7 @@ func (self *Text) SetShadowBlurA(member int) {
 }
 
 // Sets if the drop shadow is applied to the Text stroke.
-func (self *Text) GetShadowStrokeA() bool{
+func (self *Text) ShadowStroke() bool{
     return self.Object.Get("shadowStroke").Bool()
 }
 
@@ -647,7 +647,7 @@ func (self *Text) SetShadowStrokeA(member bool) {
 }
 
 // Sets if the drop shadow is applied to the Text fill.
-func (self *Text) GetShadowFillA() bool{
+func (self *Text) ShadowFill() bool{
     return self.Object.Get("shadowFill").Bool()
 }
 
@@ -657,7 +657,7 @@ func (self *Text) SetShadowFillA(member bool) {
 }
 
 // The width of the Text. Setting this will modify the scale to achieve the value requested.
-func (self *Text) GetWidthA() int{
+func (self *Text) Width() int{
     return self.Object.Get("width").Int()
 }
 
@@ -667,7 +667,7 @@ func (self *Text) SetWidthA(member int) {
 }
 
 // The height of the Text. Setting this will modify the scale to achieve the value requested.
-func (self *Text) GetHeightA() int{
+func (self *Text) Height() int{
     return self.Object.Get("height").Int()
 }
 
@@ -680,7 +680,7 @@ func (self *Text) SetHeightA(member int) {
 // The default is 0,0 this means the texture's origin is the top left
 // Setting than anchor to 0.5,0.5 means the textures origin is centered
 // Setting the anchor to 1,1 would mean the textures origin points will be the bottom right corner
-func (self *Text) GetAnchorA() *Point{
+func (self *Text) Anchor() *Point{
     return &Point{self.Object.Get("anchor")}
 }
 
@@ -693,7 +693,7 @@ func (self *Text) SetAnchorA(member *Point) {
 }
 
 // The texture that the sprite is using
-func (self *Text) GetTextureA() *Texture{
+func (self *Text) Texture() *Texture{
     return &Texture{self.Object.Get("texture")}
 }
 
@@ -703,7 +703,7 @@ func (self *Text) SetTextureA(member *Texture) {
 }
 
 // The tint applied to the sprite. This is a hex value. A value of 0xFFFFFF will remove any tint effect.
-func (self *Text) GetTintA() int{
+func (self *Text) Tint() int{
     return self.Object.Get("tint").Int()
 }
 
@@ -713,7 +713,7 @@ func (self *Text) SetTintA(member int) {
 }
 
 // A canvas that contains the tinted version of the Sprite (in Canvas mode, WebGL doesn't populate this)
-func (self *Text) GetTintedTextureA() *Canvas{
+func (self *Text) TintedTexture() *Canvas{
     return &Canvas{self.Object.Get("tintedTexture")}
 }
 
@@ -725,7 +725,7 @@ func (self *Text) SetTintedTextureA(member *Canvas) {
 // The blend mode to be applied to the sprite. Set to PIXI.blendModes.NORMAL to remove any blend mode.
 // 
 // Warning: You cannot have a blend mode and a filter active on the same Sprite. Doing so will render the sprite invisible.
-func (self *Text) GetBlendModeA() int{
+func (self *Text) BlendMode() int{
     return self.Object.Get("blendMode").Int()
 }
 
@@ -737,7 +737,7 @@ func (self *Text) SetBlendModeA(member int) {
 }
 
 // The shader that will be used to render the texture to the stage. Set to null to remove a current shader.
-func (self *Text) GetShaderA() *AbstractFilter{
+func (self *Text) Shader() *AbstractFilter{
     return &AbstractFilter{self.Object.Get("shader")}
 }
 
@@ -747,7 +747,7 @@ func (self *Text) SetShaderA(member *AbstractFilter) {
 }
 
 // Controls if this Sprite is processed by the core Phaser game loops and Group loops.
-func (self *Text) GetExistsA() bool{
+func (self *Text) Exists() bool{
     return self.Object.Get("exists").Bool()
 }
 
@@ -757,7 +757,7 @@ func (self *Text) SetExistsA(member bool) {
 }
 
 // [read-only] The array of children of this container.
-func (self *Text) GetChildrenA() []DisplayObject{
+func (self *Text) Children() []DisplayObject{
 	array00 := self.Object.Get("children")
 	length00 := array00.Length()
 	out00 := make([]DisplayObject, length00, length00)
@@ -777,7 +777,7 @@ func (self *Text) SetChildrenA(member []DisplayObject) {
 // If this property is `true` then the children will _not_ be considered as valid for Input events.
 // 
 // Note that this property isn't recursive: only immediate children are influenced, it doesn't scan further down.
-func (self *Text) GetIgnoreChildInputA() bool{
+func (self *Text) IgnoreChildInput() bool{
     return self.Object.Get("ignoreChildInput").Bool()
 }
 
@@ -791,7 +791,7 @@ func (self *Text) SetIgnoreChildInputA(member bool) {
 }
 
 // A reference to the currently running Game.
-func (self *Text) GetGameA() *Game{
+func (self *Text) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -802,7 +802,7 @@ func (self *Text) SetGameA(member *Game) {
 
 // A user defined name given to this Game Object.
 // This value isn't ever used internally by Phaser, it is meant as a game level property.
-func (self *Text) GetNameA() string{
+func (self *Text) Name() string{
     return self.Object.Get("name").String()
 }
 
@@ -816,7 +816,7 @@ func (self *Text) SetNameA(member string) {
 // This value isn't ever used internally by Phaser, but may be used by your own code, or
 // by Phaser Plugins, to store data that needs to be associated with the Game Object,
 // without polluting the Game Object directly.
-func (self *Text) GetDataA() interface{}{
+func (self *Text) Data() interface{}{
     return self.Object.Get("data")
 }
 
@@ -829,7 +829,7 @@ func (self *Text) SetDataA(member interface{}) {
 }
 
 // The components this Game Object has installed.
-func (self *Text) GetComponentsA() interface{}{
+func (self *Text) Components() interface{}{
     return self.Object.Get("components")
 }
 
@@ -842,7 +842,7 @@ func (self *Text) SetComponentsA(member interface{}) {
 // No two objects in a Group can have the same z value.
 // This value is adjusted automatically whenever the Group hierarchy changes.
 // If you wish to re-order the layering of a Game Object then see methods like Group.moveUp or Group.bringToTop.
-func (self *Text) GetZA() int{
+func (self *Text) Z() int{
     return self.Object.Get("z").Int()
 }
 
@@ -856,7 +856,7 @@ func (self *Text) SetZA(member int) {
 
 // All Phaser Game Objects have an Events class which contains all of the events that are dispatched when certain things happen to this
 // Game Object, or any of its components.
-func (self *Text) GetEventsA() *Events{
+func (self *Text) Events() *Events{
     return &Events{self.Object.Get("events")}
 }
 
@@ -868,7 +868,7 @@ func (self *Text) SetEventsA(member *Events) {
 
 // If the Game Object is enabled for animation (such as a Phaser.Sprite) this is a reference to its AnimationManager instance.
 // Through it you can create, play, pause and stop animations.
-func (self *Text) GetAnimationsA() *AnimationManager{
+func (self *Text) Animations() *AnimationManager{
     return &AnimationManager{self.Object.Get("animations")}
 }
 
@@ -883,7 +883,7 @@ func (self *Text) SetAnimationsA(member *AnimationManager) {
 // It can also be an instance of a RenderTexture, BitmapData, Video or PIXI.Texture.
 // If a Game Object is created without a key it is automatically assigned the key `__default` which is a 32x32 transparent PNG stored within the Cache.
 // If a Game Object is given a key which doesn't exist in the Image Cache it is re-assigned the key `__missing` which is a 32x32 PNG of a green box with a line through it.
-func (self *Text) GetKeyA() interface{}{
+func (self *Text) Key() interface{}{
     return self.Object.Get("key")
 }
 
@@ -899,7 +899,7 @@ func (self *Text) SetKeyA(member interface{}) {
 // The world coordinates of this Game Object in pixels.
 // Depending on where in the display list this Game Object is placed this value can differ from `position`, 
 // which contains the x/y coordinates relative to the Game Objects parent.
-func (self *Text) GetWorldA() *Point{
+func (self *Text) World() *Point{
     return &Point{self.Object.Get("world")}
 }
 
@@ -911,7 +911,7 @@ func (self *Text) SetWorldA(member *Point) {
 }
 
 // A debug flag designed for use with `Game.enableStep`.
-func (self *Text) GetDebugA() bool{
+func (self *Text) Debug() bool{
     return self.Object.Get("debug").Bool()
 }
 
@@ -921,7 +921,7 @@ func (self *Text) SetDebugA(member bool) {
 }
 
 // The position the Game Object was located in the previous frame.
-func (self *Text) GetPreviousPositionA() *Point{
+func (self *Text) PreviousPosition() *Point{
     return &Point{self.Object.Get("previousPosition")}
 }
 
@@ -931,7 +931,7 @@ func (self *Text) SetPreviousPositionA(member *Point) {
 }
 
 // The rotation the Game Object was in set to in the previous frame. Value is in radians.
-func (self *Text) GetPreviousRotationA() int{
+func (self *Text) PreviousRotation() int{
     return self.Object.Get("previousRotation").Int()
 }
 
@@ -942,7 +942,7 @@ func (self *Text) SetPreviousRotationA(member int) {
 
 // The render order ID is used internally by the renderer and Input Manager and should not be modified.
 // This property is mostly used internally by the renderers, but is exposed for the use of plugins.
-func (self *Text) GetRenderOrderIDA() int{
+func (self *Text) RenderOrderID() int{
     return self.Object.Get("renderOrderID").Int()
 }
 
@@ -954,7 +954,7 @@ func (self *Text) SetRenderOrderIDA(member int) {
 
 // A Game Object is considered `fresh` if it has just been created or reset and is yet to receive a renderer transform update.
 // This property is mostly used internally by the physics systems, but is exposed for the use of plugins.
-func (self *Text) GetFreshA() bool{
+func (self *Text) Fresh() bool{
     return self.Object.Get("fresh").Bool()
 }
 
@@ -969,7 +969,7 @@ func (self *Text) SetFreshA(member bool) {
 // 
 // This is extremely useful if you wish to destroy an object from within one of its own callbacks 
 // such as with Buttons or other Input events.
-func (self *Text) GetPendingDestroyA() bool{
+func (self *Text) PendingDestroy() bool{
     return self.Object.Get("pendingDestroy").Bool()
 }
 
@@ -991,7 +991,7 @@ func (self *Text) SetPendingDestroyA(member bool) {
 // 
 // If you wish to work in radians instead of degrees you can use the property `rotation` instead. 
 // Working in radians is slightly faster as it doesn't have to perform any calculations.
-func (self *Text) GetAngleA() int{
+func (self *Text) Angle() int{
     return self.Object.Get("angle").Int()
 }
 
@@ -1014,7 +1014,7 @@ func (self *Text) SetAngleA(member int) {
 // 
 // This is a relatively expensive operation, especially if enabled on hundreds of Game Objects. So enable it only if you know it's required,
 // or you have tested performance and find it acceptable.
-func (self *Text) GetAutoCullA() bool{
+func (self *Text) AutoCull() bool{
     return self.Object.Get("autoCull").Bool()
 }
 
@@ -1030,7 +1030,7 @@ func (self *Text) SetAutoCullA(member bool) {
 
 // Checks if the Game Objects bounds intersect with the Game Camera bounds.
 // Returns `true` if they do, otherwise `false` if fully outside of the Cameras bounds.
-func (self *Text) GetInCameraA() bool{
+func (self *Text) InCamera() bool{
     return self.Object.Get("inCamera").Bool()
 }
 
@@ -1043,7 +1043,7 @@ func (self *Text) SetInCameraA(member bool) {
 // The amount the Game Object is visually offset from its x coordinate.
 // This is the same as `width * anchor.x`.
 // It will only be > 0 if anchor.x is not equal to zero.
-func (self *Text) GetOffsetXA() int{
+func (self *Text) OffsetX() int{
     return self.Object.Get("offsetX").Int()
 }
 
@@ -1057,7 +1057,7 @@ func (self *Text) SetOffsetXA(member int) {
 // The amount the Game Object is visually offset from its y coordinate.
 // This is the same as `height * anchor.y`.
 // It will only be > 0 if anchor.y is not equal to zero.
-func (self *Text) GetOffsetYA() int{
+func (self *Text) OffsetY() int{
     return self.Object.Get("offsetY").Int()
 }
 
@@ -1070,7 +1070,7 @@ func (self *Text) SetOffsetYA(member int) {
 
 // The center x coordinate of the Game Object.
 // This is the same as `(x - offsetX) + (width / 2)`.
-func (self *Text) GetCenterXA() int{
+func (self *Text) CenterX() int{
     return self.Object.Get("centerX").Int()
 }
 
@@ -1082,7 +1082,7 @@ func (self *Text) SetCenterXA(member int) {
 
 // The center y coordinate of the Game Object.
 // This is the same as `(y - offsetY) + (height / 2)`.
-func (self *Text) GetCenterYA() int{
+func (self *Text) CenterY() int{
     return self.Object.Get("centerY").Int()
 }
 
@@ -1094,7 +1094,7 @@ func (self *Text) SetCenterYA(member int) {
 
 // The left coordinate of the Game Object.
 // This is the same as `x - offsetX`.
-func (self *Text) GetLeftA() int{
+func (self *Text) Left() int{
     return self.Object.Get("left").Int()
 }
 
@@ -1106,7 +1106,7 @@ func (self *Text) SetLeftA(member int) {
 
 // The right coordinate of the Game Object.
 // This is the same as `x + width - offsetX`.
-func (self *Text) GetRightA() int{
+func (self *Text) Right() int{
     return self.Object.Get("right").Int()
 }
 
@@ -1118,7 +1118,7 @@ func (self *Text) SetRightA(member int) {
 
 // The y coordinate of the Game Object.
 // This is the same as `y - offsetY`.
-func (self *Text) GetTopA() int{
+func (self *Text) Top() int{
     return self.Object.Get("top").Int()
 }
 
@@ -1130,7 +1130,7 @@ func (self *Text) SetTopA(member int) {
 
 // The sum of the y and height properties.
 // This is the same as `y + height - offsetY`.
-func (self *Text) GetBottomA() int{
+func (self *Text) Bottom() int{
     return self.Object.Get("bottom").Int()
 }
 
@@ -1143,7 +1143,7 @@ func (self *Text) SetBottomA(member int) {
 // The Rectangle used to crop the texture this Game Object uses.
 // Set this property via `crop`. 
 // If you modify this property directly you must call `updateCrop` in order to have the change take effect.
-func (self *Text) GetCropRectA() *Rectangle{
+func (self *Text) CropRect() *Rectangle{
     return &Rectangle{self.Object.Get("cropRect")}
 }
 
@@ -1157,7 +1157,7 @@ func (self *Text) SetCropRectA(member *Rectangle) {
 // Returns the delta x value. The difference between world.x now and in the previous frame.
 // 
 // The value will be positive if the Game Object has moved to the right or negative if to the left.
-func (self *Text) GetDeltaXA() int{
+func (self *Text) DeltaX() int{
     return self.Object.Get("deltaX").Int()
 }
 
@@ -1171,7 +1171,7 @@ func (self *Text) SetDeltaXA(member int) {
 // Returns the delta y value. The difference between world.y now and in the previous frame.
 // 
 // The value will be positive if the Game Object has moved down or negative if up.
-func (self *Text) GetDeltaYA() int{
+func (self *Text) DeltaY() int{
     return self.Object.Get("deltaY").Int()
 }
 
@@ -1183,7 +1183,7 @@ func (self *Text) SetDeltaYA(member int) {
 }
 
 // Returns the delta z value. The difference between rotation now and in the previous frame. The delta value.
-func (self *Text) GetDeltaZA() int{
+func (self *Text) DeltaZ() int{
     return self.Object.Get("deltaZ").Int()
 }
 
@@ -1194,7 +1194,7 @@ func (self *Text) SetDeltaZA(member int) {
 
 // As a Game Object runs through its destroy method this flag is set to true, 
 // and can be checked in any sub-systems or plugins it is being destroyed from.
-func (self *Text) GetDestroyPhaseA() bool{
+func (self *Text) DestroyPhase() bool{
     return self.Object.Get("destroyPhase").Bool()
 }
 
@@ -1217,7 +1217,7 @@ func (self *Text) SetDestroyPhaseA(member bool) {
 // Note that the `cameraOffset` values are in addition to any parent of this Game Object on the display list.
 // 
 // Be careful not to set `fixedToCamera` on Game Objects which are in Groups that already have `fixedToCamera` enabled on them.
-func (self *Text) GetFixedToCameraA() bool{
+func (self *Text) FixedToCamera() bool{
     return self.Object.Get("fixedToCamera").Bool()
 }
 
@@ -1241,7 +1241,7 @@ func (self *Text) SetFixedToCameraA(member bool) {
 // The x/y coordinate offset applied to the top-left of the camera that this Game Object will be drawn at if `fixedToCamera` is true.
 // 
 // The values are relative to the top-left of the camera view and in addition to any parent of the Game Object on the display list.
-func (self *Text) GetCameraOffsetA() *Point{
+func (self *Text) CameraOffset() *Point{
     return &Point{self.Object.Get("cameraOffset")}
 }
 
@@ -1255,7 +1255,7 @@ func (self *Text) SetCameraOffsetA(member *Point) {
 // The Game Objects health value. This is a handy property for setting and manipulating health on a Game Object.
 // 
 // It can be used in combination with the `damage` method or modified directly.
-func (self *Text) GetHealthA() int{
+func (self *Text) Health() int{
     return self.Object.Get("health").Int()
 }
 
@@ -1268,7 +1268,7 @@ func (self *Text) SetHealthA(member int) {
 
 // The Game Objects maximum health value. This works in combination with the `heal` method to ensure
 // the health value never exceeds the maximum.
-func (self *Text) GetMaxHealthA() int{
+func (self *Text) MaxHealth() int{
     return self.Object.Get("maxHealth").Int()
 }
 
@@ -1281,7 +1281,7 @@ func (self *Text) SetMaxHealthA(member int) {
 // Damages the Game Object. This removes the given amount of health from the `health` property.
 // 
 // If health is taken below or is equal to zero then the `kill` method is called.
-func (self *Text) GetDamageA() interface{}{
+func (self *Text) Damage() interface{}{
     return self.Object.Get("damage")
 }
 
@@ -1294,7 +1294,7 @@ func (self *Text) SetDamageA(member interface{}) {
 
 // Sets the health property of the Game Object to the given amount.
 // Will never exceed the `maxHealth` value.
-func (self *Text) GetSetHealthA() interface{}{
+func (self *Text) SetHealth() interface{}{
     return self.Object.Get("setHealth")
 }
 
@@ -1305,7 +1305,7 @@ func (self *Text) SetSetHealthA(member interface{}) {
 }
 
 // Heal the Game Object. This adds the given amount of health to the `health` property.
-func (self *Text) GetHealA() interface{}{
+func (self *Text) Heal() interface{}{
     return self.Object.Get("heal")
 }
 
@@ -1319,7 +1319,7 @@ func (self *Text) SetHealA(member interface{}) {
 // By default it is disabled. If you wish this Game Object to process input events you should enable it with: `inputEnabled = true`.
 // 
 // After you have done this, this property will be a reference to the Phaser InputHandler.
-func (self *Text) GetInputA() interface{}{
+func (self *Text) Input() interface{}{
     return self.Object.Get("input")
 }
 
@@ -1344,7 +1344,7 @@ func (self *Text) SetInputA(member interface{}) {
 // If you want to _temporarily_ disable input for a Game Object, then it's better to set
 // `input.enabled = false`, as it won't reset any of the Input Handlers internal properties.
 // You can then toggle this back on as needed.
-func (self *Text) GetInputEnabledA() bool{
+func (self *Text) InputEnabled() bool{
     return self.Object.Get("inputEnabled").Bool()
 }
 
@@ -1376,7 +1376,7 @@ func (self *Text) SetInputEnabledA(member bool) {
 // 
 // This is a relatively expensive operation, especially if enabled on hundreds of Game Objects. So enable it only if you know it's required,
 // or you have tested performance and find it acceptable.
-func (self *Text) GetCheckWorldBoundsA() bool{
+func (self *Text) CheckWorldBounds() bool{
     return self.Object.Get("checkWorldBounds").Bool()
 }
 
@@ -1397,7 +1397,7 @@ func (self *Text) SetCheckWorldBoundsA(member bool) {
 }
 
 // If this and the `checkWorldBounds` property are both set to `true` then the `kill` method is called as soon as `inWorld` returns false.
-func (self *Text) GetOutOfBoundsKillA() bool{
+func (self *Text) OutOfBoundsKill() bool{
     return self.Object.Get("outOfBoundsKill").Bool()
 }
 
@@ -1408,7 +1408,7 @@ func (self *Text) SetOutOfBoundsKillA(member bool) {
 
 // If this and the `autoCull` property are both set to `true`, then the `kill` method
 // is called as soon as the Game Object leaves the camera bounds.
-func (self *Text) GetOutOfCameraBoundsKillA() bool{
+func (self *Text) OutOfCameraBoundsKill() bool{
     return self.Object.Get("outOfCameraBoundsKill").Bool()
 }
 
@@ -1419,7 +1419,7 @@ func (self *Text) SetOutOfCameraBoundsKillA(member bool) {
 }
 
 // Checks if the Game Objects bounds are within, or intersect at any point with the Game World bounds.
-func (self *Text) GetInWorldA() bool{
+func (self *Text) InWorld() bool{
     return self.Object.Get("inWorld").Bool()
 }
 
@@ -1435,7 +1435,7 @@ func (self *Text) SetInWorldA(member bool) {
 // 
 // This property is mostly just provided to be used by your game - it doesn't effect rendering or logic updates.
 // However you can use `Group.getFirstAlive` in conjunction with this property for fast object pooling and recycling.
-func (self *Text) GetAliveA() bool{
+func (self *Text) Alive() bool{
     return self.Object.Get("alive").Bool()
 }
 
@@ -1458,7 +1458,7 @@ func (self *Text) SetAliveA(member bool) {
 // When it reaches zero it will call the `kill` method.
 // 
 // Very handy for particles, bullets, collectibles, or any other short-lived entity.
-func (self *Text) GetLifespanA() int{
+func (self *Text) Lifespan() int{
     return self.Object.Get("lifespan").Int()
 }
 
@@ -1484,7 +1484,7 @@ func (self *Text) SetLifespanA(member int) {
 // If you are using a texture atlas then you should use the `frameName` property instead.
 // 
 // If you wish to fully replace the texture being used see `loadTexture`.
-func (self *Text) GetFrameA() int{
+func (self *Text) Frame() int{
     return self.Object.Get("frame").Int()
 }
 
@@ -1512,7 +1512,7 @@ func (self *Text) SetFrameA(member int) {
 // If you are using a sprite sheet then you should use the `frame` property instead.
 // 
 // If you wish to fully replace the texture being used see `loadTexture`.
-func (self *Text) GetFrameNameA() string{
+func (self *Text) FrameName() string{
     return self.Object.Get("frameName").String()
 }
 
@@ -1544,7 +1544,7 @@ func (self *Text) SetFrameNameA(member string) {
 // so the physics body is centered on the Game Object.
 // 
 // If you need a different result then adjust or re-create the Body shape offsets manually or reset the anchor after enabling physics.
-func (self *Text) GetBodyA() interface{}{
+func (self *Text) Body() interface{}{
     return self.Object.Get("body")
 }
 
@@ -1567,7 +1567,7 @@ func (self *Text) SetBodyA(member interface{}) {
 }
 
 // The position of the Game Object on the x axis relative to the local coordinates of the parent.
-func (self *Text) GetXA() int{
+func (self *Text) X() int{
     return self.Object.Get("x").Int()
 }
 
@@ -1577,7 +1577,7 @@ func (self *Text) SetXA(member int) {
 }
 
 // The position of the Game Object on the y axis relative to the local coordinates of the parent.
-func (self *Text) GetYA() int{
+func (self *Text) Y() int{
     return self.Object.Get("y").Int()
 }
 
@@ -1587,12 +1587,17 @@ func (self *Text) SetYA(member int) {
 }
 
 // The callback that will apply any scale limiting to the worldTransform.
-func (self *Text) SetTransformCallbackA(member func(...interface{})) {
+func (self *Text) TransformCallback() interface{}{
+    return self.Object.Get("transformCallback")
+}
+
+// The callback that will apply any scale limiting to the worldTransform.
+func (self *Text) SetTransformCallbackA(member interface{}) {
     self.Object.Set("transformCallback", member)
 }
 
 // The context under which `transformCallback` is called.
-func (self *Text) GetTransformCallbackContextA() interface{}{
+func (self *Text) TransformCallbackContext() interface{}{
     return self.Object.Get("transformCallbackContext")
 }
 
@@ -1606,7 +1611,7 @@ func (self *Text) SetTransformCallbackContextA(member interface{}) {
 // It allows you to prevent a parent from scaling this Game Object lower than the given value.
 // 
 // Set it to `null` to remove the limit.
-func (self *Text) GetScaleMinA() *Point{
+func (self *Text) ScaleMin() *Point{
     return &Point{self.Object.Get("scaleMin")}
 }
 
@@ -1624,7 +1629,7 @@ func (self *Text) SetScaleMinA(member *Point) {
 // It allows you to prevent a parent from scaling this Game Object higher than the given value.
 // 
 // Set it to `null` to remove the limit.
-func (self *Text) GetScaleMaxA() *Point{
+func (self *Text) ScaleMax() *Point{
     return &Point{self.Object.Get("scaleMax")}
 }
 
@@ -1642,7 +1647,7 @@ func (self *Text) SetScaleMaxA(member *Point) {
 // It only takes effect if the Game Object is using an image based texture.
 // 
 // Smoothing is enabled by default.
-func (self *Text) GetSmoothedA() bool{
+func (self *Text) Smoothed() bool{
     return self.Object.Get("smoothed").Bool()
 }
 
@@ -2040,7 +2045,7 @@ func (self *Text) PrecalculateWordWrap(text string) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -2055,7 +2060,7 @@ func (self *Text) PrecalculateWordWrapI(args ...interface{}) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }

@@ -19,19 +19,19 @@ type CanvasRenderer struct {
 // The CanvasRenderer draws the Stage and all its content onto a 2d canvas. This renderer should be used for browsers that do not support webGL.
 // Don't forget to add the CanvasRenderer.view to your DOM or you will not see anything :)
 func NewCanvasRenderer(game *PhaserGame) *CanvasRenderer {
-    return &CanvasRenderer{js.Global.Call("PIXI.CanvasRenderer", game)}
+    return &CanvasRenderer{js.Global.Get("PIXI").Get("CanvasRenderer").New(game)}
 }
 
 // The CanvasRenderer draws the Stage and all its content onto a 2d canvas. This renderer should be used for browsers that do not support webGL.
 // Don't forget to add the CanvasRenderer.view to your DOM or you will not see anything :)
 func NewCanvasRendererI(args ...interface{}) *CanvasRenderer {
-    return &CanvasRenderer{js.Global.Call("PIXI.CanvasRenderer", args)}
+    return &CanvasRenderer{js.Global.Get("PIXI").Get("CanvasRenderer").New(args)}
 }
 
 
 
 // 
-func (self *CanvasRenderer) GetGameA() *PhaserGame{
+func (self *CanvasRenderer) Game() *PhaserGame{
     return &PhaserGame{self.Object.Get("game")}
 }
 
@@ -41,7 +41,7 @@ func (self *CanvasRenderer) SetGameA(member *PhaserGame) {
 }
 
 // The renderer type.
-func (self *CanvasRenderer) GetTypeA() int{
+func (self *CanvasRenderer) Type() int{
     return self.Object.Get("type").Int()
 }
 
@@ -51,7 +51,7 @@ func (self *CanvasRenderer) SetTypeA(member int) {
 }
 
 // The resolution of the canvas.
-func (self *CanvasRenderer) GetResolutionA() int{
+func (self *CanvasRenderer) Resolution() int{
     return self.Object.Get("resolution").Int()
 }
 
@@ -64,7 +64,7 @@ func (self *CanvasRenderer) SetResolutionA(member int) {
 // If the Stage is NOT transparent Pixi will use a canvas sized fillRect operation every frame to set the canvas background color.
 // If the Stage is transparent Pixi will use clearRect to clear the canvas every frame.
 // Disable this by setting this to false. For example if your game has a canvas filling background image you often don't need this set.
-func (self *CanvasRenderer) GetClearBeforeRenderA() bool{
+func (self *CanvasRenderer) ClearBeforeRender() bool{
     return self.Object.Get("clearBeforeRender").Bool()
 }
 
@@ -77,7 +77,7 @@ func (self *CanvasRenderer) SetClearBeforeRenderA(member bool) {
 }
 
 // Whether the render view is transparent
-func (self *CanvasRenderer) GetTransparentA() bool{
+func (self *CanvasRenderer) Transparent() bool{
     return self.Object.Get("transparent").Bool()
 }
 
@@ -87,7 +87,7 @@ func (self *CanvasRenderer) SetTransparentA(member bool) {
 }
 
 // Whether the render view should be resized automatically
-func (self *CanvasRenderer) GetAutoResizeA() bool{
+func (self *CanvasRenderer) AutoResize() bool{
     return self.Object.Get("autoResize").Bool()
 }
 
@@ -97,7 +97,7 @@ func (self *CanvasRenderer) SetAutoResizeA(member bool) {
 }
 
 // The width of the canvas view
-func (self *CanvasRenderer) GetWidthA() int{
+func (self *CanvasRenderer) Width() int{
     return self.Object.Get("width").Int()
 }
 
@@ -107,7 +107,7 @@ func (self *CanvasRenderer) SetWidthA(member int) {
 }
 
 // The height of the canvas view
-func (self *CanvasRenderer) GetHeightA() int{
+func (self *CanvasRenderer) Height() int{
     return self.Object.Get("height").Int()
 }
 
@@ -117,7 +117,7 @@ func (self *CanvasRenderer) SetHeightA(member int) {
 }
 
 // The canvas element that everything is drawn to.
-func (self *CanvasRenderer) GetViewA() dom.HTMLCanvasElement{
+func (self *CanvasRenderer) View() dom.HTMLCanvasElement{
     return WrapHTMLCanvasElement(self.Object.Get("view"))
 }
 
@@ -127,7 +127,7 @@ func (self *CanvasRenderer) SetViewA(member dom.HTMLCanvasElement) {
 }
 
 // The canvas 2d context that everything is drawn with
-func (self *CanvasRenderer) GetContextA() dom.CanvasRenderingContext2D{
+func (self *CanvasRenderer) Context() dom.CanvasRenderingContext2D{
     return WrapCanvasRenderingContext2D(self.Object.Get("context"))
 }
 
@@ -137,7 +137,7 @@ func (self *CanvasRenderer) SetContextA(member dom.CanvasRenderingContext2D) {
 }
 
 // Boolean flag controlling canvas refresh.
-func (self *CanvasRenderer) GetRefreshA() bool{
+func (self *CanvasRenderer) Refresh() bool{
     return self.Object.Get("refresh").Bool()
 }
 
@@ -147,7 +147,7 @@ func (self *CanvasRenderer) SetRefreshA(member bool) {
 }
 
 // Internal var.
-func (self *CanvasRenderer) GetCountA() int{
+func (self *CanvasRenderer) Count() int{
     return self.Object.Get("count").Int()
 }
 
@@ -157,7 +157,7 @@ func (self *CanvasRenderer) SetCountA(member int) {
 }
 
 // Instance of a PIXI.CanvasMaskManager, handles masking when using the canvas renderer
-func (self *CanvasRenderer) GetCanvasMaskManagerA() *CanvasMaskManager{
+func (self *CanvasRenderer) CanvasMaskManager() *CanvasMaskManager{
     return &CanvasMaskManager{self.Object.Get("CanvasMaskManager")}
 }
 
@@ -167,7 +167,7 @@ func (self *CanvasRenderer) SetCanvasMaskManagerA(member *CanvasMaskManager) {
 }
 
 // The render session is just a bunch of parameter used for rendering
-func (self *CanvasRenderer) GetRenderSessionA() interface{}{
+func (self *CanvasRenderer) RenderSession() interface{}{
     return self.Object.Get("renderSession")
 }
 

@@ -17,19 +17,19 @@ type AudioSprite struct {
 // Audio Sprites are a combination of audio files and a JSON configuration.
 // The JSON follows the format of that created by https://github.com/tonistiigi/audiosprite
 func NewAudioSprite(game *Game, key string) *AudioSprite {
-    return &AudioSprite{js.Global.Call("Phaser.AudioSprite", game, key)}
+    return &AudioSprite{js.Global.Get("Phaser").Get("AudioSprite").New(game, key)}
 }
 
 // Audio Sprites are a combination of audio files and a JSON configuration.
 // The JSON follows the format of that created by https://github.com/tonistiigi/audiosprite
 func NewAudioSpriteI(args ...interface{}) *AudioSprite {
-    return &AudioSprite{js.Global.Call("Phaser.AudioSprite", args)}
+    return &AudioSprite{js.Global.Get("Phaser").Get("AudioSprite").New(args)}
 }
 
 
 
 // A reference to the currently running Game.
-func (self *AudioSprite) GetGameA() *Game{
+func (self *AudioSprite) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -39,7 +39,7 @@ func (self *AudioSprite) SetGameA(member *Game) {
 }
 
 // Asset key for the Audio Sprite.
-func (self *AudioSprite) GetKeyA() string{
+func (self *AudioSprite) Key() string{
     return self.Object.Get("key").String()
 }
 
@@ -49,7 +49,7 @@ func (self *AudioSprite) SetKeyA(member string) {
 }
 
 // JSON audio atlas object.
-func (self *AudioSprite) GetConfigA() interface{}{
+func (self *AudioSprite) Config() interface{}{
     return self.Object.Get("config")
 }
 
@@ -59,7 +59,7 @@ func (self *AudioSprite) SetConfigA(member interface{}) {
 }
 
 // If a sound is set to auto play, this holds the marker key of it.
-func (self *AudioSprite) GetAutoplayKeyA() string{
+func (self *AudioSprite) AutoplayKey() string{
     return self.Object.Get("autoplayKey").String()
 }
 
@@ -69,7 +69,7 @@ func (self *AudioSprite) SetAutoplayKeyA(member string) {
 }
 
 // Is a sound set to autoplay or not?
-func (self *AudioSprite) GetAutoplayA() bool{
+func (self *AudioSprite) Autoplay() bool{
     return self.Object.Get("autoplay").Bool()
 }
 
@@ -79,7 +79,7 @@ func (self *AudioSprite) SetAutoplayA(member bool) {
 }
 
 // An object containing the Phaser.Sound objects for the Audio Sprite.
-func (self *AudioSprite) GetSoundsA() interface{}{
+func (self *AudioSprite) Sounds() interface{}{
     return self.Object.Get("sounds")
 }
 

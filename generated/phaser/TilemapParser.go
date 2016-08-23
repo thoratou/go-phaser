@@ -15,12 +15,12 @@ type TilemapParser struct {
 
 // Phaser.TilemapParser parses data objects from Phaser.Loader that need more preparation before they can be inserted into a Tilemap.
 func NewTilemapParser() *TilemapParser {
-    return &TilemapParser{js.Global.Call("Phaser.TilemapParser")}
+    return &TilemapParser{js.Global.Get("Phaser").Get("TilemapParser").New()}
 }
 
 // Phaser.TilemapParser parses data objects from Phaser.Loader that need more preparation before they can be inserted into a Tilemap.
 func NewTilemapParserI(args ...interface{}) *TilemapParser {
-    return &TilemapParser{js.Global.Call("Phaser.TilemapParser", args)}
+    return &TilemapParser{js.Global.Get("Phaser").Get("TilemapParser").New(args)}
 }
 
 
@@ -31,7 +31,7 @@ func NewTilemapParserI(args ...interface{}) *TilemapParser {
 // data doesn't need to change then setting this value to `true` will help with memory consumption.
 // However if your map is small, or you need to update the tiles (perhaps the map dynamically changes
 // during the game) then leave the default value set.
-func (self *TilemapParser) GetINSERT_NULLA() bool{
+func (self *TilemapParser) INSERT_NULL() bool{
     return self.Object.Get("INSERT_NULL").Bool()
 }
 
@@ -47,7 +47,7 @@ func (self *TilemapParser) SetINSERT_NULLA(member bool) {
 
 // A tiled flag that resides within the 32 bit of the object gid and
 // indicates whether the tiled/object is flipped horizontally.
-func (self *TilemapParser) GetFLIPPED_HORIZONTALLY_FLAGA() int{
+func (self *TilemapParser) FLIPPED_HORIZONTALLY_FLAG() int{
     return self.Object.Get("FLIPPED_HORIZONTALLY_FLAG").Int()
 }
 
@@ -59,7 +59,7 @@ func (self *TilemapParser) SetFLIPPED_HORIZONTALLY_FLAGA(member int) {
 
 // A tiled flag that resides within the 31 bit of the object gid and
 // indicates whether the tiled/object is flipped vertically.
-func (self *TilemapParser) GetFLIPPED_VERTICALLY_FLAGA() int{
+func (self *TilemapParser) FLIPPED_VERTICALLY_FLAG() int{
     return self.Object.Get("FLIPPED_VERTICALLY_FLAG").Int()
 }
 
@@ -71,7 +71,7 @@ func (self *TilemapParser) SetFLIPPED_VERTICALLY_FLAGA(member int) {
 
 // A tiled flag that resides within the 30 bit of the object gid and
 // indicates whether the tiled/object is flipped diagonally.
-func (self *TilemapParser) GetFLIPPED_DIAGONALLY_FLAGA() int{
+func (self *TilemapParser) FLIPPED_DIAGONALLY_FLAG() int{
     return self.Object.Get("FLIPPED_DIAGONALLY_FLAG").Int()
 }
 

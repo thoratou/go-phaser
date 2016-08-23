@@ -17,13 +17,13 @@ type ComponentFixedToCamera struct {
 // The FixedToCamera component enables a Game Object to be rendered relative to the game camera coordinates, regardless 
 // of where in the world the camera is. This is used for things like sticking game UI to the camera that scrolls as it moves around the world.
 func NewComponentFixedToCamera() *ComponentFixedToCamera {
-    return &ComponentFixedToCamera{js.Global.Call("Phaser.Component.FixedToCamera")}
+    return &ComponentFixedToCamera{js.Global.Get("Phaser").Get("Component").Get("FixedToCamera").New()}
 }
 
 // The FixedToCamera component enables a Game Object to be rendered relative to the game camera coordinates, regardless 
 // of where in the world the camera is. This is used for things like sticking game UI to the camera that scrolls as it moves around the world.
 func NewComponentFixedToCameraI(args ...interface{}) *ComponentFixedToCamera {
-    return &ComponentFixedToCamera{js.Global.Call("Phaser.Component.FixedToCamera", args)}
+    return &ComponentFixedToCamera{js.Global.Get("Phaser").Get("Component").Get("FixedToCamera").New(args)}
 }
 
 
@@ -41,7 +41,7 @@ func NewComponentFixedToCameraI(args ...interface{}) *ComponentFixedToCamera {
 // Note that the `cameraOffset` values are in addition to any parent of this Game Object on the display list.
 // 
 // Be careful not to set `fixedToCamera` on Game Objects which are in Groups that already have `fixedToCamera` enabled on them.
-func (self *ComponentFixedToCamera) GetFixedToCameraA() bool{
+func (self *ComponentFixedToCamera) FixedToCamera() bool{
     return self.Object.Get("fixedToCamera").Bool()
 }
 
@@ -65,7 +65,7 @@ func (self *ComponentFixedToCamera) SetFixedToCameraA(member bool) {
 // The x/y coordinate offset applied to the top-left of the camera that this Game Object will be drawn at if `fixedToCamera` is true.
 // 
 // The values are relative to the top-left of the camera view and in addition to any parent of the Game Object on the display list.
-func (self *ComponentFixedToCamera) GetCameraOffsetA() *Point{
+func (self *ComponentFixedToCamera) CameraOffset() *Point{
     return &Point{self.Object.Get("cameraOffset")}
 }
 

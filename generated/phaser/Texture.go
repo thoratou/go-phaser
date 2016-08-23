@@ -17,31 +17,31 @@ type Texture struct {
 // A texture stores the information that represents an image or part of an image. It cannot be added
 // to the display list directly. Instead use it as the texture for a PIXI.Sprite. If no frame is provided then the whole image is used.
 func NewTexture(baseTexture *BaseTexture, frame *Rectangle) *Texture {
-    return &Texture{js.Global.Call("PIXI.Texture", baseTexture, frame)}
+    return &Texture{js.Global.Get("PIXI").Get("Texture").New(baseTexture, frame)}
 }
 
 // A texture stores the information that represents an image or part of an image. It cannot be added
 // to the display list directly. Instead use it as the texture for a PIXI.Sprite. If no frame is provided then the whole image is used.
 func NewTexture1O(baseTexture *BaseTexture, frame *Rectangle, crop *Rectangle) *Texture {
-    return &Texture{js.Global.Call("PIXI.Texture", baseTexture, frame, crop)}
+    return &Texture{js.Global.Get("PIXI").Get("Texture").New(baseTexture, frame, crop)}
 }
 
 // A texture stores the information that represents an image or part of an image. It cannot be added
 // to the display list directly. Instead use it as the texture for a PIXI.Sprite. If no frame is provided then the whole image is used.
 func NewTexture2O(baseTexture *BaseTexture, frame *Rectangle, crop *Rectangle, trim *Rectangle) *Texture {
-    return &Texture{js.Global.Call("PIXI.Texture", baseTexture, frame, crop, trim)}
+    return &Texture{js.Global.Get("PIXI").Get("Texture").New(baseTexture, frame, crop, trim)}
 }
 
 // A texture stores the information that represents an image or part of an image. It cannot be added
 // to the display list directly. Instead use it as the texture for a PIXI.Sprite. If no frame is provided then the whole image is used.
 func NewTextureI(args ...interface{}) *Texture {
-    return &Texture{js.Global.Call("PIXI.Texture", args)}
+    return &Texture{js.Global.Get("PIXI").Get("Texture").New(args)}
 }
 
 
 
 // Does this Texture have any frame data assigned to it?
-func (self *Texture) GetNoFrameA() bool{
+func (self *Texture) NoFrame() bool{
     return self.Object.Get("noFrame").Bool()
 }
 
@@ -51,7 +51,7 @@ func (self *Texture) SetNoFrameA(member bool) {
 }
 
 // The base texture that this texture uses.
-func (self *Texture) GetBaseTextureA() *BaseTexture{
+func (self *Texture) BaseTexture() *BaseTexture{
     return &BaseTexture{self.Object.Get("baseTexture")}
 }
 
@@ -61,7 +61,7 @@ func (self *Texture) SetBaseTextureA(member *BaseTexture) {
 }
 
 // The frame specifies the region of the base texture that this texture uses
-func (self *Texture) GetFrameA() *Rectangle{
+func (self *Texture) Frame() *Rectangle{
     return &Rectangle{self.Object.Get("frame")}
 }
 
@@ -71,7 +71,7 @@ func (self *Texture) SetFrameA(member *Rectangle) {
 }
 
 // The texture trim data.
-func (self *Texture) GetTrimA() *Rectangle{
+func (self *Texture) Trim() *Rectangle{
     return &Rectangle{self.Object.Get("trim")}
 }
 
@@ -81,7 +81,7 @@ func (self *Texture) SetTrimA(member *Rectangle) {
 }
 
 // This will let the renderer know if the texture is valid. If it's not then it cannot be rendered.
-func (self *Texture) GetValidA() bool{
+func (self *Texture) Valid() bool{
     return self.Object.Get("valid").Bool()
 }
 
@@ -91,7 +91,7 @@ func (self *Texture) SetValidA(member bool) {
 }
 
 // Is this a tiling texture? As used by the likes of a TilingSprite.
-func (self *Texture) GetIsTilingA() bool{
+func (self *Texture) IsTiling() bool{
     return self.Object.Get("isTiling").Bool()
 }
 
@@ -101,7 +101,7 @@ func (self *Texture) SetIsTilingA(member bool) {
 }
 
 // This will let a renderer know that a texture has been updated (used mainly for webGL uv updates)
-func (self *Texture) GetRequiresUpdateA() bool{
+func (self *Texture) RequiresUpdate() bool{
     return self.Object.Get("requiresUpdate").Bool()
 }
 
@@ -111,7 +111,7 @@ func (self *Texture) SetRequiresUpdateA(member bool) {
 }
 
 // This will let a renderer know that a tinted parent has updated its texture.
-func (self *Texture) GetRequiresReTintA() bool{
+func (self *Texture) RequiresReTint() bool{
     return self.Object.Get("requiresReTint").Bool()
 }
 
@@ -121,7 +121,7 @@ func (self *Texture) SetRequiresReTintA(member bool) {
 }
 
 // The width of the Texture in pixels.
-func (self *Texture) GetWidthA() int{
+func (self *Texture) Width() int{
     return self.Object.Get("width").Int()
 }
 
@@ -131,7 +131,7 @@ func (self *Texture) SetWidthA(member int) {
 }
 
 // The height of the Texture in pixels.
-func (self *Texture) GetHeightA() int{
+func (self *Texture) Height() int{
     return self.Object.Get("height").Int()
 }
 
@@ -142,7 +142,7 @@ func (self *Texture) SetHeightA(member int) {
 
 // This is the area of the BaseTexture image to actually copy to the Canvas / WebGL when rendering,
 // irrespective of the actual frame size or placement (which can be influenced by trimmed texture atlases)
-func (self *Texture) GetCropA() *Rectangle{
+func (self *Texture) Crop() *Rectangle{
     return &Rectangle{self.Object.Get("crop")}
 }
 

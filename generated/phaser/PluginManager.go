@@ -15,18 +15,18 @@ type PluginManager struct {
 
 // The Plugin Manager is responsible for the loading, running and unloading of Phaser Plugins.
 func NewPluginManager(game *Game) *PluginManager {
-    return &PluginManager{js.Global.Call("Phaser.PluginManager", game)}
+    return &PluginManager{js.Global.Get("Phaser").Get("PluginManager").New(game)}
 }
 
 // The Plugin Manager is responsible for the loading, running and unloading of Phaser Plugins.
 func NewPluginManagerI(args ...interface{}) *PluginManager {
-    return &PluginManager{js.Global.Call("Phaser.PluginManager", args)}
+    return &PluginManager{js.Global.Get("Phaser").Get("PluginManager").New(args)}
 }
 
 
 
 // A reference to the currently running game.
-func (self *PluginManager) GetGameA() *Game{
+func (self *PluginManager) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -36,7 +36,7 @@ func (self *PluginManager) SetGameA(member *Game) {
 }
 
 // An array of all the plugins being managed by this PluginManager.
-func (self *PluginManager) GetPluginsA() []Plugin{
+func (self *PluginManager) Plugins() []Plugin{
 	array00 := self.Object.Get("plugins")
 	length00 := array00.Length()
 	out00 := make([]Plugin, length00, length00)

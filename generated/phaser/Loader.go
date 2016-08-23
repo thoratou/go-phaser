@@ -31,7 +31,7 @@ type Loader struct {
 // Texture Atlases can be created with tools such as [Texture Packer](https://www.codeandweb.com/texturepacker/phaser) and
 // [Shoebox](http://renderhjs.net/shoebox/)
 func NewLoader(game *Game) *Loader {
-    return &Loader{js.Global.Call("Phaser.Loader", game)}
+    return &Loader{js.Global.Get("Phaser").Get("Loader").New(game)}
 }
 
 // The Loader handles loading all external content such as Images, Sounds, Texture Atlases and data files.
@@ -44,13 +44,13 @@ func NewLoader(game *Game) *Loader {
 // Texture Atlases can be created with tools such as [Texture Packer](https://www.codeandweb.com/texturepacker/phaser) and
 // [Shoebox](http://renderhjs.net/shoebox/)
 func NewLoaderI(args ...interface{}) *Loader {
-    return &Loader{js.Global.Call("Phaser.Loader", args)}
+    return &Loader{js.Global.Get("Phaser").Get("Loader").New(args)}
 }
 
 
 
 // Local reference to game.
-func (self *Loader) GetGameA() *Game{
+func (self *Loader) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -60,7 +60,7 @@ func (self *Loader) SetGameA(member *Game) {
 }
 
 // Local reference to the Phaser.Cache.
-func (self *Loader) GetCacheA() *Cache{
+func (self *Loader) Cache() *Cache{
     return &Cache{self.Object.Get("cache")}
 }
 
@@ -70,7 +70,7 @@ func (self *Loader) SetCacheA(member *Cache) {
 }
 
 // If true all calls to Loader.reset will be ignored. Useful if you need to create a load queue before swapping to a preloader state.
-func (self *Loader) GetResetLockedA() bool{
+func (self *Loader) ResetLocked() bool{
     return self.Object.Get("resetLocked").Bool()
 }
 
@@ -80,7 +80,7 @@ func (self *Loader) SetResetLockedA(member bool) {
 }
 
 // True if the Loader is in the process of loading the queue.
-func (self *Loader) GetIsLoadingA() bool{
+func (self *Loader) IsLoading() bool{
     return self.Object.Get("isLoading").Bool()
 }
 
@@ -90,7 +90,7 @@ func (self *Loader) SetIsLoadingA(member bool) {
 }
 
 // True if all assets in the queue have finished loading.
-func (self *Loader) GetHasLoadedA() bool{
+func (self *Loader) HasLoaded() bool{
     return self.Object.Get("hasLoaded").Bool()
 }
 
@@ -102,7 +102,7 @@ func (self *Loader) SetHasLoadedA(member bool) {
 // You can optionally link a progress sprite with {@link Phaser.Loader#setPreloadSprite setPreloadSprite}.
 // 
 // This property is an object containing: sprite, rect, direction, width and height
-func (self *Loader) GetPreloadSpriteA() interface{}{
+func (self *Loader) PreloadSprite() interface{}{
     return self.Object.Get("preloadSprite")
 }
 
@@ -114,7 +114,7 @@ func (self *Loader) SetPreloadSpriteA(member interface{}) {
 }
 
 // The crossOrigin value applied to loaded images. Very often this needs to be set to 'anonymous'.
-func (self *Loader) GetCrossOriginA() interface{}{
+func (self *Loader) CrossOrigin() interface{}{
     return self.Object.Get("crossOrigin")
 }
 
@@ -126,7 +126,7 @@ func (self *Loader) SetCrossOriginA(member interface{}) {
 // If you want to append a URL before the path of any asset you can set this here.
 // Useful if allowing the asset base url to be configured outside of the game code.
 // The string _must_ end with a "/".
-func (self *Loader) GetBaseURLA() string{
+func (self *Loader) BaseURL() string{
     return self.Object.Get("baseURL").String()
 }
 
@@ -151,7 +151,7 @@ func (self *Loader) SetBaseURLA(member string) {
 // Please note that the path is added before the filename but *after* the baseURL (if set.)
 // 
 // The string _must_ end with a "/".
-func (self *Loader) GetPathA() string{
+func (self *Loader) Path() string{
     return self.Object.Get("path").String()
 }
 
@@ -176,7 +176,7 @@ func (self *Loader) SetPathA(member string) {
 // Used to map the application mime-types to to the Accept header in XHR requests.
 // If you don't require these mappings, or they cause problems on your server, then
 // remove them from the headers object and the XHR request will not try to use them.
-func (self *Loader) GetHeadersA() interface{}{
+func (self *Loader) Headers() interface{}{
     return self.Object.Get("headers")
 }
 
@@ -189,7 +189,7 @@ func (self *Loader) SetHeadersA(member interface{}) {
 
 // This event is dispatched when the loading process starts: before the first file has been requested,
 // but after all the initial packs have been loaded.
-func (self *Loader) GetOnLoadStartA() *Signal{
+func (self *Loader) OnLoadStart() *Signal{
     return &Signal{self.Object.Get("onLoadStart")}
 }
 
@@ -200,7 +200,7 @@ func (self *Loader) SetOnLoadStartA(member *Signal) {
 }
 
 // This event is dispatched when the final file in the load queue has either loaded or failed.
-func (self *Loader) GetOnLoadCompleteA() *Signal{
+func (self *Loader) OnLoadComplete() *Signal{
     return &Signal{self.Object.Get("onLoadComplete")}
 }
 
@@ -214,7 +214,7 @@ func (self *Loader) SetOnLoadCompleteA(member *Signal) {
 // This is called when the asset pack manifest file has loaded and successfully added its contents to the loader queue.
 // 
 // Params: `(pack key, success?, total packs loaded, total packs)`
-func (self *Loader) GetOnPackCompleteA() *Signal{
+func (self *Loader) OnPackComplete() *Signal{
     return &Signal{self.Object.Get("onPackComplete")}
 }
 
@@ -231,7 +231,7 @@ func (self *Loader) SetOnPackCompleteA(member *Signal) {
 // It's possible the file may fail (eg. download error, invalid format) after this event is sent.
 // 
 // Params: `(progress, file key, file url)`
-func (self *Loader) GetOnFileStartA() *Signal{
+func (self *Loader) OnFileStart() *Signal{
     return &Signal{self.Object.Get("onFileStart")}
 }
 
@@ -250,7 +250,7 @@ func (self *Loader) SetOnFileStartA(member *Signal) {
 // progress, file key, success?, total loaded files, total files
 // 
 // Where progress is a number between 1 and 100 (inclusive) representing the percentage of the load.
-func (self *Loader) GetOnFileCompleteA() *Signal{
+func (self *Loader) OnFileComplete() *Signal{
     return &Signal{self.Object.Get("onFileComplete")}
 }
 
@@ -270,7 +270,7 @@ func (self *Loader) SetOnFileCompleteA(member *Signal) {
 // For files it will be triggered before `onFileComplete`. For packs it will be triggered before `onPackComplete`.
 // 
 // Params: `(file key, file)`
-func (self *Loader) GetOnFileErrorA() *Signal{
+func (self *Loader) OnFileError() *Signal{
     return &Signal{self.Object.Get("onFileError")}
 }
 
@@ -286,7 +286,7 @@ func (self *Loader) SetOnFileErrorA(member *Signal) {
 // If true and if the browser supports XDomainRequest, it will be used in preference for XHR.
 // 
 // This is only relevant for IE 9 and should _only_ be enabled for IE 9 clients when required by the server/CDN.
-func (self *Loader) GetUseXDomainRequestA() bool{
+func (self *Loader) UseXDomainRequest() bool{
     return self.Object.Get("useXDomainRequest").Bool()
 }
 
@@ -300,7 +300,7 @@ func (self *Loader) SetUseXDomainRequestA(member bool) {
 // If true (the default) then parallel downloading will be enabled.
 // 
 // To disable all parallel downloads this must be set to false prior to any resource being loaded.
-func (self *Loader) GetEnableParallelA() bool{
+func (self *Loader) EnableParallel() bool{
     return self.Object.Get("enableParallel").Bool()
 }
 
@@ -314,7 +314,7 @@ func (self *Loader) SetEnableParallelA(member bool) {
 // The number of concurrent / parallel resources to try and fetch at once.
 // 
 // Many current browsers limit 6 requests per domain; this is slightly conservative.
-func (self *Loader) GetMaxParallelDownloadsA() int{
+func (self *Loader) MaxParallelDownloads() int{
     return self.Object.Get("maxParallelDownloads").Int()
 }
 
@@ -326,7 +326,7 @@ func (self *Loader) SetMaxParallelDownloadsA(member int) {
 }
 
 // A counter: if more than zero, files will be automatically added as a synchronization point.
-func (self *Loader) Get_withSyncPointDepthA() interface{}{
+func (self *Loader) _withSyncPointDepth() interface{}{
     return self.Object.Get("_withSyncPointDepth")
 }
 
@@ -336,7 +336,7 @@ func (self *Loader) Set_withSyncPointDepthA(member interface{}) {
 }
 
 // 
-func (self *Loader) GetTEXTURE_ATLAS_JSON_ARRAYA() int{
+func (self *Loader) TEXTURE_ATLAS_JSON_ARRAY() int{
     return self.Object.Get("TEXTURE_ATLAS_JSON_ARRAY").Int()
 }
 
@@ -346,7 +346,7 @@ func (self *Loader) SetTEXTURE_ATLAS_JSON_ARRAYA(member int) {
 }
 
 // 
-func (self *Loader) GetTEXTURE_ATLAS_JSON_HASHA() int{
+func (self *Loader) TEXTURE_ATLAS_JSON_HASH() int{
     return self.Object.Get("TEXTURE_ATLAS_JSON_HASH").Int()
 }
 
@@ -356,7 +356,7 @@ func (self *Loader) SetTEXTURE_ATLAS_JSON_HASHA(member int) {
 }
 
 // 
-func (self *Loader) GetTEXTURE_ATLAS_XML_STARLINGA() int{
+func (self *Loader) TEXTURE_ATLAS_XML_STARLING() int{
     return self.Object.Get("TEXTURE_ATLAS_XML_STARLING").Int()
 }
 
@@ -366,7 +366,7 @@ func (self *Loader) SetTEXTURE_ATLAS_XML_STARLINGA(member int) {
 }
 
 // 
-func (self *Loader) GetPHYSICS_LIME_CORONA_JSONA() int{
+func (self *Loader) PHYSICS_LIME_CORONA_JSON() int{
     return self.Object.Get("PHYSICS_LIME_CORONA_JSON").Int()
 }
 
@@ -376,7 +376,7 @@ func (self *Loader) SetPHYSICS_LIME_CORONA_JSONA(member int) {
 }
 
 // 
-func (self *Loader) GetPHYSICS_PHASER_JSONA() int{
+func (self *Loader) PHYSICS_PHASER_JSON() int{
     return self.Object.Get("PHYSICS_PHASER_JSON").Int()
 }
 
@@ -386,7 +386,7 @@ func (self *Loader) SetPHYSICS_PHASER_JSONA(member int) {
 }
 
 // 
-func (self *Loader) GetTEXTURE_ATLAS_JSON_PYXELA() int{
+func (self *Loader) TEXTURE_ATLAS_JSON_PYXEL() int{
     return self.Object.Get("TEXTURE_ATLAS_JSON_PYXEL").Int()
 }
 
@@ -399,7 +399,7 @@ func (self *Loader) SetTEXTURE_ATLAS_JSON_PYXELA(member int) {
 // 
 // A general indicator of the progress.
 // It is possible for the progress to decrease, after `onLoadStart`, if more files are dynamically added.
-func (self *Loader) GetProgressFloatA() interface{}{
+func (self *Loader) ProgressFloat() interface{}{
     return self.Object.Get("progressFloat")
 }
 
@@ -412,7 +412,7 @@ func (self *Loader) SetProgressFloatA(member interface{}) {
 }
 
 // The rounded load progress percentage value (from 0 to 100). See {@link Phaser.Loader#progressFloat}.
-func (self *Loader) GetProgressA() interface{}{
+func (self *Loader) Progress() interface{}{
     return self.Object.Get("progress")
 }
 
@@ -1141,7 +1141,7 @@ func (self *Loader) Script1O(key string, url string) *Loader{
 // 
 // A callback, which will be invoked as the script tag has been created, can also be specified.
 // The callback must return relevant `data`.
-func (self *Loader) Script2O(key string, url string, callback func(...interface{})) *Loader{
+func (self *Loader) Script2O(key string, url string, callback interface{}) *Loader{
     return &Loader{self.Object.Call("script", key, url, callback)}
 }
 
@@ -1161,7 +1161,7 @@ func (self *Loader) Script2O(key string, url string, callback func(...interface{
 // 
 // A callback, which will be invoked as the script tag has been created, can also be specified.
 // The callback must return relevant `data`.
-func (self *Loader) Script3O(key string, url string, callback func(...interface{}), callbackContext interface{}) *Loader{
+func (self *Loader) Script3O(key string, url string, callback interface{}, callbackContext interface{}) *Loader{
     return &Loader{self.Object.Call("script", key, url, callback, callbackContext)}
 }
 
@@ -1247,7 +1247,7 @@ func (self *Loader) Binary1O(key string, url string) *Loader{
 // When the callback is called it will be passed 2 parameters: the key of the file and the file data.
 // 
 // WARNING: If a callback is specified the data will be set to whatever it returns. Always return the data object, even if you didn't modify it.
-func (self *Loader) Binary2O(key string, url string, callback func(...interface{})) *Loader{
+func (self *Loader) Binary2O(key string, url string, callback interface{}) *Loader{
     return &Loader{self.Object.Call("binary", key, url, callback)}
 }
 
@@ -1269,7 +1269,7 @@ func (self *Loader) Binary2O(key string, url string, callback func(...interface{
 // When the callback is called it will be passed 2 parameters: the key of the file and the file data.
 // 
 // WARNING: If a callback is specified the data will be set to whatever it returns. Always return the data object, even if you didn't modify it.
-func (self *Loader) Binary3O(key string, url string, callback func(...interface{}), callbackContext interface{}) *Loader{
+func (self *Loader) Binary3O(key string, url string, callback interface{}, callbackContext interface{}) *Loader{
     return &Loader{self.Object.Call("binary", key, url, callback, callbackContext)}
 }
 
@@ -2714,7 +2714,7 @@ func (self *Loader) AtlasI(args ...interface{}) *Loader{
 // subsequent assets can be loaded. An asset marked as a sync-point does not need to wait
 // for previous assets to load (unless they are sync-points). Resources, such as packs, may still
 // be downloaded around sync-points, as long as they do not finalize loading.
-func (self *Loader) WithSyncPoints(callback func(...interface{})) *Loader{
+func (self *Loader) WithSyncPoints(callback interface{}) *Loader{
     return &Loader{self.Object.Call("withSyncPoints", callback)}
 }
 
@@ -2724,7 +2724,7 @@ func (self *Loader) WithSyncPoints(callback func(...interface{})) *Loader{
 // subsequent assets can be loaded. An asset marked as a sync-point does not need to wait
 // for previous assets to load (unless they are sync-points). Resources, such as packs, may still
 // be downloaded around sync-points, as long as they do not finalize loading.
-func (self *Loader) WithSyncPoints1O(callback func(...interface{}), callbackContext interface{}) *Loader{
+func (self *Loader) WithSyncPoints1O(callback interface{}, callbackContext interface{}) *Loader{
     return &Loader{self.Object.Call("withSyncPoints", callback, callbackContext)}
 }
 
@@ -2914,14 +2914,14 @@ func (self *Loader) LoadAudioTagI(args ...interface{}) {
 // Starts the xhr loader.
 // 
 // This is designed specifically to use with asset file processing.
-func (self *Loader) XhrLoad(file interface{}, url string, type_ string, onload func(...interface{})) {
+func (self *Loader) XhrLoad(file interface{}, url string, type_ string, onload interface{}) {
     self.Object.Call("xhrLoad", file, url, type_, onload)
 }
 
 // Starts the xhr loader.
 // 
 // This is designed specifically to use with asset file processing.
-func (self *Loader) XhrLoad1O(file interface{}, url string, type_ string, onload func(...interface{}), onerror func(...interface{})) {
+func (self *Loader) XhrLoad1O(file interface{}, url string, type_ string, onload interface{}, onerror interface{}) {
     self.Object.Call("xhrLoad", file, url, type_, onload, onerror)
 }
 

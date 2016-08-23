@@ -17,37 +17,37 @@ type Circle struct {
 // Creates a new Circle object with the center coordinate specified by the x and y parameters and the diameter specified by the diameter parameter.
 // If you call this function without parameters, a circle with x, y, diameter and radius properties set to 0 is created.
 func NewCircle() *Circle {
-    return &Circle{js.Global.Call("Phaser.Circle")}
+    return &Circle{js.Global.Get("Phaser").Get("Circle").New()}
 }
 
 // Creates a new Circle object with the center coordinate specified by the x and y parameters and the diameter specified by the diameter parameter.
 // If you call this function without parameters, a circle with x, y, diameter and radius properties set to 0 is created.
 func NewCircle1O(x int) *Circle {
-    return &Circle{js.Global.Call("Phaser.Circle", x)}
+    return &Circle{js.Global.Get("Phaser").Get("Circle").New(x)}
 }
 
 // Creates a new Circle object with the center coordinate specified by the x and y parameters and the diameter specified by the diameter parameter.
 // If you call this function without parameters, a circle with x, y, diameter and radius properties set to 0 is created.
 func NewCircle2O(x int, y int) *Circle {
-    return &Circle{js.Global.Call("Phaser.Circle", x, y)}
+    return &Circle{js.Global.Get("Phaser").Get("Circle").New(x, y)}
 }
 
 // Creates a new Circle object with the center coordinate specified by the x and y parameters and the diameter specified by the diameter parameter.
 // If you call this function without parameters, a circle with x, y, diameter and radius properties set to 0 is created.
 func NewCircle3O(x int, y int, diameter int) *Circle {
-    return &Circle{js.Global.Call("Phaser.Circle", x, y, diameter)}
+    return &Circle{js.Global.Get("Phaser").Get("Circle").New(x, y, diameter)}
 }
 
 // Creates a new Circle object with the center coordinate specified by the x and y parameters and the diameter specified by the diameter parameter.
 // If you call this function without parameters, a circle with x, y, diameter and radius properties set to 0 is created.
 func NewCircleI(args ...interface{}) *Circle {
-    return &Circle{js.Global.Call("Phaser.Circle", args)}
+    return &Circle{js.Global.Get("Phaser").Get("Circle").New(args)}
 }
 
 
 
 // The x coordinate of the center of the circle.
-func (self *Circle) GetXA() int{
+func (self *Circle) X() int{
     return self.Object.Get("x").Int()
 }
 
@@ -57,7 +57,7 @@ func (self *Circle) SetXA(member int) {
 }
 
 // The y coordinate of the center of the circle.
-func (self *Circle) GetYA() int{
+func (self *Circle) Y() int{
     return self.Object.Get("y").Int()
 }
 
@@ -67,7 +67,7 @@ func (self *Circle) SetYA(member int) {
 }
 
 // The const type of this object.
-func (self *Circle) GetTypeA() int{
+func (self *Circle) Type() int{
     return self.Object.Get("type").Int()
 }
 
@@ -77,7 +77,7 @@ func (self *Circle) SetTypeA(member int) {
 }
 
 // The largest distance between any two points on the circle. The same as the radius * 2. Gets or sets the diameter of the circle.
-func (self *Circle) GetDiameterA() int{
+func (self *Circle) Diameter() int{
     return self.Object.Get("diameter").Int()
 }
 
@@ -87,7 +87,7 @@ func (self *Circle) SetDiameterA(member int) {
 }
 
 // The length of a line extending from the center of the circle to any point on the circle itself. The same as half the diameter. Gets or sets the radius of the circle.
-func (self *Circle) GetRadiusA() int{
+func (self *Circle) Radius() int{
     return self.Object.Get("radius").Int()
 }
 
@@ -97,7 +97,7 @@ func (self *Circle) SetRadiusA(member int) {
 }
 
 // The x coordinate of the leftmost point of the circle. Changing the left property of a Circle object has no effect on the x and y properties. However it does affect the diameter, whereas changing the x value does not affect the diameter property.
-func (self *Circle) GetLeftA() interface{}{
+func (self *Circle) Left() interface{}{
     return self.Object.Get("left")
 }
 
@@ -107,7 +107,7 @@ func (self *Circle) SetLeftA(member interface{}) {
 }
 
 // The x coordinate of the rightmost point of the circle. Changing the right property of a Circle object has no effect on the x and y properties. However it does affect the diameter, whereas changing the x value does not affect the diameter property. Gets or sets the value of the rightmost point of the circle.
-func (self *Circle) GetRightA() int{
+func (self *Circle) Right() int{
     return self.Object.Get("right").Int()
 }
 
@@ -117,7 +117,7 @@ func (self *Circle) SetRightA(member int) {
 }
 
 // The sum of the y minus the radius property. Changing the top property of a Circle object has no effect on the x and y properties, but does change the diameter. Gets or sets the top of the circle.
-func (self *Circle) GetTopA() int{
+func (self *Circle) Top() int{
     return self.Object.Get("top").Int()
 }
 
@@ -127,7 +127,7 @@ func (self *Circle) SetTopA(member int) {
 }
 
 // The sum of the y and radius properties. Changing the bottom property of a Circle object has no effect on the x and y properties, but does change the diameter. Gets or sets the bottom of the circle.
-func (self *Circle) GetBottomA() int{
+func (self *Circle) Bottom() int{
     return self.Object.Get("bottom").Int()
 }
 
@@ -137,7 +137,7 @@ func (self *Circle) SetBottomA(member int) {
 }
 
 // The area of this Circle.
-func (self *Circle) GetAreaA() int{
+func (self *Circle) Area() int{
     return self.Object.Get("area").Int()
 }
 
@@ -148,7 +148,7 @@ func (self *Circle) SetAreaA(member int) {
 
 // Determines whether or not this Circle object is empty. Will return a value of true if the Circle objects diameter is less than or equal to 0; otherwise false.
 // If set to true it will reset all of the Circle objects properties to 0. A Circle object is empty if its diameter is less than or equal to 0. Gets or sets the empty state of the circle.
-func (self *Circle) GetEmptyA() bool{
+func (self *Circle) Empty() bool{
     return self.Object.Get("empty").Bool()
 }
 

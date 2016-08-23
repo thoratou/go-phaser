@@ -15,18 +15,18 @@ type ComponentCore struct {
 
 // Core Component Features.
 func NewComponentCore() *ComponentCore {
-    return &ComponentCore{js.Global.Call("Phaser.Component.Core")}
+    return &ComponentCore{js.Global.Get("Phaser").Get("Component").Get("Core").New()}
 }
 
 // Core Component Features.
 func NewComponentCoreI(args ...interface{}) *ComponentCore {
-    return &ComponentCore{js.Global.Call("Phaser.Component.Core", args)}
+    return &ComponentCore{js.Global.Get("Phaser").Get("Component").Get("Core").New(args)}
 }
 
 
 
 // A reference to the currently running Game.
-func (self *ComponentCore) GetGameA() *Game{
+func (self *ComponentCore) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -37,7 +37,7 @@ func (self *ComponentCore) SetGameA(member *Game) {
 
 // A user defined name given to this Game Object.
 // This value isn't ever used internally by Phaser, it is meant as a game level property.
-func (self *ComponentCore) GetNameA() string{
+func (self *ComponentCore) Name() string{
     return self.Object.Get("name").String()
 }
 
@@ -51,7 +51,7 @@ func (self *ComponentCore) SetNameA(member string) {
 // This value isn't ever used internally by Phaser, but may be used by your own code, or
 // by Phaser Plugins, to store data that needs to be associated with the Game Object,
 // without polluting the Game Object directly.
-func (self *ComponentCore) GetDataA() interface{}{
+func (self *ComponentCore) Data() interface{}{
     return self.Object.Get("data")
 }
 
@@ -64,7 +64,7 @@ func (self *ComponentCore) SetDataA(member interface{}) {
 }
 
 // The components this Game Object has installed.
-func (self *ComponentCore) GetComponentsA() interface{}{
+func (self *ComponentCore) Components() interface{}{
     return self.Object.Get("components")
 }
 
@@ -77,7 +77,7 @@ func (self *ComponentCore) SetComponentsA(member interface{}) {
 // No two objects in a Group can have the same z value.
 // This value is adjusted automatically whenever the Group hierarchy changes.
 // If you wish to re-order the layering of a Game Object then see methods like Group.moveUp or Group.bringToTop.
-func (self *ComponentCore) GetZA() int{
+func (self *ComponentCore) Z() int{
     return self.Object.Get("z").Int()
 }
 
@@ -91,7 +91,7 @@ func (self *ComponentCore) SetZA(member int) {
 
 // All Phaser Game Objects have an Events class which contains all of the events that are dispatched when certain things happen to this
 // Game Object, or any of its components.
-func (self *ComponentCore) GetEventsA() *Events{
+func (self *ComponentCore) Events() *Events{
     return &Events{self.Object.Get("events")}
 }
 
@@ -103,7 +103,7 @@ func (self *ComponentCore) SetEventsA(member *Events) {
 
 // If the Game Object is enabled for animation (such as a Phaser.Sprite) this is a reference to its AnimationManager instance.
 // Through it you can create, play, pause and stop animations.
-func (self *ComponentCore) GetAnimationsA() *AnimationManager{
+func (self *ComponentCore) Animations() *AnimationManager{
     return &AnimationManager{self.Object.Get("animations")}
 }
 
@@ -118,7 +118,7 @@ func (self *ComponentCore) SetAnimationsA(member *AnimationManager) {
 // It can also be an instance of a RenderTexture, BitmapData, Video or PIXI.Texture.
 // If a Game Object is created without a key it is automatically assigned the key `__default` which is a 32x32 transparent PNG stored within the Cache.
 // If a Game Object is given a key which doesn't exist in the Image Cache it is re-assigned the key `__missing` which is a 32x32 PNG of a green box with a line through it.
-func (self *ComponentCore) GetKeyA() interface{}{
+func (self *ComponentCore) Key() interface{}{
     return self.Object.Get("key")
 }
 
@@ -134,7 +134,7 @@ func (self *ComponentCore) SetKeyA(member interface{}) {
 // The world coordinates of this Game Object in pixels.
 // Depending on where in the display list this Game Object is placed this value can differ from `position`, 
 // which contains the x/y coordinates relative to the Game Objects parent.
-func (self *ComponentCore) GetWorldA() *Point{
+func (self *ComponentCore) World() *Point{
     return &Point{self.Object.Get("world")}
 }
 
@@ -146,7 +146,7 @@ func (self *ComponentCore) SetWorldA(member *Point) {
 }
 
 // A debug flag designed for use with `Game.enableStep`.
-func (self *ComponentCore) GetDebugA() bool{
+func (self *ComponentCore) Debug() bool{
     return self.Object.Get("debug").Bool()
 }
 
@@ -156,7 +156,7 @@ func (self *ComponentCore) SetDebugA(member bool) {
 }
 
 // The position the Game Object was located in the previous frame.
-func (self *ComponentCore) GetPreviousPositionA() *Point{
+func (self *ComponentCore) PreviousPosition() *Point{
     return &Point{self.Object.Get("previousPosition")}
 }
 
@@ -166,7 +166,7 @@ func (self *ComponentCore) SetPreviousPositionA(member *Point) {
 }
 
 // The rotation the Game Object was in set to in the previous frame. Value is in radians.
-func (self *ComponentCore) GetPreviousRotationA() int{
+func (self *ComponentCore) PreviousRotation() int{
     return self.Object.Get("previousRotation").Int()
 }
 
@@ -177,7 +177,7 @@ func (self *ComponentCore) SetPreviousRotationA(member int) {
 
 // The render order ID is used internally by the renderer and Input Manager and should not be modified.
 // This property is mostly used internally by the renderers, but is exposed for the use of plugins.
-func (self *ComponentCore) GetRenderOrderIDA() int{
+func (self *ComponentCore) RenderOrderID() int{
     return self.Object.Get("renderOrderID").Int()
 }
 
@@ -189,7 +189,7 @@ func (self *ComponentCore) SetRenderOrderIDA(member int) {
 
 // A Game Object is considered `fresh` if it has just been created or reset and is yet to receive a renderer transform update.
 // This property is mostly used internally by the physics systems, but is exposed for the use of plugins.
-func (self *ComponentCore) GetFreshA() bool{
+func (self *ComponentCore) Fresh() bool{
     return self.Object.Get("fresh").Bool()
 }
 
@@ -204,7 +204,7 @@ func (self *ComponentCore) SetFreshA(member bool) {
 // 
 // This is extremely useful if you wish to destroy an object from within one of its own callbacks 
 // such as with Buttons or other Input events.
-func (self *ComponentCore) GetPendingDestroyA() bool{
+func (self *ComponentCore) PendingDestroy() bool{
     return self.Object.Get("pendingDestroy").Bool()
 }
 
@@ -224,7 +224,7 @@ func (self *ComponentCore) SetPendingDestroyA(member bool) {
 // 
 // Setting `exists` to true will add its physics body back in to the physics world, if it has one.
 // It will also set the `visible` property to `true`.
-func (self *ComponentCore) GetExistsA() bool{
+func (self *ComponentCore) Exists() bool{
     return self.Object.Get("exists").Bool()
 }
 

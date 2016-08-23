@@ -19,20 +19,20 @@ type PIXI struct {
 // 
 // Contains assorted static properties and enumerations.
 func NewPIXI() *PIXI {
-    return &PIXI{js.Global.Call("PIXI.PIXI")}
+    return &PIXI{js.Global.Get("PIXI").Get("PIXI").New()}
 }
 
 // Namespace-class for [pixi.js](http://www.pixijs.com/).
 // 
 // Contains assorted static properties and enumerations.
 func NewPIXII(args ...interface{}) *PIXI {
-    return &PIXI{js.Global.Call("PIXI.PIXI", args)}
+    return &PIXI{js.Global.Get("PIXI").Get("PIXI").New(args)}
 }
 
 
 
 // A reference to the Phaser Game instance that owns this Pixi renderer.
-func (self *PIXI) GetGameA() *PhaserGame{
+func (self *PIXI) Game() *PhaserGame{
     return &PhaserGame{self.Object.Get("game")}
 }
 
@@ -42,7 +42,7 @@ func (self *PIXI) SetGameA(member *PhaserGame) {
 }
 
 // 
-func (self *PIXI) GetWEBGL_RENDERERA() int{
+func (self *PIXI) WEBGL_RENDERER() int{
     return self.Object.Get("WEBGL_RENDERER").Int()
 }
 
@@ -52,7 +52,7 @@ func (self *PIXI) SetWEBGL_RENDERERA(member int) {
 }
 
 // 
-func (self *PIXI) GetCANVAS_RENDERERA() int{
+func (self *PIXI) CANVAS_RENDERER() int{
     return self.Object.Get("CANVAS_RENDERER").Int()
 }
 
@@ -62,7 +62,7 @@ func (self *PIXI) SetCANVAS_RENDERERA(member int) {
 }
 
 // Version of pixi that is loaded.
-func (self *PIXI) GetVERSIONA() string{
+func (self *PIXI) VERSION() string{
     return self.Object.Get("VERSION").String()
 }
 
@@ -72,7 +72,7 @@ func (self *PIXI) SetVERSIONA(member string) {
 }
 
 // 
-func (self *PIXI) GetPI_2A() int{
+func (self *PIXI) PI_2() int{
     return self.Object.Get("PI_2").Int()
 }
 
@@ -82,7 +82,7 @@ func (self *PIXI) SetPI_2A(member int) {
 }
 
 // 
-func (self *PIXI) GetRAD_TO_DEGA() int{
+func (self *PIXI) RAD_TO_DEG() int{
     return self.Object.Get("RAD_TO_DEG").Int()
 }
 
@@ -92,7 +92,7 @@ func (self *PIXI) SetRAD_TO_DEGA(member int) {
 }
 
 // 
-func (self *PIXI) GetDEG_TO_RADA() int{
+func (self *PIXI) DEG_TO_RAD() int{
     return self.Object.Get("DEG_TO_RAD").Int()
 }
 
@@ -102,7 +102,7 @@ func (self *PIXI) SetDEG_TO_RADA(member int) {
 }
 
 // 
-func (self *PIXI) GetRETINA_PREFIXA() string{
+func (self *PIXI) RETINA_PREFIX() string{
     return self.Object.Get("RETINA_PREFIX").String()
 }
 
@@ -113,7 +113,7 @@ func (self *PIXI) SetRETINA_PREFIXA(member string) {
 
 // The default render options if none are supplied to
 // {{#crossLink "WebGLRenderer"}}{{/crossLink}} or {{#crossLink "CanvasRenderer"}}{{/crossLink}}.
-func (self *PIXI) GetDefaultRenderOptionsA() interface{}{
+func (self *PIXI) DefaultRenderOptions() interface{}{
     return self.Object.Get("defaultRenderOptions")
 }
 

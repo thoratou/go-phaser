@@ -17,19 +17,19 @@ type PhysicsNinjaCircle struct {
 // Ninja Physics Circle constructor.
 // Note: This class could be massively optimised and reduced in size. I leave that challenge up to you.
 func NewPhysicsNinjaCircle(body *PhysicsNinjaBody, x int, y int, radius int) *PhysicsNinjaCircle {
-    return &PhysicsNinjaCircle{js.Global.Call("Phaser.Physics.Ninja.Circle", body, x, y, radius)}
+    return &PhysicsNinjaCircle{js.Global.Get("Phaser").Get("Physics").Get("Ninja").Get("Circle").New(body, x, y, radius)}
 }
 
 // Ninja Physics Circle constructor.
 // Note: This class could be massively optimised and reduced in size. I leave that challenge up to you.
 func NewPhysicsNinjaCircleI(args ...interface{}) *PhysicsNinjaCircle {
-    return &PhysicsNinjaCircle{js.Global.Call("Phaser.Physics.Ninja.Circle", args)}
+    return &PhysicsNinjaCircle{js.Global.Get("Phaser").Get("Physics").Get("Ninja").Get("Circle").New(args)}
 }
 
 
 
 // A reference to the body that owns this shape.
-func (self *PhysicsNinjaCircle) GetBodyA() interface{}{
+func (self *PhysicsNinjaCircle) Body() interface{}{
     return self.Object.Get("body")
 }
 
@@ -39,7 +39,7 @@ func (self *PhysicsNinjaCircle) SetBodyA(member interface{}) {
 }
 
 // A reference to the physics system.
-func (self *PhysicsNinjaCircle) GetSystemA() *PhysicsNinja{
+func (self *PhysicsNinjaCircle) System() *PhysicsNinja{
     return &PhysicsNinja{self.Object.Get("system")}
 }
 
@@ -49,7 +49,7 @@ func (self *PhysicsNinjaCircle) SetSystemA(member *PhysicsNinja) {
 }
 
 // The position of this object.
-func (self *PhysicsNinjaCircle) GetPosA() *Point{
+func (self *PhysicsNinjaCircle) Pos() *Point{
     return &Point{self.Object.Get("pos")}
 }
 
@@ -59,7 +59,7 @@ func (self *PhysicsNinjaCircle) SetPosA(member *Point) {
 }
 
 // The position of this object in the previous update.
-func (self *PhysicsNinjaCircle) GetOldposA() *Point{
+func (self *PhysicsNinjaCircle) Oldpos() *Point{
     return &Point{self.Object.Get("oldpos")}
 }
 
@@ -69,7 +69,7 @@ func (self *PhysicsNinjaCircle) SetOldposA(member *Point) {
 }
 
 // The radius of this circle shape.
-func (self *PhysicsNinjaCircle) GetRadiusA() int{
+func (self *PhysicsNinjaCircle) Radius() int{
     return self.Object.Get("radius").Int()
 }
 
@@ -79,7 +79,7 @@ func (self *PhysicsNinjaCircle) SetRadiusA(member int) {
 }
 
 // Half the width.
-func (self *PhysicsNinjaCircle) GetXwA() int{
+func (self *PhysicsNinjaCircle) Xw() int{
     return self.Object.Get("xw").Int()
 }
 
@@ -89,7 +89,7 @@ func (self *PhysicsNinjaCircle) SetXwA(member int) {
 }
 
 // Half the height.
-func (self *PhysicsNinjaCircle) GetYwA() interface{}{
+func (self *PhysicsNinjaCircle) Yw() interface{}{
     return self.Object.Get("yw")
 }
 
@@ -99,7 +99,7 @@ func (self *PhysicsNinjaCircle) SetYwA(member interface{}) {
 }
 
 // The width.
-func (self *PhysicsNinjaCircle) GetWidthA() int{
+func (self *PhysicsNinjaCircle) Width() int{
     return self.Object.Get("width").Int()
 }
 
@@ -109,7 +109,7 @@ func (self *PhysicsNinjaCircle) SetWidthA(member int) {
 }
 
 // The height.
-func (self *PhysicsNinjaCircle) GetHeightA() int{
+func (self *PhysicsNinjaCircle) Height() int{
     return self.Object.Get("height").Int()
 }
 
@@ -119,7 +119,7 @@ func (self *PhysicsNinjaCircle) SetHeightA(member int) {
 }
 
 // The velocity of this object.
-func (self *PhysicsNinjaCircle) GetVelocityA() *Point{
+func (self *PhysicsNinjaCircle) Velocity() *Point{
     return &Point{self.Object.Get("velocity")}
 }
 
@@ -129,7 +129,7 @@ func (self *PhysicsNinjaCircle) SetVelocityA(member *Point) {
 }
 
 // All of the collision response handlers.
-func (self *PhysicsNinjaCircle) GetCircleTileProjectionsA() interface{}{
+func (self *PhysicsNinjaCircle) CircleTileProjections() interface{}{
     return self.Object.Get("circleTileProjections")
 }
 

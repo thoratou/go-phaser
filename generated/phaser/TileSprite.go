@@ -55,7 +55,7 @@ type TileSprite struct {
 // if your game is running under WebGL please note that each frame of the animation must be a power of two in size, or it will receive
 // additional padding to enforce it to be so.
 func NewTileSprite(game *Game, x int, y int, width int, height int, key interface{}, frame interface{}) *TileSprite {
-    return &TileSprite{js.Global.Call("Phaser.TileSprite", game, x, y, width, height, key, frame)}
+    return &TileSprite{js.Global.Get("Phaser").Get("TileSprite").New(game, x, y, width, height, key, frame)}
 }
 
 // A TileSprite is a Sprite that has a repeating texture. The texture can be scrolled and scaled independently of the TileSprite itself.
@@ -80,13 +80,13 @@ func NewTileSprite(game *Game, x int, y int, width int, height int, key interfac
 // if your game is running under WebGL please note that each frame of the animation must be a power of two in size, or it will receive
 // additional padding to enforce it to be so.
 func NewTileSpriteI(args ...interface{}) *TileSprite {
-    return &TileSprite{js.Global.Call("Phaser.TileSprite", args)}
+    return &TileSprite{js.Global.Get("Phaser").Get("TileSprite").New(args)}
 }
 
 
 
 // The const type of this object.
-func (self *TileSprite) GetTypeA() int{
+func (self *TileSprite) Type() int{
     return self.Object.Get("type").Int()
 }
 
@@ -96,7 +96,7 @@ func (self *TileSprite) SetTypeA(member int) {
 }
 
 // The const physics body type of this object.
-func (self *TileSprite) GetPhysicsTypeA() int{
+func (self *TileSprite) PhysicsType() int{
     return self.Object.Get("physicsType").Int()
 }
 
@@ -106,7 +106,7 @@ func (self *TileSprite) SetPhysicsTypeA(member int) {
 }
 
 // The width of the tiling sprite
-func (self *TileSprite) GetWidthA() int{
+func (self *TileSprite) Width() int{
     return self.Object.Get("width").Int()
 }
 
@@ -116,7 +116,7 @@ func (self *TileSprite) SetWidthA(member int) {
 }
 
 // The height of the tiling sprite
-func (self *TileSprite) GetHeightA() int{
+func (self *TileSprite) Height() int{
     return self.Object.Get("height").Int()
 }
 
@@ -126,7 +126,7 @@ func (self *TileSprite) SetHeightA(member int) {
 }
 
 // The scaling of the image that is being tiled
-func (self *TileSprite) GetTileScaleA() *Point{
+func (self *TileSprite) TileScale() *Point{
     return &Point{self.Object.Get("tileScale")}
 }
 
@@ -136,7 +136,7 @@ func (self *TileSprite) SetTileScaleA(member *Point) {
 }
 
 // A point that represents the scale of the texture object
-func (self *TileSprite) GetTileScaleOffsetA() *Point{
+func (self *TileSprite) TileScaleOffset() *Point{
     return &Point{self.Object.Get("tileScaleOffset")}
 }
 
@@ -146,7 +146,7 @@ func (self *TileSprite) SetTileScaleOffsetA(member *Point) {
 }
 
 // The offset position of the image that is being tiled
-func (self *TileSprite) GetTilePositionA() *Point{
+func (self *TileSprite) TilePosition() *Point{
     return &Point{self.Object.Get("tilePosition")}
 }
 
@@ -156,7 +156,7 @@ func (self *TileSprite) SetTilePositionA(member *Point) {
 }
 
 // Whether this sprite is renderable or not
-func (self *TileSprite) GetRenderableA() bool{
+func (self *TileSprite) Renderable() bool{
     return self.Object.Get("renderable").Bool()
 }
 
@@ -166,7 +166,7 @@ func (self *TileSprite) SetRenderableA(member bool) {
 }
 
 // The tint applied to the sprite. This is a hex value
-func (self *TileSprite) GetTintA() int{
+func (self *TileSprite) Tint() int{
     return self.Object.Get("tint").Int()
 }
 
@@ -177,7 +177,7 @@ func (self *TileSprite) SetTintA(member int) {
 
 // If enabled a green rectangle will be drawn behind the generated tiling texture, allowing you to visually
 // debug the texture being used.
-func (self *TileSprite) GetTextureDebugA() bool{
+func (self *TileSprite) TextureDebug() bool{
     return self.Object.Get("textureDebug").Bool()
 }
 
@@ -188,7 +188,7 @@ func (self *TileSprite) SetTextureDebugA(member bool) {
 }
 
 // The blend mode to be applied to the sprite
-func (self *TileSprite) GetBlendModeA() int{
+func (self *TileSprite) BlendMode() int{
     return self.Object.Get("blendMode").Int()
 }
 
@@ -198,7 +198,7 @@ func (self *TileSprite) SetBlendModeA(member int) {
 }
 
 // The CanvasBuffer object that the tiled texture is drawn to.
-func (self *TileSprite) GetCanvasBufferA() *PIXICanvasBuffer{
+func (self *TileSprite) CanvasBuffer() *PIXICanvasBuffer{
     return &PIXICanvasBuffer{self.Object.Get("canvasBuffer")}
 }
 
@@ -208,7 +208,7 @@ func (self *TileSprite) SetCanvasBufferA(member *PIXICanvasBuffer) {
 }
 
 // An internal Texture object that holds the tiling texture that was generated from TilingSprite.texture.
-func (self *TileSprite) GetTilingTextureA() *PIXITexture{
+func (self *TileSprite) TilingTexture() *PIXITexture{
     return &PIXITexture{self.Object.Get("tilingTexture")}
 }
 
@@ -218,7 +218,7 @@ func (self *TileSprite) SetTilingTextureA(member *PIXITexture) {
 }
 
 // The Context fill pattern that is used to draw the TilingSprite in Canvas mode only (will be null in WebGL).
-func (self *TileSprite) GetTilePatternA() *PIXITexture{
+func (self *TileSprite) TilePattern() *PIXITexture{
     return &PIXITexture{self.Object.Get("tilePattern")}
 }
 
@@ -229,7 +229,7 @@ func (self *TileSprite) SetTilePatternA(member *PIXITexture) {
 
 // If true the TilingSprite will run generateTexture on its **next** render pass.
 // This is set by the likes of Phaser.LoadTexture.setFrame.
-func (self *TileSprite) GetRefreshTextureA() bool{
+func (self *TileSprite) RefreshTexture() bool{
     return self.Object.Get("refreshTexture").Bool()
 }
 
@@ -243,7 +243,7 @@ func (self *TileSprite) SetRefreshTextureA(member bool) {
 // The default is 0,0 this means the texture's origin is the top left
 // Setting than anchor to 0.5,0.5 means the textures origin is centered
 // Setting the anchor to 1,1 would mean the textures origin points will be the bottom right corner
-func (self *TileSprite) GetAnchorA() *Point{
+func (self *TileSprite) Anchor() *Point{
     return &Point{self.Object.Get("anchor")}
 }
 
@@ -256,7 +256,7 @@ func (self *TileSprite) SetAnchorA(member *Point) {
 }
 
 // The texture that the sprite is using
-func (self *TileSprite) GetTextureA() *Texture{
+func (self *TileSprite) Texture() *Texture{
     return &Texture{self.Object.Get("texture")}
 }
 
@@ -266,7 +266,7 @@ func (self *TileSprite) SetTextureA(member *Texture) {
 }
 
 // A canvas that contains the tinted version of the Sprite (in Canvas mode, WebGL doesn't populate this)
-func (self *TileSprite) GetTintedTextureA() *Canvas{
+func (self *TileSprite) TintedTexture() *Canvas{
     return &Canvas{self.Object.Get("tintedTexture")}
 }
 
@@ -276,7 +276,7 @@ func (self *TileSprite) SetTintedTextureA(member *Canvas) {
 }
 
 // The shader that will be used to render the texture to the stage. Set to null to remove a current shader.
-func (self *TileSprite) GetShaderA() *AbstractFilter{
+func (self *TileSprite) Shader() *AbstractFilter{
     return &AbstractFilter{self.Object.Get("shader")}
 }
 
@@ -286,7 +286,7 @@ func (self *TileSprite) SetShaderA(member *AbstractFilter) {
 }
 
 // Controls if this Sprite is processed by the core Phaser game loops and Group loops.
-func (self *TileSprite) GetExistsA() bool{
+func (self *TileSprite) Exists() bool{
     return self.Object.Get("exists").Bool()
 }
 
@@ -296,7 +296,7 @@ func (self *TileSprite) SetExistsA(member bool) {
 }
 
 // [read-only] The array of children of this container.
-func (self *TileSprite) GetChildrenA() []DisplayObject{
+func (self *TileSprite) Children() []DisplayObject{
 	array00 := self.Object.Get("children")
 	length00 := array00.Length()
 	out00 := make([]DisplayObject, length00, length00)
@@ -316,7 +316,7 @@ func (self *TileSprite) SetChildrenA(member []DisplayObject) {
 // If this property is `true` then the children will _not_ be considered as valid for Input events.
 // 
 // Note that this property isn't recursive: only immediate children are influenced, it doesn't scan further down.
-func (self *TileSprite) GetIgnoreChildInputA() bool{
+func (self *TileSprite) IgnoreChildInput() bool{
     return self.Object.Get("ignoreChildInput").Bool()
 }
 
@@ -330,7 +330,7 @@ func (self *TileSprite) SetIgnoreChildInputA(member bool) {
 }
 
 // A reference to the currently running Game.
-func (self *TileSprite) GetGameA() *Game{
+func (self *TileSprite) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -341,7 +341,7 @@ func (self *TileSprite) SetGameA(member *Game) {
 
 // A user defined name given to this Game Object.
 // This value isn't ever used internally by Phaser, it is meant as a game level property.
-func (self *TileSprite) GetNameA() string{
+func (self *TileSprite) Name() string{
     return self.Object.Get("name").String()
 }
 
@@ -355,7 +355,7 @@ func (self *TileSprite) SetNameA(member string) {
 // This value isn't ever used internally by Phaser, but may be used by your own code, or
 // by Phaser Plugins, to store data that needs to be associated with the Game Object,
 // without polluting the Game Object directly.
-func (self *TileSprite) GetDataA() interface{}{
+func (self *TileSprite) Data() interface{}{
     return self.Object.Get("data")
 }
 
@@ -368,7 +368,7 @@ func (self *TileSprite) SetDataA(member interface{}) {
 }
 
 // The components this Game Object has installed.
-func (self *TileSprite) GetComponentsA() interface{}{
+func (self *TileSprite) Components() interface{}{
     return self.Object.Get("components")
 }
 
@@ -381,7 +381,7 @@ func (self *TileSprite) SetComponentsA(member interface{}) {
 // No two objects in a Group can have the same z value.
 // This value is adjusted automatically whenever the Group hierarchy changes.
 // If you wish to re-order the layering of a Game Object then see methods like Group.moveUp or Group.bringToTop.
-func (self *TileSprite) GetZA() int{
+func (self *TileSprite) Z() int{
     return self.Object.Get("z").Int()
 }
 
@@ -395,7 +395,7 @@ func (self *TileSprite) SetZA(member int) {
 
 // All Phaser Game Objects have an Events class which contains all of the events that are dispatched when certain things happen to this
 // Game Object, or any of its components.
-func (self *TileSprite) GetEventsA() *Events{
+func (self *TileSprite) Events() *Events{
     return &Events{self.Object.Get("events")}
 }
 
@@ -407,7 +407,7 @@ func (self *TileSprite) SetEventsA(member *Events) {
 
 // If the Game Object is enabled for animation (such as a Phaser.Sprite) this is a reference to its AnimationManager instance.
 // Through it you can create, play, pause and stop animations.
-func (self *TileSprite) GetAnimationsA() *AnimationManager{
+func (self *TileSprite) Animations() *AnimationManager{
     return &AnimationManager{self.Object.Get("animations")}
 }
 
@@ -422,7 +422,7 @@ func (self *TileSprite) SetAnimationsA(member *AnimationManager) {
 // It can also be an instance of a RenderTexture, BitmapData, Video or PIXI.Texture.
 // If a Game Object is created without a key it is automatically assigned the key `__default` which is a 32x32 transparent PNG stored within the Cache.
 // If a Game Object is given a key which doesn't exist in the Image Cache it is re-assigned the key `__missing` which is a 32x32 PNG of a green box with a line through it.
-func (self *TileSprite) GetKeyA() interface{}{
+func (self *TileSprite) Key() interface{}{
     return self.Object.Get("key")
 }
 
@@ -438,7 +438,7 @@ func (self *TileSprite) SetKeyA(member interface{}) {
 // The world coordinates of this Game Object in pixels.
 // Depending on where in the display list this Game Object is placed this value can differ from `position`, 
 // which contains the x/y coordinates relative to the Game Objects parent.
-func (self *TileSprite) GetWorldA() *Point{
+func (self *TileSprite) World() *Point{
     return &Point{self.Object.Get("world")}
 }
 
@@ -450,7 +450,7 @@ func (self *TileSprite) SetWorldA(member *Point) {
 }
 
 // A debug flag designed for use with `Game.enableStep`.
-func (self *TileSprite) GetDebugA() bool{
+func (self *TileSprite) Debug() bool{
     return self.Object.Get("debug").Bool()
 }
 
@@ -460,7 +460,7 @@ func (self *TileSprite) SetDebugA(member bool) {
 }
 
 // The position the Game Object was located in the previous frame.
-func (self *TileSprite) GetPreviousPositionA() *Point{
+func (self *TileSprite) PreviousPosition() *Point{
     return &Point{self.Object.Get("previousPosition")}
 }
 
@@ -470,7 +470,7 @@ func (self *TileSprite) SetPreviousPositionA(member *Point) {
 }
 
 // The rotation the Game Object was in set to in the previous frame. Value is in radians.
-func (self *TileSprite) GetPreviousRotationA() int{
+func (self *TileSprite) PreviousRotation() int{
     return self.Object.Get("previousRotation").Int()
 }
 
@@ -481,7 +481,7 @@ func (self *TileSprite) SetPreviousRotationA(member int) {
 
 // The render order ID is used internally by the renderer and Input Manager and should not be modified.
 // This property is mostly used internally by the renderers, but is exposed for the use of plugins.
-func (self *TileSprite) GetRenderOrderIDA() int{
+func (self *TileSprite) RenderOrderID() int{
     return self.Object.Get("renderOrderID").Int()
 }
 
@@ -493,7 +493,7 @@ func (self *TileSprite) SetRenderOrderIDA(member int) {
 
 // A Game Object is considered `fresh` if it has just been created or reset and is yet to receive a renderer transform update.
 // This property is mostly used internally by the physics systems, but is exposed for the use of plugins.
-func (self *TileSprite) GetFreshA() bool{
+func (self *TileSprite) Fresh() bool{
     return self.Object.Get("fresh").Bool()
 }
 
@@ -508,7 +508,7 @@ func (self *TileSprite) SetFreshA(member bool) {
 // 
 // This is extremely useful if you wish to destroy an object from within one of its own callbacks 
 // such as with Buttons or other Input events.
-func (self *TileSprite) GetPendingDestroyA() bool{
+func (self *TileSprite) PendingDestroy() bool{
     return self.Object.Get("pendingDestroy").Bool()
 }
 
@@ -530,7 +530,7 @@ func (self *TileSprite) SetPendingDestroyA(member bool) {
 // 
 // If you wish to work in radians instead of degrees you can use the property `rotation` instead. 
 // Working in radians is slightly faster as it doesn't have to perform any calculations.
-func (self *TileSprite) GetAngleA() int{
+func (self *TileSprite) Angle() int{
     return self.Object.Get("angle").Int()
 }
 
@@ -553,7 +553,7 @@ func (self *TileSprite) SetAngleA(member int) {
 // 
 // This is a relatively expensive operation, especially if enabled on hundreds of Game Objects. So enable it only if you know it's required,
 // or you have tested performance and find it acceptable.
-func (self *TileSprite) GetAutoCullA() bool{
+func (self *TileSprite) AutoCull() bool{
     return self.Object.Get("autoCull").Bool()
 }
 
@@ -569,7 +569,7 @@ func (self *TileSprite) SetAutoCullA(member bool) {
 
 // Checks if the Game Objects bounds intersect with the Game Camera bounds.
 // Returns `true` if they do, otherwise `false` if fully outside of the Cameras bounds.
-func (self *TileSprite) GetInCameraA() bool{
+func (self *TileSprite) InCamera() bool{
     return self.Object.Get("inCamera").Bool()
 }
 
@@ -582,7 +582,7 @@ func (self *TileSprite) SetInCameraA(member bool) {
 // The amount the Game Object is visually offset from its x coordinate.
 // This is the same as `width * anchor.x`.
 // It will only be > 0 if anchor.x is not equal to zero.
-func (self *TileSprite) GetOffsetXA() int{
+func (self *TileSprite) OffsetX() int{
     return self.Object.Get("offsetX").Int()
 }
 
@@ -596,7 +596,7 @@ func (self *TileSprite) SetOffsetXA(member int) {
 // The amount the Game Object is visually offset from its y coordinate.
 // This is the same as `height * anchor.y`.
 // It will only be > 0 if anchor.y is not equal to zero.
-func (self *TileSprite) GetOffsetYA() int{
+func (self *TileSprite) OffsetY() int{
     return self.Object.Get("offsetY").Int()
 }
 
@@ -609,7 +609,7 @@ func (self *TileSprite) SetOffsetYA(member int) {
 
 // The center x coordinate of the Game Object.
 // This is the same as `(x - offsetX) + (width / 2)`.
-func (self *TileSprite) GetCenterXA() int{
+func (self *TileSprite) CenterX() int{
     return self.Object.Get("centerX").Int()
 }
 
@@ -621,7 +621,7 @@ func (self *TileSprite) SetCenterXA(member int) {
 
 // The center y coordinate of the Game Object.
 // This is the same as `(y - offsetY) + (height / 2)`.
-func (self *TileSprite) GetCenterYA() int{
+func (self *TileSprite) CenterY() int{
     return self.Object.Get("centerY").Int()
 }
 
@@ -633,7 +633,7 @@ func (self *TileSprite) SetCenterYA(member int) {
 
 // The left coordinate of the Game Object.
 // This is the same as `x - offsetX`.
-func (self *TileSprite) GetLeftA() int{
+func (self *TileSprite) Left() int{
     return self.Object.Get("left").Int()
 }
 
@@ -645,7 +645,7 @@ func (self *TileSprite) SetLeftA(member int) {
 
 // The right coordinate of the Game Object.
 // This is the same as `x + width - offsetX`.
-func (self *TileSprite) GetRightA() int{
+func (self *TileSprite) Right() int{
     return self.Object.Get("right").Int()
 }
 
@@ -657,7 +657,7 @@ func (self *TileSprite) SetRightA(member int) {
 
 // The y coordinate of the Game Object.
 // This is the same as `y - offsetY`.
-func (self *TileSprite) GetTopA() int{
+func (self *TileSprite) Top() int{
     return self.Object.Get("top").Int()
 }
 
@@ -669,7 +669,7 @@ func (self *TileSprite) SetTopA(member int) {
 
 // The sum of the y and height properties.
 // This is the same as `y + height - offsetY`.
-func (self *TileSprite) GetBottomA() int{
+func (self *TileSprite) Bottom() int{
     return self.Object.Get("bottom").Int()
 }
 
@@ -681,7 +681,7 @@ func (self *TileSprite) SetBottomA(member int) {
 
 // As a Game Object runs through its destroy method this flag is set to true, 
 // and can be checked in any sub-systems or plugins it is being destroyed from.
-func (self *TileSprite) GetDestroyPhaseA() bool{
+func (self *TileSprite) DestroyPhase() bool{
     return self.Object.Get("destroyPhase").Bool()
 }
 
@@ -704,7 +704,7 @@ func (self *TileSprite) SetDestroyPhaseA(member bool) {
 // Note that the `cameraOffset` values are in addition to any parent of this Game Object on the display list.
 // 
 // Be careful not to set `fixedToCamera` on Game Objects which are in Groups that already have `fixedToCamera` enabled on them.
-func (self *TileSprite) GetFixedToCameraA() bool{
+func (self *TileSprite) FixedToCamera() bool{
     return self.Object.Get("fixedToCamera").Bool()
 }
 
@@ -728,7 +728,7 @@ func (self *TileSprite) SetFixedToCameraA(member bool) {
 // The x/y coordinate offset applied to the top-left of the camera that this Game Object will be drawn at if `fixedToCamera` is true.
 // 
 // The values are relative to the top-left of the camera view and in addition to any parent of the Game Object on the display list.
-func (self *TileSprite) GetCameraOffsetA() *Point{
+func (self *TileSprite) CameraOffset() *Point{
     return &Point{self.Object.Get("cameraOffset")}
 }
 
@@ -742,7 +742,7 @@ func (self *TileSprite) SetCameraOffsetA(member *Point) {
 // The Game Objects health value. This is a handy property for setting and manipulating health on a Game Object.
 // 
 // It can be used in combination with the `damage` method or modified directly.
-func (self *TileSprite) GetHealthA() int{
+func (self *TileSprite) Health() int{
     return self.Object.Get("health").Int()
 }
 
@@ -755,7 +755,7 @@ func (self *TileSprite) SetHealthA(member int) {
 
 // The Game Objects maximum health value. This works in combination with the `heal` method to ensure
 // the health value never exceeds the maximum.
-func (self *TileSprite) GetMaxHealthA() int{
+func (self *TileSprite) MaxHealth() int{
     return self.Object.Get("maxHealth").Int()
 }
 
@@ -768,7 +768,7 @@ func (self *TileSprite) SetMaxHealthA(member int) {
 // Damages the Game Object. This removes the given amount of health from the `health` property.
 // 
 // If health is taken below or is equal to zero then the `kill` method is called.
-func (self *TileSprite) GetDamageA() interface{}{
+func (self *TileSprite) Damage() interface{}{
     return self.Object.Get("damage")
 }
 
@@ -781,7 +781,7 @@ func (self *TileSprite) SetDamageA(member interface{}) {
 
 // Sets the health property of the Game Object to the given amount.
 // Will never exceed the `maxHealth` value.
-func (self *TileSprite) GetSetHealthA() interface{}{
+func (self *TileSprite) SetHealth() interface{}{
     return self.Object.Get("setHealth")
 }
 
@@ -792,7 +792,7 @@ func (self *TileSprite) SetSetHealthA(member interface{}) {
 }
 
 // Heal the Game Object. This adds the given amount of health to the `health` property.
-func (self *TileSprite) GetHealA() interface{}{
+func (self *TileSprite) Heal() interface{}{
     return self.Object.Get("heal")
 }
 
@@ -806,7 +806,7 @@ func (self *TileSprite) SetHealA(member interface{}) {
 // By default it is disabled. If you wish this Game Object to process input events you should enable it with: `inputEnabled = true`.
 // 
 // After you have done this, this property will be a reference to the Phaser InputHandler.
-func (self *TileSprite) GetInputA() interface{}{
+func (self *TileSprite) Input() interface{}{
     return self.Object.Get("input")
 }
 
@@ -831,7 +831,7 @@ func (self *TileSprite) SetInputA(member interface{}) {
 // If you want to _temporarily_ disable input for a Game Object, then it's better to set
 // `input.enabled = false`, as it won't reset any of the Input Handlers internal properties.
 // You can then toggle this back on as needed.
-func (self *TileSprite) GetInputEnabledA() bool{
+func (self *TileSprite) InputEnabled() bool{
     return self.Object.Get("inputEnabled").Bool()
 }
 
@@ -863,7 +863,7 @@ func (self *TileSprite) SetInputEnabledA(member bool) {
 // 
 // This is a relatively expensive operation, especially if enabled on hundreds of Game Objects. So enable it only if you know it's required,
 // or you have tested performance and find it acceptable.
-func (self *TileSprite) GetCheckWorldBoundsA() bool{
+func (self *TileSprite) CheckWorldBounds() bool{
     return self.Object.Get("checkWorldBounds").Bool()
 }
 
@@ -884,7 +884,7 @@ func (self *TileSprite) SetCheckWorldBoundsA(member bool) {
 }
 
 // If this and the `checkWorldBounds` property are both set to `true` then the `kill` method is called as soon as `inWorld` returns false.
-func (self *TileSprite) GetOutOfBoundsKillA() bool{
+func (self *TileSprite) OutOfBoundsKill() bool{
     return self.Object.Get("outOfBoundsKill").Bool()
 }
 
@@ -895,7 +895,7 @@ func (self *TileSprite) SetOutOfBoundsKillA(member bool) {
 
 // If this and the `autoCull` property are both set to `true`, then the `kill` method
 // is called as soon as the Game Object leaves the camera bounds.
-func (self *TileSprite) GetOutOfCameraBoundsKillA() bool{
+func (self *TileSprite) OutOfCameraBoundsKill() bool{
     return self.Object.Get("outOfCameraBoundsKill").Bool()
 }
 
@@ -906,7 +906,7 @@ func (self *TileSprite) SetOutOfCameraBoundsKillA(member bool) {
 }
 
 // Checks if the Game Objects bounds are within, or intersect at any point with the Game World bounds.
-func (self *TileSprite) GetInWorldA() bool{
+func (self *TileSprite) InWorld() bool{
     return self.Object.Get("inWorld").Bool()
 }
 
@@ -922,7 +922,7 @@ func (self *TileSprite) SetInWorldA(member bool) {
 // 
 // This property is mostly just provided to be used by your game - it doesn't effect rendering or logic updates.
 // However you can use `Group.getFirstAlive` in conjunction with this property for fast object pooling and recycling.
-func (self *TileSprite) GetAliveA() bool{
+func (self *TileSprite) Alive() bool{
     return self.Object.Get("alive").Bool()
 }
 
@@ -945,7 +945,7 @@ func (self *TileSprite) SetAliveA(member bool) {
 // When it reaches zero it will call the `kill` method.
 // 
 // Very handy for particles, bullets, collectibles, or any other short-lived entity.
-func (self *TileSprite) GetLifespanA() int{
+func (self *TileSprite) Lifespan() int{
     return self.Object.Get("lifespan").Int()
 }
 
@@ -971,7 +971,7 @@ func (self *TileSprite) SetLifespanA(member int) {
 // If you are using a texture atlas then you should use the `frameName` property instead.
 // 
 // If you wish to fully replace the texture being used see `loadTexture`.
-func (self *TileSprite) GetFrameA() int{
+func (self *TileSprite) Frame() int{
     return self.Object.Get("frame").Int()
 }
 
@@ -999,7 +999,7 @@ func (self *TileSprite) SetFrameA(member int) {
 // If you are using a sprite sheet then you should use the `frame` property instead.
 // 
 // If you wish to fully replace the texture being used see `loadTexture`.
-func (self *TileSprite) GetFrameNameA() string{
+func (self *TileSprite) FrameName() string{
     return self.Object.Get("frameName").String()
 }
 
@@ -1031,7 +1031,7 @@ func (self *TileSprite) SetFrameNameA(member string) {
 // so the physics body is centered on the Game Object.
 // 
 // If you need a different result then adjust or re-create the Body shape offsets manually or reset the anchor after enabling physics.
-func (self *TileSprite) GetBodyA() interface{}{
+func (self *TileSprite) Body() interface{}{
     return self.Object.Get("body")
 }
 
@@ -1054,7 +1054,7 @@ func (self *TileSprite) SetBodyA(member interface{}) {
 }
 
 // The position of the Game Object on the x axis relative to the local coordinates of the parent.
-func (self *TileSprite) GetXA() int{
+func (self *TileSprite) X() int{
     return self.Object.Get("x").Int()
 }
 
@@ -1064,7 +1064,7 @@ func (self *TileSprite) SetXA(member int) {
 }
 
 // The position of the Game Object on the y axis relative to the local coordinates of the parent.
-func (self *TileSprite) GetYA() int{
+func (self *TileSprite) Y() int{
     return self.Object.Get("y").Int()
 }
 
@@ -1078,7 +1078,7 @@ func (self *TileSprite) SetYA(member int) {
 // It only takes effect if the Game Object is using an image based texture.
 // 
 // Smoothing is enabled by default.
-func (self *TileSprite) GetSmoothedA() bool{
+func (self *TileSprite) Smoothed() bool{
     return self.Object.Get("smoothed").Bool()
 }
 

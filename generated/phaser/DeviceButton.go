@@ -45,7 +45,7 @@ type DeviceButton struct {
 // - On Linux (GTK), the 4th button and the 5th button are not supported.
 // - On Mac OS X 10.5 there is no platform API for implementing any advanced buttons.
 func NewDeviceButton(parent interface{}, buttonCode int) *DeviceButton {
-    return &DeviceButton{js.Global.Call("Phaser.DeviceButton", parent, buttonCode)}
+    return &DeviceButton{js.Global.Get("Phaser").Get("DeviceButton").New(parent, buttonCode)}
 }
 
 // DeviceButtons belong to both `Phaser.Pointer` and `Phaser.SinglePad` (Gamepad) instances.
@@ -65,13 +65,13 @@ func NewDeviceButton(parent interface{}, buttonCode int) *DeviceButton {
 // - On Linux (GTK), the 4th button and the 5th button are not supported.
 // - On Mac OS X 10.5 there is no platform API for implementing any advanced buttons.
 func NewDeviceButtonI(args ...interface{}) *DeviceButton {
-    return &DeviceButton{js.Global.Call("Phaser.DeviceButton", args)}
+    return &DeviceButton{js.Global.Get("Phaser").Get("DeviceButton").New(args)}
 }
 
 
 
 // A reference to the Pointer or Gamepad that owns this button.
-func (self *DeviceButton) GetParentA() interface{}{
+func (self *DeviceButton) Parent() interface{}{
     return self.Object.Get("parent")
 }
 
@@ -81,7 +81,7 @@ func (self *DeviceButton) SetParentA(member interface{}) {
 }
 
 // A reference to the currently running game.
-func (self *DeviceButton) GetGameA() *Game{
+func (self *DeviceButton) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -91,7 +91,7 @@ func (self *DeviceButton) SetGameA(member *Game) {
 }
 
 // The DOM event that caused the change in button state.
-func (self *DeviceButton) GetEventA() interface{}{
+func (self *DeviceButton) Event() interface{}{
     return self.Object.Get("event")
 }
 
@@ -101,7 +101,7 @@ func (self *DeviceButton) SetEventA(member interface{}) {
 }
 
 // The "down" state of the button.
-func (self *DeviceButton) GetIsDownA() bool{
+func (self *DeviceButton) IsDown() bool{
     return self.Object.Get("isDown").Bool()
 }
 
@@ -111,7 +111,7 @@ func (self *DeviceButton) SetIsDownA(member bool) {
 }
 
 // The "up" state of the button.
-func (self *DeviceButton) GetIsUpA() bool{
+func (self *DeviceButton) IsUp() bool{
     return self.Object.Get("isUp").Bool()
 }
 
@@ -121,7 +121,7 @@ func (self *DeviceButton) SetIsUpA(member bool) {
 }
 
 // The timestamp when the button was last pressed down.
-func (self *DeviceButton) GetTimeDownA() int{
+func (self *DeviceButton) TimeDown() int{
     return self.Object.Get("timeDown").Int()
 }
 
@@ -131,7 +131,7 @@ func (self *DeviceButton) SetTimeDownA(member int) {
 }
 
 // The timestamp when the button was last released.
-func (self *DeviceButton) GetTimeUpA() int{
+func (self *DeviceButton) TimeUp() int{
     return self.Object.Get("timeUp").Int()
 }
 
@@ -142,7 +142,7 @@ func (self *DeviceButton) SetTimeUpA(member int) {
 
 // Gamepad only.
 // If a button is held down this holds down the number of times the button has 'repeated'.
-func (self *DeviceButton) GetRepeatsA() int{
+func (self *DeviceButton) Repeats() int{
     return self.Object.Get("repeats").Int()
 }
 
@@ -154,7 +154,7 @@ func (self *DeviceButton) SetRepeatsA(member int) {
 
 // True if the alt key was held down when this button was last pressed or released.
 // Not supported on Gamepads.
-func (self *DeviceButton) GetAltKeyA() bool{
+func (self *DeviceButton) AltKey() bool{
     return self.Object.Get("altKey").Bool()
 }
 
@@ -166,7 +166,7 @@ func (self *DeviceButton) SetAltKeyA(member bool) {
 
 // True if the shift key was held down when this button was last pressed or released.
 // Not supported on Gamepads.
-func (self *DeviceButton) GetShiftKeyA() bool{
+func (self *DeviceButton) ShiftKey() bool{
     return self.Object.Get("shiftKey").Bool()
 }
 
@@ -178,7 +178,7 @@ func (self *DeviceButton) SetShiftKeyA(member bool) {
 
 // True if the control key was held down when this button was last pressed or released.
 // Not supported on Gamepads.
-func (self *DeviceButton) GetCtrlKeyA() bool{
+func (self *DeviceButton) CtrlKey() bool{
     return self.Object.Get("ctrlKey").Bool()
 }
 
@@ -189,7 +189,7 @@ func (self *DeviceButton) SetCtrlKeyA(member bool) {
 }
 
 // Button value. Mainly useful for checking analog buttons (like shoulder triggers) on Gamepads.
-func (self *DeviceButton) GetValueA() int{
+func (self *DeviceButton) Value() int{
     return self.Object.Get("value").Int()
 }
 
@@ -199,7 +199,7 @@ func (self *DeviceButton) SetValueA(member int) {
 }
 
 // The buttoncode of this button if a Gamepad, or the DOM button event value if a Pointer.
-func (self *DeviceButton) GetButtonCodeA() int{
+func (self *DeviceButton) ButtonCode() int{
     return self.Object.Get("buttonCode").Int()
 }
 
@@ -211,7 +211,7 @@ func (self *DeviceButton) SetButtonCodeA(member int) {
 // This Signal is dispatched every time this DeviceButton is pressed down.
 // It is only dispatched once (until the button is released again).
 // When dispatched it sends 2 arguments: A reference to this DeviceButton and the value of the button.
-func (self *DeviceButton) GetOnDownA() *Signal{
+func (self *DeviceButton) OnDown() *Signal{
     return &Signal{self.Object.Get("onDown")}
 }
 
@@ -225,7 +225,7 @@ func (self *DeviceButton) SetOnDownA(member *Signal) {
 // This Signal is dispatched every time this DeviceButton is released from a down state.
 // It is only dispatched once (until the button is pressed again).
 // When dispatched it sends 2 arguments: A reference to this DeviceButton and the value of the button.
-func (self *DeviceButton) GetOnUpA() *Signal{
+func (self *DeviceButton) OnUp() *Signal{
     return &Signal{self.Object.Get("onUp")}
 }
 
@@ -239,7 +239,7 @@ func (self *DeviceButton) SetOnUpA(member *Signal) {
 // Gamepad only.
 // This Signal is dispatched every time this DeviceButton changes floating value (between, but not exactly, 0 and 1).
 // When dispatched it sends 2 arguments: A reference to this DeviceButton and the value of the button.
-func (self *DeviceButton) GetOnFloatA() *Signal{
+func (self *DeviceButton) OnFloat() *Signal{
     return &Signal{self.Object.Get("onFloat")}
 }
 
@@ -252,7 +252,7 @@ func (self *DeviceButton) SetOnFloatA(member *Signal) {
 
 // How long the button has been held down for in milliseconds.
 // If not currently down it returns -1.
-func (self *DeviceButton) GetDurationA() int{
+func (self *DeviceButton) Duration() int{
     return self.Object.Get("duration").Int()
 }
 

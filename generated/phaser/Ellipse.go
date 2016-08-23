@@ -15,38 +15,38 @@ type Ellipse struct {
 
 // Creates a Ellipse object. A curve on a plane surrounding two focal points.
 func NewEllipse() *Ellipse {
-    return &Ellipse{js.Global.Call("Phaser.Ellipse")}
+    return &Ellipse{js.Global.Get("Phaser").Get("Ellipse").New()}
 }
 
 // Creates a Ellipse object. A curve on a plane surrounding two focal points.
 func NewEllipse1O(x int) *Ellipse {
-    return &Ellipse{js.Global.Call("Phaser.Ellipse", x)}
+    return &Ellipse{js.Global.Get("Phaser").Get("Ellipse").New(x)}
 }
 
 // Creates a Ellipse object. A curve on a plane surrounding two focal points.
 func NewEllipse2O(x int, y int) *Ellipse {
-    return &Ellipse{js.Global.Call("Phaser.Ellipse", x, y)}
+    return &Ellipse{js.Global.Get("Phaser").Get("Ellipse").New(x, y)}
 }
 
 // Creates a Ellipse object. A curve on a plane surrounding two focal points.
 func NewEllipse3O(x int, y int, width int) *Ellipse {
-    return &Ellipse{js.Global.Call("Phaser.Ellipse", x, y, width)}
+    return &Ellipse{js.Global.Get("Phaser").Get("Ellipse").New(x, y, width)}
 }
 
 // Creates a Ellipse object. A curve on a plane surrounding two focal points.
 func NewEllipse4O(x int, y int, width int, height int) *Ellipse {
-    return &Ellipse{js.Global.Call("Phaser.Ellipse", x, y, width, height)}
+    return &Ellipse{js.Global.Get("Phaser").Get("Ellipse").New(x, y, width, height)}
 }
 
 // Creates a Ellipse object. A curve on a plane surrounding two focal points.
 func NewEllipseI(args ...interface{}) *Ellipse {
-    return &Ellipse{js.Global.Call("Phaser.Ellipse", args)}
+    return &Ellipse{js.Global.Get("Phaser").Get("Ellipse").New(args)}
 }
 
 
 
 // The X coordinate of the upper-left corner of the framing rectangle of this ellipse.
-func (self *Ellipse) GetXA() int{
+func (self *Ellipse) X() int{
     return self.Object.Get("x").Int()
 }
 
@@ -56,7 +56,7 @@ func (self *Ellipse) SetXA(member int) {
 }
 
 // The Y coordinate of the upper-left corner of the framing rectangle of this ellipse.
-func (self *Ellipse) GetYA() int{
+func (self *Ellipse) Y() int{
     return self.Object.Get("y").Int()
 }
 
@@ -66,7 +66,7 @@ func (self *Ellipse) SetYA(member int) {
 }
 
 // The overall width of this ellipse.
-func (self *Ellipse) GetWidthA() int{
+func (self *Ellipse) Width() int{
     return self.Object.Get("width").Int()
 }
 
@@ -76,7 +76,7 @@ func (self *Ellipse) SetWidthA(member int) {
 }
 
 // The overall height of this ellipse.
-func (self *Ellipse) GetHeightA() int{
+func (self *Ellipse) Height() int{
     return self.Object.Get("height").Int()
 }
 
@@ -86,7 +86,7 @@ func (self *Ellipse) SetHeightA(member int) {
 }
 
 // The const type of this object.
-func (self *Ellipse) GetTypeA() int{
+func (self *Ellipse) Type() int{
     return self.Object.Get("type").Int()
 }
 
@@ -96,7 +96,7 @@ func (self *Ellipse) SetTypeA(member int) {
 }
 
 // The left coordinate of the Ellipse. The same as the X coordinate.
-func (self *Ellipse) GetLeftA() interface{}{
+func (self *Ellipse) Left() interface{}{
     return self.Object.Get("left")
 }
 
@@ -106,7 +106,7 @@ func (self *Ellipse) SetLeftA(member interface{}) {
 }
 
 // The x coordinate of the rightmost point of the Ellipse. Changing the right property of an Ellipse object has no effect on the x property, but does adjust the width. Gets or sets the value of the rightmost point of the ellipse.
-func (self *Ellipse) GetRightA() int{
+func (self *Ellipse) Right() int{
     return self.Object.Get("right").Int()
 }
 
@@ -116,7 +116,7 @@ func (self *Ellipse) SetRightA(member int) {
 }
 
 // The top of the Ellipse. The same as its y property. Gets or sets the top of the ellipse.
-func (self *Ellipse) GetTopA() int{
+func (self *Ellipse) Top() int{
     return self.Object.Get("top").Int()
 }
 
@@ -126,7 +126,7 @@ func (self *Ellipse) SetTopA(member int) {
 }
 
 // The sum of the y and height properties. Changing the bottom property of an Ellipse doesn't adjust the y property, but does change the height. Gets or sets the bottom of the ellipse.
-func (self *Ellipse) GetBottomA() int{
+func (self *Ellipse) Bottom() int{
     return self.Object.Get("bottom").Int()
 }
 
@@ -137,7 +137,7 @@ func (self *Ellipse) SetBottomA(member int) {
 
 // Determines whether or not this Ellipse object is empty. Will return a value of true if the Ellipse objects dimensions are less than or equal to 0; otherwise false.
 // If set to true it will reset all of the Ellipse objects properties to 0. An Ellipse object is empty if its width or height is less than or equal to 0. Gets or sets the empty state of the ellipse.
-func (self *Ellipse) GetEmptyA() bool{
+func (self *Ellipse) Empty() bool{
     return self.Object.Get("empty").Bool()
 }
 

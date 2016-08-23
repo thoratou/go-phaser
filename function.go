@@ -1,5 +1,7 @@
 package main
 
+import "strings"
+
 type Function struct {
 	Name        string      `json:"name"`
 	Suffix      string      `json:"-"`
@@ -10,6 +12,10 @@ type Function struct {
 
 func (f *Function) GetNameUpperInitial() string {
 	return UpperInitial(f.Name)
+}
+
+func (f *Function) GetNameSplit() []string {
+	return strings.Split(f.Name, ".")
 }
 
 func (f *Function) GetDescriptionLines() []string {
@@ -34,10 +40,24 @@ func (f *Function) GetParameterFullString() string {
 
 func (f *Function) GetParameterCallString() string {
 	result := ""
+	firstParameter := true
 	for _, parameter := range f.Parameters {
 		if !IsBugParameter(parameter.Name) {
-			result = result + ", " + ConvertGoReserveNames(parameter.Name)
+			if firstParameter {
+				firstParameter = false
+				result = result + ConvertGoReserveNames(parameter.Name)
+			} else {
+				result = result + ", " + ConvertGoReserveNames(parameter.Name)
+			}
 		}
+	}
+	return result
+}
+
+func (f *Function) GetParameterCallStringWithCommaPrefix() string {
+	result := f.GetParameterCallString()
+	if result != "" {
+		result = ", " + result
 	}
 	return result
 }

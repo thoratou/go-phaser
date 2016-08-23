@@ -15,12 +15,12 @@ type Mat2 struct {
 
 // 
 func NewMat2() *Mat2 {
-    return &Mat2{js.Global.Call("mat2")}
+    return &Mat2{js.Global.Get("mat2").New()}
 }
 
 // 
 func NewMat2I(args ...interface{}) *Mat2 {
-    return &Mat2{js.Global.Call("mat2", args)}
+    return &Mat2{js.Global.Get("mat2").New(args)}
 }
 
 

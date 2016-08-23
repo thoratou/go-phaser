@@ -57,7 +57,7 @@ type Cache struct {
 // your game require it. In a typical game set-up the cache is populated once after the main game has loaded and
 // then used as an asset store.
 func NewCache(game *Game) *Cache {
-    return &Cache{js.Global.Call("Phaser.Cache", game)}
+    return &Cache{js.Global.Get("Phaser").Get("Cache").New(game)}
 }
 
 // Phaser has one single cache in which it stores all assets.
@@ -82,13 +82,13 @@ func NewCache(game *Game) *Cache {
 // your game require it. In a typical game set-up the cache is populated once after the main game has loaded and
 // then used as an asset store.
 func NewCacheI(args ...interface{}) *Cache {
-    return &Cache{js.Global.Call("Phaser.Cache", args)}
+    return &Cache{js.Global.Get("Phaser").Get("Cache").New(args)}
 }
 
 
 
 // Local reference to game.
-func (self *Cache) GetGameA() *Game{
+func (self *Cache) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -98,7 +98,7 @@ func (self *Cache) SetGameA(member *Game) {
 }
 
 // Automatically resolve resource URLs to absolute paths for use with the Cache.getURL method.
-func (self *Cache) GetAutoResolveURLA() bool{
+func (self *Cache) AutoResolveURL() bool{
     return self.Object.Get("autoResolveURL").Bool()
 }
 
@@ -108,7 +108,7 @@ func (self *Cache) SetAutoResolveURLA(member bool) {
 }
 
 // This event is dispatched when the sound system is unlocked via a touch event on cellular devices.
-func (self *Cache) GetOnSoundUnlockA() *Signal{
+func (self *Cache) OnSoundUnlock() *Signal{
     return &Signal{self.Object.Get("onSoundUnlock")}
 }
 
@@ -118,7 +118,7 @@ func (self *Cache) SetOnSoundUnlockA(member *Signal) {
 }
 
 // 
-func (self *Cache) GetCANVASA() int{
+func (self *Cache) CANVAS() int{
     return self.Object.Get("CANVAS").Int()
 }
 
@@ -128,7 +128,7 @@ func (self *Cache) SetCANVASA(member int) {
 }
 
 // 
-func (self *Cache) GetIMAGEA() int{
+func (self *Cache) IMAGE() int{
     return self.Object.Get("IMAGE").Int()
 }
 
@@ -138,7 +138,7 @@ func (self *Cache) SetIMAGEA(member int) {
 }
 
 // 
-func (self *Cache) GetTEXTUREA() int{
+func (self *Cache) TEXTURE() int{
     return self.Object.Get("TEXTURE").Int()
 }
 
@@ -148,7 +148,7 @@ func (self *Cache) SetTEXTUREA(member int) {
 }
 
 // 
-func (self *Cache) GetSOUNDA() int{
+func (self *Cache) SOUND() int{
     return self.Object.Get("SOUND").Int()
 }
 
@@ -158,7 +158,7 @@ func (self *Cache) SetSOUNDA(member int) {
 }
 
 // 
-func (self *Cache) GetTEXTA() int{
+func (self *Cache) TEXT() int{
     return self.Object.Get("TEXT").Int()
 }
 
@@ -168,7 +168,7 @@ func (self *Cache) SetTEXTA(member int) {
 }
 
 // 
-func (self *Cache) GetPHYSICSA() int{
+func (self *Cache) PHYSICS() int{
     return self.Object.Get("PHYSICS").Int()
 }
 
@@ -178,7 +178,7 @@ func (self *Cache) SetPHYSICSA(member int) {
 }
 
 // 
-func (self *Cache) GetTILEMAPA() int{
+func (self *Cache) TILEMAP() int{
     return self.Object.Get("TILEMAP").Int()
 }
 
@@ -188,7 +188,7 @@ func (self *Cache) SetTILEMAPA(member int) {
 }
 
 // 
-func (self *Cache) GetBINARYA() int{
+func (self *Cache) BINARY() int{
     return self.Object.Get("BINARY").Int()
 }
 
@@ -198,7 +198,7 @@ func (self *Cache) SetBINARYA(member int) {
 }
 
 // 
-func (self *Cache) GetBITMAPDATAA() int{
+func (self *Cache) BITMAPDATA() int{
     return self.Object.Get("BITMAPDATA").Int()
 }
 
@@ -208,7 +208,7 @@ func (self *Cache) SetBITMAPDATAA(member int) {
 }
 
 // 
-func (self *Cache) GetBITMAPFONTA() int{
+func (self *Cache) BITMAPFONT() int{
     return self.Object.Get("BITMAPFONT").Int()
 }
 
@@ -218,7 +218,7 @@ func (self *Cache) SetBITMAPFONTA(member int) {
 }
 
 // 
-func (self *Cache) GetJSONA() int{
+func (self *Cache) JSON() int{
     return self.Object.Get("JSON").Int()
 }
 
@@ -228,7 +228,7 @@ func (self *Cache) SetJSONA(member int) {
 }
 
 // 
-func (self *Cache) GetXMLA() int{
+func (self *Cache) XML() int{
     return self.Object.Get("XML").Int()
 }
 
@@ -238,7 +238,7 @@ func (self *Cache) SetXMLA(member int) {
 }
 
 // 
-func (self *Cache) GetVIDEOA() int{
+func (self *Cache) VIDEO() int{
     return self.Object.Get("VIDEO").Int()
 }
 
@@ -248,7 +248,7 @@ func (self *Cache) SetVIDEOA(member int) {
 }
 
 // 
-func (self *Cache) GetSHADERA() int{
+func (self *Cache) SHADER() int{
     return self.Object.Get("SHADER").Int()
 }
 
@@ -258,7 +258,7 @@ func (self *Cache) SetSHADERA(member int) {
 }
 
 // 
-func (self *Cache) GetRENDER_TEXTUREA() int{
+func (self *Cache) RENDER_TEXTURE() int{
     return self.Object.Get("RENDER_TEXTURE").Int()
 }
 
@@ -268,7 +268,7 @@ func (self *Cache) SetRENDER_TEXTUREA(member int) {
 }
 
 // The default image used for a texture when no other is specified.
-func (self *Cache) GetDEFAULTA() *Texture{
+func (self *Cache) DEFAULT() *Texture{
     return &Texture{self.Object.Get("DEFAULT")}
 }
 
@@ -278,7 +278,7 @@ func (self *Cache) SetDEFAULTA(member *Texture) {
 }
 
 // The default image used for a texture when the source image is missing.
-func (self *Cache) GetMISSINGA() *Texture{
+func (self *Cache) MISSING() *Texture{
     return &Texture{self.Object.Get("MISSING")}
 }
 
@@ -1285,7 +1285,7 @@ func (self *Cache) GetKeys() []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -1296,7 +1296,7 @@ func (self *Cache) GetKeys1O(cache int) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -1307,7 +1307,7 @@ func (self *Cache) GetKeysI(args ...interface{}) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }

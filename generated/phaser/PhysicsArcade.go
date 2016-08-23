@@ -15,18 +15,18 @@ type PhysicsArcade struct {
 
 // The Arcade Physics world. Contains Arcade Physics related collision, overlap and motion methods.
 func NewPhysicsArcade(game *Game) *PhysicsArcade {
-    return &PhysicsArcade{js.Global.Call("Phaser.Physics.Arcade", game)}
+    return &PhysicsArcade{js.Global.Get("Phaser").Get("Physics").Get("Arcade").New(game)}
 }
 
 // The Arcade Physics world. Contains Arcade Physics related collision, overlap and motion methods.
 func NewPhysicsArcadeI(args ...interface{}) *PhysicsArcade {
-    return &PhysicsArcade{js.Global.Call("Phaser.Physics.Arcade", args)}
+    return &PhysicsArcade{js.Global.Get("Phaser").Get("Physics").Get("Arcade").New(args)}
 }
 
 
 
 // Local reference to game.
-func (self *PhysicsArcade) GetGameA() *Game{
+func (self *PhysicsArcade) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -36,7 +36,7 @@ func (self *PhysicsArcade) SetGameA(member *Game) {
 }
 
 // The World gravity setting. Defaults to x: 0, y: 0, or no gravity.
-func (self *PhysicsArcade) GetGravityA() *Point{
+func (self *PhysicsArcade) Gravity() *Point{
     return &Point{self.Object.Get("gravity")}
 }
 
@@ -46,7 +46,7 @@ func (self *PhysicsArcade) SetGravityA(member *Point) {
 }
 
 // The bounds inside of which the physics world exists. Defaults to match the world bounds.
-func (self *PhysicsArcade) GetBoundsA() *Rectangle{
+func (self *PhysicsArcade) Bounds() *Rectangle{
     return &Rectangle{self.Object.Get("bounds")}
 }
 
@@ -57,7 +57,7 @@ func (self *PhysicsArcade) SetBoundsA(member *Rectangle) {
 
 // Set the checkCollision properties to control for which bounds collision is processed.
 // For example checkCollision.down = false means Bodies cannot collide with the World.bounds.bottom. An object containing allowed collision flags.
-func (self *PhysicsArcade) GetCheckCollisionA() interface{}{
+func (self *PhysicsArcade) CheckCollision() interface{}{
     return self.Object.Get("checkCollision")
 }
 
@@ -68,7 +68,7 @@ func (self *PhysicsArcade) SetCheckCollisionA(member interface{}) {
 }
 
 // Used by the QuadTree to set the maximum number of objects per quad.
-func (self *PhysicsArcade) GetMaxObjectsA() int{
+func (self *PhysicsArcade) MaxObjects() int{
     return self.Object.Get("maxObjects").Int()
 }
 
@@ -78,7 +78,7 @@ func (self *PhysicsArcade) SetMaxObjectsA(member int) {
 }
 
 // Used by the QuadTree to set the maximum number of iteration levels.
-func (self *PhysicsArcade) GetMaxLevelsA() int{
+func (self *PhysicsArcade) MaxLevels() int{
     return self.Object.Get("maxLevels").Int()
 }
 
@@ -88,7 +88,7 @@ func (self *PhysicsArcade) SetMaxLevelsA(member int) {
 }
 
 // A value added to the delta values during collision checks.
-func (self *PhysicsArcade) GetOVERLAP_BIASA() int{
+func (self *PhysicsArcade) OVERLAP_BIAS() int{
     return self.Object.Get("OVERLAP_BIAS").Int()
 }
 
@@ -98,7 +98,7 @@ func (self *PhysicsArcade) SetOVERLAP_BIASA(member int) {
 }
 
 // If true World.separate will always separate on the X axis before Y. Otherwise it will check gravity totals first.
-func (self *PhysicsArcade) GetForceXA() bool{
+func (self *PhysicsArcade) ForceX() bool{
     return self.Object.Get("forceX").Bool()
 }
 
@@ -108,7 +108,7 @@ func (self *PhysicsArcade) SetForceXA(member bool) {
 }
 
 // Used when colliding a Sprite vs. a Group, or a Group vs. a Group, this defines the direction the sort is based on. Default is Phaser.Physics.Arcade.LEFT_RIGHT.
-func (self *PhysicsArcade) GetSortDirectionA() int{
+func (self *PhysicsArcade) SortDirection() int{
     return self.Object.Get("sortDirection").Int()
 }
 
@@ -118,7 +118,7 @@ func (self *PhysicsArcade) SetSortDirectionA(member int) {
 }
 
 // If true the QuadTree will not be used for any collision. QuadTrees are great if objects are well spread out in your game, otherwise they are a performance hit. If you enable this you can disable on a per body basis via `Body.skipQuadTree`.
-func (self *PhysicsArcade) GetSkipQuadTreeA() bool{
+func (self *PhysicsArcade) SkipQuadTree() bool{
     return self.Object.Get("skipQuadTree").Bool()
 }
 
@@ -128,7 +128,7 @@ func (self *PhysicsArcade) SetSkipQuadTreeA(member bool) {
 }
 
 // If `true` the `Body.preUpdate` method will be skipped, halting all motion for all bodies. Note that other methods such as `collide` will still work, so be careful not to call them on paused bodies.
-func (self *PhysicsArcade) GetIsPausedA() bool{
+func (self *PhysicsArcade) IsPaused() bool{
     return self.Object.Get("isPaused").Bool()
 }
 
@@ -138,7 +138,7 @@ func (self *PhysicsArcade) SetIsPausedA(member bool) {
 }
 
 // The world QuadTree.
-func (self *PhysicsArcade) GetQuadTreeA() *QuadTree{
+func (self *PhysicsArcade) QuadTree() *QuadTree{
     return &QuadTree{self.Object.Get("quadTree")}
 }
 
@@ -149,7 +149,7 @@ func (self *PhysicsArcade) SetQuadTreeA(member *QuadTree) {
 
 // A constant used for the sortDirection value.
 // Use this if you don't wish to perform any pre-collision sorting at all, or will manually sort your Groups.
-func (self *PhysicsArcade) GetSORT_NONEA() int{
+func (self *PhysicsArcade) SORT_NONE() int{
     return self.Object.Get("SORT_NONE").Int()
 }
 
@@ -161,7 +161,7 @@ func (self *PhysicsArcade) SetSORT_NONEA(member int) {
 
 // A constant used for the sortDirection value.
 // Use this if your game world is wide but short and scrolls from the left to the right (i.e. Mario)
-func (self *PhysicsArcade) GetLEFT_RIGHTA() int{
+func (self *PhysicsArcade) LEFT_RIGHT() int{
     return self.Object.Get("LEFT_RIGHT").Int()
 }
 
@@ -173,7 +173,7 @@ func (self *PhysicsArcade) SetLEFT_RIGHTA(member int) {
 
 // A constant used for the sortDirection value.
 // Use this if your game world is wide but short and scrolls from the right to the left (i.e. Mario backwards)
-func (self *PhysicsArcade) GetRIGHT_LEFTA() int{
+func (self *PhysicsArcade) RIGHT_LEFT() int{
     return self.Object.Get("RIGHT_LEFT").Int()
 }
 
@@ -185,7 +185,7 @@ func (self *PhysicsArcade) SetRIGHT_LEFTA(member int) {
 
 // A constant used for the sortDirection value.
 // Use this if your game world is narrow but tall and scrolls from the top to the bottom (i.e. Dig Dug)
-func (self *PhysicsArcade) GetTOP_BOTTOMA() int{
+func (self *PhysicsArcade) TOP_BOTTOM() int{
     return self.Object.Get("TOP_BOTTOM").Int()
 }
 
@@ -197,7 +197,7 @@ func (self *PhysicsArcade) SetTOP_BOTTOMA(member int) {
 
 // A constant used for the sortDirection value.
 // Use this if your game world is narrow but tall and scrolls from the bottom to the top (i.e. Commando or a vertically scrolling shoot-em-up)
-func (self *PhysicsArcade) GetBOTTOM_TOPA() int{
+func (self *PhysicsArcade) BOTTOM_TOP() int{
     return self.Object.Get("BOTTOM_TOP").Int()
 }
 
@@ -309,7 +309,7 @@ func (self *PhysicsArcade) Overlap(object1 interface{}, object2 interface{}) boo
 // Both the first and second parameter can be arrays of objects, of differing types.
 // If two arrays are passed, the contents of the first parameter will be tested against all contents of the 2nd parameter.
 // NOTE: This function is not recursive, and will not test against children of objects passed (i.e. Groups within Groups).
-func (self *PhysicsArcade) Overlap1O(object1 interface{}, object2 interface{}, overlapCallback func(...interface{})) bool{
+func (self *PhysicsArcade) Overlap1O(object1 interface{}, object2 interface{}, overlapCallback interface{}) bool{
     return self.Object.Call("overlap", object1, object2, overlapCallback).Bool()
 }
 
@@ -319,7 +319,7 @@ func (self *PhysicsArcade) Overlap1O(object1 interface{}, object2 interface{}, o
 // Both the first and second parameter can be arrays of objects, of differing types.
 // If two arrays are passed, the contents of the first parameter will be tested against all contents of the 2nd parameter.
 // NOTE: This function is not recursive, and will not test against children of objects passed (i.e. Groups within Groups).
-func (self *PhysicsArcade) Overlap2O(object1 interface{}, object2 interface{}, overlapCallback func(...interface{}), processCallback func(...interface{})) bool{
+func (self *PhysicsArcade) Overlap2O(object1 interface{}, object2 interface{}, overlapCallback interface{}, processCallback interface{}) bool{
     return self.Object.Call("overlap", object1, object2, overlapCallback, processCallback).Bool()
 }
 
@@ -329,7 +329,7 @@ func (self *PhysicsArcade) Overlap2O(object1 interface{}, object2 interface{}, o
 // Both the first and second parameter can be arrays of objects, of differing types.
 // If two arrays are passed, the contents of the first parameter will be tested against all contents of the 2nd parameter.
 // NOTE: This function is not recursive, and will not test against children of objects passed (i.e. Groups within Groups).
-func (self *PhysicsArcade) Overlap3O(object1 interface{}, object2 interface{}, overlapCallback func(...interface{}), processCallback func(...interface{}), callbackContext interface{}) bool{
+func (self *PhysicsArcade) Overlap3O(object1 interface{}, object2 interface{}, overlapCallback interface{}, processCallback interface{}, callbackContext interface{}) bool{
     return self.Object.Call("overlap", object1, object2, overlapCallback, processCallback, callbackContext).Bool()
 }
 
@@ -363,7 +363,7 @@ func (self *PhysicsArcade) Collide(object1 interface{}, object2 interface{}) boo
 // giving you the chance to perform additional checks. If the function returns true then the collision and separation is carried out. If it returns false it is skipped.
 // The collideCallback is an optional function that is only called if two sprites collide. If a processCallback has been set then it needs to return true for collideCallback to be called.
 // NOTE: This function is not recursive, and will not test against children of objects passed (i.e. Groups or Tilemaps within other Groups).
-func (self *PhysicsArcade) Collide1O(object1 interface{}, object2 interface{}, collideCallback func(...interface{})) bool{
+func (self *PhysicsArcade) Collide1O(object1 interface{}, object2 interface{}, collideCallback interface{}) bool{
     return self.Object.Call("collide", object1, object2, collideCallback).Bool()
 }
 
@@ -375,7 +375,7 @@ func (self *PhysicsArcade) Collide1O(object1 interface{}, object2 interface{}, c
 // giving you the chance to perform additional checks. If the function returns true then the collision and separation is carried out. If it returns false it is skipped.
 // The collideCallback is an optional function that is only called if two sprites collide. If a processCallback has been set then it needs to return true for collideCallback to be called.
 // NOTE: This function is not recursive, and will not test against children of objects passed (i.e. Groups or Tilemaps within other Groups).
-func (self *PhysicsArcade) Collide2O(object1 interface{}, object2 interface{}, collideCallback func(...interface{}), processCallback func(...interface{})) bool{
+func (self *PhysicsArcade) Collide2O(object1 interface{}, object2 interface{}, collideCallback interface{}, processCallback interface{}) bool{
     return self.Object.Call("collide", object1, object2, collideCallback, processCallback).Bool()
 }
 
@@ -387,7 +387,7 @@ func (self *PhysicsArcade) Collide2O(object1 interface{}, object2 interface{}, c
 // giving you the chance to perform additional checks. If the function returns true then the collision and separation is carried out. If it returns false it is skipped.
 // The collideCallback is an optional function that is only called if two sprites collide. If a processCallback has been set then it needs to return true for collideCallback to be called.
 // NOTE: This function is not recursive, and will not test against children of objects passed (i.e. Groups or Tilemaps within other Groups).
-func (self *PhysicsArcade) Collide3O(object1 interface{}, object2 interface{}, collideCallback func(...interface{}), processCallback func(...interface{}), callbackContext interface{}) bool{
+func (self *PhysicsArcade) Collide3O(object1 interface{}, object2 interface{}, collideCallback interface{}, processCallback interface{}, callbackContext interface{}) bool{
     return self.Object.Call("collide", object1, object2, collideCallback, processCallback, callbackContext).Bool()
 }
 
@@ -493,7 +493,7 @@ func (self *PhysicsArcade) SortI(args ...interface{}) {
 }
 
 // Internal collision handler.
-func (self *PhysicsArcade) CollideHandler(object1 interface{}, object2 interface{}, collideCallback func(...interface{}), processCallback func(...interface{}), callbackContext interface{}, overlapOnly bool) {
+func (self *PhysicsArcade) CollideHandler(object1 interface{}, object2 interface{}, collideCallback interface{}, processCallback interface{}, callbackContext interface{}, overlapOnly bool) {
     self.Object.Call("collideHandler", object1, object2, collideCallback, processCallback, callbackContext, overlapOnly)
 }
 
@@ -503,7 +503,7 @@ func (self *PhysicsArcade) CollideHandlerI(args ...interface{}) {
 }
 
 // An internal function. Use Phaser.Physics.Arcade.collide instead.
-func (self *PhysicsArcade) CollideSpriteVsSprite(sprite1 *Sprite, sprite2 *Sprite, collideCallback func(...interface{}), processCallback func(...interface{}), callbackContext interface{}, overlapOnly bool) bool{
+func (self *PhysicsArcade) CollideSpriteVsSprite(sprite1 *Sprite, sprite2 *Sprite, collideCallback interface{}, processCallback interface{}, callbackContext interface{}, overlapOnly bool) bool{
     return self.Object.Call("collideSpriteVsSprite", sprite1, sprite2, collideCallback, processCallback, callbackContext, overlapOnly).Bool()
 }
 
@@ -513,7 +513,7 @@ func (self *PhysicsArcade) CollideSpriteVsSpriteI(args ...interface{}) bool{
 }
 
 // An internal function. Use Phaser.Physics.Arcade.collide instead.
-func (self *PhysicsArcade) CollideSpriteVsGroup(sprite *Sprite, group *Group, collideCallback func(...interface{}), processCallback func(...interface{}), callbackContext interface{}, overlapOnly bool) {
+func (self *PhysicsArcade) CollideSpriteVsGroup(sprite *Sprite, group *Group, collideCallback interface{}, processCallback interface{}, callbackContext interface{}, overlapOnly bool) {
     self.Object.Call("collideSpriteVsGroup", sprite, group, collideCallback, processCallback, callbackContext, overlapOnly)
 }
 
@@ -523,7 +523,7 @@ func (self *PhysicsArcade) CollideSpriteVsGroupI(args ...interface{}) {
 }
 
 // An internal function. Use Phaser.Physics.Arcade.collide instead.
-func (self *PhysicsArcade) CollideGroupVsSelf(group *Group, collideCallback func(...interface{}), processCallback func(...interface{}), callbackContext interface{}, overlapOnly bool) bool{
+func (self *PhysicsArcade) CollideGroupVsSelf(group *Group, collideCallback interface{}, processCallback interface{}, callbackContext interface{}, overlapOnly bool) bool{
     return self.Object.Call("collideGroupVsSelf", group, collideCallback, processCallback, callbackContext, overlapOnly).Bool()
 }
 
@@ -533,7 +533,7 @@ func (self *PhysicsArcade) CollideGroupVsSelfI(args ...interface{}) bool{
 }
 
 // An internal function. Use Phaser.Physics.Arcade.collide instead.
-func (self *PhysicsArcade) CollideGroupVsGroup(group1 *Group, group2 *Group, collideCallback func(...interface{}), processCallback func(...interface{}), callbackContext interface{}, overlapOnly bool) {
+func (self *PhysicsArcade) CollideGroupVsGroup(group1 *Group, group2 *Group, collideCallback interface{}, processCallback interface{}, callbackContext interface{}, overlapOnly bool) {
     self.Object.Call("collideGroupVsGroup", group1, group2, collideCallback, processCallback, callbackContext, overlapOnly)
 }
 
@@ -543,7 +543,7 @@ func (self *PhysicsArcade) CollideGroupVsGroupI(args ...interface{}) {
 }
 
 // The core separation function to separate two physics bodies.
-func (self *PhysicsArcade) Separate(body1 *PhysicsArcadeBody, body2 *PhysicsArcadeBody, processCallback func(...interface{}), callbackContext interface{}, overlapOnly bool) bool{
+func (self *PhysicsArcade) Separate(body1 *PhysicsArcadeBody, body2 *PhysicsArcadeBody, processCallback interface{}, callbackContext interface{}, overlapOnly bool) bool{
     return self.Object.Call("separate", body1, body2, processCallback, callbackContext, overlapOnly).Bool()
 }
 
@@ -643,7 +643,7 @@ func (self *PhysicsArcade) GetObjectsUnderPointer(pointer *Pointer, group *Group
 // Given a Group and a Pointer this will check to see which Group children overlap with the Pointer coordinates.
 // Each child will be sent to the given callback for further processing.
 // Note that the children are not checked for depth order, but simply if they overlap the Pointer or not.
-func (self *PhysicsArcade) GetObjectsUnderPointer1O(pointer *Pointer, group *Group, callback func(...interface{})) []DisplayObject{
+func (self *PhysicsArcade) GetObjectsUnderPointer1O(pointer *Pointer, group *Group, callback interface{}) []DisplayObject{
 	array00 := self.Object.Call("getObjectsUnderPointer", pointer, group, callback)
 	length00 := array00.Length()
 	out00 := make([]DisplayObject, length00, length00)
@@ -657,7 +657,7 @@ func (self *PhysicsArcade) GetObjectsUnderPointer1O(pointer *Pointer, group *Gro
 // Given a Group and a Pointer this will check to see which Group children overlap with the Pointer coordinates.
 // Each child will be sent to the given callback for further processing.
 // Note that the children are not checked for depth order, but simply if they overlap the Pointer or not.
-func (self *PhysicsArcade) GetObjectsUnderPointer2O(pointer *Pointer, group *Group, callback func(...interface{}), callbackContext interface{}) []DisplayObject{
+func (self *PhysicsArcade) GetObjectsUnderPointer2O(pointer *Pointer, group *Group, callback interface{}, callbackContext interface{}) []DisplayObject{
 	array00 := self.Object.Call("getObjectsUnderPointer", pointer, group, callback, callbackContext)
 	length00 := array00.Length()
 	out00 := make([]DisplayObject, length00, length00)
@@ -699,7 +699,7 @@ func (self *PhysicsArcade) GetObjectsAtLocation(x int, y int, group *Group) []Di
 // Given a Group and a location this will check to see which Group children overlap with the coordinates.
 // Each child will be sent to the given callback for further processing.
 // Note that the children are not checked for depth order, but simply if they overlap the coordinate or not.
-func (self *PhysicsArcade) GetObjectsAtLocation1O(x int, y int, group *Group, callback func(...interface{})) []DisplayObject{
+func (self *PhysicsArcade) GetObjectsAtLocation1O(x int, y int, group *Group, callback interface{}) []DisplayObject{
 	array00 := self.Object.Call("getObjectsAtLocation", x, y, group, callback)
 	length00 := array00.Length()
 	out00 := make([]DisplayObject, length00, length00)
@@ -713,7 +713,7 @@ func (self *PhysicsArcade) GetObjectsAtLocation1O(x int, y int, group *Group, ca
 // Given a Group and a location this will check to see which Group children overlap with the coordinates.
 // Each child will be sent to the given callback for further processing.
 // Note that the children are not checked for depth order, but simply if they overlap the coordinate or not.
-func (self *PhysicsArcade) GetObjectsAtLocation2O(x int, y int, group *Group, callback func(...interface{}), callbackContext interface{}) []DisplayObject{
+func (self *PhysicsArcade) GetObjectsAtLocation2O(x int, y int, group *Group, callback interface{}, callbackContext interface{}) []DisplayObject{
 	array00 := self.Object.Call("getObjectsAtLocation", x, y, group, callback, callbackContext)
 	length00 := array00.Length()
 	out00 := make([]DisplayObject, length00, length00)
@@ -727,7 +727,7 @@ func (self *PhysicsArcade) GetObjectsAtLocation2O(x int, y int, group *Group, ca
 // Given a Group and a location this will check to see which Group children overlap with the coordinates.
 // Each child will be sent to the given callback for further processing.
 // Note that the children are not checked for depth order, but simply if they overlap the coordinate or not.
-func (self *PhysicsArcade) GetObjectsAtLocation3O(x int, y int, group *Group, callback func(...interface{}), callbackContext interface{}, callbackArg interface{}) []DisplayObject{
+func (self *PhysicsArcade) GetObjectsAtLocation3O(x int, y int, group *Group, callback interface{}, callbackContext interface{}, callbackArg interface{}) []DisplayObject{
 	array00 := self.Object.Call("getObjectsAtLocation", x, y, group, callback, callbackContext, callbackArg)
 	length00 := array00.Length()
 	out00 := make([]DisplayObject, length00, length00)

@@ -33,7 +33,7 @@ type MSPointer struct {
 // Please note that at the current time of writing Phaser does not yet support chorded button interactions:
 // http://www.w3.org/TR/pointerevents/#chorded-button-interactions
 func NewMSPointer(game *Game) *MSPointer {
-    return &MSPointer{js.Global.Call("Phaser.MSPointer", game)}
+    return &MSPointer{js.Global.Get("Phaser").Get("MSPointer").New(game)}
 }
 
 // The MSPointer class handles Microsoft touch interactions with the game and the resulting Pointer objects.
@@ -47,13 +47,13 @@ func NewMSPointer(game *Game) *MSPointer {
 // Please note that at the current time of writing Phaser does not yet support chorded button interactions:
 // http://www.w3.org/TR/pointerevents/#chorded-button-interactions
 func NewMSPointerI(args ...interface{}) *MSPointer {
-    return &MSPointer{js.Global.Call("Phaser.MSPointer", args)}
+    return &MSPointer{js.Global.Get("Phaser").Get("MSPointer").New(args)}
 }
 
 
 
 // A reference to the currently running game.
-func (self *MSPointer) GetGameA() *Game{
+func (self *MSPointer) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -63,7 +63,7 @@ func (self *MSPointer) SetGameA(member *Game) {
 }
 
 // A reference to the Phaser Input Manager.
-func (self *MSPointer) GetInputA() *Input{
+func (self *MSPointer) Input() *Input{
     return &Input{self.Object.Get("input")}
 }
 
@@ -73,7 +73,7 @@ func (self *MSPointer) SetInputA(member *Input) {
 }
 
 // The context under which callbacks are called (defaults to game).
-func (self *MSPointer) GetCallbackContextA() interface{}{
+func (self *MSPointer) CallbackContext() interface{}{
     return self.Object.Get("callbackContext")
 }
 
@@ -83,22 +83,37 @@ func (self *MSPointer) SetCallbackContextA(member interface{}) {
 }
 
 // A callback that can be fired on a MSPointerDown event.
-func (self *MSPointer) SetPointerDownCallbackA(member func(...interface{})) {
+func (self *MSPointer) PointerDownCallback() interface{}{
+    return self.Object.Get("pointerDownCallback")
+}
+
+// A callback that can be fired on a MSPointerDown event.
+func (self *MSPointer) SetPointerDownCallbackA(member interface{}) {
     self.Object.Set("pointerDownCallback", member)
 }
 
 // A callback that can be fired on a MSPointerMove event.
-func (self *MSPointer) SetPointerMoveCallbackA(member func(...interface{})) {
+func (self *MSPointer) PointerMoveCallback() interface{}{
+    return self.Object.Get("pointerMoveCallback")
+}
+
+// A callback that can be fired on a MSPointerMove event.
+func (self *MSPointer) SetPointerMoveCallbackA(member interface{}) {
     self.Object.Set("pointerMoveCallback", member)
 }
 
 // A callback that can be fired on a MSPointerUp event.
-func (self *MSPointer) SetPointerUpCallbackA(member func(...interface{})) {
+func (self *MSPointer) PointerUpCallback() interface{}{
+    return self.Object.Get("pointerUpCallback")
+}
+
+// A callback that can be fired on a MSPointerUp event.
+func (self *MSPointer) SetPointerUpCallbackA(member interface{}) {
     self.Object.Set("pointerUpCallback", member)
 }
 
 // If true the Pointer events will have event.preventDefault applied to them, if false they will propagate fully.
-func (self *MSPointer) GetCaptureA() bool{
+func (self *MSPointer) Capture() bool{
     return self.Object.Get("capture").Bool()
 }
 
@@ -110,7 +125,7 @@ func (self *MSPointer) SetCaptureA(member bool) {
 // This property was removed in Phaser 2.4 and should no longer be used.
 // Instead please see the Pointer button properties such as `Pointer.leftButton`, `Pointer.rightButton` and so on.
 // Or Pointer.button holds the DOM event button value if you require that.
-func (self *MSPointer) GetButtonA() int{
+func (self *MSPointer) Button() int{
     return self.Object.Get("button").Int()
 }
 
@@ -123,7 +138,7 @@ func (self *MSPointer) SetButtonA(member int) {
 
 // The browser MSPointer DOM event. Will be null if no event has ever been received.
 // Access this property only inside a Pointer event handler and do not keep references to it.
-func (self *MSPointer) GetEventA() interface{}{
+func (self *MSPointer) Event() interface{}{
     return self.Object.Get("event")
 }
 
@@ -134,7 +149,7 @@ func (self *MSPointer) SetEventA(member interface{}) {
 }
 
 // MSPointer input will only be processed if enabled.
-func (self *MSPointer) GetEnabledA() bool{
+func (self *MSPointer) Enabled() bool{
     return self.Object.Get("enabled").Bool()
 }
 

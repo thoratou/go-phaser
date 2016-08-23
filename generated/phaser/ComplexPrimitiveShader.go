@@ -15,18 +15,18 @@ type ComplexPrimitiveShader struct {
 
 // 
 func NewComplexPrimitiveShader(gl *WebGLContext) *ComplexPrimitiveShader {
-    return &ComplexPrimitiveShader{js.Global.Call("PIXI.ComplexPrimitiveShader", gl)}
+    return &ComplexPrimitiveShader{js.Global.Get("PIXI").Get("ComplexPrimitiveShader").New(gl)}
 }
 
 // 
 func NewComplexPrimitiveShaderI(args ...interface{}) *ComplexPrimitiveShader {
-    return &ComplexPrimitiveShader{js.Global.Call("PIXI.ComplexPrimitiveShader", args)}
+    return &ComplexPrimitiveShader{js.Global.Get("PIXI").Get("ComplexPrimitiveShader").New(args)}
 }
 
 
 
 // 
-func (self *ComplexPrimitiveShader) GetGlA() WebGLContext{
+func (self *ComplexPrimitiveShader) Gl() WebGLContext{
     return WrapWebGLContext(self.Object.Get("gl"))
 }
 
@@ -36,7 +36,7 @@ func (self *ComplexPrimitiveShader) SetGlA(member WebGLContext) {
 }
 
 // The WebGL program.
-func (self *ComplexPrimitiveShader) GetProgramA() interface{}{
+func (self *ComplexPrimitiveShader) Program() interface{}{
     return self.Object.Get("program")
 }
 
@@ -46,12 +46,12 @@ func (self *ComplexPrimitiveShader) SetProgramA(member interface{}) {
 }
 
 // The fragment shader.
-func (self *ComplexPrimitiveShader) GetFragmentSrcA() []interface{}{
+func (self *ComplexPrimitiveShader) FragmentSrc() []interface{}{
 	array00 := self.Object.Get("fragmentSrc")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -62,12 +62,12 @@ func (self *ComplexPrimitiveShader) SetFragmentSrcA(member []interface{}) {
 }
 
 // The vertex shader.
-func (self *ComplexPrimitiveShader) GetVertexSrcA() []interface{}{
+func (self *ComplexPrimitiveShader) VertexSrc() []interface{}{
 	array00 := self.Object.Get("vertexSrc")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }

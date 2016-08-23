@@ -15,12 +15,12 @@ type ComponentLifeSpan struct {
 
 // LifeSpan Component Features.
 func NewComponentLifeSpan() *ComponentLifeSpan {
-    return &ComponentLifeSpan{js.Global.Call("Phaser.Component.LifeSpan")}
+    return &ComponentLifeSpan{js.Global.Get("Phaser").Get("Component").Get("LifeSpan").New()}
 }
 
 // LifeSpan Component Features.
 func NewComponentLifeSpanI(args ...interface{}) *ComponentLifeSpan {
-    return &ComponentLifeSpan{js.Global.Call("Phaser.Component.LifeSpan", args)}
+    return &ComponentLifeSpan{js.Global.Get("Phaser").Get("Component").Get("LifeSpan").New(args)}
 }
 
 
@@ -32,7 +32,7 @@ func NewComponentLifeSpanI(args ...interface{}) *ComponentLifeSpan {
 // 
 // This property is mostly just provided to be used by your game - it doesn't effect rendering or logic updates.
 // However you can use `Group.getFirstAlive` in conjunction with this property for fast object pooling and recycling.
-func (self *ComponentLifeSpan) GetAliveA() bool{
+func (self *ComponentLifeSpan) Alive() bool{
     return self.Object.Get("alive").Bool()
 }
 
@@ -55,7 +55,7 @@ func (self *ComponentLifeSpan) SetAliveA(member bool) {
 // When it reaches zero it will call the `kill` method.
 // 
 // Very handy for particles, bullets, collectibles, or any other short-lived entity.
-func (self *ComponentLifeSpan) GetLifespanA() int{
+func (self *ComponentLifeSpan) Lifespan() int{
     return self.Object.Get("lifespan").Int()
 }
 

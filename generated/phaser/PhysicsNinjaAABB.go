@@ -17,19 +17,19 @@ type PhysicsNinjaAABB struct {
 // Ninja Physics AABB constructor.
 // Note: This class could be massively optimised and reduced in size. I leave that challenge up to you.
 func NewPhysicsNinjaAABB(body *PhysicsNinjaBody, x int, y int, width int, height int) *PhysicsNinjaAABB {
-    return &PhysicsNinjaAABB{js.Global.Call("Phaser.Physics.Ninja.AABB", body, x, y, width, height)}
+    return &PhysicsNinjaAABB{js.Global.Get("Phaser").Get("Physics").Get("Ninja").Get("AABB").New(body, x, y, width, height)}
 }
 
 // Ninja Physics AABB constructor.
 // Note: This class could be massively optimised and reduced in size. I leave that challenge up to you.
 func NewPhysicsNinjaAABBI(args ...interface{}) *PhysicsNinjaAABB {
-    return &PhysicsNinjaAABB{js.Global.Call("Phaser.Physics.Ninja.AABB", args)}
+    return &PhysicsNinjaAABB{js.Global.Get("Phaser").Get("Physics").Get("Ninja").Get("AABB").New(args)}
 }
 
 
 
 // A reference to the body that owns this shape.
-func (self *PhysicsNinjaAABB) GetBodyA() interface{}{
+func (self *PhysicsNinjaAABB) Body() interface{}{
     return self.Object.Get("body")
 }
 
@@ -39,7 +39,7 @@ func (self *PhysicsNinjaAABB) SetBodyA(member interface{}) {
 }
 
 // A reference to the physics system.
-func (self *PhysicsNinjaAABB) GetSystemA() *PhysicsNinja{
+func (self *PhysicsNinjaAABB) System() *PhysicsNinja{
     return &PhysicsNinja{self.Object.Get("system")}
 }
 
@@ -49,7 +49,7 @@ func (self *PhysicsNinjaAABB) SetSystemA(member *PhysicsNinja) {
 }
 
 // The position of this object.
-func (self *PhysicsNinjaAABB) GetPosA() *Point{
+func (self *PhysicsNinjaAABB) Pos() *Point{
     return &Point{self.Object.Get("pos")}
 }
 
@@ -59,7 +59,7 @@ func (self *PhysicsNinjaAABB) SetPosA(member *Point) {
 }
 
 // The position of this object in the previous update.
-func (self *PhysicsNinjaAABB) GetOldposA() *Point{
+func (self *PhysicsNinjaAABB) Oldpos() *Point{
     return &Point{self.Object.Get("oldpos")}
 }
 
@@ -69,7 +69,7 @@ func (self *PhysicsNinjaAABB) SetOldposA(member *Point) {
 }
 
 // Half the width.
-func (self *PhysicsNinjaAABB) GetXwA() int{
+func (self *PhysicsNinjaAABB) Xw() int{
     return self.Object.Get("xw").Int()
 }
 
@@ -79,7 +79,7 @@ func (self *PhysicsNinjaAABB) SetXwA(member int) {
 }
 
 // Half the height.
-func (self *PhysicsNinjaAABB) GetYwA() interface{}{
+func (self *PhysicsNinjaAABB) Yw() interface{}{
     return self.Object.Get("yw")
 }
 
@@ -89,7 +89,7 @@ func (self *PhysicsNinjaAABB) SetYwA(member interface{}) {
 }
 
 // The width.
-func (self *PhysicsNinjaAABB) GetWidthA() int{
+func (self *PhysicsNinjaAABB) Width() int{
     return self.Object.Get("width").Int()
 }
 
@@ -99,7 +99,7 @@ func (self *PhysicsNinjaAABB) SetWidthA(member int) {
 }
 
 // The height.
-func (self *PhysicsNinjaAABB) GetHeightA() int{
+func (self *PhysicsNinjaAABB) Height() int{
     return self.Object.Get("height").Int()
 }
 
@@ -109,7 +109,7 @@ func (self *PhysicsNinjaAABB) SetHeightA(member int) {
 }
 
 // The velocity of this object.
-func (self *PhysicsNinjaAABB) GetVelocityA() *Point{
+func (self *PhysicsNinjaAABB) Velocity() *Point{
     return &Point{self.Object.Get("velocity")}
 }
 
@@ -119,7 +119,7 @@ func (self *PhysicsNinjaAABB) SetVelocityA(member *Point) {
 }
 
 // All of the collision response handlers.
-func (self *PhysicsNinjaAABB) GetAabbTileProjectionsA() interface{}{
+func (self *PhysicsNinjaAABB) AabbTileProjections() interface{}{
     return self.Object.Get("aabbTileProjections")
 }
 

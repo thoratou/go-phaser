@@ -15,28 +15,28 @@ type Sound struct {
 
 // The Sound class constructor.
 func NewSound(game *Game, key string) *Sound {
-    return &Sound{js.Global.Call("Phaser.Sound", game, key)}
+    return &Sound{js.Global.Get("Phaser").Get("Sound").New(game, key)}
 }
 
 // The Sound class constructor.
 func NewSound1O(game *Game, key string, volume int) *Sound {
-    return &Sound{js.Global.Call("Phaser.Sound", game, key, volume)}
+    return &Sound{js.Global.Get("Phaser").Get("Sound").New(game, key, volume)}
 }
 
 // The Sound class constructor.
 func NewSound2O(game *Game, key string, volume int, loop bool) *Sound {
-    return &Sound{js.Global.Call("Phaser.Sound", game, key, volume, loop)}
+    return &Sound{js.Global.Get("Phaser").Get("Sound").New(game, key, volume, loop)}
 }
 
 // The Sound class constructor.
 func NewSoundI(args ...interface{}) *Sound {
-    return &Sound{js.Global.Call("Phaser.Sound", args)}
+    return &Sound{js.Global.Get("Phaser").Get("Sound").New(args)}
 }
 
 
 
 // A reference to the currently running Game.
-func (self *Sound) GetGameA() *Game{
+func (self *Sound) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -46,7 +46,7 @@ func (self *Sound) SetGameA(member *Game) {
 }
 
 // Name of the sound.
-func (self *Sound) GetNameA() string{
+func (self *Sound) Name() string{
     return self.Object.Get("name").String()
 }
 
@@ -56,7 +56,7 @@ func (self *Sound) SetNameA(member string) {
 }
 
 // Asset key for the sound.
-func (self *Sound) GetKeyA() string{
+func (self *Sound) Key() string{
     return self.Object.Get("key").String()
 }
 
@@ -66,7 +66,7 @@ func (self *Sound) SetKeyA(member string) {
 }
 
 // Whether or not the sound or current sound marker will loop.
-func (self *Sound) GetLoopA() bool{
+func (self *Sound) Loop() bool{
     return self.Object.Get("loop").Bool()
 }
 
@@ -76,7 +76,7 @@ func (self *Sound) SetLoopA(member bool) {
 }
 
 // The sound markers.
-func (self *Sound) GetMarkersA() interface{}{
+func (self *Sound) Markers() interface{}{
     return self.Object.Get("markers")
 }
 
@@ -86,7 +86,7 @@ func (self *Sound) SetMarkersA(member interface{}) {
 }
 
 // Reference to the AudioContext instance.
-func (self *Sound) GetContextA() *AudioContext{
+func (self *Sound) Context() *AudioContext{
     return &AudioContext{self.Object.Get("context")}
 }
 
@@ -96,7 +96,7 @@ func (self *Sound) SetContextA(member *AudioContext) {
 }
 
 // Boolean indicating whether the sound should start automatically.
-func (self *Sound) GetAutoplayA() bool{
+func (self *Sound) Autoplay() bool{
     return self.Object.Get("autoplay").Bool()
 }
 
@@ -106,7 +106,7 @@ func (self *Sound) SetAutoplayA(member bool) {
 }
 
 // The total duration of the sound in seconds.
-func (self *Sound) GetTotalDurationA() int{
+func (self *Sound) TotalDuration() int{
     return self.Object.Get("totalDuration").Int()
 }
 
@@ -116,7 +116,7 @@ func (self *Sound) SetTotalDurationA(member int) {
 }
 
 // The time the Sound starts at (typically 0 unless starting from a marker)
-func (self *Sound) GetStartTimeA() int{
+func (self *Sound) StartTime() int{
     return self.Object.Get("startTime").Int()
 }
 
@@ -126,7 +126,7 @@ func (self *Sound) SetStartTimeA(member int) {
 }
 
 // The current time the sound is at.
-func (self *Sound) GetCurrentTimeA() int{
+func (self *Sound) CurrentTime() int{
     return self.Object.Get("currentTime").Int()
 }
 
@@ -136,7 +136,7 @@ func (self *Sound) SetCurrentTimeA(member int) {
 }
 
 // The duration of the current sound marker in seconds.
-func (self *Sound) GetDurationA() int{
+func (self *Sound) Duration() int{
     return self.Object.Get("duration").Int()
 }
 
@@ -146,7 +146,7 @@ func (self *Sound) SetDurationA(member int) {
 }
 
 // The duration of the current sound marker in ms.
-func (self *Sound) GetDurationMSA() int{
+func (self *Sound) DurationMS() int{
     return self.Object.Get("durationMS").Int()
 }
 
@@ -156,7 +156,7 @@ func (self *Sound) SetDurationMSA(member int) {
 }
 
 // The position of the current sound marker.
-func (self *Sound) GetPositionA() int{
+func (self *Sound) Position() int{
     return self.Object.Get("position").Int()
 }
 
@@ -166,7 +166,7 @@ func (self *Sound) SetPositionA(member int) {
 }
 
 // The time the sound stopped.
-func (self *Sound) GetStopTimeA() int{
+func (self *Sound) StopTime() int{
     return self.Object.Get("stopTime").Int()
 }
 
@@ -176,7 +176,7 @@ func (self *Sound) SetStopTimeA(member int) {
 }
 
 // true if the sound is paused, otherwise false.
-func (self *Sound) GetPausedA() bool{
+func (self *Sound) Paused() bool{
     return self.Object.Get("paused").Bool()
 }
 
@@ -186,7 +186,7 @@ func (self *Sound) SetPausedA(member bool) {
 }
 
 // The position the sound had reached when it was paused.
-func (self *Sound) GetPausedPositionA() int{
+func (self *Sound) PausedPosition() int{
     return self.Object.Get("pausedPosition").Int()
 }
 
@@ -196,7 +196,7 @@ func (self *Sound) SetPausedPositionA(member int) {
 }
 
 // The game time at which the sound was paused.
-func (self *Sound) GetPausedTimeA() int{
+func (self *Sound) PausedTime() int{
     return self.Object.Get("pausedTime").Int()
 }
 
@@ -206,7 +206,7 @@ func (self *Sound) SetPausedTimeA(member int) {
 }
 
 // true if the sound is currently playing, otherwise false.
-func (self *Sound) GetIsPlayingA() bool{
+func (self *Sound) IsPlaying() bool{
     return self.Object.Get("isPlaying").Bool()
 }
 
@@ -216,7 +216,7 @@ func (self *Sound) SetIsPlayingA(member bool) {
 }
 
 // The string ID of the currently playing marker, if any.
-func (self *Sound) GetCurrentMarkerA() string{
+func (self *Sound) CurrentMarker() string{
     return self.Object.Get("currentMarker").String()
 }
 
@@ -226,7 +226,7 @@ func (self *Sound) SetCurrentMarkerA(member string) {
 }
 
 // The tween that fades the audio, set via Sound.fadeIn and Sound.fadeOut.
-func (self *Sound) GetFadeTweenA() *Tween{
+func (self *Sound) FadeTween() *Tween{
     return &Tween{self.Object.Get("fadeTween")}
 }
 
@@ -236,7 +236,7 @@ func (self *Sound) SetFadeTweenA(member *Tween) {
 }
 
 // true if the sound file is pending playback
-func (self *Sound) GetPendingPlaybackA() bool{
+func (self *Sound) PendingPlayback() bool{
     return self.Object.Get("pendingPlayback").Bool()
 }
 
@@ -246,7 +246,7 @@ func (self *Sound) SetPendingPlaybackA(member bool) {
 }
 
 // if true when you play this sound it will always start from the beginning.
-func (self *Sound) GetOverrideA() bool{
+func (self *Sound) Override() bool{
     return self.Object.Get("override").Bool()
 }
 
@@ -256,7 +256,7 @@ func (self *Sound) SetOverrideA(member bool) {
 }
 
 // This will allow you to have multiple instances of this Sound playing at once. This is only useful when running under Web Audio, and we recommend you implement a local pooling system to not flood the sound channels.
-func (self *Sound) GetAllowMultipleA() bool{
+func (self *Sound) AllowMultiple() bool{
     return self.Object.Get("allowMultiple").Bool()
 }
 
@@ -266,7 +266,7 @@ func (self *Sound) SetAllowMultipleA(member bool) {
 }
 
 // true if this sound is being played with Web Audio.
-func (self *Sound) GetUsingWebAudioA() bool{
+func (self *Sound) UsingWebAudio() bool{
     return self.Object.Get("usingWebAudio").Bool()
 }
 
@@ -276,7 +276,7 @@ func (self *Sound) SetUsingWebAudioA(member bool) {
 }
 
 // true if the sound is being played via the Audio tag.
-func (self *Sound) GetUsingAudioTagA() bool{
+func (self *Sound) UsingAudioTag() bool{
     return self.Object.Get("usingAudioTag").Bool()
 }
 
@@ -286,7 +286,7 @@ func (self *Sound) SetUsingAudioTagA(member bool) {
 }
 
 // If defined this Sound won't connect to the SoundManager master gain node, but will instead connect to externalNode.
-func (self *Sound) GetExternalNodeA() interface{}{
+func (self *Sound) ExternalNode() interface{}{
     return self.Object.Get("externalNode")
 }
 
@@ -296,7 +296,7 @@ func (self *Sound) SetExternalNodeA(member interface{}) {
 }
 
 // The master gain node in a Web Audio system.
-func (self *Sound) GetMasterGainNodeA() interface{}{
+func (self *Sound) MasterGainNode() interface{}{
     return self.Object.Get("masterGainNode")
 }
 
@@ -306,7 +306,7 @@ func (self *Sound) SetMasterGainNodeA(member interface{}) {
 }
 
 // The gain node in a Web Audio system.
-func (self *Sound) GetGainNodeA() interface{}{
+func (self *Sound) GainNode() interface{}{
     return self.Object.Get("gainNode")
 }
 
@@ -316,7 +316,7 @@ func (self *Sound) SetGainNodeA(member interface{}) {
 }
 
 // The onDecoded event is dispatched when the sound has finished decoding (typically for mp3 files)
-func (self *Sound) GetOnDecodedA() *Signal{
+func (self *Sound) OnDecoded() *Signal{
     return &Signal{self.Object.Get("onDecoded")}
 }
 
@@ -326,7 +326,7 @@ func (self *Sound) SetOnDecodedA(member *Signal) {
 }
 
 // The onPlay event is dispatched each time this sound is played.
-func (self *Sound) GetOnPlayA() *Signal{
+func (self *Sound) OnPlay() *Signal{
     return &Signal{self.Object.Get("onPlay")}
 }
 
@@ -336,7 +336,7 @@ func (self *Sound) SetOnPlayA(member *Signal) {
 }
 
 // The onPause event is dispatched when this sound is paused.
-func (self *Sound) GetOnPauseA() *Signal{
+func (self *Sound) OnPause() *Signal{
     return &Signal{self.Object.Get("onPause")}
 }
 
@@ -346,7 +346,7 @@ func (self *Sound) SetOnPauseA(member *Signal) {
 }
 
 // The onResume event is dispatched when this sound is resumed from a paused state.
-func (self *Sound) GetOnResumeA() *Signal{
+func (self *Sound) OnResume() *Signal{
     return &Signal{self.Object.Get("onResume")}
 }
 
@@ -356,7 +356,7 @@ func (self *Sound) SetOnResumeA(member *Signal) {
 }
 
 // The onLoop event is dispatched when this sound loops during playback.
-func (self *Sound) GetOnLoopA() *Signal{
+func (self *Sound) OnLoop() *Signal{
     return &Signal{self.Object.Get("onLoop")}
 }
 
@@ -366,7 +366,7 @@ func (self *Sound) SetOnLoopA(member *Signal) {
 }
 
 // The onStop event is dispatched when this sound stops playback.
-func (self *Sound) GetOnStopA() *Signal{
+func (self *Sound) OnStop() *Signal{
     return &Signal{self.Object.Get("onStop")}
 }
 
@@ -376,7 +376,7 @@ func (self *Sound) SetOnStopA(member *Signal) {
 }
 
 // The onMute event is dispatched when this sound is muted.
-func (self *Sound) GetOnMuteA() *Signal{
+func (self *Sound) OnMute() *Signal{
     return &Signal{self.Object.Get("onMute")}
 }
 
@@ -386,7 +386,7 @@ func (self *Sound) SetOnMuteA(member *Signal) {
 }
 
 // The onMarkerComplete event is dispatched when a marker within this sound completes playback.
-func (self *Sound) GetOnMarkerCompleteA() *Signal{
+func (self *Sound) OnMarkerComplete() *Signal{
     return &Signal{self.Object.Get("onMarkerComplete")}
 }
 
@@ -396,7 +396,7 @@ func (self *Sound) SetOnMarkerCompleteA(member *Signal) {
 }
 
 // The onFadeComplete event is dispatched when this sound finishes fading either in or out.
-func (self *Sound) GetOnFadeCompleteA() *Signal{
+func (self *Sound) OnFadeComplete() *Signal{
     return &Signal{self.Object.Get("onFadeComplete")}
 }
 
@@ -406,7 +406,7 @@ func (self *Sound) SetOnFadeCompleteA(member *Signal) {
 }
 
 // Returns true if the sound file is still decoding.
-func (self *Sound) GetIsDecodingA() bool{
+func (self *Sound) IsDecoding() bool{
     return self.Object.Get("isDecoding").Bool()
 }
 
@@ -416,7 +416,7 @@ func (self *Sound) SetIsDecodingA(member bool) {
 }
 
 // Returns true if the sound file has decoded.
-func (self *Sound) GetIsDecodedA() bool{
+func (self *Sound) IsDecoded() bool{
     return self.Object.Get("isDecoded").Bool()
 }
 
@@ -426,7 +426,7 @@ func (self *Sound) SetIsDecodedA(member bool) {
 }
 
 // Gets or sets the muted state of this sound.
-func (self *Sound) GetMuteA() bool{
+func (self *Sound) Mute() bool{
     return self.Object.Get("mute").Bool()
 }
 
@@ -436,7 +436,7 @@ func (self *Sound) SetMuteA(member bool) {
 }
 
 // Gets or sets the volume of this sound, a value between 0 and 1.
-func (self *Sound) GetVolumeA() int{
+func (self *Sound) Volume() int{
     return self.Object.Get("volume").Int()
 }
 

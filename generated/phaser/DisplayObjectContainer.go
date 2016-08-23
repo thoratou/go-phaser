@@ -17,19 +17,19 @@ type DisplayObjectContainer struct {
 // A DisplayObjectContainer represents a collection of display objects.
 // It is the base class of all display objects that act as a container for other objects.
 func NewDisplayObjectContainer() *DisplayObjectContainer {
-    return &DisplayObjectContainer{js.Global.Call("PIXI.DisplayObjectContainer")}
+    return &DisplayObjectContainer{js.Global.Get("PIXI").Get("DisplayObjectContainer").New()}
 }
 
 // A DisplayObjectContainer represents a collection of display objects.
 // It is the base class of all display objects that act as a container for other objects.
 func NewDisplayObjectContainerI(args ...interface{}) *DisplayObjectContainer {
-    return &DisplayObjectContainer{js.Global.Call("PIXI.DisplayObjectContainer", args)}
+    return &DisplayObjectContainer{js.Global.Get("PIXI").Get("DisplayObjectContainer").New(args)}
 }
 
 
 
 // [read-only] The array of children of this container.
-func (self *DisplayObjectContainer) GetChildrenA() []DisplayObject{
+func (self *DisplayObjectContainer) Children() []DisplayObject{
 	array00 := self.Object.Get("children")
 	length00 := array00.Length()
 	out00 := make([]DisplayObject, length00, length00)
@@ -49,7 +49,7 @@ func (self *DisplayObjectContainer) SetChildrenA(member []DisplayObject) {
 // If this property is `true` then the children will _not_ be considered as valid for Input events.
 // 
 // Note that this property isn't recursive: only immediate children are influenced, it doesn't scan further down.
-func (self *DisplayObjectContainer) GetIgnoreChildInputA() bool{
+func (self *DisplayObjectContainer) IgnoreChildInput() bool{
     return self.Object.Get("ignoreChildInput").Bool()
 }
 
@@ -63,7 +63,7 @@ func (self *DisplayObjectContainer) SetIgnoreChildInputA(member bool) {
 }
 
 // The width of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *DisplayObjectContainer) GetWidthA() int{
+func (self *DisplayObjectContainer) Width() int{
     return self.Object.Get("width").Int()
 }
 
@@ -73,7 +73,7 @@ func (self *DisplayObjectContainer) SetWidthA(member int) {
 }
 
 // The height of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *DisplayObjectContainer) GetHeightA() int{
+func (self *DisplayObjectContainer) Height() int{
     return self.Object.Get("height").Int()
 }
 

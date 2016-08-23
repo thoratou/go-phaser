@@ -19,20 +19,20 @@ type PhysicsP2Material struct {
 // 
 // \o/ ~ "Because I'm a Material girl"
 func NewPhysicsP2Material(name string) *PhysicsP2Material {
-    return &PhysicsP2Material{js.Global.Call("Phaser.Physics.P2.Material", name)}
+    return &PhysicsP2Material{js.Global.Get("Phaser").Get("Physics").Get("P2").Get("Material").New(name)}
 }
 
 // A P2 Material.
 // 
 // \o/ ~ "Because I'm a Material girl"
 func NewPhysicsP2MaterialI(args ...interface{}) *PhysicsP2Material {
-    return &PhysicsP2Material{js.Global.Call("Phaser.Physics.P2.Material", args)}
+    return &PhysicsP2Material{js.Global.Get("Phaser").Get("Physics").Get("P2").Get("Material").New(args)}
 }
 
 
 
 // The user defined name given to this Material.
-func (self *PhysicsP2Material) GetNameA() string{
+func (self *PhysicsP2Material) Name() string{
     return self.Object.Get("name").String()
 }
 

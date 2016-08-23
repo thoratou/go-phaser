@@ -19,20 +19,20 @@ type TweenData struct {
 // starting and ending values, the ease function, interpolation and duration. The Tween acts as a timeline manager for
 // TweenData objects and can contain multiple TweenData objects.
 func NewTweenData(parent *Tween) *TweenData {
-    return &TweenData{js.Global.Call("Phaser.TweenData", parent)}
+    return &TweenData{js.Global.Get("Phaser").Get("TweenData").New(parent)}
 }
 
 // A Phaser.Tween contains at least one TweenData object. It contains all of the tween data values, such as the
 // starting and ending values, the ease function, interpolation and duration. The Tween acts as a timeline manager for
 // TweenData objects and can contain multiple TweenData objects.
 func NewTweenDataI(args ...interface{}) *TweenData {
-    return &TweenData{js.Global.Call("Phaser.TweenData", args)}
+    return &TweenData{js.Global.Get("Phaser").Get("TweenData").New(args)}
 }
 
 
 
 // The Tween which owns this TweenData.
-func (self *TweenData) GetParentA() *Tween{
+func (self *TweenData) Parent() *Tween{
     return &Tween{self.Object.Get("parent")}
 }
 
@@ -42,7 +42,7 @@ func (self *TweenData) SetParentA(member *Tween) {
 }
 
 // A reference to the currently running Game.
-func (self *TweenData) GetGameA() *Game{
+func (self *TweenData) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -52,7 +52,7 @@ func (self *TweenData) SetGameA(member *Game) {
 }
 
 // The duration of the tween in ms.
-func (self *TweenData) GetDurationA() int{
+func (self *TweenData) Duration() int{
     return self.Object.Get("duration").Int()
 }
 
@@ -62,7 +62,7 @@ func (self *TweenData) SetDurationA(member int) {
 }
 
 // A value between 0 and 1 that represents how far through the duration this tween is.
-func (self *TweenData) GetPercentA() int{
+func (self *TweenData) Percent() int{
     return self.Object.Get("percent").Int()
 }
 
@@ -72,7 +72,7 @@ func (self *TweenData) SetPercentA(member int) {
 }
 
 // The current calculated value.
-func (self *TweenData) GetValueA() int{
+func (self *TweenData) Value() int{
     return self.Object.Get("value").Int()
 }
 
@@ -82,7 +82,7 @@ func (self *TweenData) SetValueA(member int) {
 }
 
 // If the Tween is set to repeat this contains the current repeat count.
-func (self *TweenData) GetRepeatCounterA() int{
+func (self *TweenData) RepeatCounter() int{
     return self.Object.Get("repeatCounter").Int()
 }
 
@@ -92,7 +92,7 @@ func (self *TweenData) SetRepeatCounterA(member int) {
 }
 
 // The amount of time in ms between repeats of this tween.
-func (self *TweenData) GetRepeatDelayA() int{
+func (self *TweenData) RepeatDelay() int{
     return self.Object.Get("repeatDelay").Int()
 }
 
@@ -102,7 +102,7 @@ func (self *TweenData) SetRepeatDelayA(member int) {
 }
 
 // The total number of times this Tween will repeat.
-func (self *TweenData) GetRepeatTotalA() int{
+func (self *TweenData) RepeatTotal() int{
     return self.Object.Get("repeatTotal").Int()
 }
 
@@ -112,7 +112,7 @@ func (self *TweenData) SetRepeatTotalA(member int) {
 }
 
 // True if the Tween will use interpolation (i.e. is an Array to Array tween)
-func (self *TweenData) GetInterpolateA() bool{
+func (self *TweenData) Interpolate() bool{
     return self.Object.Get("interpolate").Bool()
 }
 
@@ -122,7 +122,7 @@ func (self *TweenData) SetInterpolateA(member bool) {
 }
 
 // True if the Tween is set to yoyo, otherwise false.
-func (self *TweenData) GetYoyoA() bool{
+func (self *TweenData) Yoyo() bool{
     return self.Object.Get("yoyo").Bool()
 }
 
@@ -132,7 +132,7 @@ func (self *TweenData) SetYoyoA(member bool) {
 }
 
 // The amount of time in ms between yoyos of this tween.
-func (self *TweenData) GetYoyoDelayA() int{
+func (self *TweenData) YoyoDelay() int{
     return self.Object.Get("yoyoDelay").Int()
 }
 
@@ -142,7 +142,7 @@ func (self *TweenData) SetYoyoDelayA(member int) {
 }
 
 // When a Tween is yoyoing this value holds if it's currently playing forwards (false) or in reverse (true).
-func (self *TweenData) GetInReverseA() bool{
+func (self *TweenData) InReverse() bool{
     return self.Object.Get("inReverse").Bool()
 }
 
@@ -152,7 +152,7 @@ func (self *TweenData) SetInReverseA(member bool) {
 }
 
 // The amount to delay by until the Tween starts (in ms). Only applies to the start, use repeatDelay to handle repeats.
-func (self *TweenData) GetDelayA() int{
+func (self *TweenData) Delay() int{
     return self.Object.Get("delay").Int()
 }
 
@@ -162,7 +162,7 @@ func (self *TweenData) SetDelayA(member int) {
 }
 
 // Current time value.
-func (self *TweenData) GetDtA() int{
+func (self *TweenData) Dt() int{
     return self.Object.Get("dt").Int()
 }
 
@@ -172,7 +172,7 @@ func (self *TweenData) SetDtA(member int) {
 }
 
 // The time the Tween started or null if it hasn't yet started.
-func (self *TweenData) GetStartTimeA() int{
+func (self *TweenData) StartTime() int{
     return self.Object.Get("startTime").Int()
 }
 
@@ -182,17 +182,27 @@ func (self *TweenData) SetStartTimeA(member int) {
 }
 
 // The easing function used for the Tween.
-func (self *TweenData) SetEasingFunctionA(member func(...interface{})) {
+func (self *TweenData) EasingFunction() interface{}{
+    return self.Object.Get("easingFunction")
+}
+
+// The easing function used for the Tween.
+func (self *TweenData) SetEasingFunctionA(member interface{}) {
     self.Object.Set("easingFunction", member)
 }
 
 // The interpolation function used for the Tween.
-func (self *TweenData) SetInterpolationFunctionA(member func(...interface{})) {
+func (self *TweenData) InterpolationFunction() interface{}{
+    return self.Object.Get("interpolationFunction")
+}
+
+// The interpolation function used for the Tween.
+func (self *TweenData) SetInterpolationFunctionA(member interface{}) {
     self.Object.Set("interpolationFunction", member)
 }
 
 // The interpolation function context used for the Tween.
-func (self *TweenData) GetInterpolationContextA() interface{}{
+func (self *TweenData) InterpolationContext() interface{}{
     return self.Object.Get("interpolationContext")
 }
 
@@ -202,7 +212,7 @@ func (self *TweenData) SetInterpolationContextA(member interface{}) {
 }
 
 // If the tween is running this is set to `true`. Unless Phaser.Tween a TweenData that is waiting for a delay to expire is *not* considered as running.
-func (self *TweenData) GetIsRunningA() bool{
+func (self *TweenData) IsRunning() bool{
     return self.Object.Get("isRunning").Bool()
 }
 
@@ -212,7 +222,7 @@ func (self *TweenData) SetIsRunningA(member bool) {
 }
 
 // Is this a from tween or a to tween?
-func (self *TweenData) GetIsFromA() bool{
+func (self *TweenData) IsFrom() bool{
     return self.Object.Get("isFrom").Bool()
 }
 
@@ -222,7 +232,7 @@ func (self *TweenData) SetIsFromA(member bool) {
 }
 
 // 
-func (self *TweenData) GetPENDINGA() int{
+func (self *TweenData) PENDING() int{
     return self.Object.Get("PENDING").Int()
 }
 
@@ -232,7 +242,7 @@ func (self *TweenData) SetPENDINGA(member int) {
 }
 
 // 
-func (self *TweenData) GetRUNNINGA() int{
+func (self *TweenData) RUNNING() int{
     return self.Object.Get("RUNNING").Int()
 }
 
@@ -242,7 +252,7 @@ func (self *TweenData) SetRUNNINGA(member int) {
 }
 
 // 
-func (self *TweenData) GetLOOPEDA() int{
+func (self *TweenData) LOOPED() int{
     return self.Object.Get("LOOPED").Int()
 }
 
@@ -252,7 +262,7 @@ func (self *TweenData) SetLOOPEDA(member int) {
 }
 
 // 
-func (self *TweenData) GetCOMPLETEA() int{
+func (self *TweenData) COMPLETE() int{
     return self.Object.Get("COMPLETE").Int()
 }
 
@@ -277,25 +287,25 @@ func (self *TweenData) To1O(properties interface{}, duration int) *TweenData{
 
 // Sets this tween to be a `to` tween on the properties given. A `to` tween starts at the current value and tweens to the destination value given.
 // For example a Sprite with an `x` coordinate of 100 could be tweened to `x` 200 by giving a properties object of `{ x: 200 }`.
-func (self *TweenData) To2O(properties interface{}, duration int, ease func(...interface{})) *TweenData{
+func (self *TweenData) To2O(properties interface{}, duration int, ease interface{}) *TweenData{
     return &TweenData{self.Object.Call("to", properties, duration, ease)}
 }
 
 // Sets this tween to be a `to` tween on the properties given. A `to` tween starts at the current value and tweens to the destination value given.
 // For example a Sprite with an `x` coordinate of 100 could be tweened to `x` 200 by giving a properties object of `{ x: 200 }`.
-func (self *TweenData) To3O(properties interface{}, duration int, ease func(...interface{}), delay int) *TweenData{
+func (self *TweenData) To3O(properties interface{}, duration int, ease interface{}, delay int) *TweenData{
     return &TweenData{self.Object.Call("to", properties, duration, ease, delay)}
 }
 
 // Sets this tween to be a `to` tween on the properties given. A `to` tween starts at the current value and tweens to the destination value given.
 // For example a Sprite with an `x` coordinate of 100 could be tweened to `x` 200 by giving a properties object of `{ x: 200 }`.
-func (self *TweenData) To4O(properties interface{}, duration int, ease func(...interface{}), delay int, repeat int) *TweenData{
+func (self *TweenData) To4O(properties interface{}, duration int, ease interface{}, delay int, repeat int) *TweenData{
     return &TweenData{self.Object.Call("to", properties, duration, ease, delay, repeat)}
 }
 
 // Sets this tween to be a `to` tween on the properties given. A `to` tween starts at the current value and tweens to the destination value given.
 // For example a Sprite with an `x` coordinate of 100 could be tweened to `x` 200 by giving a properties object of `{ x: 200 }`.
-func (self *TweenData) To5O(properties interface{}, duration int, ease func(...interface{}), delay int, repeat int, yoyo bool) *TweenData{
+func (self *TweenData) To5O(properties interface{}, duration int, ease interface{}, delay int, repeat int, yoyo bool) *TweenData{
     return &TweenData{self.Object.Call("to", properties, duration, ease, delay, repeat, yoyo)}
 }
 
@@ -319,25 +329,25 @@ func (self *TweenData) From1O(properties interface{}, duration int) *TweenData{
 
 // Sets this tween to be a `from` tween on the properties given. A `from` tween sets the target to the destination value and tweens to its current value.
 // For example a Sprite with an `x` coordinate of 100 tweened from `x` 500 would be set to `x` 500 and then tweened to `x` 100 by giving a properties object of `{ x: 500 }`.
-func (self *TweenData) From2O(properties interface{}, duration int, ease func(...interface{})) *TweenData{
+func (self *TweenData) From2O(properties interface{}, duration int, ease interface{}) *TweenData{
     return &TweenData{self.Object.Call("from", properties, duration, ease)}
 }
 
 // Sets this tween to be a `from` tween on the properties given. A `from` tween sets the target to the destination value and tweens to its current value.
 // For example a Sprite with an `x` coordinate of 100 tweened from `x` 500 would be set to `x` 500 and then tweened to `x` 100 by giving a properties object of `{ x: 500 }`.
-func (self *TweenData) From3O(properties interface{}, duration int, ease func(...interface{}), delay int) *TweenData{
+func (self *TweenData) From3O(properties interface{}, duration int, ease interface{}, delay int) *TweenData{
     return &TweenData{self.Object.Call("from", properties, duration, ease, delay)}
 }
 
 // Sets this tween to be a `from` tween on the properties given. A `from` tween sets the target to the destination value and tweens to its current value.
 // For example a Sprite with an `x` coordinate of 100 tweened from `x` 500 would be set to `x` 500 and then tweened to `x` 100 by giving a properties object of `{ x: 500 }`.
-func (self *TweenData) From4O(properties interface{}, duration int, ease func(...interface{}), delay int, repeat int) *TweenData{
+func (self *TweenData) From4O(properties interface{}, duration int, ease interface{}, delay int, repeat int) *TweenData{
     return &TweenData{self.Object.Call("from", properties, duration, ease, delay, repeat)}
 }
 
 // Sets this tween to be a `from` tween on the properties given. A `from` tween sets the target to the destination value and tweens to its current value.
 // For example a Sprite with an `x` coordinate of 100 tweened from `x` 500 would be set to `x` 500 and then tweened to `x` 100 by giving a properties object of `{ x: 500 }`.
-func (self *TweenData) From5O(properties interface{}, duration int, ease func(...interface{}), delay int, repeat int, yoyo bool) *TweenData{
+func (self *TweenData) From5O(properties interface{}, duration int, ease interface{}, delay int, repeat int, yoyo bool) *TweenData{
     return &TweenData{self.Object.Call("from", properties, duration, ease, delay, repeat, yoyo)}
 }
 
@@ -385,7 +395,7 @@ func (self *TweenData) GenerateData() []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -398,7 +408,7 @@ func (self *TweenData) GenerateData1O(frameRate int) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -411,7 +421,7 @@ func (self *TweenData) GenerateDataI(args ...interface{}) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }

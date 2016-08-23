@@ -15,12 +15,12 @@ type EasingCubic struct {
 
 // Cubic easing.
 func NewEasingCubic() *EasingCubic {
-    return &EasingCubic{js.Global.Call("Phaser.Easing.Cubic")}
+    return &EasingCubic{js.Global.Get("Phaser").Get("Easing").Get("Cubic").New()}
 }
 
 // Cubic easing.
 func NewEasingCubicI(args ...interface{}) *EasingCubic {
-    return &EasingCubic{js.Global.Call("Phaser.Easing.Cubic", args)}
+    return &EasingCubic{js.Global.Get("Phaser").Get("Easing").Get("Cubic").New(args)}
 }
 
 

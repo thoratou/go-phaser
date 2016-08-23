@@ -27,7 +27,7 @@ type PointerMode struct {
 // 
 // Values may be added for future mode categorizations.
 func NewPointerMode() *PointerMode {
-    return &PointerMode{js.Global.Call("Phaser.PointerMode")}
+    return &PointerMode{js.Global.Get("Phaser").Get("PointerMode").New()}
 }
 
 // Enumeration categorizing operational modes of pointers.
@@ -38,7 +38,7 @@ func NewPointerMode() *PointerMode {
 // 
 // Values may be added for future mode categorizations.
 func NewPointerModeI(args ...interface{}) *PointerMode {
-    return &PointerMode{js.Global.Call("Phaser.PointerMode", args)}
+    return &PointerMode{js.Global.Get("Phaser").Get("PointerMode").New(args)}
 }
 
 
@@ -47,7 +47,7 @@ func NewPointerModeI(args ...interface{}) *PointerMode {
 // 
 // It has the property that a cursor is passively moved without activating the input.
 // This currently corresponds with {@link Phaser.Pointer#isMouse} property.
-func (self *PointerMode) GetCURSORA() interface{}{
+func (self *PointerMode) CURSOR() interface{}{
     return self.Object.Get("CURSOR")
 }
 
@@ -60,7 +60,7 @@ func (self *PointerMode) SetCURSORA(member interface{}) {
 }
 
 // A 'CONTACT' pointer has an *active cursor* that only tracks movement when actived; notably this is a touch-style input.
-func (self *PointerMode) GetCONTACTA() interface{}{
+func (self *PointerMode) CONTACT() interface{}{
     return self.Object.Get("CONTACT")
 }
 

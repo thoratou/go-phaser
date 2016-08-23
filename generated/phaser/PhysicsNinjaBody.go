@@ -17,61 +17,61 @@ type PhysicsNinjaBody struct {
 // The Physics Body is linked to a single Sprite. All physics operations should be performed against the body rather than
 // the Sprite itself. For example you can set the velocity, bounce values etc all on the Body.
 func NewPhysicsNinjaBody(system *PhysicsNinja, sprite *Sprite) *PhysicsNinjaBody {
-    return &PhysicsNinjaBody{js.Global.Call("Phaser.Physics.Ninja.Body", system, sprite)}
+    return &PhysicsNinjaBody{js.Global.Get("Phaser").Get("Physics").Get("Ninja").Get("Body").New(system, sprite)}
 }
 
 // The Physics Body is linked to a single Sprite. All physics operations should be performed against the body rather than
 // the Sprite itself. For example you can set the velocity, bounce values etc all on the Body.
 func NewPhysicsNinjaBody1O(system *PhysicsNinja, sprite *Sprite, type_ int) *PhysicsNinjaBody {
-    return &PhysicsNinjaBody{js.Global.Call("Phaser.Physics.Ninja.Body", system, sprite, type_)}
+    return &PhysicsNinjaBody{js.Global.Get("Phaser").Get("Physics").Get("Ninja").Get("Body").New(system, sprite, type_)}
 }
 
 // The Physics Body is linked to a single Sprite. All physics operations should be performed against the body rather than
 // the Sprite itself. For example you can set the velocity, bounce values etc all on the Body.
 func NewPhysicsNinjaBody2O(system *PhysicsNinja, sprite *Sprite, type_ int, id int) *PhysicsNinjaBody {
-    return &PhysicsNinjaBody{js.Global.Call("Phaser.Physics.Ninja.Body", system, sprite, type_, id)}
+    return &PhysicsNinjaBody{js.Global.Get("Phaser").Get("Physics").Get("Ninja").Get("Body").New(system, sprite, type_, id)}
 }
 
 // The Physics Body is linked to a single Sprite. All physics operations should be performed against the body rather than
 // the Sprite itself. For example you can set the velocity, bounce values etc all on the Body.
 func NewPhysicsNinjaBody3O(system *PhysicsNinja, sprite *Sprite, type_ int, id int, radius int) *PhysicsNinjaBody {
-    return &PhysicsNinjaBody{js.Global.Call("Phaser.Physics.Ninja.Body", system, sprite, type_, id, radius)}
+    return &PhysicsNinjaBody{js.Global.Get("Phaser").Get("Physics").Get("Ninja").Get("Body").New(system, sprite, type_, id, radius)}
 }
 
 // The Physics Body is linked to a single Sprite. All physics operations should be performed against the body rather than
 // the Sprite itself. For example you can set the velocity, bounce values etc all on the Body.
 func NewPhysicsNinjaBody4O(system *PhysicsNinja, sprite *Sprite, type_ int, id int, radius int, x int) *PhysicsNinjaBody {
-    return &PhysicsNinjaBody{js.Global.Call("Phaser.Physics.Ninja.Body", system, sprite, type_, id, radius, x)}
+    return &PhysicsNinjaBody{js.Global.Get("Phaser").Get("Physics").Get("Ninja").Get("Body").New(system, sprite, type_, id, radius, x)}
 }
 
 // The Physics Body is linked to a single Sprite. All physics operations should be performed against the body rather than
 // the Sprite itself. For example you can set the velocity, bounce values etc all on the Body.
 func NewPhysicsNinjaBody5O(system *PhysicsNinja, sprite *Sprite, type_ int, id int, radius int, x int, y int) *PhysicsNinjaBody {
-    return &PhysicsNinjaBody{js.Global.Call("Phaser.Physics.Ninja.Body", system, sprite, type_, id, radius, x, y)}
+    return &PhysicsNinjaBody{js.Global.Get("Phaser").Get("Physics").Get("Ninja").Get("Body").New(system, sprite, type_, id, radius, x, y)}
 }
 
 // The Physics Body is linked to a single Sprite. All physics operations should be performed against the body rather than
 // the Sprite itself. For example you can set the velocity, bounce values etc all on the Body.
 func NewPhysicsNinjaBody6O(system *PhysicsNinja, sprite *Sprite, type_ int, id int, radius int, x int, y int, width int) *PhysicsNinjaBody {
-    return &PhysicsNinjaBody{js.Global.Call("Phaser.Physics.Ninja.Body", system, sprite, type_, id, radius, x, y, width)}
+    return &PhysicsNinjaBody{js.Global.Get("Phaser").Get("Physics").Get("Ninja").Get("Body").New(system, sprite, type_, id, radius, x, y, width)}
 }
 
 // The Physics Body is linked to a single Sprite. All physics operations should be performed against the body rather than
 // the Sprite itself. For example you can set the velocity, bounce values etc all on the Body.
 func NewPhysicsNinjaBody7O(system *PhysicsNinja, sprite *Sprite, type_ int, id int, radius int, x int, y int, width int, height int) *PhysicsNinjaBody {
-    return &PhysicsNinjaBody{js.Global.Call("Phaser.Physics.Ninja.Body", system, sprite, type_, id, radius, x, y, width, height)}
+    return &PhysicsNinjaBody{js.Global.Get("Phaser").Get("Physics").Get("Ninja").Get("Body").New(system, sprite, type_, id, radius, x, y, width, height)}
 }
 
 // The Physics Body is linked to a single Sprite. All physics operations should be performed against the body rather than
 // the Sprite itself. For example you can set the velocity, bounce values etc all on the Body.
 func NewPhysicsNinjaBodyI(args ...interface{}) *PhysicsNinjaBody {
-    return &PhysicsNinjaBody{js.Global.Call("Phaser.Physics.Ninja.Body", args)}
+    return &PhysicsNinjaBody{js.Global.Get("Phaser").Get("Physics").Get("Ninja").Get("Body").New(args)}
 }
 
 
 
 // Reference to the parent Sprite.
-func (self *PhysicsNinjaBody) GetSpriteA() *Sprite{
+func (self *PhysicsNinjaBody) Sprite() *Sprite{
     return &Sprite{self.Object.Get("sprite")}
 }
 
@@ -81,7 +81,7 @@ func (self *PhysicsNinjaBody) SetSpriteA(member *Sprite) {
 }
 
 // Local reference to game.
-func (self *PhysicsNinjaBody) GetGameA() *Game{
+func (self *PhysicsNinjaBody) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -91,7 +91,7 @@ func (self *PhysicsNinjaBody) SetGameA(member *Game) {
 }
 
 // The type of physics system this body belongs to.
-func (self *PhysicsNinjaBody) GetTypeA() int{
+func (self *PhysicsNinjaBody) Type() int{
     return self.Object.Get("type").Int()
 }
 
@@ -101,7 +101,7 @@ func (self *PhysicsNinjaBody) SetTypeA(member int) {
 }
 
 // The parent physics system.
-func (self *PhysicsNinjaBody) GetSystemA() *PhysicsNinja{
+func (self *PhysicsNinjaBody) System() *PhysicsNinja{
     return &PhysicsNinja{self.Object.Get("system")}
 }
 
@@ -111,7 +111,7 @@ func (self *PhysicsNinjaBody) SetSystemA(member *PhysicsNinja) {
 }
 
 // The AABB object this body is using for collision.
-func (self *PhysicsNinjaBody) GetAabbA() *PhysicsNinjaAABB{
+func (self *PhysicsNinjaBody) Aabb() *PhysicsNinjaAABB{
     return &PhysicsNinjaAABB{self.Object.Get("aabb")}
 }
 
@@ -121,7 +121,7 @@ func (self *PhysicsNinjaBody) SetAabbA(member *PhysicsNinjaAABB) {
 }
 
 // The Tile object this body is using for collision.
-func (self *PhysicsNinjaBody) GetTileA() *PhysicsNinjaTile{
+func (self *PhysicsNinjaBody) Tile() *PhysicsNinjaTile{
     return &PhysicsNinjaTile{self.Object.Get("tile")}
 }
 
@@ -131,7 +131,7 @@ func (self *PhysicsNinjaBody) SetTileA(member *PhysicsNinjaTile) {
 }
 
 // The Circle object this body is using for collision.
-func (self *PhysicsNinjaBody) GetCircleA() *PhysicsNinjaCircle{
+func (self *PhysicsNinjaBody) Circle() *PhysicsNinjaCircle{
     return &PhysicsNinjaCircle{self.Object.Get("circle")}
 }
 
@@ -141,7 +141,7 @@ func (self *PhysicsNinjaBody) SetCircleA(member *PhysicsNinjaCircle) {
 }
 
 // A local reference to the body shape.
-func (self *PhysicsNinjaBody) GetShapeA() interface{}{
+func (self *PhysicsNinjaBody) Shape() interface{}{
     return self.Object.Get("shape")
 }
 
@@ -151,7 +151,7 @@ func (self *PhysicsNinjaBody) SetShapeA(member interface{}) {
 }
 
 // The drag applied to this object as it moves.
-func (self *PhysicsNinjaBody) GetDragA() int{
+func (self *PhysicsNinjaBody) Drag() int{
     return self.Object.Get("drag").Int()
 }
 
@@ -161,7 +161,7 @@ func (self *PhysicsNinjaBody) SetDragA(member int) {
 }
 
 // The friction applied to this object as it moves.
-func (self *PhysicsNinjaBody) GetFrictionA() int{
+func (self *PhysicsNinjaBody) Friction() int{
     return self.Object.Get("friction").Int()
 }
 
@@ -171,7 +171,7 @@ func (self *PhysicsNinjaBody) SetFrictionA(member int) {
 }
 
 // How much of the world gravity should be applied to this object? 1 = all of it, 0.5 = 50%, etc.
-func (self *PhysicsNinjaBody) GetGravityScaleA() int{
+func (self *PhysicsNinjaBody) GravityScale() int{
     return self.Object.Get("gravityScale").Int()
 }
 
@@ -181,7 +181,7 @@ func (self *PhysicsNinjaBody) SetGravityScaleA(member int) {
 }
 
 // The bounciness of this object when it collides. A value between 0 and 1. We recommend setting it to 0.999 to avoid jittering.
-func (self *PhysicsNinjaBody) GetBounceA() int{
+func (self *PhysicsNinjaBody) Bounce() int{
     return self.Object.Get("bounce").Int()
 }
 
@@ -191,7 +191,7 @@ func (self *PhysicsNinjaBody) SetBounceA(member int) {
 }
 
 // The velocity in pixels per second sq. of the Body.
-func (self *PhysicsNinjaBody) GetVelocityA() *Point{
+func (self *PhysicsNinjaBody) Velocity() *Point{
     return &Point{self.Object.Get("velocity")}
 }
 
@@ -201,7 +201,7 @@ func (self *PhysicsNinjaBody) SetVelocityA(member *Point) {
 }
 
 // A const reference to the direction the Body is traveling or facing.
-func (self *PhysicsNinjaBody) GetFacingA() int{
+func (self *PhysicsNinjaBody) Facing() int{
     return self.Object.Get("facing").Int()
 }
 
@@ -211,7 +211,7 @@ func (self *PhysicsNinjaBody) SetFacingA(member int) {
 }
 
 // An immovable Body will not receive any impacts from other bodies. Not fully implemented.
-func (self *PhysicsNinjaBody) GetImmovableA() bool{
+func (self *PhysicsNinjaBody) Immovable() bool{
     return self.Object.Get("immovable").Bool()
 }
 
@@ -221,7 +221,7 @@ func (self *PhysicsNinjaBody) SetImmovableA(member bool) {
 }
 
 // A Body can be set to collide against the World bounds automatically and rebound back into the World if this is set to true. Otherwise it will leave the World. Should the Body collide with the World bounds?
-func (self *PhysicsNinjaBody) GetCollideWorldBoundsA() bool{
+func (self *PhysicsNinjaBody) CollideWorldBounds() bool{
     return self.Object.Get("collideWorldBounds").Bool()
 }
 
@@ -232,7 +232,7 @@ func (self *PhysicsNinjaBody) SetCollideWorldBoundsA(member bool) {
 
 // Set the checkCollision properties to control which directions collision is processed for this Body.
 // For example checkCollision.up = false means it won't collide when the collision happened while moving up. An object containing allowed collision.
-func (self *PhysicsNinjaBody) GetCheckCollisionA() interface{}{
+func (self *PhysicsNinjaBody) CheckCollision() interface{}{
     return self.Object.Get("checkCollision")
 }
 
@@ -244,7 +244,7 @@ func (self *PhysicsNinjaBody) SetCheckCollisionA(member interface{}) {
 
 // This object is populated with boolean values when the Body collides with another.
 // touching.up = true means the collision happened to the top of this Body for example. An object containing touching results.
-func (self *PhysicsNinjaBody) GetTouchingA() interface{}{
+func (self *PhysicsNinjaBody) Touching() interface{}{
     return self.Object.Get("touching")
 }
 
@@ -255,7 +255,7 @@ func (self *PhysicsNinjaBody) SetTouchingA(member interface{}) {
 }
 
 // This object is populated with previous touching values from the bodies previous collision. An object containing previous touching results.
-func (self *PhysicsNinjaBody) GetWasTouchingA() interface{}{
+func (self *PhysicsNinjaBody) WasTouching() interface{}{
     return self.Object.Get("wasTouching")
 }
 
@@ -265,7 +265,7 @@ func (self *PhysicsNinjaBody) SetWasTouchingA(member interface{}) {
 }
 
 // The maximum speed this body can travel at (taking drag and friction into account)
-func (self *PhysicsNinjaBody) GetMaxSpeedA() int{
+func (self *PhysicsNinjaBody) MaxSpeed() int{
     return self.Object.Get("maxSpeed").Int()
 }
 
@@ -275,7 +275,7 @@ func (self *PhysicsNinjaBody) SetMaxSpeedA(member int) {
 }
 
 // The x position.
-func (self *PhysicsNinjaBody) GetXA() int{
+func (self *PhysicsNinjaBody) X() int{
     return self.Object.Get("x").Int()
 }
 
@@ -285,7 +285,7 @@ func (self *PhysicsNinjaBody) SetXA(member int) {
 }
 
 // The y position.
-func (self *PhysicsNinjaBody) GetYA() int{
+func (self *PhysicsNinjaBody) Y() int{
     return self.Object.Get("y").Int()
 }
 
@@ -295,7 +295,7 @@ func (self *PhysicsNinjaBody) SetYA(member int) {
 }
 
 // The width of this Body
-func (self *PhysicsNinjaBody) GetWidthA() int{
+func (self *PhysicsNinjaBody) Width() int{
     return self.Object.Get("width").Int()
 }
 
@@ -305,7 +305,7 @@ func (self *PhysicsNinjaBody) SetWidthA(member int) {
 }
 
 // The height of this Body
-func (self *PhysicsNinjaBody) GetHeightA() int{
+func (self *PhysicsNinjaBody) Height() int{
     return self.Object.Get("height").Int()
 }
 
@@ -315,7 +315,7 @@ func (self *PhysicsNinjaBody) SetHeightA(member int) {
 }
 
 // The bottom value of this Body (same as Body.y + Body.height)
-func (self *PhysicsNinjaBody) GetBottomA() int{
+func (self *PhysicsNinjaBody) Bottom() int{
     return self.Object.Get("bottom").Int()
 }
 
@@ -325,7 +325,7 @@ func (self *PhysicsNinjaBody) SetBottomA(member int) {
 }
 
 // The right value of this Body (same as Body.x + Body.width)
-func (self *PhysicsNinjaBody) GetRightA() int{
+func (self *PhysicsNinjaBody) Right() int{
     return self.Object.Get("right").Int()
 }
 
@@ -335,7 +335,7 @@ func (self *PhysicsNinjaBody) SetRightA(member int) {
 }
 
 // The speed of this Body
-func (self *PhysicsNinjaBody) GetSpeedA() int{
+func (self *PhysicsNinjaBody) Speed() int{
     return self.Object.Get("speed").Int()
 }
 
@@ -345,7 +345,7 @@ func (self *PhysicsNinjaBody) SetSpeedA(member int) {
 }
 
 // The angle of this Body
-func (self *PhysicsNinjaBody) GetAngleA() int{
+func (self *PhysicsNinjaBody) Angle() int{
     return self.Object.Get("angle").Int()
 }
 

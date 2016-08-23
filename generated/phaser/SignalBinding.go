@@ -18,42 +18,42 @@ type SignalBinding struct {
 // Object that represents a binding between a Signal and a listener function.
 // This is an internal constructor and shouldn't be created directly.
 // Inspired by Joa Ebert AS3 SignalBinding and Robert Penner's Slot classes.
-func NewSignalBinding(signal *Signal, listener func(...interface{}), isOnce bool) *SignalBinding {
-    return &SignalBinding{js.Global.Call("Phaser.SignalBinding", signal, listener, isOnce)}
+func NewSignalBinding(signal *Signal, listener interface{}, isOnce bool) *SignalBinding {
+    return &SignalBinding{js.Global.Get("Phaser").Get("SignalBinding").New(signal, listener, isOnce)}
 }
 
 // Object that represents a binding between a Signal and a listener function.
 // This is an internal constructor and shouldn't be created directly.
 // Inspired by Joa Ebert AS3 SignalBinding and Robert Penner's Slot classes.
-func NewSignalBinding1O(signal *Signal, listener func(...interface{}), isOnce bool, listenerContext interface{}) *SignalBinding {
-    return &SignalBinding{js.Global.Call("Phaser.SignalBinding", signal, listener, isOnce, listenerContext)}
+func NewSignalBinding1O(signal *Signal, listener interface{}, isOnce bool, listenerContext interface{}) *SignalBinding {
+    return &SignalBinding{js.Global.Get("Phaser").Get("SignalBinding").New(signal, listener, isOnce, listenerContext)}
 }
 
 // Object that represents a binding between a Signal and a listener function.
 // This is an internal constructor and shouldn't be created directly.
 // Inspired by Joa Ebert AS3 SignalBinding and Robert Penner's Slot classes.
-func NewSignalBinding2O(signal *Signal, listener func(...interface{}), isOnce bool, listenerContext interface{}, priority int) *SignalBinding {
-    return &SignalBinding{js.Global.Call("Phaser.SignalBinding", signal, listener, isOnce, listenerContext, priority)}
+func NewSignalBinding2O(signal *Signal, listener interface{}, isOnce bool, listenerContext interface{}, priority int) *SignalBinding {
+    return &SignalBinding{js.Global.Get("Phaser").Get("SignalBinding").New(signal, listener, isOnce, listenerContext, priority)}
 }
 
 // Object that represents a binding between a Signal and a listener function.
 // This is an internal constructor and shouldn't be created directly.
 // Inspired by Joa Ebert AS3 SignalBinding and Robert Penner's Slot classes.
-func NewSignalBinding3O(signal *Signal, listener func(...interface{}), isOnce bool, listenerContext interface{}, priority int, args interface{}) *SignalBinding {
-    return &SignalBinding{js.Global.Call("Phaser.SignalBinding", signal, listener, isOnce, listenerContext, priority, args)}
+func NewSignalBinding3O(signal *Signal, listener interface{}, isOnce bool, listenerContext interface{}, priority int, args interface{}) *SignalBinding {
+    return &SignalBinding{js.Global.Get("Phaser").Get("SignalBinding").New(signal, listener, isOnce, listenerContext, priority, args)}
 }
 
 // Object that represents a binding between a Signal and a listener function.
 // This is an internal constructor and shouldn't be created directly.
 // Inspired by Joa Ebert AS3 SignalBinding and Robert Penner's Slot classes.
 func NewSignalBindingI(args ...interface{}) *SignalBinding {
-    return &SignalBinding{js.Global.Call("Phaser.SignalBinding", args)}
+    return &SignalBinding{js.Global.Get("Phaser").Get("SignalBinding").New(args)}
 }
 
 
 
 // Context on which listener will be executed (object that should represent the `this` variable inside listener function).
-func (self *SignalBinding) GetContextA() interface{}{
+func (self *SignalBinding) Context() interface{}{
     return self.Object.Get("context")
 }
 
@@ -63,7 +63,7 @@ func (self *SignalBinding) SetContextA(member interface{}) {
 }
 
 // The number of times the handler function has been called.
-func (self *SignalBinding) GetCallCountA() int{
+func (self *SignalBinding) CallCount() int{
     return self.Object.Get("callCount").Int()
 }
 
@@ -73,7 +73,7 @@ func (self *SignalBinding) SetCallCountA(member int) {
 }
 
 // If binding is active and should be executed.
-func (self *SignalBinding) GetActiveA() bool{
+func (self *SignalBinding) Active() bool{
     return self.Object.Get("active").Bool()
 }
 
@@ -83,7 +83,7 @@ func (self *SignalBinding) SetActiveA(member bool) {
 }
 
 // Default parameters passed to listener during `Signal.dispatch` and `SignalBinding.execute` (curried parameters).
-func (self *SignalBinding) GetParamsA() interface{}{
+func (self *SignalBinding) Params() interface{}{
     return self.Object.Get("params")
 }
 
@@ -145,13 +145,13 @@ func (self *SignalBinding) IsOnceI(args ...interface{}) bool{
 }
 
 // 
-func (self *SignalBinding) GetListener() func(...interface{}){
-    return func(...interface{}){self.Object.Call("getListener")}
+func (self *SignalBinding) GetListener() interface{}{
+    return self.Object.Call("getListener")
 }
 
 // 
-func (self *SignalBinding) GetListenerI(args ...interface{}) func(...interface{}){
-    return func(...interface{}){self.Object.Call("getListener", args)}
+func (self *SignalBinding) GetListenerI(args ...interface{}) interface{}{
+    return self.Object.Call("getListener", args)
 }
 
 // 

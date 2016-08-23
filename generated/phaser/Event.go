@@ -15,18 +15,18 @@ type Event struct {
 
 // Creates an homogenous object for tracking events so users can know what to expect.
 func NewEvent(target interface{}, name string, data interface{}) *Event {
-    return &Event{js.Global.Call("PIXI.Event", target, name, data)}
+    return &Event{js.Global.Get("PIXI").Get("Event").New(target, name, data)}
 }
 
 // Creates an homogenous object for tracking events so users can know what to expect.
 func NewEventI(args ...interface{}) *Event {
-    return &Event{js.Global.Call("PIXI.Event", args)}
+    return &Event{js.Global.Get("PIXI").Get("Event").New(args)}
 }
 
 
 
 // The original target the event triggered on.
-func (self *Event) GetTargetA() interface{}{
+func (self *Event) Target() interface{}{
     return self.Object.Get("target")
 }
 
@@ -36,7 +36,7 @@ func (self *Event) SetTargetA(member interface{}) {
 }
 
 // The string name of the event that this represents.
-func (self *Event) GetTypeA() string{
+func (self *Event) Type() string{
     return self.Object.Get("type").String()
 }
 
@@ -46,7 +46,7 @@ func (self *Event) SetTypeA(member string) {
 }
 
 // The data that was passed in with this event.
-func (self *Event) GetDataA() interface{}{
+func (self *Event) Data() interface{}{
     return self.Object.Get("data")
 }
 
@@ -56,7 +56,7 @@ func (self *Event) SetDataA(member interface{}) {
 }
 
 // The timestamp when the event occurred.
-func (self *Event) GetTimeStampA() int{
+func (self *Event) TimeStamp() int{
     return self.Object.Get("timeStamp").Int()
 }
 

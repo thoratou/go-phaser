@@ -29,7 +29,7 @@ type Keyboard struct {
 // For example the Chrome extension vimium is known to disable Phaser from using the D key. And there are others.
 // So please check your extensions before opening Phaser issues.
 func NewKeyboard(game *Game) *Keyboard {
-    return &Keyboard{js.Global.Call("Phaser.Keyboard", game)}
+    return &Keyboard{js.Global.Get("Phaser").Get("Keyboard").New(game)}
 }
 
 // The Keyboard class monitors keyboard input and dispatches keyboard events.
@@ -41,13 +41,13 @@ func NewKeyboard(game *Game) *Keyboard {
 // For example the Chrome extension vimium is known to disable Phaser from using the D key. And there are others.
 // So please check your extensions before opening Phaser issues.
 func NewKeyboardI(args ...interface{}) *Keyboard {
-    return &Keyboard{js.Global.Call("Phaser.Keyboard", args)}
+    return &Keyboard{js.Global.Get("Phaser").Get("Keyboard").New(args)}
 }
 
 
 
 // Local reference to game.
-func (self *Keyboard) GetGameA() *Game{
+func (self *Keyboard) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -57,7 +57,7 @@ func (self *Keyboard) SetGameA(member *Game) {
 }
 
 // Keyboard input will only be processed if enabled.
-func (self *Keyboard) GetEnabledA() bool{
+func (self *Keyboard) Enabled() bool{
     return self.Object.Get("enabled").Bool()
 }
 
@@ -67,7 +67,7 @@ func (self *Keyboard) SetEnabledA(member bool) {
 }
 
 // The most recent DOM event from keydown or keyup. This is updated every time a new key is pressed or released.
-func (self *Keyboard) GetEventA() interface{}{
+func (self *Keyboard) Event() interface{}{
     return self.Object.Get("event")
 }
 
@@ -77,7 +77,7 @@ func (self *Keyboard) SetEventA(member interface{}) {
 }
 
 // The most recent DOM event from keypress.
-func (self *Keyboard) GetPressEventA() interface{}{
+func (self *Keyboard) PressEvent() interface{}{
     return self.Object.Get("pressEvent")
 }
 
@@ -87,7 +87,7 @@ func (self *Keyboard) SetPressEventA(member interface{}) {
 }
 
 // The context under which the callbacks are run.
-func (self *Keyboard) GetCallbackContextA() interface{}{
+func (self *Keyboard) CallbackContext() interface{}{
     return self.Object.Get("callbackContext")
 }
 
@@ -97,22 +97,37 @@ func (self *Keyboard) SetCallbackContextA(member interface{}) {
 }
 
 // This callback is invoked every time a key is pressed down, including key repeats when a key is held down.
-func (self *Keyboard) SetOnDownCallbackA(member func(...interface{})) {
+func (self *Keyboard) OnDownCallback() interface{}{
+    return self.Object.Get("onDownCallback")
+}
+
+// This callback is invoked every time a key is pressed down, including key repeats when a key is held down.
+func (self *Keyboard) SetOnDownCallbackA(member interface{}) {
     self.Object.Set("onDownCallback", member)
 }
 
 // This callback is invoked every time a DOM onkeypress event is raised, which is only for printable keys.
-func (self *Keyboard) SetOnPressCallbackA(member func(...interface{})) {
+func (self *Keyboard) OnPressCallback() interface{}{
+    return self.Object.Get("onPressCallback")
+}
+
+// This callback is invoked every time a DOM onkeypress event is raised, which is only for printable keys.
+func (self *Keyboard) SetOnPressCallbackA(member interface{}) {
     self.Object.Set("onPressCallback", member)
 }
 
 // This callback is invoked every time a key is released.
-func (self *Keyboard) SetOnUpCallbackA(member func(...interface{})) {
+func (self *Keyboard) OnUpCallback() interface{}{
+    return self.Object.Get("onUpCallback")
+}
+
+// This callback is invoked every time a key is released.
+func (self *Keyboard) SetOnUpCallbackA(member interface{}) {
     self.Object.Set("onUpCallback", member)
 }
 
 // Returns the string value of the most recently pressed key.
-func (self *Keyboard) GetLastCharA() string{
+func (self *Keyboard) LastChar() string{
     return self.Object.Get("lastChar").String()
 }
 
@@ -122,7 +137,7 @@ func (self *Keyboard) SetLastCharA(member string) {
 }
 
 // Returns the most recently pressed Key. This is a Phaser.Key object and it changes every time a key is pressed.
-func (self *Keyboard) GetLastKeyA() *Key{
+func (self *Keyboard) LastKey() *Key{
     return &Key{self.Object.Get("lastKey")}
 }
 
@@ -139,17 +154,17 @@ func (self *Keyboard) AddCallbacks(context interface{}) {
 }
 
 // Add callbacks to the Keyboard handler so that each time a key is pressed down or released the callbacks are activated.
-func (self *Keyboard) AddCallbacks1O(context interface{}, onDown func(...interface{})) {
+func (self *Keyboard) AddCallbacks1O(context interface{}, onDown interface{}) {
     self.Object.Call("addCallbacks", context, onDown)
 }
 
 // Add callbacks to the Keyboard handler so that each time a key is pressed down or released the callbacks are activated.
-func (self *Keyboard) AddCallbacks2O(context interface{}, onDown func(...interface{}), onUp func(...interface{})) {
+func (self *Keyboard) AddCallbacks2O(context interface{}, onDown interface{}, onUp interface{}) {
     self.Object.Call("addCallbacks", context, onDown, onUp)
 }
 
 // Add callbacks to the Keyboard handler so that each time a key is pressed down or released the callbacks are activated.
-func (self *Keyboard) AddCallbacks3O(context interface{}, onDown func(...interface{}), onUp func(...interface{}), onPress func(...interface{})) {
+func (self *Keyboard) AddCallbacks3O(context interface{}, onDown interface{}, onUp interface{}, onPress interface{}) {
     self.Object.Call("addCallbacks", context, onDown, onUp, onPress)
 }
 

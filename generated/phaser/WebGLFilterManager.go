@@ -15,23 +15,23 @@ type WebGLFilterManager struct {
 
 // 
 func NewWebGLFilterManager() *WebGLFilterManager {
-    return &WebGLFilterManager{js.Global.Call("PIXI.WebGLFilterManager")}
+    return &WebGLFilterManager{js.Global.Get("PIXI").Get("WebGLFilterManager").New()}
 }
 
 // 
 func NewWebGLFilterManagerI(args ...interface{}) *WebGLFilterManager {
-    return &WebGLFilterManager{js.Global.Call("PIXI.WebGLFilterManager", args)}
+    return &WebGLFilterManager{js.Global.Get("PIXI").Get("WebGLFilterManager").New(args)}
 }
 
 
 
 // 
-func (self *WebGLFilterManager) GetFilterStackA() []interface{}{
+func (self *WebGLFilterManager) FilterStack() []interface{}{
 	array00 := self.Object.Get("filterStack")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -42,7 +42,7 @@ func (self *WebGLFilterManager) SetFilterStackA(member []interface{}) {
 }
 
 // 
-func (self *WebGLFilterManager) GetOffsetXA() int{
+func (self *WebGLFilterManager) OffsetX() int{
     return self.Object.Get("offsetX").Int()
 }
 
@@ -52,7 +52,7 @@ func (self *WebGLFilterManager) SetOffsetXA(member int) {
 }
 
 // 
-func (self *WebGLFilterManager) GetOffsetYA() int{
+func (self *WebGLFilterManager) OffsetY() int{
     return self.Object.Get("offsetY").Int()
 }
 

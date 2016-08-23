@@ -15,18 +15,18 @@ type Tile struct {
 
 // A Tile is a representation of a single tile within the Tilemap.
 func NewTile(layer interface{}, index int, x int, y int, width int, height int) *Tile {
-    return &Tile{js.Global.Call("Phaser.Tile", layer, index, x, y, width, height)}
+    return &Tile{js.Global.Get("Phaser").Get("Tile").New(layer, index, x, y, width, height)}
 }
 
 // A Tile is a representation of a single tile within the Tilemap.
 func NewTileI(args ...interface{}) *Tile {
-    return &Tile{js.Global.Call("Phaser.Tile", args)}
+    return &Tile{js.Global.Get("Phaser").Get("Tile").New(args)}
 }
 
 
 
 // The layer in the Tilemap data that this tile belongs to.
-func (self *Tile) GetLayerA() interface{}{
+func (self *Tile) Layer() interface{}{
     return self.Object.Get("layer")
 }
 
@@ -36,7 +36,7 @@ func (self *Tile) SetLayerA(member interface{}) {
 }
 
 // The index of this tile within the map data corresponding to the tileset, or -1 if this represents a blank/null tile.
-func (self *Tile) GetIndexA() int{
+func (self *Tile) Index() int{
     return self.Object.Get("index").Int()
 }
 
@@ -46,7 +46,7 @@ func (self *Tile) SetIndexA(member int) {
 }
 
 // The x map coordinate of this tile.
-func (self *Tile) GetXA() int{
+func (self *Tile) X() int{
     return self.Object.Get("x").Int()
 }
 
@@ -56,7 +56,7 @@ func (self *Tile) SetXA(member int) {
 }
 
 // The y map coordinate of this tile.
-func (self *Tile) GetYA() int{
+func (self *Tile) Y() int{
     return self.Object.Get("y").Int()
 }
 
@@ -66,7 +66,7 @@ func (self *Tile) SetYA(member int) {
 }
 
 // The rotation angle of this tile.
-func (self *Tile) GetRotationA() int{
+func (self *Tile) Rotation() int{
     return self.Object.Get("rotation").Int()
 }
 
@@ -76,7 +76,7 @@ func (self *Tile) SetRotationA(member int) {
 }
 
 // Whether this tile is flipped (mirrored) or not.
-func (self *Tile) GetFlippedA() bool{
+func (self *Tile) Flipped() bool{
     return self.Object.Get("flipped").Bool()
 }
 
@@ -86,7 +86,7 @@ func (self *Tile) SetFlippedA(member bool) {
 }
 
 // The x map coordinate of this tile.
-func (self *Tile) GetWorldXA() interface{}{
+func (self *Tile) WorldX() interface{}{
     return self.Object.Get("worldX")
 }
 
@@ -96,7 +96,7 @@ func (self *Tile) SetWorldXA(member interface{}) {
 }
 
 // The y map coordinate of this tile.
-func (self *Tile) GetWorldYA() interface{}{
+func (self *Tile) WorldY() interface{}{
     return self.Object.Get("worldY")
 }
 
@@ -106,7 +106,7 @@ func (self *Tile) SetWorldYA(member interface{}) {
 }
 
 // The width of the tile in pixels.
-func (self *Tile) GetWidthA() int{
+func (self *Tile) Width() int{
     return self.Object.Get("width").Int()
 }
 
@@ -116,7 +116,7 @@ func (self *Tile) SetWidthA(member int) {
 }
 
 // The height of the tile in pixels.
-func (self *Tile) GetHeightA() int{
+func (self *Tile) Height() int{
     return self.Object.Get("height").Int()
 }
 
@@ -126,7 +126,7 @@ func (self *Tile) SetHeightA(member int) {
 }
 
 // The width of the tile in pixels.
-func (self *Tile) GetCenterXA() interface{}{
+func (self *Tile) CenterX() interface{}{
     return self.Object.Get("centerX")
 }
 
@@ -136,7 +136,7 @@ func (self *Tile) SetCenterXA(member interface{}) {
 }
 
 // The height of the tile in pixels.
-func (self *Tile) GetCenterYA() interface{}{
+func (self *Tile) CenterY() interface{}{
     return self.Object.Get("centerY")
 }
 
@@ -146,7 +146,7 @@ func (self *Tile) SetCenterYA(member interface{}) {
 }
 
 // The alpha value at which this tile is drawn to the canvas.
-func (self *Tile) GetAlphaA() int{
+func (self *Tile) Alpha() int{
     return self.Object.Get("alpha").Int()
 }
 
@@ -156,7 +156,7 @@ func (self *Tile) SetAlphaA(member int) {
 }
 
 // Tile specific properties.
-func (self *Tile) GetPropertiesA() interface{}{
+func (self *Tile) Properties() interface{}{
     return self.Object.Get("properties")
 }
 
@@ -166,7 +166,7 @@ func (self *Tile) SetPropertiesA(member interface{}) {
 }
 
 // Has this tile been walked / turned into a poly?
-func (self *Tile) GetScannedA() bool{
+func (self *Tile) Scanned() bool{
     return self.Object.Get("scanned").Bool()
 }
 
@@ -176,7 +176,7 @@ func (self *Tile) SetScannedA(member bool) {
 }
 
 // Is the top of this tile an interesting edge?
-func (self *Tile) GetFaceTopA() bool{
+func (self *Tile) FaceTop() bool{
     return self.Object.Get("faceTop").Bool()
 }
 
@@ -186,7 +186,7 @@ func (self *Tile) SetFaceTopA(member bool) {
 }
 
 // Is the bottom of this tile an interesting edge?
-func (self *Tile) GetFaceBottomA() bool{
+func (self *Tile) FaceBottom() bool{
     return self.Object.Get("faceBottom").Bool()
 }
 
@@ -196,7 +196,7 @@ func (self *Tile) SetFaceBottomA(member bool) {
 }
 
 // Is the left of this tile an interesting edge?
-func (self *Tile) GetFaceLeftA() bool{
+func (self *Tile) FaceLeft() bool{
     return self.Object.Get("faceLeft").Bool()
 }
 
@@ -206,7 +206,7 @@ func (self *Tile) SetFaceLeftA(member bool) {
 }
 
 // Is the right of this tile an interesting edge?
-func (self *Tile) GetFaceRightA() bool{
+func (self *Tile) FaceRight() bool{
     return self.Object.Get("faceRight").Bool()
 }
 
@@ -216,7 +216,7 @@ func (self *Tile) SetFaceRightA(member bool) {
 }
 
 // Indicating collide with any object on the left.
-func (self *Tile) GetCollideLeftA() bool{
+func (self *Tile) CollideLeft() bool{
     return self.Object.Get("collideLeft").Bool()
 }
 
@@ -226,7 +226,7 @@ func (self *Tile) SetCollideLeftA(member bool) {
 }
 
 // Indicating collide with any object on the right.
-func (self *Tile) GetCollideRightA() bool{
+func (self *Tile) CollideRight() bool{
     return self.Object.Get("collideRight").Bool()
 }
 
@@ -236,7 +236,7 @@ func (self *Tile) SetCollideRightA(member bool) {
 }
 
 // Indicating collide with any object on the top.
-func (self *Tile) GetCollideUpA() bool{
+func (self *Tile) CollideUp() bool{
     return self.Object.Get("collideUp").Bool()
 }
 
@@ -246,7 +246,7 @@ func (self *Tile) SetCollideUpA(member bool) {
 }
 
 // Indicating collide with any object on the bottom.
-func (self *Tile) GetCollideDownA() bool{
+func (self *Tile) CollideDown() bool{
     return self.Object.Get("collideDown").Bool()
 }
 
@@ -256,12 +256,17 @@ func (self *Tile) SetCollideDownA(member bool) {
 }
 
 // Tile collision callback.
-func (self *Tile) SetCollisionCallbackA(member func(...interface{})) {
+func (self *Tile) CollisionCallback() interface{}{
+    return self.Object.Get("collisionCallback")
+}
+
+// Tile collision callback.
+func (self *Tile) SetCollisionCallbackA(member interface{}) {
     self.Object.Set("collisionCallback", member)
 }
 
 // The context in which the collision callback will be called.
-func (self *Tile) GetCollisionCallbackContextA() interface{}{
+func (self *Tile) CollisionCallbackContext() interface{}{
     return self.Object.Get("collisionCallbackContext")
 }
 
@@ -271,7 +276,7 @@ func (self *Tile) SetCollisionCallbackContextA(member interface{}) {
 }
 
 // True if this tile can collide on any of its faces.
-func (self *Tile) GetCollidesA() bool{
+func (self *Tile) Collides() bool{
     return self.Object.Get("collides").Bool()
 }
 
@@ -281,7 +286,7 @@ func (self *Tile) SetCollidesA(member bool) {
 }
 
 // True if this tile can collide on any of its faces or has a collision callback set.
-func (self *Tile) GetCanCollideA() bool{
+func (self *Tile) CanCollide() bool{
     return self.Object.Get("canCollide").Bool()
 }
 
@@ -291,7 +296,7 @@ func (self *Tile) SetCanCollideA(member bool) {
 }
 
 // The x value in pixels.
-func (self *Tile) GetLeftA() int{
+func (self *Tile) Left() int{
     return self.Object.Get("left").Int()
 }
 
@@ -301,7 +306,7 @@ func (self *Tile) SetLeftA(member int) {
 }
 
 // The sum of the x and width properties.
-func (self *Tile) GetRightA() int{
+func (self *Tile) Right() int{
     return self.Object.Get("right").Int()
 }
 
@@ -311,7 +316,7 @@ func (self *Tile) SetRightA(member int) {
 }
 
 // The y value.
-func (self *Tile) GetTopA() int{
+func (self *Tile) Top() int{
     return self.Object.Get("top").Int()
 }
 
@@ -321,7 +326,7 @@ func (self *Tile) SetTopA(member int) {
 }
 
 // The sum of the y and height properties.
-func (self *Tile) GetBottomA() int{
+func (self *Tile) Bottom() int{
     return self.Object.Get("bottom").Int()
 }
 
@@ -354,7 +359,7 @@ func (self *Tile) IntersectsI(args ...interface{}) {
 
 // Set a callback to be called when this tile is hit by an object.
 // The callback must true true for collision processing to take place.
-func (self *Tile) SetCollisionCallback(callback func(...interface{}), context interface{}) {
+func (self *Tile) SetCollisionCallback(callback interface{}, context interface{}) {
     self.Object.Call("setCollisionCallback", callback, context)
 }
 

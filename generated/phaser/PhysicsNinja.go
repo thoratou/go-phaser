@@ -45,7 +45,7 @@ type PhysicsNinja struct {
 // 
 // Feel free to attempt any of the above and submit a Pull Request with your code! Be sure to include test cases proving they work.
 func NewPhysicsNinja(game *Game) *PhysicsNinja {
-    return &PhysicsNinja{js.Global.Call("Phaser.Physics.Ninja", game)}
+    return &PhysicsNinja{js.Global.Get("Phaser").Get("Physics").Get("Ninja").New(game)}
 }
 
 // Ninja Physics. The Ninja Physics system was created in Flash by Metanet Software and ported to JavaScript by Richard Davey.
@@ -65,13 +65,13 @@ func NewPhysicsNinja(game *Game) *PhysicsNinja {
 // 
 // Feel free to attempt any of the above and submit a Pull Request with your code! Be sure to include test cases proving they work.
 func NewPhysicsNinjaI(args ...interface{}) *PhysicsNinja {
-    return &PhysicsNinja{js.Global.Call("Phaser.Physics.Ninja", args)}
+    return &PhysicsNinja{js.Global.Get("Phaser").Get("Physics").Get("Ninja").New(args)}
 }
 
 
 
 // Local reference to game.
-func (self *PhysicsNinja) GetGameA() *Game{
+func (self *PhysicsNinja) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -81,7 +81,7 @@ func (self *PhysicsNinja) SetGameA(member *Game) {
 }
 
 // Local reference to game.time.
-func (self *PhysicsNinja) GetTimeA() *Time{
+func (self *PhysicsNinja) Time() *Time{
     return &Time{self.Object.Get("time")}
 }
 
@@ -91,7 +91,7 @@ func (self *PhysicsNinja) SetTimeA(member *Time) {
 }
 
 // The World gravity setting.
-func (self *PhysicsNinja) GetGravityA() int{
+func (self *PhysicsNinja) Gravity() int{
     return self.Object.Get("gravity").Int()
 }
 
@@ -101,7 +101,7 @@ func (self *PhysicsNinja) SetGravityA(member int) {
 }
 
 // The bounds inside of which the physics world exists. Defaults to match the world bounds.
-func (self *PhysicsNinja) GetBoundsA() *Rectangle{
+func (self *PhysicsNinja) Bounds() *Rectangle{
     return &Rectangle{self.Object.Get("bounds")}
 }
 
@@ -111,7 +111,7 @@ func (self *PhysicsNinja) SetBoundsA(member *Rectangle) {
 }
 
 // Used by the QuadTree to set the maximum number of objects per quad.
-func (self *PhysicsNinja) GetMaxObjectsA() int{
+func (self *PhysicsNinja) MaxObjects() int{
     return self.Object.Get("maxObjects").Int()
 }
 
@@ -121,7 +121,7 @@ func (self *PhysicsNinja) SetMaxObjectsA(member int) {
 }
 
 // Used by the QuadTree to set the maximum number of iteration levels.
-func (self *PhysicsNinja) GetMaxLevelsA() int{
+func (self *PhysicsNinja) MaxLevels() int{
     return self.Object.Get("maxLevels").Int()
 }
 
@@ -131,7 +131,7 @@ func (self *PhysicsNinja) SetMaxLevelsA(member int) {
 }
 
 // The world QuadTree.
-func (self *PhysicsNinja) GetQuadTreeA() *QuadTree{
+func (self *PhysicsNinja) QuadTree() *QuadTree{
     return &QuadTree{self.Object.Get("quadTree")}
 }
 
@@ -309,7 +309,7 @@ func (self *PhysicsNinja) ConvertTilemap(map_ *Tilemap, layer interface{}, slope
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -330,7 +330,7 @@ func (self *PhysicsNinja) ConvertTilemapI(args ...interface{}) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -347,7 +347,7 @@ func (self *PhysicsNinja) Overlap(object1 interface{}, object2 interface{}) bool
 // You can perform Sprite vs. Sprite, Sprite vs. Group and Group vs. Group overlap checks.
 // Unlike collide the objects are NOT automatically separated or have any physics applied, they merely test for overlap results.
 // The second parameter can be an array of objects, of differing types.
-func (self *PhysicsNinja) Overlap1O(object1 interface{}, object2 interface{}, overlapCallback func(...interface{})) bool{
+func (self *PhysicsNinja) Overlap1O(object1 interface{}, object2 interface{}, overlapCallback interface{}) bool{
     return self.Object.Call("overlap", object1, object2, overlapCallback).Bool()
 }
 
@@ -355,7 +355,7 @@ func (self *PhysicsNinja) Overlap1O(object1 interface{}, object2 interface{}, ov
 // You can perform Sprite vs. Sprite, Sprite vs. Group and Group vs. Group overlap checks.
 // Unlike collide the objects are NOT automatically separated or have any physics applied, they merely test for overlap results.
 // The second parameter can be an array of objects, of differing types.
-func (self *PhysicsNinja) Overlap2O(object1 interface{}, object2 interface{}, overlapCallback func(...interface{}), processCallback func(...interface{})) bool{
+func (self *PhysicsNinja) Overlap2O(object1 interface{}, object2 interface{}, overlapCallback interface{}, processCallback interface{}) bool{
     return self.Object.Call("overlap", object1, object2, overlapCallback, processCallback).Bool()
 }
 
@@ -363,7 +363,7 @@ func (self *PhysicsNinja) Overlap2O(object1 interface{}, object2 interface{}, ov
 // You can perform Sprite vs. Sprite, Sprite vs. Group and Group vs. Group overlap checks.
 // Unlike collide the objects are NOT automatically separated or have any physics applied, they merely test for overlap results.
 // The second parameter can be an array of objects, of differing types.
-func (self *PhysicsNinja) Overlap3O(object1 interface{}, object2 interface{}, overlapCallback func(...interface{}), processCallback func(...interface{}), callbackContext interface{}) bool{
+func (self *PhysicsNinja) Overlap3O(object1 interface{}, object2 interface{}, overlapCallback interface{}, processCallback interface{}, callbackContext interface{}) bool{
     return self.Object.Call("overlap", object1, object2, overlapCallback, processCallback, callbackContext).Bool()
 }
 
@@ -391,7 +391,7 @@ func (self *PhysicsNinja) Collide(object1 interface{}, object2 interface{}) bool
 // An optional processCallback can be provided. If given this function will be called when two sprites are found to be colliding. It is called before any separation takes place,
 // giving you the chance to perform additional checks. If the function returns true then the collision and separation is carried out. If it returns false it is skipped.
 // The collideCallback is an optional function that is only called if two sprites collide. If a processCallback has been set then it needs to return true for collideCallback to be called.
-func (self *PhysicsNinja) Collide1O(object1 interface{}, object2 interface{}, collideCallback func(...interface{})) bool{
+func (self *PhysicsNinja) Collide1O(object1 interface{}, object2 interface{}, collideCallback interface{}) bool{
     return self.Object.Call("collide", object1, object2, collideCallback).Bool()
 }
 
@@ -401,7 +401,7 @@ func (self *PhysicsNinja) Collide1O(object1 interface{}, object2 interface{}, co
 // An optional processCallback can be provided. If given this function will be called when two sprites are found to be colliding. It is called before any separation takes place,
 // giving you the chance to perform additional checks. If the function returns true then the collision and separation is carried out. If it returns false it is skipped.
 // The collideCallback is an optional function that is only called if two sprites collide. If a processCallback has been set then it needs to return true for collideCallback to be called.
-func (self *PhysicsNinja) Collide2O(object1 interface{}, object2 interface{}, collideCallback func(...interface{}), processCallback func(...interface{})) bool{
+func (self *PhysicsNinja) Collide2O(object1 interface{}, object2 interface{}, collideCallback interface{}, processCallback interface{}) bool{
     return self.Object.Call("collide", object1, object2, collideCallback, processCallback).Bool()
 }
 
@@ -411,7 +411,7 @@ func (self *PhysicsNinja) Collide2O(object1 interface{}, object2 interface{}, co
 // An optional processCallback can be provided. If given this function will be called when two sprites are found to be colliding. It is called before any separation takes place,
 // giving you the chance to perform additional checks. If the function returns true then the collision and separation is carried out. If it returns false it is skipped.
 // The collideCallback is an optional function that is only called if two sprites collide. If a processCallback has been set then it needs to return true for collideCallback to be called.
-func (self *PhysicsNinja) Collide3O(object1 interface{}, object2 interface{}, collideCallback func(...interface{}), processCallback func(...interface{}), callbackContext interface{}) bool{
+func (self *PhysicsNinja) Collide3O(object1 interface{}, object2 interface{}, collideCallback interface{}, processCallback interface{}, callbackContext interface{}) bool{
     return self.Object.Call("collide", object1, object2, collideCallback, processCallback, callbackContext).Bool()
 }
 
@@ -426,7 +426,7 @@ func (self *PhysicsNinja) CollideI(args ...interface{}) bool{
 }
 
 // Internal collision handler.
-func (self *PhysicsNinja) CollideHandler(object1 interface{}, object2 interface{}, collideCallback func(...interface{}), processCallback func(...interface{}), callbackContext interface{}, overlapOnly bool) {
+func (self *PhysicsNinja) CollideHandler(object1 interface{}, object2 interface{}, collideCallback interface{}, processCallback interface{}, callbackContext interface{}, overlapOnly bool) {
     self.Object.Call("collideHandler", object1, object2, collideCallback, processCallback, callbackContext, overlapOnly)
 }
 

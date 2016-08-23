@@ -17,19 +17,19 @@ type Stage struct {
 // The Stage controls root level display objects upon which everything is displayed.
 // It also handles browser visibility handling and the pausing due to loss of focus.
 func NewStage(game *Game) *Stage {
-    return &Stage{js.Global.Call("Phaser.Stage", game)}
+    return &Stage{js.Global.Get("Phaser").Get("Stage").New(game)}
 }
 
 // The Stage controls root level display objects upon which everything is displayed.
 // It also handles browser visibility handling and the pausing due to loss of focus.
 func NewStageI(args ...interface{}) *Stage {
-    return &Stage{js.Global.Call("Phaser.Stage", args)}
+    return &Stage{js.Global.Get("Phaser").Get("Stage").New(args)}
 }
 
 
 
 // A reference to the currently running Game.
-func (self *Stage) GetGameA() *Game{
+func (self *Stage) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -39,7 +39,7 @@ func (self *Stage) SetGameA(member *Game) {
 }
 
 // The name of this object.
-func (self *Stage) GetNameA() string{
+func (self *Stage) Name() string{
     return self.Object.Get("name").String()
 }
 
@@ -53,7 +53,7 @@ func (self *Stage) SetNameA(member string) {
 // Note that the browser can still elect to pause your game if it wishes to do so,
 // for example swapping to another browser tab. This will cause the RAF callback to halt,
 // effectively pausing your game, even though no in-game pause event is triggered if you enable this property.
-func (self *Stage) GetDisableVisibilityChangeA() bool{
+func (self *Stage) DisableVisibilityChange() bool{
     return self.Object.Get("disableVisibilityChange").Bool()
 }
 
@@ -67,7 +67,7 @@ func (self *Stage) SetDisableVisibilityChangeA(member bool) {
 }
 
 // If exists is true the Stage and all children are updated, otherwise it is skipped.
-func (self *Stage) GetExistsA() bool{
+func (self *Stage) Exists() bool{
     return self.Object.Get("exists").Bool()
 }
 
@@ -77,7 +77,7 @@ func (self *Stage) SetExistsA(member bool) {
 }
 
 // Reset each frame, keeps a count of the total number of objects updated.
-func (self *Stage) GetCurrentRenderOrderIDA() int{
+func (self *Stage) CurrentRenderOrderID() int{
     return self.Object.Get("currentRenderOrderID").Int()
 }
 
@@ -87,7 +87,7 @@ func (self *Stage) SetCurrentRenderOrderIDA(member int) {
 }
 
 // Gets and sets the background color of the stage. The color can be given as a number: 0xff0000 or a hex string: '#ff0000'
-func (self *Stage) GetBackgroundColorA() interface{}{
+func (self *Stage) BackgroundColor() interface{}{
     return self.Object.Get("backgroundColor")
 }
 
@@ -97,7 +97,7 @@ func (self *Stage) SetBackgroundColorA(member interface{}) {
 }
 
 // Enable or disable texture smoothing for all objects on this Stage. Only works for bitmap/image textures. Smoothing is enabled by default. Set to true to smooth all sprites rendered on this Stage, or false to disable smoothing (great for pixel art)
-func (self *Stage) GetSmoothedA() bool{
+func (self *Stage) Smoothed() bool{
     return self.Object.Get("smoothed").Bool()
 }
 
@@ -107,7 +107,7 @@ func (self *Stage) SetSmoothedA(member bool) {
 }
 
 // [read-only] The array of children of this container.
-func (self *Stage) GetChildrenA() []DisplayObject{
+func (self *Stage) Children() []DisplayObject{
 	array00 := self.Object.Get("children")
 	length00 := array00.Length()
 	out00 := make([]DisplayObject, length00, length00)
@@ -127,7 +127,7 @@ func (self *Stage) SetChildrenA(member []DisplayObject) {
 // If this property is `true` then the children will _not_ be considered as valid for Input events.
 // 
 // Note that this property isn't recursive: only immediate children are influenced, it doesn't scan further down.
-func (self *Stage) GetIgnoreChildInputA() bool{
+func (self *Stage) IgnoreChildInput() bool{
     return self.Object.Get("ignoreChildInput").Bool()
 }
 
@@ -141,7 +141,7 @@ func (self *Stage) SetIgnoreChildInputA(member bool) {
 }
 
 // The width of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *Stage) GetWidthA() int{
+func (self *Stage) Width() int{
     return self.Object.Get("width").Int()
 }
 
@@ -151,7 +151,7 @@ func (self *Stage) SetWidthA(member int) {
 }
 
 // The height of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *Stage) GetHeightA() int{
+func (self *Stage) Height() int{
     return self.Object.Get("height").Int()
 }
 

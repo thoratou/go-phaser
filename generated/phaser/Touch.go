@@ -19,20 +19,20 @@ type Touch struct {
 // 
 // You should not normally access this class directly, but instead use a Phaser.Pointer object which normalises all game input for you.
 func NewTouch(game *Game) *Touch {
-    return &Touch{js.Global.Call("Phaser.Touch", game)}
+    return &Touch{js.Global.Get("Phaser").Get("Touch").New(game)}
 }
 
 // Phaser.Touch handles touch events with your game. Note: Android 2.x only supports 1 touch event at once, no multi-touch.
 // 
 // You should not normally access this class directly, but instead use a Phaser.Pointer object which normalises all game input for you.
 func NewTouchI(args ...interface{}) *Touch {
-    return &Touch{js.Global.Call("Phaser.Touch", args)}
+    return &Touch{js.Global.Get("Phaser").Get("Touch").New(args)}
 }
 
 
 
 // A reference to the currently running game.
-func (self *Touch) GetGameA() *Game{
+func (self *Touch) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -42,7 +42,7 @@ func (self *Touch) SetGameA(member *Game) {
 }
 
 // Touch events will only be processed if enabled.
-func (self *Touch) GetEnabledA() bool{
+func (self *Touch) Enabled() bool{
     return self.Object.Get("enabled").Bool()
 }
 
@@ -54,12 +54,12 @@ func (self *Touch) SetEnabledA(member bool) {
 // An array of callbacks that will be fired every time a native touch start or touch end event is received from the browser.
 // This is used internally to handle audio and video unlocking on mobile devices.
 // To add a callback to this array please use `Touch.addTouchLockCallback`.
-func (self *Touch) GetTouchLockCallbacksA() []interface{}{
+func (self *Touch) TouchLockCallbacks() []interface{}{
 	array00 := self.Object.Get("touchLockCallbacks")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -72,7 +72,7 @@ func (self *Touch) SetTouchLockCallbacksA(member []interface{}) {
 }
 
 // The context under which callbacks are called.
-func (self *Touch) GetCallbackContextA() interface{}{
+func (self *Touch) CallbackContext() interface{}{
     return self.Object.Get("callbackContext")
 }
 
@@ -82,37 +82,67 @@ func (self *Touch) SetCallbackContextA(member interface{}) {
 }
 
 // A callback that can be fired on a touchStart event.
-func (self *Touch) SetTouchStartCallbackA(member func(...interface{})) {
+func (self *Touch) TouchStartCallback() interface{}{
+    return self.Object.Get("touchStartCallback")
+}
+
+// A callback that can be fired on a touchStart event.
+func (self *Touch) SetTouchStartCallbackA(member interface{}) {
     self.Object.Set("touchStartCallback", member)
 }
 
 // A callback that can be fired on a touchMove event.
-func (self *Touch) SetTouchMoveCallbackA(member func(...interface{})) {
+func (self *Touch) TouchMoveCallback() interface{}{
+    return self.Object.Get("touchMoveCallback")
+}
+
+// A callback that can be fired on a touchMove event.
+func (self *Touch) SetTouchMoveCallbackA(member interface{}) {
     self.Object.Set("touchMoveCallback", member)
 }
 
 // A callback that can be fired on a touchEnd event.
-func (self *Touch) SetTouchEndCallbackA(member func(...interface{})) {
+func (self *Touch) TouchEndCallback() interface{}{
+    return self.Object.Get("touchEndCallback")
+}
+
+// A callback that can be fired on a touchEnd event.
+func (self *Touch) SetTouchEndCallbackA(member interface{}) {
     self.Object.Set("touchEndCallback", member)
 }
 
 // A callback that can be fired on a touchEnter event.
-func (self *Touch) SetTouchEnterCallbackA(member func(...interface{})) {
+func (self *Touch) TouchEnterCallback() interface{}{
+    return self.Object.Get("touchEnterCallback")
+}
+
+// A callback that can be fired on a touchEnter event.
+func (self *Touch) SetTouchEnterCallbackA(member interface{}) {
     self.Object.Set("touchEnterCallback", member)
 }
 
 // A callback that can be fired on a touchLeave event.
-func (self *Touch) SetTouchLeaveCallbackA(member func(...interface{})) {
+func (self *Touch) TouchLeaveCallback() interface{}{
+    return self.Object.Get("touchLeaveCallback")
+}
+
+// A callback that can be fired on a touchLeave event.
+func (self *Touch) SetTouchLeaveCallbackA(member interface{}) {
     self.Object.Set("touchLeaveCallback", member)
 }
 
 // A callback that can be fired on a touchCancel event.
-func (self *Touch) SetTouchCancelCallbackA(member func(...interface{})) {
+func (self *Touch) TouchCancelCallback() interface{}{
+    return self.Object.Get("touchCancelCallback")
+}
+
+// A callback that can be fired on a touchCancel event.
+func (self *Touch) SetTouchCancelCallbackA(member interface{}) {
     self.Object.Set("touchCancelCallback", member)
 }
 
 // If true the TouchEvent will have prevent.default called on it.
-func (self *Touch) GetPreventDefaultA() bool{
+func (self *Touch) PreventDefault() bool{
     return self.Object.Get("preventDefault").Bool()
 }
 
@@ -122,7 +152,7 @@ func (self *Touch) SetPreventDefaultA(member bool) {
 }
 
 // The browser touch DOM event. Will be set to null if no touch event has ever been received.
-func (self *Touch) GetEventA() *TouchEvent{
+func (self *Touch) Event() *TouchEvent{
     return &TouchEvent{self.Object.Get("event")}
 }
 
@@ -160,7 +190,7 @@ func (self *Touch) ConsumeTouchMoveI(args ...interface{}) {
 // If the callback returns 'true' then the callback is automatically deleted once invoked.
 // 
 // The callback is added to the Phaser.Touch.touchLockCallbacks array and should be removed with Phaser.Touch.removeTouchLockCallback.
-func (self *Touch) AddTouchLockCallback(callback func(...interface{}), context interface{}) {
+func (self *Touch) AddTouchLockCallback(callback interface{}, context interface{}) {
     self.Object.Call("addTouchLockCallback", callback, context)
 }
 
@@ -171,7 +201,7 @@ func (self *Touch) AddTouchLockCallback(callback func(...interface{}), context i
 // If the callback returns 'true' then the callback is automatically deleted once invoked.
 // 
 // The callback is added to the Phaser.Touch.touchLockCallbacks array and should be removed with Phaser.Touch.removeTouchLockCallback.
-func (self *Touch) AddTouchLockCallback1O(callback func(...interface{}), context interface{}, onEnd bool) {
+func (self *Touch) AddTouchLockCallback1O(callback interface{}, context interface{}, onEnd bool) {
     self.Object.Call("addTouchLockCallback", callback, context, onEnd)
 }
 
@@ -187,7 +217,7 @@ func (self *Touch) AddTouchLockCallbackI(args ...interface{}) {
 }
 
 // Removes the callback at the defined index from the Phaser.Touch.touchLockCallbacks array
-func (self *Touch) RemoveTouchLockCallback(callback func(...interface{}), context interface{}) bool{
+func (self *Touch) RemoveTouchLockCallback(callback interface{}, context interface{}) bool{
     return self.Object.Call("removeTouchLockCallback", callback, context).Bool()
 }
 

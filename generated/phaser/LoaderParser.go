@@ -15,12 +15,12 @@ type LoaderParser struct {
 
 // Phaser.LoaderParser parses data objects from Phaser.Loader that need more preparation before they can be inserted into the Cache.
 func NewLoaderParser() *LoaderParser {
-    return &LoaderParser{js.Global.Call("Phaser.LoaderParser")}
+    return &LoaderParser{js.Global.Get("Phaser").Get("LoaderParser").New()}
 }
 
 // Phaser.LoaderParser parses data objects from Phaser.Loader that need more preparation before they can be inserted into the Cache.
 func NewLoaderParserI(args ...interface{}) *LoaderParser {
-    return &LoaderParser{js.Global.Call("Phaser.LoaderParser", args)}
+    return &LoaderParser{js.Global.Get("Phaser").Get("LoaderParser").New(args)}
 }
 
 

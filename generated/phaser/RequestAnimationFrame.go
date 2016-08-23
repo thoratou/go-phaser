@@ -15,23 +15,23 @@ type RequestAnimationFrame struct {
 
 // Abstracts away the use of RAF or setTimeOut for the core game update loop.
 func NewRequestAnimationFrame(game *Game) *RequestAnimationFrame {
-    return &RequestAnimationFrame{js.Global.Call("Phaser.RequestAnimationFrame", game)}
+    return &RequestAnimationFrame{js.Global.Get("Phaser").Get("RequestAnimationFrame").New(game)}
 }
 
 // Abstracts away the use of RAF or setTimeOut for the core game update loop.
 func NewRequestAnimationFrame1O(game *Game, forceSetTimeOut bool) *RequestAnimationFrame {
-    return &RequestAnimationFrame{js.Global.Call("Phaser.RequestAnimationFrame", game, forceSetTimeOut)}
+    return &RequestAnimationFrame{js.Global.Get("Phaser").Get("RequestAnimationFrame").New(game, forceSetTimeOut)}
 }
 
 // Abstracts away the use of RAF or setTimeOut for the core game update loop.
 func NewRequestAnimationFrameI(args ...interface{}) *RequestAnimationFrame {
-    return &RequestAnimationFrame{js.Global.Call("Phaser.RequestAnimationFrame", args)}
+    return &RequestAnimationFrame{js.Global.Get("Phaser").Get("RequestAnimationFrame").New(args)}
 }
 
 
 
 // The currently running game.
-func (self *RequestAnimationFrame) GetGameA() *Game{
+func (self *RequestAnimationFrame) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -41,7 +41,7 @@ func (self *RequestAnimationFrame) SetGameA(member *Game) {
 }
 
 // true if RequestAnimationFrame is running, otherwise false.
-func (self *RequestAnimationFrame) GetIsRunningA() bool{
+func (self *RequestAnimationFrame) IsRunning() bool{
     return self.Object.Get("isRunning").Bool()
 }
 
@@ -51,7 +51,7 @@ func (self *RequestAnimationFrame) SetIsRunningA(member bool) {
 }
 
 // Tell Phaser to use setTimeOut even if raf is available.
-func (self *RequestAnimationFrame) GetForceSetTimeOutA() bool{
+func (self *RequestAnimationFrame) ForceSetTimeOut() bool{
     return self.Object.Get("forceSetTimeOut").Bool()
 }
 

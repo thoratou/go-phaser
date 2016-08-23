@@ -17,19 +17,19 @@ type AbstractFilter struct {
 // This is the base class for creating a PIXI filter. Currently only webGL supports filters.
 // If you want to make a custom filter this should be your base class.
 func NewAbstractFilter(fragmentSrc []interface{}, uniforms interface{}) *AbstractFilter {
-    return &AbstractFilter{js.Global.Call("PIXI.AbstractFilter", fragmentSrc, uniforms)}
+    return &AbstractFilter{js.Global.Get("PIXI").Get("AbstractFilter").New(fragmentSrc, uniforms)}
 }
 
 // This is the base class for creating a PIXI filter. Currently only webGL supports filters.
 // If you want to make a custom filter this should be your base class.
 func NewAbstractFilterI(args ...interface{}) *AbstractFilter {
-    return &AbstractFilter{js.Global.Call("PIXI.AbstractFilter", args)}
+    return &AbstractFilter{js.Global.Get("PIXI").Get("AbstractFilter").New(args)}
 }
 
 
 
 // 
-func (self *AbstractFilter) GetDirtyA() bool{
+func (self *AbstractFilter) Dirty() bool{
     return self.Object.Get("dirty").Bool()
 }
 
@@ -39,7 +39,7 @@ func (self *AbstractFilter) SetDirtyA(member bool) {
 }
 
 // 
-func (self *AbstractFilter) GetPaddingA() int{
+func (self *AbstractFilter) Padding() int{
     return self.Object.Get("padding").Int()
 }
 

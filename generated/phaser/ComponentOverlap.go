@@ -15,12 +15,12 @@ type ComponentOverlap struct {
 
 // The Overlap component allows a Game Object to check if it overlaps with the bounds of another Game Object.
 func NewComponentOverlap() *ComponentOverlap {
-    return &ComponentOverlap{js.Global.Call("Phaser.Component.Overlap")}
+    return &ComponentOverlap{js.Global.Get("Phaser").Get("Component").Get("Overlap").New()}
 }
 
 // The Overlap component allows a Game Object to check if it overlaps with the bounds of another Game Object.
 func NewComponentOverlapI(args ...interface{}) *ComponentOverlap {
-    return &ComponentOverlap{js.Global.Call("Phaser.Component.Overlap", args)}
+    return &ComponentOverlap{js.Global.Get("Phaser").Get("Component").Get("Overlap").New(args)}
 }
 
 

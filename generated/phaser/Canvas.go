@@ -19,13 +19,13 @@ type Canvas struct {
 // The Canvas class handles everything related to creating the `canvas` DOM tag that Phaser will use, 
 // including styles, offset and aspect ratio.
 func NewCanvas() *Canvas {
-    return &Canvas{js.Global.Call("Phaser.Canvas")}
+    return &Canvas{js.Global.Get("Phaser").Get("Canvas").New()}
 }
 
 // The Canvas class handles everything related to creating the `canvas` DOM tag that Phaser will use, 
 // including styles, offset and aspect ratio.
 func NewCanvasI(args ...interface{}) *Canvas {
-    return &Canvas{js.Global.Call("Phaser.Canvas", args)}
+    return &Canvas{js.Global.Get("Phaser").Get("Canvas").New(args)}
 }
 
 

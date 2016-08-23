@@ -15,18 +15,18 @@ type Key struct {
 
 // If you need more fine-grained control over the handling of specific keys you can create and use Phaser.Key objects.
 func NewKey(game *Game, keycode int) *Key {
-    return &Key{js.Global.Call("Phaser.Key", game, keycode)}
+    return &Key{js.Global.Get("Phaser").Get("Key").New(game, keycode)}
 }
 
 // If you need more fine-grained control over the handling of specific keys you can create and use Phaser.Key objects.
 func NewKeyI(args ...interface{}) *Key {
-    return &Key{js.Global.Call("Phaser.Key", args)}
+    return &Key{js.Global.Get("Phaser").Get("Key").New(args)}
 }
 
 
 
 // A reference to the currently running game.
-func (self *Key) GetGameA() *Game{
+func (self *Key) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -36,7 +36,7 @@ func (self *Key) SetGameA(member *Game) {
 }
 
 // Stores the most recent DOM event.
-func (self *Key) GetEventA() interface{}{
+func (self *Key) Event() interface{}{
     return self.Object.Get("event")
 }
 
@@ -46,7 +46,7 @@ func (self *Key) SetEventA(member interface{}) {
 }
 
 // The "down" state of the key. This will remain `true` for as long as the keyboard thinks this key is held down.
-func (self *Key) GetIsDownA() bool{
+func (self *Key) IsDown() bool{
     return self.Object.Get("isDown").Bool()
 }
 
@@ -56,7 +56,7 @@ func (self *Key) SetIsDownA(member bool) {
 }
 
 // The "up" state of the key. This will remain `true` for as long as the keyboard thinks this key is up.
-func (self *Key) GetIsUpA() bool{
+func (self *Key) IsUp() bool{
     return self.Object.Get("isUp").Bool()
 }
 
@@ -66,7 +66,7 @@ func (self *Key) SetIsUpA(member bool) {
 }
 
 // The down state of the ALT key, if pressed at the same time as this key.
-func (self *Key) GetAltKeyA() bool{
+func (self *Key) AltKey() bool{
     return self.Object.Get("altKey").Bool()
 }
 
@@ -76,7 +76,7 @@ func (self *Key) SetAltKeyA(member bool) {
 }
 
 // The down state of the CTRL key, if pressed at the same time as this key.
-func (self *Key) GetCtrlKeyA() bool{
+func (self *Key) CtrlKey() bool{
     return self.Object.Get("ctrlKey").Bool()
 }
 
@@ -86,7 +86,7 @@ func (self *Key) SetCtrlKeyA(member bool) {
 }
 
 // The down state of the SHIFT key, if pressed at the same time as this key.
-func (self *Key) GetShiftKeyA() bool{
+func (self *Key) ShiftKey() bool{
     return self.Object.Get("shiftKey").Bool()
 }
 
@@ -96,7 +96,7 @@ func (self *Key) SetShiftKeyA(member bool) {
 }
 
 // The timestamp when the key was last pressed down. This is based on Game.time.now.
-func (self *Key) GetTimeDownA() int{
+func (self *Key) TimeDown() int{
     return self.Object.Get("timeDown").Int()
 }
 
@@ -107,7 +107,7 @@ func (self *Key) SetTimeDownA(member int) {
 
 // If the key is down this value holds the duration of that key press and is constantly updated.
 // If the key is up it holds the duration of the previous down session. The number of milliseconds this key has been held down for.
-func (self *Key) GetDurationA() int{
+func (self *Key) Duration() int{
     return self.Object.Get("duration").Int()
 }
 
@@ -118,7 +118,7 @@ func (self *Key) SetDurationA(member int) {
 }
 
 // The timestamp when the key was last released. This is based on Game.time.now.
-func (self *Key) GetTimeUpA() int{
+func (self *Key) TimeUp() int{
     return self.Object.Get("timeUp").Int()
 }
 
@@ -128,7 +128,7 @@ func (self *Key) SetTimeUpA(member int) {
 }
 
 // If a key is held down this holds down the number of times the key has 'repeated'.
-func (self *Key) GetRepeatsA() int{
+func (self *Key) Repeats() int{
     return self.Object.Get("repeats").Int()
 }
 
@@ -138,7 +138,7 @@ func (self *Key) SetRepeatsA(member int) {
 }
 
 // The keycode of this key.
-func (self *Key) GetKeyCodeA() int{
+func (self *Key) KeyCode() int{
     return self.Object.Get("keyCode").Int()
 }
 
@@ -148,7 +148,7 @@ func (self *Key) SetKeyCodeA(member int) {
 }
 
 // This Signal is dispatched every time this Key is pressed down. It is only dispatched once (until the key is released again).
-func (self *Key) GetOnDownA() *Signal{
+func (self *Key) OnDown() *Signal{
     return &Signal{self.Object.Get("onDown")}
 }
 
@@ -158,12 +158,17 @@ func (self *Key) SetOnDownA(member *Signal) {
 }
 
 // A callback that is called while this Key is held down. Warning: Depending on refresh rate that could be 60+ times per second.
-func (self *Key) SetOnHoldCallbackA(member func(...interface{})) {
+func (self *Key) OnHoldCallback() interface{}{
+    return self.Object.Get("onHoldCallback")
+}
+
+// A callback that is called while this Key is held down. Warning: Depending on refresh rate that could be 60+ times per second.
+func (self *Key) SetOnHoldCallbackA(member interface{}) {
     self.Object.Set("onHoldCallback", member)
 }
 
 // The context under which the onHoldCallback will be called.
-func (self *Key) GetOnHoldContextA() interface{}{
+func (self *Key) OnHoldContext() interface{}{
     return self.Object.Get("onHoldContext")
 }
 
@@ -173,7 +178,7 @@ func (self *Key) SetOnHoldContextA(member interface{}) {
 }
 
 // This Signal is dispatched every time this Key is released. It is only dispatched once (until the key is pressed and released again).
-func (self *Key) GetOnUpA() *Signal{
+func (self *Key) OnUp() *Signal{
     return &Signal{self.Object.Get("onUp")}
 }
 

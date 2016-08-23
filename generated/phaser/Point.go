@@ -21,7 +21,7 @@ type Point struct {
 // `var myPoint = new Phaser.Point();`
 // You can also use them as 2D Vectors and you'll find different vector related methods in this class.
 func NewPoint() *Point {
-    return &Point{js.Global.Call("Phaser.Point")}
+    return &Point{js.Global.Get("Phaser").Get("Point").New()}
 }
 
 // A Point object represents a location in a two-dimensional coordinate system, where x represents the horizontal axis and y represents the vertical axis.
@@ -29,7 +29,7 @@ func NewPoint() *Point {
 // `var myPoint = new Phaser.Point();`
 // You can also use them as 2D Vectors and you'll find different vector related methods in this class.
 func NewPoint1O(x int) *Point {
-    return &Point{js.Global.Call("Phaser.Point", x)}
+    return &Point{js.Global.Get("Phaser").Get("Point").New(x)}
 }
 
 // A Point object represents a location in a two-dimensional coordinate system, where x represents the horizontal axis and y represents the vertical axis.
@@ -37,7 +37,7 @@ func NewPoint1O(x int) *Point {
 // `var myPoint = new Phaser.Point();`
 // You can also use them as 2D Vectors and you'll find different vector related methods in this class.
 func NewPoint2O(x int, y int) *Point {
-    return &Point{js.Global.Call("Phaser.Point", x, y)}
+    return &Point{js.Global.Get("Phaser").Get("Point").New(x, y)}
 }
 
 // A Point object represents a location in a two-dimensional coordinate system, where x represents the horizontal axis and y represents the vertical axis.
@@ -45,13 +45,13 @@ func NewPoint2O(x int, y int) *Point {
 // `var myPoint = new Phaser.Point();`
 // You can also use them as 2D Vectors and you'll find different vector related methods in this class.
 func NewPointI(args ...interface{}) *Point {
-    return &Point{js.Global.Call("Phaser.Point", args)}
+    return &Point{js.Global.Get("Phaser").Get("Point").New(args)}
 }
 
 
 
 // The x value of the point.
-func (self *Point) GetXA() int{
+func (self *Point) X() int{
     return self.Object.Get("x").Int()
 }
 
@@ -61,7 +61,7 @@ func (self *Point) SetXA(member int) {
 }
 
 // The y value of the point.
-func (self *Point) GetYA() int{
+func (self *Point) Y() int{
     return self.Object.Get("y").Int()
 }
 
@@ -71,7 +71,7 @@ func (self *Point) SetYA(member int) {
 }
 
 // The const type of this object.
-func (self *Point) GetTypeA() int{
+func (self *Point) Type() int{
     return self.Object.Get("type").Int()
 }
 

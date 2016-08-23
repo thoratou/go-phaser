@@ -15,12 +15,12 @@ type CanvasGraphics struct {
 
 // A set of functions used by the canvas renderer to draw the primitive graphics data.
 func NewCanvasGraphics() *CanvasGraphics {
-    return &CanvasGraphics{js.Global.Call("PIXI.CanvasGraphics")}
+    return &CanvasGraphics{js.Global.Get("PIXI").Get("CanvasGraphics").New()}
 }
 
 // A set of functions used by the canvas renderer to draw the primitive graphics data.
 func NewCanvasGraphicsI(args ...interface{}) *CanvasGraphics {
-    return &CanvasGraphics{js.Global.Call("PIXI.CanvasGraphics", args)}
+    return &CanvasGraphics{js.Global.Get("PIXI").Get("CanvasGraphics").New(args)}
 }
 
 

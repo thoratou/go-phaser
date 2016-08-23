@@ -15,12 +15,12 @@ type EarCut struct {
 
 // 
 func NewEarCut() *EarCut {
-    return &EarCut{js.Global.Call("PIXI.EarCut")}
+    return &EarCut{js.Global.Get("PIXI").Get("EarCut").New()}
 }
 
 // 
 func NewEarCutI(args ...interface{}) *EarCut {
-    return &EarCut{js.Global.Call("PIXI.EarCut", args)}
+    return &EarCut{js.Global.Get("PIXI").Get("EarCut").New(args)}
 }
 
 

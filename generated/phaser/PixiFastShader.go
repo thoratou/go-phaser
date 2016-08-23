@@ -15,18 +15,18 @@ type PixiFastShader struct {
 
 // 
 func NewPixiFastShader(gl *WebGLContext) *PixiFastShader {
-    return &PixiFastShader{js.Global.Call("PIXI.PixiFastShader", gl)}
+    return &PixiFastShader{js.Global.Get("PIXI").Get("PixiFastShader").New(gl)}
 }
 
 // 
 func NewPixiFastShaderI(args ...interface{}) *PixiFastShader {
-    return &PixiFastShader{js.Global.Call("PIXI.PixiFastShader", args)}
+    return &PixiFastShader{js.Global.Get("PIXI").Get("PixiFastShader").New(args)}
 }
 
 
 
 // 
-func (self *PixiFastShader) GetGlA() WebGLContext{
+func (self *PixiFastShader) Gl() WebGLContext{
     return WrapWebGLContext(self.Object.Get("gl"))
 }
 
@@ -36,7 +36,7 @@ func (self *PixiFastShader) SetGlA(member WebGLContext) {
 }
 
 // The WebGL program.
-func (self *PixiFastShader) GetProgramA() interface{}{
+func (self *PixiFastShader) Program() interface{}{
     return self.Object.Get("program")
 }
 
@@ -46,12 +46,12 @@ func (self *PixiFastShader) SetProgramA(member interface{}) {
 }
 
 // The fragment shader.
-func (self *PixiFastShader) GetFragmentSrcA() []interface{}{
+func (self *PixiFastShader) FragmentSrc() []interface{}{
 	array00 := self.Object.Get("fragmentSrc")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -62,12 +62,12 @@ func (self *PixiFastShader) SetFragmentSrcA(member []interface{}) {
 }
 
 // The vertex shader.
-func (self *PixiFastShader) GetVertexSrcA() []interface{}{
+func (self *PixiFastShader) VertexSrc() []interface{}{
 	array00 := self.Object.Get("vertexSrc")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -78,7 +78,7 @@ func (self *PixiFastShader) SetVertexSrcA(member []interface{}) {
 }
 
 // A local texture counter for multi-texture shaders.
-func (self *PixiFastShader) GetTextureCountA() int{
+func (self *PixiFastShader) TextureCount() int{
     return self.Object.Get("textureCount").Int()
 }
 

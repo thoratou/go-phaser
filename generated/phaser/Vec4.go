@@ -15,12 +15,12 @@ type Vec4 struct {
 
 // 
 func NewVec4() *Vec4 {
-    return &Vec4{js.Global.Call("vec4")}
+    return &Vec4{js.Global.Get("vec4").New()}
 }
 
 // 
 func NewVec4I(args ...interface{}) *Vec4 {
-    return &Vec4{js.Global.Call("vec4", args)}
+    return &Vec4{js.Global.Get("vec4").New(args)}
 }
 
 

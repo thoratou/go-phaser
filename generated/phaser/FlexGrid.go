@@ -25,7 +25,7 @@ type FlexGrid struct {
 // FlexGrid is a a responsive grid manager that works in conjunction with the ScaleManager RESIZE scaling mode and FlexLayers
 // to provide for game object positioning in a responsive manner.
 func NewFlexGrid(manager *ScaleManager, width int, height int) *FlexGrid {
-    return &FlexGrid{js.Global.Call("Phaser.FlexGrid", manager, width, height)}
+    return &FlexGrid{js.Global.Get("Phaser").Get("FlexGrid").New(manager, width, height)}
 }
 
 // WARNING: This is an EXPERIMENTAL class. The API will change significantly in the coming versions and is incomplete.
@@ -35,13 +35,13 @@ func NewFlexGrid(manager *ScaleManager, width int, height int) *FlexGrid {
 // FlexGrid is a a responsive grid manager that works in conjunction with the ScaleManager RESIZE scaling mode and FlexLayers
 // to provide for game object positioning in a responsive manner.
 func NewFlexGridI(args ...interface{}) *FlexGrid {
-    return &FlexGrid{js.Global.Call("Phaser.FlexGrid", args)}
+    return &FlexGrid{js.Global.Get("Phaser").Get("FlexGrid").New(args)}
 }
 
 
 
 // A reference to the currently running Game.
-func (self *FlexGrid) GetGameA() *Game{
+func (self *FlexGrid) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -51,7 +51,7 @@ func (self *FlexGrid) SetGameA(member *Game) {
 }
 
 // A reference to the ScaleManager.
-func (self *FlexGrid) GetManagerA() *ScaleManager{
+func (self *FlexGrid) Manager() *ScaleManager{
     return &ScaleManager{self.Object.Get("manager")}
 }
 
@@ -61,7 +61,7 @@ func (self *FlexGrid) SetManagerA(member *ScaleManager) {
 }
 
 // -
-func (self *FlexGrid) GetPositionCustomA() interface{}{
+func (self *FlexGrid) PositionCustom() interface{}{
     return self.Object.Get("positionCustom")
 }
 
@@ -71,7 +71,7 @@ func (self *FlexGrid) SetPositionCustomA(member interface{}) {
 }
 
 // The scale factor based on the game dimensions vs. the scaled dimensions.
-func (self *FlexGrid) GetScaleCustomA() interface{}{
+func (self *FlexGrid) ScaleCustom() interface{}{
     return self.Object.Get("scaleCustom")
 }
 

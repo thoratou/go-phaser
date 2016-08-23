@@ -27,7 +27,7 @@ type TweenManager struct {
 // It also has callbacks swapped for Signals and a few issues patched with regard to properties and completion errors.
 // Please see https://github.com/sole/tween.js for a full list of contributors.
 func NewTweenManager(game *Game) *TweenManager {
-    return &TweenManager{js.Global.Call("Phaser.TweenManager", game)}
+    return &TweenManager{js.Global.Get("Phaser").Get("TweenManager").New(game)}
 }
 
 // Phaser.Game has a single instance of the TweenManager through which all Tween objects are created and updated.
@@ -38,13 +38,13 @@ func NewTweenManager(game *Game) *TweenManager {
 // It also has callbacks swapped for Signals and a few issues patched with regard to properties and completion errors.
 // Please see https://github.com/sole/tween.js for a full list of contributors.
 func NewTweenManagerI(args ...interface{}) *TweenManager {
-    return &TweenManager{js.Global.Call("Phaser.TweenManager", args)}
+    return &TweenManager{js.Global.Get("Phaser").Get("TweenManager").New(args)}
 }
 
 
 
 // Local reference to game.
-func (self *TweenManager) GetGameA() *Game{
+func (self *TweenManager) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -60,7 +60,7 @@ func (self *TweenManager) SetGameA(member *Game) {
 // If the Tween uses a time based update (which is the default) then the duration is given in milliseconds.
 // In this situation a 2000ms tween will last exactly 2 seconds, regardless of the device and how many visual updates the tween
 // has actually been through. For very short tweens you may wish to experiment with a frame based update instead.
-func (self *TweenManager) GetFrameBasedA() bool{
+func (self *TweenManager) FrameBased() bool{
     return self.Object.Get("frameBased").Bool()
 }
 

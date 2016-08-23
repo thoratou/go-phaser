@@ -25,7 +25,7 @@ type Create struct {
 // 
 // Access this via `Game.create` (`this.game.create` from within a State object)
 func NewCreate(game *Game) *Create {
-    return &Create{js.Global.Call("Phaser.Create", game)}
+    return &Create{js.Global.Get("Phaser").Get("Create").New(game)}
 }
 
 // The Phaser.Create class is a collection of smaller helper methods that allow you to generate game content
@@ -34,13 +34,13 @@ func NewCreate(game *Game) *Create {
 // 
 // Access this via `Game.create` (`this.game.create` from within a State object)
 func NewCreateI(args ...interface{}) *Create {
-    return &Create{js.Global.Call("Phaser.Create", args)}
+    return &Create{js.Global.Get("Phaser").Get("Create").New(args)}
 }
 
 
 
 // A reference to the currently running Game.
-func (self *Create) GetGameA() *Game{
+func (self *Create) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -50,7 +50,7 @@ func (self *Create) SetGameA(member *Game) {
 }
 
 // The internal BitmapData Create uses to generate textures from.
-func (self *Create) GetBmdA() *BitmapData{
+func (self *Create) Bmd() *BitmapData{
     return &BitmapData{self.Object.Get("bmd")}
 }
 
@@ -60,7 +60,7 @@ func (self *Create) SetBmdA(member *BitmapData) {
 }
 
 // The canvas the BitmapData uses.
-func (self *Create) GetCanvasA() dom.HTMLCanvasElement{
+func (self *Create) Canvas() dom.HTMLCanvasElement{
     return WrapHTMLCanvasElement(self.Object.Get("canvas"))
 }
 
@@ -70,7 +70,7 @@ func (self *Create) SetCanvasA(member dom.HTMLCanvasElement) {
 }
 
 // The 2d context of the canvas.
-func (self *Create) GetCtxA() interface{}{
+func (self *Create) Ctx() interface{}{
     return self.Object.Get("ctx")
 }
 
@@ -80,12 +80,12 @@ func (self *Create) SetCtxA(member interface{}) {
 }
 
 // A range of 16 color palettes for use with sprite generation.
-func (self *Create) GetPalettesA() []interface{}{
+func (self *Create) Palettes() []interface{}{
 	array00 := self.Object.Get("palettes")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -96,7 +96,7 @@ func (self *Create) SetPalettesA(member []interface{}) {
 }
 
 // A 16 color palette by [Arne](http://androidarts.com/palette/16pal.htm)
-func (self *Create) GetPALETTE_ARNEA() int{
+func (self *Create) PALETTE_ARNE() int{
     return self.Object.Get("PALETTE_ARNE").Int()
 }
 
@@ -106,7 +106,7 @@ func (self *Create) SetPALETTE_ARNEA(member int) {
 }
 
 // A 16 color JMP inspired palette.
-func (self *Create) GetPALETTE_JMPA() int{
+func (self *Create) PALETTE_JMP() int{
     return self.Object.Get("PALETTE_JMP").Int()
 }
 
@@ -116,7 +116,7 @@ func (self *Create) SetPALETTE_JMPA(member int) {
 }
 
 // A 16 color CGA inspired palette.
-func (self *Create) GetPALETTE_CGAA() int{
+func (self *Create) PALETTE_CGA() int{
     return self.Object.Get("PALETTE_CGA").Int()
 }
 
@@ -126,7 +126,7 @@ func (self *Create) SetPALETTE_CGAA(member int) {
 }
 
 // A 16 color C64 inspired palette.
-func (self *Create) GetPALETTE_C64A() int{
+func (self *Create) PALETTE_C64() int{
     return self.Object.Get("PALETTE_C64").Int()
 }
 
@@ -136,7 +136,7 @@ func (self *Create) SetPALETTE_C64A(member int) {
 }
 
 // A 16 color palette inspired by Japanese computers like the MSX.
-func (self *Create) GetPALETTE_JAPANESE_MACHINEA() int{
+func (self *Create) PALETTE_JAPANESE_MACHINE() int{
     return self.Object.Get("PALETTE_JAPANESE_MACHINE").Int()
 }
 

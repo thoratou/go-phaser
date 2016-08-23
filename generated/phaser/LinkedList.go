@@ -25,7 +25,7 @@ type LinkedList struct {
 // - Items _cannot_ be added to multiple LinkedLists at the same time.
 // - Only objects can be added.
 func NewLinkedList() *LinkedList {
-    return &LinkedList{js.Global.Call("Phaser.LinkedList")}
+    return &LinkedList{js.Global.Get("Phaser").Get("LinkedList").New()}
 }
 
 // A basic Linked List data structure.
@@ -35,13 +35,13 @@ func NewLinkedList() *LinkedList {
 // - Items _cannot_ be added to multiple LinkedLists at the same time.
 // - Only objects can be added.
 func NewLinkedListI(args ...interface{}) *LinkedList {
-    return &LinkedList{js.Global.Call("Phaser.LinkedList", args)}
+    return &LinkedList{js.Global.Get("Phaser").Get("LinkedList").New(args)}
 }
 
 
 
 // Next element in the list.
-func (self *LinkedList) GetNextA() interface{}{
+func (self *LinkedList) Next() interface{}{
     return self.Object.Get("next")
 }
 
@@ -51,7 +51,7 @@ func (self *LinkedList) SetNextA(member interface{}) {
 }
 
 // Previous element in the list.
-func (self *LinkedList) GetPrevA() interface{}{
+func (self *LinkedList) Prev() interface{}{
     return self.Object.Get("prev")
 }
 
@@ -61,7 +61,7 @@ func (self *LinkedList) SetPrevA(member interface{}) {
 }
 
 // First element in the list.
-func (self *LinkedList) GetFirstA() interface{}{
+func (self *LinkedList) First() interface{}{
     return self.Object.Get("first")
 }
 
@@ -71,7 +71,7 @@ func (self *LinkedList) SetFirstA(member interface{}) {
 }
 
 // Last element in the list.
-func (self *LinkedList) GetLastA() interface{}{
+func (self *LinkedList) Last() interface{}{
     return self.Object.Get("last")
 }
 
@@ -81,7 +81,7 @@ func (self *LinkedList) SetLastA(member interface{}) {
 }
 
 // Number of elements in the list.
-func (self *LinkedList) GetTotalA() int{
+func (self *LinkedList) Total() int{
     return self.Object.Get("total").Int()
 }
 
@@ -124,7 +124,7 @@ func (self *LinkedList) RemoveI(args ...interface{}) {
 
 // Calls a function on all members of this list, using the member as the context for the callback.
 // The function must exist on the member.
-func (self *LinkedList) CallAll(callback func(...interface{})) {
+func (self *LinkedList) CallAll(callback interface{}) {
     self.Object.Call("callAll", callback)
 }
 

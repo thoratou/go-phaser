@@ -15,18 +15,18 @@ type StripShader struct {
 
 // 
 func NewStripShader(gl *WebGLContext) *StripShader {
-    return &StripShader{js.Global.Call("PIXI.StripShader", gl)}
+    return &StripShader{js.Global.Get("PIXI").Get("StripShader").New(gl)}
 }
 
 // 
 func NewStripShaderI(args ...interface{}) *StripShader {
-    return &StripShader{js.Global.Call("PIXI.StripShader", args)}
+    return &StripShader{js.Global.Get("PIXI").Get("StripShader").New(args)}
 }
 
 
 
 // 
-func (self *StripShader) GetGlA() WebGLContext{
+func (self *StripShader) Gl() WebGLContext{
     return WrapWebGLContext(self.Object.Get("gl"))
 }
 
@@ -36,7 +36,7 @@ func (self *StripShader) SetGlA(member WebGLContext) {
 }
 
 // The WebGL program.
-func (self *StripShader) GetProgramA() interface{}{
+func (self *StripShader) Program() interface{}{
     return self.Object.Get("program")
 }
 
@@ -46,12 +46,12 @@ func (self *StripShader) SetProgramA(member interface{}) {
 }
 
 // The fragment shader.
-func (self *StripShader) GetFragmentSrcA() []interface{}{
+func (self *StripShader) FragmentSrc() []interface{}{
 	array00 := self.Object.Get("fragmentSrc")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -62,12 +62,12 @@ func (self *StripShader) SetFragmentSrcA(member []interface{}) {
 }
 
 // The vertex shader.
-func (self *StripShader) GetVertexSrcA() []interface{}{
+func (self *StripShader) VertexSrc() []interface{}{
 	array00 := self.Object.Get("vertexSrc")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }

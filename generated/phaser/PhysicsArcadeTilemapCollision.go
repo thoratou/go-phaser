@@ -15,18 +15,18 @@ type PhysicsArcadeTilemapCollision struct {
 
 // The Arcade Physics Tile map collision methods.
 func NewPhysicsArcadeTilemapCollision() *PhysicsArcadeTilemapCollision {
-    return &PhysicsArcadeTilemapCollision{js.Global.Call("Phaser.Physics.Arcade.TilemapCollision")}
+    return &PhysicsArcadeTilemapCollision{js.Global.Get("Phaser").Get("Physics").Get("Arcade").Get("TilemapCollision").New()}
 }
 
 // The Arcade Physics Tile map collision methods.
 func NewPhysicsArcadeTilemapCollisionI(args ...interface{}) *PhysicsArcadeTilemapCollision {
-    return &PhysicsArcadeTilemapCollision{js.Global.Call("Phaser.Physics.Arcade.TilemapCollision", args)}
+    return &PhysicsArcadeTilemapCollision{js.Global.Get("Phaser").Get("Physics").Get("Arcade").Get("TilemapCollision").New(args)}
 }
 
 
 
 // A value added to the delta values during collision with tiles. Adjust this if you get tunneling.
-func (self *PhysicsArcadeTilemapCollision) GetTILE_BIASA() int{
+func (self *PhysicsArcadeTilemapCollision) TILE_BIAS() int{
     return self.Object.Get("TILE_BIAS").Int()
 }
 

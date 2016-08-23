@@ -15,18 +15,18 @@ type InputHandler struct {
 
 // The Input Handler is bound to a specific Sprite and is responsible for managing all Input events on that Sprite.
 func NewInputHandler(sprite *Sprite) *InputHandler {
-    return &InputHandler{js.Global.Call("Phaser.InputHandler", sprite)}
+    return &InputHandler{js.Global.Get("Phaser").Get("InputHandler").New(sprite)}
 }
 
 // The Input Handler is bound to a specific Sprite and is responsible for managing all Input events on that Sprite.
 func NewInputHandlerI(args ...interface{}) *InputHandler {
-    return &InputHandler{js.Global.Call("Phaser.InputHandler", args)}
+    return &InputHandler{js.Global.Get("Phaser").Get("InputHandler").New(args)}
 }
 
 
 
 // The Sprite object to which this Input Handler belongs.
-func (self *InputHandler) GetSpriteA() *Sprite{
+func (self *InputHandler) Sprite() *Sprite{
     return &Sprite{self.Object.Get("sprite")}
 }
 
@@ -36,7 +36,7 @@ func (self *InputHandler) SetSpriteA(member *Sprite) {
 }
 
 // A reference to the currently running game.
-func (self *InputHandler) GetGameA() *Game{
+func (self *InputHandler) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -46,7 +46,7 @@ func (self *InputHandler) SetGameA(member *Game) {
 }
 
 // If enabled the Input Handler will process input requests and monitor pointer activity.
-func (self *InputHandler) GetEnabledA() bool{
+func (self *InputHandler) Enabled() bool{
     return self.Object.Get("enabled").Bool()
 }
 
@@ -56,7 +56,7 @@ func (self *InputHandler) SetEnabledA(member bool) {
 }
 
 // A disposable flag used by the Pointer class when performing priority checks.
-func (self *InputHandler) GetCheckedA() bool{
+func (self *InputHandler) Checked() bool{
     return self.Object.Get("checked").Bool()
 }
 
@@ -68,7 +68,7 @@ func (self *InputHandler) SetCheckedA(member bool) {
 // The priorityID is used to determine which game objects should get priority when input events occur. For example if you have
 // several Sprites that overlap, by default the one at the top of the display list is given priority for input events. You can
 // stop this from happening by controlling the priorityID value. The higher the value, the more important they are considered to the Input events.
-func (self *InputHandler) GetPriorityIDA() int{
+func (self *InputHandler) PriorityID() int{
     return self.Object.Get("priorityID").Int()
 }
 
@@ -80,7 +80,7 @@ func (self *InputHandler) SetPriorityIDA(member int) {
 }
 
 // On a desktop browser you can set the 'hand' cursor to appear when moving over the Sprite.
-func (self *InputHandler) GetUseHandCursorA() bool{
+func (self *InputHandler) UseHandCursor() bool{
     return self.Object.Get("useHandCursor").Bool()
 }
 
@@ -90,7 +90,7 @@ func (self *InputHandler) SetUseHandCursorA(member bool) {
 }
 
 // true if the Sprite is being currently dragged.
-func (self *InputHandler) GetIsDraggedA() bool{
+func (self *InputHandler) IsDragged() bool{
     return self.Object.Get("isDragged").Bool()
 }
 
@@ -100,7 +100,7 @@ func (self *InputHandler) SetIsDraggedA(member bool) {
 }
 
 // Controls if the Sprite is allowed to be dragged horizontally.
-func (self *InputHandler) GetAllowHorizontalDragA() bool{
+func (self *InputHandler) AllowHorizontalDrag() bool{
     return self.Object.Get("allowHorizontalDrag").Bool()
 }
 
@@ -110,7 +110,7 @@ func (self *InputHandler) SetAllowHorizontalDragA(member bool) {
 }
 
 // Controls if the Sprite is allowed to be dragged vertically.
-func (self *InputHandler) GetAllowVerticalDragA() bool{
+func (self *InputHandler) AllowVerticalDrag() bool{
     return self.Object.Get("allowVerticalDrag").Bool()
 }
 
@@ -120,7 +120,7 @@ func (self *InputHandler) SetAllowVerticalDragA(member bool) {
 }
 
 // If true when this Sprite is clicked or dragged it will automatically be bought to the top of the Group it is within.
-func (self *InputHandler) GetBringToTopA() bool{
+func (self *InputHandler) BringToTop() bool{
     return self.Object.Get("bringToTop").Bool()
 }
 
@@ -130,7 +130,7 @@ func (self *InputHandler) SetBringToTopA(member bool) {
 }
 
 // A Point object that contains by how far the Sprite snap is offset.
-func (self *InputHandler) GetSnapOffsetA() *Point{
+func (self *InputHandler) SnapOffset() *Point{
     return &Point{self.Object.Get("snapOffset")}
 }
 
@@ -140,7 +140,7 @@ func (self *InputHandler) SetSnapOffsetA(member *Point) {
 }
 
 // When the Sprite is dragged this controls if the center of the Sprite will snap to the pointer on drag or not.
-func (self *InputHandler) GetSnapOnDragA() bool{
+func (self *InputHandler) SnapOnDrag() bool{
     return self.Object.Get("snapOnDrag").Bool()
 }
 
@@ -150,7 +150,7 @@ func (self *InputHandler) SetSnapOnDragA(member bool) {
 }
 
 // When the Sprite is dragged this controls if the Sprite will be snapped on release.
-func (self *InputHandler) GetSnapOnReleaseA() bool{
+func (self *InputHandler) SnapOnRelease() bool{
     return self.Object.Get("snapOnRelease").Bool()
 }
 
@@ -160,7 +160,7 @@ func (self *InputHandler) SetSnapOnReleaseA(member bool) {
 }
 
 // When a Sprite has snapping enabled this holds the width of the snap grid.
-func (self *InputHandler) GetSnapXA() int{
+func (self *InputHandler) SnapX() int{
     return self.Object.Get("snapX").Int()
 }
 
@@ -170,7 +170,7 @@ func (self *InputHandler) SetSnapXA(member int) {
 }
 
 // When a Sprite has snapping enabled this holds the height of the snap grid.
-func (self *InputHandler) GetSnapYA() int{
+func (self *InputHandler) SnapY() int{
     return self.Object.Get("snapY").Int()
 }
 
@@ -180,7 +180,7 @@ func (self *InputHandler) SetSnapYA(member int) {
 }
 
 // This defines the top-left X coordinate of the snap grid.
-func (self *InputHandler) GetSnapOffsetXA() int{
+func (self *InputHandler) SnapOffsetX() int{
     return self.Object.Get("snapOffsetX").Int()
 }
 
@@ -190,7 +190,7 @@ func (self *InputHandler) SetSnapOffsetXA(member int) {
 }
 
 // This defines the top-left Y coordinate of the snap grid..
-func (self *InputHandler) GetSnapOffsetYA() int{
+func (self *InputHandler) SnapOffsetY() int{
     return self.Object.Get("snapOffsetY").Int()
 }
 
@@ -203,7 +203,7 @@ func (self *InputHandler) SetSnapOffsetYA(member int) {
 // The x/y coordinates of the pointer are tested against the image in combination with the InputHandler.pixelPerfectAlpha value.
 // This feature only works for display objects with image based textures such as Sprites. It won't work on BitmapText or Rope.
 // Warning: This is expensive, especially on mobile (where it's not even needed!) so only enable if required. Also see the less-expensive InputHandler.pixelPerfectClick. Use a pixel perfect check when testing for pointer over.
-func (self *InputHandler) GetPixelPerfectOverA() bool{
+func (self *InputHandler) PixelPerfectOver() bool{
     return self.Object.Get("pixelPerfectOver").Bool()
 }
 
@@ -219,7 +219,7 @@ func (self *InputHandler) SetPixelPerfectOverA(member bool) {
 // The x/y coordinates of the pointer are tested against the image in combination with the InputHandler.pixelPerfectAlpha value.
 // This feature only works for display objects with image based textures such as Sprites. It won't work on BitmapText or Rope.
 // Warning: This is expensive so only enable if you really need it. Use a pixel perfect check when testing for clicks or touches on the Sprite.
-func (self *InputHandler) GetPixelPerfectClickA() bool{
+func (self *InputHandler) PixelPerfectClick() bool{
     return self.Object.Get("pixelPerfectClick").Bool()
 }
 
@@ -232,7 +232,7 @@ func (self *InputHandler) SetPixelPerfectClickA(member bool) {
 }
 
 // The alpha tolerance threshold. If the alpha value of the pixel matches or is above this value, it's considered a hit.
-func (self *InputHandler) GetPixelPerfectAlphaA() int{
+func (self *InputHandler) PixelPerfectAlpha() int{
     return self.Object.Get("pixelPerfectAlpha").Int()
 }
 
@@ -242,7 +242,7 @@ func (self *InputHandler) SetPixelPerfectAlphaA(member int) {
 }
 
 // Is this sprite allowed to be dragged by the mouse? true = yes, false = no
-func (self *InputHandler) GetDraggableA() bool{
+func (self *InputHandler) Draggable() bool{
     return self.Object.Get("draggable").Bool()
 }
 
@@ -252,7 +252,7 @@ func (self *InputHandler) SetDraggableA(member bool) {
 }
 
 // A region of the game world within which the sprite is restricted during drag.
-func (self *InputHandler) GetBoundsRectA() *Rectangle{
+func (self *InputHandler) BoundsRect() *Rectangle{
     return &Rectangle{self.Object.Get("boundsRect")}
 }
 
@@ -262,7 +262,7 @@ func (self *InputHandler) SetBoundsRectA(member *Rectangle) {
 }
 
 // A Sprite the bounds of which this sprite is restricted during drag.
-func (self *InputHandler) GetBoundsSpriteA() *Sprite{
+func (self *InputHandler) BoundsSprite() *Sprite{
     return &Sprite{self.Object.Get("boundsSprite")}
 }
 
@@ -272,7 +272,7 @@ func (self *InputHandler) SetBoundsSpriteA(member *Sprite) {
 }
 
 // EXPERIMENTAL: Please do not use this property unless you know what it does. Likely to change in the future.
-func (self *InputHandler) GetScaleLayerA() bool{
+func (self *InputHandler) ScaleLayer() bool{
     return self.Object.Get("scaleLayer").Bool()
 }
 
@@ -282,7 +282,7 @@ func (self *InputHandler) SetScaleLayerA(member bool) {
 }
 
 // The offset from the Sprites position that dragging takes place from.
-func (self *InputHandler) GetDragOffsetA() *Point{
+func (self *InputHandler) DragOffset() *Point{
     return &Point{self.Object.Get("dragOffset")}
 }
 
@@ -292,7 +292,7 @@ func (self *InputHandler) SetDragOffsetA(member *Point) {
 }
 
 // Is the Sprite dragged from its center, or the point at which the Pointer was pressed down upon it?
-func (self *InputHandler) GetDragFromCenterA() bool{
+func (self *InputHandler) DragFromCenter() bool{
     return self.Object.Get("dragFromCenter").Bool()
 }
 
@@ -302,7 +302,7 @@ func (self *InputHandler) SetDragFromCenterA(member bool) {
 }
 
 // If enabled, when the Sprite stops being dragged, it will only dispatch the `onDragStop` event, and not the `onInputUp` event. If set to `false` it will dispatch both events.
-func (self *InputHandler) GetDragStopBlocksInputUpA() bool{
+func (self *InputHandler) DragStopBlocksInputUp() bool{
     return self.Object.Get("dragStopBlocksInputUp").Bool()
 }
 
@@ -312,7 +312,7 @@ func (self *InputHandler) SetDragStopBlocksInputUpA(member bool) {
 }
 
 // The Point from which the most recent drag started from. Useful if you need to return an object to its starting position.
-func (self *InputHandler) GetDragStartPointA() *Point{
+func (self *InputHandler) DragStartPoint() *Point{
     return &Point{self.Object.Get("dragStartPoint")}
 }
 
@@ -322,7 +322,7 @@ func (self *InputHandler) SetDragStartPointA(member *Point) {
 }
 
 // The distance, in pixels, the pointer has to move while being held down, before the Sprite thinks it is being dragged.
-func (self *InputHandler) GetDragDistanceThresholdA() int{
+func (self *InputHandler) DragDistanceThreshold() int{
     return self.Object.Get("dragDistanceThreshold").Int()
 }
 
@@ -332,7 +332,7 @@ func (self *InputHandler) SetDragDistanceThresholdA(member int) {
 }
 
 // The amount of time, in ms, the pointer has to be held down over the Sprite before it thinks it is being dragged.
-func (self *InputHandler) GetDragTimeThresholdA() int{
+func (self *InputHandler) DragTimeThreshold() int{
     return self.Object.Get("dragTimeThreshold").Int()
 }
 
@@ -342,7 +342,7 @@ func (self *InputHandler) SetDragTimeThresholdA(member int) {
 }
 
 // A Point object containing the coordinates of the Pointer when it was first pressed down onto this Sprite.
-func (self *InputHandler) GetDownPointA() *Point{
+func (self *InputHandler) DownPoint() *Point{
     return &Point{self.Object.Get("downPoint")}
 }
 
@@ -352,7 +352,7 @@ func (self *InputHandler) SetDownPointA(member *Point) {
 }
 
 // If the sprite is set to snap while dragging this holds the point of the most recent 'snap' event.
-func (self *InputHandler) GetSnapPointA() *Point{
+func (self *InputHandler) SnapPoint() *Point{
     return &Point{self.Object.Get("snapPoint")}
 }
 

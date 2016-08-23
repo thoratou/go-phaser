@@ -63,7 +63,7 @@ type Time struct {
 // 
 //   This time is independent of Phaser and always progresses, regardless of if Phaser is paused.
 func NewTime(game *Game) *Time {
-    return &Time{js.Global.Call("Phaser.Time", game)}
+    return &Time{js.Global.Get("Phaser").Get("Time").New(game)}
 }
 
 // This is the core internal game clock.
@@ -92,13 +92,13 @@ func NewTime(game *Game) *Time {
 // 
 //   This time is independent of Phaser and always progresses, regardless of if Phaser is paused.
 func NewTimeI(args ...interface{}) *Time {
-    return &Time{js.Global.Call("Phaser.Time", args)}
+    return &Time{js.Global.Get("Phaser").Get("Time").New(args)}
 }
 
 
 
 // Local reference to game.
-func (self *Time) GetGameA() *Game{
+func (self *Time) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -108,7 +108,7 @@ func (self *Time) SetGameA(member *Game) {
 }
 
 // The `Date.now()` value when the time was last updated.
-func (self *Time) GetTimeA() int{
+func (self *Time) Time() int{
     return self.Object.Get("time").Int()
 }
 
@@ -118,7 +118,7 @@ func (self *Time) SetTimeA(member int) {
 }
 
 // The `now` when the previous update occurred.
-func (self *Time) GetPrevTimeA() int{
+func (self *Time) PrevTime() int{
     return self.Object.Get("prevTime").Int()
 }
 
@@ -134,7 +134,7 @@ func (self *Time) SetPrevTimeA(member int) {
 // 
 // The source may either be from a high-res source (eg. if RAF is available) or the standard Date.now;
 // the value can only be relied upon within a particular game instance.
-func (self *Time) GetNowA() int{
+func (self *Time) Now() int{
     return self.Object.Get("now").Int()
 }
 
@@ -155,7 +155,7 @@ func (self *Time) SetNowA(member int) {
 // 
 // _Note:_ This is updated only once per game loop - even if multiple logic update steps are done.
 // Use {@link Phaser.Timer#physicsTime physicsTime} as a basis of game/logic calculations instead.
-func (self *Time) GetElapsedA() int{
+func (self *Time) Elapsed() int{
     return self.Object.Get("elapsed").Int()
 }
 
@@ -175,7 +175,7 @@ func (self *Time) SetElapsedA(member int) {
 // 
 // _Note:_ This is updated once per game loop - even if multiple logic update steps are done.
 // Use {@link Phaser.Timer#physicsTime physicsTime} as a basis of game/logic calculations instead.
-func (self *Time) GetElapsedMSA() int{
+func (self *Time) ElapsedMS() int{
     return self.Object.Get("elapsedMS").Int()
 }
 
@@ -196,7 +196,7 @@ func (self *Time) SetElapsedMSA(member int) {
 // is unable to consistently maintain the desired FPS.
 // 
 // With fixed-step updates this is normally equivalent to `1.0 / desiredFps`.
-func (self *Time) GetPhysicsElapsedA() int{
+func (self *Time) PhysicsElapsed() int{
     return self.Object.Get("physicsElapsed").Int()
 }
 
@@ -212,7 +212,7 @@ func (self *Time) SetPhysicsElapsedA(member int) {
 }
 
 // The physics update delta, in milliseconds - equivalent to `physicsElapsed * 1000`.
-func (self *Time) GetPhysicsElapsedMSA() int{
+func (self *Time) PhysicsElapsedMS() int{
     return self.Object.Get("physicsElapsedMS").Int()
 }
 
@@ -222,7 +222,7 @@ func (self *Time) SetPhysicsElapsedMSA(member int) {
 }
 
 // The desiredFps multiplier as used by Game.update.
-func (self *Time) GetDesiredFpsMultA() int{
+func (self *Time) DesiredFpsMult() int{
     return self.Object.Get("desiredFpsMult").Int()
 }
 
@@ -236,7 +236,7 @@ func (self *Time) SetDesiredFpsMultA(member int) {
 // 
 // _Note:_ This is not available until after a few frames have passed; until then
 // it's set to the same value as desiredFps.
-func (self *Time) GetSuggestedFpsA() int{
+func (self *Time) SuggestedFps() int{
     return self.Object.Get("suggestedFps").Int()
 }
 
@@ -252,7 +252,7 @@ func (self *Time) SetSuggestedFpsA(member int) {
 // Scaling factor to make the game move smoothly in slow motion
 // - 1.0 = normal speed
 // - 2.0 = half speed
-func (self *Time) GetSlowMotionA() int{
+func (self *Time) SlowMotion() int{
     return self.Object.Get("slowMotion").Int()
 }
 
@@ -264,7 +264,7 @@ func (self *Time) SetSlowMotionA(member int) {
 }
 
 // If true then advanced profiling, including the fps rate, fps min/max, suggestedFps and msMin/msMax are updated.
-func (self *Time) GetAdvancedTimingA() bool{
+func (self *Time) AdvancedTiming() bool{
     return self.Object.Get("advancedTiming").Bool()
 }
 
@@ -276,7 +276,7 @@ func (self *Time) SetAdvancedTimingA(member bool) {
 // Advanced timing result: The number of render frames record in the last second.
 // 
 // Only calculated if {@link Phaser.Time#advancedTiming advancedTiming} is enabled.
-func (self *Time) GetFramesA() int{
+func (self *Time) Frames() int{
     return self.Object.Get("frames").Int()
 }
 
@@ -290,7 +290,7 @@ func (self *Time) SetFramesA(member int) {
 // Advanced timing result: Frames per second.
 // 
 // Only calculated if {@link Phaser.Time#advancedTiming advancedTiming} is enabled.
-func (self *Time) GetFpsA() int{
+func (self *Time) Fps() int{
     return self.Object.Get("fps").Int()
 }
 
@@ -305,7 +305,7 @@ func (self *Time) SetFpsA(member int) {
 // 
 // Only calculated if {@link Phaser.Time#advancedTiming advancedTiming} is enabled.
 // This value can be manually reset.
-func (self *Time) GetFpsMinA() int{
+func (self *Time) FpsMin() int{
     return self.Object.Get("fpsMin").Int()
 }
 
@@ -321,7 +321,7 @@ func (self *Time) SetFpsMinA(member int) {
 // 
 // Only calculated if {@link Phaser.Time#advancedTiming advancedTiming} is enabled.
 // This value can be manually reset.
-func (self *Time) GetFpsMaxA() int{
+func (self *Time) FpsMax() int{
     return self.Object.Get("fpsMax").Int()
 }
 
@@ -337,7 +337,7 @@ func (self *Time) SetFpsMaxA(member int) {
 // 
 // Only calculated if {@link Phaser.Time#advancedTiming advancedTiming} is enabled.
 // This value can be manually reset.
-func (self *Time) GetMsMinA() int{
+func (self *Time) MsMin() int{
     return self.Object.Get("msMin").Int()
 }
 
@@ -353,7 +353,7 @@ func (self *Time) SetMsMinA(member int) {
 // 
 // Only calculated if {@link Phaser.Time#advancedTiming advancedTiming} is enabled.
 // This value can be manually reset.
-func (self *Time) GetMsMaxA() int{
+func (self *Time) MsMax() int{
     return self.Object.Get("msMax").Int()
 }
 
@@ -367,7 +367,7 @@ func (self *Time) SetMsMaxA(member int) {
 
 // Records how long the game was last paused, in milliseconds.
 // (This is not updated until the game is resumed.)
-func (self *Time) GetPauseDurationA() int{
+func (self *Time) PauseDuration() int{
     return self.Object.Get("pauseDuration").Int()
 }
 
@@ -378,7 +378,7 @@ func (self *Time) SetPauseDurationA(member int) {
 }
 
 // The value that setTimeout needs to work out when to next update
-func (self *Time) GetTimeToCallA() int{
+func (self *Time) TimeToCall() int{
     return self.Object.Get("timeToCall").Int()
 }
 
@@ -388,7 +388,7 @@ func (self *Time) SetTimeToCallA(member int) {
 }
 
 // The time when the next call is expected when using setTimer to control the update loop
-func (self *Time) GetTimeExpectedA() int{
+func (self *Time) TimeExpected() int{
     return self.Object.Get("timeExpected").Int()
 }
 
@@ -398,7 +398,7 @@ func (self *Time) SetTimeExpectedA(member int) {
 }
 
 // A {@link Phaser.Timer} object bound to the master clock (this Time object) which events can be added to.
-func (self *Time) GetEventsA() *Timer{
+func (self *Time) Events() *Timer{
     return &Timer{self.Object.Get("events")}
 }
 
@@ -410,7 +410,7 @@ func (self *Time) SetEventsA(member *Timer) {
 // The desired frame rate of the game.
 // 
 // This is used is used to calculate the physic / logic multiplier and how to apply catch-up logic updates. The desired frame rate of the game. Defaults to 60.
-func (self *Time) GetDesiredFpsA() int{
+func (self *Time) DesiredFps() int{
     return self.Object.Get("desiredFps").Int()
 }
 

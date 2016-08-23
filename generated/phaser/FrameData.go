@@ -15,18 +15,18 @@ type FrameData struct {
 
 // FrameData is a container for Frame objects, which are the internal representation of animation data in Phaser.
 func NewFrameData() *FrameData {
-    return &FrameData{js.Global.Call("Phaser.FrameData")}
+    return &FrameData{js.Global.Get("Phaser").Get("FrameData").New()}
 }
 
 // FrameData is a container for Frame objects, which are the internal representation of animation data in Phaser.
 func NewFrameDataI(args ...interface{}) *FrameData {
-    return &FrameData{js.Global.Call("Phaser.FrameData", args)}
+    return &FrameData{js.Global.Get("Phaser").Get("FrameData").New(args)}
 }
 
 
 
 // The total number of frames in this FrameData set.
-func (self *FrameData) GetTotalA() int{
+func (self *FrameData) Total() int{
     return self.Object.Get("total").Int()
 }
 
@@ -93,7 +93,7 @@ func (self *FrameData) GetFrameRange(start int, end int) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -104,7 +104,7 @@ func (self *FrameData) GetFrameRange1O(start int, end int, output []interface{})
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -115,7 +115,7 @@ func (self *FrameData) GetFrameRangeI(args ...interface{}) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -127,7 +127,7 @@ func (self *FrameData) GetFrames() []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -139,7 +139,7 @@ func (self *FrameData) GetFrames1O(frames []interface{}) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -151,7 +151,7 @@ func (self *FrameData) GetFrames2O(frames []interface{}, useNumericIndex bool) [
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -163,7 +163,7 @@ func (self *FrameData) GetFrames3O(frames []interface{}, useNumericIndex bool, o
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -175,7 +175,7 @@ func (self *FrameData) GetFramesI(args ...interface{}) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -187,7 +187,7 @@ func (self *FrameData) GetFrameIndexes() []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -199,7 +199,7 @@ func (self *FrameData) GetFrameIndexes1O(frames []interface{}) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -211,7 +211,7 @@ func (self *FrameData) GetFrameIndexes2O(frames []interface{}, useNumericIndex b
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -223,7 +223,7 @@ func (self *FrameData) GetFrameIndexes3O(frames []interface{}, useNumericIndex b
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -235,7 +235,7 @@ func (self *FrameData) GetFrameIndexesI(args ...interface{}) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }

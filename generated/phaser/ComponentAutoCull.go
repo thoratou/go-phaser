@@ -17,13 +17,13 @@ type ComponentAutoCull struct {
 // The AutoCull Component is responsible for providing methods that check if a Game Object is within the bounds of the World Camera.
 // It is used by the InWorld component.
 func NewComponentAutoCull() *ComponentAutoCull {
-    return &ComponentAutoCull{js.Global.Call("Phaser.Component.AutoCull")}
+    return &ComponentAutoCull{js.Global.Get("Phaser").Get("Component").Get("AutoCull").New()}
 }
 
 // The AutoCull Component is responsible for providing methods that check if a Game Object is within the bounds of the World Camera.
 // It is used by the InWorld component.
 func NewComponentAutoCullI(args ...interface{}) *ComponentAutoCull {
-    return &ComponentAutoCull{js.Global.Call("Phaser.Component.AutoCull", args)}
+    return &ComponentAutoCull{js.Global.Get("Phaser").Get("Component").Get("AutoCull").New(args)}
 }
 
 
@@ -34,7 +34,7 @@ func NewComponentAutoCullI(args ...interface{}) *ComponentAutoCull {
 // 
 // This is a relatively expensive operation, especially if enabled on hundreds of Game Objects. So enable it only if you know it's required,
 // or you have tested performance and find it acceptable.
-func (self *ComponentAutoCull) GetAutoCullA() bool{
+func (self *ComponentAutoCull) AutoCull() bool{
     return self.Object.Get("autoCull").Bool()
 }
 
@@ -50,7 +50,7 @@ func (self *ComponentAutoCull) SetAutoCullA(member bool) {
 
 // Checks if the Game Objects bounds intersect with the Game Camera bounds.
 // Returns `true` if they do, otherwise `false` if fully outside of the Cameras bounds.
-func (self *ComponentAutoCull) GetInCameraA() bool{
+func (self *ComponentAutoCull) InCamera() bool{
     return self.Object.Get("inCamera").Bool()
 }
 

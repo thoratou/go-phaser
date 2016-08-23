@@ -61,7 +61,7 @@ type Video struct {
 // Note: On iOS if you need to detect when the user presses the 'Done' button (before the video ends)
 // then you need to add your own event listener
 func NewVideo(game *Game) *Video {
-    return &Video{js.Global.Call("Phaser.Video", game)}
+    return &Video{js.Global.Get("Phaser").Get("Video").New(game)}
 }
 
 // A Video object that takes a previously loaded Video from the Phaser Cache and handles playback of it.
@@ -88,7 +88,7 @@ func NewVideo(game *Game) *Video {
 // Note: On iOS if you need to detect when the user presses the 'Done' button (before the video ends)
 // then you need to add your own event listener
 func NewVideo1O(game *Game, key interface{}) *Video {
-    return &Video{js.Global.Call("Phaser.Video", game, key)}
+    return &Video{js.Global.Get("Phaser").Get("Video").New(game, key)}
 }
 
 // A Video object that takes a previously loaded Video from the Phaser Cache and handles playback of it.
@@ -115,7 +115,7 @@ func NewVideo1O(game *Game, key interface{}) *Video {
 // Note: On iOS if you need to detect when the user presses the 'Done' button (before the video ends)
 // then you need to add your own event listener
 func NewVideo2O(game *Game, key interface{}, url interface{}) *Video {
-    return &Video{js.Global.Call("Phaser.Video", game, key, url)}
+    return &Video{js.Global.Get("Phaser").Get("Video").New(game, key, url)}
 }
 
 // A Video object that takes a previously loaded Video from the Phaser Cache and handles playback of it.
@@ -142,13 +142,13 @@ func NewVideo2O(game *Game, key interface{}, url interface{}) *Video {
 // Note: On iOS if you need to detect when the user presses the 'Done' button (before the video ends)
 // then you need to add your own event listener
 func NewVideoI(args ...interface{}) *Video {
-    return &Video{js.Global.Call("Phaser.Video", args)}
+    return &Video{js.Global.Get("Phaser").Get("Video").New(args)}
 }
 
 
 
 // A reference to the currently running game.
-func (self *Video) GetGameA() *Game{
+func (self *Video) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -158,7 +158,7 @@ func (self *Video) SetGameA(member *Game) {
 }
 
 // The key of the Video in the Cache, if stored there. Will be `null` if this Video is using the webcam instead.
-func (self *Video) GetKeyA() string{
+func (self *Video) Key() string{
     return self.Object.Get("key").String()
 }
 
@@ -168,7 +168,7 @@ func (self *Video) SetKeyA(member string) {
 }
 
 // The width of the video in pixels.
-func (self *Video) GetWidthA() int{
+func (self *Video) Width() int{
     return self.Object.Get("width").Int()
 }
 
@@ -178,7 +178,7 @@ func (self *Video) SetWidthA(member int) {
 }
 
 // The height of the video in pixels.
-func (self *Video) GetHeightA() int{
+func (self *Video) Height() int{
     return self.Object.Get("height").Int()
 }
 
@@ -188,7 +188,7 @@ func (self *Video) SetHeightA(member int) {
 }
 
 // The const type of this object.
-func (self *Video) GetTypeA() int{
+func (self *Video) Type() int{
     return self.Object.Get("type").Int()
 }
 
@@ -198,7 +198,7 @@ func (self *Video) SetTypeA(member int) {
 }
 
 // If true this video will never send its image data to the GPU when its dirty flag is true. This only applies in WebGL.
-func (self *Video) GetDisableTextureUploadA() bool{
+func (self *Video) DisableTextureUpload() bool{
     return self.Object.Get("disableTextureUpload").Bool()
 }
 
@@ -208,7 +208,7 @@ func (self *Video) SetDisableTextureUploadA(member bool) {
 }
 
 // true if this video is currently locked awaiting a touch event. This happens on some mobile devices, such as iOS.
-func (self *Video) GetTouchLockedA() bool{
+func (self *Video) TouchLocked() bool{
     return self.Object.Get("touchLocked").Bool()
 }
 
@@ -218,7 +218,7 @@ func (self *Video) SetTouchLockedA(member bool) {
 }
 
 // This signal is dispatched when the Video starts to play. It sends 3 parameters: a reference to the Video object, if the video is set to loop or not and the playback rate.
-func (self *Video) GetOnPlayA() *Signal{
+func (self *Video) OnPlay() *Signal{
     return &Signal{self.Object.Get("onPlay")}
 }
 
@@ -228,7 +228,7 @@ func (self *Video) SetOnPlayA(member *Signal) {
 }
 
 // This signal is dispatched if the Video source is changed. It sends 3 parameters: a reference to the Video object and the new width and height of the new video source.
-func (self *Video) GetOnChangeSourceA() *Signal{
+func (self *Video) OnChangeSource() *Signal{
     return &Signal{self.Object.Get("onChangeSource")}
 }
 
@@ -238,7 +238,7 @@ func (self *Video) SetOnChangeSourceA(member *Signal) {
 }
 
 // This signal is dispatched when the Video completes playback, i.e. enters an 'ended' state. On iOS specifically it also fires if the user hits the 'Done' button at any point during playback. Videos set to loop will never dispatch this signal.
-func (self *Video) GetOnCompleteA() *Signal{
+func (self *Video) OnComplete() *Signal{
     return &Signal{self.Object.Get("onComplete")}
 }
 
@@ -248,7 +248,7 @@ func (self *Video) SetOnCompleteA(member *Signal) {
 }
 
 // This signal is dispatched if the user allows access to their webcam.
-func (self *Video) GetOnAccessA() *Signal{
+func (self *Video) OnAccess() *Signal{
     return &Signal{self.Object.Get("onAccess")}
 }
 
@@ -258,7 +258,7 @@ func (self *Video) SetOnAccessA(member *Signal) {
 }
 
 // This signal is dispatched if an error occurs either getting permission to use the webcam (for a Video Stream) or when trying to play back a video file.
-func (self *Video) GetOnErrorA() *Signal{
+func (self *Video) OnError() *Signal{
     return &Signal{self.Object.Get("onError")}
 }
 
@@ -269,7 +269,7 @@ func (self *Video) SetOnErrorA(member *Signal) {
 
 // This signal is dispatched if when asking for permission to use the webcam no response is given within a the Video.timeout limit.
 // This may be because the user has picked `Not now` in the permissions window, or there is a delay in establishing the LocalMediaStream.
-func (self *Video) GetOnTimeoutA() *Signal{
+func (self *Video) OnTimeout() *Signal{
     return &Signal{self.Object.Get("onTimeout")}
 }
 
@@ -280,7 +280,7 @@ func (self *Video) SetOnTimeoutA(member *Signal) {
 }
 
 // The amount of ms allowed to elapsed before the Video.onTimeout signal is dispatched while waiting for webcam access.
-func (self *Video) GetTimeoutA() int{
+func (self *Video) Timeout() int{
     return self.Object.Get("timeout").Int()
 }
 
@@ -290,7 +290,7 @@ func (self *Video) SetTimeoutA(member int) {
 }
 
 // The HTML Video Element that is added to the document.
-func (self *Video) GetVideoA() dom.HTMLVideoElement{
+func (self *Video) Video() dom.HTMLVideoElement{
     return WrapHTMLVideoElement(self.Object.Get("video"))
 }
 
@@ -300,7 +300,7 @@ func (self *Video) SetVideoA(member dom.HTMLVideoElement) {
 }
 
 // The Video Stream data. Only set if this Video is streaming from the webcam via `startMediaStream`.
-func (self *Video) GetVideoStreamA() *MediaStream{
+func (self *Video) VideoStream() *MediaStream{
     return &MediaStream{self.Object.Get("videoStream")}
 }
 
@@ -310,7 +310,7 @@ func (self *Video) SetVideoStreamA(member *MediaStream) {
 }
 
 // Is there a streaming video source? I.e. from a webcam.
-func (self *Video) GetIsStreamingA() bool{
+func (self *Video) IsStreaming() bool{
     return self.Object.Get("isStreaming").Bool()
 }
 
@@ -322,7 +322,7 @@ func (self *Video) SetIsStreamingA(member bool) {
 // When starting playback of a video Phaser will monitor its readyState using a setTimeout call.
 // The setTimeout happens once every `Video.retryInterval` ms. It will carry on monitoring the video
 // state in this manner until the `retryLimit` is reached and then abort.
-func (self *Video) GetRetryLimitA() int{
+func (self *Video) RetryLimit() int{
     return self.Object.Get("retryLimit").Int()
 }
 
@@ -334,7 +334,7 @@ func (self *Video) SetRetryLimitA(member int) {
 }
 
 // The current retry attempt.
-func (self *Video) GetRetryA() int{
+func (self *Video) Retry() int{
     return self.Object.Get("retry").Int()
 }
 
@@ -344,7 +344,7 @@ func (self *Video) SetRetryA(member int) {
 }
 
 // The number of ms between each retry at monitoring the status of a downloading video.
-func (self *Video) GetRetryIntervalA() int{
+func (self *Video) RetryInterval() int{
     return self.Object.Get("retryInterval").Int()
 }
 
@@ -354,7 +354,7 @@ func (self *Video) SetRetryIntervalA(member int) {
 }
 
 // The PIXI.Texture.
-func (self *Video) GetTextureA() *Texture{
+func (self *Video) Texture() *Texture{
     return &Texture{self.Object.Get("texture")}
 }
 
@@ -364,7 +364,7 @@ func (self *Video) SetTextureA(member *Texture) {
 }
 
 // The Frame this video uses for rendering.
-func (self *Video) GetTextureFrameA() *Frame{
+func (self *Video) TextureFrame() *Frame{
     return &Frame{self.Object.Get("textureFrame")}
 }
 
@@ -376,7 +376,7 @@ func (self *Video) SetTextureFrameA(member *Frame) {
 // A snapshot grabbed from the video. This is initially black. Populate it by calling Video.grab().
 // When called the BitmapData is updated with a grab taken from the current video playing or active video stream.
 // If Phaser has been compiled without BitmapData support this property will always be `null`.
-func (self *Video) GetSnapshotA() *BitmapData{
+func (self *Video) Snapshot() *BitmapData{
     return &BitmapData{self.Object.Get("snapshot")}
 }
 
@@ -388,7 +388,7 @@ func (self *Video) SetSnapshotA(member *BitmapData) {
 }
 
 // The current time of the video in seconds. If set the video will attempt to seek to that point in time.
-func (self *Video) GetCurrentTimeA() int{
+func (self *Video) CurrentTime() int{
     return self.Object.Get("currentTime").Int()
 }
 
@@ -398,7 +398,7 @@ func (self *Video) SetCurrentTimeA(member int) {
 }
 
 // The duration of the video in seconds.
-func (self *Video) GetDurationA() int{
+func (self *Video) Duration() int{
     return self.Object.Get("duration").Int()
 }
 
@@ -408,7 +408,7 @@ func (self *Video) SetDurationA(member int) {
 }
 
 // The progress of this video. This is a value between 0 and 1, where 0 is the start and 1 is the end of the video.
-func (self *Video) GetProgressA() int{
+func (self *Video) Progress() int{
     return self.Object.Get("progress").Int()
 }
 
@@ -418,7 +418,7 @@ func (self *Video) SetProgressA(member int) {
 }
 
 // Gets or sets the muted state of the Video.
-func (self *Video) GetMuteA() bool{
+func (self *Video) Mute() bool{
     return self.Object.Get("mute").Bool()
 }
 
@@ -429,7 +429,7 @@ func (self *Video) SetMuteA(member bool) {
 
 // Gets or sets the paused state of the Video.
 // If the video is still touch locked (such as on iOS devices) this call has no effect.
-func (self *Video) GetPausedA() bool{
+func (self *Video) Paused() bool{
     return self.Object.Get("paused").Bool()
 }
 
@@ -440,7 +440,7 @@ func (self *Video) SetPausedA(member bool) {
 }
 
 // Gets or sets the volume of the Video, a value between 0 and 1. The value given is clamped to the range 0 to 1.
-func (self *Video) GetVolumeA() int{
+func (self *Video) Volume() int{
     return self.Object.Get("volume").Int()
 }
 
@@ -450,7 +450,7 @@ func (self *Video) SetVolumeA(member int) {
 }
 
 // Gets or sets the playback rate of the Video. This is the speed at which the video is playing.
-func (self *Video) GetPlaybackRateA() int{
+func (self *Video) PlaybackRate() int{
     return self.Object.Get("playbackRate").Int()
 }
 
@@ -462,7 +462,7 @@ func (self *Video) SetPlaybackRateA(member int) {
 // Gets or sets if the Video is set to loop.
 // Please note that at present some browsers (i.e. Chrome) do not support *seamless* video looping.
 // If the video isn't yet set this will always return false.
-func (self *Video) GetLoopA() bool{
+func (self *Video) Loop() bool{
     return self.Object.Get("loop").Bool()
 }
 
@@ -474,7 +474,7 @@ func (self *Video) SetLoopA(member bool) {
 }
 
 // True if the video is currently playing (and not paused or ended), otherwise false.
-func (self *Video) GetPlayingA() bool{
+func (self *Video) Playing() bool{
     return self.Object.Get("playing").Bool()
 }
 

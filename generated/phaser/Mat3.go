@@ -15,12 +15,12 @@ type Mat3 struct {
 
 // 
 func NewMat3() *Mat3 {
-    return &Mat3{js.Global.Call("mat3")}
+    return &Mat3{js.Global.Get("mat3").New()}
 }
 
 // 
 func NewMat3I(args ...interface{}) *Mat3 {
-    return &Mat3{js.Global.Call("mat3", args)}
+    return &Mat3{js.Global.Get("mat3").New(args)}
 }
 
 

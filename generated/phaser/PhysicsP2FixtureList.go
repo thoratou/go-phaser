@@ -25,7 +25,7 @@ type PhysicsP2FixtureList struct {
 // This gives you the power to create a complex body built of many fixtures and modify them
 // during runtime (to remove parts, set masks, categories & sensor properties)
 func NewPhysicsP2FixtureList(list []interface{}) *PhysicsP2FixtureList {
-    return &PhysicsP2FixtureList{js.Global.Call("Phaser.Physics.P2.FixtureList", list)}
+    return &PhysicsP2FixtureList{js.Global.Get("Phaser").Get("Physics").Get("P2").Get("FixtureList").New(list)}
 }
 
 // Allow to access a list of created fixture (coming from Body#addPhaserPolygon)
@@ -35,7 +35,7 @@ func NewPhysicsP2FixtureList(list []interface{}) *PhysicsP2FixtureList {
 // This gives you the power to create a complex body built of many fixtures and modify them
 // during runtime (to remove parts, set masks, categories & sensor properties)
 func NewPhysicsP2FixtureListI(args ...interface{}) *PhysicsP2FixtureList {
-    return &PhysicsP2FixtureList{js.Global.Call("Phaser.Physics.P2.FixtureList", args)}
+    return &PhysicsP2FixtureList{js.Global.Get("Phaser").Get("Physics").Get("P2").Get("FixtureList").New(args)}
 }
 
 

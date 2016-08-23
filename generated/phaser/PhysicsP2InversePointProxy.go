@@ -15,18 +15,18 @@ type PhysicsP2InversePointProxy struct {
 
 // A InversePointProxy is an internal class that allows for direct getter/setter style property access to Arrays and TypedArrays but inverses the values on set.
 func NewPhysicsP2InversePointProxy(world *PhysicsP2, destination interface{}) *PhysicsP2InversePointProxy {
-    return &PhysicsP2InversePointProxy{js.Global.Call("Phaser.Physics.P2.InversePointProxy", world, destination)}
+    return &PhysicsP2InversePointProxy{js.Global.Get("Phaser").Get("Physics").Get("P2").Get("InversePointProxy").New(world, destination)}
 }
 
 // A InversePointProxy is an internal class that allows for direct getter/setter style property access to Arrays and TypedArrays but inverses the values on set.
 func NewPhysicsP2InversePointProxyI(args ...interface{}) *PhysicsP2InversePointProxy {
-    return &PhysicsP2InversePointProxy{js.Global.Call("Phaser.Physics.P2.InversePointProxy", args)}
+    return &PhysicsP2InversePointProxy{js.Global.Get("Phaser").Get("Physics").Get("P2").Get("InversePointProxy").New(args)}
 }
 
 
 
 // The x property of this InversePointProxy get and set in pixels.
-func (self *PhysicsP2InversePointProxy) GetXA() int{
+func (self *PhysicsP2InversePointProxy) X() int{
     return self.Object.Get("x").Int()
 }
 
@@ -36,7 +36,7 @@ func (self *PhysicsP2InversePointProxy) SetXA(member int) {
 }
 
 // The y property of this InversePointProxy get and set in pixels.
-func (self *PhysicsP2InversePointProxy) GetYA() int{
+func (self *PhysicsP2InversePointProxy) Y() int{
     return self.Object.Get("y").Int()
 }
 
@@ -46,7 +46,7 @@ func (self *PhysicsP2InversePointProxy) SetYA(member int) {
 }
 
 // The x property of this InversePointProxy get and set in meters.
-func (self *PhysicsP2InversePointProxy) GetMxA() int{
+func (self *PhysicsP2InversePointProxy) Mx() int{
     return self.Object.Get("mx").Int()
 }
 
@@ -56,7 +56,7 @@ func (self *PhysicsP2InversePointProxy) SetMxA(member int) {
 }
 
 // The y property of this InversePointProxy get and set in meters.
-func (self *PhysicsP2InversePointProxy) GetMyA() int{
+func (self *PhysicsP2InversePointProxy) My() int{
     return self.Object.Get("my").Int()
 }
 

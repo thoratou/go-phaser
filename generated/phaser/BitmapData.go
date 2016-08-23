@@ -29,7 +29,7 @@ type BitmapData struct {
 // live on the display list, they are NOT automatically cleared when you change State. Therefore you _must_ call BitmapData.destroy
 // in your State's shutdown method if you wish to free-up the resources the BitmapData used, it will not happen for you.
 func NewBitmapData(game *Game, key string) *BitmapData {
-    return &BitmapData{js.Global.Call("Phaser.BitmapData", game, key)}
+    return &BitmapData{js.Global.Get("Phaser").Get("BitmapData").New(game, key)}
 }
 
 // A BitmapData object contains a Canvas element to which you can draw anything you like via normal Canvas context operations.
@@ -40,7 +40,7 @@ func NewBitmapData(game *Game, key string) *BitmapData {
 // live on the display list, they are NOT automatically cleared when you change State. Therefore you _must_ call BitmapData.destroy
 // in your State's shutdown method if you wish to free-up the resources the BitmapData used, it will not happen for you.
 func NewBitmapData1O(game *Game, key string, width int) *BitmapData {
-    return &BitmapData{js.Global.Call("Phaser.BitmapData", game, key, width)}
+    return &BitmapData{js.Global.Get("Phaser").Get("BitmapData").New(game, key, width)}
 }
 
 // A BitmapData object contains a Canvas element to which you can draw anything you like via normal Canvas context operations.
@@ -51,7 +51,7 @@ func NewBitmapData1O(game *Game, key string, width int) *BitmapData {
 // live on the display list, they are NOT automatically cleared when you change State. Therefore you _must_ call BitmapData.destroy
 // in your State's shutdown method if you wish to free-up the resources the BitmapData used, it will not happen for you.
 func NewBitmapData2O(game *Game, key string, width int, height int) *BitmapData {
-    return &BitmapData{js.Global.Call("Phaser.BitmapData", game, key, width, height)}
+    return &BitmapData{js.Global.Get("Phaser").Get("BitmapData").New(game, key, width, height)}
 }
 
 // A BitmapData object contains a Canvas element to which you can draw anything you like via normal Canvas context operations.
@@ -62,7 +62,7 @@ func NewBitmapData2O(game *Game, key string, width int, height int) *BitmapData 
 // live on the display list, they are NOT automatically cleared when you change State. Therefore you _must_ call BitmapData.destroy
 // in your State's shutdown method if you wish to free-up the resources the BitmapData used, it will not happen for you.
 func NewBitmapData3O(game *Game, key string, width int, height int, skipPool bool) *BitmapData {
-    return &BitmapData{js.Global.Call("Phaser.BitmapData", game, key, width, height, skipPool)}
+    return &BitmapData{js.Global.Get("Phaser").Get("BitmapData").New(game, key, width, height, skipPool)}
 }
 
 // A BitmapData object contains a Canvas element to which you can draw anything you like via normal Canvas context operations.
@@ -73,13 +73,13 @@ func NewBitmapData3O(game *Game, key string, width int, height int, skipPool boo
 // live on the display list, they are NOT automatically cleared when you change State. Therefore you _must_ call BitmapData.destroy
 // in your State's shutdown method if you wish to free-up the resources the BitmapData used, it will not happen for you.
 func NewBitmapDataI(args ...interface{}) *BitmapData {
-    return &BitmapData{js.Global.Call("Phaser.BitmapData", args)}
+    return &BitmapData{js.Global.Get("Phaser").Get("BitmapData").New(args)}
 }
 
 
 
 // A reference to the currently running game.
-func (self *BitmapData) GetGameA() *Game{
+func (self *BitmapData) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -89,7 +89,7 @@ func (self *BitmapData) SetGameA(member *Game) {
 }
 
 // The key of the BitmapData in the Cache, if stored there.
-func (self *BitmapData) GetKeyA() string{
+func (self *BitmapData) Key() string{
     return self.Object.Get("key").String()
 }
 
@@ -99,7 +99,7 @@ func (self *BitmapData) SetKeyA(member string) {
 }
 
 // The width of the BitmapData in pixels.
-func (self *BitmapData) GetWidthA() int{
+func (self *BitmapData) Width() int{
     return self.Object.Get("width").Int()
 }
 
@@ -109,7 +109,7 @@ func (self *BitmapData) SetWidthA(member int) {
 }
 
 // The height of the BitmapData in pixels.
-func (self *BitmapData) GetHeightA() int{
+func (self *BitmapData) Height() int{
     return self.Object.Get("height").Int()
 }
 
@@ -119,7 +119,7 @@ func (self *BitmapData) SetHeightA(member int) {
 }
 
 // The canvas to which this BitmapData draws.
-func (self *BitmapData) GetCanvasA() dom.HTMLCanvasElement{
+func (self *BitmapData) Canvas() dom.HTMLCanvasElement{
     return WrapHTMLCanvasElement(self.Object.Get("canvas"))
 }
 
@@ -129,7 +129,7 @@ func (self *BitmapData) SetCanvasA(member dom.HTMLCanvasElement) {
 }
 
 // The 2d context of the canvas.
-func (self *BitmapData) GetContextA() dom.CanvasRenderingContext2D{
+func (self *BitmapData) Context() dom.CanvasRenderingContext2D{
     return WrapCanvasRenderingContext2D(self.Object.Get("context"))
 }
 
@@ -139,7 +139,7 @@ func (self *BitmapData) SetContextA(member dom.CanvasRenderingContext2D) {
 }
 
 // A reference to BitmapData.context.
-func (self *BitmapData) GetCtxA() dom.CanvasRenderingContext2D{
+func (self *BitmapData) Ctx() dom.CanvasRenderingContext2D{
     return WrapCanvasRenderingContext2D(self.Object.Get("ctx"))
 }
 
@@ -149,7 +149,7 @@ func (self *BitmapData) SetCtxA(member dom.CanvasRenderingContext2D) {
 }
 
 // The context property needed for smoothing this Canvas.
-func (self *BitmapData) GetSmoothPropertyA() string{
+func (self *BitmapData) SmoothProperty() string{
     return self.Object.Get("smoothProperty").String()
 }
 
@@ -161,7 +161,7 @@ func (self *BitmapData) SetSmoothPropertyA(member string) {
 // The context image data.
 // Please note that a call to BitmapData.draw() or BitmapData.copy() does not update immediately this property for performance reason. Use BitmapData.update() to do so.
 // This property is updated automatically after the first game loop, according to the dirty flag property.
-func (self *BitmapData) GetImageDataA() *ImageData{
+func (self *BitmapData) ImageData() *ImageData{
     return &ImageData{self.Object.Get("imageData")}
 }
 
@@ -174,7 +174,7 @@ func (self *BitmapData) SetImageDataA(member *ImageData) {
 
 // A Uint8ClampedArray view into BitmapData.buffer.
 // Note that this is unavailable in some browsers (such as Epic Browser due to its security restrictions)
-func (self *BitmapData) GetDataA() *Uint8ClampedArray{
+func (self *BitmapData) Data() *Uint8ClampedArray{
     return &Uint8ClampedArray{self.Object.Get("data")}
 }
 
@@ -185,7 +185,7 @@ func (self *BitmapData) SetDataA(member *Uint8ClampedArray) {
 }
 
 // An Uint32Array view into BitmapData.buffer.
-func (self *BitmapData) GetPixelsA() *Uint32Array{
+func (self *BitmapData) Pixels() *Uint32Array{
     return &Uint32Array{self.Object.Get("pixels")}
 }
 
@@ -195,7 +195,7 @@ func (self *BitmapData) SetPixelsA(member *Uint32Array) {
 }
 
 // The PIXI.BaseTexture.
-func (self *BitmapData) GetBaseTextureA() *BaseTexture{
+func (self *BitmapData) BaseTexture() *BaseTexture{
     return &BaseTexture{self.Object.Get("baseTexture")}
 }
 
@@ -205,7 +205,7 @@ func (self *BitmapData) SetBaseTextureA(member *BaseTexture) {
 }
 
 // The PIXI.Texture.
-func (self *BitmapData) GetTextureA() *Texture{
+func (self *BitmapData) Texture() *Texture{
     return &Texture{self.Object.Get("texture")}
 }
 
@@ -215,7 +215,7 @@ func (self *BitmapData) SetTextureA(member *Texture) {
 }
 
 // The FrameData container this BitmapData uses for rendering.
-func (self *BitmapData) GetFrameDataA() *FrameData{
+func (self *BitmapData) FrameData() *FrameData{
     return &FrameData{self.Object.Get("frameData")}
 }
 
@@ -225,7 +225,7 @@ func (self *BitmapData) SetFrameDataA(member *FrameData) {
 }
 
 // The Frame this BitmapData uses for rendering.
-func (self *BitmapData) GetTextureFrameA() *Frame{
+func (self *BitmapData) TextureFrame() *Frame{
     return &Frame{self.Object.Get("textureFrame")}
 }
 
@@ -235,7 +235,7 @@ func (self *BitmapData) SetTextureFrameA(member *Frame) {
 }
 
 // The const type of this object.
-func (self *BitmapData) GetTypeA() int{
+func (self *BitmapData) Type() int{
     return self.Object.Get("type").Int()
 }
 
@@ -245,7 +245,7 @@ func (self *BitmapData) SetTypeA(member int) {
 }
 
 // If disableTextureUpload is true this BitmapData will never send its image data to the GPU when its dirty flag is true.
-func (self *BitmapData) GetDisableTextureUploadA() bool{
+func (self *BitmapData) DisableTextureUpload() bool{
     return self.Object.Get("disableTextureUpload").Bool()
 }
 
@@ -255,7 +255,7 @@ func (self *BitmapData) SetDisableTextureUploadA(member bool) {
 }
 
 // If dirty this BitmapData will be re-rendered.
-func (self *BitmapData) GetDirtyA() bool{
+func (self *BitmapData) Dirty() bool{
     return self.Object.Get("dirty").Bool()
 }
 
@@ -564,7 +564,7 @@ func (self *BitmapData) UpdateI(args ...interface{}) *BitmapData{
 // The callback will also be sent the pixels x and y coordinates respectively.
 // The callback must return either `false`, in which case no change will be made to the pixel, or a new color object.
 // If a new color object is returned the pixel will be set to the r, g, b and a color values given within it.
-func (self *BitmapData) ProcessPixelRGB(callback func(...interface{}), callbackContext interface{}) *BitmapData{
+func (self *BitmapData) ProcessPixelRGB(callback interface{}, callbackContext interface{}) *BitmapData{
     return &BitmapData{self.Object.Call("processPixelRGB", callback, callbackContext)}
 }
 
@@ -576,7 +576,7 @@ func (self *BitmapData) ProcessPixelRGB(callback func(...interface{}), callbackC
 // The callback will also be sent the pixels x and y coordinates respectively.
 // The callback must return either `false`, in which case no change will be made to the pixel, or a new color object.
 // If a new color object is returned the pixel will be set to the r, g, b and a color values given within it.
-func (self *BitmapData) ProcessPixelRGB1O(callback func(...interface{}), callbackContext interface{}, x int) *BitmapData{
+func (self *BitmapData) ProcessPixelRGB1O(callback interface{}, callbackContext interface{}, x int) *BitmapData{
     return &BitmapData{self.Object.Call("processPixelRGB", callback, callbackContext, x)}
 }
 
@@ -588,7 +588,7 @@ func (self *BitmapData) ProcessPixelRGB1O(callback func(...interface{}), callbac
 // The callback will also be sent the pixels x and y coordinates respectively.
 // The callback must return either `false`, in which case no change will be made to the pixel, or a new color object.
 // If a new color object is returned the pixel will be set to the r, g, b and a color values given within it.
-func (self *BitmapData) ProcessPixelRGB2O(callback func(...interface{}), callbackContext interface{}, x int, y int) *BitmapData{
+func (self *BitmapData) ProcessPixelRGB2O(callback interface{}, callbackContext interface{}, x int, y int) *BitmapData{
     return &BitmapData{self.Object.Call("processPixelRGB", callback, callbackContext, x, y)}
 }
 
@@ -600,7 +600,7 @@ func (self *BitmapData) ProcessPixelRGB2O(callback func(...interface{}), callbac
 // The callback will also be sent the pixels x and y coordinates respectively.
 // The callback must return either `false`, in which case no change will be made to the pixel, or a new color object.
 // If a new color object is returned the pixel will be set to the r, g, b and a color values given within it.
-func (self *BitmapData) ProcessPixelRGB3O(callback func(...interface{}), callbackContext interface{}, x int, y int, width int) *BitmapData{
+func (self *BitmapData) ProcessPixelRGB3O(callback interface{}, callbackContext interface{}, x int, y int, width int) *BitmapData{
     return &BitmapData{self.Object.Call("processPixelRGB", callback, callbackContext, x, y, width)}
 }
 
@@ -612,7 +612,7 @@ func (self *BitmapData) ProcessPixelRGB3O(callback func(...interface{}), callbac
 // The callback will also be sent the pixels x and y coordinates respectively.
 // The callback must return either `false`, in which case no change will be made to the pixel, or a new color object.
 // If a new color object is returned the pixel will be set to the r, g, b and a color values given within it.
-func (self *BitmapData) ProcessPixelRGB4O(callback func(...interface{}), callbackContext interface{}, x int, y int, width int, height int) *BitmapData{
+func (self *BitmapData) ProcessPixelRGB4O(callback interface{}, callbackContext interface{}, x int, y int, width int, height int) *BitmapData{
     return &BitmapData{self.Object.Call("processPixelRGB", callback, callbackContext, x, y, width, height)}
 }
 
@@ -633,7 +633,7 @@ func (self *BitmapData) ProcessPixelRGBI(args ...interface{}) *BitmapData{
 // Note that the format of the color received will be different depending on if the system is big or little endian.
 // It is expected that your callback will deal with endianess. If you'd rather Phaser did it then use processPixelRGB instead.
 // The callback will also be sent the pixels x and y coordinates respectively.
-func (self *BitmapData) ProcessPixel(callback func(...interface{}), callbackContext interface{}) *BitmapData{
+func (self *BitmapData) ProcessPixel(callback interface{}, callbackContext interface{}) *BitmapData{
     return &BitmapData{self.Object.Call("processPixel", callback, callbackContext)}
 }
 
@@ -642,7 +642,7 @@ func (self *BitmapData) ProcessPixel(callback func(...interface{}), callbackCont
 // Note that the format of the color received will be different depending on if the system is big or little endian.
 // It is expected that your callback will deal with endianess. If you'd rather Phaser did it then use processPixelRGB instead.
 // The callback will also be sent the pixels x and y coordinates respectively.
-func (self *BitmapData) ProcessPixel1O(callback func(...interface{}), callbackContext interface{}, x int) *BitmapData{
+func (self *BitmapData) ProcessPixel1O(callback interface{}, callbackContext interface{}, x int) *BitmapData{
     return &BitmapData{self.Object.Call("processPixel", callback, callbackContext, x)}
 }
 
@@ -651,7 +651,7 @@ func (self *BitmapData) ProcessPixel1O(callback func(...interface{}), callbackCo
 // Note that the format of the color received will be different depending on if the system is big or little endian.
 // It is expected that your callback will deal with endianess. If you'd rather Phaser did it then use processPixelRGB instead.
 // The callback will also be sent the pixels x and y coordinates respectively.
-func (self *BitmapData) ProcessPixel2O(callback func(...interface{}), callbackContext interface{}, x int, y int) *BitmapData{
+func (self *BitmapData) ProcessPixel2O(callback interface{}, callbackContext interface{}, x int, y int) *BitmapData{
     return &BitmapData{self.Object.Call("processPixel", callback, callbackContext, x, y)}
 }
 
@@ -660,7 +660,7 @@ func (self *BitmapData) ProcessPixel2O(callback func(...interface{}), callbackCo
 // Note that the format of the color received will be different depending on if the system is big or little endian.
 // It is expected that your callback will deal with endianess. If you'd rather Phaser did it then use processPixelRGB instead.
 // The callback will also be sent the pixels x and y coordinates respectively.
-func (self *BitmapData) ProcessPixel3O(callback func(...interface{}), callbackContext interface{}, x int, y int, width int) *BitmapData{
+func (self *BitmapData) ProcessPixel3O(callback interface{}, callbackContext interface{}, x int, y int, width int) *BitmapData{
     return &BitmapData{self.Object.Call("processPixel", callback, callbackContext, x, y, width)}
 }
 
@@ -669,7 +669,7 @@ func (self *BitmapData) ProcessPixel3O(callback func(...interface{}), callbackCo
 // Note that the format of the color received will be different depending on if the system is big or little endian.
 // It is expected that your callback will deal with endianess. If you'd rather Phaser did it then use processPixelRGB instead.
 // The callback will also be sent the pixels x and y coordinates respectively.
-func (self *BitmapData) ProcessPixel4O(callback func(...interface{}), callbackContext interface{}, x int, y int, width int, height int) *BitmapData{
+func (self *BitmapData) ProcessPixel4O(callback interface{}, callbackContext interface{}, x int, y int, width int, height int) *BitmapData{
     return &BitmapData{self.Object.Call("processPixel", callback, callbackContext, x, y, width, height)}
 }
 

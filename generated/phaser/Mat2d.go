@@ -37,7 +37,7 @@ type Mat2d struct {
 // </pre>
 // The last row is ignored so the array is shorter and operations are faster.
 func NewMat2d() *Mat2d {
-    return &Mat2d{js.Global.Call("mat2d")}
+    return &Mat2d{js.Global.Get("mat2d").New()}
 }
 
 // A mat2d contains six elements defined as:
@@ -53,7 +53,7 @@ func NewMat2d() *Mat2d {
 // </pre>
 // The last row is ignored so the array is shorter and operations are faster.
 func NewMat2dI(args ...interface{}) *Mat2d {
-    return &Mat2d{js.Global.Call("mat2d", args)}
+    return &Mat2d{js.Global.Get("mat2d").New(args)}
 }
 
 

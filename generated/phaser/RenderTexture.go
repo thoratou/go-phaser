@@ -19,49 +19,49 @@ type RenderTexture struct {
 // A RenderTexture is a special texture that allows any displayObject to be rendered to it. It allows you to take many complex objects and
 // render them down into a single quad (on WebGL) which can then be used to texture other display objects with. A way of generating textures at run-time.
 func NewRenderTexture(game *Game) *RenderTexture {
-    return &RenderTexture{js.Global.Call("Phaser.RenderTexture", game)}
+    return &RenderTexture{js.Global.Get("Phaser").Get("RenderTexture").New(game)}
 }
 
 // A RenderTexture is a special texture that allows any displayObject to be rendered to it. It allows you to take many complex objects and
 // render them down into a single quad (on WebGL) which can then be used to texture other display objects with. A way of generating textures at run-time.
 func NewRenderTexture1O(game *Game, width int) *RenderTexture {
-    return &RenderTexture{js.Global.Call("Phaser.RenderTexture", game, width)}
+    return &RenderTexture{js.Global.Get("Phaser").Get("RenderTexture").New(game, width)}
 }
 
 // A RenderTexture is a special texture that allows any displayObject to be rendered to it. It allows you to take many complex objects and
 // render them down into a single quad (on WebGL) which can then be used to texture other display objects with. A way of generating textures at run-time.
 func NewRenderTexture2O(game *Game, width int, height int) *RenderTexture {
-    return &RenderTexture{js.Global.Call("Phaser.RenderTexture", game, width, height)}
+    return &RenderTexture{js.Global.Get("Phaser").Get("RenderTexture").New(game, width, height)}
 }
 
 // A RenderTexture is a special texture that allows any displayObject to be rendered to it. It allows you to take many complex objects and
 // render them down into a single quad (on WebGL) which can then be used to texture other display objects with. A way of generating textures at run-time.
 func NewRenderTexture3O(game *Game, width int, height int, key string) *RenderTexture {
-    return &RenderTexture{js.Global.Call("Phaser.RenderTexture", game, width, height, key)}
+    return &RenderTexture{js.Global.Get("Phaser").Get("RenderTexture").New(game, width, height, key)}
 }
 
 // A RenderTexture is a special texture that allows any displayObject to be rendered to it. It allows you to take many complex objects and
 // render them down into a single quad (on WebGL) which can then be used to texture other display objects with. A way of generating textures at run-time.
 func NewRenderTexture4O(game *Game, width int, height int, key string, scaleMode int) *RenderTexture {
-    return &RenderTexture{js.Global.Call("Phaser.RenderTexture", game, width, height, key, scaleMode)}
+    return &RenderTexture{js.Global.Get("Phaser").Get("RenderTexture").New(game, width, height, key, scaleMode)}
 }
 
 // A RenderTexture is a special texture that allows any displayObject to be rendered to it. It allows you to take many complex objects and
 // render them down into a single quad (on WebGL) which can then be used to texture other display objects with. A way of generating textures at run-time.
 func NewRenderTexture5O(game *Game, width int, height int, key string, scaleMode int, resolution int) *RenderTexture {
-    return &RenderTexture{js.Global.Call("Phaser.RenderTexture", game, width, height, key, scaleMode, resolution)}
+    return &RenderTexture{js.Global.Get("Phaser").Get("RenderTexture").New(game, width, height, key, scaleMode, resolution)}
 }
 
 // A RenderTexture is a special texture that allows any displayObject to be rendered to it. It allows you to take many complex objects and
 // render them down into a single quad (on WebGL) which can then be used to texture other display objects with. A way of generating textures at run-time.
 func NewRenderTextureI(args ...interface{}) *RenderTexture {
-    return &RenderTexture{js.Global.Call("Phaser.RenderTexture", args)}
+    return &RenderTexture{js.Global.Get("Phaser").Get("RenderTexture").New(args)}
 }
 
 
 
 // A reference to the currently running game.
-func (self *RenderTexture) GetGameA() *Game{
+func (self *RenderTexture) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -71,7 +71,7 @@ func (self *RenderTexture) SetGameA(member *Game) {
 }
 
 // The key of the RenderTexture in the Cache, if stored there.
-func (self *RenderTexture) GetKeyA() string{
+func (self *RenderTexture) Key() string{
     return self.Object.Get("key").String()
 }
 
@@ -81,7 +81,7 @@ func (self *RenderTexture) SetKeyA(member string) {
 }
 
 // Base Phaser object type.
-func (self *RenderTexture) GetTypeA() int{
+func (self *RenderTexture) Type() int{
     return self.Object.Get("type").Int()
 }
 
@@ -91,7 +91,7 @@ func (self *RenderTexture) SetTypeA(member int) {
 }
 
 // The with of the render texture
-func (self *RenderTexture) GetWidthA() int{
+func (self *RenderTexture) Width() int{
     return self.Object.Get("width").Int()
 }
 
@@ -101,7 +101,7 @@ func (self *RenderTexture) SetWidthA(member int) {
 }
 
 // The height of the render texture
-func (self *RenderTexture) GetHeightA() int{
+func (self *RenderTexture) Height() int{
     return self.Object.Get("height").Int()
 }
 
@@ -111,7 +111,7 @@ func (self *RenderTexture) SetHeightA(member int) {
 }
 
 // The Resolution of the texture.
-func (self *RenderTexture) GetResolutionA() int{
+func (self *RenderTexture) Resolution() int{
     return self.Object.Get("resolution").Int()
 }
 
@@ -121,7 +121,7 @@ func (self *RenderTexture) SetResolutionA(member int) {
 }
 
 // The framing rectangle of the render texture
-func (self *RenderTexture) GetFrameA() *Rectangle{
+func (self *RenderTexture) Frame() *Rectangle{
     return &Rectangle{self.Object.Get("frame")}
 }
 
@@ -132,7 +132,7 @@ func (self *RenderTexture) SetFrameA(member *Rectangle) {
 
 // This is the area of the BaseTexture image to actually copy to the Canvas / WebGL when rendering,
 // irrespective of the actual frame size or placement (which can be influenced by trimmed texture atlases)
-func (self *RenderTexture) GetCropA() *Rectangle{
+func (self *RenderTexture) Crop() *Rectangle{
     return &Rectangle{self.Object.Get("crop")}
 }
 
@@ -143,7 +143,7 @@ func (self *RenderTexture) SetCropA(member *Rectangle) {
 }
 
 // The base texture object that this texture uses
-func (self *RenderTexture) GetBaseTextureA() *BaseTexture{
+func (self *RenderTexture) BaseTexture() *BaseTexture{
     return &BaseTexture{self.Object.Get("baseTexture")}
 }
 
@@ -153,7 +153,7 @@ func (self *RenderTexture) SetBaseTextureA(member *BaseTexture) {
 }
 
 // The renderer this RenderTexture uses. A RenderTexture can only belong to one renderer at the moment if its webGL.
-func (self *RenderTexture) GetRendererA() interface{}{
+func (self *RenderTexture) Renderer() interface{}{
     return self.Object.Get("renderer")
 }
 
@@ -163,7 +163,7 @@ func (self *RenderTexture) SetRendererA(member interface{}) {
 }
 
 // 
-func (self *RenderTexture) GetValidA() bool{
+func (self *RenderTexture) Valid() bool{
     return self.Object.Get("valid").Bool()
 }
 
@@ -173,7 +173,7 @@ func (self *RenderTexture) SetValidA(member bool) {
 }
 
 // Does this Texture have any frame data assigned to it?
-func (self *RenderTexture) GetNoFrameA() bool{
+func (self *RenderTexture) NoFrame() bool{
     return self.Object.Get("noFrame").Bool()
 }
 
@@ -183,7 +183,7 @@ func (self *RenderTexture) SetNoFrameA(member bool) {
 }
 
 // The texture trim data.
-func (self *RenderTexture) GetTrimA() *Rectangle{
+func (self *RenderTexture) Trim() *Rectangle{
     return &Rectangle{self.Object.Get("trim")}
 }
 
@@ -193,7 +193,7 @@ func (self *RenderTexture) SetTrimA(member *Rectangle) {
 }
 
 // Is this a tiling texture? As used by the likes of a TilingSprite.
-func (self *RenderTexture) GetIsTilingA() bool{
+func (self *RenderTexture) IsTiling() bool{
     return self.Object.Get("isTiling").Bool()
 }
 
@@ -203,7 +203,7 @@ func (self *RenderTexture) SetIsTilingA(member bool) {
 }
 
 // This will let a renderer know that a texture has been updated (used mainly for webGL uv updates)
-func (self *RenderTexture) GetRequiresUpdateA() bool{
+func (self *RenderTexture) RequiresUpdate() bool{
     return self.Object.Get("requiresUpdate").Bool()
 }
 
@@ -213,7 +213,7 @@ func (self *RenderTexture) SetRequiresUpdateA(member bool) {
 }
 
 // This will let a renderer know that a tinted parent has updated its texture.
-func (self *RenderTexture) GetRequiresReTintA() bool{
+func (self *RenderTexture) RequiresReTint() bool{
     return self.Object.Get("requiresReTint").Bool()
 }
 

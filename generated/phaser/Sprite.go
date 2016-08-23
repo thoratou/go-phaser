@@ -23,7 +23,7 @@ type Sprite struct {
 // They also contain additional properties allowing for physics motion (via Sprite.body), input handling (via Sprite.input),
 // events (via Sprite.events), animation (via Sprite.animations), camera culling and more. Please see the Examples for use cases.
 func NewSprite(game *Game, x int, y int, key interface{}, frame interface{}) *Sprite {
-    return &Sprite{js.Global.Call("Phaser.Sprite", game, x, y, key, frame)}
+    return &Sprite{js.Global.Get("Phaser").Get("Sprite").New(game, x, y, key, frame)}
 }
 
 // Sprites are the lifeblood of your game, used for nearly everything visual.
@@ -32,13 +32,13 @@ func NewSprite(game *Game, x int, y int, key interface{}, frame interface{}) *Sp
 // They also contain additional properties allowing for physics motion (via Sprite.body), input handling (via Sprite.input),
 // events (via Sprite.events), animation (via Sprite.animations), camera culling and more. Please see the Examples for use cases.
 func NewSpriteI(args ...interface{}) *Sprite {
-    return &Sprite{js.Global.Call("Phaser.Sprite", args)}
+    return &Sprite{js.Global.Get("Phaser").Get("Sprite").New(args)}
 }
 
 
 
 // The const type of this object.
-func (self *Sprite) GetTypeA() int{
+func (self *Sprite) Type() int{
     return self.Object.Get("type").Int()
 }
 
@@ -48,7 +48,7 @@ func (self *Sprite) SetTypeA(member int) {
 }
 
 // The const physics body type of this object.
-func (self *Sprite) GetPhysicsTypeA() int{
+func (self *Sprite) PhysicsType() int{
     return self.Object.Get("physicsType").Int()
 }
 
@@ -61,7 +61,7 @@ func (self *Sprite) SetPhysicsTypeA(member int) {
 // The default is 0,0 this means the texture's origin is the top left
 // Setting than anchor to 0.5,0.5 means the textures origin is centered
 // Setting the anchor to 1,1 would mean the textures origin points will be the bottom right corner
-func (self *Sprite) GetAnchorA() *Point{
+func (self *Sprite) Anchor() *Point{
     return &Point{self.Object.Get("anchor")}
 }
 
@@ -74,7 +74,7 @@ func (self *Sprite) SetAnchorA(member *Point) {
 }
 
 // The texture that the sprite is using
-func (self *Sprite) GetTextureA() *Texture{
+func (self *Sprite) Texture() *Texture{
     return &Texture{self.Object.Get("texture")}
 }
 
@@ -84,7 +84,7 @@ func (self *Sprite) SetTextureA(member *Texture) {
 }
 
 // The tint applied to the sprite. This is a hex value. A value of 0xFFFFFF will remove any tint effect.
-func (self *Sprite) GetTintA() int{
+func (self *Sprite) Tint() int{
     return self.Object.Get("tint").Int()
 }
 
@@ -94,7 +94,7 @@ func (self *Sprite) SetTintA(member int) {
 }
 
 // A canvas that contains the tinted version of the Sprite (in Canvas mode, WebGL doesn't populate this)
-func (self *Sprite) GetTintedTextureA() *Canvas{
+func (self *Sprite) TintedTexture() *Canvas{
     return &Canvas{self.Object.Get("tintedTexture")}
 }
 
@@ -106,7 +106,7 @@ func (self *Sprite) SetTintedTextureA(member *Canvas) {
 // The blend mode to be applied to the sprite. Set to PIXI.blendModes.NORMAL to remove any blend mode.
 // 
 // Warning: You cannot have a blend mode and a filter active on the same Sprite. Doing so will render the sprite invisible.
-func (self *Sprite) GetBlendModeA() int{
+func (self *Sprite) BlendMode() int{
     return self.Object.Get("blendMode").Int()
 }
 
@@ -118,7 +118,7 @@ func (self *Sprite) SetBlendModeA(member int) {
 }
 
 // The shader that will be used to render the texture to the stage. Set to null to remove a current shader.
-func (self *Sprite) GetShaderA() *AbstractFilter{
+func (self *Sprite) Shader() *AbstractFilter{
     return &AbstractFilter{self.Object.Get("shader")}
 }
 
@@ -128,7 +128,7 @@ func (self *Sprite) SetShaderA(member *AbstractFilter) {
 }
 
 // Controls if this Sprite is processed by the core Phaser game loops and Group loops.
-func (self *Sprite) GetExistsA() bool{
+func (self *Sprite) Exists() bool{
     return self.Object.Get("exists").Bool()
 }
 
@@ -138,7 +138,7 @@ func (self *Sprite) SetExistsA(member bool) {
 }
 
 // The width of the sprite, setting this will actually modify the scale to achieve the value set
-func (self *Sprite) GetWidthA() int{
+func (self *Sprite) Width() int{
     return self.Object.Get("width").Int()
 }
 
@@ -148,7 +148,7 @@ func (self *Sprite) SetWidthA(member int) {
 }
 
 // The height of the sprite, setting this will actually modify the scale to achieve the value set
-func (self *Sprite) GetHeightA() int{
+func (self *Sprite) Height() int{
     return self.Object.Get("height").Int()
 }
 
@@ -158,7 +158,7 @@ func (self *Sprite) SetHeightA(member int) {
 }
 
 // [read-only] The array of children of this container.
-func (self *Sprite) GetChildrenA() []DisplayObject{
+func (self *Sprite) Children() []DisplayObject{
 	array00 := self.Object.Get("children")
 	length00 := array00.Length()
 	out00 := make([]DisplayObject, length00, length00)
@@ -178,7 +178,7 @@ func (self *Sprite) SetChildrenA(member []DisplayObject) {
 // If this property is `true` then the children will _not_ be considered as valid for Input events.
 // 
 // Note that this property isn't recursive: only immediate children are influenced, it doesn't scan further down.
-func (self *Sprite) GetIgnoreChildInputA() bool{
+func (self *Sprite) IgnoreChildInput() bool{
     return self.Object.Get("ignoreChildInput").Bool()
 }
 
@@ -192,7 +192,7 @@ func (self *Sprite) SetIgnoreChildInputA(member bool) {
 }
 
 // A reference to the currently running Game.
-func (self *Sprite) GetGameA() *Game{
+func (self *Sprite) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -203,7 +203,7 @@ func (self *Sprite) SetGameA(member *Game) {
 
 // A user defined name given to this Game Object.
 // This value isn't ever used internally by Phaser, it is meant as a game level property.
-func (self *Sprite) GetNameA() string{
+func (self *Sprite) Name() string{
     return self.Object.Get("name").String()
 }
 
@@ -217,7 +217,7 @@ func (self *Sprite) SetNameA(member string) {
 // This value isn't ever used internally by Phaser, but may be used by your own code, or
 // by Phaser Plugins, to store data that needs to be associated with the Game Object,
 // without polluting the Game Object directly.
-func (self *Sprite) GetDataA() interface{}{
+func (self *Sprite) Data() interface{}{
     return self.Object.Get("data")
 }
 
@@ -230,7 +230,7 @@ func (self *Sprite) SetDataA(member interface{}) {
 }
 
 // The components this Game Object has installed.
-func (self *Sprite) GetComponentsA() interface{}{
+func (self *Sprite) Components() interface{}{
     return self.Object.Get("components")
 }
 
@@ -243,7 +243,7 @@ func (self *Sprite) SetComponentsA(member interface{}) {
 // No two objects in a Group can have the same z value.
 // This value is adjusted automatically whenever the Group hierarchy changes.
 // If you wish to re-order the layering of a Game Object then see methods like Group.moveUp or Group.bringToTop.
-func (self *Sprite) GetZA() int{
+func (self *Sprite) Z() int{
     return self.Object.Get("z").Int()
 }
 
@@ -257,7 +257,7 @@ func (self *Sprite) SetZA(member int) {
 
 // All Phaser Game Objects have an Events class which contains all of the events that are dispatched when certain things happen to this
 // Game Object, or any of its components.
-func (self *Sprite) GetEventsA() *Events{
+func (self *Sprite) Events() *Events{
     return &Events{self.Object.Get("events")}
 }
 
@@ -269,7 +269,7 @@ func (self *Sprite) SetEventsA(member *Events) {
 
 // If the Game Object is enabled for animation (such as a Phaser.Sprite) this is a reference to its AnimationManager instance.
 // Through it you can create, play, pause and stop animations.
-func (self *Sprite) GetAnimationsA() *AnimationManager{
+func (self *Sprite) Animations() *AnimationManager{
     return &AnimationManager{self.Object.Get("animations")}
 }
 
@@ -284,7 +284,7 @@ func (self *Sprite) SetAnimationsA(member *AnimationManager) {
 // It can also be an instance of a RenderTexture, BitmapData, Video or PIXI.Texture.
 // If a Game Object is created without a key it is automatically assigned the key `__default` which is a 32x32 transparent PNG stored within the Cache.
 // If a Game Object is given a key which doesn't exist in the Image Cache it is re-assigned the key `__missing` which is a 32x32 PNG of a green box with a line through it.
-func (self *Sprite) GetKeyA() interface{}{
+func (self *Sprite) Key() interface{}{
     return self.Object.Get("key")
 }
 
@@ -300,7 +300,7 @@ func (self *Sprite) SetKeyA(member interface{}) {
 // The world coordinates of this Game Object in pixels.
 // Depending on where in the display list this Game Object is placed this value can differ from `position`, 
 // which contains the x/y coordinates relative to the Game Objects parent.
-func (self *Sprite) GetWorldA() *Point{
+func (self *Sprite) World() *Point{
     return &Point{self.Object.Get("world")}
 }
 
@@ -312,7 +312,7 @@ func (self *Sprite) SetWorldA(member *Point) {
 }
 
 // A debug flag designed for use with `Game.enableStep`.
-func (self *Sprite) GetDebugA() bool{
+func (self *Sprite) Debug() bool{
     return self.Object.Get("debug").Bool()
 }
 
@@ -322,7 +322,7 @@ func (self *Sprite) SetDebugA(member bool) {
 }
 
 // The position the Game Object was located in the previous frame.
-func (self *Sprite) GetPreviousPositionA() *Point{
+func (self *Sprite) PreviousPosition() *Point{
     return &Point{self.Object.Get("previousPosition")}
 }
 
@@ -332,7 +332,7 @@ func (self *Sprite) SetPreviousPositionA(member *Point) {
 }
 
 // The rotation the Game Object was in set to in the previous frame. Value is in radians.
-func (self *Sprite) GetPreviousRotationA() int{
+func (self *Sprite) PreviousRotation() int{
     return self.Object.Get("previousRotation").Int()
 }
 
@@ -343,7 +343,7 @@ func (self *Sprite) SetPreviousRotationA(member int) {
 
 // The render order ID is used internally by the renderer and Input Manager and should not be modified.
 // This property is mostly used internally by the renderers, but is exposed for the use of plugins.
-func (self *Sprite) GetRenderOrderIDA() int{
+func (self *Sprite) RenderOrderID() int{
     return self.Object.Get("renderOrderID").Int()
 }
 
@@ -355,7 +355,7 @@ func (self *Sprite) SetRenderOrderIDA(member int) {
 
 // A Game Object is considered `fresh` if it has just been created or reset and is yet to receive a renderer transform update.
 // This property is mostly used internally by the physics systems, but is exposed for the use of plugins.
-func (self *Sprite) GetFreshA() bool{
+func (self *Sprite) Fresh() bool{
     return self.Object.Get("fresh").Bool()
 }
 
@@ -370,7 +370,7 @@ func (self *Sprite) SetFreshA(member bool) {
 // 
 // This is extremely useful if you wish to destroy an object from within one of its own callbacks 
 // such as with Buttons or other Input events.
-func (self *Sprite) GetPendingDestroyA() bool{
+func (self *Sprite) PendingDestroy() bool{
     return self.Object.Get("pendingDestroy").Bool()
 }
 
@@ -392,7 +392,7 @@ func (self *Sprite) SetPendingDestroyA(member bool) {
 // 
 // If you wish to work in radians instead of degrees you can use the property `rotation` instead. 
 // Working in radians is slightly faster as it doesn't have to perform any calculations.
-func (self *Sprite) GetAngleA() int{
+func (self *Sprite) Angle() int{
     return self.Object.Get("angle").Int()
 }
 
@@ -415,7 +415,7 @@ func (self *Sprite) SetAngleA(member int) {
 // 
 // This is a relatively expensive operation, especially if enabled on hundreds of Game Objects. So enable it only if you know it's required,
 // or you have tested performance and find it acceptable.
-func (self *Sprite) GetAutoCullA() bool{
+func (self *Sprite) AutoCull() bool{
     return self.Object.Get("autoCull").Bool()
 }
 
@@ -431,7 +431,7 @@ func (self *Sprite) SetAutoCullA(member bool) {
 
 // Checks if the Game Objects bounds intersect with the Game Camera bounds.
 // Returns `true` if they do, otherwise `false` if fully outside of the Cameras bounds.
-func (self *Sprite) GetInCameraA() bool{
+func (self *Sprite) InCamera() bool{
     return self.Object.Get("inCamera").Bool()
 }
 
@@ -444,7 +444,7 @@ func (self *Sprite) SetInCameraA(member bool) {
 // The amount the Game Object is visually offset from its x coordinate.
 // This is the same as `width * anchor.x`.
 // It will only be > 0 if anchor.x is not equal to zero.
-func (self *Sprite) GetOffsetXA() int{
+func (self *Sprite) OffsetX() int{
     return self.Object.Get("offsetX").Int()
 }
 
@@ -458,7 +458,7 @@ func (self *Sprite) SetOffsetXA(member int) {
 // The amount the Game Object is visually offset from its y coordinate.
 // This is the same as `height * anchor.y`.
 // It will only be > 0 if anchor.y is not equal to zero.
-func (self *Sprite) GetOffsetYA() int{
+func (self *Sprite) OffsetY() int{
     return self.Object.Get("offsetY").Int()
 }
 
@@ -471,7 +471,7 @@ func (self *Sprite) SetOffsetYA(member int) {
 
 // The center x coordinate of the Game Object.
 // This is the same as `(x - offsetX) + (width / 2)`.
-func (self *Sprite) GetCenterXA() int{
+func (self *Sprite) CenterX() int{
     return self.Object.Get("centerX").Int()
 }
 
@@ -483,7 +483,7 @@ func (self *Sprite) SetCenterXA(member int) {
 
 // The center y coordinate of the Game Object.
 // This is the same as `(y - offsetY) + (height / 2)`.
-func (self *Sprite) GetCenterYA() int{
+func (self *Sprite) CenterY() int{
     return self.Object.Get("centerY").Int()
 }
 
@@ -495,7 +495,7 @@ func (self *Sprite) SetCenterYA(member int) {
 
 // The left coordinate of the Game Object.
 // This is the same as `x - offsetX`.
-func (self *Sprite) GetLeftA() int{
+func (self *Sprite) Left() int{
     return self.Object.Get("left").Int()
 }
 
@@ -507,7 +507,7 @@ func (self *Sprite) SetLeftA(member int) {
 
 // The right coordinate of the Game Object.
 // This is the same as `x + width - offsetX`.
-func (self *Sprite) GetRightA() int{
+func (self *Sprite) Right() int{
     return self.Object.Get("right").Int()
 }
 
@@ -519,7 +519,7 @@ func (self *Sprite) SetRightA(member int) {
 
 // The y coordinate of the Game Object.
 // This is the same as `y - offsetY`.
-func (self *Sprite) GetTopA() int{
+func (self *Sprite) Top() int{
     return self.Object.Get("top").Int()
 }
 
@@ -531,7 +531,7 @@ func (self *Sprite) SetTopA(member int) {
 
 // The sum of the y and height properties.
 // This is the same as `y + height - offsetY`.
-func (self *Sprite) GetBottomA() int{
+func (self *Sprite) Bottom() int{
     return self.Object.Get("bottom").Int()
 }
 
@@ -544,7 +544,7 @@ func (self *Sprite) SetBottomA(member int) {
 // The Rectangle used to crop the texture this Game Object uses.
 // Set this property via `crop`. 
 // If you modify this property directly you must call `updateCrop` in order to have the change take effect.
-func (self *Sprite) GetCropRectA() *Rectangle{
+func (self *Sprite) CropRect() *Rectangle{
     return &Rectangle{self.Object.Get("cropRect")}
 }
 
@@ -558,7 +558,7 @@ func (self *Sprite) SetCropRectA(member *Rectangle) {
 // Returns the delta x value. The difference between world.x now and in the previous frame.
 // 
 // The value will be positive if the Game Object has moved to the right or negative if to the left.
-func (self *Sprite) GetDeltaXA() int{
+func (self *Sprite) DeltaX() int{
     return self.Object.Get("deltaX").Int()
 }
 
@@ -572,7 +572,7 @@ func (self *Sprite) SetDeltaXA(member int) {
 // Returns the delta y value. The difference between world.y now and in the previous frame.
 // 
 // The value will be positive if the Game Object has moved down or negative if up.
-func (self *Sprite) GetDeltaYA() int{
+func (self *Sprite) DeltaY() int{
     return self.Object.Get("deltaY").Int()
 }
 
@@ -584,7 +584,7 @@ func (self *Sprite) SetDeltaYA(member int) {
 }
 
 // Returns the delta z value. The difference between rotation now and in the previous frame. The delta value.
-func (self *Sprite) GetDeltaZA() int{
+func (self *Sprite) DeltaZ() int{
     return self.Object.Get("deltaZ").Int()
 }
 
@@ -595,7 +595,7 @@ func (self *Sprite) SetDeltaZA(member int) {
 
 // As a Game Object runs through its destroy method this flag is set to true, 
 // and can be checked in any sub-systems or plugins it is being destroyed from.
-func (self *Sprite) GetDestroyPhaseA() bool{
+func (self *Sprite) DestroyPhase() bool{
     return self.Object.Get("destroyPhase").Bool()
 }
 
@@ -618,7 +618,7 @@ func (self *Sprite) SetDestroyPhaseA(member bool) {
 // Note that the `cameraOffset` values are in addition to any parent of this Game Object on the display list.
 // 
 // Be careful not to set `fixedToCamera` on Game Objects which are in Groups that already have `fixedToCamera` enabled on them.
-func (self *Sprite) GetFixedToCameraA() bool{
+func (self *Sprite) FixedToCamera() bool{
     return self.Object.Get("fixedToCamera").Bool()
 }
 
@@ -642,7 +642,7 @@ func (self *Sprite) SetFixedToCameraA(member bool) {
 // The x/y coordinate offset applied to the top-left of the camera that this Game Object will be drawn at if `fixedToCamera` is true.
 // 
 // The values are relative to the top-left of the camera view and in addition to any parent of the Game Object on the display list.
-func (self *Sprite) GetCameraOffsetA() *Point{
+func (self *Sprite) CameraOffset() *Point{
     return &Point{self.Object.Get("cameraOffset")}
 }
 
@@ -656,7 +656,7 @@ func (self *Sprite) SetCameraOffsetA(member *Point) {
 // The Game Objects health value. This is a handy property for setting and manipulating health on a Game Object.
 // 
 // It can be used in combination with the `damage` method or modified directly.
-func (self *Sprite) GetHealthA() int{
+func (self *Sprite) Health() int{
     return self.Object.Get("health").Int()
 }
 
@@ -669,7 +669,7 @@ func (self *Sprite) SetHealthA(member int) {
 
 // The Game Objects maximum health value. This works in combination with the `heal` method to ensure
 // the health value never exceeds the maximum.
-func (self *Sprite) GetMaxHealthA() int{
+func (self *Sprite) MaxHealth() int{
     return self.Object.Get("maxHealth").Int()
 }
 
@@ -682,7 +682,7 @@ func (self *Sprite) SetMaxHealthA(member int) {
 // Damages the Game Object. This removes the given amount of health from the `health` property.
 // 
 // If health is taken below or is equal to zero then the `kill` method is called.
-func (self *Sprite) GetDamageA() interface{}{
+func (self *Sprite) Damage() interface{}{
     return self.Object.Get("damage")
 }
 
@@ -695,7 +695,7 @@ func (self *Sprite) SetDamageA(member interface{}) {
 
 // Sets the health property of the Game Object to the given amount.
 // Will never exceed the `maxHealth` value.
-func (self *Sprite) GetSetHealthA() interface{}{
+func (self *Sprite) SetHealth() interface{}{
     return self.Object.Get("setHealth")
 }
 
@@ -706,7 +706,7 @@ func (self *Sprite) SetSetHealthA(member interface{}) {
 }
 
 // Heal the Game Object. This adds the given amount of health to the `health` property.
-func (self *Sprite) GetHealA() interface{}{
+func (self *Sprite) Heal() interface{}{
     return self.Object.Get("heal")
 }
 
@@ -720,7 +720,7 @@ func (self *Sprite) SetHealA(member interface{}) {
 // By default it is disabled. If you wish this Game Object to process input events you should enable it with: `inputEnabled = true`.
 // 
 // After you have done this, this property will be a reference to the Phaser InputHandler.
-func (self *Sprite) GetInputA() interface{}{
+func (self *Sprite) Input() interface{}{
     return self.Object.Get("input")
 }
 
@@ -745,7 +745,7 @@ func (self *Sprite) SetInputA(member interface{}) {
 // If you want to _temporarily_ disable input for a Game Object, then it's better to set
 // `input.enabled = false`, as it won't reset any of the Input Handlers internal properties.
 // You can then toggle this back on as needed.
-func (self *Sprite) GetInputEnabledA() bool{
+func (self *Sprite) InputEnabled() bool{
     return self.Object.Get("inputEnabled").Bool()
 }
 
@@ -777,7 +777,7 @@ func (self *Sprite) SetInputEnabledA(member bool) {
 // 
 // This is a relatively expensive operation, especially if enabled on hundreds of Game Objects. So enable it only if you know it's required,
 // or you have tested performance and find it acceptable.
-func (self *Sprite) GetCheckWorldBoundsA() bool{
+func (self *Sprite) CheckWorldBounds() bool{
     return self.Object.Get("checkWorldBounds").Bool()
 }
 
@@ -798,7 +798,7 @@ func (self *Sprite) SetCheckWorldBoundsA(member bool) {
 }
 
 // If this and the `checkWorldBounds` property are both set to `true` then the `kill` method is called as soon as `inWorld` returns false.
-func (self *Sprite) GetOutOfBoundsKillA() bool{
+func (self *Sprite) OutOfBoundsKill() bool{
     return self.Object.Get("outOfBoundsKill").Bool()
 }
 
@@ -809,7 +809,7 @@ func (self *Sprite) SetOutOfBoundsKillA(member bool) {
 
 // If this and the `autoCull` property are both set to `true`, then the `kill` method
 // is called as soon as the Game Object leaves the camera bounds.
-func (self *Sprite) GetOutOfCameraBoundsKillA() bool{
+func (self *Sprite) OutOfCameraBoundsKill() bool{
     return self.Object.Get("outOfCameraBoundsKill").Bool()
 }
 
@@ -820,7 +820,7 @@ func (self *Sprite) SetOutOfCameraBoundsKillA(member bool) {
 }
 
 // Checks if the Game Objects bounds are within, or intersect at any point with the Game World bounds.
-func (self *Sprite) GetInWorldA() bool{
+func (self *Sprite) InWorld() bool{
     return self.Object.Get("inWorld").Bool()
 }
 
@@ -836,7 +836,7 @@ func (self *Sprite) SetInWorldA(member bool) {
 // 
 // This property is mostly just provided to be used by your game - it doesn't effect rendering or logic updates.
 // However you can use `Group.getFirstAlive` in conjunction with this property for fast object pooling and recycling.
-func (self *Sprite) GetAliveA() bool{
+func (self *Sprite) Alive() bool{
     return self.Object.Get("alive").Bool()
 }
 
@@ -859,7 +859,7 @@ func (self *Sprite) SetAliveA(member bool) {
 // When it reaches zero it will call the `kill` method.
 // 
 // Very handy for particles, bullets, collectibles, or any other short-lived entity.
-func (self *Sprite) GetLifespanA() int{
+func (self *Sprite) Lifespan() int{
     return self.Object.Get("lifespan").Int()
 }
 
@@ -885,7 +885,7 @@ func (self *Sprite) SetLifespanA(member int) {
 // If you are using a texture atlas then you should use the `frameName` property instead.
 // 
 // If you wish to fully replace the texture being used see `loadTexture`.
-func (self *Sprite) GetFrameA() int{
+func (self *Sprite) Frame() int{
     return self.Object.Get("frame").Int()
 }
 
@@ -913,7 +913,7 @@ func (self *Sprite) SetFrameA(member int) {
 // If you are using a sprite sheet then you should use the `frame` property instead.
 // 
 // If you wish to fully replace the texture being used see `loadTexture`.
-func (self *Sprite) GetFrameNameA() string{
+func (self *Sprite) FrameName() string{
     return self.Object.Get("frameName").String()
 }
 
@@ -945,7 +945,7 @@ func (self *Sprite) SetFrameNameA(member string) {
 // so the physics body is centered on the Game Object.
 // 
 // If you need a different result then adjust or re-create the Body shape offsets manually or reset the anchor after enabling physics.
-func (self *Sprite) GetBodyA() interface{}{
+func (self *Sprite) Body() interface{}{
     return self.Object.Get("body")
 }
 
@@ -968,7 +968,7 @@ func (self *Sprite) SetBodyA(member interface{}) {
 }
 
 // The position of the Game Object on the x axis relative to the local coordinates of the parent.
-func (self *Sprite) GetXA() int{
+func (self *Sprite) X() int{
     return self.Object.Get("x").Int()
 }
 
@@ -978,7 +978,7 @@ func (self *Sprite) SetXA(member int) {
 }
 
 // The position of the Game Object on the y axis relative to the local coordinates of the parent.
-func (self *Sprite) GetYA() int{
+func (self *Sprite) Y() int{
     return self.Object.Get("y").Int()
 }
 
@@ -988,12 +988,17 @@ func (self *Sprite) SetYA(member int) {
 }
 
 // The callback that will apply any scale limiting to the worldTransform.
-func (self *Sprite) SetTransformCallbackA(member func(...interface{})) {
+func (self *Sprite) TransformCallback() interface{}{
+    return self.Object.Get("transformCallback")
+}
+
+// The callback that will apply any scale limiting to the worldTransform.
+func (self *Sprite) SetTransformCallbackA(member interface{}) {
     self.Object.Set("transformCallback", member)
 }
 
 // The context under which `transformCallback` is called.
-func (self *Sprite) GetTransformCallbackContextA() interface{}{
+func (self *Sprite) TransformCallbackContext() interface{}{
     return self.Object.Get("transformCallbackContext")
 }
 
@@ -1007,7 +1012,7 @@ func (self *Sprite) SetTransformCallbackContextA(member interface{}) {
 // It allows you to prevent a parent from scaling this Game Object lower than the given value.
 // 
 // Set it to `null` to remove the limit.
-func (self *Sprite) GetScaleMinA() *Point{
+func (self *Sprite) ScaleMin() *Point{
     return &Point{self.Object.Get("scaleMin")}
 }
 
@@ -1025,7 +1030,7 @@ func (self *Sprite) SetScaleMinA(member *Point) {
 // It allows you to prevent a parent from scaling this Game Object higher than the given value.
 // 
 // Set it to `null` to remove the limit.
-func (self *Sprite) GetScaleMaxA() *Point{
+func (self *Sprite) ScaleMax() *Point{
     return &Point{self.Object.Get("scaleMax")}
 }
 
@@ -1043,7 +1048,7 @@ func (self *Sprite) SetScaleMaxA(member *Point) {
 // It only takes effect if the Game Object is using an image based texture.
 // 
 // Smoothing is enabled by default.
-func (self *Sprite) GetSmoothedA() bool{
+func (self *Sprite) Smoothed() bool{
     return self.Object.Get("smoothed").Bool()
 }
 

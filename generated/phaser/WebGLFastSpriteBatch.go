@@ -15,18 +15,18 @@ type WebGLFastSpriteBatch struct {
 
 // 
 func NewWebGLFastSpriteBatch() *WebGLFastSpriteBatch {
-    return &WebGLFastSpriteBatch{js.Global.Call("PIXI.WebGLFastSpriteBatch")}
+    return &WebGLFastSpriteBatch{js.Global.Get("PIXI").Get("WebGLFastSpriteBatch").New()}
 }
 
 // 
 func NewWebGLFastSpriteBatchI(args ...interface{}) *WebGLFastSpriteBatch {
-    return &WebGLFastSpriteBatch{js.Global.Call("PIXI.WebGLFastSpriteBatch", args)}
+    return &WebGLFastSpriteBatch{js.Global.Get("PIXI").Get("WebGLFastSpriteBatch").New(args)}
 }
 
 
 
 // 
-func (self *WebGLFastSpriteBatch) GetVertSizeA() int{
+func (self *WebGLFastSpriteBatch) VertSize() int{
     return self.Object.Get("vertSize").Int()
 }
 
@@ -36,7 +36,7 @@ func (self *WebGLFastSpriteBatch) SetVertSizeA(member int) {
 }
 
 // 
-func (self *WebGLFastSpriteBatch) GetMaxSizeA() int{
+func (self *WebGLFastSpriteBatch) MaxSize() int{
     return self.Object.Get("maxSize").Int()
 }
 
@@ -46,7 +46,7 @@ func (self *WebGLFastSpriteBatch) SetMaxSizeA(member int) {
 }
 
 // 
-func (self *WebGLFastSpriteBatch) GetSizeA() int{
+func (self *WebGLFastSpriteBatch) Size() int{
     return self.Object.Get("size").Int()
 }
 
@@ -56,7 +56,7 @@ func (self *WebGLFastSpriteBatch) SetSizeA(member int) {
 }
 
 // Vertex data
-func (self *WebGLFastSpriteBatch) GetVerticesA() *Float32Array{
+func (self *WebGLFastSpriteBatch) Vertices() *Float32Array{
     return &Float32Array{self.Object.Get("vertices")}
 }
 
@@ -66,7 +66,7 @@ func (self *WebGLFastSpriteBatch) SetVerticesA(member *Float32Array) {
 }
 
 // Index data
-func (self *WebGLFastSpriteBatch) GetIndicesA() *Uint16Array{
+func (self *WebGLFastSpriteBatch) Indices() *Uint16Array{
     return &Uint16Array{self.Object.Get("indices")}
 }
 
@@ -76,7 +76,7 @@ func (self *WebGLFastSpriteBatch) SetIndicesA(member *Uint16Array) {
 }
 
 // 
-func (self *WebGLFastSpriteBatch) GetVertexBufferA() interface{}{
+func (self *WebGLFastSpriteBatch) VertexBuffer() interface{}{
     return self.Object.Get("vertexBuffer")
 }
 
@@ -86,7 +86,7 @@ func (self *WebGLFastSpriteBatch) SetVertexBufferA(member interface{}) {
 }
 
 // 
-func (self *WebGLFastSpriteBatch) GetIndexBufferA() interface{}{
+func (self *WebGLFastSpriteBatch) IndexBuffer() interface{}{
     return self.Object.Get("indexBuffer")
 }
 
@@ -96,7 +96,7 @@ func (self *WebGLFastSpriteBatch) SetIndexBufferA(member interface{}) {
 }
 
 // 
-func (self *WebGLFastSpriteBatch) GetLastIndexCountA() int{
+func (self *WebGLFastSpriteBatch) LastIndexCount() int{
     return self.Object.Get("lastIndexCount").Int()
 }
 
@@ -106,7 +106,7 @@ func (self *WebGLFastSpriteBatch) SetLastIndexCountA(member int) {
 }
 
 // 
-func (self *WebGLFastSpriteBatch) GetDrawingA() bool{
+func (self *WebGLFastSpriteBatch) Drawing() bool{
     return self.Object.Get("drawing").Bool()
 }
 
@@ -116,7 +116,7 @@ func (self *WebGLFastSpriteBatch) SetDrawingA(member bool) {
 }
 
 // 
-func (self *WebGLFastSpriteBatch) GetCurrentBatchSizeA() int{
+func (self *WebGLFastSpriteBatch) CurrentBatchSize() int{
     return self.Object.Get("currentBatchSize").Int()
 }
 
@@ -126,7 +126,7 @@ func (self *WebGLFastSpriteBatch) SetCurrentBatchSizeA(member int) {
 }
 
 // 
-func (self *WebGLFastSpriteBatch) GetCurrentBaseTextureA() *BaseTexture{
+func (self *WebGLFastSpriteBatch) CurrentBaseTexture() *BaseTexture{
     return &BaseTexture{self.Object.Get("currentBaseTexture")}
 }
 
@@ -136,7 +136,7 @@ func (self *WebGLFastSpriteBatch) SetCurrentBaseTextureA(member *BaseTexture) {
 }
 
 // 
-func (self *WebGLFastSpriteBatch) GetCurrentBlendModeA() int{
+func (self *WebGLFastSpriteBatch) CurrentBlendMode() int{
     return self.Object.Get("currentBlendMode").Int()
 }
 
@@ -146,7 +146,7 @@ func (self *WebGLFastSpriteBatch) SetCurrentBlendModeA(member int) {
 }
 
 // 
-func (self *WebGLFastSpriteBatch) GetRenderSessionA() interface{}{
+func (self *WebGLFastSpriteBatch) RenderSession() interface{}{
     return self.Object.Get("renderSession")
 }
 
@@ -156,7 +156,7 @@ func (self *WebGLFastSpriteBatch) SetRenderSessionA(member interface{}) {
 }
 
 // 
-func (self *WebGLFastSpriteBatch) GetShaderA() interface{}{
+func (self *WebGLFastSpriteBatch) Shader() interface{}{
     return self.Object.Get("shader")
 }
 
@@ -166,7 +166,7 @@ func (self *WebGLFastSpriteBatch) SetShaderA(member interface{}) {
 }
 
 // 
-func (self *WebGLFastSpriteBatch) GetMatrixA() *Matrix{
+func (self *WebGLFastSpriteBatch) Matrix() *Matrix{
     return &Matrix{self.Object.Get("matrix")}
 }
 

@@ -33,7 +33,7 @@ type Polygon struct {
 // - As separate objects with public x/y properties arguments: `setTo(obj1, obj2, ...)`
 // - As separate arguments representing point coordinates: `setTo(x1,y1, x2,y2, ...)`
 func NewPolygon(points interface{}) *Polygon {
-    return &Polygon{js.Global.Call("Phaser.Polygon", points)}
+    return &Polygon{js.Global.Get("Phaser").Get("Polygon").New(points)}
 }
 
 // Creates a new Polygon.
@@ -47,13 +47,13 @@ func NewPolygon(points interface{}) *Polygon {
 // - As separate objects with public x/y properties arguments: `setTo(obj1, obj2, ...)`
 // - As separate arguments representing point coordinates: `setTo(x1,y1, x2,y2, ...)`
 func NewPolygonI(args ...interface{}) *Polygon {
-    return &Polygon{js.Global.Call("Phaser.Polygon", args)}
+    return &Polygon{js.Global.Get("Phaser").Get("Polygon").New(args)}
 }
 
 
 
 // The area of this Polygon.
-func (self *Polygon) GetAreaA() int{
+func (self *Polygon) Area() int{
     return self.Object.Get("area").Int()
 }
 
@@ -63,7 +63,7 @@ func (self *Polygon) SetAreaA(member int) {
 }
 
 // Is the Polygon closed or not?
-func (self *Polygon) GetClosedA() bool{
+func (self *Polygon) Closed() bool{
     return self.Object.Get("closed").Bool()
 }
 
@@ -73,7 +73,7 @@ func (self *Polygon) SetClosedA(member bool) {
 }
 
 // Has this Polygon been flattened by a call to `Polygon.flatten` ?
-func (self *Polygon) GetFlattenedA() bool{
+func (self *Polygon) Flattened() bool{
     return self.Object.Get("flattened").Bool()
 }
 
@@ -83,7 +83,7 @@ func (self *Polygon) SetFlattenedA(member bool) {
 }
 
 // The base object type.
-func (self *Polygon) GetTypeA() int{
+func (self *Polygon) Type() int{
     return self.Object.Get("type").Int()
 }
 
@@ -95,7 +95,7 @@ func (self *Polygon) SetTypeA(member int) {
 // Sets and modifies the points of this polygon.
 // 
 // See {@link Phaser.Polygon#setTo setTo} for the different kinds of arrays formats that can be assigned. The array of vertex points.
-func (self *Polygon) GetPointsA() []Point{
+func (self *Polygon) Points() []Point{
 	array00 := self.Object.Get("points")
 	length00 := array00.Length()
 	out00 := make([]Point, length00, length00)
@@ -120,7 +120,7 @@ func (self *Polygon) ToNumberArray() []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -131,7 +131,7 @@ func (self *Polygon) ToNumberArray1O(output []interface{}) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -142,7 +142,7 @@ func (self *Polygon) ToNumberArrayI(args ...interface{}) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }

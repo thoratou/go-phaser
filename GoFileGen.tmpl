@@ -22,7 +22,9 @@ type {{.GetNameNoNamespace}} struct {
 // {{. -}}
 {{- end}}
 func New{{.Return.GetType}}{{.Suffix}}({{.GetParameterFullString}}) *{{.Return.GetType}} {
-    return &{{.Return.GetType}}{js.Global.Call("{{.Name}}"{{.GetParameterCallString}})}
+    return &{{.Return.GetType}}{js.Global{{range .GetNameSplit -}}
+		.Get("{{.}}")
+	{{- end}}.New({{.GetParameterCallString}})}
 }
 {{end}}
 
@@ -31,7 +33,7 @@ func New{{.Return.GetType}}{{.Suffix}}({{.GetParameterFullString}}) *{{.Return.G
 {{- range .GetDescriptionLines}}
 // {{. -}}
 {{- end}}
-func (self *{{$class.GetNameNoNamespace}}) Get{{.GetNameUpperInitial}}A() {{.Type.GetTypeOptionalPointer -}} {
+func (self *{{$class.GetNameNoNamespace}}) {{.GetNameUpperInitial}}() {{.Type.GetTypeOptionalPointer -}} {
 {{- if .Type.HasWrapper}}
     return {{.Type.Wrapper}}(self.Object.Get("{{.Name}}"))
 {{else if .Type.IsAnyType}}
@@ -43,7 +45,7 @@ func (self *{{$class.GetNameNoNamespace}}) Get{{.GetNameUpperInitial}}A() {{.Typ
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 {{else if .Type.IsArray}}
@@ -76,23 +78,23 @@ func (self *{{$class.GetNameNoNamespace}}) Set{{.GetNameUpperInitial}}A(member {
 {{- end}}
 func (self *{{$class.GetNameNoNamespace}}) {{.GetNameUpperInitial}}{{.Suffix}}({{.GetParameterFullString}}) {{if not .Return.IsVoid -}}{{.Return.GetTypeOptionalPointer}} {{- end}}{
 {{- if .Return.IsVoid}}
-    self.Object.Call("{{.Name}}"{{.GetParameterCallString}})
+    self.Object.Call("{{.Name}}"{{.GetParameterCallStringWithCommaPrefix}})
 {{else if .Return.HasWrapper}}
-    return {{.Return.Wrapper}}(self.Object.Call("{{.Name}}"{{.GetParameterCallString}}))
+    return {{.Return.Wrapper}}(self.Object.Call("{{.Name}}"{{.GetParameterCallStringWithCommaPrefix}}))
 {{else if .Return.IsAnyType}}
-    return self.Object.Call("{{.Name}}"{{.GetParameterCallString}})
+    return self.Object.Call("{{.Name}}"{{.GetParameterCallStringWithCommaPrefix}})
 {{else if .Return.IsNativeType}}
-    return self.Object.Call("{{.Name}}"{{.GetParameterCallString}}).{{.Return.GetGopherjsCallName}}()
+    return self.Object.Call("{{.Name}}"{{.GetParameterCallStringWithCommaPrefix}}).{{.Return.GetGopherjsCallName}}()
 {{else if .Return.IsGenericArray}}
-	array00 := self.Object.Call("{{.Name}}"{{.GetParameterCallString}})
+	array00 := self.Object.Call("{{.Name}}"{{.GetParameterCallStringWithCommaPrefix}})
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 {{else if .Return.IsArray}}
-	array00 := self.Object.Call("{{.Name}}"{{.GetParameterCallString}})
+	array00 := self.Object.Call("{{.Name}}"{{.GetParameterCallStringWithCommaPrefix}})
 	length00 := array00.Length()
 	out00 := make({{.Return.GetType}}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
@@ -104,9 +106,9 @@ func (self *{{$class.GetNameNoNamespace}}) {{.GetNameUpperInitial}}{{.Suffix}}({
 	}
 	return out00
 {{else if .Return.IsCallback}}
-    return {{.Return.GetType}}{self.Object.Call("{{.Name}}"{{.GetParameterCallString}})}
+    return {{.Return.GetType}}{self.Object.Call("{{.Name}}"{{.GetParameterCallStringWithCommaPrefix}})}
 {{else}}
-    return &{{.Return.GetType}}{self.Object.Call("{{.Name}}"{{.GetParameterCallString}})}
+    return &{{.Return.GetType}}{self.Object.Call("{{.Name}}"{{.GetParameterCallStringWithCommaPrefix}})}
 {{end -}}
 }
 {{end}}

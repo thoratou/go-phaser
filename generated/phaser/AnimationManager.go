@@ -17,19 +17,19 @@ type AnimationManager struct {
 // The Animation Manager is used to add, play and update Phaser Animations.
 // Any Game Object such as Phaser.Sprite that supports animation contains a single AnimationManager instance.
 func NewAnimationManager(sprite *Sprite) *AnimationManager {
-    return &AnimationManager{js.Global.Call("Phaser.AnimationManager", sprite)}
+    return &AnimationManager{js.Global.Get("Phaser").Get("AnimationManager").New(sprite)}
 }
 
 // The Animation Manager is used to add, play and update Phaser Animations.
 // Any Game Object such as Phaser.Sprite that supports animation contains a single AnimationManager instance.
 func NewAnimationManagerI(args ...interface{}) *AnimationManager {
-    return &AnimationManager{js.Global.Call("Phaser.AnimationManager", args)}
+    return &AnimationManager{js.Global.Get("Phaser").Get("AnimationManager").New(args)}
 }
 
 
 
 // A reference to the parent Sprite that owns this AnimationManager.
-func (self *AnimationManager) GetSpriteA() *Sprite{
+func (self *AnimationManager) Sprite() *Sprite{
     return &Sprite{self.Object.Get("sprite")}
 }
 
@@ -39,7 +39,7 @@ func (self *AnimationManager) SetSpriteA(member *Sprite) {
 }
 
 // A reference to the currently running Game.
-func (self *AnimationManager) GetGameA() *Game{
+func (self *AnimationManager) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -50,7 +50,7 @@ func (self *AnimationManager) SetGameA(member *Game) {
 
 // The currently displayed Frame of animation, if any.
 // This property is only set once an Animation starts playing. Until that point it remains set as `null`.
-func (self *AnimationManager) GetCurrentFrameA() *Frame{
+func (self *AnimationManager) CurrentFrame() *Frame{
     return &Frame{self.Object.Get("currentFrame")}
 }
 
@@ -61,7 +61,7 @@ func (self *AnimationManager) SetCurrentFrameA(member *Frame) {
 }
 
 // The currently displayed animation, if any.
-func (self *AnimationManager) GetCurrentAnimA() *Animation{
+func (self *AnimationManager) CurrentAnim() *Animation{
     return &Animation{self.Object.Get("currentAnim")}
 }
 
@@ -71,7 +71,7 @@ func (self *AnimationManager) SetCurrentAnimA(member *Animation) {
 }
 
 // Should the animation data continue to update even if the Sprite.visible is set to false.
-func (self *AnimationManager) GetUpdateIfVisibleA() bool{
+func (self *AnimationManager) UpdateIfVisible() bool{
     return self.Object.Get("updateIfVisible").Bool()
 }
 
@@ -81,7 +81,7 @@ func (self *AnimationManager) SetUpdateIfVisibleA(member bool) {
 }
 
 // Set to true once animation data has been loaded.
-func (self *AnimationManager) GetIsLoadedA() bool{
+func (self *AnimationManager) IsLoaded() bool{
     return self.Object.Get("isLoaded").Bool()
 }
 
@@ -91,7 +91,7 @@ func (self *AnimationManager) SetIsLoadedA(member bool) {
 }
 
 // The current animations FrameData.
-func (self *AnimationManager) GetFrameDataA() *FrameData{
+func (self *AnimationManager) FrameData() *FrameData{
     return &FrameData{self.Object.Get("frameData")}
 }
 
@@ -101,7 +101,7 @@ func (self *AnimationManager) SetFrameDataA(member *FrameData) {
 }
 
 // The total number of frames in the currently loaded FrameData, or -1 if no FrameData is loaded.
-func (self *AnimationManager) GetFrameTotalA() int{
+func (self *AnimationManager) FrameTotal() int{
     return self.Object.Get("frameTotal").Int()
 }
 
@@ -111,7 +111,7 @@ func (self *AnimationManager) SetFrameTotalA(member int) {
 }
 
 // Gets and sets the paused state of the current animation.
-func (self *AnimationManager) GetPausedA() bool{
+func (self *AnimationManager) Paused() bool{
     return self.Object.Get("paused").Bool()
 }
 
@@ -121,7 +121,7 @@ func (self *AnimationManager) SetPausedA(member bool) {
 }
 
 // Gets the current animation name, if set.
-func (self *AnimationManager) GetNameA() string{
+func (self *AnimationManager) Name() string{
     return self.Object.Get("name").String()
 }
 
@@ -131,7 +131,7 @@ func (self *AnimationManager) SetNameA(member string) {
 }
 
 // Gets or sets the current frame index and updates the Texture Cache for display.
-func (self *AnimationManager) GetFrameA() int{
+func (self *AnimationManager) Frame() int{
     return self.Object.Get("frame").Int()
 }
 
@@ -141,7 +141,7 @@ func (self *AnimationManager) SetFrameA(member int) {
 }
 
 // Gets or sets the current frame name and updates the Texture Cache for display.
-func (self *AnimationManager) GetFrameNameA() string{
+func (self *AnimationManager) FrameName() string{
     return self.Object.Get("frameName").String()
 }
 

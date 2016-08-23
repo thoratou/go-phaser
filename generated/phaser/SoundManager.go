@@ -39,7 +39,7 @@ type SoundManager struct {
 // The solution is to use a lower encoding rate such as 44100 Hz. Sometimes the audio context will
 // be created with a sampleRate of 48000. If this happens and audio distorts you should re-create the context.
 func NewSoundManager(game *Game) *SoundManager {
-    return &SoundManager{js.Global.Call("Phaser.SoundManager", game)}
+    return &SoundManager{js.Global.Get("Phaser").Get("SoundManager").New(game)}
 }
 
 // The Sound Manager is responsible for playing back audio via either the Legacy HTML Audio tag or via Web Audio if the browser supports it.
@@ -56,13 +56,13 @@ func NewSoundManager(game *Game) *SoundManager {
 // The solution is to use a lower encoding rate such as 44100 Hz. Sometimes the audio context will
 // be created with a sampleRate of 48000. If this happens and audio distorts you should re-create the context.
 func NewSoundManagerI(args ...interface{}) *SoundManager {
-    return &SoundManager{js.Global.Call("Phaser.SoundManager", args)}
+    return &SoundManager{js.Global.Get("Phaser").Get("SoundManager").New(args)}
 }
 
 
 
 // Local reference to game.
-func (self *SoundManager) GetGameA() *Game{
+func (self *SoundManager) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -72,7 +72,7 @@ func (self *SoundManager) SetGameA(member *Game) {
 }
 
 // The event dispatched when a sound decodes (typically only for mp3 files)
-func (self *SoundManager) GetOnSoundDecodeA() *Signal{
+func (self *SoundManager) OnSoundDecode() *Signal{
     return &Signal{self.Object.Get("onSoundDecode")}
 }
 
@@ -82,7 +82,7 @@ func (self *SoundManager) SetOnSoundDecodeA(member *Signal) {
 }
 
 // This signal is dispatched whenever the global volume changes. The new volume is passed as the only parameter to your callback.
-func (self *SoundManager) GetOnVolumeChangeA() *Signal{
+func (self *SoundManager) OnVolumeChange() *Signal{
     return &Signal{self.Object.Get("onVolumeChange")}
 }
 
@@ -92,7 +92,7 @@ func (self *SoundManager) SetOnVolumeChangeA(member *Signal) {
 }
 
 // This signal is dispatched when the SoundManager is globally muted, either directly via game code or as a result of the game pausing.
-func (self *SoundManager) GetOnMuteA() *Signal{
+func (self *SoundManager) OnMute() *Signal{
     return &Signal{self.Object.Get("onMute")}
 }
 
@@ -102,7 +102,7 @@ func (self *SoundManager) SetOnMuteA(member *Signal) {
 }
 
 // This signal is dispatched when the SoundManager is globally un-muted, either directly via game code or as a result of the game resuming from a pause.
-func (self *SoundManager) GetOnUnMuteA() *Signal{
+func (self *SoundManager) OnUnMute() *Signal{
     return &Signal{self.Object.Get("onUnMute")}
 }
 
@@ -112,7 +112,7 @@ func (self *SoundManager) SetOnUnMuteA(member *Signal) {
 }
 
 // The AudioContext being used for playback.
-func (self *SoundManager) GetContextA() *AudioContext{
+func (self *SoundManager) Context() *AudioContext{
     return &AudioContext{self.Object.Get("context")}
 }
 
@@ -122,7 +122,7 @@ func (self *SoundManager) SetContextA(member *AudioContext) {
 }
 
 // True the SoundManager and device are both using Web Audio.
-func (self *SoundManager) GetUsingWebAudioA() bool{
+func (self *SoundManager) UsingWebAudio() bool{
     return self.Object.Get("usingWebAudio").Bool()
 }
 
@@ -132,7 +132,7 @@ func (self *SoundManager) SetUsingWebAudioA(member bool) {
 }
 
 // True the SoundManager and device are both using the Audio tag instead of Web Audio.
-func (self *SoundManager) GetUsingAudioTagA() bool{
+func (self *SoundManager) UsingAudioTag() bool{
     return self.Object.Get("usingAudioTag").Bool()
 }
 
@@ -142,7 +142,7 @@ func (self *SoundManager) SetUsingAudioTagA(member bool) {
 }
 
 // True if audio been disabled via the PhaserGlobal (useful if you need to use a 3rd party audio library) or the device doesn't support any audio.
-func (self *SoundManager) GetNoAudioA() bool{
+func (self *SoundManager) NoAudio() bool{
     return self.Object.Get("noAudio").Bool()
 }
 
@@ -152,7 +152,7 @@ func (self *SoundManager) SetNoAudioA(member bool) {
 }
 
 // Used in conjunction with Sound.externalNode this allows you to stop a Sound node being connected to the SoundManager master gain node.
-func (self *SoundManager) GetConnectToMasterA() bool{
+func (self *SoundManager) ConnectToMaster() bool{
     return self.Object.Get("connectToMaster").Bool()
 }
 
@@ -162,7 +162,7 @@ func (self *SoundManager) SetConnectToMasterA(member bool) {
 }
 
 // true if the audio system is currently locked awaiting a touch event.
-func (self *SoundManager) GetTouchLockedA() bool{
+func (self *SoundManager) TouchLocked() bool{
     return self.Object.Get("touchLocked").Bool()
 }
 
@@ -172,7 +172,7 @@ func (self *SoundManager) SetTouchLockedA(member bool) {
 }
 
 // The number of audio channels to use in playback.
-func (self *SoundManager) GetChannelsA() int{
+func (self *SoundManager) Channels() int{
     return self.Object.Get("channels").Int()
 }
 
@@ -184,7 +184,7 @@ func (self *SoundManager) SetChannelsA(member int) {
 // Set to true to have all sound muted when the Phaser game pauses (such as on loss of focus),
 // or set to false to keep audio playing, regardless of the game pause state. You may need to
 // do this should you wish to control audio muting via external DOM buttons or similar.
-func (self *SoundManager) GetMuteOnPauseA() bool{
+func (self *SoundManager) MuteOnPause() bool{
     return self.Object.Get("muteOnPause").Bool()
 }
 
@@ -196,7 +196,7 @@ func (self *SoundManager) SetMuteOnPauseA(member bool) {
 }
 
 // Gets or sets the muted state of the SoundManager. This effects all sounds in the game.
-func (self *SoundManager) GetMuteA() bool{
+func (self *SoundManager) Mute() bool{
     return self.Object.Get("mute").Bool()
 }
 
@@ -206,7 +206,7 @@ func (self *SoundManager) SetMuteA(member bool) {
 }
 
 // Gets or sets the global volume of the SoundManager, a value between 0 and 1. The value given is clamped to the range 0 to 1.
-func (self *SoundManager) GetVolumeA() int{
+func (self *SoundManager) Volume() int{
     return self.Object.Get("volume").Int()
 }
 
@@ -298,7 +298,7 @@ func (self *SoundManager) DecodeI(args ...interface{}) {
 // Once all of the Sound files have finished decoding the callback will be invoked.
 // The amount of time spent decoding depends on the codec used and file size.
 // If all of the files given have already decoded the callback is triggered immediately.
-func (self *SoundManager) SetDecodedCallback(files interface{}, callback func(...interface{}), callbackContext interface{}) {
+func (self *SoundManager) SetDecodedCallback(files interface{}, callback interface{}, callbackContext interface{}) {
     self.Object.Call("setDecodedCallback", files, callback, callbackContext)
 }
 

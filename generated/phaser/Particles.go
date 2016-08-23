@@ -15,18 +15,18 @@ type Particles struct {
 
 // Phaser.Particles is the Particle Manager for the game. It is called during the game update loop and in turn updates any Emitters attached to it.
 func NewParticles(game *Game) *Particles {
-    return &Particles{js.Global.Call("Phaser.Particles", game)}
+    return &Particles{js.Global.Get("Phaser").Get("Particles").New(game)}
 }
 
 // Phaser.Particles is the Particle Manager for the game. It is called during the game update loop and in turn updates any Emitters attached to it.
 func NewParticlesI(args ...interface{}) *Particles {
-    return &Particles{js.Global.Call("Phaser.Particles", args)}
+    return &Particles{js.Global.Get("Phaser").Get("Particles").New(args)}
 }
 
 
 
 // A reference to the currently running Game.
-func (self *Particles) GetGameA() *Game{
+func (self *Particles) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -36,7 +36,7 @@ func (self *Particles) SetGameA(member *Game) {
 }
 
 // Internal emitters store.
-func (self *Particles) GetEmittersA() interface{}{
+func (self *Particles) Emitters() interface{}{
     return self.Object.Get("emitters")
 }
 
@@ -46,7 +46,7 @@ func (self *Particles) SetEmittersA(member interface{}) {
 }
 
 // -
-func (self *Particles) GetIDA() int{
+func (self *Particles) ID() int{
     return self.Object.Get("ID").Int()
 }
 

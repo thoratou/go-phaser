@@ -59,7 +59,7 @@ type BitmapText struct {
 // 
 // If you were using an older version of Phaser (< 2.4) and using the DOMish parser hack, please remove this. It isn't required any longer.
 func NewBitmapText(game *Game, x int, y int, font string) *BitmapText {
-    return &BitmapText{js.Global.Call("Phaser.BitmapText", game, x, y, font)}
+    return &BitmapText{js.Global.Get("Phaser").Get("BitmapText").New(game, x, y, font)}
 }
 
 // BitmapText objects work by taking a texture file and an XML or JSON file that describes the font structure.
@@ -86,7 +86,7 @@ func NewBitmapText(game *Game, x int, y int, font string) *BitmapText {
 // 
 // If you were using an older version of Phaser (< 2.4) and using the DOMish parser hack, please remove this. It isn't required any longer.
 func NewBitmapText1O(game *Game, x int, y int, font string, text string) *BitmapText {
-    return &BitmapText{js.Global.Call("Phaser.BitmapText", game, x, y, font, text)}
+    return &BitmapText{js.Global.Get("Phaser").Get("BitmapText").New(game, x, y, font, text)}
 }
 
 // BitmapText objects work by taking a texture file and an XML or JSON file that describes the font structure.
@@ -113,7 +113,7 @@ func NewBitmapText1O(game *Game, x int, y int, font string, text string) *Bitmap
 // 
 // If you were using an older version of Phaser (< 2.4) and using the DOMish parser hack, please remove this. It isn't required any longer.
 func NewBitmapText2O(game *Game, x int, y int, font string, text string, size int) *BitmapText {
-    return &BitmapText{js.Global.Call("Phaser.BitmapText", game, x, y, font, text, size)}
+    return &BitmapText{js.Global.Get("Phaser").Get("BitmapText").New(game, x, y, font, text, size)}
 }
 
 // BitmapText objects work by taking a texture file and an XML or JSON file that describes the font structure.
@@ -140,7 +140,7 @@ func NewBitmapText2O(game *Game, x int, y int, font string, text string, size in
 // 
 // If you were using an older version of Phaser (< 2.4) and using the DOMish parser hack, please remove this. It isn't required any longer.
 func NewBitmapText3O(game *Game, x int, y int, font string, text string, size int, align string) *BitmapText {
-    return &BitmapText{js.Global.Call("Phaser.BitmapText", game, x, y, font, text, size, align)}
+    return &BitmapText{js.Global.Get("Phaser").Get("BitmapText").New(game, x, y, font, text, size, align)}
 }
 
 // BitmapText objects work by taking a texture file and an XML or JSON file that describes the font structure.
@@ -167,13 +167,13 @@ func NewBitmapText3O(game *Game, x int, y int, font string, text string, size in
 // 
 // If you were using an older version of Phaser (< 2.4) and using the DOMish parser hack, please remove this. It isn't required any longer.
 func NewBitmapTextI(args ...interface{}) *BitmapText {
-    return &BitmapText{js.Global.Call("Phaser.BitmapText", args)}
+    return &BitmapText{js.Global.Get("Phaser").Get("BitmapText").New(args)}
 }
 
 
 
 // The const type of this object.
-func (self *BitmapText) GetTypeA() int{
+func (self *BitmapText) Type() int{
     return self.Object.Get("type").Int()
 }
 
@@ -183,7 +183,7 @@ func (self *BitmapText) SetTypeA(member int) {
 }
 
 // The const physics body type of this object.
-func (self *BitmapText) GetPhysicsTypeA() int{
+func (self *BitmapText) PhysicsType() int{
     return self.Object.Get("physicsType").Int()
 }
 
@@ -193,7 +193,7 @@ func (self *BitmapText) SetPhysicsTypeA(member int) {
 }
 
 // The width in pixels of the overall text area, taking into consideration multi-line text.
-func (self *BitmapText) GetTextWidthA() int{
+func (self *BitmapText) TextWidth() int{
     return self.Object.Get("textWidth").Int()
 }
 
@@ -203,7 +203,7 @@ func (self *BitmapText) SetTextWidthA(member int) {
 }
 
 // The height in pixels of the overall text area, taking into consideration multi-line text.
-func (self *BitmapText) GetTextHeightA() int{
+func (self *BitmapText) TextHeight() int{
     return self.Object.Get("textHeight").Int()
 }
 
@@ -213,7 +213,7 @@ func (self *BitmapText) SetTextHeightA(member int) {
 }
 
 // The anchor value of this BitmapText.
-func (self *BitmapText) GetAnchorA() *Point{
+func (self *BitmapText) Anchor() *Point{
     return &Point{self.Object.Get("anchor")}
 }
 
@@ -223,7 +223,7 @@ func (self *BitmapText) SetAnchorA(member *Point) {
 }
 
 // The dirty state of this object.
-func (self *BitmapText) GetDirtyA() bool{
+func (self *BitmapText) Dirty() bool{
     return self.Object.Get("dirty").Bool()
 }
 
@@ -233,7 +233,7 @@ func (self *BitmapText) SetDirtyA(member bool) {
 }
 
 // Alignment for multi-line text ('left', 'center' or 'right'), does not affect single lines of text.
-func (self *BitmapText) GetAlignA() string{
+func (self *BitmapText) Align() string{
     return self.Object.Get("align").String()
 }
 
@@ -243,7 +243,7 @@ func (self *BitmapText) SetAlignA(member string) {
 }
 
 // The tint applied to the BitmapText. This is a hex value. Set to white to disable (0xFFFFFF)
-func (self *BitmapText) GetTintA() int{
+func (self *BitmapText) Tint() int{
     return self.Object.Get("tint").Int()
 }
 
@@ -253,7 +253,7 @@ func (self *BitmapText) SetTintA(member int) {
 }
 
 // The font the text will be rendered in, i.e. 'Arial'. Must be loaded in the browser before use.
-func (self *BitmapText) GetFontA() string{
+func (self *BitmapText) Font() string{
     return self.Object.Get("font").String()
 }
 
@@ -263,7 +263,7 @@ func (self *BitmapText) SetFontA(member string) {
 }
 
 // The size of the font in pixels.
-func (self *BitmapText) GetFontSizeA() int{
+func (self *BitmapText) FontSize() int{
     return self.Object.Get("fontSize").Int()
 }
 
@@ -273,7 +273,7 @@ func (self *BitmapText) SetFontSizeA(member int) {
 }
 
 // The text to be displayed by this BitmapText object.
-func (self *BitmapText) GetTextA() string{
+func (self *BitmapText) Text() string{
     return self.Object.Get("text").String()
 }
 
@@ -290,7 +290,7 @@ func (self *BitmapText) SetTextA(member string) {
 // If no whitespace was found then no wrapping will take place and consequently the maxWidth value will not be honored.
 // 
 // Disable maxWidth by setting the value to 0. The maximum width of this BitmapText in pixels.
-func (self *BitmapText) GetMaxWidthA() int{
+func (self *BitmapText) MaxWidth() int{
     return self.Object.Get("maxWidth").Int()
 }
 
@@ -311,7 +311,7 @@ func (self *BitmapText) SetMaxWidthA(member int) {
 // The smoothing is applied to the BaseTexture of this font, which all letters of the text reference.
 // 
 // Smoothing is enabled by default.
-func (self *BitmapText) GetSmoothedA() bool{
+func (self *BitmapText) Smoothed() bool{
     return self.Object.Get("smoothed").Bool()
 }
 
@@ -325,7 +325,7 @@ func (self *BitmapText) SetSmoothedA(member bool) {
 }
 
 // [read-only] The array of children of this container.
-func (self *BitmapText) GetChildrenA() []DisplayObject{
+func (self *BitmapText) Children() []DisplayObject{
 	array00 := self.Object.Get("children")
 	length00 := array00.Length()
 	out00 := make([]DisplayObject, length00, length00)
@@ -345,7 +345,7 @@ func (self *BitmapText) SetChildrenA(member []DisplayObject) {
 // If this property is `true` then the children will _not_ be considered as valid for Input events.
 // 
 // Note that this property isn't recursive: only immediate children are influenced, it doesn't scan further down.
-func (self *BitmapText) GetIgnoreChildInputA() bool{
+func (self *BitmapText) IgnoreChildInput() bool{
     return self.Object.Get("ignoreChildInput").Bool()
 }
 
@@ -359,7 +359,7 @@ func (self *BitmapText) SetIgnoreChildInputA(member bool) {
 }
 
 // The width of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *BitmapText) GetWidthA() int{
+func (self *BitmapText) Width() int{
     return self.Object.Get("width").Int()
 }
 
@@ -369,7 +369,7 @@ func (self *BitmapText) SetWidthA(member int) {
 }
 
 // The height of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *BitmapText) GetHeightA() int{
+func (self *BitmapText) Height() int{
     return self.Object.Get("height").Int()
 }
 
@@ -379,7 +379,7 @@ func (self *BitmapText) SetHeightA(member int) {
 }
 
 // A reference to the currently running Game.
-func (self *BitmapText) GetGameA() *Game{
+func (self *BitmapText) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -390,7 +390,7 @@ func (self *BitmapText) SetGameA(member *Game) {
 
 // A user defined name given to this Game Object.
 // This value isn't ever used internally by Phaser, it is meant as a game level property.
-func (self *BitmapText) GetNameA() string{
+func (self *BitmapText) Name() string{
     return self.Object.Get("name").String()
 }
 
@@ -404,7 +404,7 @@ func (self *BitmapText) SetNameA(member string) {
 // This value isn't ever used internally by Phaser, but may be used by your own code, or
 // by Phaser Plugins, to store data that needs to be associated with the Game Object,
 // without polluting the Game Object directly.
-func (self *BitmapText) GetDataA() interface{}{
+func (self *BitmapText) Data() interface{}{
     return self.Object.Get("data")
 }
 
@@ -417,7 +417,7 @@ func (self *BitmapText) SetDataA(member interface{}) {
 }
 
 // The components this Game Object has installed.
-func (self *BitmapText) GetComponentsA() interface{}{
+func (self *BitmapText) Components() interface{}{
     return self.Object.Get("components")
 }
 
@@ -430,7 +430,7 @@ func (self *BitmapText) SetComponentsA(member interface{}) {
 // No two objects in a Group can have the same z value.
 // This value is adjusted automatically whenever the Group hierarchy changes.
 // If you wish to re-order the layering of a Game Object then see methods like Group.moveUp or Group.bringToTop.
-func (self *BitmapText) GetZA() int{
+func (self *BitmapText) Z() int{
     return self.Object.Get("z").Int()
 }
 
@@ -444,7 +444,7 @@ func (self *BitmapText) SetZA(member int) {
 
 // All Phaser Game Objects have an Events class which contains all of the events that are dispatched when certain things happen to this
 // Game Object, or any of its components.
-func (self *BitmapText) GetEventsA() *Events{
+func (self *BitmapText) Events() *Events{
     return &Events{self.Object.Get("events")}
 }
 
@@ -456,7 +456,7 @@ func (self *BitmapText) SetEventsA(member *Events) {
 
 // If the Game Object is enabled for animation (such as a Phaser.Sprite) this is a reference to its AnimationManager instance.
 // Through it you can create, play, pause and stop animations.
-func (self *BitmapText) GetAnimationsA() *AnimationManager{
+func (self *BitmapText) Animations() *AnimationManager{
     return &AnimationManager{self.Object.Get("animations")}
 }
 
@@ -471,7 +471,7 @@ func (self *BitmapText) SetAnimationsA(member *AnimationManager) {
 // It can also be an instance of a RenderTexture, BitmapData, Video or PIXI.Texture.
 // If a Game Object is created without a key it is automatically assigned the key `__default` which is a 32x32 transparent PNG stored within the Cache.
 // If a Game Object is given a key which doesn't exist in the Image Cache it is re-assigned the key `__missing` which is a 32x32 PNG of a green box with a line through it.
-func (self *BitmapText) GetKeyA() interface{}{
+func (self *BitmapText) Key() interface{}{
     return self.Object.Get("key")
 }
 
@@ -487,7 +487,7 @@ func (self *BitmapText) SetKeyA(member interface{}) {
 // The world coordinates of this Game Object in pixels.
 // Depending on where in the display list this Game Object is placed this value can differ from `position`, 
 // which contains the x/y coordinates relative to the Game Objects parent.
-func (self *BitmapText) GetWorldA() *Point{
+func (self *BitmapText) World() *Point{
     return &Point{self.Object.Get("world")}
 }
 
@@ -499,7 +499,7 @@ func (self *BitmapText) SetWorldA(member *Point) {
 }
 
 // A debug flag designed for use with `Game.enableStep`.
-func (self *BitmapText) GetDebugA() bool{
+func (self *BitmapText) Debug() bool{
     return self.Object.Get("debug").Bool()
 }
 
@@ -509,7 +509,7 @@ func (self *BitmapText) SetDebugA(member bool) {
 }
 
 // The position the Game Object was located in the previous frame.
-func (self *BitmapText) GetPreviousPositionA() *Point{
+func (self *BitmapText) PreviousPosition() *Point{
     return &Point{self.Object.Get("previousPosition")}
 }
 
@@ -519,7 +519,7 @@ func (self *BitmapText) SetPreviousPositionA(member *Point) {
 }
 
 // The rotation the Game Object was in set to in the previous frame. Value is in radians.
-func (self *BitmapText) GetPreviousRotationA() int{
+func (self *BitmapText) PreviousRotation() int{
     return self.Object.Get("previousRotation").Int()
 }
 
@@ -530,7 +530,7 @@ func (self *BitmapText) SetPreviousRotationA(member int) {
 
 // The render order ID is used internally by the renderer and Input Manager and should not be modified.
 // This property is mostly used internally by the renderers, but is exposed for the use of plugins.
-func (self *BitmapText) GetRenderOrderIDA() int{
+func (self *BitmapText) RenderOrderID() int{
     return self.Object.Get("renderOrderID").Int()
 }
 
@@ -542,7 +542,7 @@ func (self *BitmapText) SetRenderOrderIDA(member int) {
 
 // A Game Object is considered `fresh` if it has just been created or reset and is yet to receive a renderer transform update.
 // This property is mostly used internally by the physics systems, but is exposed for the use of plugins.
-func (self *BitmapText) GetFreshA() bool{
+func (self *BitmapText) Fresh() bool{
     return self.Object.Get("fresh").Bool()
 }
 
@@ -557,7 +557,7 @@ func (self *BitmapText) SetFreshA(member bool) {
 // 
 // This is extremely useful if you wish to destroy an object from within one of its own callbacks 
 // such as with Buttons or other Input events.
-func (self *BitmapText) GetPendingDestroyA() bool{
+func (self *BitmapText) PendingDestroy() bool{
     return self.Object.Get("pendingDestroy").Bool()
 }
 
@@ -577,7 +577,7 @@ func (self *BitmapText) SetPendingDestroyA(member bool) {
 // 
 // Setting `exists` to true will add its physics body back in to the physics world, if it has one.
 // It will also set the `visible` property to `true`.
-func (self *BitmapText) GetExistsA() bool{
+func (self *BitmapText) Exists() bool{
     return self.Object.Get("exists").Bool()
 }
 
@@ -601,7 +601,7 @@ func (self *BitmapText) SetExistsA(member bool) {
 // 
 // If you wish to work in radians instead of degrees you can use the property `rotation` instead. 
 // Working in radians is slightly faster as it doesn't have to perform any calculations.
-func (self *BitmapText) GetAngleA() int{
+func (self *BitmapText) Angle() int{
     return self.Object.Get("angle").Int()
 }
 
@@ -624,7 +624,7 @@ func (self *BitmapText) SetAngleA(member int) {
 // 
 // This is a relatively expensive operation, especially if enabled on hundreds of Game Objects. So enable it only if you know it's required,
 // or you have tested performance and find it acceptable.
-func (self *BitmapText) GetAutoCullA() bool{
+func (self *BitmapText) AutoCull() bool{
     return self.Object.Get("autoCull").Bool()
 }
 
@@ -640,7 +640,7 @@ func (self *BitmapText) SetAutoCullA(member bool) {
 
 // Checks if the Game Objects bounds intersect with the Game Camera bounds.
 // Returns `true` if they do, otherwise `false` if fully outside of the Cameras bounds.
-func (self *BitmapText) GetInCameraA() bool{
+func (self *BitmapText) InCamera() bool{
     return self.Object.Get("inCamera").Bool()
 }
 
@@ -653,7 +653,7 @@ func (self *BitmapText) SetInCameraA(member bool) {
 // The amount the Game Object is visually offset from its x coordinate.
 // This is the same as `width * anchor.x`.
 // It will only be > 0 if anchor.x is not equal to zero.
-func (self *BitmapText) GetOffsetXA() int{
+func (self *BitmapText) OffsetX() int{
     return self.Object.Get("offsetX").Int()
 }
 
@@ -667,7 +667,7 @@ func (self *BitmapText) SetOffsetXA(member int) {
 // The amount the Game Object is visually offset from its y coordinate.
 // This is the same as `height * anchor.y`.
 // It will only be > 0 if anchor.y is not equal to zero.
-func (self *BitmapText) GetOffsetYA() int{
+func (self *BitmapText) OffsetY() int{
     return self.Object.Get("offsetY").Int()
 }
 
@@ -680,7 +680,7 @@ func (self *BitmapText) SetOffsetYA(member int) {
 
 // The center x coordinate of the Game Object.
 // This is the same as `(x - offsetX) + (width / 2)`.
-func (self *BitmapText) GetCenterXA() int{
+func (self *BitmapText) CenterX() int{
     return self.Object.Get("centerX").Int()
 }
 
@@ -692,7 +692,7 @@ func (self *BitmapText) SetCenterXA(member int) {
 
 // The center y coordinate of the Game Object.
 // This is the same as `(y - offsetY) + (height / 2)`.
-func (self *BitmapText) GetCenterYA() int{
+func (self *BitmapText) CenterY() int{
     return self.Object.Get("centerY").Int()
 }
 
@@ -704,7 +704,7 @@ func (self *BitmapText) SetCenterYA(member int) {
 
 // The left coordinate of the Game Object.
 // This is the same as `x - offsetX`.
-func (self *BitmapText) GetLeftA() int{
+func (self *BitmapText) Left() int{
     return self.Object.Get("left").Int()
 }
 
@@ -716,7 +716,7 @@ func (self *BitmapText) SetLeftA(member int) {
 
 // The right coordinate of the Game Object.
 // This is the same as `x + width - offsetX`.
-func (self *BitmapText) GetRightA() int{
+func (self *BitmapText) Right() int{
     return self.Object.Get("right").Int()
 }
 
@@ -728,7 +728,7 @@ func (self *BitmapText) SetRightA(member int) {
 
 // The y coordinate of the Game Object.
 // This is the same as `y - offsetY`.
-func (self *BitmapText) GetTopA() int{
+func (self *BitmapText) Top() int{
     return self.Object.Get("top").Int()
 }
 
@@ -740,7 +740,7 @@ func (self *BitmapText) SetTopA(member int) {
 
 // The sum of the y and height properties.
 // This is the same as `y + height - offsetY`.
-func (self *BitmapText) GetBottomA() int{
+func (self *BitmapText) Bottom() int{
     return self.Object.Get("bottom").Int()
 }
 
@@ -752,7 +752,7 @@ func (self *BitmapText) SetBottomA(member int) {
 
 // As a Game Object runs through its destroy method this flag is set to true, 
 // and can be checked in any sub-systems or plugins it is being destroyed from.
-func (self *BitmapText) GetDestroyPhaseA() bool{
+func (self *BitmapText) DestroyPhase() bool{
     return self.Object.Get("destroyPhase").Bool()
 }
 
@@ -775,7 +775,7 @@ func (self *BitmapText) SetDestroyPhaseA(member bool) {
 // Note that the `cameraOffset` values are in addition to any parent of this Game Object on the display list.
 // 
 // Be careful not to set `fixedToCamera` on Game Objects which are in Groups that already have `fixedToCamera` enabled on them.
-func (self *BitmapText) GetFixedToCameraA() bool{
+func (self *BitmapText) FixedToCamera() bool{
     return self.Object.Get("fixedToCamera").Bool()
 }
 
@@ -799,7 +799,7 @@ func (self *BitmapText) SetFixedToCameraA(member bool) {
 // The x/y coordinate offset applied to the top-left of the camera that this Game Object will be drawn at if `fixedToCamera` is true.
 // 
 // The values are relative to the top-left of the camera view and in addition to any parent of the Game Object on the display list.
-func (self *BitmapText) GetCameraOffsetA() *Point{
+func (self *BitmapText) CameraOffset() *Point{
     return &Point{self.Object.Get("cameraOffset")}
 }
 
@@ -815,7 +815,7 @@ func (self *BitmapText) SetCameraOffsetA(member *Point) {
 // By default it is disabled. If you wish this Game Object to process input events you should enable it with: `inputEnabled = true`.
 // 
 // After you have done this, this property will be a reference to the Phaser InputHandler.
-func (self *BitmapText) GetInputA() interface{}{
+func (self *BitmapText) Input() interface{}{
     return self.Object.Get("input")
 }
 
@@ -840,7 +840,7 @@ func (self *BitmapText) SetInputA(member interface{}) {
 // If you want to _temporarily_ disable input for a Game Object, then it's better to set
 // `input.enabled = false`, as it won't reset any of the Input Handlers internal properties.
 // You can then toggle this back on as needed.
-func (self *BitmapText) GetInputEnabledA() bool{
+func (self *BitmapText) InputEnabled() bool{
     return self.Object.Get("inputEnabled").Bool()
 }
 
@@ -872,7 +872,7 @@ func (self *BitmapText) SetInputEnabledA(member bool) {
 // 
 // This is a relatively expensive operation, especially if enabled on hundreds of Game Objects. So enable it only if you know it's required,
 // or you have tested performance and find it acceptable.
-func (self *BitmapText) GetCheckWorldBoundsA() bool{
+func (self *BitmapText) CheckWorldBounds() bool{
     return self.Object.Get("checkWorldBounds").Bool()
 }
 
@@ -893,7 +893,7 @@ func (self *BitmapText) SetCheckWorldBoundsA(member bool) {
 }
 
 // If this and the `checkWorldBounds` property are both set to `true` then the `kill` method is called as soon as `inWorld` returns false.
-func (self *BitmapText) GetOutOfBoundsKillA() bool{
+func (self *BitmapText) OutOfBoundsKill() bool{
     return self.Object.Get("outOfBoundsKill").Bool()
 }
 
@@ -904,7 +904,7 @@ func (self *BitmapText) SetOutOfBoundsKillA(member bool) {
 
 // If this and the `autoCull` property are both set to `true`, then the `kill` method
 // is called as soon as the Game Object leaves the camera bounds.
-func (self *BitmapText) GetOutOfCameraBoundsKillA() bool{
+func (self *BitmapText) OutOfCameraBoundsKill() bool{
     return self.Object.Get("outOfCameraBoundsKill").Bool()
 }
 
@@ -915,7 +915,7 @@ func (self *BitmapText) SetOutOfCameraBoundsKillA(member bool) {
 }
 
 // Checks if the Game Objects bounds are within, or intersect at any point with the Game World bounds.
-func (self *BitmapText) GetInWorldA() bool{
+func (self *BitmapText) InWorld() bool{
     return self.Object.Get("inWorld").Bool()
 }
 
@@ -931,7 +931,7 @@ func (self *BitmapText) SetInWorldA(member bool) {
 // 
 // This property is mostly just provided to be used by your game - it doesn't effect rendering or logic updates.
 // However you can use `Group.getFirstAlive` in conjunction with this property for fast object pooling and recycling.
-func (self *BitmapText) GetAliveA() bool{
+func (self *BitmapText) Alive() bool{
     return self.Object.Get("alive").Bool()
 }
 
@@ -954,7 +954,7 @@ func (self *BitmapText) SetAliveA(member bool) {
 // When it reaches zero it will call the `kill` method.
 // 
 // Very handy for particles, bullets, collectibles, or any other short-lived entity.
-func (self *BitmapText) GetLifespanA() int{
+func (self *BitmapText) Lifespan() int{
     return self.Object.Get("lifespan").Int()
 }
 
@@ -984,7 +984,7 @@ func (self *BitmapText) SetLifespanA(member int) {
 // so the physics body is centered on the Game Object.
 // 
 // If you need a different result then adjust or re-create the Body shape offsets manually or reset the anchor after enabling physics.
-func (self *BitmapText) GetBodyA() interface{}{
+func (self *BitmapText) Body() interface{}{
     return self.Object.Get("body")
 }
 
@@ -1007,7 +1007,7 @@ func (self *BitmapText) SetBodyA(member interface{}) {
 }
 
 // The position of the Game Object on the x axis relative to the local coordinates of the parent.
-func (self *BitmapText) GetXA() int{
+func (self *BitmapText) X() int{
     return self.Object.Get("x").Int()
 }
 
@@ -1017,7 +1017,7 @@ func (self *BitmapText) SetXA(member int) {
 }
 
 // The position of the Game Object on the y axis relative to the local coordinates of the parent.
-func (self *BitmapText) GetYA() int{
+func (self *BitmapText) Y() int{
     return self.Object.Get("y").Int()
 }
 

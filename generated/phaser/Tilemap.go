@@ -27,7 +27,7 @@ type Tilemap struct {
 // A Tile map is rendered to the display using a TilemapLayer. It is not added to the display list directly itself.
 // A map may have multiple layers. You can perform operations on the map data such as copying, pasting, filling and shuffling the tiles around.
 func NewTilemap(game *Game) *Tilemap {
-    return &Tilemap{js.Global.Call("Phaser.Tilemap", game)}
+    return &Tilemap{js.Global.Get("Phaser").Get("Tilemap").New(game)}
 }
 
 // Creates a new Phaser.Tilemap object. The map can either be populated with data from a Tiled JSON file or from a CSV file.
@@ -38,7 +38,7 @@ func NewTilemap(game *Game) *Tilemap {
 // A Tile map is rendered to the display using a TilemapLayer. It is not added to the display list directly itself.
 // A map may have multiple layers. You can perform operations on the map data such as copying, pasting, filling and shuffling the tiles around.
 func NewTilemap1O(game *Game, key string) *Tilemap {
-    return &Tilemap{js.Global.Call("Phaser.Tilemap", game, key)}
+    return &Tilemap{js.Global.Get("Phaser").Get("Tilemap").New(game, key)}
 }
 
 // Creates a new Phaser.Tilemap object. The map can either be populated with data from a Tiled JSON file or from a CSV file.
@@ -49,7 +49,7 @@ func NewTilemap1O(game *Game, key string) *Tilemap {
 // A Tile map is rendered to the display using a TilemapLayer. It is not added to the display list directly itself.
 // A map may have multiple layers. You can perform operations on the map data such as copying, pasting, filling and shuffling the tiles around.
 func NewTilemap2O(game *Game, key string, tileWidth int) *Tilemap {
-    return &Tilemap{js.Global.Call("Phaser.Tilemap", game, key, tileWidth)}
+    return &Tilemap{js.Global.Get("Phaser").Get("Tilemap").New(game, key, tileWidth)}
 }
 
 // Creates a new Phaser.Tilemap object. The map can either be populated with data from a Tiled JSON file or from a CSV file.
@@ -60,7 +60,7 @@ func NewTilemap2O(game *Game, key string, tileWidth int) *Tilemap {
 // A Tile map is rendered to the display using a TilemapLayer. It is not added to the display list directly itself.
 // A map may have multiple layers. You can perform operations on the map data such as copying, pasting, filling and shuffling the tiles around.
 func NewTilemap3O(game *Game, key string, tileWidth int, tileHeight int) *Tilemap {
-    return &Tilemap{js.Global.Call("Phaser.Tilemap", game, key, tileWidth, tileHeight)}
+    return &Tilemap{js.Global.Get("Phaser").Get("Tilemap").New(game, key, tileWidth, tileHeight)}
 }
 
 // Creates a new Phaser.Tilemap object. The map can either be populated with data from a Tiled JSON file or from a CSV file.
@@ -71,7 +71,7 @@ func NewTilemap3O(game *Game, key string, tileWidth int, tileHeight int) *Tilema
 // A Tile map is rendered to the display using a TilemapLayer. It is not added to the display list directly itself.
 // A map may have multiple layers. You can perform operations on the map data such as copying, pasting, filling and shuffling the tiles around.
 func NewTilemap4O(game *Game, key string, tileWidth int, tileHeight int, width int) *Tilemap {
-    return &Tilemap{js.Global.Call("Phaser.Tilemap", game, key, tileWidth, tileHeight, width)}
+    return &Tilemap{js.Global.Get("Phaser").Get("Tilemap").New(game, key, tileWidth, tileHeight, width)}
 }
 
 // Creates a new Phaser.Tilemap object. The map can either be populated with data from a Tiled JSON file or from a CSV file.
@@ -82,7 +82,7 @@ func NewTilemap4O(game *Game, key string, tileWidth int, tileHeight int, width i
 // A Tile map is rendered to the display using a TilemapLayer. It is not added to the display list directly itself.
 // A map may have multiple layers. You can perform operations on the map data such as copying, pasting, filling and shuffling the tiles around.
 func NewTilemap5O(game *Game, key string, tileWidth int, tileHeight int, width int, height int) *Tilemap {
-    return &Tilemap{js.Global.Call("Phaser.Tilemap", game, key, tileWidth, tileHeight, width, height)}
+    return &Tilemap{js.Global.Get("Phaser").Get("Tilemap").New(game, key, tileWidth, tileHeight, width, height)}
 }
 
 // Creates a new Phaser.Tilemap object. The map can either be populated with data from a Tiled JSON file or from a CSV file.
@@ -93,13 +93,13 @@ func NewTilemap5O(game *Game, key string, tileWidth int, tileHeight int, width i
 // A Tile map is rendered to the display using a TilemapLayer. It is not added to the display list directly itself.
 // A map may have multiple layers. You can perform operations on the map data such as copying, pasting, filling and shuffling the tiles around.
 func NewTilemapI(args ...interface{}) *Tilemap {
-    return &Tilemap{js.Global.Call("Phaser.Tilemap", args)}
+    return &Tilemap{js.Global.Get("Phaser").Get("Tilemap").New(args)}
 }
 
 
 
 // A reference to the currently running Game.
-func (self *Tilemap) GetGameA() *Game{
+func (self *Tilemap) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -109,7 +109,7 @@ func (self *Tilemap) SetGameA(member *Game) {
 }
 
 // The key of this map data in the Phaser.Cache.
-func (self *Tilemap) GetKeyA() string{
+func (self *Tilemap) Key() string{
     return self.Object.Get("key").String()
 }
 
@@ -119,7 +119,7 @@ func (self *Tilemap) SetKeyA(member string) {
 }
 
 // The width of the map (in tiles).
-func (self *Tilemap) GetWidthA() int{
+func (self *Tilemap) Width() int{
     return self.Object.Get("width").Int()
 }
 
@@ -129,7 +129,7 @@ func (self *Tilemap) SetWidthA(member int) {
 }
 
 // The height of the map (in tiles).
-func (self *Tilemap) GetHeightA() int{
+func (self *Tilemap) Height() int{
     return self.Object.Get("height").Int()
 }
 
@@ -139,7 +139,7 @@ func (self *Tilemap) SetHeightA(member int) {
 }
 
 // The base width of the tiles in the map (in pixels).
-func (self *Tilemap) GetTileWidthA() int{
+func (self *Tilemap) TileWidth() int{
     return self.Object.Get("tileWidth").Int()
 }
 
@@ -149,7 +149,7 @@ func (self *Tilemap) SetTileWidthA(member int) {
 }
 
 // The base height of the tiles in the map (in pixels).
-func (self *Tilemap) GetTileHeightA() int{
+func (self *Tilemap) TileHeight() int{
     return self.Object.Get("tileHeight").Int()
 }
 
@@ -159,7 +159,7 @@ func (self *Tilemap) SetTileHeightA(member int) {
 }
 
 // The orientation of the map data (as specified in Tiled), usually 'orthogonal'.
-func (self *Tilemap) GetOrientationA() string{
+func (self *Tilemap) Orientation() string{
     return self.Object.Get("orientation").String()
 }
 
@@ -169,7 +169,7 @@ func (self *Tilemap) SetOrientationA(member string) {
 }
 
 // The format of the map data, either Phaser.Tilemap.CSV or Phaser.Tilemap.TILED_JSON.
-func (self *Tilemap) GetFormatA() int{
+func (self *Tilemap) Format() int{
     return self.Object.Get("format").Int()
 }
 
@@ -179,7 +179,7 @@ func (self *Tilemap) SetFormatA(member int) {
 }
 
 // The version of the map data (as specified in Tiled, usually 1).
-func (self *Tilemap) GetVersionA() int{
+func (self *Tilemap) Version() int{
     return self.Object.Get("version").Int()
 }
 
@@ -189,7 +189,7 @@ func (self *Tilemap) SetVersionA(member int) {
 }
 
 // Map specific properties as specified in Tiled.
-func (self *Tilemap) GetPropertiesA() interface{}{
+func (self *Tilemap) Properties() interface{}{
     return self.Object.Get("properties")
 }
 
@@ -199,7 +199,7 @@ func (self *Tilemap) SetPropertiesA(member interface{}) {
 }
 
 // The width of the map in pixels based on width * tileWidth.
-func (self *Tilemap) GetWidthInPixelsA() int{
+func (self *Tilemap) WidthInPixels() int{
     return self.Object.Get("widthInPixels").Int()
 }
 
@@ -209,7 +209,7 @@ func (self *Tilemap) SetWidthInPixelsA(member int) {
 }
 
 // The height of the map in pixels based on height * tileHeight.
-func (self *Tilemap) GetHeightInPixelsA() int{
+func (self *Tilemap) HeightInPixels() int{
     return self.Object.Get("heightInPixels").Int()
 }
 
@@ -219,12 +219,12 @@ func (self *Tilemap) SetHeightInPixelsA(member int) {
 }
 
 // An array of Tilemap layer data.
-func (self *Tilemap) GetLayersA() []interface{}{
+func (self *Tilemap) Layers() []interface{}{
 	array00 := self.Object.Get("layers")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -235,12 +235,12 @@ func (self *Tilemap) SetLayersA(member []interface{}) {
 }
 
 // An array of Tilesets.
-func (self *Tilemap) GetTilesetsA() []interface{}{
+func (self *Tilemap) Tilesets() []interface{}{
 	array00 := self.Object.Get("tilesets")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -251,12 +251,12 @@ func (self *Tilemap) SetTilesetsA(member []interface{}) {
 }
 
 // An array of Image Collections.
-func (self *Tilemap) GetImagecollectionsA() []interface{}{
+func (self *Tilemap) Imagecollections() []interface{}{
 	array00 := self.Object.Get("imagecollections")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -267,12 +267,12 @@ func (self *Tilemap) SetImagecollectionsA(member []interface{}) {
 }
 
 // The super array of Tiles.
-func (self *Tilemap) GetTilesA() []interface{}{
+func (self *Tilemap) Tiles() []interface{}{
 	array00 := self.Object.Get("tiles")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -283,12 +283,12 @@ func (self *Tilemap) SetTilesA(member []interface{}) {
 }
 
 // An array of Tiled Object Layers.
-func (self *Tilemap) GetObjectsA() []interface{}{
+func (self *Tilemap) Objects() []interface{}{
 	array00 := self.Object.Get("objects")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -299,12 +299,12 @@ func (self *Tilemap) SetObjectsA(member []interface{}) {
 }
 
 // An array of tile indexes that collide.
-func (self *Tilemap) GetCollideIndexesA() []interface{}{
+func (self *Tilemap) CollideIndexes() []interface{}{
 	array00 := self.Object.Get("collideIndexes")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -315,12 +315,12 @@ func (self *Tilemap) SetCollideIndexesA(member []interface{}) {
 }
 
 // An array of collision data (polylines, etc).
-func (self *Tilemap) GetCollisionA() []interface{}{
+func (self *Tilemap) Collision() []interface{}{
 	array00 := self.Object.Get("collision")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -331,12 +331,12 @@ func (self *Tilemap) SetCollisionA(member []interface{}) {
 }
 
 // An array of Tiled Image Layers.
-func (self *Tilemap) GetImagesA() []interface{}{
+func (self *Tilemap) Images() []interface{}{
 	array00 := self.Object.Get("images")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -347,7 +347,7 @@ func (self *Tilemap) SetImagesA(member []interface{}) {
 }
 
 // The current layer.
-func (self *Tilemap) GetCurrentLayerA() int{
+func (self *Tilemap) CurrentLayer() int{
     return self.Object.Get("currentLayer").Int()
 }
 
@@ -357,12 +357,12 @@ func (self *Tilemap) SetCurrentLayerA(member int) {
 }
 
 // Map data used for debug values only.
-func (self *Tilemap) GetDebugMapA() []interface{}{
+func (self *Tilemap) DebugMap() []interface{}{
 	array00 := self.Object.Get("debugMap")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -373,7 +373,7 @@ func (self *Tilemap) SetDebugMapA(member []interface{}) {
 }
 
 // 
-func (self *Tilemap) GetCSVA() int{
+func (self *Tilemap) CSV() int{
     return self.Object.Get("CSV").Int()
 }
 
@@ -383,7 +383,7 @@ func (self *Tilemap) SetCSVA(member int) {
 }
 
 // 
-func (self *Tilemap) GetTILED_JSONA() int{
+func (self *Tilemap) TILED_JSON() int{
     return self.Object.Get("TILED_JSON").Int()
 }
 
@@ -393,7 +393,7 @@ func (self *Tilemap) SetTILED_JSONA(member int) {
 }
 
 // 
-func (self *Tilemap) GetNORTHA() int{
+func (self *Tilemap) NORTH() int{
     return self.Object.Get("NORTH").Int()
 }
 
@@ -403,7 +403,7 @@ func (self *Tilemap) SetNORTHA(member int) {
 }
 
 // 
-func (self *Tilemap) GetEASTA() int{
+func (self *Tilemap) EAST() int{
     return self.Object.Get("EAST").Int()
 }
 
@@ -413,7 +413,7 @@ func (self *Tilemap) SetEASTA(member int) {
 }
 
 // 
-func (self *Tilemap) GetSOUTHA() int{
+func (self *Tilemap) SOUTH() int{
     return self.Object.Get("SOUTH").Int()
 }
 
@@ -423,7 +423,7 @@ func (self *Tilemap) SetSOUTHA(member int) {
 }
 
 // 
-func (self *Tilemap) GetWESTA() int{
+func (self *Tilemap) WEST() int{
     return self.Object.Get("WEST").Int()
 }
 
@@ -433,7 +433,7 @@ func (self *Tilemap) SetWESTA(member int) {
 }
 
 // The current layer object.
-func (self *Tilemap) GetLayerA() interface{}{
+func (self *Tilemap) Layer() interface{}{
     return self.Object.Get("layer")
 }
 
@@ -727,14 +727,14 @@ func (self *Tilemap) GetImageIndexI(args ...interface{}) int{
 // Sets a global collision callback for the given tile index within the layer. This will affect all tiles on this layer that have the same index.
 // If a callback is already set for the tile index it will be replaced. Set the callback to null to remove it.
 // If you want to set a callback for a tile at a specific location on the map then see setTileLocationCallback.
-func (self *Tilemap) SetTileIndexCallback(indexes interface{}, callback func(...interface{}), callbackContext interface{}) {
+func (self *Tilemap) SetTileIndexCallback(indexes interface{}, callback interface{}, callbackContext interface{}) {
     self.Object.Call("setTileIndexCallback", indexes, callback, callbackContext)
 }
 
 // Sets a global collision callback for the given tile index within the layer. This will affect all tiles on this layer that have the same index.
 // If a callback is already set for the tile index it will be replaced. Set the callback to null to remove it.
 // If you want to set a callback for a tile at a specific location on the map then see setTileLocationCallback.
-func (self *Tilemap) SetTileIndexCallback1O(indexes interface{}, callback func(...interface{}), callbackContext interface{}, layer interface{}) {
+func (self *Tilemap) SetTileIndexCallback1O(indexes interface{}, callback interface{}, callbackContext interface{}, layer interface{}) {
     self.Object.Call("setTileIndexCallback", indexes, callback, callbackContext, layer)
 }
 
@@ -748,14 +748,14 @@ func (self *Tilemap) SetTileIndexCallbackI(args ...interface{}) {
 // Sets a global collision callback for the given map location within the layer. This will affect all tiles on this layer found in the given area.
 // If a callback is already set for the tile index it will be replaced. Set the callback to null to remove it.
 // If you want to set a callback for a tile at a specific location on the map then see setTileLocationCallback.
-func (self *Tilemap) SetTileLocationCallback(x int, y int, width int, height int, callback func(...interface{}), callbackContext interface{}) {
+func (self *Tilemap) SetTileLocationCallback(x int, y int, width int, height int, callback interface{}, callbackContext interface{}) {
     self.Object.Call("setTileLocationCallback", x, y, width, height, callback, callbackContext)
 }
 
 // Sets a global collision callback for the given map location within the layer. This will affect all tiles on this layer found in the given area.
 // If a callback is already set for the tile index it will be replaced. Set the callback to null to remove it.
 // If you want to set a callback for a tile at a specific location on the map then see setTileLocationCallback.
-func (self *Tilemap) SetTileLocationCallback1O(x int, y int, width int, height int, callback func(...interface{}), callbackContext interface{}, layer interface{}) {
+func (self *Tilemap) SetTileLocationCallback1O(x int, y int, width int, height int, callback interface{}, callbackContext interface{}, layer interface{}) {
     self.Object.Call("setTileLocationCallback", x, y, width, height, callback, callbackContext, layer)
 }
 
@@ -1150,7 +1150,7 @@ func (self *Tilemap) Copy(x int, y int, width int, height int) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -1161,7 +1161,7 @@ func (self *Tilemap) Copy1O(x int, y int, width int, height int, layer interface
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -1172,7 +1172,7 @@ func (self *Tilemap) CopyI(args ...interface{}) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }

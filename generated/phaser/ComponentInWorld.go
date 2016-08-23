@@ -19,14 +19,14 @@ type ComponentInWorld struct {
 // An object is considered as being "in bounds" so long as its own bounds intersects at any point with the World bounds.
 // If the AutoCull component is enabled on the Game Object then it will check the Game Object against the Camera bounds as well.
 func NewComponentInWorld() *ComponentInWorld {
-    return &ComponentInWorld{js.Global.Call("Phaser.Component.InWorld")}
+    return &ComponentInWorld{js.Global.Get("Phaser").Get("Component").Get("InWorld").New()}
 }
 
 // The InWorld component checks if a Game Object is within the Game World Bounds.
 // An object is considered as being "in bounds" so long as its own bounds intersects at any point with the World bounds.
 // If the AutoCull component is enabled on the Game Object then it will check the Game Object against the Camera bounds as well.
 func NewComponentInWorldI(args ...interface{}) *ComponentInWorld {
-    return &ComponentInWorld{js.Global.Call("Phaser.Component.InWorld", args)}
+    return &ComponentInWorld{js.Global.Get("Phaser").Get("Component").Get("InWorld").New(args)}
 }
 
 
@@ -43,7 +43,7 @@ func NewComponentInWorldI(args ...interface{}) *ComponentInWorld {
 // 
 // This is a relatively expensive operation, especially if enabled on hundreds of Game Objects. So enable it only if you know it's required,
 // or you have tested performance and find it acceptable.
-func (self *ComponentInWorld) GetCheckWorldBoundsA() bool{
+func (self *ComponentInWorld) CheckWorldBounds() bool{
     return self.Object.Get("checkWorldBounds").Bool()
 }
 
@@ -64,7 +64,7 @@ func (self *ComponentInWorld) SetCheckWorldBoundsA(member bool) {
 }
 
 // If this and the `checkWorldBounds` property are both set to `true` then the `kill` method is called as soon as `inWorld` returns false.
-func (self *ComponentInWorld) GetOutOfBoundsKillA() bool{
+func (self *ComponentInWorld) OutOfBoundsKill() bool{
     return self.Object.Get("outOfBoundsKill").Bool()
 }
 
@@ -75,7 +75,7 @@ func (self *ComponentInWorld) SetOutOfBoundsKillA(member bool) {
 
 // If this and the `autoCull` property are both set to `true`, then the `kill` method
 // is called as soon as the Game Object leaves the camera bounds.
-func (self *ComponentInWorld) GetOutOfCameraBoundsKillA() bool{
+func (self *ComponentInWorld) OutOfCameraBoundsKill() bool{
     return self.Object.Get("outOfCameraBoundsKill").Bool()
 }
 
@@ -86,7 +86,7 @@ func (self *ComponentInWorld) SetOutOfCameraBoundsKillA(member bool) {
 }
 
 // Checks if the Game Objects bounds are within, or intersect at any point with the Game World bounds.
-func (self *ComponentInWorld) GetInWorldA() bool{
+func (self *ComponentInWorld) InWorld() bool{
     return self.Object.Get("inWorld").Bool()
 }
 

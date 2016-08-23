@@ -25,7 +25,7 @@ type PhysicsP2Body struct {
 // Note: When bound to a Sprite to avoid single-pixel jitters on mobile devices we strongly recommend using Sprite sizes that are even on both axis, i.e. 128x128 not 127x127.
 // Note: When a game object is given a P2 body it has its anchor x/y set to 0.5, so it becomes centered.
 func NewPhysicsP2Body(game *Game) *PhysicsP2Body {
-    return &PhysicsP2Body{js.Global.Call("Phaser.Physics.P2.Body", game)}
+    return &PhysicsP2Body{js.Global.Get("Phaser").Get("Physics").Get("P2").Get("Body").New(game)}
 }
 
 // The Physics Body is typically linked to a single Sprite and defines properties that determine how the physics body is simulated.
@@ -35,7 +35,7 @@ func NewPhysicsP2Body(game *Game) *PhysicsP2Body {
 // Note: When bound to a Sprite to avoid single-pixel jitters on mobile devices we strongly recommend using Sprite sizes that are even on both axis, i.e. 128x128 not 127x127.
 // Note: When a game object is given a P2 body it has its anchor x/y set to 0.5, so it becomes centered.
 func NewPhysicsP2Body1O(game *Game, sprite *Sprite) *PhysicsP2Body {
-    return &PhysicsP2Body{js.Global.Call("Phaser.Physics.P2.Body", game, sprite)}
+    return &PhysicsP2Body{js.Global.Get("Phaser").Get("Physics").Get("P2").Get("Body").New(game, sprite)}
 }
 
 // The Physics Body is typically linked to a single Sprite and defines properties that determine how the physics body is simulated.
@@ -45,7 +45,7 @@ func NewPhysicsP2Body1O(game *Game, sprite *Sprite) *PhysicsP2Body {
 // Note: When bound to a Sprite to avoid single-pixel jitters on mobile devices we strongly recommend using Sprite sizes that are even on both axis, i.e. 128x128 not 127x127.
 // Note: When a game object is given a P2 body it has its anchor x/y set to 0.5, so it becomes centered.
 func NewPhysicsP2Body2O(game *Game, sprite *Sprite, x int) *PhysicsP2Body {
-    return &PhysicsP2Body{js.Global.Call("Phaser.Physics.P2.Body", game, sprite, x)}
+    return &PhysicsP2Body{js.Global.Get("Phaser").Get("Physics").Get("P2").Get("Body").New(game, sprite, x)}
 }
 
 // The Physics Body is typically linked to a single Sprite and defines properties that determine how the physics body is simulated.
@@ -55,7 +55,7 @@ func NewPhysicsP2Body2O(game *Game, sprite *Sprite, x int) *PhysicsP2Body {
 // Note: When bound to a Sprite to avoid single-pixel jitters on mobile devices we strongly recommend using Sprite sizes that are even on both axis, i.e. 128x128 not 127x127.
 // Note: When a game object is given a P2 body it has its anchor x/y set to 0.5, so it becomes centered.
 func NewPhysicsP2Body3O(game *Game, sprite *Sprite, x int, y int) *PhysicsP2Body {
-    return &PhysicsP2Body{js.Global.Call("Phaser.Physics.P2.Body", game, sprite, x, y)}
+    return &PhysicsP2Body{js.Global.Get("Phaser").Get("Physics").Get("P2").Get("Body").New(game, sprite, x, y)}
 }
 
 // The Physics Body is typically linked to a single Sprite and defines properties that determine how the physics body is simulated.
@@ -65,7 +65,7 @@ func NewPhysicsP2Body3O(game *Game, sprite *Sprite, x int, y int) *PhysicsP2Body
 // Note: When bound to a Sprite to avoid single-pixel jitters on mobile devices we strongly recommend using Sprite sizes that are even on both axis, i.e. 128x128 not 127x127.
 // Note: When a game object is given a P2 body it has its anchor x/y set to 0.5, so it becomes centered.
 func NewPhysicsP2Body4O(game *Game, sprite *Sprite, x int, y int, mass int) *PhysicsP2Body {
-    return &PhysicsP2Body{js.Global.Call("Phaser.Physics.P2.Body", game, sprite, x, y, mass)}
+    return &PhysicsP2Body{js.Global.Get("Phaser").Get("Physics").Get("P2").Get("Body").New(game, sprite, x, y, mass)}
 }
 
 // The Physics Body is typically linked to a single Sprite and defines properties that determine how the physics body is simulated.
@@ -75,13 +75,13 @@ func NewPhysicsP2Body4O(game *Game, sprite *Sprite, x int, y int, mass int) *Phy
 // Note: When bound to a Sprite to avoid single-pixel jitters on mobile devices we strongly recommend using Sprite sizes that are even on both axis, i.e. 128x128 not 127x127.
 // Note: When a game object is given a P2 body it has its anchor x/y set to 0.5, so it becomes centered.
 func NewPhysicsP2BodyI(args ...interface{}) *PhysicsP2Body {
-    return &PhysicsP2Body{js.Global.Call("Phaser.Physics.P2.Body", args)}
+    return &PhysicsP2Body{js.Global.Get("Phaser").Get("Physics").Get("P2").Get("Body").New(args)}
 }
 
 
 
 // Local reference to game.
-func (self *PhysicsP2Body) GetGameA() *Game{
+func (self *PhysicsP2Body) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -91,7 +91,7 @@ func (self *PhysicsP2Body) SetGameA(member *Game) {
 }
 
 // Local reference to the P2 World.
-func (self *PhysicsP2Body) GetWorldA() *PhysicsP2{
+func (self *PhysicsP2Body) World() *PhysicsP2{
     return &PhysicsP2{self.Object.Get("world")}
 }
 
@@ -101,7 +101,7 @@ func (self *PhysicsP2Body) SetWorldA(member *PhysicsP2) {
 }
 
 // Reference to the parent Sprite.
-func (self *PhysicsP2Body) GetSpriteA() *Sprite{
+func (self *PhysicsP2Body) Sprite() *Sprite{
     return &Sprite{self.Object.Get("sprite")}
 }
 
@@ -111,7 +111,7 @@ func (self *PhysicsP2Body) SetSpriteA(member *Sprite) {
 }
 
 // The type of physics system this body belongs to.
-func (self *PhysicsP2Body) GetTypeA() int{
+func (self *PhysicsP2Body) Type() int{
     return self.Object.Get("type").Int()
 }
 
@@ -121,7 +121,7 @@ func (self *PhysicsP2Body) SetTypeA(member int) {
 }
 
 // The offset of the Physics Body from the Sprite x/y position.
-func (self *PhysicsP2Body) GetOffsetA() *Point{
+func (self *PhysicsP2Body) Offset() *Point{
     return &Point{self.Object.Get("offset")}
 }
 
@@ -131,7 +131,7 @@ func (self *PhysicsP2Body) SetOffsetA(member *Point) {
 }
 
 // The p2 Body data.
-func (self *PhysicsP2Body) GetDataA() *P2Body{
+func (self *PhysicsP2Body) Data() *P2Body{
     return &P2Body{self.Object.Get("data")}
 }
 
@@ -141,7 +141,7 @@ func (self *PhysicsP2Body) SetDataA(member *P2Body) {
 }
 
 // The velocity of the body. Set velocity.x to a negative value to move to the left, position to the right. velocity.y negative values move up, positive move down.
-func (self *PhysicsP2Body) GetVelocityA() *PhysicsP2InversePointProxy{
+func (self *PhysicsP2Body) Velocity() *PhysicsP2InversePointProxy{
     return &PhysicsP2InversePointProxy{self.Object.Get("velocity")}
 }
 
@@ -151,7 +151,7 @@ func (self *PhysicsP2Body) SetVelocityA(member *PhysicsP2InversePointProxy) {
 }
 
 // The force applied to the body.
-func (self *PhysicsP2Body) GetForceA() *PhysicsP2InversePointProxy{
+func (self *PhysicsP2Body) Force() *PhysicsP2InversePointProxy{
     return &PhysicsP2InversePointProxy{self.Object.Get("force")}
 }
 
@@ -161,7 +161,7 @@ func (self *PhysicsP2Body) SetForceA(member *PhysicsP2InversePointProxy) {
 }
 
 // A locally applied gravity force to the Body. Applied directly before the world step. NOTE: Not currently implemented.
-func (self *PhysicsP2Body) GetGravityA() *Point{
+func (self *PhysicsP2Body) Gravity() *Point{
     return &Point{self.Object.Get("gravity")}
 }
 
@@ -180,7 +180,7 @@ func (self *PhysicsP2Body) SetGravityA(member *Point) {
 // The Shape from this body that caused the contact.
 // The Shape from the contact body.
 // The Contact Equation data array.
-func (self *PhysicsP2Body) GetOnBeginContactA() *Signal{
+func (self *PhysicsP2Body) OnBeginContact() *Signal{
     return &Signal{self.Object.Get("onBeginContact")}
 }
 
@@ -207,7 +207,7 @@ func (self *PhysicsP2Body) SetOnBeginContactA(member *Signal) {
 // The p2.Body this Body has ended contact with.
 // The Shape from this body that caused the original contact.
 // The Shape from the contact body.
-func (self *PhysicsP2Body) GetOnEndContactA() *Signal{
+func (self *PhysicsP2Body) OnEndContact() *Signal{
     return &Signal{self.Object.Get("onEndContact")}
 }
 
@@ -225,12 +225,12 @@ func (self *PhysicsP2Body) SetOnEndContactA(member *Signal) {
 }
 
 // Array of CollisionGroups that this Bodies shapes collide with.
-func (self *PhysicsP2Body) GetCollidesWithA() []interface{}{
+func (self *PhysicsP2Body) CollidesWith() []interface{}{
 	array00 := self.Object.Get("collidesWith")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -241,7 +241,7 @@ func (self *PhysicsP2Body) SetCollidesWithA(member []interface{}) {
 }
 
 // To avoid deleting this body during a physics step, and causing all kinds of problems, set removeNextStep to true to have it removed in the next preUpdate.
-func (self *PhysicsP2Body) GetRemoveNextStepA() bool{
+func (self *PhysicsP2Body) RemoveNextStep() bool{
     return self.Object.Get("removeNextStep").Bool()
 }
 
@@ -251,7 +251,7 @@ func (self *PhysicsP2Body) SetRemoveNextStepA(member bool) {
 }
 
 // Reference to the debug body.
-func (self *PhysicsP2Body) GetDebugBodyA() *PhysicsP2BodyDebug{
+func (self *PhysicsP2Body) DebugBody() *PhysicsP2BodyDebug{
     return &PhysicsP2BodyDebug{self.Object.Get("debugBody")}
 }
 
@@ -261,7 +261,7 @@ func (self *PhysicsP2Body) SetDebugBodyA(member *PhysicsP2BodyDebug) {
 }
 
 // Internally used by Sprite.x/y
-func (self *PhysicsP2Body) GetDirtyA() bool{
+func (self *PhysicsP2Body) Dirty() bool{
     return self.Object.Get("dirty").Bool()
 }
 
@@ -271,7 +271,7 @@ func (self *PhysicsP2Body) SetDirtyA(member bool) {
 }
 
 // Dynamic body. Dynamic bodies body can move and respond to collisions and forces.
-func (self *PhysicsP2Body) GetDYNAMICA() int{
+func (self *PhysicsP2Body) DYNAMIC() int{
     return self.Object.Get("DYNAMIC").Int()
 }
 
@@ -281,7 +281,7 @@ func (self *PhysicsP2Body) SetDYNAMICA(member int) {
 }
 
 // Static body. Static bodies do not move, and they do not respond to forces or collision.
-func (self *PhysicsP2Body) GetSTATICA() int{
+func (self *PhysicsP2Body) STATIC() int{
     return self.Object.Get("STATIC").Int()
 }
 
@@ -291,7 +291,7 @@ func (self *PhysicsP2Body) SetSTATICA(member int) {
 }
 
 // Kinematic body. Kinematic bodies only moves according to its .velocity, and does not respond to collisions or force.
-func (self *PhysicsP2Body) GetKINEMATICA() int{
+func (self *PhysicsP2Body) KINEMATIC() int{
     return self.Object.Get("KINEMATIC").Int()
 }
 
@@ -301,7 +301,7 @@ func (self *PhysicsP2Body) SetKINEMATICA(member int) {
 }
 
 // Returns true if the Body is static. Setting Body.static to 'false' will make it dynamic.
-func (self *PhysicsP2Body) GetStaticA() bool{
+func (self *PhysicsP2Body) Static() bool{
     return self.Object.Get("static").Bool()
 }
 
@@ -311,7 +311,7 @@ func (self *PhysicsP2Body) SetStaticA(member bool) {
 }
 
 // Returns true if the Body is dynamic. Setting Body.dynamic to 'false' will make it static.
-func (self *PhysicsP2Body) GetDynamicA() bool{
+func (self *PhysicsP2Body) Dynamic() bool{
     return self.Object.Get("dynamic").Bool()
 }
 
@@ -321,7 +321,7 @@ func (self *PhysicsP2Body) SetDynamicA(member bool) {
 }
 
 // Returns true if the Body is kinematic. Setting Body.kinematic to 'false' will make it static.
-func (self *PhysicsP2Body) GetKinematicA() bool{
+func (self *PhysicsP2Body) Kinematic() bool{
     return self.Object.Get("kinematic").Bool()
 }
 
@@ -331,7 +331,7 @@ func (self *PhysicsP2Body) SetKinematicA(member bool) {
 }
 
 // -
-func (self *PhysicsP2Body) GetAllowSleepA() bool{
+func (self *PhysicsP2Body) AllowSleep() bool{
     return self.Object.Get("allowSleep").Bool()
 }
 
@@ -343,7 +343,7 @@ func (self *PhysicsP2Body) SetAllowSleepA(member bool) {
 // The angle of the Body in degrees from its original orientation. Values from 0 to 180 represent clockwise rotation; values from 0 to -180 represent counterclockwise rotation.
 // Values outside this range are added to or subtracted from 360 to obtain a value within the range. For example, the statement Body.angle = 450 is the same as Body.angle = 90.
 // If you wish to work in radians instead of degrees use the property Body.rotation instead. Working in radians is faster as it doesn't have to convert values. The angle of this Body in degrees.
-func (self *PhysicsP2Body) GetAngleA() int{
+func (self *PhysicsP2Body) Angle() int{
     return self.Object.Get("angle").Int()
 }
 
@@ -355,7 +355,7 @@ func (self *PhysicsP2Body) SetAngleA(member int) {
 }
 
 // Damping is specified as a value between 0 and 1, which is the proportion of velocity lost per second. The angular damping acting acting on the body.
-func (self *PhysicsP2Body) GetAngularDampingA() int{
+func (self *PhysicsP2Body) AngularDamping() int{
     return self.Object.Get("angularDamping").Int()
 }
 
@@ -365,7 +365,7 @@ func (self *PhysicsP2Body) SetAngularDampingA(member int) {
 }
 
 // The angular force acting on the body.
-func (self *PhysicsP2Body) GetAngularForceA() int{
+func (self *PhysicsP2Body) AngularForce() int{
     return self.Object.Get("angularForce").Int()
 }
 
@@ -375,7 +375,7 @@ func (self *PhysicsP2Body) SetAngularForceA(member int) {
 }
 
 // The angular velocity of the body.
-func (self *PhysicsP2Body) GetAngularVelocityA() int{
+func (self *PhysicsP2Body) AngularVelocity() int{
     return self.Object.Get("angularVelocity").Int()
 }
 
@@ -385,7 +385,7 @@ func (self *PhysicsP2Body) SetAngularVelocityA(member int) {
 }
 
 // Damping is specified as a value between 0 and 1, which is the proportion of velocity lost per second. The linear damping acting on the body in the velocity direction.
-func (self *PhysicsP2Body) GetDampingA() int{
+func (self *PhysicsP2Body) Damping() int{
     return self.Object.Get("damping").Int()
 }
 
@@ -395,7 +395,7 @@ func (self *PhysicsP2Body) SetDampingA(member int) {
 }
 
 // -
-func (self *PhysicsP2Body) GetFixedRotationA() bool{
+func (self *PhysicsP2Body) FixedRotation() bool{
     return self.Object.Get("fixedRotation").Bool()
 }
 
@@ -405,7 +405,7 @@ func (self *PhysicsP2Body) SetFixedRotationA(member bool) {
 }
 
 // The inertia of the body around the Z axis..
-func (self *PhysicsP2Body) GetInertiaA() int{
+func (self *PhysicsP2Body) Inertia() int{
     return self.Object.Get("inertia").Int()
 }
 
@@ -415,7 +415,7 @@ func (self *PhysicsP2Body) SetInertiaA(member int) {
 }
 
 // The mass of the body.
-func (self *PhysicsP2Body) GetMassA() int{
+func (self *PhysicsP2Body) Mass() int{
     return self.Object.Get("mass").Int()
 }
 
@@ -425,7 +425,7 @@ func (self *PhysicsP2Body) SetMassA(member int) {
 }
 
 // The type of motion this body has. Should be one of: Body.STATIC (the body does not move), Body.DYNAMIC (body can move and respond to collisions) and Body.KINEMATIC (only moves according to its .velocity).
-func (self *PhysicsP2Body) GetMotionStateA() int{
+func (self *PhysicsP2Body) MotionState() int{
     return self.Object.Get("motionState").Int()
 }
 
@@ -436,7 +436,7 @@ func (self *PhysicsP2Body) SetMotionStateA(member int) {
 
 // The angle of the Body in radians.
 // If you wish to work in degrees instead of radians use the Body.angle property instead. Working in radians is faster as it doesn't have to convert values. The angle of this Body in radians.
-func (self *PhysicsP2Body) GetRotationA() int{
+func (self *PhysicsP2Body) Rotation() int{
     return self.Object.Get("rotation").Int()
 }
 
@@ -447,7 +447,7 @@ func (self *PhysicsP2Body) SetRotationA(member int) {
 }
 
 // .
-func (self *PhysicsP2Body) GetSleepSpeedLimitA() int{
+func (self *PhysicsP2Body) SleepSpeedLimit() int{
     return self.Object.Get("sleepSpeedLimit").Int()
 }
 
@@ -457,7 +457,7 @@ func (self *PhysicsP2Body) SetSleepSpeedLimitA(member int) {
 }
 
 // The x coordinate of this Body.
-func (self *PhysicsP2Body) GetXA() int{
+func (self *PhysicsP2Body) X() int{
     return self.Object.Get("x").Int()
 }
 
@@ -467,7 +467,7 @@ func (self *PhysicsP2Body) SetXA(member int) {
 }
 
 // The y coordinate of this Body.
-func (self *PhysicsP2Body) GetYA() int{
+func (self *PhysicsP2Body) Y() int{
     return self.Object.Get("y").Int()
 }
 
@@ -477,7 +477,7 @@ func (self *PhysicsP2Body) SetYA(member int) {
 }
 
 // The Body ID. Each Body that has been added to the World has a unique ID.
-func (self *PhysicsP2Body) GetIdA() int{
+func (self *PhysicsP2Body) Id() int{
     return self.Object.Get("id").Int()
 }
 
@@ -487,7 +487,7 @@ func (self *PhysicsP2Body) SetIdA(member int) {
 }
 
 // Enable or disable debug drawing of this body
-func (self *PhysicsP2Body) GetDebugA() bool{
+func (self *PhysicsP2Body) Debug() bool{
     return self.Object.Get("debug").Bool()
 }
 
@@ -500,7 +500,7 @@ func (self *PhysicsP2Body) SetDebugA(member bool) {
 // Note that this only applies if your World has bounds! The response to the collision should be managed via CollisionMaterials.
 // Also note that when you set this it will only effect Body shapes that already exist. If you then add further shapes to your Body
 // after setting this it will *not* proactively set them to collide with the bounds. Should the Body collide with the World bounds?
-func (self *PhysicsP2Body) GetCollideWorldBoundsA() bool{
+func (self *PhysicsP2Body) CollideWorldBounds() bool{
     return self.Object.Get("collideWorldBounds").Bool()
 }
 
@@ -518,7 +518,7 @@ func (self *PhysicsP2Body) SetCollideWorldBoundsA(member bool) {
 // The callback will be sent 4 parameters: This body, the body that impacted, the Shape in this body and the shape in the impacting body.
 // Note that the impact event happens after collision resolution, so it cannot be used to prevent a collision from happening.
 // It also happens mid-step. So do not destroy a Body during this callback, instead set safeDestroy to true so it will be killed on the next preUpdate.
-func (self *PhysicsP2Body) CreateBodyCallback(object interface{}, callback func(...interface{}), callbackContext interface{}) {
+func (self *PhysicsP2Body) CreateBodyCallback(object interface{}, callback interface{}, callbackContext interface{}) {
     self.Object.Call("createBodyCallback", object, callback, callbackContext)
 }
 
@@ -535,7 +535,7 @@ func (self *PhysicsP2Body) CreateBodyCallbackI(args ...interface{}) {
 // This callback will only fire if this Body has been assigned a collision group.
 // Note that the impact event happens after collision resolution, so it cannot be used to prevent a collision from happening.
 // It also happens mid-step. So do not destroy a Body during this callback, instead set safeDestroy to true so it will be killed on the next preUpdate.
-func (self *PhysicsP2Body) CreateGroupCallback(group *PhysicsCollisionGroup, callback func(...interface{}), callbackContext interface{}) {
+func (self *PhysicsP2Body) CreateGroupCallback(group *PhysicsCollisionGroup, callback interface{}, callbackContext interface{}) {
     self.Object.Call("createGroupCallback", group, callback, callbackContext)
 }
 
@@ -642,17 +642,17 @@ func (self *PhysicsP2Body) Collides(group interface{}) {
 }
 
 // Adds the given CollisionGroup, or array of CollisionGroups, to the list of groups that this body will collide with and updates the collision masks.
-func (self *PhysicsP2Body) Collides1O(group interface{}, callback func(...interface{})) {
+func (self *PhysicsP2Body) Collides1O(group interface{}, callback interface{}) {
     self.Object.Call("collides", group, callback)
 }
 
 // Adds the given CollisionGroup, or array of CollisionGroups, to the list of groups that this body will collide with and updates the collision masks.
-func (self *PhysicsP2Body) Collides2O(group interface{}, callback func(...interface{}), callbackContext interface{}) {
+func (self *PhysicsP2Body) Collides2O(group interface{}, callback interface{}, callbackContext interface{}) {
     self.Object.Call("collides", group, callback, callbackContext)
 }
 
 // Adds the given CollisionGroup, or array of CollisionGroups, to the list of groups that this body will collide with and updates the collision masks.
-func (self *PhysicsP2Body) Collides3O(group interface{}, callback func(...interface{}), callbackContext interface{}, shape *P2Shape) {
+func (self *PhysicsP2Body) Collides3O(group interface{}, callback interface{}, callbackContext interface{}, shape *P2Shape) {
     self.Object.Call("collides", group, callback, callbackContext, shape)
 }
 
@@ -677,7 +677,7 @@ func (self *PhysicsP2Body) GetVelocityAtPoint(result []interface{}, relativePoin
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -688,7 +688,7 @@ func (self *PhysicsP2Body) GetVelocityAtPointI(args ...interface{}) []interface{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -1391,7 +1391,7 @@ func (self *PhysicsP2Body) AddPhaserPolygon(key string, object string) []interfa
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -1405,7 +1405,7 @@ func (self *PhysicsP2Body) AddPhaserPolygonI(args ...interface{}) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -1416,7 +1416,7 @@ func (self *PhysicsP2Body) AddFixture(fixtureData string) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -1427,7 +1427,7 @@ func (self *PhysicsP2Body) AddFixtureI(args ...interface{}) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }

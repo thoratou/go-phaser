@@ -23,7 +23,7 @@ type FlexLayer struct {
 // 
 // A responsive grid layer.
 func NewFlexLayer(manager *FlexGrid, position *Point, bounds *Rectangle, scale *Point) *FlexLayer {
-    return &FlexLayer{js.Global.Call("Phaser.FlexLayer", manager, position, bounds, scale)}
+    return &FlexLayer{js.Global.Get("Phaser").Get("FlexLayer").New(manager, position, bounds, scale)}
 }
 
 // WARNING: This is an EXPERIMENTAL class. The API will change significantly in the coming versions and is incomplete.
@@ -32,13 +32,13 @@ func NewFlexLayer(manager *FlexGrid, position *Point, bounds *Rectangle, scale *
 // 
 // A responsive grid layer.
 func NewFlexLayerI(args ...interface{}) *FlexLayer {
-    return &FlexLayer{js.Global.Call("Phaser.FlexLayer", args)}
+    return &FlexLayer{js.Global.Get("Phaser").Get("FlexLayer").New(args)}
 }
 
 
 
 // A reference to the ScaleManager.
-func (self *FlexLayer) GetManagerA() interface{}{
+func (self *FlexLayer) Manager() interface{}{
     return self.Object.Get("manager")
 }
 
@@ -48,7 +48,7 @@ func (self *FlexLayer) SetManagerA(member interface{}) {
 }
 
 // A reference to the FlexGrid that owns this layer.
-func (self *FlexLayer) GetGridA() *FlexGrid{
+func (self *FlexLayer) Grid() *FlexGrid{
     return &FlexGrid{self.Object.Get("grid")}
 }
 
@@ -58,7 +58,7 @@ func (self *FlexLayer) SetGridA(member *FlexGrid) {
 }
 
 // Should the FlexLayer remain through a State swap?
-func (self *FlexLayer) GetPersistA() bool{
+func (self *FlexLayer) Persist() bool{
     return self.Object.Get("persist").Bool()
 }
 
@@ -68,7 +68,7 @@ func (self *FlexLayer) SetPersistA(member bool) {
 }
 
 // 
-func (self *FlexLayer) GetPositionA() *Point{
+func (self *FlexLayer) Position() *Point{
     return &Point{self.Object.Get("position")}
 }
 
@@ -78,7 +78,7 @@ func (self *FlexLayer) SetPositionA(member *Point) {
 }
 
 // 
-func (self *FlexLayer) GetBoundsA() *Rectangle{
+func (self *FlexLayer) Bounds() *Rectangle{
     return &Rectangle{self.Object.Get("bounds")}
 }
 
@@ -88,7 +88,7 @@ func (self *FlexLayer) SetBoundsA(member *Rectangle) {
 }
 
 // 
-func (self *FlexLayer) GetScaleA() *Point{
+func (self *FlexLayer) Scale() *Point{
     return &Point{self.Object.Get("scale")}
 }
 
@@ -98,7 +98,7 @@ func (self *FlexLayer) SetScaleA(member *Point) {
 }
 
 // 
-func (self *FlexLayer) GetTopLeftA() *Point{
+func (self *FlexLayer) TopLeft() *Point{
     return &Point{self.Object.Get("topLeft")}
 }
 
@@ -108,7 +108,7 @@ func (self *FlexLayer) SetTopLeftA(member *Point) {
 }
 
 // 
-func (self *FlexLayer) GetTopMiddleA() *Point{
+func (self *FlexLayer) TopMiddle() *Point{
     return &Point{self.Object.Get("topMiddle")}
 }
 
@@ -118,7 +118,7 @@ func (self *FlexLayer) SetTopMiddleA(member *Point) {
 }
 
 // 
-func (self *FlexLayer) GetTopRightA() *Point{
+func (self *FlexLayer) TopRight() *Point{
     return &Point{self.Object.Get("topRight")}
 }
 
@@ -128,7 +128,7 @@ func (self *FlexLayer) SetTopRightA(member *Point) {
 }
 
 // 
-func (self *FlexLayer) GetBottomLeftA() *Point{
+func (self *FlexLayer) BottomLeft() *Point{
     return &Point{self.Object.Get("bottomLeft")}
 }
 
@@ -138,7 +138,7 @@ func (self *FlexLayer) SetBottomLeftA(member *Point) {
 }
 
 // 
-func (self *FlexLayer) GetBottomMiddleA() *Point{
+func (self *FlexLayer) BottomMiddle() *Point{
     return &Point{self.Object.Get("bottomMiddle")}
 }
 
@@ -148,7 +148,7 @@ func (self *FlexLayer) SetBottomMiddleA(member *Point) {
 }
 
 // 
-func (self *FlexLayer) GetBottomRightA() *Point{
+func (self *FlexLayer) BottomRight() *Point{
     return &Point{self.Object.Get("bottomRight")}
 }
 
@@ -158,7 +158,7 @@ func (self *FlexLayer) SetBottomRightA(member *Point) {
 }
 
 // A reference to the currently running Game.
-func (self *FlexLayer) GetGameA() *Game{
+func (self *FlexLayer) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -168,7 +168,7 @@ func (self *FlexLayer) SetGameA(member *Game) {
 }
 
 // A name for this group. Not used internally but useful for debugging.
-func (self *FlexLayer) GetNameA() string{
+func (self *FlexLayer) Name() string{
     return self.Object.Get("name").String()
 }
 
@@ -179,7 +179,7 @@ func (self *FlexLayer) SetNameA(member string) {
 
 // The z-depth value of this object within its parent container/Group - the World is a Group as well.
 // This value must be unique for each child in a Group.
-func (self *FlexLayer) GetZA() int{
+func (self *FlexLayer) Z() int{
     return self.Object.Get("z").Int()
 }
 
@@ -190,7 +190,7 @@ func (self *FlexLayer) SetZA(member int) {
 }
 
 // Internal Phaser Type value.
-func (self *FlexLayer) GetTypeA() int{
+func (self *FlexLayer) Type() int{
     return self.Object.Get("type").Int()
 }
 
@@ -200,7 +200,7 @@ func (self *FlexLayer) SetTypeA(member int) {
 }
 
 // The const physics body type of this object.
-func (self *FlexLayer) GetPhysicsTypeA() int{
+func (self *FlexLayer) PhysicsType() int{
     return self.Object.Get("physicsType").Int()
 }
 
@@ -210,7 +210,7 @@ func (self *FlexLayer) SetPhysicsTypeA(member int) {
 }
 
 // The alive property is useful for Groups that are children of other Groups and need to be included/excluded in checks like forEachAlive.
-func (self *FlexLayer) GetAliveA() bool{
+func (self *FlexLayer) Alive() bool{
     return self.Object.Get("alive").Bool()
 }
 
@@ -220,7 +220,7 @@ func (self *FlexLayer) SetAliveA(member bool) {
 }
 
 // If exists is true the group is updated, otherwise it is skipped.
-func (self *FlexLayer) GetExistsA() bool{
+func (self *FlexLayer) Exists() bool{
     return self.Object.Get("exists").Bool()
 }
 
@@ -230,7 +230,7 @@ func (self *FlexLayer) SetExistsA(member bool) {
 }
 
 // A group with `ignoreDestroy` set to `true` ignores all calls to its `destroy` method.
-func (self *FlexLayer) GetIgnoreDestroyA() bool{
+func (self *FlexLayer) IgnoreDestroy() bool{
     return self.Object.Get("ignoreDestroy").Bool()
 }
 
@@ -245,7 +245,7 @@ func (self *FlexLayer) SetIgnoreDestroyA(member bool) {
 // 
 // This is extremely useful if you wish to destroy a Group from within one of its own callbacks
 // or a callback of one of its children.
-func (self *FlexLayer) GetPendingDestroyA() bool{
+func (self *FlexLayer) PendingDestroy() bool{
     return self.Object.Get("pendingDestroy").Bool()
 }
 
@@ -263,7 +263,7 @@ func (self *FlexLayer) SetPendingDestroyA(member bool) {
 // 
 // Any object may be used but it should extend either Sprite or Image and accept the same constructor arguments:
 // when a new object is created it is passed the following parameters to its constructor: `(game, x, y, key, frame)`.
-func (self *FlexLayer) GetClassTypeA() interface{}{
+func (self *FlexLayer) ClassType() interface{}{
     return self.Object.Get("classType")
 }
 
@@ -278,7 +278,7 @@ func (self *FlexLayer) SetClassTypeA(member interface{}) {
 // The current display object that the group cursor is pointing to, if any. (Can be set manually.)
 // 
 // The cursor is a way to iterate through the children in a Group using {@link Phaser.Group#next next} and {@link Phaser.Group#previous previous}.
-func (self *FlexLayer) GetCursorA() *DisplayObject{
+func (self *FlexLayer) Cursor() *DisplayObject{
     return &DisplayObject{self.Object.Get("cursor")}
 }
 
@@ -293,7 +293,7 @@ func (self *FlexLayer) SetCursorA(member *DisplayObject) {
 // on any children _added_ to, or _created by_, this Group.
 // 
 // If there are children already in the Group at the time you set this property, they are not changed.
-func (self *FlexLayer) GetInputEnableChildrenA() bool{
+func (self *FlexLayer) InputEnableChildren() bool{
     return self.Object.Get("inputEnableChildren").Bool()
 }
 
@@ -311,7 +311,7 @@ func (self *FlexLayer) SetInputEnableChildrenA(member bool) {
 // 
 // This Signal is sent 2 arguments: A reference to the Sprite that triggered the signal, and
 // a reference to the Pointer that caused it.
-func (self *FlexLayer) GetOnChildInputDownA() *Signal{
+func (self *FlexLayer) OnChildInputDown() *Signal{
     return &Signal{self.Object.Get("onChildInputDown")}
 }
 
@@ -332,7 +332,7 @@ func (self *FlexLayer) SetOnChildInputDownA(member *Signal) {
 // This Signal is sent 3 arguments: A reference to the Sprite that triggered the signal, 
 // a reference to the Pointer that caused it, and a boolean value `isOver` that tells you if the Pointer
 // is still over the Sprite or not.
-func (self *FlexLayer) GetOnChildInputUpA() *Signal{
+func (self *FlexLayer) OnChildInputUp() *Signal{
     return &Signal{self.Object.Get("onChildInputUp")}
 }
 
@@ -353,7 +353,7 @@ func (self *FlexLayer) SetOnChildInputUpA(member *Signal) {
 // 
 // This Signal is sent 2 arguments: A reference to the Sprite that triggered the signal, and
 // a reference to the Pointer that caused it.
-func (self *FlexLayer) GetOnChildInputOverA() *Signal{
+func (self *FlexLayer) OnChildInputOver() *Signal{
     return &Signal{self.Object.Get("onChildInputOver")}
 }
 
@@ -373,7 +373,7 @@ func (self *FlexLayer) SetOnChildInputOverA(member *Signal) {
 // 
 // This Signal is sent 2 arguments: A reference to the Sprite that triggered the signal, and
 // a reference to the Pointer that caused it.
-func (self *FlexLayer) GetOnChildInputOutA() *Signal{
+func (self *FlexLayer) OnChildInputOut() *Signal{
     return &Signal{self.Object.Get("onChildInputOut")}
 }
 
@@ -392,7 +392,7 @@ func (self *FlexLayer) SetOnChildInputOutA(member *Signal) {
 // If there are children already in the Group at the time you set this property, they are not changed.
 // 
 // The default body type is controlled with {@link Phaser.Group#physicsBodyType physicsBodyType}.
-func (self *FlexLayer) GetEnableBodyA() bool{
+func (self *FlexLayer) EnableBody() bool{
     return self.Object.Get("enableBody").Bool()
 }
 
@@ -408,7 +408,7 @@ func (self *FlexLayer) SetEnableBodyA(member bool) {
 // If true when a physics body is created (via {@link Phaser.Group#enableBody enableBody}) it will create a physics debug object as well.
 // 
 // This only works for P2 bodies.
-func (self *FlexLayer) GetEnableBodyDebugA() bool{
+func (self *FlexLayer) EnableBodyDebug() bool{
     return self.Object.Get("enableBodyDebug").Bool()
 }
 
@@ -422,7 +422,7 @@ func (self *FlexLayer) SetEnableBodyDebugA(member bool) {
 // If {@link Phaser.Group#enableBody enableBody} is true this is the type of physics body that is created on new Sprites.
 // 
 // The valid values are {@link Phaser.Physics.ARCADE}, {@link Phaser.Physics.P2JS}, {@link Phaser.Physics.NINJA}, etc.
-func (self *FlexLayer) GetPhysicsBodyTypeA() int{
+func (self *FlexLayer) PhysicsBodyType() int{
     return self.Object.Get("physicsBodyType").Int()
 }
 
@@ -444,7 +444,7 @@ func (self *FlexLayer) SetPhysicsBodyTypeA(member int) {
 // Phaser.Physics.Arcade.BOTTOM_TOP
 // 
 // If set to `null` the Group will use whatever Phaser.Physics.Arcade.sortDirection is set to. This is the default behavior.
-func (self *FlexLayer) GetPhysicsSortDirectionA() int{
+func (self *FlexLayer) PhysicsSortDirection() int{
     return self.Object.Get("physicsSortDirection").Int()
 }
 
@@ -464,7 +464,7 @@ func (self *FlexLayer) SetPhysicsSortDirectionA(member int) {
 }
 
 // This signal is dispatched when the group is destroyed.
-func (self *FlexLayer) GetOnDestroyA() *Signal{
+func (self *FlexLayer) OnDestroy() *Signal{
     return &Signal{self.Object.Get("onDestroy")}
 }
 
@@ -474,7 +474,7 @@ func (self *FlexLayer) SetOnDestroyA(member *Signal) {
 }
 
 // The current index of the Group cursor. Advance it with Group.next.
-func (self *FlexLayer) GetCursorIndexA() int{
+func (self *FlexLayer) CursorIndex() int{
     return self.Object.Get("cursorIndex").Int()
 }
 
@@ -487,7 +487,7 @@ func (self *FlexLayer) SetCursorIndexA(member int) {
 // 
 // Note that the cameraOffset values are in addition to any parent in the display list.
 // So if this Group was in a Group that has x: 200, then this will be added to the cameraOffset.x
-func (self *FlexLayer) GetFixedToCameraA() bool{
+func (self *FlexLayer) FixedToCamera() bool{
     return self.Object.Get("fixedToCamera").Bool()
 }
 
@@ -501,7 +501,7 @@ func (self *FlexLayer) SetFixedToCameraA(member bool) {
 
 // If this object is {@link Phaser.Group#fixedToCamera fixedToCamera} then this stores the x/y position offset relative to the top-left of the camera view.
 // If the parent of this Group is also `fixedToCamera` then the offset here is in addition to that and should typically be disabled.
-func (self *FlexLayer) GetCameraOffsetA() *Point{
+func (self *FlexLayer) CameraOffset() *Point{
     return &Point{self.Object.Get("cameraOffset")}
 }
 
@@ -518,12 +518,12 @@ func (self *FlexLayer) SetCameraOffsetA(member *Point) {
 // This hash is used automatically by Phaser Arcade Physics in order to perform non z-index based destructive sorting.
 // However if you don't use Arcade Physics, or this isn't a physics enabled Group, then you can use the hash to perform your own
 // sorting and filtering of Group children without touching their z-index (and therefore display draw order)
-func (self *FlexLayer) GetHashA() []interface{}{
+func (self *FlexLayer) Hash() []interface{}{
 	array00 := self.Object.Get("hash")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -540,7 +540,7 @@ func (self *FlexLayer) SetHashA(member []interface{}) {
 }
 
 // Total number of existing children in the group.
-func (self *FlexLayer) GetTotalA() int{
+func (self *FlexLayer) Total() int{
     return self.Object.Get("total").Int()
 }
 
@@ -550,7 +550,7 @@ func (self *FlexLayer) SetTotalA(member int) {
 }
 
 // Total number of children in this group, regardless of exists/alive status.
-func (self *FlexLayer) GetLengthA() int{
+func (self *FlexLayer) Length() int{
     return self.Object.Get("length").Int()
 }
 
@@ -565,7 +565,7 @@ func (self *FlexLayer) SetLengthA(member int) {
 // 
 // This has no impact on the rotation/angle properties of the children, but it will update their worldTransform
 // and on-screen orientation and position.
-func (self *FlexLayer) GetAngleA() int{
+func (self *FlexLayer) Angle() int{
     return self.Object.Get("angle").Int()
 }
 
@@ -588,7 +588,7 @@ func (self *FlexLayer) SetAngleA(member int) {
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *FlexLayer) GetCenterXA() int{
+func (self *FlexLayer) CenterX() int{
     return self.Object.Get("centerX").Int()
 }
 
@@ -614,7 +614,7 @@ func (self *FlexLayer) SetCenterXA(member int) {
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *FlexLayer) GetCenterYA() int{
+func (self *FlexLayer) CenterY() int{
     return self.Object.Get("centerY").Int()
 }
 
@@ -640,7 +640,7 @@ func (self *FlexLayer) SetCenterYA(member int) {
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *FlexLayer) GetLeftA() int{
+func (self *FlexLayer) Left() int{
     return self.Object.Get("left").Int()
 }
 
@@ -666,7 +666,7 @@ func (self *FlexLayer) SetLeftA(member int) {
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *FlexLayer) GetRightA() int{
+func (self *FlexLayer) Right() int{
     return self.Object.Get("right").Int()
 }
 
@@ -692,7 +692,7 @@ func (self *FlexLayer) SetRightA(member int) {
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *FlexLayer) GetTopA() int{
+func (self *FlexLayer) Top() int{
     return self.Object.Get("top").Int()
 }
 
@@ -718,7 +718,7 @@ func (self *FlexLayer) SetTopA(member int) {
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *FlexLayer) GetBottomA() int{
+func (self *FlexLayer) Bottom() int{
     return self.Object.Get("bottom").Int()
 }
 
@@ -739,7 +739,7 @@ func (self *FlexLayer) SetBottomA(member int) {
 // 
 // You can adjust the group container itself by modifying its coordinates.
 // This will have no impact on the x/y coordinates of its children, but it will update their worldTransform and on-screen position.
-func (self *FlexLayer) GetXA() int{
+func (self *FlexLayer) X() int{
     return self.Object.Get("x").Int()
 }
 
@@ -755,7 +755,7 @@ func (self *FlexLayer) SetXA(member int) {
 // 
 // You can adjust the group container itself by modifying its coordinates.
 // This will have no impact on the x/y coordinates of its children, but it will update their worldTransform and on-screen position.
-func (self *FlexLayer) GetYA() int{
+func (self *FlexLayer) Y() int{
     return self.Object.Get("y").Int()
 }
 
@@ -771,7 +771,7 @@ func (self *FlexLayer) SetYA(member int) {
 // 
 // This will adjust the group container itself by modifying its rotation.
 // This will have no impact on the rotation value of its children, but it will update their worldTransform and on-screen position.
-func (self *FlexLayer) GetRotationA() int{
+func (self *FlexLayer) Rotation() int{
     return self.Object.Get("rotation").Int()
 }
 
@@ -784,7 +784,7 @@ func (self *FlexLayer) SetRotationA(member int) {
 }
 
 // The visible state of the group. Non-visible Groups and all of their children are not rendered.
-func (self *FlexLayer) GetVisibleA() bool{
+func (self *FlexLayer) Visible() bool{
     return self.Object.Get("visible").Bool()
 }
 
@@ -794,7 +794,7 @@ func (self *FlexLayer) SetVisibleA(member bool) {
 }
 
 // The alpha value of the group container.
-func (self *FlexLayer) GetAlphaA() int{
+func (self *FlexLayer) Alpha() int{
     return self.Object.Get("alpha").Int()
 }
 
@@ -804,7 +804,7 @@ func (self *FlexLayer) SetAlphaA(member int) {
 }
 
 // [read-only] The array of children of this container.
-func (self *FlexLayer) GetChildrenA() []DisplayObject{
+func (self *FlexLayer) Children() []DisplayObject{
 	array00 := self.Object.Get("children")
 	length00 := array00.Length()
 	out00 := make([]DisplayObject, length00, length00)
@@ -824,7 +824,7 @@ func (self *FlexLayer) SetChildrenA(member []DisplayObject) {
 // If this property is `true` then the children will _not_ be considered as valid for Input events.
 // 
 // Note that this property isn't recursive: only immediate children are influenced, it doesn't scan further down.
-func (self *FlexLayer) GetIgnoreChildInputA() bool{
+func (self *FlexLayer) IgnoreChildInput() bool{
     return self.Object.Get("ignoreChildInput").Bool()
 }
 
@@ -838,7 +838,7 @@ func (self *FlexLayer) SetIgnoreChildInputA(member bool) {
 }
 
 // The width of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *FlexLayer) GetWidthA() int{
+func (self *FlexLayer) Width() int{
     return self.Object.Get("width").Int()
 }
 
@@ -848,7 +848,7 @@ func (self *FlexLayer) SetWidthA(member int) {
 }
 
 // The height of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *FlexLayer) GetHeightA() int{
+func (self *FlexLayer) Height() int{
     return self.Object.Get("height").Int()
 }
 
@@ -1210,7 +1210,7 @@ func (self *FlexLayer) CreateMultiple(quantity int, key interface{}) []interface
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -1258,7 +1258,7 @@ func (self *FlexLayer) CreateMultiple1O(quantity int, key interface{}, frame int
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -1306,7 +1306,7 @@ func (self *FlexLayer) CreateMultiple2O(quantity int, key interface{}, frame int
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -1354,7 +1354,7 @@ func (self *FlexLayer) CreateMultipleI(args ...interface{}) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -2132,7 +2132,7 @@ func (self *FlexLayer) PostUpdateI(args ...interface{}) {
 //     healthyList.callAll('attack');
 // 
 // Note: Currently this will skip any children which are Groups themselves.
-func (self *FlexLayer) Filter(predicate func(...interface{})) *ArraySet{
+func (self *FlexLayer) Filter(predicate interface{}) *ArraySet{
     return &ArraySet{self.Object.Call("filter", predicate)}
 }
 
@@ -2146,7 +2146,7 @@ func (self *FlexLayer) Filter(predicate func(...interface{})) *ArraySet{
 //     healthyList.callAll('attack');
 // 
 // Note: Currently this will skip any children which are Groups themselves.
-func (self *FlexLayer) Filter1O(predicate func(...interface{}), checkExists bool) *ArraySet{
+func (self *FlexLayer) Filter1O(predicate interface{}, checkExists bool) *ArraySet{
     return &ArraySet{self.Object.Call("filter", predicate, checkExists)}
 }
 
@@ -2173,7 +2173,7 @@ func (self *FlexLayer) FilterI(args ...interface{}) *ArraySet{
 // would invoke `awardBonusGold` function with the parameters `(child, 100, 500)`.
 // 
 // Note: This check will skip any children which are Groups themselves.
-func (self *FlexLayer) ForEach(callback func(...interface{}), callbackContext interface{}) {
+func (self *FlexLayer) ForEach(callback interface{}, callbackContext interface{}) {
     self.Object.Call("forEach", callback, callbackContext)
 }
 
@@ -2186,7 +2186,7 @@ func (self *FlexLayer) ForEach(callback func(...interface{}), callbackContext in
 // would invoke `awardBonusGold` function with the parameters `(child, 100, 500)`.
 // 
 // Note: This check will skip any children which are Groups themselves.
-func (self *FlexLayer) ForEach1O(callback func(...interface{}), callbackContext interface{}, checkExists bool) {
+func (self *FlexLayer) ForEach1O(callback interface{}, callbackContext interface{}, checkExists bool) {
     self.Object.Call("forEach", callback, callbackContext, checkExists)
 }
 
@@ -2199,7 +2199,7 @@ func (self *FlexLayer) ForEach1O(callback func(...interface{}), callbackContext 
 // would invoke `awardBonusGold` function with the parameters `(child, 100, 500)`.
 // 
 // Note: This check will skip any children which are Groups themselves.
-func (self *FlexLayer) ForEach2O(callback func(...interface{}), callbackContext interface{}, checkExists bool, args interface{}) {
+func (self *FlexLayer) ForEach2O(callback interface{}, callbackContext interface{}, checkExists bool, args interface{}) {
     self.Object.Call("forEach", callback, callbackContext, checkExists, args)
 }
 
@@ -2219,14 +2219,14 @@ func (self *FlexLayer) ForEachI(args ...interface{}) {
 // Call a function on each existing child in this group.
 // 
 // See {@link Phaser.Group#forEach forEach} for details.
-func (self *FlexLayer) ForEachExists(callback func(...interface{}), callbackContext interface{}) {
+func (self *FlexLayer) ForEachExists(callback interface{}, callbackContext interface{}) {
     self.Object.Call("forEachExists", callback, callbackContext)
 }
 
 // Call a function on each existing child in this group.
 // 
 // See {@link Phaser.Group#forEach forEach} for details.
-func (self *FlexLayer) ForEachExists1O(callback func(...interface{}), callbackContext interface{}, args interface{}) {
+func (self *FlexLayer) ForEachExists1O(callback interface{}, callbackContext interface{}, args interface{}) {
     self.Object.Call("forEachExists", callback, callbackContext, args)
 }
 
@@ -2240,14 +2240,14 @@ func (self *FlexLayer) ForEachExistsI(args ...interface{}) {
 // Call a function on each alive child in this group.
 // 
 // See {@link Phaser.Group#forEach forEach} for details.
-func (self *FlexLayer) ForEachAlive(callback func(...interface{}), callbackContext interface{}) {
+func (self *FlexLayer) ForEachAlive(callback interface{}, callbackContext interface{}) {
     self.Object.Call("forEachAlive", callback, callbackContext)
 }
 
 // Call a function on each alive child in this group.
 // 
 // See {@link Phaser.Group#forEach forEach} for details.
-func (self *FlexLayer) ForEachAlive1O(callback func(...interface{}), callbackContext interface{}, args interface{}) {
+func (self *FlexLayer) ForEachAlive1O(callback interface{}, callbackContext interface{}, args interface{}) {
     self.Object.Call("forEachAlive", callback, callbackContext, args)
 }
 
@@ -2261,14 +2261,14 @@ func (self *FlexLayer) ForEachAliveI(args ...interface{}) {
 // Call a function on each dead child in this group.
 // 
 // See {@link Phaser.Group#forEach forEach} for details.
-func (self *FlexLayer) ForEachDead(callback func(...interface{}), callbackContext interface{}) {
+func (self *FlexLayer) ForEachDead(callback interface{}, callbackContext interface{}) {
     self.Object.Call("forEachDead", callback, callbackContext)
 }
 
 // Call a function on each dead child in this group.
 // 
 // See {@link Phaser.Group#forEach forEach} for details.
-func (self *FlexLayer) ForEachDead1O(callback func(...interface{}), callbackContext interface{}, args interface{}) {
+func (self *FlexLayer) ForEachDead1O(callback interface{}, callbackContext interface{}, args interface{}) {
     self.Object.Call("forEachDead", callback, callbackContext, args)
 }
 
@@ -2331,7 +2331,7 @@ func (self *FlexLayer) SortI(args ...interface{}) {
 // 
 // The `sortHandler` is provided the two parameters: the two children involved in the comparison (a and b).
 // It should return -1 if `a > b`, 1 if `a < b` or 0 if `a === b`.
-func (self *FlexLayer) CustomSort(sortHandler func(...interface{})) {
+func (self *FlexLayer) CustomSort(sortHandler interface{}) {
     self.Object.Call("customSort", sortHandler)
 }
 
@@ -2339,7 +2339,7 @@ func (self *FlexLayer) CustomSort(sortHandler func(...interface{})) {
 // 
 // The `sortHandler` is provided the two parameters: the two children involved in the comparison (a and b).
 // It should return -1 if `a > b`, 1 if `a < b` or 0 if `a === b`.
-func (self *FlexLayer) CustomSort1O(sortHandler func(...interface{}), context interface{}) {
+func (self *FlexLayer) CustomSort1O(sortHandler interface{}, context interface{}) {
     self.Object.Call("customSort", sortHandler, context)
 }
 
@@ -2409,7 +2409,7 @@ func (self *FlexLayer) Iterate(key string, value interface{}, returnType int) in
 // 
 // If `args` is specified it must be an array. The matched child will be assigned to the first
 // element and the entire array will be applied to the callback function.
-func (self *FlexLayer) Iterate1O(key string, value interface{}, returnType int, callback func(...interface{})) interface{}{
+func (self *FlexLayer) Iterate1O(key string, value interface{}, returnType int, callback interface{}) interface{}{
     return self.Object.Call("iterate", key, value, returnType, callback)
 }
 
@@ -2430,7 +2430,7 @@ func (self *FlexLayer) Iterate1O(key string, value interface{}, returnType int, 
 // 
 // If `args` is specified it must be an array. The matched child will be assigned to the first
 // element and the entire array will be applied to the callback function.
-func (self *FlexLayer) Iterate2O(key string, value interface{}, returnType int, callback func(...interface{}), callbackContext interface{}) interface{}{
+func (self *FlexLayer) Iterate2O(key string, value interface{}, returnType int, callback interface{}, callbackContext interface{}) interface{}{
     return self.Object.Call("iterate", key, value, returnType, callback, callbackContext)
 }
 
@@ -2451,7 +2451,7 @@ func (self *FlexLayer) Iterate2O(key string, value interface{}, returnType int, 
 // 
 // If `args` is specified it must be an array. The matched child will be assigned to the first
 // element and the entire array will be applied to the callback function.
-func (self *FlexLayer) Iterate3O(key string, value interface{}, returnType int, callback func(...interface{}), callbackContext interface{}, args []interface{}) interface{}{
+func (self *FlexLayer) Iterate3O(key string, value interface{}, returnType int, callback interface{}, callbackContext interface{}, args []interface{}) interface{}{
     return self.Object.Call("iterate", key, value, returnType, callback, callbackContext, args)
 }
 
@@ -2874,7 +2874,7 @@ func (self *FlexLayer) GetClosestTo(object interface{}) interface{}{
 // If the child is closer then the previous child, it will be sent to `callback` as the first argument,
 // with the distance as the second. The callback should return `true` if it passes your 
 // filtering criteria, otherwise it should return `false`.
-func (self *FlexLayer) GetClosestTo1O(object interface{}, callback func(...interface{})) interface{}{
+func (self *FlexLayer) GetClosestTo1O(object interface{}, callback interface{}) interface{}{
     return self.Object.Call("getClosestTo", object, callback)
 }
 
@@ -2888,7 +2888,7 @@ func (self *FlexLayer) GetClosestTo1O(object interface{}, callback func(...inter
 // If the child is closer then the previous child, it will be sent to `callback` as the first argument,
 // with the distance as the second. The callback should return `true` if it passes your 
 // filtering criteria, otherwise it should return `false`.
-func (self *FlexLayer) GetClosestTo2O(object interface{}, callback func(...interface{}), callbackContext interface{}) interface{}{
+func (self *FlexLayer) GetClosestTo2O(object interface{}, callback interface{}, callbackContext interface{}) interface{}{
     return self.Object.Call("getClosestTo", object, callback, callbackContext)
 }
 
@@ -2930,7 +2930,7 @@ func (self *FlexLayer) GetFurthestFrom(object interface{}) interface{}{
 // If the child is closer then the previous child, it will be sent to `callback` as the first argument,
 // with the distance as the second. The callback should return `true` if it passes your 
 // filtering criteria, otherwise it should return `false`.
-func (self *FlexLayer) GetFurthestFrom1O(object interface{}, callback func(...interface{})) interface{}{
+func (self *FlexLayer) GetFurthestFrom1O(object interface{}, callback interface{}) interface{}{
     return self.Object.Call("getFurthestFrom", object, callback)
 }
 
@@ -2944,7 +2944,7 @@ func (self *FlexLayer) GetFurthestFrom1O(object interface{}, callback func(...in
 // If the child is closer then the previous child, it will be sent to `callback` as the first argument,
 // with the distance as the second. The callback should return `true` if it passes your 
 // filtering criteria, otherwise it should return `false`.
-func (self *FlexLayer) GetFurthestFrom2O(object interface{}, callback func(...interface{}), callbackContext interface{}) interface{}{
+func (self *FlexLayer) GetFurthestFrom2O(object interface{}, callback interface{}, callbackContext interface{}) interface{}{
     return self.Object.Call("getFurthestFrom", object, callback, callbackContext)
 }
 

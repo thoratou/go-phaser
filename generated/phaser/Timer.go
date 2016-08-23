@@ -27,7 +27,7 @@ type Timer struct {
 // Timers are based on real life time, adjusted for game pause durations.
 // That is, *timer events are based on elapsed {@link Phaser.Time game time}* and do *not* take physics time or slow motion into account.
 func NewTimer(game *Game) *Timer {
-    return &Timer{js.Global.Call("Phaser.Timer", game)}
+    return &Timer{js.Global.Get("Phaser").Get("Timer").New(game)}
 }
 
 // A Timer is a way to create and manage {@link Phaser.TimerEvent timer events} that wait for a specific duration and then run a callback.
@@ -38,7 +38,7 @@ func NewTimer(game *Game) *Timer {
 // Timers are based on real life time, adjusted for game pause durations.
 // That is, *timer events are based on elapsed {@link Phaser.Time game time}* and do *not* take physics time or slow motion into account.
 func NewTimer1O(game *Game, autoDestroy bool) *Timer {
-    return &Timer{js.Global.Call("Phaser.Timer", game, autoDestroy)}
+    return &Timer{js.Global.Get("Phaser").Get("Timer").New(game, autoDestroy)}
 }
 
 // A Timer is a way to create and manage {@link Phaser.TimerEvent timer events} that wait for a specific duration and then run a callback.
@@ -49,13 +49,13 @@ func NewTimer1O(game *Game, autoDestroy bool) *Timer {
 // Timers are based on real life time, adjusted for game pause durations.
 // That is, *timer events are based on elapsed {@link Phaser.Time game time}* and do *not* take physics time or slow motion into account.
 func NewTimerI(args ...interface{}) *Timer {
-    return &Timer{js.Global.Call("Phaser.Timer", args)}
+    return &Timer{js.Global.Get("Phaser").Get("Timer").New(args)}
 }
 
 
 
 // Local reference to game.
-func (self *Timer) GetGameA() *Game{
+func (self *Timer) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -67,7 +67,7 @@ func (self *Timer) SetGameA(member *Game) {
 // True if the Timer is actively running.
 // 
 // Do not modify this boolean - use {@link Phaser.Timer#pause pause} (and {@link Phaser.Timer#resume resume}) to pause the timer.
-func (self *Timer) GetRunningA() bool{
+func (self *Timer) Running() bool{
     return self.Object.Get("running").Bool()
 }
 
@@ -79,7 +79,7 @@ func (self *Timer) SetRunningA(member bool) {
 }
 
 // If true, the timer will automatically destroy itself after all the events have been dispatched (assuming no looping events).
-func (self *Timer) GetAutoDestroyA() bool{
+func (self *Timer) AutoDestroy() bool{
     return self.Object.Get("autoDestroy").Bool()
 }
 
@@ -89,7 +89,7 @@ func (self *Timer) SetAutoDestroyA(member bool) {
 }
 
 // An expired Timer is one in which all of its events have been dispatched and none are pending.
-func (self *Timer) GetExpiredA() bool{
+func (self *Timer) Expired() bool{
     return self.Object.Get("expired").Bool()
 }
 
@@ -99,7 +99,7 @@ func (self *Timer) SetExpiredA(member bool) {
 }
 
 // Elapsed time since the last frame (in ms).
-func (self *Timer) GetElapsedA() int{
+func (self *Timer) Elapsed() int{
     return self.Object.Get("elapsed").Int()
 }
 
@@ -109,7 +109,7 @@ func (self *Timer) SetElapsedA(member int) {
 }
 
 // An array holding all of this timers Phaser.TimerEvent objects. Use the methods add, repeat and loop to populate it.
-func (self *Timer) GetEventsA() []TimerEvent{
+func (self *Timer) Events() []TimerEvent{
 	array00 := self.Object.Get("events")
 	length00 := array00.Length()
 	out00 := make([]TimerEvent, length00, length00)
@@ -127,7 +127,7 @@ func (self *Timer) SetEventsA(member []TimerEvent) {
 // This signal will be dispatched when this Timer has completed which means that there are no more events in the queue.
 // 
 // The signal is supplied with one argument, `timer`, which is this Timer object.
-func (self *Timer) GetOnCompleteA() *Signal{
+func (self *Timer) OnComplete() *Signal{
     return &Signal{self.Object.Get("onComplete")}
 }
 
@@ -139,7 +139,7 @@ func (self *Timer) SetOnCompleteA(member *Signal) {
 }
 
 // The time the next tick will occur.
-func (self *Timer) GetNextTickA() int{
+func (self *Timer) NextTick() int{
     return self.Object.Get("nextTick").Int()
 }
 
@@ -149,7 +149,7 @@ func (self *Timer) SetNextTickA(member int) {
 }
 
 // If the difference in time between two frame updates exceeds this value, the event times are reset to avoid catch-up situations.
-func (self *Timer) GetTimeCapA() int{
+func (self *Timer) TimeCap() int{
     return self.Object.Get("timeCap").Int()
 }
 
@@ -159,7 +159,7 @@ func (self *Timer) SetTimeCapA(member int) {
 }
 
 // The paused state of the Timer. You can pause the timer by calling Timer.pause() and Timer.resume() or by the game pausing.
-func (self *Timer) GetPausedA() bool{
+func (self *Timer) Paused() bool{
     return self.Object.Get("paused").Bool()
 }
 
@@ -169,7 +169,7 @@ func (self *Timer) SetPausedA(member bool) {
 }
 
 // Number of milliseconds in a minute.
-func (self *Timer) GetMINUTEA() int{
+func (self *Timer) MINUTE() int{
     return self.Object.Get("MINUTE").Int()
 }
 
@@ -179,7 +179,7 @@ func (self *Timer) SetMINUTEA(member int) {
 }
 
 // Number of milliseconds in a second.
-func (self *Timer) GetSECONDA() int{
+func (self *Timer) SECOND() int{
     return self.Object.Get("SECOND").Int()
 }
 
@@ -189,7 +189,7 @@ func (self *Timer) SetSECONDA(member int) {
 }
 
 // Number of milliseconds in half a second.
-func (self *Timer) GetHALFA() int{
+func (self *Timer) HALF() int{
     return self.Object.Get("HALF").Int()
 }
 
@@ -199,7 +199,7 @@ func (self *Timer) SetHALFA(member int) {
 }
 
 // Number of milliseconds in a quarter of a second.
-func (self *Timer) GetQUARTERA() int{
+func (self *Timer) QUARTER() int{
     return self.Object.Get("QUARTER").Int()
 }
 
@@ -209,7 +209,7 @@ func (self *Timer) SetQUARTERA(member int) {
 }
 
 // The time at which the next event will occur.
-func (self *Timer) GetNextA() int{
+func (self *Timer) Next() int{
     return self.Object.Get("next").Int()
 }
 
@@ -219,7 +219,7 @@ func (self *Timer) SetNextA(member int) {
 }
 
 // The duration in ms remaining until the next event will occur.
-func (self *Timer) GetDurationA() int{
+func (self *Timer) Duration() int{
     return self.Object.Get("duration").Int()
 }
 
@@ -229,7 +229,7 @@ func (self *Timer) SetDurationA(member int) {
 }
 
 // The number of pending events in the queue.
-func (self *Timer) GetLengthA() int{
+func (self *Timer) Length() int{
     return self.Object.Get("length").Int()
 }
 
@@ -239,7 +239,7 @@ func (self *Timer) SetLengthA(member int) {
 }
 
 // The duration in milliseconds that this Timer has been running for.
-func (self *Timer) GetMsA() int{
+func (self *Timer) Ms() int{
     return self.Object.Get("ms").Int()
 }
 
@@ -249,7 +249,7 @@ func (self *Timer) SetMsA(member int) {
 }
 
 // The duration in seconds that this Timer has been running for.
-func (self *Timer) GetSecondsA() int{
+func (self *Timer) Seconds() int{
     return self.Object.Get("seconds").Int()
 }
 
@@ -263,7 +263,7 @@ func (self *Timer) SetSecondsA(member int) {
 // Creates a new TimerEvent on this Timer.
 // 
 // Use {@link Phaser.Timer#add}, {@link Phaser.Timer#repeat}, or {@link Phaser.Timer#loop} methods to create a new event.
-func (self *Timer) Create(delay int, loop bool, repeatCount int, callback func(...interface{}), callbackContext interface{}, arguments []interface{}) *TimerEvent{
+func (self *Timer) Create(delay int, loop bool, repeatCount int, callback interface{}, callbackContext interface{}, arguments []interface{}) *TimerEvent{
     return &TimerEvent{self.Object.Call("create", delay, loop, repeatCount, callback, callbackContext, arguments)}
 }
 
@@ -280,7 +280,7 @@ func (self *Timer) CreateI(args ...interface{}) *TimerEvent{
 // The delay is in relation to when the Timer starts, not the time it was added. If the Timer is already running the delay will be calculated based on the timers current time.
 // 
 // Make sure to call {@link Phaser.Timer#start start} after adding all of the Events you require for this Timer.
-func (self *Timer) Add(delay int, callback func(...interface{}), callbackContext interface{}, arguments interface{}) *TimerEvent{
+func (self *Timer) Add(delay int, callback interface{}, callbackContext interface{}, arguments interface{}) *TimerEvent{
     return &TimerEvent{self.Object.Call("add", delay, callback, callbackContext, arguments)}
 }
 
@@ -301,7 +301,7 @@ func (self *Timer) AddI(args ...interface{}) *TimerEvent{
 // If the Timer is already running the delay will be calculated based on the timers current time.
 // 
 // Make sure to call {@link Phaser.Timer#start start} after adding all of the Events you require for this Timer.
-func (self *Timer) Repeat(delay int, repeatCount int, callback func(...interface{}), callbackContext interface{}, arguments interface{}) *TimerEvent{
+func (self *Timer) Repeat(delay int, repeatCount int, callback interface{}, callbackContext interface{}, arguments interface{}) *TimerEvent{
     return &TimerEvent{self.Object.Call("repeat", delay, repeatCount, callback, callbackContext, arguments)}
 }
 
@@ -322,7 +322,7 @@ func (self *Timer) RepeatI(args ...interface{}) *TimerEvent{
 // The delay is in relation to when the Timer starts, not the time it was added. If the Timer is already running the delay will be calculated based on the timers current time.
 // 
 // Make sure to call {@link Phaser.Timer#start start} after adding all of the Events you require for this Timer.
-func (self *Timer) Loop(delay int, callback func(...interface{}), callbackContext interface{}, arguments interface{}) *TimerEvent{
+func (self *Timer) Loop(delay int, callback interface{}, callbackContext interface{}, arguments interface{}) *TimerEvent{
     return &TimerEvent{self.Object.Call("loop", delay, callback, callbackContext, arguments)}
 }
 

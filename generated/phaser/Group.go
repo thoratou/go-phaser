@@ -29,7 +29,7 @@ type Group struct {
 // 
 // Groups are also display objects and can be nested as children within other Groups.
 func NewGroup(game *Game) *Group {
-    return &Group{js.Global.Call("Phaser.Group", game)}
+    return &Group{js.Global.Get("Phaser").Get("Group").New(game)}
 }
 
 // A Group is a container for {@link DisplayObject display objects} including {@link Phaser.Sprite Sprites} and {@link Phaser.Image Images}.
@@ -41,7 +41,7 @@ func NewGroup(game *Game) *Group {
 // 
 // Groups are also display objects and can be nested as children within other Groups.
 func NewGroup1O(game *Game, parent interface{}) *Group {
-    return &Group{js.Global.Call("Phaser.Group", game, parent)}
+    return &Group{js.Global.Get("Phaser").Get("Group").New(game, parent)}
 }
 
 // A Group is a container for {@link DisplayObject display objects} including {@link Phaser.Sprite Sprites} and {@link Phaser.Image Images}.
@@ -53,7 +53,7 @@ func NewGroup1O(game *Game, parent interface{}) *Group {
 // 
 // Groups are also display objects and can be nested as children within other Groups.
 func NewGroup2O(game *Game, parent interface{}, name string) *Group {
-    return &Group{js.Global.Call("Phaser.Group", game, parent, name)}
+    return &Group{js.Global.Get("Phaser").Get("Group").New(game, parent, name)}
 }
 
 // A Group is a container for {@link DisplayObject display objects} including {@link Phaser.Sprite Sprites} and {@link Phaser.Image Images}.
@@ -65,7 +65,7 @@ func NewGroup2O(game *Game, parent interface{}, name string) *Group {
 // 
 // Groups are also display objects and can be nested as children within other Groups.
 func NewGroup3O(game *Game, parent interface{}, name string, addToStage bool) *Group {
-    return &Group{js.Global.Call("Phaser.Group", game, parent, name, addToStage)}
+    return &Group{js.Global.Get("Phaser").Get("Group").New(game, parent, name, addToStage)}
 }
 
 // A Group is a container for {@link DisplayObject display objects} including {@link Phaser.Sprite Sprites} and {@link Phaser.Image Images}.
@@ -77,7 +77,7 @@ func NewGroup3O(game *Game, parent interface{}, name string, addToStage bool) *G
 // 
 // Groups are also display objects and can be nested as children within other Groups.
 func NewGroup4O(game *Game, parent interface{}, name string, addToStage bool, enableBody bool) *Group {
-    return &Group{js.Global.Call("Phaser.Group", game, parent, name, addToStage, enableBody)}
+    return &Group{js.Global.Get("Phaser").Get("Group").New(game, parent, name, addToStage, enableBody)}
 }
 
 // A Group is a container for {@link DisplayObject display objects} including {@link Phaser.Sprite Sprites} and {@link Phaser.Image Images}.
@@ -89,7 +89,7 @@ func NewGroup4O(game *Game, parent interface{}, name string, addToStage bool, en
 // 
 // Groups are also display objects and can be nested as children within other Groups.
 func NewGroup5O(game *Game, parent interface{}, name string, addToStage bool, enableBody bool, physicsBodyType int) *Group {
-    return &Group{js.Global.Call("Phaser.Group", game, parent, name, addToStage, enableBody, physicsBodyType)}
+    return &Group{js.Global.Get("Phaser").Get("Group").New(game, parent, name, addToStage, enableBody, physicsBodyType)}
 }
 
 // A Group is a container for {@link DisplayObject display objects} including {@link Phaser.Sprite Sprites} and {@link Phaser.Image Images}.
@@ -101,13 +101,13 @@ func NewGroup5O(game *Game, parent interface{}, name string, addToStage bool, en
 // 
 // Groups are also display objects and can be nested as children within other Groups.
 func NewGroupI(args ...interface{}) *Group {
-    return &Group{js.Global.Call("Phaser.Group", args)}
+    return &Group{js.Global.Get("Phaser").Get("Group").New(args)}
 }
 
 
 
 // A reference to the currently running Game.
-func (self *Group) GetGameA() *Game{
+func (self *Group) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -117,7 +117,7 @@ func (self *Group) SetGameA(member *Game) {
 }
 
 // A name for this group. Not used internally but useful for debugging.
-func (self *Group) GetNameA() string{
+func (self *Group) Name() string{
     return self.Object.Get("name").String()
 }
 
@@ -128,7 +128,7 @@ func (self *Group) SetNameA(member string) {
 
 // The z-depth value of this object within its parent container/Group - the World is a Group as well.
 // This value must be unique for each child in a Group.
-func (self *Group) GetZA() int{
+func (self *Group) Z() int{
     return self.Object.Get("z").Int()
 }
 
@@ -139,7 +139,7 @@ func (self *Group) SetZA(member int) {
 }
 
 // Internal Phaser Type value.
-func (self *Group) GetTypeA() int{
+func (self *Group) Type() int{
     return self.Object.Get("type").Int()
 }
 
@@ -149,7 +149,7 @@ func (self *Group) SetTypeA(member int) {
 }
 
 // The const physics body type of this object.
-func (self *Group) GetPhysicsTypeA() int{
+func (self *Group) PhysicsType() int{
     return self.Object.Get("physicsType").Int()
 }
 
@@ -159,7 +159,7 @@ func (self *Group) SetPhysicsTypeA(member int) {
 }
 
 // The alive property is useful for Groups that are children of other Groups and need to be included/excluded in checks like forEachAlive.
-func (self *Group) GetAliveA() bool{
+func (self *Group) Alive() bool{
     return self.Object.Get("alive").Bool()
 }
 
@@ -169,7 +169,7 @@ func (self *Group) SetAliveA(member bool) {
 }
 
 // If exists is true the group is updated, otherwise it is skipped.
-func (self *Group) GetExistsA() bool{
+func (self *Group) Exists() bool{
     return self.Object.Get("exists").Bool()
 }
 
@@ -179,7 +179,7 @@ func (self *Group) SetExistsA(member bool) {
 }
 
 // A group with `ignoreDestroy` set to `true` ignores all calls to its `destroy` method.
-func (self *Group) GetIgnoreDestroyA() bool{
+func (self *Group) IgnoreDestroy() bool{
     return self.Object.Get("ignoreDestroy").Bool()
 }
 
@@ -194,7 +194,7 @@ func (self *Group) SetIgnoreDestroyA(member bool) {
 // 
 // This is extremely useful if you wish to destroy a Group from within one of its own callbacks
 // or a callback of one of its children.
-func (self *Group) GetPendingDestroyA() bool{
+func (self *Group) PendingDestroy() bool{
     return self.Object.Get("pendingDestroy").Bool()
 }
 
@@ -212,7 +212,7 @@ func (self *Group) SetPendingDestroyA(member bool) {
 // 
 // Any object may be used but it should extend either Sprite or Image and accept the same constructor arguments:
 // when a new object is created it is passed the following parameters to its constructor: `(game, x, y, key, frame)`.
-func (self *Group) GetClassTypeA() interface{}{
+func (self *Group) ClassType() interface{}{
     return self.Object.Get("classType")
 }
 
@@ -227,7 +227,7 @@ func (self *Group) SetClassTypeA(member interface{}) {
 // The current display object that the group cursor is pointing to, if any. (Can be set manually.)
 // 
 // The cursor is a way to iterate through the children in a Group using {@link Phaser.Group#next next} and {@link Phaser.Group#previous previous}.
-func (self *Group) GetCursorA() *DisplayObject{
+func (self *Group) Cursor() *DisplayObject{
     return &DisplayObject{self.Object.Get("cursor")}
 }
 
@@ -242,7 +242,7 @@ func (self *Group) SetCursorA(member *DisplayObject) {
 // on any children _added_ to, or _created by_, this Group.
 // 
 // If there are children already in the Group at the time you set this property, they are not changed.
-func (self *Group) GetInputEnableChildrenA() bool{
+func (self *Group) InputEnableChildren() bool{
     return self.Object.Get("inputEnableChildren").Bool()
 }
 
@@ -260,7 +260,7 @@ func (self *Group) SetInputEnableChildrenA(member bool) {
 // 
 // This Signal is sent 2 arguments: A reference to the Sprite that triggered the signal, and
 // a reference to the Pointer that caused it.
-func (self *Group) GetOnChildInputDownA() *Signal{
+func (self *Group) OnChildInputDown() *Signal{
     return &Signal{self.Object.Get("onChildInputDown")}
 }
 
@@ -281,7 +281,7 @@ func (self *Group) SetOnChildInputDownA(member *Signal) {
 // This Signal is sent 3 arguments: A reference to the Sprite that triggered the signal, 
 // a reference to the Pointer that caused it, and a boolean value `isOver` that tells you if the Pointer
 // is still over the Sprite or not.
-func (self *Group) GetOnChildInputUpA() *Signal{
+func (self *Group) OnChildInputUp() *Signal{
     return &Signal{self.Object.Get("onChildInputUp")}
 }
 
@@ -302,7 +302,7 @@ func (self *Group) SetOnChildInputUpA(member *Signal) {
 // 
 // This Signal is sent 2 arguments: A reference to the Sprite that triggered the signal, and
 // a reference to the Pointer that caused it.
-func (self *Group) GetOnChildInputOverA() *Signal{
+func (self *Group) OnChildInputOver() *Signal{
     return &Signal{self.Object.Get("onChildInputOver")}
 }
 
@@ -322,7 +322,7 @@ func (self *Group) SetOnChildInputOverA(member *Signal) {
 // 
 // This Signal is sent 2 arguments: A reference to the Sprite that triggered the signal, and
 // a reference to the Pointer that caused it.
-func (self *Group) GetOnChildInputOutA() *Signal{
+func (self *Group) OnChildInputOut() *Signal{
     return &Signal{self.Object.Get("onChildInputOut")}
 }
 
@@ -341,7 +341,7 @@ func (self *Group) SetOnChildInputOutA(member *Signal) {
 // If there are children already in the Group at the time you set this property, they are not changed.
 // 
 // The default body type is controlled with {@link Phaser.Group#physicsBodyType physicsBodyType}.
-func (self *Group) GetEnableBodyA() bool{
+func (self *Group) EnableBody() bool{
     return self.Object.Get("enableBody").Bool()
 }
 
@@ -357,7 +357,7 @@ func (self *Group) SetEnableBodyA(member bool) {
 // If true when a physics body is created (via {@link Phaser.Group#enableBody enableBody}) it will create a physics debug object as well.
 // 
 // This only works for P2 bodies.
-func (self *Group) GetEnableBodyDebugA() bool{
+func (self *Group) EnableBodyDebug() bool{
     return self.Object.Get("enableBodyDebug").Bool()
 }
 
@@ -371,7 +371,7 @@ func (self *Group) SetEnableBodyDebugA(member bool) {
 // If {@link Phaser.Group#enableBody enableBody} is true this is the type of physics body that is created on new Sprites.
 // 
 // The valid values are {@link Phaser.Physics.ARCADE}, {@link Phaser.Physics.P2JS}, {@link Phaser.Physics.NINJA}, etc.
-func (self *Group) GetPhysicsBodyTypeA() int{
+func (self *Group) PhysicsBodyType() int{
     return self.Object.Get("physicsBodyType").Int()
 }
 
@@ -393,7 +393,7 @@ func (self *Group) SetPhysicsBodyTypeA(member int) {
 // Phaser.Physics.Arcade.BOTTOM_TOP
 // 
 // If set to `null` the Group will use whatever Phaser.Physics.Arcade.sortDirection is set to. This is the default behavior.
-func (self *Group) GetPhysicsSortDirectionA() int{
+func (self *Group) PhysicsSortDirection() int{
     return self.Object.Get("physicsSortDirection").Int()
 }
 
@@ -413,7 +413,7 @@ func (self *Group) SetPhysicsSortDirectionA(member int) {
 }
 
 // This signal is dispatched when the group is destroyed.
-func (self *Group) GetOnDestroyA() *Signal{
+func (self *Group) OnDestroy() *Signal{
     return &Signal{self.Object.Get("onDestroy")}
 }
 
@@ -423,7 +423,7 @@ func (self *Group) SetOnDestroyA(member *Signal) {
 }
 
 // The current index of the Group cursor. Advance it with Group.next.
-func (self *Group) GetCursorIndexA() int{
+func (self *Group) CursorIndex() int{
     return self.Object.Get("cursorIndex").Int()
 }
 
@@ -436,7 +436,7 @@ func (self *Group) SetCursorIndexA(member int) {
 // 
 // Note that the cameraOffset values are in addition to any parent in the display list.
 // So if this Group was in a Group that has x: 200, then this will be added to the cameraOffset.x
-func (self *Group) GetFixedToCameraA() bool{
+func (self *Group) FixedToCamera() bool{
     return self.Object.Get("fixedToCamera").Bool()
 }
 
@@ -450,7 +450,7 @@ func (self *Group) SetFixedToCameraA(member bool) {
 
 // If this object is {@link Phaser.Group#fixedToCamera fixedToCamera} then this stores the x/y position offset relative to the top-left of the camera view.
 // If the parent of this Group is also `fixedToCamera` then the offset here is in addition to that and should typically be disabled.
-func (self *Group) GetCameraOffsetA() *Point{
+func (self *Group) CameraOffset() *Point{
     return &Point{self.Object.Get("cameraOffset")}
 }
 
@@ -467,12 +467,12 @@ func (self *Group) SetCameraOffsetA(member *Point) {
 // This hash is used automatically by Phaser Arcade Physics in order to perform non z-index based destructive sorting.
 // However if you don't use Arcade Physics, or this isn't a physics enabled Group, then you can use the hash to perform your own
 // sorting and filtering of Group children without touching their z-index (and therefore display draw order)
-func (self *Group) GetHashA() []interface{}{
+func (self *Group) Hash() []interface{}{
 	array00 := self.Object.Get("hash")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -489,7 +489,7 @@ func (self *Group) SetHashA(member []interface{}) {
 }
 
 // A returnType value, as specified in {@link Phaser.Group#iterate iterate} eg.
-func (self *Group) GetRETURN_NONEA() int{
+func (self *Group) RETURN_NONE() int{
     return self.Object.Get("RETURN_NONE").Int()
 }
 
@@ -499,7 +499,7 @@ func (self *Group) SetRETURN_NONEA(member int) {
 }
 
 // A returnType value, as specified in {@link Phaser.Group#iterate iterate} eg.
-func (self *Group) GetRETURN_TOTALA() int{
+func (self *Group) RETURN_TOTAL() int{
     return self.Object.Get("RETURN_TOTAL").Int()
 }
 
@@ -509,7 +509,7 @@ func (self *Group) SetRETURN_TOTALA(member int) {
 }
 
 // A returnType value, as specified in {@link Phaser.Group#iterate iterate} eg.
-func (self *Group) GetRETURN_CHILDA() int{
+func (self *Group) RETURN_CHILD() int{
     return self.Object.Get("RETURN_CHILD").Int()
 }
 
@@ -519,7 +519,7 @@ func (self *Group) SetRETURN_CHILDA(member int) {
 }
 
 // A sort ordering value, as specified in {@link Phaser.Group#sort sort} eg.
-func (self *Group) GetSORT_ASCENDINGA() int{
+func (self *Group) SORT_ASCENDING() int{
     return self.Object.Get("SORT_ASCENDING").Int()
 }
 
@@ -529,7 +529,7 @@ func (self *Group) SetSORT_ASCENDINGA(member int) {
 }
 
 // A sort ordering value, as specified in {@link Phaser.Group#sort sort} eg.
-func (self *Group) GetSORT_DESCENDINGA() int{
+func (self *Group) SORT_DESCENDING() int{
     return self.Object.Get("SORT_DESCENDING").Int()
 }
 
@@ -539,7 +539,7 @@ func (self *Group) SetSORT_DESCENDINGA(member int) {
 }
 
 // Total number of existing children in the group.
-func (self *Group) GetTotalA() int{
+func (self *Group) Total() int{
     return self.Object.Get("total").Int()
 }
 
@@ -549,7 +549,7 @@ func (self *Group) SetTotalA(member int) {
 }
 
 // Total number of children in this group, regardless of exists/alive status.
-func (self *Group) GetLengthA() int{
+func (self *Group) Length() int{
     return self.Object.Get("length").Int()
 }
 
@@ -564,7 +564,7 @@ func (self *Group) SetLengthA(member int) {
 // 
 // This has no impact on the rotation/angle properties of the children, but it will update their worldTransform
 // and on-screen orientation and position.
-func (self *Group) GetAngleA() int{
+func (self *Group) Angle() int{
     return self.Object.Get("angle").Int()
 }
 
@@ -587,7 +587,7 @@ func (self *Group) SetAngleA(member int) {
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *Group) GetCenterXA() int{
+func (self *Group) CenterX() int{
     return self.Object.Get("centerX").Int()
 }
 
@@ -613,7 +613,7 @@ func (self *Group) SetCenterXA(member int) {
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *Group) GetCenterYA() int{
+func (self *Group) CenterY() int{
     return self.Object.Get("centerY").Int()
 }
 
@@ -639,7 +639,7 @@ func (self *Group) SetCenterYA(member int) {
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *Group) GetLeftA() int{
+func (self *Group) Left() int{
     return self.Object.Get("left").Int()
 }
 
@@ -665,7 +665,7 @@ func (self *Group) SetLeftA(member int) {
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *Group) GetRightA() int{
+func (self *Group) Right() int{
     return self.Object.Get("right").Int()
 }
 
@@ -691,7 +691,7 @@ func (self *Group) SetRightA(member int) {
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *Group) GetTopA() int{
+func (self *Group) Top() int{
     return self.Object.Get("top").Int()
 }
 
@@ -717,7 +717,7 @@ func (self *Group) SetTopA(member int) {
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *Group) GetBottomA() int{
+func (self *Group) Bottom() int{
     return self.Object.Get("bottom").Int()
 }
 
@@ -738,7 +738,7 @@ func (self *Group) SetBottomA(member int) {
 // 
 // You can adjust the group container itself by modifying its coordinates.
 // This will have no impact on the x/y coordinates of its children, but it will update their worldTransform and on-screen position.
-func (self *Group) GetXA() int{
+func (self *Group) X() int{
     return self.Object.Get("x").Int()
 }
 
@@ -754,7 +754,7 @@ func (self *Group) SetXA(member int) {
 // 
 // You can adjust the group container itself by modifying its coordinates.
 // This will have no impact on the x/y coordinates of its children, but it will update their worldTransform and on-screen position.
-func (self *Group) GetYA() int{
+func (self *Group) Y() int{
     return self.Object.Get("y").Int()
 }
 
@@ -770,7 +770,7 @@ func (self *Group) SetYA(member int) {
 // 
 // This will adjust the group container itself by modifying its rotation.
 // This will have no impact on the rotation value of its children, but it will update their worldTransform and on-screen position.
-func (self *Group) GetRotationA() int{
+func (self *Group) Rotation() int{
     return self.Object.Get("rotation").Int()
 }
 
@@ -783,7 +783,7 @@ func (self *Group) SetRotationA(member int) {
 }
 
 // The visible state of the group. Non-visible Groups and all of their children are not rendered.
-func (self *Group) GetVisibleA() bool{
+func (self *Group) Visible() bool{
     return self.Object.Get("visible").Bool()
 }
 
@@ -793,7 +793,7 @@ func (self *Group) SetVisibleA(member bool) {
 }
 
 // The alpha value of the group container.
-func (self *Group) GetAlphaA() int{
+func (self *Group) Alpha() int{
     return self.Object.Get("alpha").Int()
 }
 
@@ -803,7 +803,7 @@ func (self *Group) SetAlphaA(member int) {
 }
 
 // [read-only] The array of children of this container.
-func (self *Group) GetChildrenA() []DisplayObject{
+func (self *Group) Children() []DisplayObject{
 	array00 := self.Object.Get("children")
 	length00 := array00.Length()
 	out00 := make([]DisplayObject, length00, length00)
@@ -823,7 +823,7 @@ func (self *Group) SetChildrenA(member []DisplayObject) {
 // If this property is `true` then the children will _not_ be considered as valid for Input events.
 // 
 // Note that this property isn't recursive: only immediate children are influenced, it doesn't scan further down.
-func (self *Group) GetIgnoreChildInputA() bool{
+func (self *Group) IgnoreChildInput() bool{
     return self.Object.Get("ignoreChildInput").Bool()
 }
 
@@ -837,7 +837,7 @@ func (self *Group) SetIgnoreChildInputA(member bool) {
 }
 
 // The width of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *Group) GetWidthA() int{
+func (self *Group) Width() int{
     return self.Object.Get("width").Int()
 }
 
@@ -847,7 +847,7 @@ func (self *Group) SetWidthA(member int) {
 }
 
 // The height of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *Group) GetHeightA() int{
+func (self *Group) Height() int{
     return self.Object.Get("height").Int()
 }
 
@@ -1189,7 +1189,7 @@ func (self *Group) CreateMultiple(quantity int, key interface{}) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -1237,7 +1237,7 @@ func (self *Group) CreateMultiple1O(quantity int, key interface{}, frame interfa
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -1285,7 +1285,7 @@ func (self *Group) CreateMultiple2O(quantity int, key interface{}, frame interfa
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -1333,7 +1333,7 @@ func (self *Group) CreateMultipleI(args ...interface{}) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -2111,7 +2111,7 @@ func (self *Group) PostUpdateI(args ...interface{}) {
 //     healthyList.callAll('attack');
 // 
 // Note: Currently this will skip any children which are Groups themselves.
-func (self *Group) Filter(predicate func(...interface{})) *ArraySet{
+func (self *Group) Filter(predicate interface{}) *ArraySet{
     return &ArraySet{self.Object.Call("filter", predicate)}
 }
 
@@ -2125,7 +2125,7 @@ func (self *Group) Filter(predicate func(...interface{})) *ArraySet{
 //     healthyList.callAll('attack');
 // 
 // Note: Currently this will skip any children which are Groups themselves.
-func (self *Group) Filter1O(predicate func(...interface{}), checkExists bool) *ArraySet{
+func (self *Group) Filter1O(predicate interface{}, checkExists bool) *ArraySet{
     return &ArraySet{self.Object.Call("filter", predicate, checkExists)}
 }
 
@@ -2152,7 +2152,7 @@ func (self *Group) FilterI(args ...interface{}) *ArraySet{
 // would invoke `awardBonusGold` function with the parameters `(child, 100, 500)`.
 // 
 // Note: This check will skip any children which are Groups themselves.
-func (self *Group) ForEach(callback func(...interface{}), callbackContext interface{}) {
+func (self *Group) ForEach(callback interface{}, callbackContext interface{}) {
     self.Object.Call("forEach", callback, callbackContext)
 }
 
@@ -2165,7 +2165,7 @@ func (self *Group) ForEach(callback func(...interface{}), callbackContext interf
 // would invoke `awardBonusGold` function with the parameters `(child, 100, 500)`.
 // 
 // Note: This check will skip any children which are Groups themselves.
-func (self *Group) ForEach1O(callback func(...interface{}), callbackContext interface{}, checkExists bool) {
+func (self *Group) ForEach1O(callback interface{}, callbackContext interface{}, checkExists bool) {
     self.Object.Call("forEach", callback, callbackContext, checkExists)
 }
 
@@ -2178,7 +2178,7 @@ func (self *Group) ForEach1O(callback func(...interface{}), callbackContext inte
 // would invoke `awardBonusGold` function with the parameters `(child, 100, 500)`.
 // 
 // Note: This check will skip any children which are Groups themselves.
-func (self *Group) ForEach2O(callback func(...interface{}), callbackContext interface{}, checkExists bool, args interface{}) {
+func (self *Group) ForEach2O(callback interface{}, callbackContext interface{}, checkExists bool, args interface{}) {
     self.Object.Call("forEach", callback, callbackContext, checkExists, args)
 }
 
@@ -2198,14 +2198,14 @@ func (self *Group) ForEachI(args ...interface{}) {
 // Call a function on each existing child in this group.
 // 
 // See {@link Phaser.Group#forEach forEach} for details.
-func (self *Group) ForEachExists(callback func(...interface{}), callbackContext interface{}) {
+func (self *Group) ForEachExists(callback interface{}, callbackContext interface{}) {
     self.Object.Call("forEachExists", callback, callbackContext)
 }
 
 // Call a function on each existing child in this group.
 // 
 // See {@link Phaser.Group#forEach forEach} for details.
-func (self *Group) ForEachExists1O(callback func(...interface{}), callbackContext interface{}, args interface{}) {
+func (self *Group) ForEachExists1O(callback interface{}, callbackContext interface{}, args interface{}) {
     self.Object.Call("forEachExists", callback, callbackContext, args)
 }
 
@@ -2219,14 +2219,14 @@ func (self *Group) ForEachExistsI(args ...interface{}) {
 // Call a function on each alive child in this group.
 // 
 // See {@link Phaser.Group#forEach forEach} for details.
-func (self *Group) ForEachAlive(callback func(...interface{}), callbackContext interface{}) {
+func (self *Group) ForEachAlive(callback interface{}, callbackContext interface{}) {
     self.Object.Call("forEachAlive", callback, callbackContext)
 }
 
 // Call a function on each alive child in this group.
 // 
 // See {@link Phaser.Group#forEach forEach} for details.
-func (self *Group) ForEachAlive1O(callback func(...interface{}), callbackContext interface{}, args interface{}) {
+func (self *Group) ForEachAlive1O(callback interface{}, callbackContext interface{}, args interface{}) {
     self.Object.Call("forEachAlive", callback, callbackContext, args)
 }
 
@@ -2240,14 +2240,14 @@ func (self *Group) ForEachAliveI(args ...interface{}) {
 // Call a function on each dead child in this group.
 // 
 // See {@link Phaser.Group#forEach forEach} for details.
-func (self *Group) ForEachDead(callback func(...interface{}), callbackContext interface{}) {
+func (self *Group) ForEachDead(callback interface{}, callbackContext interface{}) {
     self.Object.Call("forEachDead", callback, callbackContext)
 }
 
 // Call a function on each dead child in this group.
 // 
 // See {@link Phaser.Group#forEach forEach} for details.
-func (self *Group) ForEachDead1O(callback func(...interface{}), callbackContext interface{}, args interface{}) {
+func (self *Group) ForEachDead1O(callback interface{}, callbackContext interface{}, args interface{}) {
     self.Object.Call("forEachDead", callback, callbackContext, args)
 }
 
@@ -2310,7 +2310,7 @@ func (self *Group) SortI(args ...interface{}) {
 // 
 // The `sortHandler` is provided the two parameters: the two children involved in the comparison (a and b).
 // It should return -1 if `a > b`, 1 if `a < b` or 0 if `a === b`.
-func (self *Group) CustomSort(sortHandler func(...interface{})) {
+func (self *Group) CustomSort(sortHandler interface{}) {
     self.Object.Call("customSort", sortHandler)
 }
 
@@ -2318,7 +2318,7 @@ func (self *Group) CustomSort(sortHandler func(...interface{})) {
 // 
 // The `sortHandler` is provided the two parameters: the two children involved in the comparison (a and b).
 // It should return -1 if `a > b`, 1 if `a < b` or 0 if `a === b`.
-func (self *Group) CustomSort1O(sortHandler func(...interface{}), context interface{}) {
+func (self *Group) CustomSort1O(sortHandler interface{}, context interface{}) {
     self.Object.Call("customSort", sortHandler, context)
 }
 
@@ -2388,7 +2388,7 @@ func (self *Group) Iterate(key string, value interface{}, returnType int) interf
 // 
 // If `args` is specified it must be an array. The matched child will be assigned to the first
 // element and the entire array will be applied to the callback function.
-func (self *Group) Iterate1O(key string, value interface{}, returnType int, callback func(...interface{})) interface{}{
+func (self *Group) Iterate1O(key string, value interface{}, returnType int, callback interface{}) interface{}{
     return self.Object.Call("iterate", key, value, returnType, callback)
 }
 
@@ -2409,7 +2409,7 @@ func (self *Group) Iterate1O(key string, value interface{}, returnType int, call
 // 
 // If `args` is specified it must be an array. The matched child will be assigned to the first
 // element and the entire array will be applied to the callback function.
-func (self *Group) Iterate2O(key string, value interface{}, returnType int, callback func(...interface{}), callbackContext interface{}) interface{}{
+func (self *Group) Iterate2O(key string, value interface{}, returnType int, callback interface{}, callbackContext interface{}) interface{}{
     return self.Object.Call("iterate", key, value, returnType, callback, callbackContext)
 }
 
@@ -2430,7 +2430,7 @@ func (self *Group) Iterate2O(key string, value interface{}, returnType int, call
 // 
 // If `args` is specified it must be an array. The matched child will be assigned to the first
 // element and the entire array will be applied to the callback function.
-func (self *Group) Iterate3O(key string, value interface{}, returnType int, callback func(...interface{}), callbackContext interface{}, args []interface{}) interface{}{
+func (self *Group) Iterate3O(key string, value interface{}, returnType int, callback interface{}, callbackContext interface{}, args []interface{}) interface{}{
     return self.Object.Call("iterate", key, value, returnType, callback, callbackContext, args)
 }
 
@@ -2853,7 +2853,7 @@ func (self *Group) GetClosestTo(object interface{}) interface{}{
 // If the child is closer then the previous child, it will be sent to `callback` as the first argument,
 // with the distance as the second. The callback should return `true` if it passes your 
 // filtering criteria, otherwise it should return `false`.
-func (self *Group) GetClosestTo1O(object interface{}, callback func(...interface{})) interface{}{
+func (self *Group) GetClosestTo1O(object interface{}, callback interface{}) interface{}{
     return self.Object.Call("getClosestTo", object, callback)
 }
 
@@ -2867,7 +2867,7 @@ func (self *Group) GetClosestTo1O(object interface{}, callback func(...interface
 // If the child is closer then the previous child, it will be sent to `callback` as the first argument,
 // with the distance as the second. The callback should return `true` if it passes your 
 // filtering criteria, otherwise it should return `false`.
-func (self *Group) GetClosestTo2O(object interface{}, callback func(...interface{}), callbackContext interface{}) interface{}{
+func (self *Group) GetClosestTo2O(object interface{}, callback interface{}, callbackContext interface{}) interface{}{
     return self.Object.Call("getClosestTo", object, callback, callbackContext)
 }
 
@@ -2909,7 +2909,7 @@ func (self *Group) GetFurthestFrom(object interface{}) interface{}{
 // If the child is closer then the previous child, it will be sent to `callback` as the first argument,
 // with the distance as the second. The callback should return `true` if it passes your 
 // filtering criteria, otherwise it should return `false`.
-func (self *Group) GetFurthestFrom1O(object interface{}, callback func(...interface{})) interface{}{
+func (self *Group) GetFurthestFrom1O(object interface{}, callback interface{}) interface{}{
     return self.Object.Call("getFurthestFrom", object, callback)
 }
 
@@ -2923,7 +2923,7 @@ func (self *Group) GetFurthestFrom1O(object interface{}, callback func(...interf
 // If the child is closer then the previous child, it will be sent to `callback` as the first argument,
 // with the distance as the second. The callback should return `true` if it passes your 
 // filtering criteria, otherwise it should return `false`.
-func (self *Group) GetFurthestFrom2O(object interface{}, callback func(...interface{}), callbackContext interface{}) interface{}{
+func (self *Group) GetFurthestFrom2O(object interface{}, callback interface{}, callbackContext interface{}) interface{}{
     return self.Object.Call("getFurthestFrom", object, callback, callbackContext)
 }
 

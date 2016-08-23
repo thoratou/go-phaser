@@ -15,12 +15,12 @@ type ArrayUtils struct {
 
 // Utility functions for dealing with Arrays.
 func NewArrayUtils() *ArrayUtils {
-    return &ArrayUtils{js.Global.Call("Phaser.ArrayUtils")}
+    return &ArrayUtils{js.Global.Get("Phaser").Get("ArrayUtils").New()}
 }
 
 // Utility functions for dealing with Arrays.
 func NewArrayUtilsI(args ...interface{}) *ArrayUtils {
-    return &ArrayUtils{js.Global.Call("Phaser.ArrayUtils", args)}
+    return &ArrayUtils{js.Global.Get("Phaser").Get("ArrayUtils").New(args)}
 }
 
 
@@ -65,7 +65,7 @@ func (self *ArrayUtils) Shuffle(array []interface{}) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -76,7 +76,7 @@ func (self *ArrayUtils) ShuffleI(args ...interface{}) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -249,7 +249,7 @@ func (self *ArrayUtils) NumberArrayStep(start int) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -266,7 +266,7 @@ func (self *ArrayUtils) NumberArrayStep1O(start int, end int) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -283,7 +283,7 @@ func (self *ArrayUtils) NumberArrayStep2O(start int, end int, step int) []interf
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -300,7 +300,7 @@ func (self *ArrayUtils) NumberArrayStepI(args ...interface{}) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }

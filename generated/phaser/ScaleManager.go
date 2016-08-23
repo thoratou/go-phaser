@@ -42,20 +42,20 @@ type ScaleManager struct {
 // 
 // The `width` and `height` constructor parameters can either be a number which represents pixels or a string that represents a percentage: e.g. `800` (for 800 pixels) or `"80%"` for 80%.
 func NewScaleManager(game *Game, width interface{}, height interface{}) *ScaleManager {
-    return &ScaleManager{js.Global.Call("Phaser.ScaleManager", game, width, height)}
+    return &ScaleManager{js.Global.Get("Phaser").Get("ScaleManager").New(game, width, height)}
 }
 
 // Create a new ScaleManager object - this is done automatically by {@link Phaser.Game}
 // 
 // The `width` and `height` constructor parameters can either be a number which represents pixels or a string that represents a percentage: e.g. `800` (for 800 pixels) or `"80%"` for 80%.
 func NewScaleManagerI(args ...interface{}) *ScaleManager {
-    return &ScaleManager{js.Global.Call("Phaser.ScaleManager", args)}
+    return &ScaleManager{js.Global.Get("Phaser").Get("ScaleManager").New(args)}
 }
 
 
 
 // A reference to the currently running game.
-func (self *ScaleManager) GetGameA() *Game{
+func (self *ScaleManager) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -65,7 +65,7 @@ func (self *ScaleManager) SetGameA(member *Game) {
 }
 
 // Provides access to some cross-device DOM functions.
-func (self *ScaleManager) GetDomA() *DOM{
+func (self *ScaleManager) Dom() *DOM{
     return &DOM{self.Object.Get("dom")}
 }
 
@@ -75,7 +75,7 @@ func (self *ScaleManager) SetDomA(member *DOM) {
 }
 
 // _EXPERIMENTAL:_ A responsive grid on which you can align game objects.
-func (self *ScaleManager) GetGridA() *FlexGrid{
+func (self *ScaleManager) Grid() *FlexGrid{
     return &FlexGrid{self.Object.Get("grid")}
 }
 
@@ -85,7 +85,7 @@ func (self *ScaleManager) SetGridA(member *FlexGrid) {
 }
 
 // Target width (in pixels) of the Display canvas.
-func (self *ScaleManager) GetWidthA() int{
+func (self *ScaleManager) Width() int{
     return self.Object.Get("width").Int()
 }
 
@@ -95,7 +95,7 @@ func (self *ScaleManager) SetWidthA(member int) {
 }
 
 // Target height (in pixels) of the Display canvas.
-func (self *ScaleManager) GetHeightA() int{
+func (self *ScaleManager) Height() int{
     return self.Object.Get("height").Int()
 }
 
@@ -106,7 +106,7 @@ func (self *ScaleManager) SetHeightA(member int) {
 
 // Minimum width the canvas should be scaled to (in pixels).
 // Change with {@link Phaser.ScaleManager#setMinMax setMinMax}.
-func (self *ScaleManager) GetMinWidthA() int{
+func (self *ScaleManager) MinWidth() int{
     return self.Object.Get("minWidth").Int()
 }
 
@@ -119,7 +119,7 @@ func (self *ScaleManager) SetMinWidthA(member int) {
 // Maximum width the canvas should be scaled to (in pixels).
 // If null it will scale to whatever width the browser can handle.
 // Change with {@link Phaser.ScaleManager#setMinMax setMinMax}.
-func (self *ScaleManager) GetMaxWidthA() int{
+func (self *ScaleManager) MaxWidth() int{
     return self.Object.Get("maxWidth").Int()
 }
 
@@ -132,7 +132,7 @@ func (self *ScaleManager) SetMaxWidthA(member int) {
 
 // Minimum height the canvas should be scaled to (in pixels).
 // Change with {@link Phaser.ScaleManager#setMinMax setMinMax}.
-func (self *ScaleManager) GetMinHeightA() int{
+func (self *ScaleManager) MinHeight() int{
     return self.Object.Get("minHeight").Int()
 }
 
@@ -145,7 +145,7 @@ func (self *ScaleManager) SetMinHeightA(member int) {
 // Maximum height the canvas should be scaled to (in pixels).
 // If null it will scale to whatever height the browser can handle.
 // Change with {@link Phaser.ScaleManager#setMinMax setMinMax}.
-func (self *ScaleManager) GetMaxHeightA() int{
+func (self *ScaleManager) MaxHeight() int{
     return self.Object.Get("maxHeight").Int()
 }
 
@@ -158,7 +158,7 @@ func (self *ScaleManager) SetMaxHeightA(member int) {
 
 // The offset coordinates of the Display canvas from the top-left of the browser window.
 // The is used internally by Phaser.Pointer (for Input) and possibly other types.
-func (self *ScaleManager) GetOffsetA() *Point{
+func (self *ScaleManager) Offset() *Point{
     return &Point{self.Object.Get("offset")}
 }
 
@@ -170,7 +170,7 @@ func (self *ScaleManager) SetOffsetA(member *Point) {
 
 // If true, the game should only run in a landscape orientation.
 // Change with {@link Phaser.ScaleManager#forceOrientation forceOrientation}.
-func (self *ScaleManager) GetForceLandscapeA() bool{
+func (self *ScaleManager) ForceLandscape() bool{
     return self.Object.Get("forceLandscape").Bool()
 }
 
@@ -182,7 +182,7 @@ func (self *ScaleManager) SetForceLandscapeA(member bool) {
 
 // If true, the game should only run in a portrait 
 // Change with {@link Phaser.ScaleManager#forceOrientation forceOrientation}.
-func (self *ScaleManager) GetForcePortraitA() bool{
+func (self *ScaleManager) ForcePortrait() bool{
     return self.Object.Get("forcePortrait").Bool()
 }
 
@@ -195,7 +195,7 @@ func (self *ScaleManager) SetForcePortraitA(member bool) {
 // True if {@link Phaser.ScaleManager#forceLandscape forceLandscape} or {@link Phaser.ScaleManager#forcePortrait forcePortrait} are set and do not agree with the browser orientation.
 // 
 // This value is not updated immediately.
-func (self *ScaleManager) GetIncorrectOrientationA() bool{
+func (self *ScaleManager) IncorrectOrientation() bool{
     return self.Object.Get("incorrectOrientation").Bool()
 }
 
@@ -225,7 +225,7 @@ func (self *ScaleManager) SetIncorrectOrientationA(member bool) {
 // correctness changes even if the orientation itself does not change.
 // 
 // This is signaled from `preUpdate` (or `pauseUpdate`) _even when_ the game is paused.
-func (self *ScaleManager) GetOnOrientationChangeA() *Signal{
+func (self *ScaleManager) OnOrientationChange() *Signal{
     return &Signal{self.Object.Get("onOrientationChange")}
 }
 
@@ -255,7 +255,7 @@ func (self *ScaleManager) SetOnOrientationChangeA(member *Signal) {
 // This signal is dispatched when the browser enters an incorrect orientation, as defined by {@link Phaser.ScaleManager#forceOrientation forceOrientation}.
 // 
 // This is signaled from `preUpdate` (or `pauseUpdate`) _even when_ the game is paused.
-func (self *ScaleManager) GetEnterIncorrectOrientationA() *Signal{
+func (self *ScaleManager) EnterIncorrectOrientation() *Signal{
     return &Signal{self.Object.Get("enterIncorrectOrientation")}
 }
 
@@ -269,7 +269,7 @@ func (self *ScaleManager) SetEnterIncorrectOrientationA(member *Signal) {
 // This signal is dispatched when the browser leaves an incorrect orientation, as defined by {@link Phaser.ScaleManager#forceOrientation forceOrientation}.
 // 
 // This is signaled from `preUpdate` (or `pauseUpdate`) _even when_ the game is paused.
-func (self *ScaleManager) GetLeaveIncorrectOrientationA() *Signal{
+func (self *ScaleManager) LeaveIncorrectOrientation() *Signal{
     return &Signal{self.Object.Get("leaveIncorrectOrientation")}
 }
 
@@ -288,7 +288,7 @@ func (self *ScaleManager) SetLeaveIncorrectOrientationA(member *Signal) {
 // An attempt is made to restore relevant style changes when fullscreen mode is left.
 // 
 // For pre-2.2.0 behavior set `game.scale.fullScreenTarget = game.canvas`.
-func (self *ScaleManager) GetFullScreenTargetA() DOMElement{
+func (self *ScaleManager) FullScreenTarget() DOMElement{
     return WrapDOMElement(self.Object.Get("fullScreenTarget"))
 }
 
@@ -320,7 +320,7 @@ func (self *ScaleManager) SetFullScreenTargetA(member DOMElement) {
 // - The `targetElement` is moved/re-parented within the DOM and may have its CSS styles updated.
 // 
 // The behavior of a pre-assigned target element is covered in {@link Phaser.ScaleManager#fullScreenTarget fullScreenTarget}.
-func (self *ScaleManager) GetOnFullScreenInitA() *Signal{
+func (self *ScaleManager) OnFullScreenInit() *Signal{
     return &Signal{self.Object.Get("onFullScreenInit")}
 }
 
@@ -348,7 +348,7 @@ func (self *ScaleManager) SetOnFullScreenInitA(member *Signal) {
 // 
 // The signal is supplied with a single argument: `scale` (the ScaleManager). Use `scale.isFullScreen` to determine
 // if currently running in Fullscreen mode.
-func (self *ScaleManager) GetOnFullScreenChangeA() *Signal{
+func (self *ScaleManager) OnFullScreenChange() *Signal{
     return &Signal{self.Object.Get("onFullScreenChange")}
 }
 
@@ -364,7 +364,7 @@ func (self *ScaleManager) SetOnFullScreenChangeA(member *Signal) {
 // or if the device does not support fullscreen mode and `startFullScreen` is invoked.
 // 
 // The signal is supplied with a single argument: `scale` (the ScaleManager).
-func (self *ScaleManager) GetOnFullScreenErrorA() *Signal{
+func (self *ScaleManager) OnFullScreenError() *Signal{
     return &Signal{self.Object.Get("onFullScreenError")}
 }
 
@@ -378,7 +378,7 @@ func (self *ScaleManager) SetOnFullScreenErrorA(member *Signal) {
 
 // The _last known_ orientation of the screen, as defined in the Window Screen Web API.
 // See {@link Phaser.DOM.getScreenOrientation} for possible values.
-func (self *ScaleManager) GetScreenOrientationA() string{
+func (self *ScaleManager) ScreenOrientation() string{
     return self.Object.Get("screenOrientation").String()
 }
 
@@ -389,7 +389,7 @@ func (self *ScaleManager) SetScreenOrientationA(member string) {
 }
 
 // The _current_ scale factor based on the game dimensions vs. the scaled dimensions.
-func (self *ScaleManager) GetScaleFactorA() *Point{
+func (self *ScaleManager) ScaleFactor() *Point{
     return &Point{self.Object.Get("scaleFactor")}
 }
 
@@ -399,7 +399,7 @@ func (self *ScaleManager) SetScaleFactorA(member *Point) {
 }
 
 // The _current_ inversed scale factor. The displayed dimensions divided by the game dimensions.
-func (self *ScaleManager) GetScaleFactorInversedA() *Point{
+func (self *ScaleManager) ScaleFactorInversed() *Point{
     return &Point{self.Object.Get("scaleFactorInversed")}
 }
 
@@ -409,7 +409,7 @@ func (self *ScaleManager) SetScaleFactorInversedA(member *Point) {
 }
 
 // The Display canvas is aligned by adjusting the margins; the last margins are stored here.
-func (self *ScaleManager) GetMarginA() interface{}{
+func (self *ScaleManager) Margin() interface{}{
     return self.Object.Get("margin")
 }
 
@@ -419,7 +419,7 @@ func (self *ScaleManager) SetMarginA(member interface{}) {
 }
 
 // The bounds of the scaled game. The x/y will match the offset of the canvas element and the width/height the scaled width and height.
-func (self *ScaleManager) GetBoundsA() *Rectangle{
+func (self *ScaleManager) Bounds() *Rectangle{
     return &Rectangle{self.Object.Get("bounds")}
 }
 
@@ -429,7 +429,7 @@ func (self *ScaleManager) SetBoundsA(member *Rectangle) {
 }
 
 // The aspect ratio of the scaled Display canvas.
-func (self *ScaleManager) GetAspectRatioA() int{
+func (self *ScaleManager) AspectRatio() int{
     return self.Object.Get("aspectRatio").Int()
 }
 
@@ -439,7 +439,7 @@ func (self *ScaleManager) SetAspectRatioA(member int) {
 }
 
 // The aspect ratio of the original game dimensions.
-func (self *ScaleManager) GetSourceAspectRatioA() int{
+func (self *ScaleManager) SourceAspectRatio() int{
     return self.Object.Get("sourceAspectRatio").Int()
 }
 
@@ -454,7 +454,7 @@ func (self *ScaleManager) SetSourceAspectRatioA(member int) {
 // - If 'visual', the edge will be constrained to the Window / displayed screen area
 // - If 'layout', the edge will be constrained to the CSS Layout bounds
 // - An invalid value is treated as 'visual'
-func (self *ScaleManager) GetWindowConstraintsA() interface{}{
+func (self *ScaleManager) WindowConstraints() interface{}{
     return self.Object.Get("windowConstraints")
 }
 
@@ -472,7 +472,7 @@ func (self *ScaleManager) SetWindowConstraintsA(member interface{}) {
 // A value of "(auto)" indicates the setting is configured based on device and runtime information.
 // 
 // A {@link Phaser.ScaleManager#refresh refresh} may need to be performed after making changes.
-func (self *ScaleManager) GetCompatibilityA() interface{}{
+func (self *ScaleManager) Compatibility() interface{}{
     return self.Object.Get("compatibility")
 }
 
@@ -488,7 +488,7 @@ func (self *ScaleManager) SetCompatibilityA(member interface{}) {
 // rather than another div, this should set to `true`.
 // 
 // The {@link Phaser.ScaleManager#parentNode parentNode} property is generally ignored while this is in effect.
-func (self *ScaleManager) GetParentIsWindowA() bool{
+func (self *ScaleManager) ParentIsWindow() bool{
     return self.Object.Get("parentIsWindow").Bool()
 }
 
@@ -504,7 +504,7 @@ func (self *ScaleManager) SetParentIsWindowA(member bool) {
 // This may be different in fullscreen - see {@link Phaser.ScaleManager#createFullScreenTarget createFullScreenTarget}.
 // 
 // This should only be changed after moving the Game canvas to a different DOM parent.
-func (self *ScaleManager) GetParentNodeA() DOMElement{
+func (self *ScaleManager) ParentNode() DOMElement{
     return WrapDOMElement(self.Object.Get("parentNode"))
 }
 
@@ -517,7 +517,7 @@ func (self *ScaleManager) SetParentNodeA(member DOMElement) {
 }
 
 // The scale of the game in relation to its parent container.
-func (self *ScaleManager) GetParentScaleFactorA() *Point{
+func (self *ScaleManager) ParentScaleFactor() *Point{
     return &Point{self.Object.Get("parentScaleFactor")}
 }
 
@@ -528,7 +528,7 @@ func (self *ScaleManager) SetParentScaleFactorA(member *Point) {
 
 // The maximum time (in ms) between dimension update checks for the Canvas's parent element (or window).
 // Update checks normally happen quicker in response to other events.
-func (self *ScaleManager) GetTrackParentIntervalA() int{
+func (self *ScaleManager) TrackParentInterval() int{
     return self.Object.Get("trackParentInterval").Int()
 }
 
@@ -548,7 +548,7 @@ func (self *ScaleManager) SetTrackParentIntervalA(member int) {
 // Use this to handle responsive game layout options.
 // 
 // This is signaled from `preUpdate` (or `pauseUpdate`) _even when_ the game is paused.
-func (self *ScaleManager) GetOnSizeChangeA() *Signal{
+func (self *ScaleManager) OnSizeChange() *Signal{
     return &Signal{self.Object.Get("onSizeChange")}
 }
 
@@ -567,7 +567,7 @@ func (self *ScaleManager) SetOnSizeChangeA(member *Signal) {
 }
 
 // A scale mode that stretches content to fill all available space - see {@link Phaser.ScaleManager#scaleMode scaleMode}.
-func (self *ScaleManager) GetEXACT_FITA() int{
+func (self *ScaleManager) EXACT_FIT() int{
     return self.Object.Get("EXACT_FIT").Int()
 }
 
@@ -577,7 +577,7 @@ func (self *ScaleManager) SetEXACT_FITA(member int) {
 }
 
 // A scale mode that prevents any scaling - see {@link Phaser.ScaleManager#scaleMode scaleMode}.
-func (self *ScaleManager) GetNO_SCALEA() int{
+func (self *ScaleManager) NO_SCALE() int{
     return self.Object.Get("NO_SCALE").Int()
 }
 
@@ -587,7 +587,7 @@ func (self *ScaleManager) SetNO_SCALEA(member int) {
 }
 
 // A scale mode that shows the entire game while maintaining proportions - see {@link Phaser.ScaleManager#scaleMode scaleMode}.
-func (self *ScaleManager) GetSHOW_ALLA() int{
+func (self *ScaleManager) SHOW_ALL() int{
     return self.Object.Get("SHOW_ALL").Int()
 }
 
@@ -597,7 +597,7 @@ func (self *ScaleManager) SetSHOW_ALLA(member int) {
 }
 
 // A scale mode that causes the Game size to change - see {@link Phaser.ScaleManager#scaleMode scaleMode}.
-func (self *ScaleManager) GetRESIZEA() int{
+func (self *ScaleManager) RESIZE() int{
     return self.Object.Get("RESIZE").Int()
 }
 
@@ -607,7 +607,7 @@ func (self *ScaleManager) SetRESIZEA(member int) {
 }
 
 // A scale mode that allows a custom scale factor - see {@link Phaser.ScaleManager#scaleMode scaleMode}.
-func (self *ScaleManager) GetUSER_SCALEA() int{
+func (self *ScaleManager) USER_SCALE() int{
     return self.Object.Get("USER_SCALE").Int()
 }
 
@@ -620,7 +620,7 @@ func (self *ScaleManager) SetUSER_SCALEA(member int) {
 // 
 // This `null` if {@link Phaser.ScaleManager#parentIsWindow parentIsWindow} is true or if fullscreen mode is entered and {@link Phaser.ScaleManager#fullScreenTarget fullScreenTarget} is specified.
 // It will also be null if there is no game canvas or if the game canvas has no parent.
-func (self *ScaleManager) GetBoundingParentA() DOMElement{
+func (self *ScaleManager) BoundingParent() DOMElement{
     return WrapDOMElement(self.Object.Get("boundingParent"))
 }
 
@@ -664,7 +664,7 @@ func (self *ScaleManager) SetBoundingParentA(member DOMElement) {
 //       for flexible custom-sizing needs.
 //   </dd>
 // </dl>
-func (self *ScaleManager) GetScaleModeA() int{
+func (self *ScaleManager) ScaleMode() int{
     return self.Object.Get("scaleMode").Int()
 }
 
@@ -707,7 +707,7 @@ func (self *ScaleManager) SetScaleModeA(member int) {
 // The scaling method used by the ScaleManager when in fullscreen.
 // 
 // See {@link Phaser.ScaleManager#scaleMode scaleMode} for the different modes allowed.
-func (self *ScaleManager) GetFullScreenScaleModeA() int{
+func (self *ScaleManager) FullScreenScaleMode() int{
     return self.Object.Get("fullScreenScaleMode").Int()
 }
 
@@ -721,7 +721,7 @@ func (self *ScaleManager) SetFullScreenScaleModeA(member int) {
 // Returns the current scale mode - for normal or fullscreen operation.
 // 
 // See {@link Phaser.ScaleManager#scaleMode scaleMode} for the different modes allowed.
-func (self *ScaleManager) GetCurrentScaleModeA() int{
+func (self *ScaleManager) CurrentScaleMode() int{
     return self.Object.Get("currentScaleMode").Int()
 }
 
@@ -738,7 +738,7 @@ func (self *ScaleManager) SetCurrentScaleModeA(member int) {
 // or the parent container should itself be horizontally aligned.
 // 
 // Horizontal alignment is not applicable with the {@link Phaser.ScaleManager.RESIZE RESIZE} scaling mode.
-func (self *ScaleManager) GetPageAlignHorizontallyA() bool{
+func (self *ScaleManager) PageAlignHorizontally() bool{
     return self.Object.Get("pageAlignHorizontally").Bool()
 }
 
@@ -765,7 +765,7 @@ func (self *ScaleManager) SetPageAlignHorizontallyA(member bool) {
 // To automatically update the minimum document height set {@link Phaser.ScaleManager#compatibility compatibility.forceMinimumDocumentHeight} to true.
 // 
 // Vertical alignment is not applicable with the {@link Phaser.ScaleManager.RESIZE RESIZE} scaling mode.
-func (self *ScaleManager) GetPageAlignVerticallyA() bool{
+func (self *ScaleManager) PageAlignVertically() bool{
     return self.Object.Get("pageAlignVertically").Bool()
 }
 
@@ -787,7 +787,7 @@ func (self *ScaleManager) SetPageAlignVerticallyA(member bool) {
 }
 
 // Returns true if the browser is in fullscreen mode, otherwise false.
-func (self *ScaleManager) GetIsFullScreenA() bool{
+func (self *ScaleManager) IsFullScreen() bool{
     return self.Object.Get("isFullScreen").Bool()
 }
 
@@ -797,7 +797,7 @@ func (self *ScaleManager) SetIsFullScreenA(member bool) {
 }
 
 // Returns true if the screen orientation is in portrait mode.
-func (self *ScaleManager) GetIsPortraitA() bool{
+func (self *ScaleManager) IsPortrait() bool{
     return self.Object.Get("isPortrait").Bool()
 }
 
@@ -807,7 +807,7 @@ func (self *ScaleManager) SetIsPortraitA(member bool) {
 }
 
 // Returns true if the screen orientation is in landscape mode.
-func (self *ScaleManager) GetIsLandscapeA() bool{
+func (self *ScaleManager) IsLandscape() bool{
     return self.Object.Get("isLandscape").Bool()
 }
 
@@ -820,7 +820,7 @@ func (self *ScaleManager) SetIsLandscapeA(member bool) {
 // This is especially useful to check when using the RESIZE scale mode 
 // but wanting to maintain game orientation on desktop browsers, 
 // where typically the screen orientation will always be landscape regardless of the browser viewport.
-func (self *ScaleManager) GetIsGamePortraitA() bool{
+func (self *ScaleManager) IsGamePortrait() bool{
     return self.Object.Get("isGamePortrait").Bool()
 }
 
@@ -836,7 +836,7 @@ func (self *ScaleManager) SetIsGamePortraitA(member bool) {
 // This is especially useful to check when using the RESIZE scale mode 
 // but wanting to maintain game orientation on desktop browsers, 
 // where typically the screen orientation will always be landscape regardless of the browser viewport.
-func (self *ScaleManager) GetIsGameLandscapeA() bool{
+func (self *ScaleManager) IsGameLandscape() bool{
     return self.Object.Get("isGameLandscape").Bool()
 }
 
@@ -979,7 +979,7 @@ func (self *ScaleManager) SetUserScaleI(args ...interface{}) {
 // - Will be invoked from `preUpdate`, _even when_ the game is paused    
 // 
 // See {@link Phaser.ScaleManager#onSizeChange onSizeChange} for a better way of reacting to layout updates.
-func (self *ScaleManager) SetResizeCallback(callback func(...interface{}), context interface{}) {
+func (self *ScaleManager) SetResizeCallback(callback interface{}, context interface{}) {
     self.Object.Call("setResizeCallback", callback, context)
 }
 

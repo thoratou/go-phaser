@@ -29,7 +29,7 @@ type RandomDataGenerator struct {
 //  - https://github.com/nquinlan/better-random-numbers-for-javascript-mirror
 //  - http://baagoe.org/en/wiki/Better_random_numbers_for_javascript (original, perm. 404)
 func NewRandomDataGenerator() *RandomDataGenerator {
-    return &RandomDataGenerator{js.Global.Call("Phaser.RandomDataGenerator")}
+    return &RandomDataGenerator{js.Global.Get("Phaser").Get("RandomDataGenerator").New()}
 }
 
 // An extremely useful repeatable random data generator.
@@ -41,7 +41,7 @@ func NewRandomDataGenerator() *RandomDataGenerator {
 //  - https://github.com/nquinlan/better-random-numbers-for-javascript-mirror
 //  - http://baagoe.org/en/wiki/Better_random_numbers_for_javascript (original, perm. 404)
 func NewRandomDataGenerator1O(seeds interface{}) *RandomDataGenerator {
-    return &RandomDataGenerator{js.Global.Call("Phaser.RandomDataGenerator", seeds)}
+    return &RandomDataGenerator{js.Global.Get("Phaser").Get("RandomDataGenerator").New(seeds)}
 }
 
 // An extremely useful repeatable random data generator.
@@ -53,7 +53,7 @@ func NewRandomDataGenerator1O(seeds interface{}) *RandomDataGenerator {
 //  - https://github.com/nquinlan/better-random-numbers-for-javascript-mirror
 //  - http://baagoe.org/en/wiki/Better_random_numbers_for_javascript (original, perm. 404)
 func NewRandomDataGeneratorI(args ...interface{}) *RandomDataGenerator {
-    return &RandomDataGenerator{js.Global.Call("Phaser.RandomDataGenerator", args)}
+    return &RandomDataGenerator{js.Global.Get("Phaser").Get("RandomDataGenerator").New(args)}
 }
 
 

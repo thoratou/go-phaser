@@ -15,18 +15,18 @@ type PrimitiveShader struct {
 
 // 
 func NewPrimitiveShader(gl *WebGLContext) *PrimitiveShader {
-    return &PrimitiveShader{js.Global.Call("PIXI.PrimitiveShader", gl)}
+    return &PrimitiveShader{js.Global.Get("PIXI").Get("PrimitiveShader").New(gl)}
 }
 
 // 
 func NewPrimitiveShaderI(args ...interface{}) *PrimitiveShader {
-    return &PrimitiveShader{js.Global.Call("PIXI.PrimitiveShader", args)}
+    return &PrimitiveShader{js.Global.Get("PIXI").Get("PrimitiveShader").New(args)}
 }
 
 
 
 // 
-func (self *PrimitiveShader) GetGlA() WebGLContext{
+func (self *PrimitiveShader) Gl() WebGLContext{
     return WrapWebGLContext(self.Object.Get("gl"))
 }
 
@@ -36,7 +36,7 @@ func (self *PrimitiveShader) SetGlA(member WebGLContext) {
 }
 
 // The WebGL program.
-func (self *PrimitiveShader) GetProgramA() interface{}{
+func (self *PrimitiveShader) Program() interface{}{
     return self.Object.Get("program")
 }
 
@@ -46,12 +46,12 @@ func (self *PrimitiveShader) SetProgramA(member interface{}) {
 }
 
 // The fragment shader.
-func (self *PrimitiveShader) GetFragmentSrcA() []interface{}{
+func (self *PrimitiveShader) FragmentSrc() []interface{}{
 	array00 := self.Object.Get("fragmentSrc")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -62,12 +62,12 @@ func (self *PrimitiveShader) SetFragmentSrcA(member []interface{}) {
 }
 
 // The vertex shader.
-func (self *PrimitiveShader) GetVertexSrcA() []interface{}{
+func (self *PrimitiveShader) VertexSrc() []interface{}{
 	array00 := self.Object.Get("vertexSrc")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }

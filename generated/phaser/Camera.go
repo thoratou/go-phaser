@@ -17,19 +17,19 @@ type Camera struct {
 // A Camera is your view into the game world. It has a position and size and renders only those objects within its field of view.
 // The game automatically creates a single Stage sized camera on boot. Move the camera around the world with Phaser.Camera.x/y
 func NewCamera(game *Game, id int, x int, y int, width int, height int) *Camera {
-    return &Camera{js.Global.Call("Phaser.Camera", game, id, x, y, width, height)}
+    return &Camera{js.Global.Get("Phaser").Get("Camera").New(game, id, x, y, width, height)}
 }
 
 // A Camera is your view into the game world. It has a position and size and renders only those objects within its field of view.
 // The game automatically creates a single Stage sized camera on boot. Move the camera around the world with Phaser.Camera.x/y
 func NewCameraI(args ...interface{}) *Camera {
-    return &Camera{js.Global.Call("Phaser.Camera", args)}
+    return &Camera{js.Global.Get("Phaser").Get("Camera").New(args)}
 }
 
 
 
 // A reference to the currently running Game.
-func (self *Camera) GetGameA() *Game{
+func (self *Camera) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -39,7 +39,7 @@ func (self *Camera) SetGameA(member *Game) {
 }
 
 // A reference to the game world.
-func (self *Camera) GetWorldA() *World{
+func (self *Camera) World() *World{
     return &World{self.Object.Get("world")}
 }
 
@@ -49,7 +49,7 @@ func (self *Camera) SetWorldA(member *World) {
 }
 
 // Reserved for future multiple camera set-ups.
-func (self *Camera) GetIdA() int{
+func (self *Camera) Id() int{
     return self.Object.Get("id").Int()
 }
 
@@ -62,7 +62,7 @@ func (self *Camera) SetIdA(member int) {
 // The view into the world we wish to render (by default the game dimensions).
 // The x/y values are in world coordinates, not screen coordinates, the width/height is how many pixels to render.
 // Sprites outside of this view are not rendered if Sprite.autoCull is set to `true`. Otherwise they are always rendered.
-func (self *Camera) GetViewA() *Rectangle{
+func (self *Camera) View() *Rectangle{
     return &Rectangle{self.Object.Get("view")}
 }
 
@@ -77,7 +77,7 @@ func (self *Camera) SetViewA(member *Rectangle) {
 // The Camera is bound to this Rectangle and cannot move outside of it. By default it is enabled and set to the size of the World.
 // The Rectangle can be located anywhere in the world and updated as often as you like. If you don't wish the Camera to be bound
 // at all then set this to null. The values can be anything and are in World coordinates, with 0,0 being the top-left of the world. The Rectangle in which the Camera is bounded. Set to null to allow for movement anywhere.
-func (self *Camera) GetBoundsA() *Rectangle{
+func (self *Camera) Bounds() *Rectangle{
     return &Rectangle{self.Object.Get("bounds")}
 }
 
@@ -89,7 +89,7 @@ func (self *Camera) SetBoundsA(member *Rectangle) {
 }
 
 // Moving inside this Rectangle will not cause the camera to move.
-func (self *Camera) GetDeadzoneA() *Rectangle{
+func (self *Camera) Deadzone() *Rectangle{
     return &Rectangle{self.Object.Get("deadzone")}
 }
 
@@ -99,7 +99,7 @@ func (self *Camera) SetDeadzoneA(member *Rectangle) {
 }
 
 // Whether this camera is visible or not.
-func (self *Camera) GetVisibleA() bool{
+func (self *Camera) Visible() bool{
     return self.Object.Get("visible").Bool()
 }
 
@@ -109,7 +109,7 @@ func (self *Camera) SetVisibleA(member bool) {
 }
 
 // If a Camera has roundPx set to `true` it will call `view.floor` as part of its update loop, keeping its boundary to integer values. Set this to `false` to disable this from happening.
-func (self *Camera) GetRoundPxA() bool{
+func (self *Camera) RoundPx() bool{
     return self.Object.Get("roundPx").Bool()
 }
 
@@ -119,7 +119,7 @@ func (self *Camera) SetRoundPxA(member bool) {
 }
 
 // Whether this camera is flush with the World Bounds or not.
-func (self *Camera) GetAtLimitA() bool{
+func (self *Camera) AtLimit() bool{
     return self.Object.Get("atLimit").Bool()
 }
 
@@ -129,7 +129,7 @@ func (self *Camera) SetAtLimitA(member bool) {
 }
 
 // If the camera is tracking a Sprite, this is a reference to it, otherwise null.
-func (self *Camera) GetTargetA() *Sprite{
+func (self *Camera) Target() *Sprite{
     return &Sprite{self.Object.Get("target")}
 }
 
@@ -139,7 +139,7 @@ func (self *Camera) SetTargetA(member *Sprite) {
 }
 
 // The display object to which all game objects are added. Set by World.boot.
-func (self *Camera) GetDisplayObjectA() *DisplayObject{
+func (self *Camera) DisplayObject() *DisplayObject{
     return &DisplayObject{self.Object.Get("displayObject")}
 }
 
@@ -149,7 +149,7 @@ func (self *Camera) SetDisplayObjectA(member *DisplayObject) {
 }
 
 // The scale of the display object to which all game objects are added. Set by World.boot.
-func (self *Camera) GetScaleA() *Point{
+func (self *Camera) Scale() *Point{
     return &Point{self.Object.Get("scale")}
 }
 
@@ -159,7 +159,7 @@ func (self *Camera) SetScaleA(member *Point) {
 }
 
 // The total number of Sprites with `autoCull` set to `true` that are visible by this Camera.
-func (self *Camera) GetTotalInViewA() int{
+func (self *Camera) TotalInView() int{
     return self.Object.Get("totalInView").Int()
 }
 
@@ -173,7 +173,7 @@ func (self *Camera) SetTotalInViewA(member int) {
 // A lower value, such as 0.1 means the camera will more slowly track the target, giving
 // a smooth transition. You can set the horizontal and vertical values independently, and also
 // adjust this value in real-time during your game.
-func (self *Camera) GetLerpA() *Point{
+func (self *Camera) Lerp() *Point{
     return &Point{self.Object.Get("lerp")}
 }
 
@@ -187,7 +187,7 @@ func (self *Camera) SetLerpA(member *Point) {
 }
 
 // This signal is dispatched when the camera shake effect completes.
-func (self *Camera) GetOnShakeCompleteA() *Signal{
+func (self *Camera) OnShakeComplete() *Signal{
     return &Signal{self.Object.Get("onShakeComplete")}
 }
 
@@ -197,7 +197,7 @@ func (self *Camera) SetOnShakeCompleteA(member *Signal) {
 }
 
 // This signal is dispatched when the camera flash effect completes.
-func (self *Camera) GetOnFlashCompleteA() *Signal{
+func (self *Camera) OnFlashComplete() *Signal{
     return &Signal{self.Object.Get("onFlashComplete")}
 }
 
@@ -210,7 +210,7 @@ func (self *Camera) SetOnFlashCompleteA(member *Signal) {
 // When the fade effect completes you will be left with the screen black (or whatever
 // color you faded to). In order to reset this call `Camera.resetFX`. This is called
 // automatically when you change State.
-func (self *Camera) GetOnFadeCompleteA() *Signal{
+func (self *Camera) OnFadeComplete() *Signal{
     return &Signal{self.Object.Get("onFadeComplete")}
 }
 
@@ -223,7 +223,7 @@ func (self *Camera) SetOnFadeCompleteA(member *Signal) {
 }
 
 // The Graphics object used to handle camera fx such as fade and flash.
-func (self *Camera) GetFxA() *Graphics{
+func (self *Camera) Fx() *Graphics{
     return &Graphics{self.Object.Get("fx")}
 }
 
@@ -233,7 +233,7 @@ func (self *Camera) SetFxA(member *Graphics) {
 }
 
 // 
-func (self *Camera) GetFOLLOW_LOCKONA() int{
+func (self *Camera) FOLLOW_LOCKON() int{
     return self.Object.Get("FOLLOW_LOCKON").Int()
 }
 
@@ -243,7 +243,7 @@ func (self *Camera) SetFOLLOW_LOCKONA(member int) {
 }
 
 // 
-func (self *Camera) GetFOLLOW_PLATFORMERA() int{
+func (self *Camera) FOLLOW_PLATFORMER() int{
     return self.Object.Get("FOLLOW_PLATFORMER").Int()
 }
 
@@ -253,7 +253,7 @@ func (self *Camera) SetFOLLOW_PLATFORMERA(member int) {
 }
 
 // 
-func (self *Camera) GetFOLLOW_TOPDOWNA() int{
+func (self *Camera) FOLLOW_TOPDOWN() int{
     return self.Object.Get("FOLLOW_TOPDOWN").Int()
 }
 
@@ -263,7 +263,7 @@ func (self *Camera) SetFOLLOW_TOPDOWNA(member int) {
 }
 
 // 
-func (self *Camera) GetFOLLOW_TOPDOWN_TIGHTA() int{
+func (self *Camera) FOLLOW_TOPDOWN_TIGHT() int{
     return self.Object.Get("FOLLOW_TOPDOWN_TIGHT").Int()
 }
 
@@ -273,7 +273,7 @@ func (self *Camera) SetFOLLOW_TOPDOWN_TIGHTA(member int) {
 }
 
 // 
-func (self *Camera) GetSHAKE_BOTHA() int{
+func (self *Camera) SHAKE_BOTH() int{
     return self.Object.Get("SHAKE_BOTH").Int()
 }
 
@@ -283,7 +283,7 @@ func (self *Camera) SetSHAKE_BOTHA(member int) {
 }
 
 // 
-func (self *Camera) GetSHAKE_HORIZONTALA() int{
+func (self *Camera) SHAKE_HORIZONTAL() int{
     return self.Object.Get("SHAKE_HORIZONTAL").Int()
 }
 
@@ -293,7 +293,7 @@ func (self *Camera) SetSHAKE_HORIZONTALA(member int) {
 }
 
 // 
-func (self *Camera) GetSHAKE_VERTICALA() int{
+func (self *Camera) SHAKE_VERTICAL() int{
     return self.Object.Get("SHAKE_VERTICAL").Int()
 }
 
@@ -303,7 +303,7 @@ func (self *Camera) SetSHAKE_VERTICALA(member int) {
 }
 
 // 
-func (self *Camera) GetENABLE_FXA() bool{
+func (self *Camera) ENABLE_FX() bool{
     return self.Object.Get("ENABLE_FX").Bool()
 }
 
@@ -313,7 +313,7 @@ func (self *Camera) SetENABLE_FXA(member bool) {
 }
 
 // The Cameras x coordinate. This value is automatically clamped if it falls outside of the World bounds. Gets or sets the cameras x position.
-func (self *Camera) GetXA() int{
+func (self *Camera) X() int{
     return self.Object.Get("x").Int()
 }
 
@@ -323,7 +323,7 @@ func (self *Camera) SetXA(member int) {
 }
 
 // The Cameras y coordinate. This value is automatically clamped if it falls outside of the World bounds. Gets or sets the cameras y position.
-func (self *Camera) GetYA() int{
+func (self *Camera) Y() int{
     return self.Object.Get("y").Int()
 }
 
@@ -333,7 +333,7 @@ func (self *Camera) SetYA(member int) {
 }
 
 // The Cameras position. This value is automatically clamped if it falls outside of the World bounds. Gets or sets the cameras xy position using Phaser.Point object.
-func (self *Camera) GetPositionA() *Point{
+func (self *Camera) Position() *Point{
     return &Point{self.Object.Get("position")}
 }
 
@@ -343,7 +343,7 @@ func (self *Camera) SetPositionA(member *Point) {
 }
 
 // The Cameras width. By default this is the same as the Game size and should not be adjusted for now. Gets or sets the cameras width.
-func (self *Camera) GetWidthA() int{
+func (self *Camera) Width() int{
     return self.Object.Get("width").Int()
 }
 
@@ -353,7 +353,7 @@ func (self *Camera) SetWidthA(member int) {
 }
 
 // The Cameras height. By default this is the same as the Game size and should not be adjusted for now. Gets or sets the cameras height.
-func (self *Camera) GetHeightA() int{
+func (self *Camera) Height() int{
     return self.Object.Get("height").Int()
 }
 
@@ -363,7 +363,7 @@ func (self *Camera) SetHeightA(member int) {
 }
 
 // The Cameras shake intensity. Gets or sets the cameras shake intensity.
-func (self *Camera) GetShakeIntensityA() int{
+func (self *Camera) ShakeIntensity() int{
     return self.Object.Get("shakeIntensity").Int()
 }
 

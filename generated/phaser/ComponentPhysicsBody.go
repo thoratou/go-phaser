@@ -17,13 +17,13 @@ type ComponentPhysicsBody struct {
 // The PhysicsBody component manages the Game Objects physics body and physics enabling.
 // It also overrides the x and y properties, ensuring that any manual adjustment of them is reflected in the physics body itself.
 func NewComponentPhysicsBody() *ComponentPhysicsBody {
-    return &ComponentPhysicsBody{js.Global.Call("Phaser.Component.PhysicsBody")}
+    return &ComponentPhysicsBody{js.Global.Get("Phaser").Get("Component").Get("PhysicsBody").New()}
 }
 
 // The PhysicsBody component manages the Game Objects physics body and physics enabling.
 // It also overrides the x and y properties, ensuring that any manual adjustment of them is reflected in the physics body itself.
 func NewComponentPhysicsBodyI(args ...interface{}) *ComponentPhysicsBody {
-    return &ComponentPhysicsBody{js.Global.Call("Phaser.Component.PhysicsBody", args)}
+    return &ComponentPhysicsBody{js.Global.Get("Phaser").Get("Component").Get("PhysicsBody").New(args)}
 }
 
 
@@ -42,7 +42,7 @@ func NewComponentPhysicsBodyI(args ...interface{}) *ComponentPhysicsBody {
 // so the physics body is centered on the Game Object.
 // 
 // If you need a different result then adjust or re-create the Body shape offsets manually or reset the anchor after enabling physics.
-func (self *ComponentPhysicsBody) GetBodyA() interface{}{
+func (self *ComponentPhysicsBody) Body() interface{}{
     return self.Object.Get("body")
 }
 
@@ -65,7 +65,7 @@ func (self *ComponentPhysicsBody) SetBodyA(member interface{}) {
 }
 
 // The position of the Game Object on the x axis relative to the local coordinates of the parent.
-func (self *ComponentPhysicsBody) GetXA() int{
+func (self *ComponentPhysicsBody) X() int{
     return self.Object.Get("x").Int()
 }
 
@@ -75,7 +75,7 @@ func (self *ComponentPhysicsBody) SetXA(member int) {
 }
 
 // The position of the Game Object on the y axis relative to the local coordinates of the parent.
-func (self *ComponentPhysicsBody) GetYA() int{
+func (self *ComponentPhysicsBody) Y() int{
     return self.Object.Get("y").Int()
 }
 

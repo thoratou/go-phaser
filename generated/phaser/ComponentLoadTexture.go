@@ -15,12 +15,12 @@ type ComponentLoadTexture struct {
 
 // The LoadTexture component manages the loading of a texture into the Game Object and the changing of frames.
 func NewComponentLoadTexture() *ComponentLoadTexture {
-    return &ComponentLoadTexture{js.Global.Call("Phaser.Component.LoadTexture")}
+    return &ComponentLoadTexture{js.Global.Get("Phaser").Get("Component").Get("LoadTexture").New()}
 }
 
 // The LoadTexture component manages the loading of a texture into the Game Object and the changing of frames.
 func NewComponentLoadTextureI(args ...interface{}) *ComponentLoadTexture {
-    return &ComponentLoadTexture{js.Global.Call("Phaser.Component.LoadTexture", args)}
+    return &ComponentLoadTexture{js.Global.Get("Phaser").Get("Component").Get("LoadTexture").New(args)}
 }
 
 
@@ -35,7 +35,7 @@ func NewComponentLoadTextureI(args ...interface{}) *ComponentLoadTexture {
 // If you are using a texture atlas then you should use the `frameName` property instead.
 // 
 // If you wish to fully replace the texture being used see `loadTexture`.
-func (self *ComponentLoadTexture) GetFrameA() int{
+func (self *ComponentLoadTexture) Frame() int{
     return self.Object.Get("frame").Int()
 }
 
@@ -63,7 +63,7 @@ func (self *ComponentLoadTexture) SetFrameA(member int) {
 // If you are using a sprite sheet then you should use the `frame` property instead.
 // 
 // If you wish to fully replace the texture being used see `loadTexture`.
-func (self *ComponentLoadTexture) GetFrameNameA() string{
+func (self *ComponentLoadTexture) FrameName() string{
     return self.Object.Get("frameName").String()
 }
 

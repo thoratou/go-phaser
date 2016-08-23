@@ -15,12 +15,12 @@ type Color struct {
 
 // The Phaser.Color class is a set of static methods that assist in color manipulation and conversion.
 func NewColor() *Color {
-    return &Color{js.Global.Call("Phaser.Color")}
+    return &Color{js.Global.Get("Phaser").Get("Color").New()}
 }
 
 // The Phaser.Color class is a set of static methods that assist in color manipulation and conversion.
 func NewColorI(args ...interface{}) *Color {
-    return &Color{js.Global.Call("Phaser.Color", args)}
+    return &Color{js.Global.Get("Phaser").Get("Color").New(args)}
 }
 
 
@@ -480,7 +480,7 @@ func (self *Color) HSVColorWheel() []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -491,7 +491,7 @@ func (self *Color) HSVColorWheel1O(s int) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -502,7 +502,7 @@ func (self *Color) HSVColorWheel2O(s int, v int) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -513,7 +513,7 @@ func (self *Color) HSVColorWheelI(args ...interface{}) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -524,7 +524,7 @@ func (self *Color) HSLColorWheel() []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -535,7 +535,7 @@ func (self *Color) HSLColorWheel1O(s int) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -546,7 +546,7 @@ func (self *Color) HSLColorWheel2O(s int, l int) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -557,7 +557,7 @@ func (self *Color) HSLColorWheelI(args ...interface{}) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }

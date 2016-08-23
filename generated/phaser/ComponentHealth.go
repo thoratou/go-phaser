@@ -19,14 +19,14 @@ type ComponentHealth struct {
 // that can be damaged and reset through game code.
 // Requires the LifeSpan component.
 func NewComponentHealth() *ComponentHealth {
-    return &ComponentHealth{js.Global.Call("Phaser.Component.Health")}
+    return &ComponentHealth{js.Global.Get("Phaser").Get("Component").Get("Health").New()}
 }
 
 // The Health component provides the ability for Game Objects to have a `health` property 
 // that can be damaged and reset through game code.
 // Requires the LifeSpan component.
 func NewComponentHealthI(args ...interface{}) *ComponentHealth {
-    return &ComponentHealth{js.Global.Call("Phaser.Component.Health", args)}
+    return &ComponentHealth{js.Global.Get("Phaser").Get("Component").Get("Health").New(args)}
 }
 
 
@@ -34,7 +34,7 @@ func NewComponentHealthI(args ...interface{}) *ComponentHealth {
 // The Game Objects health value. This is a handy property for setting and manipulating health on a Game Object.
 // 
 // It can be used in combination with the `damage` method or modified directly.
-func (self *ComponentHealth) GetHealthA() int{
+func (self *ComponentHealth) Health() int{
     return self.Object.Get("health").Int()
 }
 
@@ -47,7 +47,7 @@ func (self *ComponentHealth) SetHealthA(member int) {
 
 // The Game Objects maximum health value. This works in combination with the `heal` method to ensure
 // the health value never exceeds the maximum.
-func (self *ComponentHealth) GetMaxHealthA() int{
+func (self *ComponentHealth) MaxHealth() int{
     return self.Object.Get("maxHealth").Int()
 }
 
@@ -60,7 +60,7 @@ func (self *ComponentHealth) SetMaxHealthA(member int) {
 // Damages the Game Object. This removes the given amount of health from the `health` property.
 // 
 // If health is taken below or is equal to zero then the `kill` method is called.
-func (self *ComponentHealth) GetDamageA() interface{}{
+func (self *ComponentHealth) Damage() interface{}{
     return self.Object.Get("damage")
 }
 
@@ -73,7 +73,7 @@ func (self *ComponentHealth) SetDamageA(member interface{}) {
 
 // Sets the health property of the Game Object to the given amount.
 // Will never exceed the `maxHealth` value.
-func (self *ComponentHealth) GetSetHealthA() interface{}{
+func (self *ComponentHealth) SetHealth() interface{}{
     return self.Object.Get("setHealth")
 }
 
@@ -84,7 +84,7 @@ func (self *ComponentHealth) SetSetHealthA(member interface{}) {
 }
 
 // Heal the Game Object. This adds the given amount of health to the `health` property.
-func (self *ComponentHealth) GetHealA() interface{}{
+func (self *ComponentHealth) Heal() interface{}{
     return self.Object.Get("heal")
 }
 

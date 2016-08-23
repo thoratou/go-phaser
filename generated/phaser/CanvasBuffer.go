@@ -17,18 +17,18 @@ type CanvasBuffer struct {
 
 // Creates a Canvas element of the given size.
 func NewCanvasBuffer(width int, height int) *CanvasBuffer {
-    return &CanvasBuffer{js.Global.Call("PIXI.CanvasBuffer", width, height)}
+    return &CanvasBuffer{js.Global.Get("PIXI").Get("CanvasBuffer").New(width, height)}
 }
 
 // Creates a Canvas element of the given size.
 func NewCanvasBufferI(args ...interface{}) *CanvasBuffer {
-    return &CanvasBuffer{js.Global.Call("PIXI.CanvasBuffer", args)}
+    return &CanvasBuffer{js.Global.Get("PIXI").Get("CanvasBuffer").New(args)}
 }
 
 
 
 // The width of the Canvas in pixels.
-func (self *CanvasBuffer) GetWidthA() int{
+func (self *CanvasBuffer) Width() int{
     return self.Object.Get("width").Int()
 }
 
@@ -38,7 +38,7 @@ func (self *CanvasBuffer) SetWidthA(member int) {
 }
 
 // The height of the Canvas in pixels.
-func (self *CanvasBuffer) GetHeightA() int{
+func (self *CanvasBuffer) Height() int{
     return self.Object.Get("height").Int()
 }
 
@@ -48,7 +48,7 @@ func (self *CanvasBuffer) SetHeightA(member int) {
 }
 
 // The Canvas object that belongs to this CanvasBuffer.
-func (self *CanvasBuffer) GetCanvasA() dom.HTMLCanvasElement{
+func (self *CanvasBuffer) Canvas() dom.HTMLCanvasElement{
     return WrapHTMLCanvasElement(self.Object.Get("canvas"))
 }
 
@@ -58,7 +58,7 @@ func (self *CanvasBuffer) SetCanvasA(member dom.HTMLCanvasElement) {
 }
 
 // A CanvasRenderingContext2D object representing a two-dimensional rendering context.
-func (self *CanvasBuffer) GetContextA() dom.CanvasRenderingContext2D{
+func (self *CanvasBuffer) Context() dom.CanvasRenderingContext2D{
     return WrapCanvasRenderingContext2D(self.Object.Get("context"))
 }
 

@@ -29,7 +29,7 @@ type Mouse struct {
 // You should not normally access this class directly, but instead use a Phaser.Pointer object
 // which normalises all game input for you, including accurate button handling.
 func NewMouse(game *Game) *Mouse {
-    return &Mouse{js.Global.Call("Phaser.Mouse", game)}
+    return &Mouse{js.Global.Get("Phaser").Get("Mouse").New(game)}
 }
 
 // The Mouse class is responsible for handling all aspects of mouse interaction with the browser.
@@ -41,13 +41,13 @@ func NewMouse(game *Game) *Mouse {
 // You should not normally access this class directly, but instead use a Phaser.Pointer object
 // which normalises all game input for you, including accurate button handling.
 func NewMouseI(args ...interface{}) *Mouse {
-    return &Mouse{js.Global.Call("Phaser.Mouse", args)}
+    return &Mouse{js.Global.Get("Phaser").Get("Mouse").New(args)}
 }
 
 
 
 // A reference to the currently running game.
-func (self *Mouse) GetGameA() *Game{
+func (self *Mouse) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -57,7 +57,7 @@ func (self *Mouse) SetGameA(member *Game) {
 }
 
 // A reference to the Phaser Input Manager.
-func (self *Mouse) GetInputA() *Input{
+func (self *Mouse) Input() *Input{
     return &Input{self.Object.Get("input")}
 }
 
@@ -67,7 +67,7 @@ func (self *Mouse) SetInputA(member *Input) {
 }
 
 // The context under which callbacks are called.
-func (self *Mouse) GetCallbackContextA() interface{}{
+func (self *Mouse) CallbackContext() interface{}{
     return self.Object.Get("callbackContext")
 }
 
@@ -77,32 +77,57 @@ func (self *Mouse) SetCallbackContextA(member interface{}) {
 }
 
 // A callback that can be fired when the mouse is pressed down.
-func (self *Mouse) SetMouseDownCallbackA(member func(...interface{})) {
+func (self *Mouse) MouseDownCallback() interface{}{
+    return self.Object.Get("mouseDownCallback")
+}
+
+// A callback that can be fired when the mouse is pressed down.
+func (self *Mouse) SetMouseDownCallbackA(member interface{}) {
     self.Object.Set("mouseDownCallback", member)
 }
 
 // A callback that can be fired when the mouse is released from a pressed down state.
-func (self *Mouse) SetMouseUpCallbackA(member func(...interface{})) {
+func (self *Mouse) MouseUpCallback() interface{}{
+    return self.Object.Get("mouseUpCallback")
+}
+
+// A callback that can be fired when the mouse is released from a pressed down state.
+func (self *Mouse) SetMouseUpCallbackA(member interface{}) {
     self.Object.Set("mouseUpCallback", member)
 }
 
 // A callback that can be fired when the mouse is no longer over the game canvas.
-func (self *Mouse) SetMouseOutCallbackA(member func(...interface{})) {
+func (self *Mouse) MouseOutCallback() interface{}{
+    return self.Object.Get("mouseOutCallback")
+}
+
+// A callback that can be fired when the mouse is no longer over the game canvas.
+func (self *Mouse) SetMouseOutCallbackA(member interface{}) {
     self.Object.Set("mouseOutCallback", member)
 }
 
 // A callback that can be fired when the mouse enters the game canvas (usually after a mouseout).
-func (self *Mouse) SetMouseOverCallbackA(member func(...interface{})) {
+func (self *Mouse) MouseOverCallback() interface{}{
+    return self.Object.Get("mouseOverCallback")
+}
+
+// A callback that can be fired when the mouse enters the game canvas (usually after a mouseout).
+func (self *Mouse) SetMouseOverCallbackA(member interface{}) {
     self.Object.Set("mouseOverCallback", member)
 }
 
 // A callback that can be fired when the mousewheel is used.
-func (self *Mouse) SetMouseWheelCallbackA(member func(...interface{})) {
+func (self *Mouse) MouseWheelCallback() interface{}{
+    return self.Object.Get("mouseWheelCallback")
+}
+
+// A callback that can be fired when the mousewheel is used.
+func (self *Mouse) SetMouseWheelCallbackA(member interface{}) {
     self.Object.Set("mouseWheelCallback", member)
 }
 
 // If true the DOM mouse events will have event.preventDefault applied to them, if false they will propagate fully.
-func (self *Mouse) GetCaptureA() bool{
+func (self *Mouse) Capture() bool{
     return self.Object.Get("capture").Bool()
 }
 
@@ -114,7 +139,7 @@ func (self *Mouse) SetCaptureA(member bool) {
 // This property was removed in Phaser 2.4 and should no longer be used.
 // Instead please see the Pointer button properties such as `Pointer.leftButton`, `Pointer.rightButton` and so on.
 // Or Pointer.button holds the DOM event button value if you require that.
-func (self *Mouse) GetButtonA() int{
+func (self *Mouse) Button() int{
     return self.Object.Get("button").Int()
 }
 
@@ -126,7 +151,7 @@ func (self *Mouse) SetButtonA(member int) {
 }
 
 // The direction of the _last_ mousewheel usage 1 for up -1 for down.
-func (self *Mouse) GetWheelDeltaA() int{
+func (self *Mouse) WheelDelta() int{
     return self.Object.Get("wheelDelta").Int()
 }
 
@@ -136,7 +161,7 @@ func (self *Mouse) SetWheelDeltaA(member int) {
 }
 
 // Mouse input will only be processed if enabled.
-func (self *Mouse) GetEnabledA() bool{
+func (self *Mouse) Enabled() bool{
     return self.Object.Get("enabled").Bool()
 }
 
@@ -146,7 +171,7 @@ func (self *Mouse) SetEnabledA(member bool) {
 }
 
 // If the mouse has been Pointer Locked successfully this will be set to true.
-func (self *Mouse) GetLockedA() bool{
+func (self *Mouse) Locked() bool{
     return self.Object.Get("locked").Bool()
 }
 
@@ -156,7 +181,7 @@ func (self *Mouse) SetLockedA(member bool) {
 }
 
 // If true Pointer.stop will be called if the mouse leaves the game canvas.
-func (self *Mouse) GetStopOnGameOutA() bool{
+func (self *Mouse) StopOnGameOut() bool{
     return self.Object.Get("stopOnGameOut").Bool()
 }
 
@@ -166,7 +191,7 @@ func (self *Mouse) SetStopOnGameOutA(member bool) {
 }
 
 // This event is dispatched when the browser enters or leaves pointer lock state.
-func (self *Mouse) GetPointerLockA() *Signal{
+func (self *Mouse) PointerLock() *Signal{
     return &Signal{self.Object.Get("pointerLock")}
 }
 
@@ -177,7 +202,7 @@ func (self *Mouse) SetPointerLockA(member *Signal) {
 
 // The browser mouse DOM event. Will be null if no mouse event has ever been received.
 // Access this property only inside a Mouse event handler and do not keep references to it.
-func (self *Mouse) GetEventA() interface{}{
+func (self *Mouse) Event() interface{}{
     return self.Object.Get("event")
 }
 
@@ -188,7 +213,7 @@ func (self *Mouse) SetEventA(member interface{}) {
 }
 
 // 
-func (self *Mouse) GetNO_BUTTONA() int{
+func (self *Mouse) NO_BUTTON() int{
     return self.Object.Get("NO_BUTTON").Int()
 }
 
@@ -198,7 +223,7 @@ func (self *Mouse) SetNO_BUTTONA(member int) {
 }
 
 // 
-func (self *Mouse) GetLEFT_BUTTONA() int{
+func (self *Mouse) LEFT_BUTTON() int{
     return self.Object.Get("LEFT_BUTTON").Int()
 }
 
@@ -208,7 +233,7 @@ func (self *Mouse) SetLEFT_BUTTONA(member int) {
 }
 
 // 
-func (self *Mouse) GetMIDDLE_BUTTONA() int{
+func (self *Mouse) MIDDLE_BUTTON() int{
     return self.Object.Get("MIDDLE_BUTTON").Int()
 }
 
@@ -218,7 +243,7 @@ func (self *Mouse) SetMIDDLE_BUTTONA(member int) {
 }
 
 // 
-func (self *Mouse) GetRIGHT_BUTTONA() int{
+func (self *Mouse) RIGHT_BUTTON() int{
     return self.Object.Get("RIGHT_BUTTON").Int()
 }
 
@@ -228,7 +253,7 @@ func (self *Mouse) SetRIGHT_BUTTONA(member int) {
 }
 
 // 
-func (self *Mouse) GetBACK_BUTTONA() int{
+func (self *Mouse) BACK_BUTTON() int{
     return self.Object.Get("BACK_BUTTON").Int()
 }
 
@@ -238,7 +263,7 @@ func (self *Mouse) SetBACK_BUTTONA(member int) {
 }
 
 // 
-func (self *Mouse) GetFORWARD_BUTTONA() int{
+func (self *Mouse) FORWARD_BUTTON() int{
     return self.Object.Get("FORWARD_BUTTON").Int()
 }
 
@@ -248,7 +273,7 @@ func (self *Mouse) SetFORWARD_BUTTONA(member int) {
 }
 
 // 
-func (self *Mouse) GetWHEEL_UPA() int{
+func (self *Mouse) WHEEL_UP() int{
     return self.Object.Get("WHEEL_UP").Int()
 }
 
@@ -258,7 +283,7 @@ func (self *Mouse) SetWHEEL_UPA(member int) {
 }
 
 // 
-func (self *Mouse) GetWHEEL_DOWNA() int{
+func (self *Mouse) WHEEL_DOWN() int{
     return self.Object.Get("WHEEL_DOWN").Int()
 }
 

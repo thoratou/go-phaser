@@ -15,12 +15,12 @@ type EasingLinear struct {
 
 // Linear easing.
 func NewEasingLinear() *EasingLinear {
-    return &EasingLinear{js.Global.Call("Phaser.Easing.Linear")}
+    return &EasingLinear{js.Global.Get("Phaser").Get("Easing").Get("Linear").New()}
 }
 
 // Linear easing.
 func NewEasingLinearI(args ...interface{}) *EasingLinear {
-    return &EasingLinear{js.Global.Call("Phaser.Easing.Linear", args)}
+    return &EasingLinear{js.Global.Get("Phaser").Get("Easing").Get("Linear").New(args)}
 }
 
 

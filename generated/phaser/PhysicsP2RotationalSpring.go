@@ -15,33 +15,33 @@ type PhysicsP2RotationalSpring struct {
 
 // Creates a rotational spring, connecting two bodies. A spring can have a resting length, a stiffness and damping.
 func NewPhysicsP2RotationalSpring(world *PhysicsP2, bodyA *P2Body, bodyB *P2Body) *PhysicsP2RotationalSpring {
-    return &PhysicsP2RotationalSpring{js.Global.Call("Phaser.Physics.P2.RotationalSpring", world, bodyA, bodyB)}
+    return &PhysicsP2RotationalSpring{js.Global.Get("Phaser").Get("Physics").Get("P2").Get("RotationalSpring").New(world, bodyA, bodyB)}
 }
 
 // Creates a rotational spring, connecting two bodies. A spring can have a resting length, a stiffness and damping.
 func NewPhysicsP2RotationalSpring1O(world *PhysicsP2, bodyA *P2Body, bodyB *P2Body, restAngle int) *PhysicsP2RotationalSpring {
-    return &PhysicsP2RotationalSpring{js.Global.Call("Phaser.Physics.P2.RotationalSpring", world, bodyA, bodyB, restAngle)}
+    return &PhysicsP2RotationalSpring{js.Global.Get("Phaser").Get("Physics").Get("P2").Get("RotationalSpring").New(world, bodyA, bodyB, restAngle)}
 }
 
 // Creates a rotational spring, connecting two bodies. A spring can have a resting length, a stiffness and damping.
 func NewPhysicsP2RotationalSpring2O(world *PhysicsP2, bodyA *P2Body, bodyB *P2Body, restAngle int, stiffness int) *PhysicsP2RotationalSpring {
-    return &PhysicsP2RotationalSpring{js.Global.Call("Phaser.Physics.P2.RotationalSpring", world, bodyA, bodyB, restAngle, stiffness)}
+    return &PhysicsP2RotationalSpring{js.Global.Get("Phaser").Get("Physics").Get("P2").Get("RotationalSpring").New(world, bodyA, bodyB, restAngle, stiffness)}
 }
 
 // Creates a rotational spring, connecting two bodies. A spring can have a resting length, a stiffness and damping.
 func NewPhysicsP2RotationalSpring3O(world *PhysicsP2, bodyA *P2Body, bodyB *P2Body, restAngle int, stiffness int, damping int) *PhysicsP2RotationalSpring {
-    return &PhysicsP2RotationalSpring{js.Global.Call("Phaser.Physics.P2.RotationalSpring", world, bodyA, bodyB, restAngle, stiffness, damping)}
+    return &PhysicsP2RotationalSpring{js.Global.Get("Phaser").Get("Physics").Get("P2").Get("RotationalSpring").New(world, bodyA, bodyB, restAngle, stiffness, damping)}
 }
 
 // Creates a rotational spring, connecting two bodies. A spring can have a resting length, a stiffness and damping.
 func NewPhysicsP2RotationalSpringI(args ...interface{}) *PhysicsP2RotationalSpring {
-    return &PhysicsP2RotationalSpring{js.Global.Call("Phaser.Physics.P2.RotationalSpring", args)}
+    return &PhysicsP2RotationalSpring{js.Global.Get("Phaser").Get("Physics").Get("P2").Get("RotationalSpring").New(args)}
 }
 
 
 
 // Local reference to game.
-func (self *PhysicsP2RotationalSpring) GetGameA() *Game{
+func (self *PhysicsP2RotationalSpring) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -51,7 +51,7 @@ func (self *PhysicsP2RotationalSpring) SetGameA(member *Game) {
 }
 
 // Local reference to P2 World.
-func (self *PhysicsP2RotationalSpring) GetWorldA() *PhysicsP2{
+func (self *PhysicsP2RotationalSpring) World() *PhysicsP2{
     return &PhysicsP2{self.Object.Get("world")}
 }
 
@@ -61,7 +61,7 @@ func (self *PhysicsP2RotationalSpring) SetWorldA(member *PhysicsP2) {
 }
 
 // The actual p2 spring object.
-func (self *PhysicsP2RotationalSpring) GetDataA() *P2RotationalSpring{
+func (self *PhysicsP2RotationalSpring) Data() *P2RotationalSpring{
     return &P2RotationalSpring{self.Object.Get("data")}
 }
 

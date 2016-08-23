@@ -17,19 +17,19 @@ type State struct {
 // This is a base State class which can be extended if you are creating your own game.
 // It provides quick access to common functions such as the camera, cache, input, match, sound and more.
 func NewState() *State {
-    return &State{js.Global.Call("Phaser.State")}
+    return &State{js.Global.Get("Phaser").Get("State").New()}
 }
 
 // This is a base State class which can be extended if you are creating your own game.
 // It provides quick access to common functions such as the camera, cache, input, match, sound and more.
 func NewStateI(args ...interface{}) *State {
-    return &State{js.Global.Call("Phaser.State", args)}
+    return &State{js.Global.Get("Phaser").Get("State").New(args)}
 }
 
 
 
 // This is a reference to the currently running Game.
-func (self *State) GetGameA() *Game{
+func (self *State) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -39,7 +39,7 @@ func (self *State) SetGameA(member *Game) {
 }
 
 // The string based identifier given to the State when added into the State Manager.
-func (self *State) GetKeyA() string{
+func (self *State) Key() string{
     return self.Object.Get("key").String()
 }
 
@@ -49,7 +49,7 @@ func (self *State) SetKeyA(member string) {
 }
 
 // A reference to the GameObjectFactory which can be used to add new objects to the World.
-func (self *State) GetAddA() *GameObjectFactory{
+func (self *State) Add() *GameObjectFactory{
     return &GameObjectFactory{self.Object.Get("add")}
 }
 
@@ -59,7 +59,7 @@ func (self *State) SetAddA(member *GameObjectFactory) {
 }
 
 // A reference to the GameObjectCreator which can be used to make new objects.
-func (self *State) GetMakeA() *GameObjectCreator{
+func (self *State) Make() *GameObjectCreator{
     return &GameObjectCreator{self.Object.Get("make")}
 }
 
@@ -69,7 +69,7 @@ func (self *State) SetMakeA(member *GameObjectCreator) {
 }
 
 // A handy reference to World.camera.
-func (self *State) GetCameraA() *Camera{
+func (self *State) Camera() *Camera{
     return &Camera{self.Object.Get("camera")}
 }
 
@@ -79,7 +79,7 @@ func (self *State) SetCameraA(member *Camera) {
 }
 
 // A reference to the game cache which contains any loaded or generated assets, such as images, sound and more.
-func (self *State) GetCacheA() *Cache{
+func (self *State) Cache() *Cache{
     return &Cache{self.Object.Get("cache")}
 }
 
@@ -89,7 +89,7 @@ func (self *State) SetCacheA(member *Cache) {
 }
 
 // A reference to the Input Manager.
-func (self *State) GetInputA() *Input{
+func (self *State) Input() *Input{
     return &Input{self.Object.Get("input")}
 }
 
@@ -99,7 +99,7 @@ func (self *State) SetInputA(member *Input) {
 }
 
 // A reference to the Loader, which you mostly use in the preload method of your state to load external assets.
-func (self *State) GetLoadA() *Loader{
+func (self *State) Load() *Loader{
     return &Loader{self.Object.Get("load")}
 }
 
@@ -109,7 +109,7 @@ func (self *State) SetLoadA(member *Loader) {
 }
 
 // A reference to Math class with lots of helpful functions.
-func (self *State) GetMathA() *Math{
+func (self *State) Math() *Math{
     return &Math{self.Object.Get("math")}
 }
 
@@ -119,7 +119,7 @@ func (self *State) SetMathA(member *Math) {
 }
 
 // A reference to the Sound Manager which can create, play and stop sounds, as well as adjust global volume.
-func (self *State) GetSoundA() *SoundManager{
+func (self *State) Sound() *SoundManager{
     return &SoundManager{self.Object.Get("sound")}
 }
 
@@ -129,7 +129,7 @@ func (self *State) SetSoundA(member *SoundManager) {
 }
 
 // A reference to the Scale Manager which controls the way the game scales on different displays.
-func (self *State) GetScaleA() *ScaleManager{
+func (self *State) Scale() *ScaleManager{
     return &ScaleManager{self.Object.Get("scale")}
 }
 
@@ -139,7 +139,7 @@ func (self *State) SetScaleA(member *ScaleManager) {
 }
 
 // A reference to the Stage.
-func (self *State) GetStageA() *Stage{
+func (self *State) Stage() *Stage{
     return &Stage{self.Object.Get("stage")}
 }
 
@@ -149,7 +149,7 @@ func (self *State) SetStageA(member *Stage) {
 }
 
 // A reference to the State Manager, which controls state changes.
-func (self *State) GetStateA() interface{}{
+func (self *State) State() interface{}{
     return self.Object.Get("state")
 }
 
@@ -159,7 +159,7 @@ func (self *State) SetStateA(member interface{}) {
 }
 
 // A reference to the game clock and timed events system.
-func (self *State) GetTimeA() *Time{
+func (self *State) Time() *Time{
     return &Time{self.Object.Get("time")}
 }
 
@@ -169,7 +169,7 @@ func (self *State) SetTimeA(member *Time) {
 }
 
 // A reference to the tween manager.
-func (self *State) GetTweensA() *TweenManager{
+func (self *State) Tweens() *TweenManager{
     return &TweenManager{self.Object.Get("tweens")}
 }
 
@@ -179,7 +179,7 @@ func (self *State) SetTweensA(member *TweenManager) {
 }
 
 // A reference to the game world. All objects live in the Game World and its size is not bound by the display resolution.
-func (self *State) GetWorldA() *World{
+func (self *State) World() *World{
     return &World{self.Object.Get("world")}
 }
 
@@ -189,7 +189,7 @@ func (self *State) SetWorldA(member *World) {
 }
 
 // The Particle Manager. It is called during the core gameloop and updates any Particle Emitters it has created.
-func (self *State) GetParticlesA() *Particles{
+func (self *State) Particles() *Particles{
     return &Particles{self.Object.Get("particles")}
 }
 
@@ -199,7 +199,7 @@ func (self *State) SetParticlesA(member *Particles) {
 }
 
 // A reference to the physics manager which looks after the different physics systems available within Phaser.
-func (self *State) GetPhysicsA() *Physics{
+func (self *State) Physics() *Physics{
     return &Physics{self.Object.Get("physics")}
 }
 
@@ -209,7 +209,7 @@ func (self *State) SetPhysicsA(member *Physics) {
 }
 
 // A reference to the seeded and repeatable random data generator.
-func (self *State) GetRndA() *RandomDataGenerator{
+func (self *State) Rnd() *RandomDataGenerator{
     return &RandomDataGenerator{self.Object.Get("rnd")}
 }
 

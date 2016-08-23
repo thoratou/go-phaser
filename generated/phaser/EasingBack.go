@@ -15,12 +15,12 @@ type EasingBack struct {
 
 // Back easing.
 func NewEasingBack() *EasingBack {
-    return &EasingBack{js.Global.Call("Phaser.Easing.Back")}
+    return &EasingBack{js.Global.Get("Phaser").Get("Easing").Get("Back").New()}
 }
 
 // Back easing.
 func NewEasingBackI(args ...interface{}) *EasingBack {
-    return &EasingBack{js.Global.Call("Phaser.Easing.Back", args)}
+    return &EasingBack{js.Global.Get("Phaser").Get("Easing").Get("Back").New(args)}
 }
 
 

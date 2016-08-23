@@ -15,12 +15,12 @@ type EasingQuintic struct {
 
 // Quintic easing.
 func NewEasingQuintic() *EasingQuintic {
-    return &EasingQuintic{js.Global.Call("Phaser.Easing.Quintic")}
+    return &EasingQuintic{js.Global.Get("Phaser").Get("Easing").Get("Quintic").New()}
 }
 
 // Quintic easing.
 func NewEasingQuinticI(args ...interface{}) *EasingQuintic {
-    return &EasingQuintic{js.Global.Call("Phaser.Easing.Quintic", args)}
+    return &EasingQuintic{js.Global.Get("Phaser").Get("Easing").Get("Quintic").New(args)}
 }
 
 

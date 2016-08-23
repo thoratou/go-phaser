@@ -25,7 +25,7 @@ type PhysicsNinjaTile struct {
 // 
 // Note: This class could be massively optimised and reduced in size. I leave that challenge up to you.
 func NewPhysicsNinjaTile(body *PhysicsNinjaBody, x int, y int, width int, height int) *PhysicsNinjaTile {
-    return &PhysicsNinjaTile{js.Global.Call("Phaser.Physics.Ninja.Tile", body, x, y, width, height)}
+    return &PhysicsNinjaTile{js.Global.Get("Phaser").Get("Physics").Get("Ninja").Get("Tile").New(body, x, y, width, height)}
 }
 
 // Ninja Physics Tile constructor.
@@ -35,7 +35,7 @@ func NewPhysicsNinjaTile(body *PhysicsNinjaBody, x int, y int, width int, height
 // 
 // Note: This class could be massively optimised and reduced in size. I leave that challenge up to you.
 func NewPhysicsNinjaTile1O(body *PhysicsNinjaBody, x int, y int, width int, height int, type_ int) *PhysicsNinjaTile {
-    return &PhysicsNinjaTile{js.Global.Call("Phaser.Physics.Ninja.Tile", body, x, y, width, height, type_)}
+    return &PhysicsNinjaTile{js.Global.Get("Phaser").Get("Physics").Get("Ninja").Get("Tile").New(body, x, y, width, height, type_)}
 }
 
 // Ninja Physics Tile constructor.
@@ -45,13 +45,13 @@ func NewPhysicsNinjaTile1O(body *PhysicsNinjaBody, x int, y int, width int, heig
 // 
 // Note: This class could be massively optimised and reduced in size. I leave that challenge up to you.
 func NewPhysicsNinjaTileI(args ...interface{}) *PhysicsNinjaTile {
-    return &PhysicsNinjaTile{js.Global.Call("Phaser.Physics.Ninja.Tile", args)}
+    return &PhysicsNinjaTile{js.Global.Get("Phaser").Get("Physics").Get("Ninja").Get("Tile").New(args)}
 }
 
 
 
 // A reference to the body that owns this shape.
-func (self *PhysicsNinjaTile) GetBodyA() interface{}{
+func (self *PhysicsNinjaTile) Body() interface{}{
     return self.Object.Get("body")
 }
 
@@ -61,7 +61,7 @@ func (self *PhysicsNinjaTile) SetBodyA(member interface{}) {
 }
 
 // A reference to the physics system.
-func (self *PhysicsNinjaTile) GetSystemA() *PhysicsNinja{
+func (self *PhysicsNinjaTile) System() *PhysicsNinja{
     return &PhysicsNinja{self.Object.Get("system")}
 }
 
@@ -71,7 +71,7 @@ func (self *PhysicsNinjaTile) SetSystemA(member *PhysicsNinja) {
 }
 
 // The ID of this Tile.
-func (self *PhysicsNinjaTile) GetIdA() int{
+func (self *PhysicsNinjaTile) Id() int{
     return self.Object.Get("id").Int()
 }
 
@@ -81,7 +81,7 @@ func (self *PhysicsNinjaTile) SetIdA(member int) {
 }
 
 // The type of this Tile.
-func (self *PhysicsNinjaTile) GetTypeA() int{
+func (self *PhysicsNinjaTile) Type() int{
     return self.Object.Get("type").Int()
 }
 
@@ -91,7 +91,7 @@ func (self *PhysicsNinjaTile) SetTypeA(member int) {
 }
 
 // The position of this object.
-func (self *PhysicsNinjaTile) GetPosA() *Point{
+func (self *PhysicsNinjaTile) Pos() *Point{
     return &Point{self.Object.Get("pos")}
 }
 
@@ -101,7 +101,7 @@ func (self *PhysicsNinjaTile) SetPosA(member *Point) {
 }
 
 // The position of this object in the previous update.
-func (self *PhysicsNinjaTile) GetOldposA() *Point{
+func (self *PhysicsNinjaTile) Oldpos() *Point{
     return &Point{self.Object.Get("oldpos")}
 }
 
@@ -111,7 +111,7 @@ func (self *PhysicsNinjaTile) SetOldposA(member *Point) {
 }
 
 // Half the width.
-func (self *PhysicsNinjaTile) GetXwA() int{
+func (self *PhysicsNinjaTile) Xw() int{
     return self.Object.Get("xw").Int()
 }
 
@@ -121,7 +121,7 @@ func (self *PhysicsNinjaTile) SetXwA(member int) {
 }
 
 // Half the height.
-func (self *PhysicsNinjaTile) GetYwA() interface{}{
+func (self *PhysicsNinjaTile) Yw() interface{}{
     return self.Object.Get("yw")
 }
 
@@ -131,7 +131,7 @@ func (self *PhysicsNinjaTile) SetYwA(member interface{}) {
 }
 
 // The width.
-func (self *PhysicsNinjaTile) GetWidthA() int{
+func (self *PhysicsNinjaTile) Width() int{
     return self.Object.Get("width").Int()
 }
 
@@ -141,7 +141,7 @@ func (self *PhysicsNinjaTile) SetWidthA(member int) {
 }
 
 // The height.
-func (self *PhysicsNinjaTile) GetHeightA() int{
+func (self *PhysicsNinjaTile) Height() int{
     return self.Object.Get("height").Int()
 }
 
@@ -151,7 +151,7 @@ func (self *PhysicsNinjaTile) SetHeightA(member int) {
 }
 
 // The velocity of this object.
-func (self *PhysicsNinjaTile) GetVelocityA() *Point{
+func (self *PhysicsNinjaTile) Velocity() *Point{
     return &Point{self.Object.Get("velocity")}
 }
 
@@ -161,7 +161,7 @@ func (self *PhysicsNinjaTile) SetVelocityA(member *Point) {
 }
 
 // The x position.
-func (self *PhysicsNinjaTile) GetXA() int{
+func (self *PhysicsNinjaTile) X() int{
     return self.Object.Get("x").Int()
 }
 
@@ -171,7 +171,7 @@ func (self *PhysicsNinjaTile) SetXA(member int) {
 }
 
 // The y position.
-func (self *PhysicsNinjaTile) GetYA() int{
+func (self *PhysicsNinjaTile) Y() int{
     return self.Object.Get("y").Int()
 }
 
@@ -181,7 +181,7 @@ func (self *PhysicsNinjaTile) SetYA(member int) {
 }
 
 // The bottom value of this Body (same as Body.y + Body.height)
-func (self *PhysicsNinjaTile) GetBottomA() int{
+func (self *PhysicsNinjaTile) Bottom() int{
     return self.Object.Get("bottom").Int()
 }
 
@@ -191,7 +191,7 @@ func (self *PhysicsNinjaTile) SetBottomA(member int) {
 }
 
 // The right value of this Body (same as Body.x + Body.width)
-func (self *PhysicsNinjaTile) GetRightA() int{
+func (self *PhysicsNinjaTile) Right() int{
     return self.Object.Get("right").Int()
 }
 

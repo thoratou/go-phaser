@@ -25,7 +25,7 @@ type DOM struct {
 // Some code originally derived from {@link https://github.com/ryanve/verge verge}.
 // Some parts were inspired by the research of Ryan Van Etten, released under MIT License 2013.
 func NewDOM() *DOM {
-    return &DOM{js.Global.Call("Phaser.DOM")}
+    return &DOM{js.Global.Get("Phaser").Get("DOM").New()}
 }
 
 // DOM utility class.
@@ -35,7 +35,7 @@ func NewDOM() *DOM {
 // Some code originally derived from {@link https://github.com/ryanve/verge verge}.
 // Some parts were inspired by the research of Ryan Van Etten, released under MIT License 2013.
 func NewDOMI(args ...interface{}) *DOM {
-    return &DOM{js.Global.Call("Phaser.DOM", args)}
+    return &DOM{js.Global.Get("Phaser").Get("DOM").New(args)}
 }
 
 
@@ -48,7 +48,7 @@ func NewDOMI(args ...interface{}) *DOM {
 //   iOS/Safari, Android 4, IE10, Firefox OS (maybe not Firefox Android), Opera Mobile 16
 // 
 // The properties change dynamically.
-func (self *DOM) GetVisualBoundsA() *Rectangle{
+func (self *DOM) VisualBounds() *Rectangle{
     return &Rectangle{self.Object.Get("visualBounds")}
 }
 
@@ -76,7 +76,7 @@ func (self *DOM) SetVisualBoundsA(member *Rectangle) {
 // constrained viewport.
 // 
 // The properties change dynamically.
-func (self *DOM) GetLayoutBoundsA() *Rectangle{
+func (self *DOM) LayoutBounds() *Rectangle{
     return &Rectangle{self.Object.Get("layoutBounds")}
 }
 
@@ -101,7 +101,7 @@ func (self *DOM) SetLayoutBoundsA(member *Rectangle) {
 // This incorrectly reports the dimensions in IE.
 // 
 // The properties change dynamically.
-func (self *DOM) GetDocumentBoundsA() *Rectangle{
+func (self *DOM) DocumentBounds() *Rectangle{
     return &Rectangle{self.Object.Get("documentBounds")}
 }
 
@@ -115,7 +115,7 @@ func (self *DOM) SetDocumentBoundsA(member *Rectangle) {
 }
 
 // A cross-browser window.scrollX.
-func (self *DOM) GetScrollXA() int{
+func (self *DOM) ScrollX() int{
     return self.Object.Get("scrollX").Int()
 }
 
@@ -125,7 +125,7 @@ func (self *DOM) SetScrollXA(member int) {
 }
 
 // A cross-browser window.scrollY.
-func (self *DOM) GetScrollYA() int{
+func (self *DOM) ScrollY() int{
     return self.Object.Get("scrollY").Int()
 }
 

@@ -15,12 +15,12 @@ type ComponentInputEnabled struct {
 
 // The InputEnabled component allows a Game Object to have its own InputHandler and process input related events.
 func NewComponentInputEnabled() *ComponentInputEnabled {
-    return &ComponentInputEnabled{js.Global.Call("Phaser.Component.InputEnabled")}
+    return &ComponentInputEnabled{js.Global.Get("Phaser").Get("Component").Get("InputEnabled").New()}
 }
 
 // The InputEnabled component allows a Game Object to have its own InputHandler and process input related events.
 func NewComponentInputEnabledI(args ...interface{}) *ComponentInputEnabled {
-    return &ComponentInputEnabled{js.Global.Call("Phaser.Component.InputEnabled", args)}
+    return &ComponentInputEnabled{js.Global.Get("Phaser").Get("Component").Get("InputEnabled").New(args)}
 }
 
 
@@ -30,7 +30,7 @@ func NewComponentInputEnabledI(args ...interface{}) *ComponentInputEnabled {
 // By default it is disabled. If you wish this Game Object to process input events you should enable it with: `inputEnabled = true`.
 // 
 // After you have done this, this property will be a reference to the Phaser InputHandler.
-func (self *ComponentInputEnabled) GetInputA() interface{}{
+func (self *ComponentInputEnabled) Input() interface{}{
     return self.Object.Get("input")
 }
 
@@ -55,7 +55,7 @@ func (self *ComponentInputEnabled) SetInputA(member interface{}) {
 // If you want to _temporarily_ disable input for a Game Object, then it's better to set
 // `input.enabled = false`, as it won't reset any of the Input Handlers internal properties.
 // You can then toggle this back on as needed.
-func (self *ComponentInputEnabled) GetInputEnabledA() bool{
+func (self *ComponentInputEnabled) InputEnabled() bool{
     return self.Object.Get("inputEnabled").Bool()
 }
 

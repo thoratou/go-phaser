@@ -15,18 +15,18 @@ type WebGLBlendModeManager struct {
 
 // 
 func NewWebGLBlendModeManager(gl *WebGLContext) *WebGLBlendModeManager {
-    return &WebGLBlendModeManager{js.Global.Call("PIXI.WebGLBlendModeManager", gl)}
+    return &WebGLBlendModeManager{js.Global.Get("PIXI").Get("WebGLBlendModeManager").New(gl)}
 }
 
 // 
 func NewWebGLBlendModeManagerI(args ...interface{}) *WebGLBlendModeManager {
-    return &WebGLBlendModeManager{js.Global.Call("PIXI.WebGLBlendModeManager", args)}
+    return &WebGLBlendModeManager{js.Global.Get("PIXI").Get("WebGLBlendModeManager").New(args)}
 }
 
 
 
 // 
-func (self *WebGLBlendModeManager) GetCurrentBlendModeA() int{
+func (self *WebGLBlendModeManager) CurrentBlendMode() int{
     return self.Object.Get("currentBlendMode").Int()
 }
 

@@ -19,34 +19,34 @@ type Animation struct {
 // 
 // It is created by the AnimationManager, consists of Animation.Frame objects and belongs to a single Game Object such as a Sprite.
 func NewAnimation(game *Game, parent *Sprite, name string, frameData *FrameData, frames interface{}) *Animation {
-    return &Animation{js.Global.Call("Phaser.Animation", game, parent, name, frameData, frames)}
+    return &Animation{js.Global.Get("Phaser").Get("Animation").New(game, parent, name, frameData, frames)}
 }
 
 // An Animation instance contains a single animation and the controls to play it.
 // 
 // It is created by the AnimationManager, consists of Animation.Frame objects and belongs to a single Game Object such as a Sprite.
 func NewAnimation1O(game *Game, parent *Sprite, name string, frameData *FrameData, frames interface{}, frameRate int) *Animation {
-    return &Animation{js.Global.Call("Phaser.Animation", game, parent, name, frameData, frames, frameRate)}
+    return &Animation{js.Global.Get("Phaser").Get("Animation").New(game, parent, name, frameData, frames, frameRate)}
 }
 
 // An Animation instance contains a single animation and the controls to play it.
 // 
 // It is created by the AnimationManager, consists of Animation.Frame objects and belongs to a single Game Object such as a Sprite.
 func NewAnimation2O(game *Game, parent *Sprite, name string, frameData *FrameData, frames interface{}, frameRate int, loop bool) *Animation {
-    return &Animation{js.Global.Call("Phaser.Animation", game, parent, name, frameData, frames, frameRate, loop)}
+    return &Animation{js.Global.Get("Phaser").Get("Animation").New(game, parent, name, frameData, frames, frameRate, loop)}
 }
 
 // An Animation instance contains a single animation and the controls to play it.
 // 
 // It is created by the AnimationManager, consists of Animation.Frame objects and belongs to a single Game Object such as a Sprite.
 func NewAnimationI(args ...interface{}) *Animation {
-    return &Animation{js.Global.Call("Phaser.Animation", args)}
+    return &Animation{js.Global.Get("Phaser").Get("Animation").New(args)}
 }
 
 
 
 // A reference to the currently running Game.
-func (self *Animation) GetGameA() *Game{
+func (self *Animation) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -56,7 +56,7 @@ func (self *Animation) SetGameA(member *Game) {
 }
 
 // The user defined name given to this Animation.
-func (self *Animation) GetNameA() string{
+func (self *Animation) Name() string{
     return self.Object.Get("name").String()
 }
 
@@ -66,7 +66,7 @@ func (self *Animation) SetNameA(member string) {
 }
 
 // The delay in ms between each frame of the Animation, based on the given frameRate.
-func (self *Animation) GetDelayA() int{
+func (self *Animation) Delay() int{
     return self.Object.Get("delay").Int()
 }
 
@@ -76,7 +76,7 @@ func (self *Animation) SetDelayA(member int) {
 }
 
 // The loop state of the Animation.
-func (self *Animation) GetLoopA() bool{
+func (self *Animation) Loop() bool{
     return self.Object.Get("loop").Bool()
 }
 
@@ -86,7 +86,7 @@ func (self *Animation) SetLoopA(member bool) {
 }
 
 // The number of times the animation has looped since it was last started.
-func (self *Animation) GetLoopCountA() int{
+func (self *Animation) LoopCount() int{
     return self.Object.Get("loopCount").Int()
 }
 
@@ -96,7 +96,7 @@ func (self *Animation) SetLoopCountA(member int) {
 }
 
 // Should the parent of this Animation be killed when the animation completes?
-func (self *Animation) GetKillOnCompleteA() bool{
+func (self *Animation) KillOnComplete() bool{
     return self.Object.Get("killOnComplete").Bool()
 }
 
@@ -106,7 +106,7 @@ func (self *Animation) SetKillOnCompleteA(member bool) {
 }
 
 // The finished state of the Animation. Set to true once playback completes, false during playback.
-func (self *Animation) GetIsFinishedA() bool{
+func (self *Animation) IsFinished() bool{
     return self.Object.Get("isFinished").Bool()
 }
 
@@ -116,7 +116,7 @@ func (self *Animation) SetIsFinishedA(member bool) {
 }
 
 // The playing state of the Animation. Set to false once playback completes, true during playback.
-func (self *Animation) GetIsPlayingA() bool{
+func (self *Animation) IsPlaying() bool{
     return self.Object.Get("isPlaying").Bool()
 }
 
@@ -126,7 +126,7 @@ func (self *Animation) SetIsPlayingA(member bool) {
 }
 
 // The paused state of the Animation.
-func (self *Animation) GetIsPausedA() bool{
+func (self *Animation) IsPaused() bool{
     return self.Object.Get("isPaused").Bool()
 }
 
@@ -136,7 +136,7 @@ func (self *Animation) SetIsPausedA(member bool) {
 }
 
 // The currently displayed frame of the Animation.
-func (self *Animation) GetCurrentFrameA() *Frame{
+func (self *Animation) CurrentFrame() *Frame{
     return &Frame{self.Object.Get("currentFrame")}
 }
 
@@ -146,7 +146,7 @@ func (self *Animation) SetCurrentFrameA(member *Frame) {
 }
 
 // This event is dispatched when this Animation starts playback.
-func (self *Animation) GetOnStartA() *Signal{
+func (self *Animation) OnStart() *Signal{
     return &Signal{self.Object.Get("onStart")}
 }
 
@@ -160,7 +160,7 @@ func (self *Animation) SetOnStartA(member *Signal) {
 // Note that the event is only dispatched with the current frame. In a low-FPS environment Animations
 // will automatically frame-skip to try and claw back time, so do not base your code on expecting to
 // receive a perfectly sequential set of frames from this event.
-func (self *Animation) GetOnUpdateA() interface{}{
+func (self *Animation) OnUpdate() interface{}{
     return self.Object.Get("onUpdate")
 }
 
@@ -174,7 +174,7 @@ func (self *Animation) SetOnUpdateA(member interface{}) {
 }
 
 // This event is dispatched when this Animation completes playback. If the animation is set to loop this is never fired, listen for onLoop instead.
-func (self *Animation) GetOnCompleteA() *Signal{
+func (self *Animation) OnComplete() *Signal{
     return &Signal{self.Object.Get("onComplete")}
 }
 
@@ -184,7 +184,7 @@ func (self *Animation) SetOnCompleteA(member *Signal) {
 }
 
 // This event is dispatched when this Animation loops.
-func (self *Animation) GetOnLoopA() *Signal{
+func (self *Animation) OnLoop() *Signal{
     return &Signal{self.Object.Get("onLoop")}
 }
 
@@ -194,7 +194,7 @@ func (self *Animation) SetOnLoopA(member *Signal) {
 }
 
 // Indicates if the animation will play backwards.
-func (self *Animation) GetIsReversedA() bool{
+func (self *Animation) IsReversed() bool{
     return self.Object.Get("isReversed").Bool()
 }
 
@@ -204,7 +204,7 @@ func (self *Animation) SetIsReversedA(member bool) {
 }
 
 // Gets and sets the paused state of this Animation.
-func (self *Animation) GetPausedA() bool{
+func (self *Animation) Paused() bool{
     return self.Object.Get("paused").Bool()
 }
 
@@ -214,7 +214,7 @@ func (self *Animation) SetPausedA(member bool) {
 }
 
 // Gets and sets the isReversed state of this Animation.
-func (self *Animation) GetReversedA() bool{
+func (self *Animation) Reversed() bool{
     return self.Object.Get("reversed").Bool()
 }
 
@@ -224,7 +224,7 @@ func (self *Animation) SetReversedA(member bool) {
 }
 
 // The total number of frames in the currently loaded FrameData, or -1 if no FrameData is loaded.
-func (self *Animation) GetFrameTotalA() int{
+func (self *Animation) FrameTotal() int{
     return self.Object.Get("frameTotal").Int()
 }
 
@@ -234,7 +234,7 @@ func (self *Animation) SetFrameTotalA(member int) {
 }
 
 // Gets or sets the current frame index and updates the Texture Cache for display.
-func (self *Animation) GetFrameA() int{
+func (self *Animation) Frame() int{
     return self.Object.Get("frame").Int()
 }
 
@@ -244,7 +244,7 @@ func (self *Animation) SetFrameA(member int) {
 }
 
 // Gets or sets the current speed of the animation in frames per second. Changing this in a playing animation will take effect from the next frame. Minimum value is 1.
-func (self *Animation) GetSpeedA() int{
+func (self *Animation) Speed() int{
     return self.Object.Get("speed").Int()
 }
 
@@ -254,7 +254,7 @@ func (self *Animation) SetSpeedA(member int) {
 }
 
 // Gets or sets if this animation will dispatch the onUpdate events upon changing frame.
-func (self *Animation) GetEnableUpdateA() bool{
+func (self *Animation) EnableUpdate() bool{
     return self.Object.Get("enableUpdate").Bool()
 }
 

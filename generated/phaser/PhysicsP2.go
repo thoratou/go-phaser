@@ -17,25 +17,25 @@ type PhysicsP2 struct {
 // This is your main access to the P2 Physics World.
 // From here you can create materials, listen for events and add bodies into the physics simulation.
 func NewPhysicsP2(game *Game) *PhysicsP2 {
-    return &PhysicsP2{js.Global.Call("Phaser.Physics.P2", game)}
+    return &PhysicsP2{js.Global.Get("Phaser").Get("Physics").Get("P2").New(game)}
 }
 
 // This is your main access to the P2 Physics World.
 // From here you can create materials, listen for events and add bodies into the physics simulation.
 func NewPhysicsP21O(game *Game, config interface{}) *PhysicsP2 {
-    return &PhysicsP2{js.Global.Call("Phaser.Physics.P2", game, config)}
+    return &PhysicsP2{js.Global.Get("Phaser").Get("Physics").Get("P2").New(game, config)}
 }
 
 // This is your main access to the P2 Physics World.
 // From here you can create materials, listen for events and add bodies into the physics simulation.
 func NewPhysicsP2I(args ...interface{}) *PhysicsP2 {
-    return &PhysicsP2{js.Global.Call("Phaser.Physics.P2", args)}
+    return &PhysicsP2{js.Global.Get("Phaser").Get("Physics").Get("P2").New(args)}
 }
 
 
 
 // Local reference to game.
-func (self *PhysicsP2) GetGameA() *Game{
+func (self *PhysicsP2) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -45,7 +45,7 @@ func (self *PhysicsP2) SetGameA(member *Game) {
 }
 
 // The p2 World configuration object.
-func (self *PhysicsP2) GetConfigA() interface{}{
+func (self *PhysicsP2) Config() interface{}{
     return self.Object.Get("config")
 }
 
@@ -55,7 +55,7 @@ func (self *PhysicsP2) SetConfigA(member interface{}) {
 }
 
 // The p2 World in which the simulation is run.
-func (self *PhysicsP2) GetWorldA() *P2World{
+func (self *PhysicsP2) World() *P2World{
     return &P2World{self.Object.Get("world")}
 }
 
@@ -65,7 +65,7 @@ func (self *PhysicsP2) SetWorldA(member *P2World) {
 }
 
 // The frame rate the world will be stepped at. Defaults to 1 / 60, but you can change here. Also see useElapsedTime property.
-func (self *PhysicsP2) GetFrameRateA() int{
+func (self *PhysicsP2) FrameRate() int{
     return self.Object.Get("frameRate").Int()
 }
 
@@ -75,7 +75,7 @@ func (self *PhysicsP2) SetFrameRateA(member int) {
 }
 
 // If true the frameRate value will be ignored and instead p2 will step with the value of Game.Time.physicsElapsed, which is a delta time value.
-func (self *PhysicsP2) GetUseElapsedTimeA() bool{
+func (self *PhysicsP2) UseElapsedTime() bool{
     return self.Object.Get("useElapsedTime").Bool()
 }
 
@@ -85,7 +85,7 @@ func (self *PhysicsP2) SetUseElapsedTimeA(member bool) {
 }
 
 // The paused state of the P2 World.
-func (self *PhysicsP2) GetPausedA() bool{
+func (self *PhysicsP2) Paused() bool{
     return self.Object.Get("paused").Bool()
 }
 
@@ -95,7 +95,7 @@ func (self *PhysicsP2) SetPausedA(member bool) {
 }
 
 // A local array of all created Materials.
-func (self *PhysicsP2) GetMaterialsA() []PhysicsP2Material{
+func (self *PhysicsP2) Materials() []PhysicsP2Material{
 	array00 := self.Object.Get("materials")
 	length00 := array00.Length()
 	out00 := make([]PhysicsP2Material, length00, length00)
@@ -111,7 +111,7 @@ func (self *PhysicsP2) SetMaterialsA(member []PhysicsP2Material) {
 }
 
 // The gravity applied to all bodies each step.
-func (self *PhysicsP2) GetGravityA() *PhysicsP2InversePointProxy{
+func (self *PhysicsP2) Gravity() *PhysicsP2InversePointProxy{
     return &PhysicsP2InversePointProxy{self.Object.Get("gravity")}
 }
 
@@ -121,7 +121,7 @@ func (self *PhysicsP2) SetGravityA(member *PhysicsP2InversePointProxy) {
 }
 
 // An object containing the 4 wall bodies that bound the physics world.
-func (self *PhysicsP2) GetWallsA() interface{}{
+func (self *PhysicsP2) Walls() interface{}{
     return self.Object.Get("walls")
 }
 
@@ -133,7 +133,7 @@ func (self *PhysicsP2) SetWallsA(member interface{}) {
 // This signal is dispatched when a new Body is added to the World.
 // 
 // It sends 1 argument: `body` which is the `Phaser.Physics.P2.Body` that was added to the world.
-func (self *PhysicsP2) GetOnBodyAddedA() *Signal{
+func (self *PhysicsP2) OnBodyAdded() *Signal{
     return &Signal{self.Object.Get("onBodyAdded")}
 }
 
@@ -147,7 +147,7 @@ func (self *PhysicsP2) SetOnBodyAddedA(member *Signal) {
 // This signal is dispatched when a Body is removed to the World.
 // 
 // It sends 1 argument: `body` which is the `Phaser.Physics.P2.Body` that was removed from the world.
-func (self *PhysicsP2) GetOnBodyRemovedA() *Signal{
+func (self *PhysicsP2) OnBodyRemoved() *Signal{
     return &Signal{self.Object.Get("onBodyRemoved")}
 }
 
@@ -161,7 +161,7 @@ func (self *PhysicsP2) SetOnBodyRemovedA(member *Signal) {
 // This signal is dispatched when a Spring is added to the World.
 // 
 // It sends 1 argument: `spring` which is either a `Phaser.Physics.P2.Spring`, `p2.LinearSpring` or `p2.RotationalSpring` that was added to the world.
-func (self *PhysicsP2) GetOnSpringAddedA() *Signal{
+func (self *PhysicsP2) OnSpringAdded() *Signal{
     return &Signal{self.Object.Get("onSpringAdded")}
 }
 
@@ -175,7 +175,7 @@ func (self *PhysicsP2) SetOnSpringAddedA(member *Signal) {
 // This signal is dispatched when a Spring is removed from the World.
 // 
 // It sends 1 argument: `spring` which is either a `Phaser.Physics.P2.Spring`, `p2.LinearSpring` or `p2.RotationalSpring` that was removed from the world.
-func (self *PhysicsP2) GetOnSpringRemovedA() *Signal{
+func (self *PhysicsP2) OnSpringRemoved() *Signal{
     return &Signal{self.Object.Get("onSpringRemoved")}
 }
 
@@ -189,7 +189,7 @@ func (self *PhysicsP2) SetOnSpringRemovedA(member *Signal) {
 // This signal is dispatched when a Constraint is added to the World.
 // 
 // It sends 1 argument: `constraint` which is the `Phaser.Physics.P2.Constraint` that was added to the world.
-func (self *PhysicsP2) GetOnConstraintAddedA() *Signal{
+func (self *PhysicsP2) OnConstraintAdded() *Signal{
     return &Signal{self.Object.Get("onConstraintAdded")}
 }
 
@@ -203,7 +203,7 @@ func (self *PhysicsP2) SetOnConstraintAddedA(member *Signal) {
 // This signal is dispatched when a Constraint is removed from the World.
 // 
 // It sends 1 argument: `constraint` which is the `Phaser.Physics.P2.Constraint` that was removed from the world.
-func (self *PhysicsP2) GetOnConstraintRemovedA() *Signal{
+func (self *PhysicsP2) OnConstraintRemoved() *Signal{
     return &Signal{self.Object.Get("onConstraintRemoved")}
 }
 
@@ -217,7 +217,7 @@ func (self *PhysicsP2) SetOnConstraintRemovedA(member *Signal) {
 // This signal is dispatched when a Contact Material is added to the World.
 // 
 // It sends 1 argument: `material` which is the `Phaser.Physics.P2.ContactMaterial` that was added to the world.
-func (self *PhysicsP2) GetOnContactMaterialAddedA() *Signal{
+func (self *PhysicsP2) OnContactMaterialAdded() *Signal{
     return &Signal{self.Object.Get("onContactMaterialAdded")}
 }
 
@@ -231,7 +231,7 @@ func (self *PhysicsP2) SetOnContactMaterialAddedA(member *Signal) {
 // This signal is dispatched when a Contact Material is removed from the World.
 // 
 // It sends 1 argument: `material` which is the `Phaser.Physics.P2.ContactMaterial` that was removed from the world.
-func (self *PhysicsP2) GetOnContactMaterialRemovedA() *Signal{
+func (self *PhysicsP2) OnContactMaterialRemoved() *Signal{
     return &Signal{self.Object.Get("onContactMaterialRemoved")}
 }
 
@@ -243,12 +243,17 @@ func (self *PhysicsP2) SetOnContactMaterialRemovedA(member *Signal) {
 }
 
 // A postBroadphase callback.
-func (self *PhysicsP2) SetPostBroadphaseCallbackA(member func(...interface{})) {
+func (self *PhysicsP2) PostBroadphaseCallback() interface{}{
+    return self.Object.Get("postBroadphaseCallback")
+}
+
+// A postBroadphase callback.
+func (self *PhysicsP2) SetPostBroadphaseCallbackA(member interface{}) {
     self.Object.Set("postBroadphaseCallback", member)
 }
 
 // The context under which the callbacks are fired.
-func (self *PhysicsP2) GetCallbackContextA() interface{}{
+func (self *PhysicsP2) CallbackContext() interface{}{
     return self.Object.Get("callbackContext")
 }
 
@@ -263,7 +268,7 @@ func (self *PhysicsP2) SetCallbackContextA(member interface{}) {
 // 
 // It is possible that in certain situations the `bodyA` or `bodyB` values are `null`. You should check for this
 // in your own code to avoid processing potentially null physics bodies.
-func (self *PhysicsP2) GetOnBeginContactA() *Signal{
+func (self *PhysicsP2) OnBeginContact() *Signal{
     return &Signal{self.Object.Get("onBeginContact")}
 }
 
@@ -283,7 +288,7 @@ func (self *PhysicsP2) SetOnBeginContactA(member *Signal) {
 // 
 // It is possible that in certain situations the `bodyA` or `bodyB` values are `null`. You should check for this
 // in your own code to avoid processing potentially null physics bodies.
-func (self *PhysicsP2) GetOnEndContactA() *Signal{
+func (self *PhysicsP2) OnEndContact() *Signal{
     return &Signal{self.Object.Get("onEndContact")}
 }
 
@@ -298,12 +303,12 @@ func (self *PhysicsP2) SetOnEndContactA(member *Signal) {
 }
 
 // An array containing the collision groups that have been defined in the World.
-func (self *PhysicsP2) GetCollisionGroupsA() []interface{}{
+func (self *PhysicsP2) CollisionGroups() []interface{}{
 	array00 := self.Object.Get("collisionGroups")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -314,7 +319,7 @@ func (self *PhysicsP2) SetCollisionGroupsA(member []interface{}) {
 }
 
 // A default collision group.
-func (self *PhysicsP2) GetNothingCollisionGroupA() *PhysicsP2CollisionGroup{
+func (self *PhysicsP2) NothingCollisionGroup() *PhysicsP2CollisionGroup{
     return &PhysicsP2CollisionGroup{self.Object.Get("nothingCollisionGroup")}
 }
 
@@ -324,7 +329,7 @@ func (self *PhysicsP2) SetNothingCollisionGroupA(member *PhysicsP2CollisionGroup
 }
 
 // A default collision group.
-func (self *PhysicsP2) GetBoundsCollisionGroupA() *PhysicsP2CollisionGroup{
+func (self *PhysicsP2) BoundsCollisionGroup() *PhysicsP2CollisionGroup{
     return &PhysicsP2CollisionGroup{self.Object.Get("boundsCollisionGroup")}
 }
 
@@ -334,7 +339,7 @@ func (self *PhysicsP2) SetBoundsCollisionGroupA(member *PhysicsP2CollisionGroup)
 }
 
 // A default collision group.
-func (self *PhysicsP2) GetEverythingCollisionGroupA() *PhysicsP2CollisionGroup{
+func (self *PhysicsP2) EverythingCollisionGroup() *PhysicsP2CollisionGroup{
     return &PhysicsP2CollisionGroup{self.Object.Get("everythingCollisionGroup")}
 }
 
@@ -344,12 +349,12 @@ func (self *PhysicsP2) SetEverythingCollisionGroupA(member *PhysicsP2CollisionGr
 }
 
 // An array of the bodies the world bounds collides with.
-func (self *PhysicsP2) GetBoundsCollidesWithA() []interface{}{
+func (self *PhysicsP2) BoundsCollidesWith() []interface{}{
 	array00 := self.Object.Get("boundsCollidesWith")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -360,7 +365,7 @@ func (self *PhysicsP2) SetBoundsCollidesWithA(member []interface{}) {
 }
 
 // Friction between colliding bodies. This value is used if no matching ContactMaterial is found for a Material pair.
-func (self *PhysicsP2) GetFrictionA() int{
+func (self *PhysicsP2) Friction() int{
     return self.Object.Get("friction").Int()
 }
 
@@ -370,7 +375,7 @@ func (self *PhysicsP2) SetFrictionA(member int) {
 }
 
 // Default coefficient of restitution between colliding bodies. This value is used if no matching ContactMaterial is found for a Material pair.
-func (self *PhysicsP2) GetRestitutionA() int{
+func (self *PhysicsP2) Restitution() int{
     return self.Object.Get("restitution").Int()
 }
 
@@ -380,7 +385,7 @@ func (self *PhysicsP2) SetRestitutionA(member int) {
 }
 
 // The default Contact Material being used by the World.
-func (self *PhysicsP2) GetContactMaterialA() *P2ContactMaterial{
+func (self *PhysicsP2) ContactMaterial() *P2ContactMaterial{
     return &P2ContactMaterial{self.Object.Get("contactMaterial")}
 }
 
@@ -390,7 +395,7 @@ func (self *PhysicsP2) SetContactMaterialA(member *P2ContactMaterial) {
 }
 
 // Enable to automatically apply spring forces each step.
-func (self *PhysicsP2) GetApplySpringForcesA() bool{
+func (self *PhysicsP2) ApplySpringForces() bool{
     return self.Object.Get("applySpringForces").Bool()
 }
 
@@ -400,7 +405,7 @@ func (self *PhysicsP2) SetApplySpringForcesA(member bool) {
 }
 
 // Enable to automatically apply body damping each step.
-func (self *PhysicsP2) GetApplyDampingA() bool{
+func (self *PhysicsP2) ApplyDamping() bool{
     return self.Object.Get("applyDamping").Bool()
 }
 
@@ -410,7 +415,7 @@ func (self *PhysicsP2) SetApplyDampingA(member bool) {
 }
 
 // Enable to automatically apply gravity each step.
-func (self *PhysicsP2) GetApplyGravityA() bool{
+func (self *PhysicsP2) ApplyGravity() bool{
     return self.Object.Get("applyGravity").Bool()
 }
 
@@ -420,7 +425,7 @@ func (self *PhysicsP2) SetApplyGravityA(member bool) {
 }
 
 // Enable/disable constraint solving in each step.
-func (self *PhysicsP2) GetSolveConstraintsA() bool{
+func (self *PhysicsP2) SolveConstraints() bool{
     return self.Object.Get("solveConstraints").Bool()
 }
 
@@ -430,7 +435,7 @@ func (self *PhysicsP2) SetSolveConstraintsA(member bool) {
 }
 
 // The World time.
-func (self *PhysicsP2) GetTimeA() bool{
+func (self *PhysicsP2) Time() bool{
     return self.Object.Get("time").Bool()
 }
 
@@ -440,7 +445,7 @@ func (self *PhysicsP2) SetTimeA(member bool) {
 }
 
 // Set to true if you want to the world to emit the "impact" event. Turning this off could improve performance.
-func (self *PhysicsP2) GetEmitImpactEventA() bool{
+func (self *PhysicsP2) EmitImpactEvent() bool{
     return self.Object.Get("emitImpactEvent").Bool()
 }
 
@@ -451,7 +456,7 @@ func (self *PhysicsP2) SetEmitImpactEventA(member bool) {
 
 // How to deactivate bodies during simulation. Possible modes are: World.NO_SLEEPING, World.BODY_SLEEPING and World.ISLAND_SLEEPING.
 // If sleeping is enabled, you might need to wake up the bodies if they fall asleep when they shouldn't. If you want to enable sleeping in the world, but want to disable it for a particular body, see Body.allowSleep.
-func (self *PhysicsP2) GetSleepModeA() int{
+func (self *PhysicsP2) SleepMode() int{
     return self.Object.Get("sleepMode").Int()
 }
 
@@ -462,7 +467,7 @@ func (self *PhysicsP2) SetSleepModeA(member int) {
 }
 
 // The total number of bodies in the world.
-func (self *PhysicsP2) GetTotalA() int{
+func (self *PhysicsP2) Total() int{
     return self.Object.Get("total").Int()
 }
 
@@ -549,7 +554,7 @@ func (self *PhysicsP2) SetImpactEventsI(args ...interface{}) {
 // Just because a pair exists it doesn't mean they *will* collide, just that they potentially could do.
 // If your calback returns `false` the pair will be removed from the narrowphase. This will stop them testing for collision this step.
 // Returning `true` from the callback will ensure they are checked in the narrowphase.
-func (self *PhysicsP2) SetPostBroadphaseCallback(callback func(...interface{}), context interface{}) {
+func (self *PhysicsP2) SetPostBroadphaseCallback(callback interface{}, context interface{}) {
     self.Object.Call("setPostBroadphaseCallback", callback, context)
 }
 
@@ -1174,7 +1179,7 @@ func (self *PhysicsP2) HitTest(worldPoint *Point) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -1186,7 +1191,7 @@ func (self *PhysicsP2) HitTest1O(worldPoint *Point, bodies []interface{}) []inte
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -1198,7 +1203,7 @@ func (self *PhysicsP2) HitTest2O(worldPoint *Point, bodies []interface{}, precis
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -1210,7 +1215,7 @@ func (self *PhysicsP2) HitTest3O(worldPoint *Point, bodies []interface{}, precis
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -1222,7 +1227,7 @@ func (self *PhysicsP2) HitTestI(args ...interface{}) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -1352,7 +1357,7 @@ func (self *PhysicsP2) ConvertCollisionObjects(map_ *Tilemap) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -1364,7 +1369,7 @@ func (self *PhysicsP2) ConvertCollisionObjects1O(map_ *Tilemap, layer interface{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -1376,7 +1381,7 @@ func (self *PhysicsP2) ConvertCollisionObjects2O(map_ *Tilemap, layer interface{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -1388,7 +1393,7 @@ func (self *PhysicsP2) ConvertCollisionObjectsI(args ...interface{}) []interface
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -1417,7 +1422,7 @@ func (self *PhysicsP2) ConvertTilemap(map_ *Tilemap) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -1431,7 +1436,7 @@ func (self *PhysicsP2) ConvertTilemap1O(map_ *Tilemap, layer interface{}) []inte
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -1445,7 +1450,7 @@ func (self *PhysicsP2) ConvertTilemap2O(map_ *Tilemap, layer interface{}, addToW
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -1459,7 +1464,7 @@ func (self *PhysicsP2) ConvertTilemap3O(map_ *Tilemap, layer interface{}, addToW
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -1473,7 +1478,7 @@ func (self *PhysicsP2) ConvertTilemapI(args ...interface{}) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }

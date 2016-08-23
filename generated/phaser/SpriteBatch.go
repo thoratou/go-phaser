@@ -25,7 +25,7 @@ type SpriteBatch struct {
 // 
 // Please note that any Sprite that is part of a SpriteBatch will not have its bounds updated, so will fail checks such as outOfBounds.
 func NewSpriteBatch(game *Game, parent interface{}) *SpriteBatch {
-    return &SpriteBatch{js.Global.Call("Phaser.SpriteBatch", game, parent)}
+    return &SpriteBatch{js.Global.Get("Phaser").Get("SpriteBatch").New(game, parent)}
 }
 
 // The SpriteBatch class is a really fast version of the DisplayObjectContainer built purely for speed, so use when you need a lot of sprites or particles.
@@ -35,7 +35,7 @@ func NewSpriteBatch(game *Game, parent interface{}) *SpriteBatch {
 // 
 // Please note that any Sprite that is part of a SpriteBatch will not have its bounds updated, so will fail checks such as outOfBounds.
 func NewSpriteBatch1O(game *Game, parent interface{}, name string) *SpriteBatch {
-    return &SpriteBatch{js.Global.Call("Phaser.SpriteBatch", game, parent, name)}
+    return &SpriteBatch{js.Global.Get("Phaser").Get("SpriteBatch").New(game, parent, name)}
 }
 
 // The SpriteBatch class is a really fast version of the DisplayObjectContainer built purely for speed, so use when you need a lot of sprites or particles.
@@ -45,7 +45,7 @@ func NewSpriteBatch1O(game *Game, parent interface{}, name string) *SpriteBatch 
 // 
 // Please note that any Sprite that is part of a SpriteBatch will not have its bounds updated, so will fail checks such as outOfBounds.
 func NewSpriteBatch2O(game *Game, parent interface{}, name string, addToStage bool) *SpriteBatch {
-    return &SpriteBatch{js.Global.Call("Phaser.SpriteBatch", game, parent, name, addToStage)}
+    return &SpriteBatch{js.Global.Get("Phaser").Get("SpriteBatch").New(game, parent, name, addToStage)}
 }
 
 // The SpriteBatch class is a really fast version of the DisplayObjectContainer built purely for speed, so use when you need a lot of sprites or particles.
@@ -55,13 +55,13 @@ func NewSpriteBatch2O(game *Game, parent interface{}, name string, addToStage bo
 // 
 // Please note that any Sprite that is part of a SpriteBatch will not have its bounds updated, so will fail checks such as outOfBounds.
 func NewSpriteBatchI(args ...interface{}) *SpriteBatch {
-    return &SpriteBatch{js.Global.Call("Phaser.SpriteBatch", args)}
+    return &SpriteBatch{js.Global.Get("Phaser").Get("SpriteBatch").New(args)}
 }
 
 
 
 // Internal Phaser Type value.
-func (self *SpriteBatch) GetTypeA() int{
+func (self *SpriteBatch) Type() int{
     return self.Object.Get("type").Int()
 }
 
@@ -71,7 +71,7 @@ func (self *SpriteBatch) SetTypeA(member int) {
 }
 
 // A reference to the currently running Game.
-func (self *SpriteBatch) GetGameA() *Game{
+func (self *SpriteBatch) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -81,7 +81,7 @@ func (self *SpriteBatch) SetGameA(member *Game) {
 }
 
 // A name for this group. Not used internally but useful for debugging.
-func (self *SpriteBatch) GetNameA() string{
+func (self *SpriteBatch) Name() string{
     return self.Object.Get("name").String()
 }
 
@@ -92,7 +92,7 @@ func (self *SpriteBatch) SetNameA(member string) {
 
 // The z-depth value of this object within its parent container/Group - the World is a Group as well.
 // This value must be unique for each child in a Group.
-func (self *SpriteBatch) GetZA() int{
+func (self *SpriteBatch) Z() int{
     return self.Object.Get("z").Int()
 }
 
@@ -103,7 +103,7 @@ func (self *SpriteBatch) SetZA(member int) {
 }
 
 // The const physics body type of this object.
-func (self *SpriteBatch) GetPhysicsTypeA() int{
+func (self *SpriteBatch) PhysicsType() int{
     return self.Object.Get("physicsType").Int()
 }
 
@@ -113,7 +113,7 @@ func (self *SpriteBatch) SetPhysicsTypeA(member int) {
 }
 
 // The alive property is useful for Groups that are children of other Groups and need to be included/excluded in checks like forEachAlive.
-func (self *SpriteBatch) GetAliveA() bool{
+func (self *SpriteBatch) Alive() bool{
     return self.Object.Get("alive").Bool()
 }
 
@@ -123,7 +123,7 @@ func (self *SpriteBatch) SetAliveA(member bool) {
 }
 
 // If exists is true the group is updated, otherwise it is skipped.
-func (self *SpriteBatch) GetExistsA() bool{
+func (self *SpriteBatch) Exists() bool{
     return self.Object.Get("exists").Bool()
 }
 
@@ -133,7 +133,7 @@ func (self *SpriteBatch) SetExistsA(member bool) {
 }
 
 // A group with `ignoreDestroy` set to `true` ignores all calls to its `destroy` method.
-func (self *SpriteBatch) GetIgnoreDestroyA() bool{
+func (self *SpriteBatch) IgnoreDestroy() bool{
     return self.Object.Get("ignoreDestroy").Bool()
 }
 
@@ -148,7 +148,7 @@ func (self *SpriteBatch) SetIgnoreDestroyA(member bool) {
 // 
 // This is extremely useful if you wish to destroy a Group from within one of its own callbacks
 // or a callback of one of its children.
-func (self *SpriteBatch) GetPendingDestroyA() bool{
+func (self *SpriteBatch) PendingDestroy() bool{
     return self.Object.Get("pendingDestroy").Bool()
 }
 
@@ -166,7 +166,7 @@ func (self *SpriteBatch) SetPendingDestroyA(member bool) {
 // 
 // Any object may be used but it should extend either Sprite or Image and accept the same constructor arguments:
 // when a new object is created it is passed the following parameters to its constructor: `(game, x, y, key, frame)`.
-func (self *SpriteBatch) GetClassTypeA() interface{}{
+func (self *SpriteBatch) ClassType() interface{}{
     return self.Object.Get("classType")
 }
 
@@ -181,7 +181,7 @@ func (self *SpriteBatch) SetClassTypeA(member interface{}) {
 // The current display object that the group cursor is pointing to, if any. (Can be set manually.)
 // 
 // The cursor is a way to iterate through the children in a Group using {@link Phaser.Group#next next} and {@link Phaser.Group#previous previous}.
-func (self *SpriteBatch) GetCursorA() *DisplayObject{
+func (self *SpriteBatch) Cursor() *DisplayObject{
     return &DisplayObject{self.Object.Get("cursor")}
 }
 
@@ -196,7 +196,7 @@ func (self *SpriteBatch) SetCursorA(member *DisplayObject) {
 // on any children _added_ to, or _created by_, this Group.
 // 
 // If there are children already in the Group at the time you set this property, they are not changed.
-func (self *SpriteBatch) GetInputEnableChildrenA() bool{
+func (self *SpriteBatch) InputEnableChildren() bool{
     return self.Object.Get("inputEnableChildren").Bool()
 }
 
@@ -214,7 +214,7 @@ func (self *SpriteBatch) SetInputEnableChildrenA(member bool) {
 // 
 // This Signal is sent 2 arguments: A reference to the Sprite that triggered the signal, and
 // a reference to the Pointer that caused it.
-func (self *SpriteBatch) GetOnChildInputDownA() *Signal{
+func (self *SpriteBatch) OnChildInputDown() *Signal{
     return &Signal{self.Object.Get("onChildInputDown")}
 }
 
@@ -235,7 +235,7 @@ func (self *SpriteBatch) SetOnChildInputDownA(member *Signal) {
 // This Signal is sent 3 arguments: A reference to the Sprite that triggered the signal, 
 // a reference to the Pointer that caused it, and a boolean value `isOver` that tells you if the Pointer
 // is still over the Sprite or not.
-func (self *SpriteBatch) GetOnChildInputUpA() *Signal{
+func (self *SpriteBatch) OnChildInputUp() *Signal{
     return &Signal{self.Object.Get("onChildInputUp")}
 }
 
@@ -256,7 +256,7 @@ func (self *SpriteBatch) SetOnChildInputUpA(member *Signal) {
 // 
 // This Signal is sent 2 arguments: A reference to the Sprite that triggered the signal, and
 // a reference to the Pointer that caused it.
-func (self *SpriteBatch) GetOnChildInputOverA() *Signal{
+func (self *SpriteBatch) OnChildInputOver() *Signal{
     return &Signal{self.Object.Get("onChildInputOver")}
 }
 
@@ -276,7 +276,7 @@ func (self *SpriteBatch) SetOnChildInputOverA(member *Signal) {
 // 
 // This Signal is sent 2 arguments: A reference to the Sprite that triggered the signal, and
 // a reference to the Pointer that caused it.
-func (self *SpriteBatch) GetOnChildInputOutA() *Signal{
+func (self *SpriteBatch) OnChildInputOut() *Signal{
     return &Signal{self.Object.Get("onChildInputOut")}
 }
 
@@ -295,7 +295,7 @@ func (self *SpriteBatch) SetOnChildInputOutA(member *Signal) {
 // If there are children already in the Group at the time you set this property, they are not changed.
 // 
 // The default body type is controlled with {@link Phaser.Group#physicsBodyType physicsBodyType}.
-func (self *SpriteBatch) GetEnableBodyA() bool{
+func (self *SpriteBatch) EnableBody() bool{
     return self.Object.Get("enableBody").Bool()
 }
 
@@ -311,7 +311,7 @@ func (self *SpriteBatch) SetEnableBodyA(member bool) {
 // If true when a physics body is created (via {@link Phaser.Group#enableBody enableBody}) it will create a physics debug object as well.
 // 
 // This only works for P2 bodies.
-func (self *SpriteBatch) GetEnableBodyDebugA() bool{
+func (self *SpriteBatch) EnableBodyDebug() bool{
     return self.Object.Get("enableBodyDebug").Bool()
 }
 
@@ -325,7 +325,7 @@ func (self *SpriteBatch) SetEnableBodyDebugA(member bool) {
 // If {@link Phaser.Group#enableBody enableBody} is true this is the type of physics body that is created on new Sprites.
 // 
 // The valid values are {@link Phaser.Physics.ARCADE}, {@link Phaser.Physics.P2JS}, {@link Phaser.Physics.NINJA}, etc.
-func (self *SpriteBatch) GetPhysicsBodyTypeA() int{
+func (self *SpriteBatch) PhysicsBodyType() int{
     return self.Object.Get("physicsBodyType").Int()
 }
 
@@ -347,7 +347,7 @@ func (self *SpriteBatch) SetPhysicsBodyTypeA(member int) {
 // Phaser.Physics.Arcade.BOTTOM_TOP
 // 
 // If set to `null` the Group will use whatever Phaser.Physics.Arcade.sortDirection is set to. This is the default behavior.
-func (self *SpriteBatch) GetPhysicsSortDirectionA() int{
+func (self *SpriteBatch) PhysicsSortDirection() int{
     return self.Object.Get("physicsSortDirection").Int()
 }
 
@@ -367,7 +367,7 @@ func (self *SpriteBatch) SetPhysicsSortDirectionA(member int) {
 }
 
 // This signal is dispatched when the group is destroyed.
-func (self *SpriteBatch) GetOnDestroyA() *Signal{
+func (self *SpriteBatch) OnDestroy() *Signal{
     return &Signal{self.Object.Get("onDestroy")}
 }
 
@@ -377,7 +377,7 @@ func (self *SpriteBatch) SetOnDestroyA(member *Signal) {
 }
 
 // The current index of the Group cursor. Advance it with Group.next.
-func (self *SpriteBatch) GetCursorIndexA() int{
+func (self *SpriteBatch) CursorIndex() int{
     return self.Object.Get("cursorIndex").Int()
 }
 
@@ -390,7 +390,7 @@ func (self *SpriteBatch) SetCursorIndexA(member int) {
 // 
 // Note that the cameraOffset values are in addition to any parent in the display list.
 // So if this Group was in a Group that has x: 200, then this will be added to the cameraOffset.x
-func (self *SpriteBatch) GetFixedToCameraA() bool{
+func (self *SpriteBatch) FixedToCamera() bool{
     return self.Object.Get("fixedToCamera").Bool()
 }
 
@@ -404,7 +404,7 @@ func (self *SpriteBatch) SetFixedToCameraA(member bool) {
 
 // If this object is {@link Phaser.Group#fixedToCamera fixedToCamera} then this stores the x/y position offset relative to the top-left of the camera view.
 // If the parent of this Group is also `fixedToCamera` then the offset here is in addition to that and should typically be disabled.
-func (self *SpriteBatch) GetCameraOffsetA() *Point{
+func (self *SpriteBatch) CameraOffset() *Point{
     return &Point{self.Object.Get("cameraOffset")}
 }
 
@@ -421,12 +421,12 @@ func (self *SpriteBatch) SetCameraOffsetA(member *Point) {
 // This hash is used automatically by Phaser Arcade Physics in order to perform non z-index based destructive sorting.
 // However if you don't use Arcade Physics, or this isn't a physics enabled Group, then you can use the hash to perform your own
 // sorting and filtering of Group children without touching their z-index (and therefore display draw order)
-func (self *SpriteBatch) GetHashA() []interface{}{
+func (self *SpriteBatch) Hash() []interface{}{
 	array00 := self.Object.Get("hash")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -443,7 +443,7 @@ func (self *SpriteBatch) SetHashA(member []interface{}) {
 }
 
 // Total number of existing children in the group.
-func (self *SpriteBatch) GetTotalA() int{
+func (self *SpriteBatch) Total() int{
     return self.Object.Get("total").Int()
 }
 
@@ -453,7 +453,7 @@ func (self *SpriteBatch) SetTotalA(member int) {
 }
 
 // Total number of children in this group, regardless of exists/alive status.
-func (self *SpriteBatch) GetLengthA() int{
+func (self *SpriteBatch) Length() int{
     return self.Object.Get("length").Int()
 }
 
@@ -468,7 +468,7 @@ func (self *SpriteBatch) SetLengthA(member int) {
 // 
 // This has no impact on the rotation/angle properties of the children, but it will update their worldTransform
 // and on-screen orientation and position.
-func (self *SpriteBatch) GetAngleA() int{
+func (self *SpriteBatch) Angle() int{
     return self.Object.Get("angle").Int()
 }
 
@@ -491,7 +491,7 @@ func (self *SpriteBatch) SetAngleA(member int) {
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *SpriteBatch) GetCenterXA() int{
+func (self *SpriteBatch) CenterX() int{
     return self.Object.Get("centerX").Int()
 }
 
@@ -517,7 +517,7 @@ func (self *SpriteBatch) SetCenterXA(member int) {
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *SpriteBatch) GetCenterYA() int{
+func (self *SpriteBatch) CenterY() int{
     return self.Object.Get("centerY").Int()
 }
 
@@ -543,7 +543,7 @@ func (self *SpriteBatch) SetCenterYA(member int) {
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *SpriteBatch) GetLeftA() int{
+func (self *SpriteBatch) Left() int{
     return self.Object.Get("left").Int()
 }
 
@@ -569,7 +569,7 @@ func (self *SpriteBatch) SetLeftA(member int) {
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *SpriteBatch) GetRightA() int{
+func (self *SpriteBatch) Right() int{
     return self.Object.Get("right").Int()
 }
 
@@ -595,7 +595,7 @@ func (self *SpriteBatch) SetRightA(member int) {
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *SpriteBatch) GetTopA() int{
+func (self *SpriteBatch) Top() int{
     return self.Object.Get("top").Int()
 }
 
@@ -621,7 +621,7 @@ func (self *SpriteBatch) SetTopA(member int) {
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *SpriteBatch) GetBottomA() int{
+func (self *SpriteBatch) Bottom() int{
     return self.Object.Get("bottom").Int()
 }
 
@@ -642,7 +642,7 @@ func (self *SpriteBatch) SetBottomA(member int) {
 // 
 // You can adjust the group container itself by modifying its coordinates.
 // This will have no impact on the x/y coordinates of its children, but it will update their worldTransform and on-screen position.
-func (self *SpriteBatch) GetXA() int{
+func (self *SpriteBatch) X() int{
     return self.Object.Get("x").Int()
 }
 
@@ -658,7 +658,7 @@ func (self *SpriteBatch) SetXA(member int) {
 // 
 // You can adjust the group container itself by modifying its coordinates.
 // This will have no impact on the x/y coordinates of its children, but it will update their worldTransform and on-screen position.
-func (self *SpriteBatch) GetYA() int{
+func (self *SpriteBatch) Y() int{
     return self.Object.Get("y").Int()
 }
 
@@ -674,7 +674,7 @@ func (self *SpriteBatch) SetYA(member int) {
 // 
 // This will adjust the group container itself by modifying its rotation.
 // This will have no impact on the rotation value of its children, but it will update their worldTransform and on-screen position.
-func (self *SpriteBatch) GetRotationA() int{
+func (self *SpriteBatch) Rotation() int{
     return self.Object.Get("rotation").Int()
 }
 
@@ -687,7 +687,7 @@ func (self *SpriteBatch) SetRotationA(member int) {
 }
 
 // The visible state of the group. Non-visible Groups and all of their children are not rendered.
-func (self *SpriteBatch) GetVisibleA() bool{
+func (self *SpriteBatch) Visible() bool{
     return self.Object.Get("visible").Bool()
 }
 
@@ -697,7 +697,7 @@ func (self *SpriteBatch) SetVisibleA(member bool) {
 }
 
 // The alpha value of the group container.
-func (self *SpriteBatch) GetAlphaA() int{
+func (self *SpriteBatch) Alpha() int{
     return self.Object.Get("alpha").Int()
 }
 
@@ -707,7 +707,7 @@ func (self *SpriteBatch) SetAlphaA(member int) {
 }
 
 // [read-only] The array of children of this container.
-func (self *SpriteBatch) GetChildrenA() []DisplayObject{
+func (self *SpriteBatch) Children() []DisplayObject{
 	array00 := self.Object.Get("children")
 	length00 := array00.Length()
 	out00 := make([]DisplayObject, length00, length00)
@@ -727,7 +727,7 @@ func (self *SpriteBatch) SetChildrenA(member []DisplayObject) {
 // If this property is `true` then the children will _not_ be considered as valid for Input events.
 // 
 // Note that this property isn't recursive: only immediate children are influenced, it doesn't scan further down.
-func (self *SpriteBatch) GetIgnoreChildInputA() bool{
+func (self *SpriteBatch) IgnoreChildInput() bool{
     return self.Object.Get("ignoreChildInput").Bool()
 }
 
@@ -741,7 +741,7 @@ func (self *SpriteBatch) SetIgnoreChildInputA(member bool) {
 }
 
 // The width of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *SpriteBatch) GetWidthA() int{
+func (self *SpriteBatch) Width() int{
     return self.Object.Get("width").Int()
 }
 
@@ -751,7 +751,7 @@ func (self *SpriteBatch) SetWidthA(member int) {
 }
 
 // The height of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *SpriteBatch) GetHeightA() int{
+func (self *SpriteBatch) Height() int{
     return self.Object.Get("height").Int()
 }
 
@@ -1093,7 +1093,7 @@ func (self *SpriteBatch) CreateMultiple(quantity int, key interface{}) []interfa
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -1141,7 +1141,7 @@ func (self *SpriteBatch) CreateMultiple1O(quantity int, key interface{}, frame i
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -1189,7 +1189,7 @@ func (self *SpriteBatch) CreateMultiple2O(quantity int, key interface{}, frame i
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -1237,7 +1237,7 @@ func (self *SpriteBatch) CreateMultipleI(args ...interface{}) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -2015,7 +2015,7 @@ func (self *SpriteBatch) PostUpdateI(args ...interface{}) {
 //     healthyList.callAll('attack');
 // 
 // Note: Currently this will skip any children which are Groups themselves.
-func (self *SpriteBatch) Filter(predicate func(...interface{})) *ArraySet{
+func (self *SpriteBatch) Filter(predicate interface{}) *ArraySet{
     return &ArraySet{self.Object.Call("filter", predicate)}
 }
 
@@ -2029,7 +2029,7 @@ func (self *SpriteBatch) Filter(predicate func(...interface{})) *ArraySet{
 //     healthyList.callAll('attack');
 // 
 // Note: Currently this will skip any children which are Groups themselves.
-func (self *SpriteBatch) Filter1O(predicate func(...interface{}), checkExists bool) *ArraySet{
+func (self *SpriteBatch) Filter1O(predicate interface{}, checkExists bool) *ArraySet{
     return &ArraySet{self.Object.Call("filter", predicate, checkExists)}
 }
 
@@ -2056,7 +2056,7 @@ func (self *SpriteBatch) FilterI(args ...interface{}) *ArraySet{
 // would invoke `awardBonusGold` function with the parameters `(child, 100, 500)`.
 // 
 // Note: This check will skip any children which are Groups themselves.
-func (self *SpriteBatch) ForEach(callback func(...interface{}), callbackContext interface{}) {
+func (self *SpriteBatch) ForEach(callback interface{}, callbackContext interface{}) {
     self.Object.Call("forEach", callback, callbackContext)
 }
 
@@ -2069,7 +2069,7 @@ func (self *SpriteBatch) ForEach(callback func(...interface{}), callbackContext 
 // would invoke `awardBonusGold` function with the parameters `(child, 100, 500)`.
 // 
 // Note: This check will skip any children which are Groups themselves.
-func (self *SpriteBatch) ForEach1O(callback func(...interface{}), callbackContext interface{}, checkExists bool) {
+func (self *SpriteBatch) ForEach1O(callback interface{}, callbackContext interface{}, checkExists bool) {
     self.Object.Call("forEach", callback, callbackContext, checkExists)
 }
 
@@ -2082,7 +2082,7 @@ func (self *SpriteBatch) ForEach1O(callback func(...interface{}), callbackContex
 // would invoke `awardBonusGold` function with the parameters `(child, 100, 500)`.
 // 
 // Note: This check will skip any children which are Groups themselves.
-func (self *SpriteBatch) ForEach2O(callback func(...interface{}), callbackContext interface{}, checkExists bool, args interface{}) {
+func (self *SpriteBatch) ForEach2O(callback interface{}, callbackContext interface{}, checkExists bool, args interface{}) {
     self.Object.Call("forEach", callback, callbackContext, checkExists, args)
 }
 
@@ -2102,14 +2102,14 @@ func (self *SpriteBatch) ForEachI(args ...interface{}) {
 // Call a function on each existing child in this group.
 // 
 // See {@link Phaser.Group#forEach forEach} for details.
-func (self *SpriteBatch) ForEachExists(callback func(...interface{}), callbackContext interface{}) {
+func (self *SpriteBatch) ForEachExists(callback interface{}, callbackContext interface{}) {
     self.Object.Call("forEachExists", callback, callbackContext)
 }
 
 // Call a function on each existing child in this group.
 // 
 // See {@link Phaser.Group#forEach forEach} for details.
-func (self *SpriteBatch) ForEachExists1O(callback func(...interface{}), callbackContext interface{}, args interface{}) {
+func (self *SpriteBatch) ForEachExists1O(callback interface{}, callbackContext interface{}, args interface{}) {
     self.Object.Call("forEachExists", callback, callbackContext, args)
 }
 
@@ -2123,14 +2123,14 @@ func (self *SpriteBatch) ForEachExistsI(args ...interface{}) {
 // Call a function on each alive child in this group.
 // 
 // See {@link Phaser.Group#forEach forEach} for details.
-func (self *SpriteBatch) ForEachAlive(callback func(...interface{}), callbackContext interface{}) {
+func (self *SpriteBatch) ForEachAlive(callback interface{}, callbackContext interface{}) {
     self.Object.Call("forEachAlive", callback, callbackContext)
 }
 
 // Call a function on each alive child in this group.
 // 
 // See {@link Phaser.Group#forEach forEach} for details.
-func (self *SpriteBatch) ForEachAlive1O(callback func(...interface{}), callbackContext interface{}, args interface{}) {
+func (self *SpriteBatch) ForEachAlive1O(callback interface{}, callbackContext interface{}, args interface{}) {
     self.Object.Call("forEachAlive", callback, callbackContext, args)
 }
 
@@ -2144,14 +2144,14 @@ func (self *SpriteBatch) ForEachAliveI(args ...interface{}) {
 // Call a function on each dead child in this group.
 // 
 // See {@link Phaser.Group#forEach forEach} for details.
-func (self *SpriteBatch) ForEachDead(callback func(...interface{}), callbackContext interface{}) {
+func (self *SpriteBatch) ForEachDead(callback interface{}, callbackContext interface{}) {
     self.Object.Call("forEachDead", callback, callbackContext)
 }
 
 // Call a function on each dead child in this group.
 // 
 // See {@link Phaser.Group#forEach forEach} for details.
-func (self *SpriteBatch) ForEachDead1O(callback func(...interface{}), callbackContext interface{}, args interface{}) {
+func (self *SpriteBatch) ForEachDead1O(callback interface{}, callbackContext interface{}, args interface{}) {
     self.Object.Call("forEachDead", callback, callbackContext, args)
 }
 
@@ -2214,7 +2214,7 @@ func (self *SpriteBatch) SortI(args ...interface{}) {
 // 
 // The `sortHandler` is provided the two parameters: the two children involved in the comparison (a and b).
 // It should return -1 if `a > b`, 1 if `a < b` or 0 if `a === b`.
-func (self *SpriteBatch) CustomSort(sortHandler func(...interface{})) {
+func (self *SpriteBatch) CustomSort(sortHandler interface{}) {
     self.Object.Call("customSort", sortHandler)
 }
 
@@ -2222,7 +2222,7 @@ func (self *SpriteBatch) CustomSort(sortHandler func(...interface{})) {
 // 
 // The `sortHandler` is provided the two parameters: the two children involved in the comparison (a and b).
 // It should return -1 if `a > b`, 1 if `a < b` or 0 if `a === b`.
-func (self *SpriteBatch) CustomSort1O(sortHandler func(...interface{}), context interface{}) {
+func (self *SpriteBatch) CustomSort1O(sortHandler interface{}, context interface{}) {
     self.Object.Call("customSort", sortHandler, context)
 }
 
@@ -2292,7 +2292,7 @@ func (self *SpriteBatch) Iterate(key string, value interface{}, returnType int) 
 // 
 // If `args` is specified it must be an array. The matched child will be assigned to the first
 // element and the entire array will be applied to the callback function.
-func (self *SpriteBatch) Iterate1O(key string, value interface{}, returnType int, callback func(...interface{})) interface{}{
+func (self *SpriteBatch) Iterate1O(key string, value interface{}, returnType int, callback interface{}) interface{}{
     return self.Object.Call("iterate", key, value, returnType, callback)
 }
 
@@ -2313,7 +2313,7 @@ func (self *SpriteBatch) Iterate1O(key string, value interface{}, returnType int
 // 
 // If `args` is specified it must be an array. The matched child will be assigned to the first
 // element and the entire array will be applied to the callback function.
-func (self *SpriteBatch) Iterate2O(key string, value interface{}, returnType int, callback func(...interface{}), callbackContext interface{}) interface{}{
+func (self *SpriteBatch) Iterate2O(key string, value interface{}, returnType int, callback interface{}, callbackContext interface{}) interface{}{
     return self.Object.Call("iterate", key, value, returnType, callback, callbackContext)
 }
 
@@ -2334,7 +2334,7 @@ func (self *SpriteBatch) Iterate2O(key string, value interface{}, returnType int
 // 
 // If `args` is specified it must be an array. The matched child will be assigned to the first
 // element and the entire array will be applied to the callback function.
-func (self *SpriteBatch) Iterate3O(key string, value interface{}, returnType int, callback func(...interface{}), callbackContext interface{}, args []interface{}) interface{}{
+func (self *SpriteBatch) Iterate3O(key string, value interface{}, returnType int, callback interface{}, callbackContext interface{}, args []interface{}) interface{}{
     return self.Object.Call("iterate", key, value, returnType, callback, callbackContext, args)
 }
 
@@ -2757,7 +2757,7 @@ func (self *SpriteBatch) GetClosestTo(object interface{}) interface{}{
 // If the child is closer then the previous child, it will be sent to `callback` as the first argument,
 // with the distance as the second. The callback should return `true` if it passes your 
 // filtering criteria, otherwise it should return `false`.
-func (self *SpriteBatch) GetClosestTo1O(object interface{}, callback func(...interface{})) interface{}{
+func (self *SpriteBatch) GetClosestTo1O(object interface{}, callback interface{}) interface{}{
     return self.Object.Call("getClosestTo", object, callback)
 }
 
@@ -2771,7 +2771,7 @@ func (self *SpriteBatch) GetClosestTo1O(object interface{}, callback func(...int
 // If the child is closer then the previous child, it will be sent to `callback` as the first argument,
 // with the distance as the second. The callback should return `true` if it passes your 
 // filtering criteria, otherwise it should return `false`.
-func (self *SpriteBatch) GetClosestTo2O(object interface{}, callback func(...interface{}), callbackContext interface{}) interface{}{
+func (self *SpriteBatch) GetClosestTo2O(object interface{}, callback interface{}, callbackContext interface{}) interface{}{
     return self.Object.Call("getClosestTo", object, callback, callbackContext)
 }
 
@@ -2813,7 +2813,7 @@ func (self *SpriteBatch) GetFurthestFrom(object interface{}) interface{}{
 // If the child is closer then the previous child, it will be sent to `callback` as the first argument,
 // with the distance as the second. The callback should return `true` if it passes your 
 // filtering criteria, otherwise it should return `false`.
-func (self *SpriteBatch) GetFurthestFrom1O(object interface{}, callback func(...interface{})) interface{}{
+func (self *SpriteBatch) GetFurthestFrom1O(object interface{}, callback interface{}) interface{}{
     return self.Object.Call("getFurthestFrom", object, callback)
 }
 
@@ -2827,7 +2827,7 @@ func (self *SpriteBatch) GetFurthestFrom1O(object interface{}, callback func(...
 // If the child is closer then the previous child, it will be sent to `callback` as the first argument,
 // with the distance as the second. The callback should return `true` if it passes your 
 // filtering criteria, otherwise it should return `false`.
-func (self *SpriteBatch) GetFurthestFrom2O(object interface{}, callback func(...interface{}), callbackContext interface{}) interface{}{
+func (self *SpriteBatch) GetFurthestFrom2O(object interface{}, callback interface{}, callbackContext interface{}) interface{}{
     return self.Object.Call("getFurthestFrom", object, callback, callbackContext)
 }
 

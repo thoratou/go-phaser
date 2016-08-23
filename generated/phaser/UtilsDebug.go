@@ -35,7 +35,7 @@ type UtilsDebug struct {
 // to it, which must be uploaded every frame. Be advised: this is very expensive, especially in browsers like Firefox. So please only enable Debug
 // in WebGL mode if you really need it (or your desktop can cope with it well) and disable it for production!
 func NewUtilsDebug(game *Game) *UtilsDebug {
-    return &UtilsDebug{js.Global.Call("Phaser.Utils.Debug", game)}
+    return &UtilsDebug{js.Global.Get("Phaser").Get("Utils").Get("Debug").New(game)}
 }
 
 // A collection of methods for displaying debug information about game objects.
@@ -49,13 +49,13 @@ func NewUtilsDebug(game *Game) *UtilsDebug {
 // to it, which must be uploaded every frame. Be advised: this is very expensive, especially in browsers like Firefox. So please only enable Debug
 // in WebGL mode if you really need it (or your desktop can cope with it well) and disable it for production!
 func NewUtilsDebugI(args ...interface{}) *UtilsDebug {
-    return &UtilsDebug{js.Global.Call("Phaser.Utils.Debug", args)}
+    return &UtilsDebug{js.Global.Get("Phaser").Get("Utils").Get("Debug").New(args)}
 }
 
 
 
 // A reference to the currently running Game.
-func (self *UtilsDebug) GetGameA() *Game{
+func (self *UtilsDebug) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -65,7 +65,7 @@ func (self *UtilsDebug) SetGameA(member *Game) {
 }
 
 // If debugging in WebGL mode we need this.
-func (self *UtilsDebug) GetSpriteA() *Image{
+func (self *UtilsDebug) Sprite() *Image{
     return &Image{self.Object.Get("sprite")}
 }
 
@@ -75,7 +75,7 @@ func (self *UtilsDebug) SetSpriteA(member *Image) {
 }
 
 // In WebGL mode this BitmapData contains a copy of the debug canvas.
-func (self *UtilsDebug) GetBmdA() *BitmapData{
+func (self *UtilsDebug) Bmd() *BitmapData{
     return &BitmapData{self.Object.Get("bmd")}
 }
 
@@ -85,7 +85,7 @@ func (self *UtilsDebug) SetBmdA(member *BitmapData) {
 }
 
 // The canvas to which Debug calls draws.
-func (self *UtilsDebug) GetCanvasA() dom.HTMLCanvasElement{
+func (self *UtilsDebug) Canvas() dom.HTMLCanvasElement{
     return WrapHTMLCanvasElement(self.Object.Get("canvas"))
 }
 
@@ -95,7 +95,7 @@ func (self *UtilsDebug) SetCanvasA(member dom.HTMLCanvasElement) {
 }
 
 // The 2d context of the canvas.
-func (self *UtilsDebug) GetContextA() dom.CanvasRenderingContext2D{
+func (self *UtilsDebug) Context() dom.CanvasRenderingContext2D{
     return WrapCanvasRenderingContext2D(self.Object.Get("context"))
 }
 
@@ -105,7 +105,7 @@ func (self *UtilsDebug) SetContextA(member dom.CanvasRenderingContext2D) {
 }
 
 // The font that the debug information is rendered in.
-func (self *UtilsDebug) GetFontA() string{
+func (self *UtilsDebug) Font() string{
     return self.Object.Get("font").String()
 }
 
@@ -115,7 +115,7 @@ func (self *UtilsDebug) SetFontA(member string) {
 }
 
 // The spacing between columns.
-func (self *UtilsDebug) GetColumnWidthA() int{
+func (self *UtilsDebug) ColumnWidth() int{
     return self.Object.Get("columnWidth").Int()
 }
 
@@ -125,7 +125,7 @@ func (self *UtilsDebug) SetColumnWidthA(member int) {
 }
 
 // The line height between the debug text.
-func (self *UtilsDebug) GetLineHeightA() int{
+func (self *UtilsDebug) LineHeight() int{
     return self.Object.Get("lineHeight").Int()
 }
 
@@ -135,7 +135,7 @@ func (self *UtilsDebug) SetLineHeightA(member int) {
 }
 
 // Should the text be rendered with a slight shadow? Makes it easier to read on different types of background.
-func (self *UtilsDebug) GetRenderShadowA() bool{
+func (self *UtilsDebug) RenderShadow() bool{
     return self.Object.Get("renderShadow").Bool()
 }
 
@@ -145,7 +145,7 @@ func (self *UtilsDebug) SetRenderShadowA(member bool) {
 }
 
 // The current X position the debug information will be rendered at.
-func (self *UtilsDebug) GetCurrentXA() int{
+func (self *UtilsDebug) CurrentX() int{
     return self.Object.Get("currentX").Int()
 }
 
@@ -155,7 +155,7 @@ func (self *UtilsDebug) SetCurrentXA(member int) {
 }
 
 // The current Y position the debug information will be rendered at.
-func (self *UtilsDebug) GetCurrentYA() int{
+func (self *UtilsDebug) CurrentY() int{
     return self.Object.Get("currentY").Int()
 }
 
@@ -165,7 +165,7 @@ func (self *UtilsDebug) SetCurrentYA(member int) {
 }
 
 // The alpha of the Debug context, set before all debug information is rendered to it.
-func (self *UtilsDebug) GetCurrentAlphaA() int{
+func (self *UtilsDebug) CurrentAlpha() int{
     return self.Object.Get("currentAlpha").Int()
 }
 
@@ -175,7 +175,7 @@ func (self *UtilsDebug) SetCurrentAlphaA(member int) {
 }
 
 // Does the canvas need re-rendering?
-func (self *UtilsDebug) GetDirtyA() bool{
+func (self *UtilsDebug) Dirty() bool{
     return self.Object.Get("dirty").Bool()
 }
 

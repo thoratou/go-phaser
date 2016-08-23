@@ -37,7 +37,7 @@ type Button struct {
 // 
 // Frames can be specified as either an integer (the frame ID) or a string (the frame name); the same values that can be used with a Sprite constructor.
 func NewButton(game *Game) *Button {
-    return &Button{js.Global.Call("Phaser.Button", game)}
+    return &Button{js.Global.Get("Phaser").Get("Button").New(game)}
 }
 
 // Create a new `Button` object. A Button is a special type of Sprite that is set-up to handle Pointer events automatically.
@@ -53,7 +53,7 @@ func NewButton(game *Game) *Button {
 // 
 // Frames can be specified as either an integer (the frame ID) or a string (the frame name); the same values that can be used with a Sprite constructor.
 func NewButton1O(game *Game, x int) *Button {
-    return &Button{js.Global.Call("Phaser.Button", game, x)}
+    return &Button{js.Global.Get("Phaser").Get("Button").New(game, x)}
 }
 
 // Create a new `Button` object. A Button is a special type of Sprite that is set-up to handle Pointer events automatically.
@@ -69,7 +69,7 @@ func NewButton1O(game *Game, x int) *Button {
 // 
 // Frames can be specified as either an integer (the frame ID) or a string (the frame name); the same values that can be used with a Sprite constructor.
 func NewButton2O(game *Game, x int, y int) *Button {
-    return &Button{js.Global.Call("Phaser.Button", game, x, y)}
+    return &Button{js.Global.Get("Phaser").Get("Button").New(game, x, y)}
 }
 
 // Create a new `Button` object. A Button is a special type of Sprite that is set-up to handle Pointer events automatically.
@@ -85,7 +85,7 @@ func NewButton2O(game *Game, x int, y int) *Button {
 // 
 // Frames can be specified as either an integer (the frame ID) or a string (the frame name); the same values that can be used with a Sprite constructor.
 func NewButton3O(game *Game, x int, y int, key string) *Button {
-    return &Button{js.Global.Call("Phaser.Button", game, x, y, key)}
+    return &Button{js.Global.Get("Phaser").Get("Button").New(game, x, y, key)}
 }
 
 // Create a new `Button` object. A Button is a special type of Sprite that is set-up to handle Pointer events automatically.
@@ -100,8 +100,8 @@ func NewButton3O(game *Game, x int, y int, key string) *Button {
 // A different texture/frame and activation sound can be specified for any of the states.
 // 
 // Frames can be specified as either an integer (the frame ID) or a string (the frame name); the same values that can be used with a Sprite constructor.
-func NewButton4O(game *Game, x int, y int, key string, callback func(...interface{})) *Button {
-    return &Button{js.Global.Call("Phaser.Button", game, x, y, key, callback)}
+func NewButton4O(game *Game, x int, y int, key string, callback interface{}) *Button {
+    return &Button{js.Global.Get("Phaser").Get("Button").New(game, x, y, key, callback)}
 }
 
 // Create a new `Button` object. A Button is a special type of Sprite that is set-up to handle Pointer events automatically.
@@ -116,8 +116,8 @@ func NewButton4O(game *Game, x int, y int, key string, callback func(...interfac
 // A different texture/frame and activation sound can be specified for any of the states.
 // 
 // Frames can be specified as either an integer (the frame ID) or a string (the frame name); the same values that can be used with a Sprite constructor.
-func NewButton5O(game *Game, x int, y int, key string, callback func(...interface{}), callbackContext interface{}) *Button {
-    return &Button{js.Global.Call("Phaser.Button", game, x, y, key, callback, callbackContext)}
+func NewButton5O(game *Game, x int, y int, key string, callback interface{}, callbackContext interface{}) *Button {
+    return &Button{js.Global.Get("Phaser").Get("Button").New(game, x, y, key, callback, callbackContext)}
 }
 
 // Create a new `Button` object. A Button is a special type of Sprite that is set-up to handle Pointer events automatically.
@@ -132,8 +132,8 @@ func NewButton5O(game *Game, x int, y int, key string, callback func(...interfac
 // A different texture/frame and activation sound can be specified for any of the states.
 // 
 // Frames can be specified as either an integer (the frame ID) or a string (the frame name); the same values that can be used with a Sprite constructor.
-func NewButton6O(game *Game, x int, y int, key string, callback func(...interface{}), callbackContext interface{}, overFrame interface{}) *Button {
-    return &Button{js.Global.Call("Phaser.Button", game, x, y, key, callback, callbackContext, overFrame)}
+func NewButton6O(game *Game, x int, y int, key string, callback interface{}, callbackContext interface{}, overFrame interface{}) *Button {
+    return &Button{js.Global.Get("Phaser").Get("Button").New(game, x, y, key, callback, callbackContext, overFrame)}
 }
 
 // Create a new `Button` object. A Button is a special type of Sprite that is set-up to handle Pointer events automatically.
@@ -148,8 +148,8 @@ func NewButton6O(game *Game, x int, y int, key string, callback func(...interfac
 // A different texture/frame and activation sound can be specified for any of the states.
 // 
 // Frames can be specified as either an integer (the frame ID) or a string (the frame name); the same values that can be used with a Sprite constructor.
-func NewButton7O(game *Game, x int, y int, key string, callback func(...interface{}), callbackContext interface{}, overFrame interface{}, outFrame interface{}) *Button {
-    return &Button{js.Global.Call("Phaser.Button", game, x, y, key, callback, callbackContext, overFrame, outFrame)}
+func NewButton7O(game *Game, x int, y int, key string, callback interface{}, callbackContext interface{}, overFrame interface{}, outFrame interface{}) *Button {
+    return &Button{js.Global.Get("Phaser").Get("Button").New(game, x, y, key, callback, callbackContext, overFrame, outFrame)}
 }
 
 // Create a new `Button` object. A Button is a special type of Sprite that is set-up to handle Pointer events automatically.
@@ -164,8 +164,8 @@ func NewButton7O(game *Game, x int, y int, key string, callback func(...interfac
 // A different texture/frame and activation sound can be specified for any of the states.
 // 
 // Frames can be specified as either an integer (the frame ID) or a string (the frame name); the same values that can be used with a Sprite constructor.
-func NewButton8O(game *Game, x int, y int, key string, callback func(...interface{}), callbackContext interface{}, overFrame interface{}, outFrame interface{}, downFrame interface{}) *Button {
-    return &Button{js.Global.Call("Phaser.Button", game, x, y, key, callback, callbackContext, overFrame, outFrame, downFrame)}
+func NewButton8O(game *Game, x int, y int, key string, callback interface{}, callbackContext interface{}, overFrame interface{}, outFrame interface{}, downFrame interface{}) *Button {
+    return &Button{js.Global.Get("Phaser").Get("Button").New(game, x, y, key, callback, callbackContext, overFrame, outFrame, downFrame)}
 }
 
 // Create a new `Button` object. A Button is a special type of Sprite that is set-up to handle Pointer events automatically.
@@ -180,8 +180,8 @@ func NewButton8O(game *Game, x int, y int, key string, callback func(...interfac
 // A different texture/frame and activation sound can be specified for any of the states.
 // 
 // Frames can be specified as either an integer (the frame ID) or a string (the frame name); the same values that can be used with a Sprite constructor.
-func NewButton9O(game *Game, x int, y int, key string, callback func(...interface{}), callbackContext interface{}, overFrame interface{}, outFrame interface{}, downFrame interface{}, upFrame interface{}) *Button {
-    return &Button{js.Global.Call("Phaser.Button", game, x, y, key, callback, callbackContext, overFrame, outFrame, downFrame, upFrame)}
+func NewButton9O(game *Game, x int, y int, key string, callback interface{}, callbackContext interface{}, overFrame interface{}, outFrame interface{}, downFrame interface{}, upFrame interface{}) *Button {
+    return &Button{js.Global.Get("Phaser").Get("Button").New(game, x, y, key, callback, callbackContext, overFrame, outFrame, downFrame, upFrame)}
 }
 
 // Create a new `Button` object. A Button is a special type of Sprite that is set-up to handle Pointer events automatically.
@@ -197,13 +197,13 @@ func NewButton9O(game *Game, x int, y int, key string, callback func(...interfac
 // 
 // Frames can be specified as either an integer (the frame ID) or a string (the frame name); the same values that can be used with a Sprite constructor.
 func NewButtonI(args ...interface{}) *Button {
-    return &Button{js.Global.Call("Phaser.Button", args)}
+    return &Button{js.Global.Get("Phaser").Get("Button").New(args)}
 }
 
 
 
 // The Phaser Object Type.
-func (self *Button) GetTypeA() int{
+func (self *Button) Type() int{
     return self.Object.Get("type").Int()
 }
 
@@ -213,7 +213,7 @@ func (self *Button) SetTypeA(member int) {
 }
 
 // The const physics body type of this object.
-func (self *Button) GetPhysicsTypeA() int{
+func (self *Button) PhysicsType() int{
     return self.Object.Get("physicsType").Int()
 }
 
@@ -223,7 +223,7 @@ func (self *Button) SetPhysicsTypeA(member int) {
 }
 
 // The Sound to be played when this Buttons Over state is activated.
-func (self *Button) GetOnOverSoundA() interface{}{
+func (self *Button) OnOverSound() interface{}{
     return self.Object.Get("onOverSound")
 }
 
@@ -233,7 +233,7 @@ func (self *Button) SetOnOverSoundA(member interface{}) {
 }
 
 // The Sound to be played when this Buttons Out state is activated.
-func (self *Button) GetOnOutSoundA() interface{}{
+func (self *Button) OnOutSound() interface{}{
     return self.Object.Get("onOutSound")
 }
 
@@ -243,7 +243,7 @@ func (self *Button) SetOnOutSoundA(member interface{}) {
 }
 
 // The Sound to be played when this Buttons Down state is activated.
-func (self *Button) GetOnDownSoundA() interface{}{
+func (self *Button) OnDownSound() interface{}{
     return self.Object.Get("onDownSound")
 }
 
@@ -253,7 +253,7 @@ func (self *Button) SetOnDownSoundA(member interface{}) {
 }
 
 // The Sound to be played when this Buttons Up state is activated.
-func (self *Button) GetOnUpSoundA() interface{}{
+func (self *Button) OnUpSound() interface{}{
     return self.Object.Get("onUpSound")
 }
 
@@ -263,7 +263,7 @@ func (self *Button) SetOnUpSoundA(member interface{}) {
 }
 
 // The Sound Marker used in conjunction with the onOverSound.
-func (self *Button) GetOnOverSoundMarkerA() string{
+func (self *Button) OnOverSoundMarker() string{
     return self.Object.Get("onOverSoundMarker").String()
 }
 
@@ -273,7 +273,7 @@ func (self *Button) SetOnOverSoundMarkerA(member string) {
 }
 
 // The Sound Marker used in conjunction with the onOutSound.
-func (self *Button) GetOnOutSoundMarkerA() string{
+func (self *Button) OnOutSoundMarker() string{
     return self.Object.Get("onOutSoundMarker").String()
 }
 
@@ -283,7 +283,7 @@ func (self *Button) SetOnOutSoundMarkerA(member string) {
 }
 
 // The Sound Marker used in conjunction with the onDownSound.
-func (self *Button) GetOnDownSoundMarkerA() string{
+func (self *Button) OnDownSoundMarker() string{
     return self.Object.Get("onDownSoundMarker").String()
 }
 
@@ -293,7 +293,7 @@ func (self *Button) SetOnDownSoundMarkerA(member string) {
 }
 
 // The Sound Marker used in conjunction with the onUpSound.
-func (self *Button) GetOnUpSoundMarkerA() string{
+func (self *Button) OnUpSoundMarker() string{
     return self.Object.Get("onUpSoundMarker").String()
 }
 
@@ -303,7 +303,7 @@ func (self *Button) SetOnUpSoundMarkerA(member string) {
 }
 
 // The Signal (or event) dispatched when this Button is in an Over state.
-func (self *Button) GetOnInputOverA() *Signal{
+func (self *Button) OnInputOver() *Signal{
     return &Signal{self.Object.Get("onInputOver")}
 }
 
@@ -313,7 +313,7 @@ func (self *Button) SetOnInputOverA(member *Signal) {
 }
 
 // The Signal (or event) dispatched when this Button is in an Out state.
-func (self *Button) GetOnInputOutA() *Signal{
+func (self *Button) OnInputOut() *Signal{
     return &Signal{self.Object.Get("onInputOut")}
 }
 
@@ -323,7 +323,7 @@ func (self *Button) SetOnInputOutA(member *Signal) {
 }
 
 // The Signal (or event) dispatched when this Button is in an Down state.
-func (self *Button) GetOnInputDownA() *Signal{
+func (self *Button) OnInputDown() *Signal{
     return &Signal{self.Object.Get("onInputDown")}
 }
 
@@ -333,7 +333,7 @@ func (self *Button) SetOnInputDownA(member *Signal) {
 }
 
 // The Signal (or event) dispatched when this Button is in an Up state.
-func (self *Button) GetOnInputUpA() *Signal{
+func (self *Button) OnInputUp() *Signal{
     return &Signal{self.Object.Get("onInputUp")}
 }
 
@@ -344,7 +344,7 @@ func (self *Button) SetOnInputUpA(member *Signal) {
 
 // If true then onOver events (such as onOverSound) will only be triggered if the Pointer object causing them was the Mouse Pointer.
 // The frame will still be changed as applicable.
-func (self *Button) GetOnOverMouseOnlyA() bool{
+func (self *Button) OnOverMouseOnly() bool{
     return self.Object.Get("onOverMouseOnly").Bool()
 }
 
@@ -357,7 +357,7 @@ func (self *Button) SetOnOverMouseOnlyA(member bool) {
 // Suppresse the over event if a pointer was just released and it matches the given {@link Phaser.PointerModer pointer mode bitmask}.
 // 
 // This behavior was introduced in Phaser 2.3.1; this property is a soft-revert of the change.
-func (self *Button) GetJustReleasedPreventsOverA() *PointerMode{
+func (self *Button) JustReleasedPreventsOver() *PointerMode{
     return &PointerMode{self.Object.Get("justReleasedPreventsOver")}
 }
 
@@ -369,7 +369,7 @@ func (self *Button) SetJustReleasedPreventsOverA(member *PointerMode) {
 }
 
 // When true the the texture frame will not be automatically switched on up/down/over/out events.
-func (self *Button) GetFreezeFramesA() bool{
+func (self *Button) FreezeFrames() bool{
     return self.Object.Get("freezeFrames").Bool()
 }
 
@@ -381,7 +381,7 @@ func (self *Button) SetFreezeFramesA(member bool) {
 // When the Button is touched / clicked and then released you can force it to enter a state of "out" instead of "up".
 // 
 // This can also accept a {@link Phaser.PointerModer pointer mode bitmask} for more refined control.
-func (self *Button) GetForceOutA() interface{}{
+func (self *Button) ForceOut() interface{}{
     return self.Object.Get("forceOut")
 }
 
@@ -396,7 +396,7 @@ func (self *Button) SetForceOutA(member interface{}) {
 // The default is 0,0 this means the texture's origin is the top left
 // Setting than anchor to 0.5,0.5 means the textures origin is centered
 // Setting the anchor to 1,1 would mean the textures origin points will be the bottom right corner
-func (self *Button) GetAnchorA() *Point{
+func (self *Button) Anchor() *Point{
     return &Point{self.Object.Get("anchor")}
 }
 
@@ -409,7 +409,7 @@ func (self *Button) SetAnchorA(member *Point) {
 }
 
 // The texture that the sprite is using
-func (self *Button) GetTextureA() *Texture{
+func (self *Button) Texture() *Texture{
     return &Texture{self.Object.Get("texture")}
 }
 
@@ -419,7 +419,7 @@ func (self *Button) SetTextureA(member *Texture) {
 }
 
 // The tint applied to the sprite. This is a hex value. A value of 0xFFFFFF will remove any tint effect.
-func (self *Button) GetTintA() int{
+func (self *Button) Tint() int{
     return self.Object.Get("tint").Int()
 }
 
@@ -429,7 +429,7 @@ func (self *Button) SetTintA(member int) {
 }
 
 // A canvas that contains the tinted version of the Sprite (in Canvas mode, WebGL doesn't populate this)
-func (self *Button) GetTintedTextureA() *Canvas{
+func (self *Button) TintedTexture() *Canvas{
     return &Canvas{self.Object.Get("tintedTexture")}
 }
 
@@ -441,7 +441,7 @@ func (self *Button) SetTintedTextureA(member *Canvas) {
 // The blend mode to be applied to the sprite. Set to PIXI.blendModes.NORMAL to remove any blend mode.
 // 
 // Warning: You cannot have a blend mode and a filter active on the same Sprite. Doing so will render the sprite invisible.
-func (self *Button) GetBlendModeA() int{
+func (self *Button) BlendMode() int{
     return self.Object.Get("blendMode").Int()
 }
 
@@ -453,7 +453,7 @@ func (self *Button) SetBlendModeA(member int) {
 }
 
 // The shader that will be used to render the texture to the stage. Set to null to remove a current shader.
-func (self *Button) GetShaderA() *AbstractFilter{
+func (self *Button) Shader() *AbstractFilter{
     return &AbstractFilter{self.Object.Get("shader")}
 }
 
@@ -463,7 +463,7 @@ func (self *Button) SetShaderA(member *AbstractFilter) {
 }
 
 // Controls if this Sprite is processed by the core Phaser game loops and Group loops.
-func (self *Button) GetExistsA() bool{
+func (self *Button) Exists() bool{
     return self.Object.Get("exists").Bool()
 }
 
@@ -473,7 +473,7 @@ func (self *Button) SetExistsA(member bool) {
 }
 
 // The width of the sprite, setting this will actually modify the scale to achieve the value set
-func (self *Button) GetWidthA() int{
+func (self *Button) Width() int{
     return self.Object.Get("width").Int()
 }
 
@@ -483,7 +483,7 @@ func (self *Button) SetWidthA(member int) {
 }
 
 // The height of the sprite, setting this will actually modify the scale to achieve the value set
-func (self *Button) GetHeightA() int{
+func (self *Button) Height() int{
     return self.Object.Get("height").Int()
 }
 
@@ -493,7 +493,7 @@ func (self *Button) SetHeightA(member int) {
 }
 
 // [read-only] The array of children of this container.
-func (self *Button) GetChildrenA() []DisplayObject{
+func (self *Button) Children() []DisplayObject{
 	array00 := self.Object.Get("children")
 	length00 := array00.Length()
 	out00 := make([]DisplayObject, length00, length00)
@@ -513,7 +513,7 @@ func (self *Button) SetChildrenA(member []DisplayObject) {
 // If this property is `true` then the children will _not_ be considered as valid for Input events.
 // 
 // Note that this property isn't recursive: only immediate children are influenced, it doesn't scan further down.
-func (self *Button) GetIgnoreChildInputA() bool{
+func (self *Button) IgnoreChildInput() bool{
     return self.Object.Get("ignoreChildInput").Bool()
 }
 
@@ -527,7 +527,7 @@ func (self *Button) SetIgnoreChildInputA(member bool) {
 }
 
 // A reference to the currently running Game.
-func (self *Button) GetGameA() *Game{
+func (self *Button) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -538,7 +538,7 @@ func (self *Button) SetGameA(member *Game) {
 
 // A user defined name given to this Game Object.
 // This value isn't ever used internally by Phaser, it is meant as a game level property.
-func (self *Button) GetNameA() string{
+func (self *Button) Name() string{
     return self.Object.Get("name").String()
 }
 
@@ -552,7 +552,7 @@ func (self *Button) SetNameA(member string) {
 // This value isn't ever used internally by Phaser, but may be used by your own code, or
 // by Phaser Plugins, to store data that needs to be associated with the Game Object,
 // without polluting the Game Object directly.
-func (self *Button) GetDataA() interface{}{
+func (self *Button) Data() interface{}{
     return self.Object.Get("data")
 }
 
@@ -565,7 +565,7 @@ func (self *Button) SetDataA(member interface{}) {
 }
 
 // The components this Game Object has installed.
-func (self *Button) GetComponentsA() interface{}{
+func (self *Button) Components() interface{}{
     return self.Object.Get("components")
 }
 
@@ -578,7 +578,7 @@ func (self *Button) SetComponentsA(member interface{}) {
 // No two objects in a Group can have the same z value.
 // This value is adjusted automatically whenever the Group hierarchy changes.
 // If you wish to re-order the layering of a Game Object then see methods like Group.moveUp or Group.bringToTop.
-func (self *Button) GetZA() int{
+func (self *Button) Z() int{
     return self.Object.Get("z").Int()
 }
 
@@ -592,7 +592,7 @@ func (self *Button) SetZA(member int) {
 
 // All Phaser Game Objects have an Events class which contains all of the events that are dispatched when certain things happen to this
 // Game Object, or any of its components.
-func (self *Button) GetEventsA() *Events{
+func (self *Button) Events() *Events{
     return &Events{self.Object.Get("events")}
 }
 
@@ -604,7 +604,7 @@ func (self *Button) SetEventsA(member *Events) {
 
 // If the Game Object is enabled for animation (such as a Phaser.Sprite) this is a reference to its AnimationManager instance.
 // Through it you can create, play, pause and stop animations.
-func (self *Button) GetAnimationsA() *AnimationManager{
+func (self *Button) Animations() *AnimationManager{
     return &AnimationManager{self.Object.Get("animations")}
 }
 
@@ -619,7 +619,7 @@ func (self *Button) SetAnimationsA(member *AnimationManager) {
 // It can also be an instance of a RenderTexture, BitmapData, Video or PIXI.Texture.
 // If a Game Object is created without a key it is automatically assigned the key `__default` which is a 32x32 transparent PNG stored within the Cache.
 // If a Game Object is given a key which doesn't exist in the Image Cache it is re-assigned the key `__missing` which is a 32x32 PNG of a green box with a line through it.
-func (self *Button) GetKeyA() interface{}{
+func (self *Button) Key() interface{}{
     return self.Object.Get("key")
 }
 
@@ -635,7 +635,7 @@ func (self *Button) SetKeyA(member interface{}) {
 // The world coordinates of this Game Object in pixels.
 // Depending on where in the display list this Game Object is placed this value can differ from `position`, 
 // which contains the x/y coordinates relative to the Game Objects parent.
-func (self *Button) GetWorldA() *Point{
+func (self *Button) World() *Point{
     return &Point{self.Object.Get("world")}
 }
 
@@ -647,7 +647,7 @@ func (self *Button) SetWorldA(member *Point) {
 }
 
 // A debug flag designed for use with `Game.enableStep`.
-func (self *Button) GetDebugA() bool{
+func (self *Button) Debug() bool{
     return self.Object.Get("debug").Bool()
 }
 
@@ -657,7 +657,7 @@ func (self *Button) SetDebugA(member bool) {
 }
 
 // The position the Game Object was located in the previous frame.
-func (self *Button) GetPreviousPositionA() *Point{
+func (self *Button) PreviousPosition() *Point{
     return &Point{self.Object.Get("previousPosition")}
 }
 
@@ -667,7 +667,7 @@ func (self *Button) SetPreviousPositionA(member *Point) {
 }
 
 // The rotation the Game Object was in set to in the previous frame. Value is in radians.
-func (self *Button) GetPreviousRotationA() int{
+func (self *Button) PreviousRotation() int{
     return self.Object.Get("previousRotation").Int()
 }
 
@@ -678,7 +678,7 @@ func (self *Button) SetPreviousRotationA(member int) {
 
 // The render order ID is used internally by the renderer and Input Manager and should not be modified.
 // This property is mostly used internally by the renderers, but is exposed for the use of plugins.
-func (self *Button) GetRenderOrderIDA() int{
+func (self *Button) RenderOrderID() int{
     return self.Object.Get("renderOrderID").Int()
 }
 
@@ -690,7 +690,7 @@ func (self *Button) SetRenderOrderIDA(member int) {
 
 // A Game Object is considered `fresh` if it has just been created or reset and is yet to receive a renderer transform update.
 // This property is mostly used internally by the physics systems, but is exposed for the use of plugins.
-func (self *Button) GetFreshA() bool{
+func (self *Button) Fresh() bool{
     return self.Object.Get("fresh").Bool()
 }
 
@@ -705,7 +705,7 @@ func (self *Button) SetFreshA(member bool) {
 // 
 // This is extremely useful if you wish to destroy an object from within one of its own callbacks 
 // such as with Buttons or other Input events.
-func (self *Button) GetPendingDestroyA() bool{
+func (self *Button) PendingDestroy() bool{
     return self.Object.Get("pendingDestroy").Bool()
 }
 
@@ -727,7 +727,7 @@ func (self *Button) SetPendingDestroyA(member bool) {
 // 
 // If you wish to work in radians instead of degrees you can use the property `rotation` instead. 
 // Working in radians is slightly faster as it doesn't have to perform any calculations.
-func (self *Button) GetAngleA() int{
+func (self *Button) Angle() int{
     return self.Object.Get("angle").Int()
 }
 
@@ -750,7 +750,7 @@ func (self *Button) SetAngleA(member int) {
 // 
 // This is a relatively expensive operation, especially if enabled on hundreds of Game Objects. So enable it only if you know it's required,
 // or you have tested performance and find it acceptable.
-func (self *Button) GetAutoCullA() bool{
+func (self *Button) AutoCull() bool{
     return self.Object.Get("autoCull").Bool()
 }
 
@@ -766,7 +766,7 @@ func (self *Button) SetAutoCullA(member bool) {
 
 // Checks if the Game Objects bounds intersect with the Game Camera bounds.
 // Returns `true` if they do, otherwise `false` if fully outside of the Cameras bounds.
-func (self *Button) GetInCameraA() bool{
+func (self *Button) InCamera() bool{
     return self.Object.Get("inCamera").Bool()
 }
 
@@ -779,7 +779,7 @@ func (self *Button) SetInCameraA(member bool) {
 // The amount the Game Object is visually offset from its x coordinate.
 // This is the same as `width * anchor.x`.
 // It will only be > 0 if anchor.x is not equal to zero.
-func (self *Button) GetOffsetXA() int{
+func (self *Button) OffsetX() int{
     return self.Object.Get("offsetX").Int()
 }
 
@@ -793,7 +793,7 @@ func (self *Button) SetOffsetXA(member int) {
 // The amount the Game Object is visually offset from its y coordinate.
 // This is the same as `height * anchor.y`.
 // It will only be > 0 if anchor.y is not equal to zero.
-func (self *Button) GetOffsetYA() int{
+func (self *Button) OffsetY() int{
     return self.Object.Get("offsetY").Int()
 }
 
@@ -806,7 +806,7 @@ func (self *Button) SetOffsetYA(member int) {
 
 // The center x coordinate of the Game Object.
 // This is the same as `(x - offsetX) + (width / 2)`.
-func (self *Button) GetCenterXA() int{
+func (self *Button) CenterX() int{
     return self.Object.Get("centerX").Int()
 }
 
@@ -818,7 +818,7 @@ func (self *Button) SetCenterXA(member int) {
 
 // The center y coordinate of the Game Object.
 // This is the same as `(y - offsetY) + (height / 2)`.
-func (self *Button) GetCenterYA() int{
+func (self *Button) CenterY() int{
     return self.Object.Get("centerY").Int()
 }
 
@@ -830,7 +830,7 @@ func (self *Button) SetCenterYA(member int) {
 
 // The left coordinate of the Game Object.
 // This is the same as `x - offsetX`.
-func (self *Button) GetLeftA() int{
+func (self *Button) Left() int{
     return self.Object.Get("left").Int()
 }
 
@@ -842,7 +842,7 @@ func (self *Button) SetLeftA(member int) {
 
 // The right coordinate of the Game Object.
 // This is the same as `x + width - offsetX`.
-func (self *Button) GetRightA() int{
+func (self *Button) Right() int{
     return self.Object.Get("right").Int()
 }
 
@@ -854,7 +854,7 @@ func (self *Button) SetRightA(member int) {
 
 // The y coordinate of the Game Object.
 // This is the same as `y - offsetY`.
-func (self *Button) GetTopA() int{
+func (self *Button) Top() int{
     return self.Object.Get("top").Int()
 }
 
@@ -866,7 +866,7 @@ func (self *Button) SetTopA(member int) {
 
 // The sum of the y and height properties.
 // This is the same as `y + height - offsetY`.
-func (self *Button) GetBottomA() int{
+func (self *Button) Bottom() int{
     return self.Object.Get("bottom").Int()
 }
 
@@ -879,7 +879,7 @@ func (self *Button) SetBottomA(member int) {
 // The Rectangle used to crop the texture this Game Object uses.
 // Set this property via `crop`. 
 // If you modify this property directly you must call `updateCrop` in order to have the change take effect.
-func (self *Button) GetCropRectA() *Rectangle{
+func (self *Button) CropRect() *Rectangle{
     return &Rectangle{self.Object.Get("cropRect")}
 }
 
@@ -892,7 +892,7 @@ func (self *Button) SetCropRectA(member *Rectangle) {
 
 // As a Game Object runs through its destroy method this flag is set to true, 
 // and can be checked in any sub-systems or plugins it is being destroyed from.
-func (self *Button) GetDestroyPhaseA() bool{
+func (self *Button) DestroyPhase() bool{
     return self.Object.Get("destroyPhase").Bool()
 }
 
@@ -915,7 +915,7 @@ func (self *Button) SetDestroyPhaseA(member bool) {
 // Note that the `cameraOffset` values are in addition to any parent of this Game Object on the display list.
 // 
 // Be careful not to set `fixedToCamera` on Game Objects which are in Groups that already have `fixedToCamera` enabled on them.
-func (self *Button) GetFixedToCameraA() bool{
+func (self *Button) FixedToCamera() bool{
     return self.Object.Get("fixedToCamera").Bool()
 }
 
@@ -939,7 +939,7 @@ func (self *Button) SetFixedToCameraA(member bool) {
 // The x/y coordinate offset applied to the top-left of the camera that this Game Object will be drawn at if `fixedToCamera` is true.
 // 
 // The values are relative to the top-left of the camera view and in addition to any parent of the Game Object on the display list.
-func (self *Button) GetCameraOffsetA() *Point{
+func (self *Button) CameraOffset() *Point{
     return &Point{self.Object.Get("cameraOffset")}
 }
 
@@ -955,7 +955,7 @@ func (self *Button) SetCameraOffsetA(member *Point) {
 // By default it is disabled. If you wish this Game Object to process input events you should enable it with: `inputEnabled = true`.
 // 
 // After you have done this, this property will be a reference to the Phaser InputHandler.
-func (self *Button) GetInputA() interface{}{
+func (self *Button) Input() interface{}{
     return self.Object.Get("input")
 }
 
@@ -980,7 +980,7 @@ func (self *Button) SetInputA(member interface{}) {
 // If you want to _temporarily_ disable input for a Game Object, then it's better to set
 // `input.enabled = false`, as it won't reset any of the Input Handlers internal properties.
 // You can then toggle this back on as needed.
-func (self *Button) GetInputEnabledA() bool{
+func (self *Button) InputEnabled() bool{
     return self.Object.Get("inputEnabled").Bool()
 }
 
@@ -1007,7 +1007,7 @@ func (self *Button) SetInputEnabledA(member bool) {
 // 
 // This property is mostly just provided to be used by your game - it doesn't effect rendering or logic updates.
 // However you can use `Group.getFirstAlive` in conjunction with this property for fast object pooling and recycling.
-func (self *Button) GetAliveA() bool{
+func (self *Button) Alive() bool{
     return self.Object.Get("alive").Bool()
 }
 
@@ -1030,7 +1030,7 @@ func (self *Button) SetAliveA(member bool) {
 // When it reaches zero it will call the `kill` method.
 // 
 // Very handy for particles, bullets, collectibles, or any other short-lived entity.
-func (self *Button) GetLifespanA() int{
+func (self *Button) Lifespan() int{
     return self.Object.Get("lifespan").Int()
 }
 
@@ -1056,7 +1056,7 @@ func (self *Button) SetLifespanA(member int) {
 // If you are using a texture atlas then you should use the `frameName` property instead.
 // 
 // If you wish to fully replace the texture being used see `loadTexture`.
-func (self *Button) GetFrameA() int{
+func (self *Button) Frame() int{
     return self.Object.Get("frame").Int()
 }
 
@@ -1084,7 +1084,7 @@ func (self *Button) SetFrameA(member int) {
 // If you are using a sprite sheet then you should use the `frame` property instead.
 // 
 // If you wish to fully replace the texture being used see `loadTexture`.
-func (self *Button) GetFrameNameA() string{
+func (self *Button) FrameName() string{
     return self.Object.Get("frameName").String()
 }
 
@@ -1107,7 +1107,7 @@ func (self *Button) SetFrameNameA(member string) {
 // It only takes effect if the Game Object is using an image based texture.
 // 
 // Smoothing is enabled by default.
-func (self *Button) GetSmoothedA() bool{
+func (self *Button) Smoothed() bool{
     return self.Object.Get("smoothed").Bool()
 }
 

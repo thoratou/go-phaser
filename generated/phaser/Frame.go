@@ -15,18 +15,18 @@ type Frame struct {
 
 // A Frame is a single frame of an animation and is part of a FrameData collection.
 func NewFrame(index int, x int, y int, width int, height int, name string) *Frame {
-    return &Frame{js.Global.Call("Phaser.Frame", index, x, y, width, height, name)}
+    return &Frame{js.Global.Get("Phaser").Get("Frame").New(index, x, y, width, height, name)}
 }
 
 // A Frame is a single frame of an animation and is part of a FrameData collection.
 func NewFrameI(args ...interface{}) *Frame {
-    return &Frame{js.Global.Call("Phaser.Frame", args)}
+    return &Frame{js.Global.Get("Phaser").Get("Frame").New(args)}
 }
 
 
 
 // The index of this Frame within the FrameData set it is being added to.
-func (self *Frame) GetIndexA() int{
+func (self *Frame) Index() int{
     return self.Object.Get("index").Int()
 }
 
@@ -36,7 +36,7 @@ func (self *Frame) SetIndexA(member int) {
 }
 
 // X position within the image to cut from.
-func (self *Frame) GetXA() int{
+func (self *Frame) X() int{
     return self.Object.Get("x").Int()
 }
 
@@ -46,7 +46,7 @@ func (self *Frame) SetXA(member int) {
 }
 
 // Y position within the image to cut from.
-func (self *Frame) GetYA() int{
+func (self *Frame) Y() int{
     return self.Object.Get("y").Int()
 }
 
@@ -56,7 +56,7 @@ func (self *Frame) SetYA(member int) {
 }
 
 // Width of the frame.
-func (self *Frame) GetWidthA() int{
+func (self *Frame) Width() int{
     return self.Object.Get("width").Int()
 }
 
@@ -66,7 +66,7 @@ func (self *Frame) SetWidthA(member int) {
 }
 
 // Height of the frame.
-func (self *Frame) GetHeightA() int{
+func (self *Frame) Height() int{
     return self.Object.Get("height").Int()
 }
 
@@ -76,7 +76,7 @@ func (self *Frame) SetHeightA(member int) {
 }
 
 // Useful for Texture Atlas files (is set to the filename value).
-func (self *Frame) GetNameA() string{
+func (self *Frame) Name() string{
     return self.Object.Get("name").String()
 }
 
@@ -86,7 +86,7 @@ func (self *Frame) SetNameA(member string) {
 }
 
 // Center X position within the image to cut from.
-func (self *Frame) GetCenterXA() int{
+func (self *Frame) CenterX() int{
     return self.Object.Get("centerX").Int()
 }
 
@@ -96,7 +96,7 @@ func (self *Frame) SetCenterXA(member int) {
 }
 
 // Center Y position within the image to cut from.
-func (self *Frame) GetCenterYA() int{
+func (self *Frame) CenterY() int{
     return self.Object.Get("centerY").Int()
 }
 
@@ -106,7 +106,7 @@ func (self *Frame) SetCenterYA(member int) {
 }
 
 // The distance from the top left to the bottom-right of this Frame.
-func (self *Frame) GetDistanceA() int{
+func (self *Frame) Distance() int{
     return self.Object.Get("distance").Int()
 }
 
@@ -116,7 +116,7 @@ func (self *Frame) SetDistanceA(member int) {
 }
 
 // Rotated? (not yet implemented)
-func (self *Frame) GetRotatedA() bool{
+func (self *Frame) Rotated() bool{
     return self.Object.Get("rotated").Bool()
 }
 
@@ -126,7 +126,7 @@ func (self *Frame) SetRotatedA(member bool) {
 }
 
 // Either 'cw' or 'ccw', rotation is always 90 degrees.
-func (self *Frame) GetRotationDirectionA() string{
+func (self *Frame) RotationDirection() string{
     return self.Object.Get("rotationDirection").String()
 }
 
@@ -136,7 +136,7 @@ func (self *Frame) SetRotationDirectionA(member string) {
 }
 
 // Was it trimmed when packed?
-func (self *Frame) GetTrimmedA() bool{
+func (self *Frame) Trimmed() bool{
     return self.Object.Get("trimmed").Bool()
 }
 
@@ -146,7 +146,7 @@ func (self *Frame) SetTrimmedA(member bool) {
 }
 
 // Width of the original sprite before it was trimmed.
-func (self *Frame) GetSourceSizeWA() int{
+func (self *Frame) SourceSizeW() int{
     return self.Object.Get("sourceSizeW").Int()
 }
 
@@ -156,7 +156,7 @@ func (self *Frame) SetSourceSizeWA(member int) {
 }
 
 // Height of the original sprite before it was trimmed.
-func (self *Frame) GetSourceSizeHA() int{
+func (self *Frame) SourceSizeH() int{
     return self.Object.Get("sourceSizeH").Int()
 }
 
@@ -166,7 +166,7 @@ func (self *Frame) SetSourceSizeHA(member int) {
 }
 
 // X position of the trimmed sprite inside original sprite.
-func (self *Frame) GetSpriteSourceSizeXA() int{
+func (self *Frame) SpriteSourceSizeX() int{
     return self.Object.Get("spriteSourceSizeX").Int()
 }
 
@@ -176,7 +176,7 @@ func (self *Frame) SetSpriteSourceSizeXA(member int) {
 }
 
 // Y position of the trimmed sprite inside original sprite.
-func (self *Frame) GetSpriteSourceSizeYA() int{
+func (self *Frame) SpriteSourceSizeY() int{
     return self.Object.Get("spriteSourceSizeY").Int()
 }
 
@@ -186,7 +186,7 @@ func (self *Frame) SetSpriteSourceSizeYA(member int) {
 }
 
 // Width of the trimmed sprite.
-func (self *Frame) GetSpriteSourceSizeWA() int{
+func (self *Frame) SpriteSourceSizeW() int{
     return self.Object.Get("spriteSourceSizeW").Int()
 }
 
@@ -196,7 +196,7 @@ func (self *Frame) SetSpriteSourceSizeWA(member int) {
 }
 
 // Height of the trimmed sprite.
-func (self *Frame) GetSpriteSourceSizeHA() int{
+func (self *Frame) SpriteSourceSizeH() int{
     return self.Object.Get("spriteSourceSizeH").Int()
 }
 
@@ -206,7 +206,7 @@ func (self *Frame) SetSpriteSourceSizeHA(member int) {
 }
 
 // The right of the Frame (x + width).
-func (self *Frame) GetRightA() int{
+func (self *Frame) Right() int{
     return self.Object.Get("right").Int()
 }
 
@@ -216,7 +216,7 @@ func (self *Frame) SetRightA(member int) {
 }
 
 // The bottom of the frame (y + height).
-func (self *Frame) GetBottomA() int{
+func (self *Frame) Bottom() int{
     return self.Object.Get("bottom").Int()
 }
 

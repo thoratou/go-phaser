@@ -15,18 +15,18 @@ type Pointer struct {
 
 // A Pointer object is used by the Mouse, Touch and MSPoint managers and represents a single finger on the touch screen.
 func NewPointer(game *Game, id int, pointerMode *PointerMode) *Pointer {
-    return &Pointer{js.Global.Call("Phaser.Pointer", game, id, pointerMode)}
+    return &Pointer{js.Global.Get("Phaser").Get("Pointer").New(game, id, pointerMode)}
 }
 
 // A Pointer object is used by the Mouse, Touch and MSPoint managers and represents a single finger on the touch screen.
 func NewPointerI(args ...interface{}) *Pointer {
-    return &Pointer{js.Global.Call("Phaser.Pointer", args)}
+    return &Pointer{js.Global.Get("Phaser").Get("Pointer").New(args)}
 }
 
 
 
 // A reference to the currently running game.
-func (self *Pointer) GetGameA() *Game{
+func (self *Pointer) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -36,7 +36,7 @@ func (self *Pointer) SetGameA(member *Game) {
 }
 
 // The ID of the Pointer object within the game. Each game can have up to 10 active pointers.
-func (self *Pointer) GetIdA() int{
+func (self *Pointer) Id() int{
     return self.Object.Get("id").Int()
 }
 
@@ -46,7 +46,7 @@ func (self *Pointer) SetIdA(member int) {
 }
 
 // The const type of this object.
-func (self *Pointer) GetTypeA() int{
+func (self *Pointer) Type() int{
     return self.Object.Get("type").Int()
 }
 
@@ -56,7 +56,7 @@ func (self *Pointer) SetTypeA(member int) {
 }
 
 // A Pointer object that exists is allowed to be checked for physics collisions and overlaps.
-func (self *Pointer) GetExistsA() bool{
+func (self *Pointer) Exists() bool{
     return self.Object.Get("exists").Bool()
 }
 
@@ -66,7 +66,7 @@ func (self *Pointer) SetExistsA(member bool) {
 }
 
 // The identifier property of the Pointer as set by the DOM event when this Pointer is started.
-func (self *Pointer) GetIdentifierA() int{
+func (self *Pointer) Identifier() int{
     return self.Object.Get("identifier").Int()
 }
 
@@ -76,7 +76,7 @@ func (self *Pointer) SetIdentifierA(member int) {
 }
 
 // The pointerId property of the Pointer as set by the DOM event when this Pointer is started. The browser can and will recycle this value.
-func (self *Pointer) GetPointerIdA() int{
+func (self *Pointer) PointerId() int{
     return self.Object.Get("pointerId").Int()
 }
 
@@ -86,7 +86,7 @@ func (self *Pointer) SetPointerIdA(member int) {
 }
 
 // The operational mode of this pointer.
-func (self *Pointer) GetPointerModeA() *PointerMode{
+func (self *Pointer) PointerMode() *PointerMode{
     return &PointerMode{self.Object.Get("pointerMode")}
 }
 
@@ -96,7 +96,7 @@ func (self *Pointer) SetPointerModeA(member *PointerMode) {
 }
 
 // The target property of the Pointer as set by the DOM event when this Pointer is started.
-func (self *Pointer) GetTargetA() interface{}{
+func (self *Pointer) Target() interface{}{
     return self.Object.Get("target")
 }
 
@@ -108,7 +108,7 @@ func (self *Pointer) SetTargetA(member interface{}) {
 // The button property of the most recent DOM event when this Pointer is started.
 // You should not rely on this value for accurate button detection, instead use the Pointer properties
 // `leftButton`, `rightButton`, `middleButton` and so on.
-func (self *Pointer) GetButtonA() interface{}{
+func (self *Pointer) Button() interface{}{
     return self.Object.Get("button")
 }
 
@@ -123,7 +123,7 @@ func (self *Pointer) SetButtonA(member interface{}) {
 // 
 // The DeviceButton has its own properties such as `isDown`, `duration` and methods like `justReleased` for more fine-grained
 // button control.
-func (self *Pointer) GetLeftButtonA() *DeviceButton{
+func (self *Pointer) LeftButton() *DeviceButton{
     return &DeviceButton{self.Object.Get("leftButton")}
 }
 
@@ -141,7 +141,7 @@ func (self *Pointer) SetLeftButtonA(member *DeviceButton) {
 // button control.
 // 
 // Please see the DeviceButton docs for details on browser button limitations.
-func (self *Pointer) GetMiddleButtonA() *DeviceButton{
+func (self *Pointer) MiddleButton() *DeviceButton{
     return &DeviceButton{self.Object.Get("middleButton")}
 }
 
@@ -161,7 +161,7 @@ func (self *Pointer) SetMiddleButtonA(member *DeviceButton) {
 // button control.
 // 
 // Please see the DeviceButton docs for details on browser button limitations.
-func (self *Pointer) GetRightButtonA() *DeviceButton{
+func (self *Pointer) RightButton() *DeviceButton{
     return &DeviceButton{self.Object.Get("rightButton")}
 }
 
@@ -181,7 +181,7 @@ func (self *Pointer) SetRightButtonA(member *DeviceButton) {
 // button control.
 // 
 // Please see the DeviceButton docs for details on browser button limitations.
-func (self *Pointer) GetBackButtonA() *DeviceButton{
+func (self *Pointer) BackButton() *DeviceButton{
     return &DeviceButton{self.Object.Get("backButton")}
 }
 
@@ -201,7 +201,7 @@ func (self *Pointer) SetBackButtonA(member *DeviceButton) {
 // button control.
 // 
 // Please see the DeviceButton docs for details on browser button limitations.
-func (self *Pointer) GetForwardButtonA() *DeviceButton{
+func (self *Pointer) ForwardButton() *DeviceButton{
     return &DeviceButton{self.Object.Get("forwardButton")}
 }
 
@@ -221,7 +221,7 @@ func (self *Pointer) SetForwardButtonA(member *DeviceButton) {
 // button control.
 // 
 // Please see the DeviceButton docs for details on browser button limitations.
-func (self *Pointer) GetEraserButtonA() *DeviceButton{
+func (self *Pointer) EraserButton() *DeviceButton{
     return &DeviceButton{self.Object.Get("eraserButton")}
 }
 
@@ -236,7 +236,7 @@ func (self *Pointer) SetEraserButtonA(member *DeviceButton) {
 }
 
 // true if the Pointer is over the game canvas, otherwise false.
-func (self *Pointer) GetWithinGameA() bool{
+func (self *Pointer) WithinGame() bool{
     return self.Object.Get("withinGame").Bool()
 }
 
@@ -246,7 +246,7 @@ func (self *Pointer) SetWithinGameA(member bool) {
 }
 
 // The horizontal coordinate of the Pointer within the application's client area at which the event occurred (as opposed to the coordinates within the page).
-func (self *Pointer) GetClientXA() int{
+func (self *Pointer) ClientX() int{
     return self.Object.Get("clientX").Int()
 }
 
@@ -256,7 +256,7 @@ func (self *Pointer) SetClientXA(member int) {
 }
 
 // The vertical coordinate of the Pointer within the application's client area at which the event occurred (as opposed to the coordinates within the page).
-func (self *Pointer) GetClientYA() int{
+func (self *Pointer) ClientY() int{
     return self.Object.Get("clientY").Int()
 }
 
@@ -266,7 +266,7 @@ func (self *Pointer) SetClientYA(member int) {
 }
 
 // The horizontal coordinate of the Pointer relative to whole document.
-func (self *Pointer) GetPageXA() int{
+func (self *Pointer) PageX() int{
     return self.Object.Get("pageX").Int()
 }
 
@@ -276,7 +276,7 @@ func (self *Pointer) SetPageXA(member int) {
 }
 
 // The vertical coordinate of the Pointer relative to whole document.
-func (self *Pointer) GetPageYA() int{
+func (self *Pointer) PageY() int{
     return self.Object.Get("pageY").Int()
 }
 
@@ -286,7 +286,7 @@ func (self *Pointer) SetPageYA(member int) {
 }
 
 // The horizontal coordinate of the Pointer relative to the screen.
-func (self *Pointer) GetScreenXA() int{
+func (self *Pointer) ScreenX() int{
     return self.Object.Get("screenX").Int()
 }
 
@@ -296,7 +296,7 @@ func (self *Pointer) SetScreenXA(member int) {
 }
 
 // The vertical coordinate of the Pointer relative to the screen.
-func (self *Pointer) GetScreenYA() int{
+func (self *Pointer) ScreenY() int{
     return self.Object.Get("screenY").Int()
 }
 
@@ -306,7 +306,7 @@ func (self *Pointer) SetScreenYA(member int) {
 }
 
 // The horizontal raw relative movement of the Pointer in pixels since last event.
-func (self *Pointer) GetRawMovementXA() int{
+func (self *Pointer) RawMovementX() int{
     return self.Object.Get("rawMovementX").Int()
 }
 
@@ -316,7 +316,7 @@ func (self *Pointer) SetRawMovementXA(member int) {
 }
 
 // The vertical raw relative movement of the Pointer in pixels since last event.
-func (self *Pointer) GetRawMovementYA() int{
+func (self *Pointer) RawMovementY() int{
     return self.Object.Get("rawMovementY").Int()
 }
 
@@ -326,7 +326,7 @@ func (self *Pointer) SetRawMovementYA(member int) {
 }
 
 // The horizontal processed relative movement of the Pointer in pixels since last event.
-func (self *Pointer) GetMovementXA() int{
+func (self *Pointer) MovementX() int{
     return self.Object.Get("movementX").Int()
 }
 
@@ -336,7 +336,7 @@ func (self *Pointer) SetMovementXA(member int) {
 }
 
 // The vertical processed relative movement of the Pointer in pixels since last event.
-func (self *Pointer) GetMovementYA() int{
+func (self *Pointer) MovementY() int{
     return self.Object.Get("movementY").Int()
 }
 
@@ -346,7 +346,7 @@ func (self *Pointer) SetMovementYA(member int) {
 }
 
 // The horizontal coordinate of the Pointer. This value is automatically scaled based on the game scale.
-func (self *Pointer) GetXA() int{
+func (self *Pointer) X() int{
     return self.Object.Get("x").Int()
 }
 
@@ -356,7 +356,7 @@ func (self *Pointer) SetXA(member int) {
 }
 
 // The vertical coordinate of the Pointer. This value is automatically scaled based on the game scale.
-func (self *Pointer) GetYA() int{
+func (self *Pointer) Y() int{
     return self.Object.Get("y").Int()
 }
 
@@ -366,7 +366,7 @@ func (self *Pointer) SetYA(member int) {
 }
 
 // If the Pointer is a mouse or pen / stylus this is true, otherwise false.
-func (self *Pointer) GetIsMouseA() bool{
+func (self *Pointer) IsMouse() bool{
     return self.Object.Get("isMouse").Bool()
 }
 
@@ -377,7 +377,7 @@ func (self *Pointer) SetIsMouseA(member bool) {
 
 // If the Pointer is touching the touchscreen, or *any* mouse or pen button is held down, isDown is set to true.
 // If you need to check a specific mouse or pen button then use the button properties, i.e. Pointer.rightButton.isDown.
-func (self *Pointer) GetIsDownA() bool{
+func (self *Pointer) IsDown() bool{
     return self.Object.Get("isDown").Bool()
 }
 
@@ -389,7 +389,7 @@ func (self *Pointer) SetIsDownA(member bool) {
 
 // If the Pointer is not touching the touchscreen, or *all* mouse or pen buttons are up, isUp is set to true.
 // If you need to check a specific mouse or pen button then use the button properties, i.e. Pointer.rightButton.isUp.
-func (self *Pointer) GetIsUpA() bool{
+func (self *Pointer) IsUp() bool{
     return self.Object.Get("isUp").Bool()
 }
 
@@ -400,7 +400,7 @@ func (self *Pointer) SetIsUpA(member bool) {
 }
 
 // A timestamp representing when the Pointer first touched the touchscreen.
-func (self *Pointer) GetTimeDownA() int{
+func (self *Pointer) TimeDown() int{
     return self.Object.Get("timeDown").Int()
 }
 
@@ -410,7 +410,7 @@ func (self *Pointer) SetTimeDownA(member int) {
 }
 
 // A timestamp representing when the Pointer left the touchscreen.
-func (self *Pointer) GetTimeUpA() int{
+func (self *Pointer) TimeUp() int{
     return self.Object.Get("timeUp").Int()
 }
 
@@ -420,7 +420,7 @@ func (self *Pointer) SetTimeUpA(member int) {
 }
 
 // A timestamp representing when the Pointer was last tapped or clicked.
-func (self *Pointer) GetPreviousTapTimeA() int{
+func (self *Pointer) PreviousTapTime() int{
     return self.Object.Get("previousTapTime").Int()
 }
 
@@ -430,7 +430,7 @@ func (self *Pointer) SetPreviousTapTimeA(member int) {
 }
 
 // The total number of times this Pointer has been touched to the touchscreen.
-func (self *Pointer) GetTotalTouchesA() int{
+func (self *Pointer) TotalTouches() int{
     return self.Object.Get("totalTouches").Int()
 }
 
@@ -440,7 +440,7 @@ func (self *Pointer) SetTotalTouchesA(member int) {
 }
 
 // The number of milliseconds since the last click or touch event.
-func (self *Pointer) GetMsSinceLastClickA() int{
+func (self *Pointer) MsSinceLastClick() int{
     return self.Object.Get("msSinceLastClick").Int()
 }
 
@@ -450,7 +450,7 @@ func (self *Pointer) SetMsSinceLastClickA(member int) {
 }
 
 // The Game Object this Pointer is currently over / touching / dragging.
-func (self *Pointer) GetTargetObjectA() interface{}{
+func (self *Pointer) TargetObject() interface{}{
     return self.Object.Get("targetObject")
 }
 
@@ -464,12 +464,12 @@ func (self *Pointer) SetTargetObjectA(member interface{}) {
 // valid they must have suitable a `priorityID`, be Input enabled, visible and actually have the Pointer over
 // them. You can check the contents of this array in events such as `onInputDown`, but beware it is reset
 // every frame.
-func (self *Pointer) GetInteractiveCandidatesA() []interface{}{
+func (self *Pointer) InteractiveCandidates() []interface{}{
 	array00 := self.Object.Get("interactiveCandidates")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -484,7 +484,7 @@ func (self *Pointer) SetInteractiveCandidatesA(member []interface{}) {
 }
 
 // An active pointer is one that is currently pressed down on the display. A Mouse is always active.
-func (self *Pointer) GetActiveA() bool{
+func (self *Pointer) Active() bool{
     return self.Object.Get("active").Bool()
 }
 
@@ -494,7 +494,7 @@ func (self *Pointer) SetActiveA(member bool) {
 }
 
 // A dirty pointer needs to re-poll any interactive objects it may have been over, regardless if it has moved or not.
-func (self *Pointer) GetDirtyA() bool{
+func (self *Pointer) Dirty() bool{
     return self.Object.Get("dirty").Bool()
 }
 
@@ -504,7 +504,7 @@ func (self *Pointer) SetDirtyA(member bool) {
 }
 
 // A Phaser.Point object containing the current x/y values of the pointer on the display.
-func (self *Pointer) GetPositionA() *Point{
+func (self *Pointer) Position() *Point{
     return &Point{self.Object.Get("position")}
 }
 
@@ -514,7 +514,7 @@ func (self *Pointer) SetPositionA(member *Point) {
 }
 
 // A Phaser.Point object containing the x/y values of the pointer when it was last in a down state on the display.
-func (self *Pointer) GetPositionDownA() *Point{
+func (self *Pointer) PositionDown() *Point{
     return &Point{self.Object.Get("positionDown")}
 }
 
@@ -524,7 +524,7 @@ func (self *Pointer) SetPositionDownA(member *Point) {
 }
 
 // A Phaser.Point object containing the x/y values of the pointer when it was last released.
-func (self *Pointer) GetPositionUpA() *Point{
+func (self *Pointer) PositionUp() *Point{
     return &Point{self.Object.Get("positionUp")}
 }
 
@@ -535,7 +535,7 @@ func (self *Pointer) SetPositionUpA(member *Point) {
 
 // A Phaser.Circle that is centered on the x/y coordinates of this pointer, useful for hit detection.
 // The Circle size is 44px (Apples recommended "finger tip" size).
-func (self *Pointer) GetCircleA() *Circle{
+func (self *Pointer) Circle() *Circle{
     return &Circle{self.Object.Get("circle")}
 }
 
@@ -546,7 +546,7 @@ func (self *Pointer) SetCircleA(member *Circle) {
 }
 
 // No buttons at all.
-func (self *Pointer) GetNO_BUTTONA() int{
+func (self *Pointer) NO_BUTTON() int{
     return self.Object.Get("NO_BUTTON").Int()
 }
 
@@ -556,7 +556,7 @@ func (self *Pointer) SetNO_BUTTONA(member int) {
 }
 
 // The Left Mouse button, or in PointerEvent devices a Touch contact or Pen contact.
-func (self *Pointer) GetLEFT_BUTTONA() int{
+func (self *Pointer) LEFT_BUTTON() int{
     return self.Object.Get("LEFT_BUTTON").Int()
 }
 
@@ -566,7 +566,7 @@ func (self *Pointer) SetLEFT_BUTTONA(member int) {
 }
 
 // The Right Mouse button, or in PointerEvent devices a Pen contact with a barrel button.
-func (self *Pointer) GetRIGHT_BUTTONA() int{
+func (self *Pointer) RIGHT_BUTTON() int{
     return self.Object.Get("RIGHT_BUTTON").Int()
 }
 
@@ -576,7 +576,7 @@ func (self *Pointer) SetRIGHT_BUTTONA(member int) {
 }
 
 // The Middle Mouse button.
-func (self *Pointer) GetMIDDLE_BUTTONA() int{
+func (self *Pointer) MIDDLE_BUTTON() int{
     return self.Object.Get("MIDDLE_BUTTON").Int()
 }
 
@@ -587,7 +587,7 @@ func (self *Pointer) SetMIDDLE_BUTTONA(member int) {
 
 // The X1 button. This is typically the mouse Back button, but is often reconfigured.
 // On Linux (GTK) this is unsupported. On Windows if advanced pointer software (such as IntelliPoint) is installed this doesn't register.
-func (self *Pointer) GetBACK_BUTTONA() int{
+func (self *Pointer) BACK_BUTTON() int{
     return self.Object.Get("BACK_BUTTON").Int()
 }
 
@@ -599,7 +599,7 @@ func (self *Pointer) SetBACK_BUTTONA(member int) {
 
 // The X2 button. This is typically the mouse Forward button, but is often reconfigured.
 // On Linux (GTK) this is unsupported. On Windows if advanced pointer software (such as IntelliPoint) is installed this doesn't register.
-func (self *Pointer) GetFORWARD_BUTTONA() int{
+func (self *Pointer) FORWARD_BUTTON() int{
     return self.Object.Get("FORWARD_BUTTON").Int()
 }
 
@@ -610,7 +610,7 @@ func (self *Pointer) SetFORWARD_BUTTONA(member int) {
 }
 
 // The Eraser pen button on PointerEvent supported devices only.
-func (self *Pointer) GetERASER_BUTTONA() int{
+func (self *Pointer) ERASER_BUTTON() int{
     return self.Object.Get("ERASER_BUTTON").Int()
 }
 
@@ -622,7 +622,7 @@ func (self *Pointer) SetERASER_BUTTONA(member int) {
 // How long the Pointer has been depressed on the touchscreen or *any* of the mouse buttons have been held down.
 // If not currently down it returns -1.
 // If you need to test a specific mouse or pen button then access the buttons directly, i.e. `Pointer.rightButton.duration`.
-func (self *Pointer) GetDurationA() int{
+func (self *Pointer) Duration() int{
     return self.Object.Get("duration").Int()
 }
 
@@ -634,7 +634,7 @@ func (self *Pointer) SetDurationA(member int) {
 }
 
 // Gets the X value of this Pointer in world coordinates based on the world camera.
-func (self *Pointer) GetWorldXA() int{
+func (self *Pointer) WorldX() int{
     return self.Object.Get("worldX").Int()
 }
 
@@ -644,7 +644,7 @@ func (self *Pointer) SetWorldXA(member int) {
 }
 
 // Gets the Y value of this Pointer in world coordinates based on the world camera.
-func (self *Pointer) GetWorldYA() int{
+func (self *Pointer) WorldY() int{
     return self.Object.Get("worldY").Int()
 }
 
@@ -847,7 +847,7 @@ func (self *Pointer) JustReleasedI(args ...interface{}) bool{
 // 
 // This is used internally by the ScaleManager; click trampoline usage is uncommon.
 // Click trampolines can only be added to pointers that are currently down.
-func (self *Pointer) AddClickTrampoline(name string, callback func(...interface{}), callbackContext interface{}, callbackArgs interface{}) {
+func (self *Pointer) AddClickTrampoline(name string, callback interface{}, callbackContext interface{}, callbackArgs interface{}) {
     self.Object.Call("addClickTrampoline", name, callback, callbackContext, callbackArgs)
 }
 

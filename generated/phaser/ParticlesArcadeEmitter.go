@@ -19,41 +19,41 @@ type ParticlesArcadeEmitter struct {
 // It can be used for one-time explosions or for continuous effects like rain and fire.
 // All it really does is launch Particle objects out at set intervals, and fixes their positions and velocities accordingly.
 func NewParticlesArcadeEmitter(game *Game) *ParticlesArcadeEmitter {
-    return &ParticlesArcadeEmitter{js.Global.Call("Phaser.Particles.Arcade.Emitter", game)}
+    return &ParticlesArcadeEmitter{js.Global.Get("Phaser").Get("Particles").Get("Arcade").Get("Emitter").New(game)}
 }
 
 // Emitter is a lightweight particle emitter that uses Arcade Physics.
 // It can be used for one-time explosions or for continuous effects like rain and fire.
 // All it really does is launch Particle objects out at set intervals, and fixes their positions and velocities accordingly.
 func NewParticlesArcadeEmitter1O(game *Game, x int) *ParticlesArcadeEmitter {
-    return &ParticlesArcadeEmitter{js.Global.Call("Phaser.Particles.Arcade.Emitter", game, x)}
+    return &ParticlesArcadeEmitter{js.Global.Get("Phaser").Get("Particles").Get("Arcade").Get("Emitter").New(game, x)}
 }
 
 // Emitter is a lightweight particle emitter that uses Arcade Physics.
 // It can be used for one-time explosions or for continuous effects like rain and fire.
 // All it really does is launch Particle objects out at set intervals, and fixes their positions and velocities accordingly.
 func NewParticlesArcadeEmitter2O(game *Game, x int, y int) *ParticlesArcadeEmitter {
-    return &ParticlesArcadeEmitter{js.Global.Call("Phaser.Particles.Arcade.Emitter", game, x, y)}
+    return &ParticlesArcadeEmitter{js.Global.Get("Phaser").Get("Particles").Get("Arcade").Get("Emitter").New(game, x, y)}
 }
 
 // Emitter is a lightweight particle emitter that uses Arcade Physics.
 // It can be used for one-time explosions or for continuous effects like rain and fire.
 // All it really does is launch Particle objects out at set intervals, and fixes their positions and velocities accordingly.
 func NewParticlesArcadeEmitter3O(game *Game, x int, y int, maxParticles int) *ParticlesArcadeEmitter {
-    return &ParticlesArcadeEmitter{js.Global.Call("Phaser.Particles.Arcade.Emitter", game, x, y, maxParticles)}
+    return &ParticlesArcadeEmitter{js.Global.Get("Phaser").Get("Particles").Get("Arcade").Get("Emitter").New(game, x, y, maxParticles)}
 }
 
 // Emitter is a lightweight particle emitter that uses Arcade Physics.
 // It can be used for one-time explosions or for continuous effects like rain and fire.
 // All it really does is launch Particle objects out at set intervals, and fixes their positions and velocities accordingly.
 func NewParticlesArcadeEmitterI(args ...interface{}) *ParticlesArcadeEmitter {
-    return &ParticlesArcadeEmitter{js.Global.Call("Phaser.Particles.Arcade.Emitter", args)}
+    return &ParticlesArcadeEmitter{js.Global.Get("Phaser").Get("Particles").Get("Arcade").Get("Emitter").New(args)}
 }
 
 
 
 // The total number of particles in this emitter.
-func (self *ParticlesArcadeEmitter) GetMaxParticlesA() int{
+func (self *ParticlesArcadeEmitter) MaxParticles() int{
     return self.Object.Get("maxParticles").Int()
 }
 
@@ -63,7 +63,7 @@ func (self *ParticlesArcadeEmitter) SetMaxParticlesA(member int) {
 }
 
 // A handy string name for this emitter. Can be set to anything.
-func (self *ParticlesArcadeEmitter) GetNameA() string{
+func (self *ParticlesArcadeEmitter) Name() string{
     return self.Object.Get("name").String()
 }
 
@@ -73,7 +73,7 @@ func (self *ParticlesArcadeEmitter) SetNameA(member string) {
 }
 
 // Internal Phaser Type value.
-func (self *ParticlesArcadeEmitter) GetTypeA() int{
+func (self *ParticlesArcadeEmitter) Type() int{
     return self.Object.Get("type").Int()
 }
 
@@ -83,7 +83,7 @@ func (self *ParticlesArcadeEmitter) SetTypeA(member int) {
 }
 
 // The const physics body type of this object.
-func (self *ParticlesArcadeEmitter) GetPhysicsTypeA() int{
+func (self *ParticlesArcadeEmitter) PhysicsType() int{
     return self.Object.Get("physicsType").Int()
 }
 
@@ -93,7 +93,7 @@ func (self *ParticlesArcadeEmitter) SetPhysicsTypeA(member int) {
 }
 
 // The area of the emitter. Particles can be randomly generated from anywhere within this rectangle.
-func (self *ParticlesArcadeEmitter) GetAreaA() *Rectangle{
+func (self *ParticlesArcadeEmitter) Area() *Rectangle{
     return &Rectangle{self.Object.Get("area")}
 }
 
@@ -103,7 +103,7 @@ func (self *ParticlesArcadeEmitter) SetAreaA(member *Rectangle) {
 }
 
 // The minimum possible velocity of a particle.
-func (self *ParticlesArcadeEmitter) GetMinParticleSpeedA() *Point{
+func (self *ParticlesArcadeEmitter) MinParticleSpeed() *Point{
     return &Point{self.Object.Get("minParticleSpeed")}
 }
 
@@ -113,7 +113,7 @@ func (self *ParticlesArcadeEmitter) SetMinParticleSpeedA(member *Point) {
 }
 
 // The maximum possible velocity of a particle.
-func (self *ParticlesArcadeEmitter) GetMaxParticleSpeedA() *Point{
+func (self *ParticlesArcadeEmitter) MaxParticleSpeed() *Point{
     return &Point{self.Object.Get("maxParticleSpeed")}
 }
 
@@ -123,7 +123,7 @@ func (self *ParticlesArcadeEmitter) SetMaxParticleSpeedA(member *Point) {
 }
 
 // The minimum possible scale of a particle. This is applied to the X and Y axis. If you need to control each axis see minParticleScaleX.
-func (self *ParticlesArcadeEmitter) GetMinParticleScaleA() int{
+func (self *ParticlesArcadeEmitter) MinParticleScale() int{
     return self.Object.Get("minParticleScale").Int()
 }
 
@@ -133,7 +133,7 @@ func (self *ParticlesArcadeEmitter) SetMinParticleScaleA(member int) {
 }
 
 // The maximum possible scale of a particle. This is applied to the X and Y axis. If you need to control each axis see maxParticleScaleX.
-func (self *ParticlesArcadeEmitter) GetMaxParticleScaleA() int{
+func (self *ParticlesArcadeEmitter) MaxParticleScale() int{
     return self.Object.Get("maxParticleScale").Int()
 }
 
@@ -143,12 +143,12 @@ func (self *ParticlesArcadeEmitter) SetMaxParticleScaleA(member int) {
 }
 
 // An array of the calculated scale easing data applied to particles with scaleRates > 0.
-func (self *ParticlesArcadeEmitter) GetScaleDataA() []interface{}{
+func (self *ParticlesArcadeEmitter) ScaleData() []interface{}{
 	array00 := self.Object.Get("scaleData")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -159,7 +159,7 @@ func (self *ParticlesArcadeEmitter) SetScaleDataA(member []interface{}) {
 }
 
 // The minimum possible angular velocity of a particle.
-func (self *ParticlesArcadeEmitter) GetMinRotationA() int{
+func (self *ParticlesArcadeEmitter) MinRotation() int{
     return self.Object.Get("minRotation").Int()
 }
 
@@ -169,7 +169,7 @@ func (self *ParticlesArcadeEmitter) SetMinRotationA(member int) {
 }
 
 // The maximum possible angular velocity of a particle.
-func (self *ParticlesArcadeEmitter) GetMaxRotationA() int{
+func (self *ParticlesArcadeEmitter) MaxRotation() int{
     return self.Object.Get("maxRotation").Int()
 }
 
@@ -179,7 +179,7 @@ func (self *ParticlesArcadeEmitter) SetMaxRotationA(member int) {
 }
 
 // The minimum possible alpha value of a particle.
-func (self *ParticlesArcadeEmitter) GetMinParticleAlphaA() int{
+func (self *ParticlesArcadeEmitter) MinParticleAlpha() int{
     return self.Object.Get("minParticleAlpha").Int()
 }
 
@@ -189,7 +189,7 @@ func (self *ParticlesArcadeEmitter) SetMinParticleAlphaA(member int) {
 }
 
 // The maximum possible alpha value of a particle.
-func (self *ParticlesArcadeEmitter) GetMaxParticleAlphaA() int{
+func (self *ParticlesArcadeEmitter) MaxParticleAlpha() int{
     return self.Object.Get("maxParticleAlpha").Int()
 }
 
@@ -199,12 +199,12 @@ func (self *ParticlesArcadeEmitter) SetMaxParticleAlphaA(member int) {
 }
 
 // An array of the calculated alpha easing data applied to particles with alphaRates > 0.
-func (self *ParticlesArcadeEmitter) GetAlphaDataA() []interface{}{
+func (self *ParticlesArcadeEmitter) AlphaData() []interface{}{
 	array00 := self.Object.Get("alphaData")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -215,7 +215,7 @@ func (self *ParticlesArcadeEmitter) SetAlphaDataA(member []interface{}) {
 }
 
 // Sets the `body.gravity.y` of each particle sprite to this value on launch.
-func (self *ParticlesArcadeEmitter) GetGravityA() int{
+func (self *ParticlesArcadeEmitter) Gravity() int{
     return self.Object.Get("gravity").Int()
 }
 
@@ -225,7 +225,7 @@ func (self *ParticlesArcadeEmitter) SetGravityA(member int) {
 }
 
 // For emitting your own particle class types. They must extend Phaser.Particle.
-func (self *ParticlesArcadeEmitter) GetParticleClassA() interface{}{
+func (self *ParticlesArcadeEmitter) ParticleClass() interface{}{
     return self.Object.Get("particleClass")
 }
 
@@ -235,7 +235,7 @@ func (self *ParticlesArcadeEmitter) SetParticleClassA(member interface{}) {
 }
 
 // The X and Y drag component of particles launched from the emitter.
-func (self *ParticlesArcadeEmitter) GetParticleDragA() *Point{
+func (self *ParticlesArcadeEmitter) ParticleDrag() *Point{
     return &Point{self.Object.Get("particleDrag")}
 }
 
@@ -245,7 +245,7 @@ func (self *ParticlesArcadeEmitter) SetParticleDragA(member *Point) {
 }
 
 // The angular drag component of particles launched from the emitter if they are rotating.
-func (self *ParticlesArcadeEmitter) GetAngularDragA() int{
+func (self *ParticlesArcadeEmitter) AngularDrag() int{
     return self.Object.Get("angularDrag").Int()
 }
 
@@ -255,7 +255,7 @@ func (self *ParticlesArcadeEmitter) SetAngularDragA(member int) {
 }
 
 // How often a particle is emitted in ms (if emitter is started with Explode === false).
-func (self *ParticlesArcadeEmitter) GetFrequencyA() int{
+func (self *ParticlesArcadeEmitter) Frequency() int{
     return self.Object.Get("frequency").Int()
 }
 
@@ -265,7 +265,7 @@ func (self *ParticlesArcadeEmitter) SetFrequencyA(member int) {
 }
 
 // How long each particle lives once it is emitted in ms. Default is 2 seconds. Set lifespan to 'zero' for particles to live forever.
-func (self *ParticlesArcadeEmitter) GetLifespanA() int{
+func (self *ParticlesArcadeEmitter) Lifespan() int{
     return self.Object.Get("lifespan").Int()
 }
 
@@ -275,7 +275,7 @@ func (self *ParticlesArcadeEmitter) SetLifespanA(member int) {
 }
 
 // How much each particle should bounce on each axis. 1 = full bounce, 0 = no bounce.
-func (self *ParticlesArcadeEmitter) GetBounceA() *Point{
+func (self *ParticlesArcadeEmitter) Bounce() *Point{
     return &Point{self.Object.Get("bounce")}
 }
 
@@ -285,7 +285,7 @@ func (self *ParticlesArcadeEmitter) SetBounceA(member *Point) {
 }
 
 // Determines whether the emitter is currently emitting particles. It is totally safe to directly toggle this.
-func (self *ParticlesArcadeEmitter) GetOnA() bool{
+func (self *ParticlesArcadeEmitter) On() bool{
     return self.Object.Get("on").Bool()
 }
 
@@ -295,7 +295,7 @@ func (self *ParticlesArcadeEmitter) SetOnA(member bool) {
 }
 
 // When a particle is created its anchor will be set to match this Point object (defaults to x/y: 0.5 to aid in rotation)
-func (self *ParticlesArcadeEmitter) GetParticleAnchorA() *Point{
+func (self *ParticlesArcadeEmitter) ParticleAnchor() *Point{
     return &Point{self.Object.Get("particleAnchor")}
 }
 
@@ -305,7 +305,7 @@ func (self *ParticlesArcadeEmitter) SetParticleAnchorA(member *Point) {
 }
 
 // The blendMode as set on the particle when emitted from the Emitter. Defaults to NORMAL. Needs browser capable of supporting canvas blend-modes (most not available in WebGL)
-func (self *ParticlesArcadeEmitter) GetBlendModeA() int{
+func (self *ParticlesArcadeEmitter) BlendMode() int{
     return self.Object.Get("blendMode").Int()
 }
 
@@ -317,7 +317,7 @@ func (self *ParticlesArcadeEmitter) SetBlendModeA(member int) {
 // The point the particles are emitted from.
 // Emitter.x and Emitter.y control the containers location, which updates all current particles
 // Emitter.emitX and Emitter.emitY control the emission location relative to the x/y position.
-func (self *ParticlesArcadeEmitter) GetEmitXA() int{
+func (self *ParticlesArcadeEmitter) EmitX() int{
     return self.Object.Get("emitX").Int()
 }
 
@@ -331,7 +331,7 @@ func (self *ParticlesArcadeEmitter) SetEmitXA(member int) {
 // The point the particles are emitted from.
 // Emitter.x and Emitter.y control the containers location, which updates all current particles
 // Emitter.emitX and Emitter.emitY control the emission location relative to the x/y position.
-func (self *ParticlesArcadeEmitter) GetEmitYA() int{
+func (self *ParticlesArcadeEmitter) EmitY() int{
     return self.Object.Get("emitY").Int()
 }
 
@@ -343,7 +343,7 @@ func (self *ParticlesArcadeEmitter) SetEmitYA(member int) {
 }
 
 // When a new Particle is emitted this controls if it will automatically scale in size. Use Emitter.setScale to configure.
-func (self *ParticlesArcadeEmitter) GetAutoScaleA() bool{
+func (self *ParticlesArcadeEmitter) AutoScale() bool{
     return self.Object.Get("autoScale").Bool()
 }
 
@@ -353,7 +353,7 @@ func (self *ParticlesArcadeEmitter) SetAutoScaleA(member bool) {
 }
 
 // When a new Particle is emitted this controls if it will automatically change alpha. Use Emitter.setAlpha to configure.
-func (self *ParticlesArcadeEmitter) GetAutoAlphaA() bool{
+func (self *ParticlesArcadeEmitter) AutoAlpha() bool{
     return self.Object.Get("autoAlpha").Bool()
 }
 
@@ -363,7 +363,7 @@ func (self *ParticlesArcadeEmitter) SetAutoAlphaA(member bool) {
 }
 
 // If this is `true` then when the Particle is emitted it will be bought to the top of the Emitters display list.
-func (self *ParticlesArcadeEmitter) GetParticleBringToTopA() bool{
+func (self *ParticlesArcadeEmitter) ParticleBringToTop() bool{
     return self.Object.Get("particleBringToTop").Bool()
 }
 
@@ -373,7 +373,7 @@ func (self *ParticlesArcadeEmitter) SetParticleBringToTopA(member bool) {
 }
 
 // If this is `true` then when the Particle is emitted it will be sent to the back of the Emitters display list.
-func (self *ParticlesArcadeEmitter) GetParticleSendToBackA() bool{
+func (self *ParticlesArcadeEmitter) ParticleSendToBack() bool{
     return self.Object.Get("particleSendToBack").Bool()
 }
 
@@ -383,7 +383,7 @@ func (self *ParticlesArcadeEmitter) SetParticleSendToBackA(member bool) {
 }
 
 // Gets or sets the width of the Emitter. This is the region in which a particle can be emitted.
-func (self *ParticlesArcadeEmitter) GetWidthA() int{
+func (self *ParticlesArcadeEmitter) Width() int{
     return self.Object.Get("width").Int()
 }
 
@@ -393,7 +393,7 @@ func (self *ParticlesArcadeEmitter) SetWidthA(member int) {
 }
 
 // Gets or sets the height of the Emitter. This is the region in which a particle can be emitted.
-func (self *ParticlesArcadeEmitter) GetHeightA() int{
+func (self *ParticlesArcadeEmitter) Height() int{
     return self.Object.Get("height").Int()
 }
 
@@ -403,7 +403,7 @@ func (self *ParticlesArcadeEmitter) SetHeightA(member int) {
 }
 
 // Gets or sets the x position of the Emitter.
-func (self *ParticlesArcadeEmitter) GetXA() int{
+func (self *ParticlesArcadeEmitter) X() int{
     return self.Object.Get("x").Int()
 }
 
@@ -413,7 +413,7 @@ func (self *ParticlesArcadeEmitter) SetXA(member int) {
 }
 
 // Gets or sets the y position of the Emitter.
-func (self *ParticlesArcadeEmitter) GetYA() int{
+func (self *ParticlesArcadeEmitter) Y() int{
     return self.Object.Get("y").Int()
 }
 
@@ -423,7 +423,7 @@ func (self *ParticlesArcadeEmitter) SetYA(member int) {
 }
 
 // Gets the left position of the Emitter.
-func (self *ParticlesArcadeEmitter) GetLeftA() int{
+func (self *ParticlesArcadeEmitter) Left() int{
     return self.Object.Get("left").Int()
 }
 
@@ -433,7 +433,7 @@ func (self *ParticlesArcadeEmitter) SetLeftA(member int) {
 }
 
 // Gets the right position of the Emitter.
-func (self *ParticlesArcadeEmitter) GetRightA() int{
+func (self *ParticlesArcadeEmitter) Right() int{
     return self.Object.Get("right").Int()
 }
 
@@ -443,7 +443,7 @@ func (self *ParticlesArcadeEmitter) SetRightA(member int) {
 }
 
 // Gets the top position of the Emitter.
-func (self *ParticlesArcadeEmitter) GetTopA() int{
+func (self *ParticlesArcadeEmitter) Top() int{
     return self.Object.Get("top").Int()
 }
 
@@ -453,7 +453,7 @@ func (self *ParticlesArcadeEmitter) SetTopA(member int) {
 }
 
 // Gets the bottom position of the Emitter.
-func (self *ParticlesArcadeEmitter) GetBottomA() int{
+func (self *ParticlesArcadeEmitter) Bottom() int{
     return self.Object.Get("bottom").Int()
 }
 
@@ -463,7 +463,7 @@ func (self *ParticlesArcadeEmitter) SetBottomA(member int) {
 }
 
 // A reference to the currently running Game.
-func (self *ParticlesArcadeEmitter) GetGameA() *Game{
+func (self *ParticlesArcadeEmitter) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -474,7 +474,7 @@ func (self *ParticlesArcadeEmitter) SetGameA(member *Game) {
 
 // The z-depth value of this object within its parent container/Group - the World is a Group as well.
 // This value must be unique for each child in a Group.
-func (self *ParticlesArcadeEmitter) GetZA() int{
+func (self *ParticlesArcadeEmitter) Z() int{
     return self.Object.Get("z").Int()
 }
 
@@ -485,7 +485,7 @@ func (self *ParticlesArcadeEmitter) SetZA(member int) {
 }
 
 // The alive property is useful for Groups that are children of other Groups and need to be included/excluded in checks like forEachAlive.
-func (self *ParticlesArcadeEmitter) GetAliveA() bool{
+func (self *ParticlesArcadeEmitter) Alive() bool{
     return self.Object.Get("alive").Bool()
 }
 
@@ -495,7 +495,7 @@ func (self *ParticlesArcadeEmitter) SetAliveA(member bool) {
 }
 
 // If exists is true the group is updated, otherwise it is skipped.
-func (self *ParticlesArcadeEmitter) GetExistsA() bool{
+func (self *ParticlesArcadeEmitter) Exists() bool{
     return self.Object.Get("exists").Bool()
 }
 
@@ -505,7 +505,7 @@ func (self *ParticlesArcadeEmitter) SetExistsA(member bool) {
 }
 
 // A group with `ignoreDestroy` set to `true` ignores all calls to its `destroy` method.
-func (self *ParticlesArcadeEmitter) GetIgnoreDestroyA() bool{
+func (self *ParticlesArcadeEmitter) IgnoreDestroy() bool{
     return self.Object.Get("ignoreDestroy").Bool()
 }
 
@@ -520,7 +520,7 @@ func (self *ParticlesArcadeEmitter) SetIgnoreDestroyA(member bool) {
 // 
 // This is extremely useful if you wish to destroy a Group from within one of its own callbacks
 // or a callback of one of its children.
-func (self *ParticlesArcadeEmitter) GetPendingDestroyA() bool{
+func (self *ParticlesArcadeEmitter) PendingDestroy() bool{
     return self.Object.Get("pendingDestroy").Bool()
 }
 
@@ -538,7 +538,7 @@ func (self *ParticlesArcadeEmitter) SetPendingDestroyA(member bool) {
 // 
 // Any object may be used but it should extend either Sprite or Image and accept the same constructor arguments:
 // when a new object is created it is passed the following parameters to its constructor: `(game, x, y, key, frame)`.
-func (self *ParticlesArcadeEmitter) GetClassTypeA() interface{}{
+func (self *ParticlesArcadeEmitter) ClassType() interface{}{
     return self.Object.Get("classType")
 }
 
@@ -553,7 +553,7 @@ func (self *ParticlesArcadeEmitter) SetClassTypeA(member interface{}) {
 // The current display object that the group cursor is pointing to, if any. (Can be set manually.)
 // 
 // The cursor is a way to iterate through the children in a Group using {@link Phaser.Group#next next} and {@link Phaser.Group#previous previous}.
-func (self *ParticlesArcadeEmitter) GetCursorA() *DisplayObject{
+func (self *ParticlesArcadeEmitter) Cursor() *DisplayObject{
     return &DisplayObject{self.Object.Get("cursor")}
 }
 
@@ -568,7 +568,7 @@ func (self *ParticlesArcadeEmitter) SetCursorA(member *DisplayObject) {
 // on any children _added_ to, or _created by_, this Group.
 // 
 // If there are children already in the Group at the time you set this property, they are not changed.
-func (self *ParticlesArcadeEmitter) GetInputEnableChildrenA() bool{
+func (self *ParticlesArcadeEmitter) InputEnableChildren() bool{
     return self.Object.Get("inputEnableChildren").Bool()
 }
 
@@ -586,7 +586,7 @@ func (self *ParticlesArcadeEmitter) SetInputEnableChildrenA(member bool) {
 // 
 // This Signal is sent 2 arguments: A reference to the Sprite that triggered the signal, and
 // a reference to the Pointer that caused it.
-func (self *ParticlesArcadeEmitter) GetOnChildInputDownA() *Signal{
+func (self *ParticlesArcadeEmitter) OnChildInputDown() *Signal{
     return &Signal{self.Object.Get("onChildInputDown")}
 }
 
@@ -607,7 +607,7 @@ func (self *ParticlesArcadeEmitter) SetOnChildInputDownA(member *Signal) {
 // This Signal is sent 3 arguments: A reference to the Sprite that triggered the signal, 
 // a reference to the Pointer that caused it, and a boolean value `isOver` that tells you if the Pointer
 // is still over the Sprite or not.
-func (self *ParticlesArcadeEmitter) GetOnChildInputUpA() *Signal{
+func (self *ParticlesArcadeEmitter) OnChildInputUp() *Signal{
     return &Signal{self.Object.Get("onChildInputUp")}
 }
 
@@ -628,7 +628,7 @@ func (self *ParticlesArcadeEmitter) SetOnChildInputUpA(member *Signal) {
 // 
 // This Signal is sent 2 arguments: A reference to the Sprite that triggered the signal, and
 // a reference to the Pointer that caused it.
-func (self *ParticlesArcadeEmitter) GetOnChildInputOverA() *Signal{
+func (self *ParticlesArcadeEmitter) OnChildInputOver() *Signal{
     return &Signal{self.Object.Get("onChildInputOver")}
 }
 
@@ -648,7 +648,7 @@ func (self *ParticlesArcadeEmitter) SetOnChildInputOverA(member *Signal) {
 // 
 // This Signal is sent 2 arguments: A reference to the Sprite that triggered the signal, and
 // a reference to the Pointer that caused it.
-func (self *ParticlesArcadeEmitter) GetOnChildInputOutA() *Signal{
+func (self *ParticlesArcadeEmitter) OnChildInputOut() *Signal{
     return &Signal{self.Object.Get("onChildInputOut")}
 }
 
@@ -667,7 +667,7 @@ func (self *ParticlesArcadeEmitter) SetOnChildInputOutA(member *Signal) {
 // If there are children already in the Group at the time you set this property, they are not changed.
 // 
 // The default body type is controlled with {@link Phaser.Group#physicsBodyType physicsBodyType}.
-func (self *ParticlesArcadeEmitter) GetEnableBodyA() bool{
+func (self *ParticlesArcadeEmitter) EnableBody() bool{
     return self.Object.Get("enableBody").Bool()
 }
 
@@ -683,7 +683,7 @@ func (self *ParticlesArcadeEmitter) SetEnableBodyA(member bool) {
 // If true when a physics body is created (via {@link Phaser.Group#enableBody enableBody}) it will create a physics debug object as well.
 // 
 // This only works for P2 bodies.
-func (self *ParticlesArcadeEmitter) GetEnableBodyDebugA() bool{
+func (self *ParticlesArcadeEmitter) EnableBodyDebug() bool{
     return self.Object.Get("enableBodyDebug").Bool()
 }
 
@@ -697,7 +697,7 @@ func (self *ParticlesArcadeEmitter) SetEnableBodyDebugA(member bool) {
 // If {@link Phaser.Group#enableBody enableBody} is true this is the type of physics body that is created on new Sprites.
 // 
 // The valid values are {@link Phaser.Physics.ARCADE}, {@link Phaser.Physics.P2JS}, {@link Phaser.Physics.NINJA}, etc.
-func (self *ParticlesArcadeEmitter) GetPhysicsBodyTypeA() int{
+func (self *ParticlesArcadeEmitter) PhysicsBodyType() int{
     return self.Object.Get("physicsBodyType").Int()
 }
 
@@ -719,7 +719,7 @@ func (self *ParticlesArcadeEmitter) SetPhysicsBodyTypeA(member int) {
 // Phaser.Physics.Arcade.BOTTOM_TOP
 // 
 // If set to `null` the Group will use whatever Phaser.Physics.Arcade.sortDirection is set to. This is the default behavior.
-func (self *ParticlesArcadeEmitter) GetPhysicsSortDirectionA() int{
+func (self *ParticlesArcadeEmitter) PhysicsSortDirection() int{
     return self.Object.Get("physicsSortDirection").Int()
 }
 
@@ -739,7 +739,7 @@ func (self *ParticlesArcadeEmitter) SetPhysicsSortDirectionA(member int) {
 }
 
 // This signal is dispatched when the group is destroyed.
-func (self *ParticlesArcadeEmitter) GetOnDestroyA() *Signal{
+func (self *ParticlesArcadeEmitter) OnDestroy() *Signal{
     return &Signal{self.Object.Get("onDestroy")}
 }
 
@@ -749,7 +749,7 @@ func (self *ParticlesArcadeEmitter) SetOnDestroyA(member *Signal) {
 }
 
 // The current index of the Group cursor. Advance it with Group.next.
-func (self *ParticlesArcadeEmitter) GetCursorIndexA() int{
+func (self *ParticlesArcadeEmitter) CursorIndex() int{
     return self.Object.Get("cursorIndex").Int()
 }
 
@@ -762,7 +762,7 @@ func (self *ParticlesArcadeEmitter) SetCursorIndexA(member int) {
 // 
 // Note that the cameraOffset values are in addition to any parent in the display list.
 // So if this Group was in a Group that has x: 200, then this will be added to the cameraOffset.x
-func (self *ParticlesArcadeEmitter) GetFixedToCameraA() bool{
+func (self *ParticlesArcadeEmitter) FixedToCamera() bool{
     return self.Object.Get("fixedToCamera").Bool()
 }
 
@@ -776,7 +776,7 @@ func (self *ParticlesArcadeEmitter) SetFixedToCameraA(member bool) {
 
 // If this object is {@link Phaser.Group#fixedToCamera fixedToCamera} then this stores the x/y position offset relative to the top-left of the camera view.
 // If the parent of this Group is also `fixedToCamera` then the offset here is in addition to that and should typically be disabled.
-func (self *ParticlesArcadeEmitter) GetCameraOffsetA() *Point{
+func (self *ParticlesArcadeEmitter) CameraOffset() *Point{
     return &Point{self.Object.Get("cameraOffset")}
 }
 
@@ -793,12 +793,12 @@ func (self *ParticlesArcadeEmitter) SetCameraOffsetA(member *Point) {
 // This hash is used automatically by Phaser Arcade Physics in order to perform non z-index based destructive sorting.
 // However if you don't use Arcade Physics, or this isn't a physics enabled Group, then you can use the hash to perform your own
 // sorting and filtering of Group children without touching their z-index (and therefore display draw order)
-func (self *ParticlesArcadeEmitter) GetHashA() []interface{}{
+func (self *ParticlesArcadeEmitter) Hash() []interface{}{
 	array00 := self.Object.Get("hash")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -815,7 +815,7 @@ func (self *ParticlesArcadeEmitter) SetHashA(member []interface{}) {
 }
 
 // Total number of existing children in the group.
-func (self *ParticlesArcadeEmitter) GetTotalA() int{
+func (self *ParticlesArcadeEmitter) Total() int{
     return self.Object.Get("total").Int()
 }
 
@@ -825,7 +825,7 @@ func (self *ParticlesArcadeEmitter) SetTotalA(member int) {
 }
 
 // Total number of children in this group, regardless of exists/alive status.
-func (self *ParticlesArcadeEmitter) GetLengthA() int{
+func (self *ParticlesArcadeEmitter) Length() int{
     return self.Object.Get("length").Int()
 }
 
@@ -840,7 +840,7 @@ func (self *ParticlesArcadeEmitter) SetLengthA(member int) {
 // 
 // This has no impact on the rotation/angle properties of the children, but it will update their worldTransform
 // and on-screen orientation and position.
-func (self *ParticlesArcadeEmitter) GetAngleA() int{
+func (self *ParticlesArcadeEmitter) Angle() int{
     return self.Object.Get("angle").Int()
 }
 
@@ -863,7 +863,7 @@ func (self *ParticlesArcadeEmitter) SetAngleA(member int) {
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *ParticlesArcadeEmitter) GetCenterXA() int{
+func (self *ParticlesArcadeEmitter) CenterX() int{
     return self.Object.Get("centerX").Int()
 }
 
@@ -889,7 +889,7 @@ func (self *ParticlesArcadeEmitter) SetCenterXA(member int) {
 // nested within another Group, with heavy transforms on it, the result of this property 
 // is likely to be incorrect. It is safe to get and set this property if the Group is a
 // top-level descendant of Phaser.World, or untransformed parents.
-func (self *ParticlesArcadeEmitter) GetCenterYA() int{
+func (self *ParticlesArcadeEmitter) CenterY() int{
     return self.Object.Get("centerY").Int()
 }
 
@@ -910,7 +910,7 @@ func (self *ParticlesArcadeEmitter) SetCenterYA(member int) {
 // 
 // This will adjust the group container itself by modifying its rotation.
 // This will have no impact on the rotation value of its children, but it will update their worldTransform and on-screen position.
-func (self *ParticlesArcadeEmitter) GetRotationA() int{
+func (self *ParticlesArcadeEmitter) Rotation() int{
     return self.Object.Get("rotation").Int()
 }
 
@@ -923,7 +923,7 @@ func (self *ParticlesArcadeEmitter) SetRotationA(member int) {
 }
 
 // The visible state of the group. Non-visible Groups and all of their children are not rendered.
-func (self *ParticlesArcadeEmitter) GetVisibleA() bool{
+func (self *ParticlesArcadeEmitter) Visible() bool{
     return self.Object.Get("visible").Bool()
 }
 
@@ -933,7 +933,7 @@ func (self *ParticlesArcadeEmitter) SetVisibleA(member bool) {
 }
 
 // The alpha value of the group container.
-func (self *ParticlesArcadeEmitter) GetAlphaA() int{
+func (self *ParticlesArcadeEmitter) Alpha() int{
     return self.Object.Get("alpha").Int()
 }
 
@@ -943,7 +943,7 @@ func (self *ParticlesArcadeEmitter) SetAlphaA(member int) {
 }
 
 // [read-only] The array of children of this container.
-func (self *ParticlesArcadeEmitter) GetChildrenA() []DisplayObject{
+func (self *ParticlesArcadeEmitter) Children() []DisplayObject{
 	array00 := self.Object.Get("children")
 	length00 := array00.Length()
 	out00 := make([]DisplayObject, length00, length00)
@@ -963,7 +963,7 @@ func (self *ParticlesArcadeEmitter) SetChildrenA(member []DisplayObject) {
 // If this property is `true` then the children will _not_ be considered as valid for Input events.
 // 
 // Note that this property isn't recursive: only immediate children are influenced, it doesn't scan further down.
-func (self *ParticlesArcadeEmitter) GetIgnoreChildInputA() bool{
+func (self *ParticlesArcadeEmitter) IgnoreChildInput() bool{
     return self.Object.Get("ignoreChildInput").Bool()
 }
 
@@ -1327,14 +1327,14 @@ func (self *ParticlesArcadeEmitter) SetAlpha3O(min int, max int, rate int) *Part
 // A more compact way of setting the alpha constraints of the particles.
 // The rate parameter, if set to a value above zero, lets you set the speed at which the Particle change in alpha from min to max.
 // If rate is zero, which is the default, the particle won't change alpha - instead it will pick a random alpha between min and max on emit.
-func (self *ParticlesArcadeEmitter) SetAlpha4O(min int, max int, rate int, ease func(...interface{})) *ParticlesArcadeEmitter{
+func (self *ParticlesArcadeEmitter) SetAlpha4O(min int, max int, rate int, ease interface{}) *ParticlesArcadeEmitter{
     return &ParticlesArcadeEmitter{self.Object.Call("setAlpha", min, max, rate, ease)}
 }
 
 // A more compact way of setting the alpha constraints of the particles.
 // The rate parameter, if set to a value above zero, lets you set the speed at which the Particle change in alpha from min to max.
 // If rate is zero, which is the default, the particle won't change alpha - instead it will pick a random alpha between min and max on emit.
-func (self *ParticlesArcadeEmitter) SetAlpha5O(min int, max int, rate int, ease func(...interface{}), yoyo bool) *ParticlesArcadeEmitter{
+func (self *ParticlesArcadeEmitter) SetAlpha5O(min int, max int, rate int, ease interface{}, yoyo bool) *ParticlesArcadeEmitter{
     return &ParticlesArcadeEmitter{self.Object.Call("setAlpha", min, max, rate, ease, yoyo)}
 }
 
@@ -1390,14 +1390,14 @@ func (self *ParticlesArcadeEmitter) SetScale5O(minX int, maxX int, minY int, max
 // A more compact way of setting the scale constraints of the particles.
 // The rate parameter, if set to a value above zero, lets you set the speed and ease which the Particle uses to change in scale from min to max across both axis.
 // If rate is zero, which is the default, the particle won't change scale during update, instead it will pick a random scale between min and max on emit.
-func (self *ParticlesArcadeEmitter) SetScale6O(minX int, maxX int, minY int, maxY int, rate int, ease func(...interface{})) *ParticlesArcadeEmitter{
+func (self *ParticlesArcadeEmitter) SetScale6O(minX int, maxX int, minY int, maxY int, rate int, ease interface{}) *ParticlesArcadeEmitter{
     return &ParticlesArcadeEmitter{self.Object.Call("setScale", minX, maxX, minY, maxY, rate, ease)}
 }
 
 // A more compact way of setting the scale constraints of the particles.
 // The rate parameter, if set to a value above zero, lets you set the speed and ease which the Particle uses to change in scale from min to max across both axis.
 // If rate is zero, which is the default, the particle won't change scale during update, instead it will pick a random scale between min and max on emit.
-func (self *ParticlesArcadeEmitter) SetScale7O(minX int, maxX int, minY int, maxY int, rate int, ease func(...interface{}), yoyo bool) *ParticlesArcadeEmitter{
+func (self *ParticlesArcadeEmitter) SetScale7O(minX int, maxX int, minY int, maxY int, rate int, ease interface{}, yoyo bool) *ParticlesArcadeEmitter{
     return &ParticlesArcadeEmitter{self.Object.Call("setScale", minX, maxX, minY, maxY, rate, ease, yoyo)}
 }
 
@@ -1751,7 +1751,7 @@ func (self *ParticlesArcadeEmitter) CreateMultiple(quantity int, key interface{}
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -1799,7 +1799,7 @@ func (self *ParticlesArcadeEmitter) CreateMultiple1O(quantity int, key interface
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -1847,7 +1847,7 @@ func (self *ParticlesArcadeEmitter) CreateMultiple2O(quantity int, key interface
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -1895,7 +1895,7 @@ func (self *ParticlesArcadeEmitter) CreateMultipleI(args ...interface{}) []inter
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -2663,7 +2663,7 @@ func (self *ParticlesArcadeEmitter) PostUpdateI(args ...interface{}) {
 //     healthyList.callAll('attack');
 // 
 // Note: Currently this will skip any children which are Groups themselves.
-func (self *ParticlesArcadeEmitter) Filter(predicate func(...interface{})) *ArraySet{
+func (self *ParticlesArcadeEmitter) Filter(predicate interface{}) *ArraySet{
     return &ArraySet{self.Object.Call("filter", predicate)}
 }
 
@@ -2677,7 +2677,7 @@ func (self *ParticlesArcadeEmitter) Filter(predicate func(...interface{})) *Arra
 //     healthyList.callAll('attack');
 // 
 // Note: Currently this will skip any children which are Groups themselves.
-func (self *ParticlesArcadeEmitter) Filter1O(predicate func(...interface{}), checkExists bool) *ArraySet{
+func (self *ParticlesArcadeEmitter) Filter1O(predicate interface{}, checkExists bool) *ArraySet{
     return &ArraySet{self.Object.Call("filter", predicate, checkExists)}
 }
 
@@ -2704,7 +2704,7 @@ func (self *ParticlesArcadeEmitter) FilterI(args ...interface{}) *ArraySet{
 // would invoke `awardBonusGold` function with the parameters `(child, 100, 500)`.
 // 
 // Note: This check will skip any children which are Groups themselves.
-func (self *ParticlesArcadeEmitter) ForEach(callback func(...interface{}), callbackContext interface{}) {
+func (self *ParticlesArcadeEmitter) ForEach(callback interface{}, callbackContext interface{}) {
     self.Object.Call("forEach", callback, callbackContext)
 }
 
@@ -2717,7 +2717,7 @@ func (self *ParticlesArcadeEmitter) ForEach(callback func(...interface{}), callb
 // would invoke `awardBonusGold` function with the parameters `(child, 100, 500)`.
 // 
 // Note: This check will skip any children which are Groups themselves.
-func (self *ParticlesArcadeEmitter) ForEach1O(callback func(...interface{}), callbackContext interface{}, checkExists bool) {
+func (self *ParticlesArcadeEmitter) ForEach1O(callback interface{}, callbackContext interface{}, checkExists bool) {
     self.Object.Call("forEach", callback, callbackContext, checkExists)
 }
 
@@ -2730,7 +2730,7 @@ func (self *ParticlesArcadeEmitter) ForEach1O(callback func(...interface{}), cal
 // would invoke `awardBonusGold` function with the parameters `(child, 100, 500)`.
 // 
 // Note: This check will skip any children which are Groups themselves.
-func (self *ParticlesArcadeEmitter) ForEach2O(callback func(...interface{}), callbackContext interface{}, checkExists bool, args interface{}) {
+func (self *ParticlesArcadeEmitter) ForEach2O(callback interface{}, callbackContext interface{}, checkExists bool, args interface{}) {
     self.Object.Call("forEach", callback, callbackContext, checkExists, args)
 }
 
@@ -2750,14 +2750,14 @@ func (self *ParticlesArcadeEmitter) ForEachI(args ...interface{}) {
 // Call a function on each existing child in this group.
 // 
 // See {@link Phaser.Group#forEach forEach} for details.
-func (self *ParticlesArcadeEmitter) ForEachExists(callback func(...interface{}), callbackContext interface{}) {
+func (self *ParticlesArcadeEmitter) ForEachExists(callback interface{}, callbackContext interface{}) {
     self.Object.Call("forEachExists", callback, callbackContext)
 }
 
 // Call a function on each existing child in this group.
 // 
 // See {@link Phaser.Group#forEach forEach} for details.
-func (self *ParticlesArcadeEmitter) ForEachExists1O(callback func(...interface{}), callbackContext interface{}, args interface{}) {
+func (self *ParticlesArcadeEmitter) ForEachExists1O(callback interface{}, callbackContext interface{}, args interface{}) {
     self.Object.Call("forEachExists", callback, callbackContext, args)
 }
 
@@ -2771,14 +2771,14 @@ func (self *ParticlesArcadeEmitter) ForEachExistsI(args ...interface{}) {
 // Call a function on each alive child in this group.
 // 
 // See {@link Phaser.Group#forEach forEach} for details.
-func (self *ParticlesArcadeEmitter) ForEachAlive(callback func(...interface{}), callbackContext interface{}) {
+func (self *ParticlesArcadeEmitter) ForEachAlive(callback interface{}, callbackContext interface{}) {
     self.Object.Call("forEachAlive", callback, callbackContext)
 }
 
 // Call a function on each alive child in this group.
 // 
 // See {@link Phaser.Group#forEach forEach} for details.
-func (self *ParticlesArcadeEmitter) ForEachAlive1O(callback func(...interface{}), callbackContext interface{}, args interface{}) {
+func (self *ParticlesArcadeEmitter) ForEachAlive1O(callback interface{}, callbackContext interface{}, args interface{}) {
     self.Object.Call("forEachAlive", callback, callbackContext, args)
 }
 
@@ -2792,14 +2792,14 @@ func (self *ParticlesArcadeEmitter) ForEachAliveI(args ...interface{}) {
 // Call a function on each dead child in this group.
 // 
 // See {@link Phaser.Group#forEach forEach} for details.
-func (self *ParticlesArcadeEmitter) ForEachDead(callback func(...interface{}), callbackContext interface{}) {
+func (self *ParticlesArcadeEmitter) ForEachDead(callback interface{}, callbackContext interface{}) {
     self.Object.Call("forEachDead", callback, callbackContext)
 }
 
 // Call a function on each dead child in this group.
 // 
 // See {@link Phaser.Group#forEach forEach} for details.
-func (self *ParticlesArcadeEmitter) ForEachDead1O(callback func(...interface{}), callbackContext interface{}, args interface{}) {
+func (self *ParticlesArcadeEmitter) ForEachDead1O(callback interface{}, callbackContext interface{}, args interface{}) {
     self.Object.Call("forEachDead", callback, callbackContext, args)
 }
 
@@ -2862,7 +2862,7 @@ func (self *ParticlesArcadeEmitter) SortI(args ...interface{}) {
 // 
 // The `sortHandler` is provided the two parameters: the two children involved in the comparison (a and b).
 // It should return -1 if `a > b`, 1 if `a < b` or 0 if `a === b`.
-func (self *ParticlesArcadeEmitter) CustomSort(sortHandler func(...interface{})) {
+func (self *ParticlesArcadeEmitter) CustomSort(sortHandler interface{}) {
     self.Object.Call("customSort", sortHandler)
 }
 
@@ -2870,7 +2870,7 @@ func (self *ParticlesArcadeEmitter) CustomSort(sortHandler func(...interface{}))
 // 
 // The `sortHandler` is provided the two parameters: the two children involved in the comparison (a and b).
 // It should return -1 if `a > b`, 1 if `a < b` or 0 if `a === b`.
-func (self *ParticlesArcadeEmitter) CustomSort1O(sortHandler func(...interface{}), context interface{}) {
+func (self *ParticlesArcadeEmitter) CustomSort1O(sortHandler interface{}, context interface{}) {
     self.Object.Call("customSort", sortHandler, context)
 }
 
@@ -2940,7 +2940,7 @@ func (self *ParticlesArcadeEmitter) Iterate(key string, value interface{}, retur
 // 
 // If `args` is specified it must be an array. The matched child will be assigned to the first
 // element and the entire array will be applied to the callback function.
-func (self *ParticlesArcadeEmitter) Iterate1O(key string, value interface{}, returnType int, callback func(...interface{})) interface{}{
+func (self *ParticlesArcadeEmitter) Iterate1O(key string, value interface{}, returnType int, callback interface{}) interface{}{
     return self.Object.Call("iterate", key, value, returnType, callback)
 }
 
@@ -2961,7 +2961,7 @@ func (self *ParticlesArcadeEmitter) Iterate1O(key string, value interface{}, ret
 // 
 // If `args` is specified it must be an array. The matched child will be assigned to the first
 // element and the entire array will be applied to the callback function.
-func (self *ParticlesArcadeEmitter) Iterate2O(key string, value interface{}, returnType int, callback func(...interface{}), callbackContext interface{}) interface{}{
+func (self *ParticlesArcadeEmitter) Iterate2O(key string, value interface{}, returnType int, callback interface{}, callbackContext interface{}) interface{}{
     return self.Object.Call("iterate", key, value, returnType, callback, callbackContext)
 }
 
@@ -2982,7 +2982,7 @@ func (self *ParticlesArcadeEmitter) Iterate2O(key string, value interface{}, ret
 // 
 // If `args` is specified it must be an array. The matched child will be assigned to the first
 // element and the entire array will be applied to the callback function.
-func (self *ParticlesArcadeEmitter) Iterate3O(key string, value interface{}, returnType int, callback func(...interface{}), callbackContext interface{}, args []interface{}) interface{}{
+func (self *ParticlesArcadeEmitter) Iterate3O(key string, value interface{}, returnType int, callback interface{}, callbackContext interface{}, args []interface{}) interface{}{
     return self.Object.Call("iterate", key, value, returnType, callback, callbackContext, args)
 }
 
@@ -3405,7 +3405,7 @@ func (self *ParticlesArcadeEmitter) GetClosestTo(object interface{}) interface{}
 // If the child is closer then the previous child, it will be sent to `callback` as the first argument,
 // with the distance as the second. The callback should return `true` if it passes your 
 // filtering criteria, otherwise it should return `false`.
-func (self *ParticlesArcadeEmitter) GetClosestTo1O(object interface{}, callback func(...interface{})) interface{}{
+func (self *ParticlesArcadeEmitter) GetClosestTo1O(object interface{}, callback interface{}) interface{}{
     return self.Object.Call("getClosestTo", object, callback)
 }
 
@@ -3419,7 +3419,7 @@ func (self *ParticlesArcadeEmitter) GetClosestTo1O(object interface{}, callback 
 // If the child is closer then the previous child, it will be sent to `callback` as the first argument,
 // with the distance as the second. The callback should return `true` if it passes your 
 // filtering criteria, otherwise it should return `false`.
-func (self *ParticlesArcadeEmitter) GetClosestTo2O(object interface{}, callback func(...interface{}), callbackContext interface{}) interface{}{
+func (self *ParticlesArcadeEmitter) GetClosestTo2O(object interface{}, callback interface{}, callbackContext interface{}) interface{}{
     return self.Object.Call("getClosestTo", object, callback, callbackContext)
 }
 
@@ -3461,7 +3461,7 @@ func (self *ParticlesArcadeEmitter) GetFurthestFrom(object interface{}) interfac
 // If the child is closer then the previous child, it will be sent to `callback` as the first argument,
 // with the distance as the second. The callback should return `true` if it passes your 
 // filtering criteria, otherwise it should return `false`.
-func (self *ParticlesArcadeEmitter) GetFurthestFrom1O(object interface{}, callback func(...interface{})) interface{}{
+func (self *ParticlesArcadeEmitter) GetFurthestFrom1O(object interface{}, callback interface{}) interface{}{
     return self.Object.Call("getFurthestFrom", object, callback)
 }
 
@@ -3475,7 +3475,7 @@ func (self *ParticlesArcadeEmitter) GetFurthestFrom1O(object interface{}, callba
 // If the child is closer then the previous child, it will be sent to `callback` as the first argument,
 // with the distance as the second. The callback should return `true` if it passes your 
 // filtering criteria, otherwise it should return `false`.
-func (self *ParticlesArcadeEmitter) GetFurthestFrom2O(object interface{}, callback func(...interface{}), callbackContext interface{}) interface{}{
+func (self *ParticlesArcadeEmitter) GetFurthestFrom2O(object interface{}, callback interface{}, callbackContext interface{}) interface{}{
     return self.Object.Call("getFurthestFrom", object, callback, callbackContext)
 }
 

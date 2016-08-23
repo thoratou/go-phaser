@@ -17,19 +17,19 @@ type Rectangle struct {
 // Creates a new Rectangle object with the top-left corner specified by the x and y parameters and with the specified width and height parameters.
 // If you call this function without parameters, a Rectangle with x, y, width, and height properties set to 0 is created.
 func NewRectangle(x int, y int, width int, height int) *Rectangle {
-    return &Rectangle{js.Global.Call("Phaser.Rectangle", x, y, width, height)}
+    return &Rectangle{js.Global.Get("Phaser").Get("Rectangle").New(x, y, width, height)}
 }
 
 // Creates a new Rectangle object with the top-left corner specified by the x and y parameters and with the specified width and height parameters.
 // If you call this function without parameters, a Rectangle with x, y, width, and height properties set to 0 is created.
 func NewRectangleI(args ...interface{}) *Rectangle {
-    return &Rectangle{js.Global.Call("Phaser.Rectangle", args)}
+    return &Rectangle{js.Global.Get("Phaser").Get("Rectangle").New(args)}
 }
 
 
 
 // The x coordinate of the top-left corner of the Rectangle.
-func (self *Rectangle) GetXA() int{
+func (self *Rectangle) X() int{
     return self.Object.Get("x").Int()
 }
 
@@ -39,7 +39,7 @@ func (self *Rectangle) SetXA(member int) {
 }
 
 // The y coordinate of the top-left corner of the Rectangle.
-func (self *Rectangle) GetYA() int{
+func (self *Rectangle) Y() int{
     return self.Object.Get("y").Int()
 }
 
@@ -49,7 +49,7 @@ func (self *Rectangle) SetYA(member int) {
 }
 
 // The width of the Rectangle. This value should never be set to a negative.
-func (self *Rectangle) GetWidthA() int{
+func (self *Rectangle) Width() int{
     return self.Object.Get("width").Int()
 }
 
@@ -59,7 +59,7 @@ func (self *Rectangle) SetWidthA(member int) {
 }
 
 // The height of the Rectangle. This value should never be set to a negative.
-func (self *Rectangle) GetHeightA() int{
+func (self *Rectangle) Height() int{
     return self.Object.Get("height").Int()
 }
 
@@ -69,7 +69,7 @@ func (self *Rectangle) SetHeightA(member int) {
 }
 
 // The const type of this object.
-func (self *Rectangle) GetTypeA() int{
+func (self *Rectangle) Type() int{
     return self.Object.Get("type").Int()
 }
 
@@ -79,7 +79,7 @@ func (self *Rectangle) SetTypeA(member int) {
 }
 
 // Half of the width of the Rectangle.
-func (self *Rectangle) GetHalfWidthA() int{
+func (self *Rectangle) HalfWidth() int{
     return self.Object.Get("halfWidth").Int()
 }
 
@@ -89,7 +89,7 @@ func (self *Rectangle) SetHalfWidthA(member int) {
 }
 
 // Half of the height of the Rectangle.
-func (self *Rectangle) GetHalfHeightA() int{
+func (self *Rectangle) HalfHeight() int{
     return self.Object.Get("halfHeight").Int()
 }
 
@@ -99,7 +99,7 @@ func (self *Rectangle) SetHalfHeightA(member int) {
 }
 
 // The sum of the y and height properties. Changing the bottom property of a Rectangle object has no effect on the x, y and width properties, but does change the height property.
-func (self *Rectangle) GetBottomA() int{
+func (self *Rectangle) Bottom() int{
     return self.Object.Get("bottom").Int()
 }
 
@@ -109,7 +109,7 @@ func (self *Rectangle) SetBottomA(member int) {
 }
 
 // The location of the Rectangles bottom left corner as a Point object. Gets or sets the location of the Rectangles bottom left corner as a Point object.
-func (self *Rectangle) GetBottomLeftA() *Point{
+func (self *Rectangle) BottomLeft() *Point{
     return &Point{self.Object.Get("bottomLeft")}
 }
 
@@ -119,7 +119,7 @@ func (self *Rectangle) SetBottomLeftA(member *Point) {
 }
 
 // The location of the Rectangles bottom right corner as a Point object. Gets or sets the location of the Rectangles bottom right corner as a Point object.
-func (self *Rectangle) GetBottomRightA() *Point{
+func (self *Rectangle) BottomRight() *Point{
     return &Point{self.Object.Get("bottomRight")}
 }
 
@@ -129,7 +129,7 @@ func (self *Rectangle) SetBottomRightA(member *Point) {
 }
 
 // The x coordinate of the left of the Rectangle. Changing the left property of a Rectangle object has no effect on the y and height properties. However it does affect the width property, whereas changing the x value does not affect the width property.
-func (self *Rectangle) GetLeftA() int{
+func (self *Rectangle) Left() int{
     return self.Object.Get("left").Int()
 }
 
@@ -139,7 +139,7 @@ func (self *Rectangle) SetLeftA(member int) {
 }
 
 // The sum of the x and width properties. Changing the right property of a Rectangle object has no effect on the x, y and height properties, however it does affect the width property.
-func (self *Rectangle) GetRightA() int{
+func (self *Rectangle) Right() int{
     return self.Object.Get("right").Int()
 }
 
@@ -149,7 +149,7 @@ func (self *Rectangle) SetRightA(member int) {
 }
 
 // The volume of the Rectangle derived from width * height.
-func (self *Rectangle) GetVolumeA() int{
+func (self *Rectangle) Volume() int{
     return self.Object.Get("volume").Int()
 }
 
@@ -159,7 +159,7 @@ func (self *Rectangle) SetVolumeA(member int) {
 }
 
 // The perimeter size of the Rectangle. This is the sum of all 4 sides.
-func (self *Rectangle) GetPerimeterA() int{
+func (self *Rectangle) Perimeter() int{
     return self.Object.Get("perimeter").Int()
 }
 
@@ -169,7 +169,7 @@ func (self *Rectangle) SetPerimeterA(member int) {
 }
 
 // The x coordinate of the center of the Rectangle.
-func (self *Rectangle) GetCenterXA() int{
+func (self *Rectangle) CenterX() int{
     return self.Object.Get("centerX").Int()
 }
 
@@ -179,7 +179,7 @@ func (self *Rectangle) SetCenterXA(member int) {
 }
 
 // The y coordinate of the center of the Rectangle.
-func (self *Rectangle) GetCenterYA() int{
+func (self *Rectangle) CenterY() int{
     return self.Object.Get("centerY").Int()
 }
 
@@ -189,7 +189,7 @@ func (self *Rectangle) SetCenterYA(member int) {
 }
 
 // A random value between the left and right values (inclusive) of the Rectangle.
-func (self *Rectangle) GetRandomXA() int{
+func (self *Rectangle) RandomX() int{
     return self.Object.Get("randomX").Int()
 }
 
@@ -199,7 +199,7 @@ func (self *Rectangle) SetRandomXA(member int) {
 }
 
 // A random value between the top and bottom values (inclusive) of the Rectangle.
-func (self *Rectangle) GetRandomYA() int{
+func (self *Rectangle) RandomY() int{
     return self.Object.Get("randomY").Int()
 }
 
@@ -210,7 +210,7 @@ func (self *Rectangle) SetRandomYA(member int) {
 
 // The y coordinate of the top of the Rectangle. Changing the top property of a Rectangle object has no effect on the x and width properties.
 // However it does affect the height property, whereas changing the y value does not affect the height property.
-func (self *Rectangle) GetTopA() int{
+func (self *Rectangle) Top() int{
     return self.Object.Get("top").Int()
 }
 
@@ -221,7 +221,7 @@ func (self *Rectangle) SetTopA(member int) {
 }
 
 // The location of the Rectangles top left corner as a Point object.
-func (self *Rectangle) GetTopLeftA() *Point{
+func (self *Rectangle) TopLeft() *Point{
     return &Point{self.Object.Get("topLeft")}
 }
 
@@ -231,7 +231,7 @@ func (self *Rectangle) SetTopLeftA(member *Point) {
 }
 
 // The location of the Rectangles top right corner as a Point object. The location of the Rectangles top left corner as a Point object.
-func (self *Rectangle) GetTopRightA() *Point{
+func (self *Rectangle) TopRight() *Point{
     return &Point{self.Object.Get("topRight")}
 }
 
@@ -242,7 +242,7 @@ func (self *Rectangle) SetTopRightA(member *Point) {
 
 // Determines whether or not this Rectangle object is empty. A Rectangle object is empty if its width or height is less than or equal to 0.
 // If set to true then all of the Rectangle properties are set to 0. Gets or sets the Rectangles empty state.
-func (self *Rectangle) GetEmptyA() bool{
+func (self *Rectangle) Empty() bool{
     return self.Object.Get("empty").Bool()
 }
 

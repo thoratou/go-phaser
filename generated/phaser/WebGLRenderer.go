@@ -23,7 +23,7 @@ type WebGLRenderer struct {
 // So no need for Sprite Batches or Sprite Clouds.
 // Don't forget to add the view to your DOM or you will not see anything :)
 func NewWebGLRenderer(game *PhaserGame) *WebGLRenderer {
-    return &WebGLRenderer{js.Global.Call("PIXI.WebGLRenderer", game)}
+    return &WebGLRenderer{js.Global.Get("PIXI").Get("WebGLRenderer").New(game)}
 }
 
 // The WebGLRenderer draws the stage and all its content onto a webGL enabled canvas. This renderer
@@ -31,13 +31,13 @@ func NewWebGLRenderer(game *PhaserGame) *WebGLRenderer {
 // So no need for Sprite Batches or Sprite Clouds.
 // Don't forget to add the view to your DOM or you will not see anything :)
 func NewWebGLRendererI(args ...interface{}) *WebGLRenderer {
-    return &WebGLRenderer{js.Global.Call("PIXI.WebGLRenderer", args)}
+    return &WebGLRenderer{js.Global.Get("PIXI").Get("WebGLRenderer").New(args)}
 }
 
 
 
 // 
-func (self *WebGLRenderer) GetGameA() *PhaserGame{
+func (self *WebGLRenderer) Game() *PhaserGame{
     return &PhaserGame{self.Object.Get("game")}
 }
 
@@ -47,7 +47,7 @@ func (self *WebGLRenderer) SetGameA(member *PhaserGame) {
 }
 
 // 
-func (self *WebGLRenderer) GetTypeA() int{
+func (self *WebGLRenderer) Type() int{
     return self.Object.Get("type").Int()
 }
 
@@ -57,7 +57,7 @@ func (self *WebGLRenderer) SetTypeA(member int) {
 }
 
 // The resolution of the renderer
-func (self *WebGLRenderer) GetResolutionA() int{
+func (self *WebGLRenderer) Resolution() int{
     return self.Object.Get("resolution").Int()
 }
 
@@ -67,7 +67,7 @@ func (self *WebGLRenderer) SetResolutionA(member int) {
 }
 
 // Whether the render view is transparent
-func (self *WebGLRenderer) GetTransparentA() bool{
+func (self *WebGLRenderer) Transparent() bool{
     return self.Object.Get("transparent").Bool()
 }
 
@@ -77,7 +77,7 @@ func (self *WebGLRenderer) SetTransparentA(member bool) {
 }
 
 // Whether the render view should be resized automatically
-func (self *WebGLRenderer) GetAutoResizeA() bool{
+func (self *WebGLRenderer) AutoResize() bool{
     return self.Object.Get("autoResize").Bool()
 }
 
@@ -87,7 +87,7 @@ func (self *WebGLRenderer) SetAutoResizeA(member bool) {
 }
 
 // The value of the preserveDrawingBuffer flag affects whether or not the contents of the stencil buffer is retained after rendering.
-func (self *WebGLRenderer) GetPreserveDrawingBufferA() bool{
+func (self *WebGLRenderer) PreserveDrawingBuffer() bool{
     return self.Object.Get("preserveDrawingBuffer").Bool()
 }
 
@@ -100,7 +100,7 @@ func (self *WebGLRenderer) SetPreserveDrawingBufferA(member bool) {
 // If the Stage is NOT transparent, Pixi will clear to alpha (0, 0, 0, 0).
 // If the Stage is transparent, Pixi will clear to the target Stage's background color.
 // Disable this by setting this to false. For example: if your game has a canvas filling background image, you often don't need this set.
-func (self *WebGLRenderer) GetClearBeforeRenderA() bool{
+func (self *WebGLRenderer) ClearBeforeRender() bool{
     return self.Object.Get("clearBeforeRender").Bool()
 }
 
@@ -113,7 +113,7 @@ func (self *WebGLRenderer) SetClearBeforeRenderA(member bool) {
 }
 
 // The width of the canvas view
-func (self *WebGLRenderer) GetWidthA() int{
+func (self *WebGLRenderer) Width() int{
     return self.Object.Get("width").Int()
 }
 
@@ -123,7 +123,7 @@ func (self *WebGLRenderer) SetWidthA(member int) {
 }
 
 // The height of the canvas view
-func (self *WebGLRenderer) GetHeightA() int{
+func (self *WebGLRenderer) Height() int{
     return self.Object.Get("height").Int()
 }
 
@@ -133,7 +133,7 @@ func (self *WebGLRenderer) SetHeightA(member int) {
 }
 
 // The canvas element that everything is drawn to
-func (self *WebGLRenderer) GetViewA() dom.HTMLCanvasElement{
+func (self *WebGLRenderer) View() dom.HTMLCanvasElement{
     return WrapHTMLCanvasElement(self.Object.Get("view"))
 }
 
@@ -143,7 +143,7 @@ func (self *WebGLRenderer) SetViewA(member dom.HTMLCanvasElement) {
 }
 
 // 
-func (self *WebGLRenderer) GetProjectionA() *Point{
+func (self *WebGLRenderer) Projection() *Point{
     return &Point{self.Object.Get("projection")}
 }
 
@@ -153,7 +153,7 @@ func (self *WebGLRenderer) SetProjectionA(member *Point) {
 }
 
 // 
-func (self *WebGLRenderer) GetOffsetA() *Point{
+func (self *WebGLRenderer) Offset() *Point{
     return &Point{self.Object.Get("offset")}
 }
 
@@ -163,7 +163,7 @@ func (self *WebGLRenderer) SetOffsetA(member *Point) {
 }
 
 // Deals with managing the shader programs and their attribs
-func (self *WebGLRenderer) GetShaderManagerA() *WebGLShaderManager{
+func (self *WebGLRenderer) ShaderManager() *WebGLShaderManager{
     return &WebGLShaderManager{self.Object.Get("shaderManager")}
 }
 
@@ -173,7 +173,7 @@ func (self *WebGLRenderer) SetShaderManagerA(member *WebGLShaderManager) {
 }
 
 // Manages the rendering of sprites
-func (self *WebGLRenderer) GetSpriteBatchA() *WebGLSpriteBatch{
+func (self *WebGLRenderer) SpriteBatch() *WebGLSpriteBatch{
     return &WebGLSpriteBatch{self.Object.Get("spriteBatch")}
 }
 
@@ -183,7 +183,7 @@ func (self *WebGLRenderer) SetSpriteBatchA(member *WebGLSpriteBatch) {
 }
 
 // Manages the masks using the stencil buffer
-func (self *WebGLRenderer) GetMaskManagerA() *WebGLMaskManager{
+func (self *WebGLRenderer) MaskManager() *WebGLMaskManager{
     return &WebGLMaskManager{self.Object.Get("maskManager")}
 }
 
@@ -193,7 +193,7 @@ func (self *WebGLRenderer) SetMaskManagerA(member *WebGLMaskManager) {
 }
 
 // Manages the filters
-func (self *WebGLRenderer) GetFilterManagerA() *WebGLFilterManager{
+func (self *WebGLRenderer) FilterManager() *WebGLFilterManager{
     return &WebGLFilterManager{self.Object.Get("filterManager")}
 }
 
@@ -203,7 +203,7 @@ func (self *WebGLRenderer) SetFilterManagerA(member *WebGLFilterManager) {
 }
 
 // Manages the stencil buffer
-func (self *WebGLRenderer) GetStencilManagerA() *WebGLStencilManager{
+func (self *WebGLRenderer) StencilManager() *WebGLStencilManager{
     return &WebGLStencilManager{self.Object.Get("stencilManager")}
 }
 
@@ -213,7 +213,7 @@ func (self *WebGLRenderer) SetStencilManagerA(member *WebGLStencilManager) {
 }
 
 // Manages the blendModes
-func (self *WebGLRenderer) GetBlendModeManagerA() *WebGLBlendModeManager{
+func (self *WebGLRenderer) BlendModeManager() *WebGLBlendModeManager{
     return &WebGLBlendModeManager{self.Object.Get("blendModeManager")}
 }
 
@@ -223,7 +223,7 @@ func (self *WebGLRenderer) SetBlendModeManagerA(member *WebGLBlendModeManager) {
 }
 
 // 
-func (self *WebGLRenderer) GetRenderSessionA() interface{}{
+func (self *WebGLRenderer) RenderSession() interface{}{
     return self.Object.Get("renderSession")
 }
 

@@ -15,18 +15,18 @@ type Strip struct {
 
 // 
 func NewStrip(texture *Texture, width int, height int) *Strip {
-    return &Strip{js.Global.Call("PIXI.Strip", texture, width, height)}
+    return &Strip{js.Global.Get("PIXI").Get("Strip").New(texture, width, height)}
 }
 
 // 
 func NewStripI(args ...interface{}) *Strip {
-    return &Strip{js.Global.Call("PIXI.Strip", args)}
+    return &Strip{js.Global.Get("PIXI").Get("Strip").New(args)}
 }
 
 
 
 // The texture of the strip
-func (self *Strip) GetTextureA() *Texture{
+func (self *Strip) Texture() *Texture{
     return &Texture{self.Object.Get("texture")}
 }
 
@@ -36,7 +36,7 @@ func (self *Strip) SetTextureA(member *Texture) {
 }
 
 // Whether the strip is dirty or not
-func (self *Strip) GetDirtyA() bool{
+func (self *Strip) Dirty() bool{
     return self.Object.Get("dirty").Bool()
 }
 
@@ -46,7 +46,7 @@ func (self *Strip) SetDirtyA(member bool) {
 }
 
 // The blend mode to be applied to the sprite. Set to PIXI.blendModes.NORMAL to remove any blend mode.
-func (self *Strip) GetBlendModeA() int{
+func (self *Strip) BlendMode() int{
     return self.Object.Get("blendMode").Int()
 }
 
@@ -56,7 +56,7 @@ func (self *Strip) SetBlendModeA(member int) {
 }
 
 // Triangles in canvas mode are automatically antialiased, use this value to force triangles to overlap a bit with each other.
-func (self *Strip) GetCanvasPaddingA() int{
+func (self *Strip) CanvasPadding() int{
     return self.Object.Get("canvasPadding").Int()
 }
 
@@ -66,7 +66,7 @@ func (self *Strip) SetCanvasPaddingA(member int) {
 }
 
 // [read-only] The array of children of this container.
-func (self *Strip) GetChildrenA() []DisplayObject{
+func (self *Strip) Children() []DisplayObject{
 	array00 := self.Object.Get("children")
 	length00 := array00.Length()
 	out00 := make([]DisplayObject, length00, length00)
@@ -86,7 +86,7 @@ func (self *Strip) SetChildrenA(member []DisplayObject) {
 // If this property is `true` then the children will _not_ be considered as valid for Input events.
 // 
 // Note that this property isn't recursive: only immediate children are influenced, it doesn't scan further down.
-func (self *Strip) GetIgnoreChildInputA() bool{
+func (self *Strip) IgnoreChildInput() bool{
     return self.Object.Get("ignoreChildInput").Bool()
 }
 
@@ -100,7 +100,7 @@ func (self *Strip) SetIgnoreChildInputA(member bool) {
 }
 
 // The width of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *Strip) GetWidthA() int{
+func (self *Strip) Width() int{
     return self.Object.Get("width").Int()
 }
 
@@ -110,7 +110,7 @@ func (self *Strip) SetWidthA(member int) {
 }
 
 // The height of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *Strip) GetHeightA() int{
+func (self *Strip) Height() int{
     return self.Object.Get("height").Int()
 }
 

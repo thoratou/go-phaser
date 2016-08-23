@@ -15,12 +15,12 @@ type ComponentReset struct {
 
 // The Reset component allows a Game Object to be reset and repositioned to a new location.
 func NewComponentReset() *ComponentReset {
-    return &ComponentReset{js.Global.Call("Phaser.Component.Reset")}
+    return &ComponentReset{js.Global.Get("Phaser").Get("Component").Get("Reset").New()}
 }
 
 // The Reset component allows a Game Object to be reset and repositioned to a new location.
 func NewComponentResetI(args ...interface{}) *ComponentReset {
-    return &ComponentReset{js.Global.Call("Phaser.Component.Reset", args)}
+    return &ComponentReset{js.Global.Get("Phaser").Get("Component").Get("Reset").New(args)}
 }
 
 

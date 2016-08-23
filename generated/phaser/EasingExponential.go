@@ -15,12 +15,12 @@ type EasingExponential struct {
 
 // Exponential easing.
 func NewEasingExponential() *EasingExponential {
-    return &EasingExponential{js.Global.Call("Phaser.Easing.Exponential")}
+    return &EasingExponential{js.Global.Get("Phaser").Get("Easing").Get("Exponential").New()}
 }
 
 // Exponential easing.
 func NewEasingExponentialI(args ...interface{}) *EasingExponential {
-    return &EasingExponential{js.Global.Call("Phaser.Easing.Exponential", args)}
+    return &EasingExponential{js.Global.Get("Phaser").Get("Easing").Get("Exponential").New(args)}
 }
 
 

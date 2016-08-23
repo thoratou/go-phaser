@@ -15,18 +15,18 @@ type TilingSprite struct {
 
 // A tiling sprite is a fast way of rendering a tiling image
 func NewTilingSprite(texture *Texture, width int, height int) *TilingSprite {
-    return &TilingSprite{js.Global.Call("PIXI.TilingSprite", texture, width, height)}
+    return &TilingSprite{js.Global.Get("PIXI").Get("TilingSprite").New(texture, width, height)}
 }
 
 // A tiling sprite is a fast way of rendering a tiling image
 func NewTilingSpriteI(args ...interface{}) *TilingSprite {
-    return &TilingSprite{js.Global.Call("PIXI.TilingSprite", args)}
+    return &TilingSprite{js.Global.Get("PIXI").Get("TilingSprite").New(args)}
 }
 
 
 
 // The width of the tiling sprite
-func (self *TilingSprite) GetWidthA() int{
+func (self *TilingSprite) Width() int{
     return self.Object.Get("width").Int()
 }
 
@@ -36,7 +36,7 @@ func (self *TilingSprite) SetWidthA(member int) {
 }
 
 // The height of the tiling sprite
-func (self *TilingSprite) GetHeightA() int{
+func (self *TilingSprite) Height() int{
     return self.Object.Get("height").Int()
 }
 
@@ -46,7 +46,7 @@ func (self *TilingSprite) SetHeightA(member int) {
 }
 
 // The scaling of the image that is being tiled
-func (self *TilingSprite) GetTileScaleA() *Point{
+func (self *TilingSprite) TileScale() *Point{
     return &Point{self.Object.Get("tileScale")}
 }
 
@@ -56,7 +56,7 @@ func (self *TilingSprite) SetTileScaleA(member *Point) {
 }
 
 // A point that represents the scale of the texture object
-func (self *TilingSprite) GetTileScaleOffsetA() *Point{
+func (self *TilingSprite) TileScaleOffset() *Point{
     return &Point{self.Object.Get("tileScaleOffset")}
 }
 
@@ -66,7 +66,7 @@ func (self *TilingSprite) SetTileScaleOffsetA(member *Point) {
 }
 
 // The offset position of the image that is being tiled
-func (self *TilingSprite) GetTilePositionA() *Point{
+func (self *TilingSprite) TilePosition() *Point{
     return &Point{self.Object.Get("tilePosition")}
 }
 
@@ -76,7 +76,7 @@ func (self *TilingSprite) SetTilePositionA(member *Point) {
 }
 
 // Whether this sprite is renderable or not
-func (self *TilingSprite) GetRenderableA() bool{
+func (self *TilingSprite) Renderable() bool{
     return self.Object.Get("renderable").Bool()
 }
 
@@ -86,7 +86,7 @@ func (self *TilingSprite) SetRenderableA(member bool) {
 }
 
 // The tint applied to the sprite. This is a hex value
-func (self *TilingSprite) GetTintA() int{
+func (self *TilingSprite) Tint() int{
     return self.Object.Get("tint").Int()
 }
 
@@ -97,7 +97,7 @@ func (self *TilingSprite) SetTintA(member int) {
 
 // If enabled a green rectangle will be drawn behind the generated tiling texture, allowing you to visually
 // debug the texture being used.
-func (self *TilingSprite) GetTextureDebugA() bool{
+func (self *TilingSprite) TextureDebug() bool{
     return self.Object.Get("textureDebug").Bool()
 }
 
@@ -108,7 +108,7 @@ func (self *TilingSprite) SetTextureDebugA(member bool) {
 }
 
 // The blend mode to be applied to the sprite
-func (self *TilingSprite) GetBlendModeA() int{
+func (self *TilingSprite) BlendMode() int{
     return self.Object.Get("blendMode").Int()
 }
 
@@ -118,7 +118,7 @@ func (self *TilingSprite) SetBlendModeA(member int) {
 }
 
 // The CanvasBuffer object that the tiled texture is drawn to.
-func (self *TilingSprite) GetCanvasBufferA() *PIXICanvasBuffer{
+func (self *TilingSprite) CanvasBuffer() *PIXICanvasBuffer{
     return &PIXICanvasBuffer{self.Object.Get("canvasBuffer")}
 }
 
@@ -128,7 +128,7 @@ func (self *TilingSprite) SetCanvasBufferA(member *PIXICanvasBuffer) {
 }
 
 // An internal Texture object that holds the tiling texture that was generated from TilingSprite.texture.
-func (self *TilingSprite) GetTilingTextureA() *PIXITexture{
+func (self *TilingSprite) TilingTexture() *PIXITexture{
     return &PIXITexture{self.Object.Get("tilingTexture")}
 }
 
@@ -138,7 +138,7 @@ func (self *TilingSprite) SetTilingTextureA(member *PIXITexture) {
 }
 
 // The Context fill pattern that is used to draw the TilingSprite in Canvas mode only (will be null in WebGL).
-func (self *TilingSprite) GetTilePatternA() *PIXITexture{
+func (self *TilingSprite) TilePattern() *PIXITexture{
     return &PIXITexture{self.Object.Get("tilePattern")}
 }
 
@@ -149,7 +149,7 @@ func (self *TilingSprite) SetTilePatternA(member *PIXITexture) {
 
 // If true the TilingSprite will run generateTexture on its **next** render pass.
 // This is set by the likes of Phaser.LoadTexture.setFrame.
-func (self *TilingSprite) GetRefreshTextureA() bool{
+func (self *TilingSprite) RefreshTexture() bool{
     return self.Object.Get("refreshTexture").Bool()
 }
 
@@ -163,7 +163,7 @@ func (self *TilingSprite) SetRefreshTextureA(member bool) {
 // The default is 0,0 this means the texture's origin is the top left
 // Setting than anchor to 0.5,0.5 means the textures origin is centered
 // Setting the anchor to 1,1 would mean the textures origin points will be the bottom right corner
-func (self *TilingSprite) GetAnchorA() *Point{
+func (self *TilingSprite) Anchor() *Point{
     return &Point{self.Object.Get("anchor")}
 }
 
@@ -176,7 +176,7 @@ func (self *TilingSprite) SetAnchorA(member *Point) {
 }
 
 // The texture that the sprite is using
-func (self *TilingSprite) GetTextureA() *Texture{
+func (self *TilingSprite) Texture() *Texture{
     return &Texture{self.Object.Get("texture")}
 }
 
@@ -186,7 +186,7 @@ func (self *TilingSprite) SetTextureA(member *Texture) {
 }
 
 // A canvas that contains the tinted version of the Sprite (in Canvas mode, WebGL doesn't populate this)
-func (self *TilingSprite) GetTintedTextureA() *Canvas{
+func (self *TilingSprite) TintedTexture() *Canvas{
     return &Canvas{self.Object.Get("tintedTexture")}
 }
 
@@ -196,7 +196,7 @@ func (self *TilingSprite) SetTintedTextureA(member *Canvas) {
 }
 
 // The shader that will be used to render the texture to the stage. Set to null to remove a current shader.
-func (self *TilingSprite) GetShaderA() *AbstractFilter{
+func (self *TilingSprite) Shader() *AbstractFilter{
     return &AbstractFilter{self.Object.Get("shader")}
 }
 
@@ -206,7 +206,7 @@ func (self *TilingSprite) SetShaderA(member *AbstractFilter) {
 }
 
 // Controls if this Sprite is processed by the core Phaser game loops and Group loops.
-func (self *TilingSprite) GetExistsA() bool{
+func (self *TilingSprite) Exists() bool{
     return self.Object.Get("exists").Bool()
 }
 
@@ -216,7 +216,7 @@ func (self *TilingSprite) SetExistsA(member bool) {
 }
 
 // [read-only] The array of children of this container.
-func (self *TilingSprite) GetChildrenA() []DisplayObject{
+func (self *TilingSprite) Children() []DisplayObject{
 	array00 := self.Object.Get("children")
 	length00 := array00.Length()
 	out00 := make([]DisplayObject, length00, length00)
@@ -236,7 +236,7 @@ func (self *TilingSprite) SetChildrenA(member []DisplayObject) {
 // If this property is `true` then the children will _not_ be considered as valid for Input events.
 // 
 // Note that this property isn't recursive: only immediate children are influenced, it doesn't scan further down.
-func (self *TilingSprite) GetIgnoreChildInputA() bool{
+func (self *TilingSprite) IgnoreChildInput() bool{
     return self.Object.Get("ignoreChildInput").Bool()
 }
 

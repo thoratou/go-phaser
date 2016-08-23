@@ -15,12 +15,12 @@ type Quat struct {
 
 // 
 func NewQuat() *Quat {
-    return &Quat{js.Global.Call("quat")}
+    return &Quat{js.Global.Get("quat").New()}
 }
 
 // 
 func NewQuatI(args ...interface{}) *Quat {
-    return &Quat{js.Global.Call("quat", args)}
+    return &Quat{js.Global.Get("quat").New(args)}
 }
 
 

@@ -15,18 +15,18 @@ type WebGLSpriteBatch struct {
 
 // 
 func NewWebGLSpriteBatch() *WebGLSpriteBatch {
-    return &WebGLSpriteBatch{js.Global.Call("PIXI.WebGLSpriteBatch")}
+    return &WebGLSpriteBatch{js.Global.Get("PIXI").Get("WebGLSpriteBatch").New()}
 }
 
 // 
 func NewWebGLSpriteBatchI(args ...interface{}) *WebGLSpriteBatch {
-    return &WebGLSpriteBatch{js.Global.Call("PIXI.WebGLSpriteBatch", args)}
+    return &WebGLSpriteBatch{js.Global.Get("PIXI").Get("WebGLSpriteBatch").New(args)}
 }
 
 
 
 // 
-func (self *WebGLSpriteBatch) GetVertSizeA() int{
+func (self *WebGLSpriteBatch) VertSize() int{
     return self.Object.Get("vertSize").Int()
 }
 
@@ -36,7 +36,7 @@ func (self *WebGLSpriteBatch) SetVertSizeA(member int) {
 }
 
 // The number of images in the SpriteBatch before it flushes
-func (self *WebGLSpriteBatch) GetSizeA() int{
+func (self *WebGLSpriteBatch) Size() int{
     return self.Object.Get("size").Int()
 }
 
@@ -46,7 +46,7 @@ func (self *WebGLSpriteBatch) SetSizeA(member int) {
 }
 
 // Holds the vertices
-func (self *WebGLSpriteBatch) GetVerticesA() *ArrayBuffer{
+func (self *WebGLSpriteBatch) Vertices() *ArrayBuffer{
     return &ArrayBuffer{self.Object.Get("vertices")}
 }
 
@@ -56,7 +56,7 @@ func (self *WebGLSpriteBatch) SetVerticesA(member *ArrayBuffer) {
 }
 
 // View on the vertices as a Float32Array
-func (self *WebGLSpriteBatch) GetPositionsA() *Float32Array{
+func (self *WebGLSpriteBatch) Positions() *Float32Array{
     return &Float32Array{self.Object.Get("positions")}
 }
 
@@ -66,7 +66,7 @@ func (self *WebGLSpriteBatch) SetPositionsA(member *Float32Array) {
 }
 
 // View on the vertices as a Uint32Array
-func (self *WebGLSpriteBatch) GetColorsA() *Uint32Array{
+func (self *WebGLSpriteBatch) Colors() *Uint32Array{
     return &Uint32Array{self.Object.Get("colors")}
 }
 
@@ -76,7 +76,7 @@ func (self *WebGLSpriteBatch) SetColorsA(member *Uint32Array) {
 }
 
 // Holds the indices
-func (self *WebGLSpriteBatch) GetIndicesA() *Uint16Array{
+func (self *WebGLSpriteBatch) Indices() *Uint16Array{
     return &Uint16Array{self.Object.Get("indices")}
 }
 
@@ -86,7 +86,7 @@ func (self *WebGLSpriteBatch) SetIndicesA(member *Uint16Array) {
 }
 
 // 
-func (self *WebGLSpriteBatch) GetLastIndexCountA() int{
+func (self *WebGLSpriteBatch) LastIndexCount() int{
     return self.Object.Get("lastIndexCount").Int()
 }
 
@@ -96,7 +96,7 @@ func (self *WebGLSpriteBatch) SetLastIndexCountA(member int) {
 }
 
 // 
-func (self *WebGLSpriteBatch) GetDrawingA() bool{
+func (self *WebGLSpriteBatch) Drawing() bool{
     return self.Object.Get("drawing").Bool()
 }
 
@@ -106,7 +106,7 @@ func (self *WebGLSpriteBatch) SetDrawingA(member bool) {
 }
 
 // 
-func (self *WebGLSpriteBatch) GetCurrentBatchSizeA() int{
+func (self *WebGLSpriteBatch) CurrentBatchSize() int{
     return self.Object.Get("currentBatchSize").Int()
 }
 
@@ -116,7 +116,7 @@ func (self *WebGLSpriteBatch) SetCurrentBatchSizeA(member int) {
 }
 
 // 
-func (self *WebGLSpriteBatch) GetCurrentBaseTextureA() *BaseTexture{
+func (self *WebGLSpriteBatch) CurrentBaseTexture() *BaseTexture{
     return &BaseTexture{self.Object.Get("currentBaseTexture")}
 }
 
@@ -126,7 +126,7 @@ func (self *WebGLSpriteBatch) SetCurrentBaseTextureA(member *BaseTexture) {
 }
 
 // 
-func (self *WebGLSpriteBatch) GetDirtyA() bool{
+func (self *WebGLSpriteBatch) Dirty() bool{
     return self.Object.Get("dirty").Bool()
 }
 
@@ -136,12 +136,12 @@ func (self *WebGLSpriteBatch) SetDirtyA(member bool) {
 }
 
 // 
-func (self *WebGLSpriteBatch) GetTexturesA() []interface{}{
+func (self *WebGLSpriteBatch) Textures() []interface{}{
 	array00 := self.Object.Get("textures")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -152,12 +152,12 @@ func (self *WebGLSpriteBatch) SetTexturesA(member []interface{}) {
 }
 
 // 
-func (self *WebGLSpriteBatch) GetBlendModesA() []interface{}{
+func (self *WebGLSpriteBatch) BlendModes() []interface{}{
 	array00 := self.Object.Get("blendModes")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -168,12 +168,12 @@ func (self *WebGLSpriteBatch) SetBlendModesA(member []interface{}) {
 }
 
 // 
-func (self *WebGLSpriteBatch) GetShadersA() []interface{}{
+func (self *WebGLSpriteBatch) Shaders() []interface{}{
 	array00 := self.Object.Get("shaders")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -184,12 +184,12 @@ func (self *WebGLSpriteBatch) SetShadersA(member []interface{}) {
 }
 
 // 
-func (self *WebGLSpriteBatch) GetSpritesA() []interface{}{
+func (self *WebGLSpriteBatch) Sprites() []interface{}{
 	array00 := self.Object.Get("sprites")
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -200,7 +200,7 @@ func (self *WebGLSpriteBatch) SetSpritesA(member []interface{}) {
 }
 
 // 
-func (self *WebGLSpriteBatch) GetDefaultShaderA() *AbstractFilter{
+func (self *WebGLSpriteBatch) DefaultShader() *AbstractFilter{
     return &AbstractFilter{self.Object.Get("defaultShader")}
 }
 

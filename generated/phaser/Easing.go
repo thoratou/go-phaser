@@ -15,12 +15,12 @@ type Easing struct {
 
 // A collection of easing methods defining ease-in and ease-out curves.
 func NewEasing() *Easing {
-    return &Easing{js.Global.Call("Phaser.Easing")}
+    return &Easing{js.Global.Get("Phaser").Get("Easing").New()}
 }
 
 // A collection of easing methods defining ease-in and ease-out curves.
 func NewEasingI(args ...interface{}) *Easing {
-    return &Easing{js.Global.Call("Phaser.Easing", args)}
+    return &Easing{js.Global.Get("Phaser").Get("Easing").New(args)}
 }
 
 

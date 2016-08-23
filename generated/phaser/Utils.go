@@ -15,12 +15,12 @@ type Utils struct {
 
 // 
 func NewUtils() *Utils {
-    return &Utils{js.Global.Call("Phaser.Utils")}
+    return &Utils{js.Global.Get("Phaser").Get("Utils").New()}
 }
 
 // 
 func NewUtilsI(args ...interface{}) *Utils {
-    return &Utils{js.Global.Call("Phaser.Utils", args)}
+    return &Utils{js.Global.Get("Phaser").Get("Utils").New(args)}
 }
 
 

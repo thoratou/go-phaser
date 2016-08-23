@@ -59,7 +59,7 @@ type Graphics struct {
 // As you can tell, Graphics objects are a bit of a trade-off. While they are extremely useful, you need to be careful
 // in their complexity and quantity of them in your game.
 func NewGraphics(game *Game) *Graphics {
-    return &Graphics{js.Global.Call("Phaser.Graphics", game)}
+    return &Graphics{js.Global.Get("Phaser").Get("Graphics").New(game)}
 }
 
 // A Graphics object is a way to draw primitives to your game. Primitives include forms of geometry, such as Rectangles,
@@ -86,7 +86,7 @@ func NewGraphics(game *Game) *Graphics {
 // As you can tell, Graphics objects are a bit of a trade-off. While they are extremely useful, you need to be careful
 // in their complexity and quantity of them in your game.
 func NewGraphics1O(game *Game, x int) *Graphics {
-    return &Graphics{js.Global.Call("Phaser.Graphics", game, x)}
+    return &Graphics{js.Global.Get("Phaser").Get("Graphics").New(game, x)}
 }
 
 // A Graphics object is a way to draw primitives to your game. Primitives include forms of geometry, such as Rectangles,
@@ -113,7 +113,7 @@ func NewGraphics1O(game *Game, x int) *Graphics {
 // As you can tell, Graphics objects are a bit of a trade-off. While they are extremely useful, you need to be careful
 // in their complexity and quantity of them in your game.
 func NewGraphics2O(game *Game, x int, y int) *Graphics {
-    return &Graphics{js.Global.Call("Phaser.Graphics", game, x, y)}
+    return &Graphics{js.Global.Get("Phaser").Get("Graphics").New(game, x, y)}
 }
 
 // A Graphics object is a way to draw primitives to your game. Primitives include forms of geometry, such as Rectangles,
@@ -140,13 +140,13 @@ func NewGraphics2O(game *Game, x int, y int) *Graphics {
 // As you can tell, Graphics objects are a bit of a trade-off. While they are extremely useful, you need to be careful
 // in their complexity and quantity of them in your game.
 func NewGraphicsI(args ...interface{}) *Graphics {
-    return &Graphics{js.Global.Call("Phaser.Graphics", args)}
+    return &Graphics{js.Global.Get("Phaser").Get("Graphics").New(args)}
 }
 
 
 
 // The const type of this object.
-func (self *Graphics) GetTypeA() int{
+func (self *Graphics) Type() int{
     return self.Object.Get("type").Int()
 }
 
@@ -156,7 +156,7 @@ func (self *Graphics) SetTypeA(member int) {
 }
 
 // The const physics body type of this object.
-func (self *Graphics) GetPhysicsTypeA() int{
+func (self *Graphics) PhysicsType() int{
     return self.Object.Get("physicsType").Int()
 }
 
@@ -166,7 +166,7 @@ func (self *Graphics) SetPhysicsTypeA(member int) {
 }
 
 // The alpha value used when filling the Graphics object.
-func (self *Graphics) GetFillAlphaA() int{
+func (self *Graphics) FillAlpha() int{
     return self.Object.Get("fillAlpha").Int()
 }
 
@@ -176,7 +176,7 @@ func (self *Graphics) SetFillAlphaA(member int) {
 }
 
 // The width (thickness) of any lines drawn.
-func (self *Graphics) GetLineWidthA() int{
+func (self *Graphics) LineWidth() int{
     return self.Object.Get("lineWidth").Int()
 }
 
@@ -186,7 +186,7 @@ func (self *Graphics) SetLineWidthA(member int) {
 }
 
 // The color of any lines drawn.
-func (self *Graphics) GetLineColorA() string{
+func (self *Graphics) LineColor() string{
     return self.Object.Get("lineColor").String()
 }
 
@@ -196,7 +196,7 @@ func (self *Graphics) SetLineColorA(member string) {
 }
 
 // The tint applied to the graphic shape. This is a hex value. Apply a value of 0xFFFFFF to reset the tint.
-func (self *Graphics) GetTintA() int{
+func (self *Graphics) Tint() int{
     return self.Object.Get("tint").Int()
 }
 
@@ -206,7 +206,7 @@ func (self *Graphics) SetTintA(member int) {
 }
 
 // The blend mode to be applied to the graphic shape. Apply a value of PIXI.blendModes.NORMAL to reset the blend mode.
-func (self *Graphics) GetBlendModeA() int{
+func (self *Graphics) BlendMode() int{
     return self.Object.Get("blendMode").Int()
 }
 
@@ -216,7 +216,7 @@ func (self *Graphics) SetBlendModeA(member int) {
 }
 
 // Whether this shape is being used as a mask.
-func (self *Graphics) GetIsMaskA() bool{
+func (self *Graphics) IsMask() bool{
     return self.Object.Get("isMask").Bool()
 }
 
@@ -226,7 +226,7 @@ func (self *Graphics) SetIsMaskA(member bool) {
 }
 
 // The bounds' padding used for bounds calculation.
-func (self *Graphics) GetBoundsPaddingA() int{
+func (self *Graphics) BoundsPadding() int{
     return self.Object.Get("boundsPadding").Int()
 }
 
@@ -236,7 +236,7 @@ func (self *Graphics) SetBoundsPaddingA(member int) {
 }
 
 // [read-only] The array of children of this container.
-func (self *Graphics) GetChildrenA() []DisplayObject{
+func (self *Graphics) Children() []DisplayObject{
 	array00 := self.Object.Get("children")
 	length00 := array00.Length()
 	out00 := make([]DisplayObject, length00, length00)
@@ -256,7 +256,7 @@ func (self *Graphics) SetChildrenA(member []DisplayObject) {
 // If this property is `true` then the children will _not_ be considered as valid for Input events.
 // 
 // Note that this property isn't recursive: only immediate children are influenced, it doesn't scan further down.
-func (self *Graphics) GetIgnoreChildInputA() bool{
+func (self *Graphics) IgnoreChildInput() bool{
     return self.Object.Get("ignoreChildInput").Bool()
 }
 
@@ -270,7 +270,7 @@ func (self *Graphics) SetIgnoreChildInputA(member bool) {
 }
 
 // The width of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *Graphics) GetWidthA() int{
+func (self *Graphics) Width() int{
     return self.Object.Get("width").Int()
 }
 
@@ -280,7 +280,7 @@ func (self *Graphics) SetWidthA(member int) {
 }
 
 // The height of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
-func (self *Graphics) GetHeightA() int{
+func (self *Graphics) Height() int{
     return self.Object.Get("height").Int()
 }
 
@@ -290,7 +290,7 @@ func (self *Graphics) SetHeightA(member int) {
 }
 
 // A reference to the currently running Game.
-func (self *Graphics) GetGameA() *Game{
+func (self *Graphics) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -301,7 +301,7 @@ func (self *Graphics) SetGameA(member *Game) {
 
 // A user defined name given to this Game Object.
 // This value isn't ever used internally by Phaser, it is meant as a game level property.
-func (self *Graphics) GetNameA() string{
+func (self *Graphics) Name() string{
     return self.Object.Get("name").String()
 }
 
@@ -315,7 +315,7 @@ func (self *Graphics) SetNameA(member string) {
 // This value isn't ever used internally by Phaser, but may be used by your own code, or
 // by Phaser Plugins, to store data that needs to be associated with the Game Object,
 // without polluting the Game Object directly.
-func (self *Graphics) GetDataA() interface{}{
+func (self *Graphics) Data() interface{}{
     return self.Object.Get("data")
 }
 
@@ -328,7 +328,7 @@ func (self *Graphics) SetDataA(member interface{}) {
 }
 
 // The components this Game Object has installed.
-func (self *Graphics) GetComponentsA() interface{}{
+func (self *Graphics) Components() interface{}{
     return self.Object.Get("components")
 }
 
@@ -341,7 +341,7 @@ func (self *Graphics) SetComponentsA(member interface{}) {
 // No two objects in a Group can have the same z value.
 // This value is adjusted automatically whenever the Group hierarchy changes.
 // If you wish to re-order the layering of a Game Object then see methods like Group.moveUp or Group.bringToTop.
-func (self *Graphics) GetZA() int{
+func (self *Graphics) Z() int{
     return self.Object.Get("z").Int()
 }
 
@@ -355,7 +355,7 @@ func (self *Graphics) SetZA(member int) {
 
 // All Phaser Game Objects have an Events class which contains all of the events that are dispatched when certain things happen to this
 // Game Object, or any of its components.
-func (self *Graphics) GetEventsA() *Events{
+func (self *Graphics) Events() *Events{
     return &Events{self.Object.Get("events")}
 }
 
@@ -367,7 +367,7 @@ func (self *Graphics) SetEventsA(member *Events) {
 
 // If the Game Object is enabled for animation (such as a Phaser.Sprite) this is a reference to its AnimationManager instance.
 // Through it you can create, play, pause and stop animations.
-func (self *Graphics) GetAnimationsA() *AnimationManager{
+func (self *Graphics) Animations() *AnimationManager{
     return &AnimationManager{self.Object.Get("animations")}
 }
 
@@ -382,7 +382,7 @@ func (self *Graphics) SetAnimationsA(member *AnimationManager) {
 // It can also be an instance of a RenderTexture, BitmapData, Video or PIXI.Texture.
 // If a Game Object is created without a key it is automatically assigned the key `__default` which is a 32x32 transparent PNG stored within the Cache.
 // If a Game Object is given a key which doesn't exist in the Image Cache it is re-assigned the key `__missing` which is a 32x32 PNG of a green box with a line through it.
-func (self *Graphics) GetKeyA() interface{}{
+func (self *Graphics) Key() interface{}{
     return self.Object.Get("key")
 }
 
@@ -398,7 +398,7 @@ func (self *Graphics) SetKeyA(member interface{}) {
 // The world coordinates of this Game Object in pixels.
 // Depending on where in the display list this Game Object is placed this value can differ from `position`, 
 // which contains the x/y coordinates relative to the Game Objects parent.
-func (self *Graphics) GetWorldA() *Point{
+func (self *Graphics) World() *Point{
     return &Point{self.Object.Get("world")}
 }
 
@@ -410,7 +410,7 @@ func (self *Graphics) SetWorldA(member *Point) {
 }
 
 // A debug flag designed for use with `Game.enableStep`.
-func (self *Graphics) GetDebugA() bool{
+func (self *Graphics) Debug() bool{
     return self.Object.Get("debug").Bool()
 }
 
@@ -420,7 +420,7 @@ func (self *Graphics) SetDebugA(member bool) {
 }
 
 // The position the Game Object was located in the previous frame.
-func (self *Graphics) GetPreviousPositionA() *Point{
+func (self *Graphics) PreviousPosition() *Point{
     return &Point{self.Object.Get("previousPosition")}
 }
 
@@ -430,7 +430,7 @@ func (self *Graphics) SetPreviousPositionA(member *Point) {
 }
 
 // The rotation the Game Object was in set to in the previous frame. Value is in radians.
-func (self *Graphics) GetPreviousRotationA() int{
+func (self *Graphics) PreviousRotation() int{
     return self.Object.Get("previousRotation").Int()
 }
 
@@ -441,7 +441,7 @@ func (self *Graphics) SetPreviousRotationA(member int) {
 
 // The render order ID is used internally by the renderer and Input Manager and should not be modified.
 // This property is mostly used internally by the renderers, but is exposed for the use of plugins.
-func (self *Graphics) GetRenderOrderIDA() int{
+func (self *Graphics) RenderOrderID() int{
     return self.Object.Get("renderOrderID").Int()
 }
 
@@ -453,7 +453,7 @@ func (self *Graphics) SetRenderOrderIDA(member int) {
 
 // A Game Object is considered `fresh` if it has just been created or reset and is yet to receive a renderer transform update.
 // This property is mostly used internally by the physics systems, but is exposed for the use of plugins.
-func (self *Graphics) GetFreshA() bool{
+func (self *Graphics) Fresh() bool{
     return self.Object.Get("fresh").Bool()
 }
 
@@ -468,7 +468,7 @@ func (self *Graphics) SetFreshA(member bool) {
 // 
 // This is extremely useful if you wish to destroy an object from within one of its own callbacks 
 // such as with Buttons or other Input events.
-func (self *Graphics) GetPendingDestroyA() bool{
+func (self *Graphics) PendingDestroy() bool{
     return self.Object.Get("pendingDestroy").Bool()
 }
 
@@ -488,7 +488,7 @@ func (self *Graphics) SetPendingDestroyA(member bool) {
 // 
 // Setting `exists` to true will add its physics body back in to the physics world, if it has one.
 // It will also set the `visible` property to `true`.
-func (self *Graphics) GetExistsA() bool{
+func (self *Graphics) Exists() bool{
     return self.Object.Get("exists").Bool()
 }
 
@@ -512,7 +512,7 @@ func (self *Graphics) SetExistsA(member bool) {
 // 
 // If you wish to work in radians instead of degrees you can use the property `rotation` instead. 
 // Working in radians is slightly faster as it doesn't have to perform any calculations.
-func (self *Graphics) GetAngleA() int{
+func (self *Graphics) Angle() int{
     return self.Object.Get("angle").Int()
 }
 
@@ -535,7 +535,7 @@ func (self *Graphics) SetAngleA(member int) {
 // 
 // This is a relatively expensive operation, especially if enabled on hundreds of Game Objects. So enable it only if you know it's required,
 // or you have tested performance and find it acceptable.
-func (self *Graphics) GetAutoCullA() bool{
+func (self *Graphics) AutoCull() bool{
     return self.Object.Get("autoCull").Bool()
 }
 
@@ -551,7 +551,7 @@ func (self *Graphics) SetAutoCullA(member bool) {
 
 // Checks if the Game Objects bounds intersect with the Game Camera bounds.
 // Returns `true` if they do, otherwise `false` if fully outside of the Cameras bounds.
-func (self *Graphics) GetInCameraA() bool{
+func (self *Graphics) InCamera() bool{
     return self.Object.Get("inCamera").Bool()
 }
 
@@ -564,7 +564,7 @@ func (self *Graphics) SetInCameraA(member bool) {
 // The amount the Game Object is visually offset from its x coordinate.
 // This is the same as `width * anchor.x`.
 // It will only be > 0 if anchor.x is not equal to zero.
-func (self *Graphics) GetOffsetXA() int{
+func (self *Graphics) OffsetX() int{
     return self.Object.Get("offsetX").Int()
 }
 
@@ -578,7 +578,7 @@ func (self *Graphics) SetOffsetXA(member int) {
 // The amount the Game Object is visually offset from its y coordinate.
 // This is the same as `height * anchor.y`.
 // It will only be > 0 if anchor.y is not equal to zero.
-func (self *Graphics) GetOffsetYA() int{
+func (self *Graphics) OffsetY() int{
     return self.Object.Get("offsetY").Int()
 }
 
@@ -591,7 +591,7 @@ func (self *Graphics) SetOffsetYA(member int) {
 
 // The center x coordinate of the Game Object.
 // This is the same as `(x - offsetX) + (width / 2)`.
-func (self *Graphics) GetCenterXA() int{
+func (self *Graphics) CenterX() int{
     return self.Object.Get("centerX").Int()
 }
 
@@ -603,7 +603,7 @@ func (self *Graphics) SetCenterXA(member int) {
 
 // The center y coordinate of the Game Object.
 // This is the same as `(y - offsetY) + (height / 2)`.
-func (self *Graphics) GetCenterYA() int{
+func (self *Graphics) CenterY() int{
     return self.Object.Get("centerY").Int()
 }
 
@@ -615,7 +615,7 @@ func (self *Graphics) SetCenterYA(member int) {
 
 // The left coordinate of the Game Object.
 // This is the same as `x - offsetX`.
-func (self *Graphics) GetLeftA() int{
+func (self *Graphics) Left() int{
     return self.Object.Get("left").Int()
 }
 
@@ -627,7 +627,7 @@ func (self *Graphics) SetLeftA(member int) {
 
 // The right coordinate of the Game Object.
 // This is the same as `x + width - offsetX`.
-func (self *Graphics) GetRightA() int{
+func (self *Graphics) Right() int{
     return self.Object.Get("right").Int()
 }
 
@@ -639,7 +639,7 @@ func (self *Graphics) SetRightA(member int) {
 
 // The y coordinate of the Game Object.
 // This is the same as `y - offsetY`.
-func (self *Graphics) GetTopA() int{
+func (self *Graphics) Top() int{
     return self.Object.Get("top").Int()
 }
 
@@ -651,7 +651,7 @@ func (self *Graphics) SetTopA(member int) {
 
 // The sum of the y and height properties.
 // This is the same as `y + height - offsetY`.
-func (self *Graphics) GetBottomA() int{
+func (self *Graphics) Bottom() int{
     return self.Object.Get("bottom").Int()
 }
 
@@ -663,7 +663,7 @@ func (self *Graphics) SetBottomA(member int) {
 
 // As a Game Object runs through its destroy method this flag is set to true, 
 // and can be checked in any sub-systems or plugins it is being destroyed from.
-func (self *Graphics) GetDestroyPhaseA() bool{
+func (self *Graphics) DestroyPhase() bool{
     return self.Object.Get("destroyPhase").Bool()
 }
 
@@ -686,7 +686,7 @@ func (self *Graphics) SetDestroyPhaseA(member bool) {
 // Note that the `cameraOffset` values are in addition to any parent of this Game Object on the display list.
 // 
 // Be careful not to set `fixedToCamera` on Game Objects which are in Groups that already have `fixedToCamera` enabled on them.
-func (self *Graphics) GetFixedToCameraA() bool{
+func (self *Graphics) FixedToCamera() bool{
     return self.Object.Get("fixedToCamera").Bool()
 }
 
@@ -710,7 +710,7 @@ func (self *Graphics) SetFixedToCameraA(member bool) {
 // The x/y coordinate offset applied to the top-left of the camera that this Game Object will be drawn at if `fixedToCamera` is true.
 // 
 // The values are relative to the top-left of the camera view and in addition to any parent of the Game Object on the display list.
-func (self *Graphics) GetCameraOffsetA() *Point{
+func (self *Graphics) CameraOffset() *Point{
     return &Point{self.Object.Get("cameraOffset")}
 }
 
@@ -726,7 +726,7 @@ func (self *Graphics) SetCameraOffsetA(member *Point) {
 // By default it is disabled. If you wish this Game Object to process input events you should enable it with: `inputEnabled = true`.
 // 
 // After you have done this, this property will be a reference to the Phaser InputHandler.
-func (self *Graphics) GetInputA() interface{}{
+func (self *Graphics) Input() interface{}{
     return self.Object.Get("input")
 }
 
@@ -751,7 +751,7 @@ func (self *Graphics) SetInputA(member interface{}) {
 // If you want to _temporarily_ disable input for a Game Object, then it's better to set
 // `input.enabled = false`, as it won't reset any of the Input Handlers internal properties.
 // You can then toggle this back on as needed.
-func (self *Graphics) GetInputEnabledA() bool{
+func (self *Graphics) InputEnabled() bool{
     return self.Object.Get("inputEnabled").Bool()
 }
 
@@ -783,7 +783,7 @@ func (self *Graphics) SetInputEnabledA(member bool) {
 // 
 // This is a relatively expensive operation, especially if enabled on hundreds of Game Objects. So enable it only if you know it's required,
 // or you have tested performance and find it acceptable.
-func (self *Graphics) GetCheckWorldBoundsA() bool{
+func (self *Graphics) CheckWorldBounds() bool{
     return self.Object.Get("checkWorldBounds").Bool()
 }
 
@@ -804,7 +804,7 @@ func (self *Graphics) SetCheckWorldBoundsA(member bool) {
 }
 
 // If this and the `checkWorldBounds` property are both set to `true` then the `kill` method is called as soon as `inWorld` returns false.
-func (self *Graphics) GetOutOfBoundsKillA() bool{
+func (self *Graphics) OutOfBoundsKill() bool{
     return self.Object.Get("outOfBoundsKill").Bool()
 }
 
@@ -815,7 +815,7 @@ func (self *Graphics) SetOutOfBoundsKillA(member bool) {
 
 // If this and the `autoCull` property are both set to `true`, then the `kill` method
 // is called as soon as the Game Object leaves the camera bounds.
-func (self *Graphics) GetOutOfCameraBoundsKillA() bool{
+func (self *Graphics) OutOfCameraBoundsKill() bool{
     return self.Object.Get("outOfCameraBoundsKill").Bool()
 }
 
@@ -826,7 +826,7 @@ func (self *Graphics) SetOutOfCameraBoundsKillA(member bool) {
 }
 
 // Checks if the Game Objects bounds are within, or intersect at any point with the Game World bounds.
-func (self *Graphics) GetInWorldA() bool{
+func (self *Graphics) InWorld() bool{
     return self.Object.Get("inWorld").Bool()
 }
 
@@ -842,7 +842,7 @@ func (self *Graphics) SetInWorldA(member bool) {
 // 
 // This property is mostly just provided to be used by your game - it doesn't effect rendering or logic updates.
 // However you can use `Group.getFirstAlive` in conjunction with this property for fast object pooling and recycling.
-func (self *Graphics) GetAliveA() bool{
+func (self *Graphics) Alive() bool{
     return self.Object.Get("alive").Bool()
 }
 
@@ -865,7 +865,7 @@ func (self *Graphics) SetAliveA(member bool) {
 // When it reaches zero it will call the `kill` method.
 // 
 // Very handy for particles, bullets, collectibles, or any other short-lived entity.
-func (self *Graphics) GetLifespanA() int{
+func (self *Graphics) Lifespan() int{
     return self.Object.Get("lifespan").Int()
 }
 
@@ -895,7 +895,7 @@ func (self *Graphics) SetLifespanA(member int) {
 // so the physics body is centered on the Game Object.
 // 
 // If you need a different result then adjust or re-create the Body shape offsets manually or reset the anchor after enabling physics.
-func (self *Graphics) GetBodyA() interface{}{
+func (self *Graphics) Body() interface{}{
     return self.Object.Get("body")
 }
 
@@ -918,7 +918,7 @@ func (self *Graphics) SetBodyA(member interface{}) {
 }
 
 // The position of the Game Object on the x axis relative to the local coordinates of the parent.
-func (self *Graphics) GetXA() int{
+func (self *Graphics) X() int{
     return self.Object.Get("x").Int()
 }
 
@@ -928,7 +928,7 @@ func (self *Graphics) SetXA(member int) {
 }
 
 // The position of the Game Object on the y axis relative to the local coordinates of the parent.
-func (self *Graphics) GetYA() int{
+func (self *Graphics) Y() int{
     return self.Object.Get("y").Int()
 }
 

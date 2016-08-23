@@ -15,12 +15,12 @@ type ComponentBounds struct {
 
 // The Bounds component contains properties related to the bounds of the Game Object.
 func NewComponentBounds() *ComponentBounds {
-    return &ComponentBounds{js.Global.Call("Phaser.Component.Bounds")}
+    return &ComponentBounds{js.Global.Get("Phaser").Get("Component").Get("Bounds").New()}
 }
 
 // The Bounds component contains properties related to the bounds of the Game Object.
 func NewComponentBoundsI(args ...interface{}) *ComponentBounds {
-    return &ComponentBounds{js.Global.Call("Phaser.Component.Bounds", args)}
+    return &ComponentBounds{js.Global.Get("Phaser").Get("Component").Get("Bounds").New(args)}
 }
 
 
@@ -28,7 +28,7 @@ func NewComponentBoundsI(args ...interface{}) *ComponentBounds {
 // The amount the Game Object is visually offset from its x coordinate.
 // This is the same as `width * anchor.x`.
 // It will only be > 0 if anchor.x is not equal to zero.
-func (self *ComponentBounds) GetOffsetXA() int{
+func (self *ComponentBounds) OffsetX() int{
     return self.Object.Get("offsetX").Int()
 }
 
@@ -42,7 +42,7 @@ func (self *ComponentBounds) SetOffsetXA(member int) {
 // The amount the Game Object is visually offset from its y coordinate.
 // This is the same as `height * anchor.y`.
 // It will only be > 0 if anchor.y is not equal to zero.
-func (self *ComponentBounds) GetOffsetYA() int{
+func (self *ComponentBounds) OffsetY() int{
     return self.Object.Get("offsetY").Int()
 }
 
@@ -55,7 +55,7 @@ func (self *ComponentBounds) SetOffsetYA(member int) {
 
 // The center x coordinate of the Game Object.
 // This is the same as `(x - offsetX) + (width / 2)`.
-func (self *ComponentBounds) GetCenterXA() int{
+func (self *ComponentBounds) CenterX() int{
     return self.Object.Get("centerX").Int()
 }
 
@@ -67,7 +67,7 @@ func (self *ComponentBounds) SetCenterXA(member int) {
 
 // The center y coordinate of the Game Object.
 // This is the same as `(y - offsetY) + (height / 2)`.
-func (self *ComponentBounds) GetCenterYA() int{
+func (self *ComponentBounds) CenterY() int{
     return self.Object.Get("centerY").Int()
 }
 
@@ -79,7 +79,7 @@ func (self *ComponentBounds) SetCenterYA(member int) {
 
 // The left coordinate of the Game Object.
 // This is the same as `x - offsetX`.
-func (self *ComponentBounds) GetLeftA() int{
+func (self *ComponentBounds) Left() int{
     return self.Object.Get("left").Int()
 }
 
@@ -91,7 +91,7 @@ func (self *ComponentBounds) SetLeftA(member int) {
 
 // The right coordinate of the Game Object.
 // This is the same as `x + width - offsetX`.
-func (self *ComponentBounds) GetRightA() int{
+func (self *ComponentBounds) Right() int{
     return self.Object.Get("right").Int()
 }
 
@@ -103,7 +103,7 @@ func (self *ComponentBounds) SetRightA(member int) {
 
 // The y coordinate of the Game Object.
 // This is the same as `y - offsetY`.
-func (self *ComponentBounds) GetTopA() int{
+func (self *ComponentBounds) Top() int{
     return self.Object.Get("top").Int()
 }
 
@@ -115,7 +115,7 @@ func (self *ComponentBounds) SetTopA(member int) {
 
 // The sum of the y and height properties.
 // This is the same as `y + height - offsetY`.
-func (self *ComponentBounds) GetBottomA() int{
+func (self *ComponentBounds) Bottom() int{
     return self.Object.Get("bottom").Int()
 }
 

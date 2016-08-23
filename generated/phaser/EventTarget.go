@@ -15,12 +15,12 @@ type EventTarget struct {
 
 // Mixins event emitter functionality to a class
 func NewEventTarget() *EventTarget {
-    return &EventTarget{js.Global.Call("PIXI.EventTarget")}
+    return &EventTarget{js.Global.Get("PIXI").Get("EventTarget").New()}
 }
 
 // Mixins event emitter functionality to a class
 func NewEventTargetI(args ...interface{}) *EventTarget {
-    return &EventTarget{js.Global.Call("PIXI.EventTarget", args)}
+    return &EventTarget{js.Global.Get("PIXI").Get("EventTarget").New(args)}
 }
 
 
@@ -43,7 +43,7 @@ func (self *EventTarget) Listeners(eventName string) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -54,7 +54,7 @@ func (self *EventTarget) ListenersI(args ...interface{}) []interface{}{
 	length00 := array00.Length()
 	out00 := make([]interface{}, length00, length00)
 	for i00 := 0; i00 < length00; i00++ {
-		out00[i00] = array00.Index(i00).Interface()
+		out00[i00] = array00.Index(i00)
 	}
 	return out00
 }
@@ -70,7 +70,7 @@ func (self *EventTarget) EmitI(args ...interface{}) bool{
 }
 
 // Register a new EventListener for the given event.
-func (self *EventTarget) On(eventName string, callback func(...interface{})) {
+func (self *EventTarget) On(eventName string, callback interface{}) {
     self.Object.Call("on", eventName, callback)
 }
 
@@ -80,7 +80,7 @@ func (self *EventTarget) OnI(args ...interface{}) {
 }
 
 // Add an EventListener that's only called once.
-func (self *EventTarget) Once(eventName string, callback func(...interface{})) {
+func (self *EventTarget) Once(eventName string, callback interface{}) {
     self.Object.Call("once", eventName, callback)
 }
 
@@ -90,7 +90,7 @@ func (self *EventTarget) OnceI(args ...interface{}) {
 }
 
 // Remove event listeners.
-func (self *EventTarget) Off(eventName string, callback func(...interface{})) {
+func (self *EventTarget) Off(eventName string, callback interface{}) {
     self.Object.Call("off", eventName, callback)
 }
 

@@ -17,19 +17,19 @@ type CanvasTinter struct {
 
 // Utility methods for Sprite/Texture tinting.
 func NewCanvasTinter() *CanvasTinter {
-    return &CanvasTinter{js.Global.Call("PIXI.CanvasTinter")}
+    return &CanvasTinter{js.Global.Get("PIXI").Get("CanvasTinter").New()}
 }
 
 // Utility methods for Sprite/Texture tinting.
 func NewCanvasTinterI(args ...interface{}) *CanvasTinter {
-    return &CanvasTinter{js.Global.Call("PIXI.CanvasTinter", args)}
+    return &CanvasTinter{js.Global.Get("PIXI").Get("CanvasTinter").New(args)}
 }
 
 
 
 // If the browser isn't capable of handling tinting with alpha this will be false.
 // This property is only applicable if using tintWithPerPixel.
-func (self *CanvasTinter) GetCanHandleAlphaA() bool{
+func (self *CanvasTinter) CanHandleAlpha() bool{
     return self.Object.Get("canHandleAlpha").Bool()
 }
 
@@ -40,7 +40,7 @@ func (self *CanvasTinter) SetCanHandleAlphaA(member bool) {
 }
 
 // Whether or not the Canvas BlendModes are supported, consequently the ability to tint using the multiply method.
-func (self *CanvasTinter) GetCanUseMultiplyA() bool{
+func (self *CanvasTinter) CanUseMultiply() bool{
     return self.Object.Get("canUseMultiply").Bool()
 }
 

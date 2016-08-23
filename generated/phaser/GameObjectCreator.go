@@ -17,19 +17,19 @@ type GameObjectCreator struct {
 // The GameObjectCreator is a quick way to create common game objects _without_ adding them to the game world.
 // The object creator can be accessed with {@linkcode Phaser.Game#make `game.make`}.
 func NewGameObjectCreator(game *Game) *GameObjectCreator {
-    return &GameObjectCreator{js.Global.Call("Phaser.GameObjectCreator", game)}
+    return &GameObjectCreator{js.Global.Get("Phaser").Get("GameObjectCreator").New(game)}
 }
 
 // The GameObjectCreator is a quick way to create common game objects _without_ adding them to the game world.
 // The object creator can be accessed with {@linkcode Phaser.Game#make `game.make`}.
 func NewGameObjectCreatorI(args ...interface{}) *GameObjectCreator {
-    return &GameObjectCreator{js.Global.Call("Phaser.GameObjectCreator", args)}
+    return &GameObjectCreator{js.Global.Get("Phaser").Get("GameObjectCreator").New(args)}
 }
 
 
 
 // A reference to the currently running Game.
-func (self *GameObjectCreator) GetGameA() *Game{
+func (self *GameObjectCreator) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
@@ -39,7 +39,7 @@ func (self *GameObjectCreator) SetGameA(member *Game) {
 }
 
 // A reference to the game world.
-func (self *GameObjectCreator) GetWorldA() *World{
+func (self *GameObjectCreator) World() *World{
     return &World{self.Object.Get("world")}
 }
 
@@ -264,32 +264,32 @@ func (self *GameObjectCreator) Button3O(x int, y int, key string) *Button{
 }
 
 // Creates a new Button object.
-func (self *GameObjectCreator) Button4O(x int, y int, key string, callback func(...interface{})) *Button{
+func (self *GameObjectCreator) Button4O(x int, y int, key string, callback interface{}) *Button{
     return &Button{self.Object.Call("button", x, y, key, callback)}
 }
 
 // Creates a new Button object.
-func (self *GameObjectCreator) Button5O(x int, y int, key string, callback func(...interface{}), callbackContext interface{}) *Button{
+func (self *GameObjectCreator) Button5O(x int, y int, key string, callback interface{}, callbackContext interface{}) *Button{
     return &Button{self.Object.Call("button", x, y, key, callback, callbackContext)}
 }
 
 // Creates a new Button object.
-func (self *GameObjectCreator) Button6O(x int, y int, key string, callback func(...interface{}), callbackContext interface{}, overFrame interface{}) *Button{
+func (self *GameObjectCreator) Button6O(x int, y int, key string, callback interface{}, callbackContext interface{}, overFrame interface{}) *Button{
     return &Button{self.Object.Call("button", x, y, key, callback, callbackContext, overFrame)}
 }
 
 // Creates a new Button object.
-func (self *GameObjectCreator) Button7O(x int, y int, key string, callback func(...interface{}), callbackContext interface{}, overFrame interface{}, outFrame interface{}) *Button{
+func (self *GameObjectCreator) Button7O(x int, y int, key string, callback interface{}, callbackContext interface{}, overFrame interface{}, outFrame interface{}) *Button{
     return &Button{self.Object.Call("button", x, y, key, callback, callbackContext, overFrame, outFrame)}
 }
 
 // Creates a new Button object.
-func (self *GameObjectCreator) Button8O(x int, y int, key string, callback func(...interface{}), callbackContext interface{}, overFrame interface{}, outFrame interface{}, downFrame interface{}) *Button{
+func (self *GameObjectCreator) Button8O(x int, y int, key string, callback interface{}, callbackContext interface{}, overFrame interface{}, outFrame interface{}, downFrame interface{}) *Button{
     return &Button{self.Object.Call("button", x, y, key, callback, callbackContext, overFrame, outFrame, downFrame)}
 }
 
 // Creates a new Button object.
-func (self *GameObjectCreator) Button9O(x int, y int, key string, callback func(...interface{}), callbackContext interface{}, overFrame interface{}, outFrame interface{}, downFrame interface{}, upFrame interface{}) *Button{
+func (self *GameObjectCreator) Button9O(x int, y int, key string, callback interface{}, callbackContext interface{}, overFrame interface{}, outFrame interface{}, downFrame interface{}, upFrame interface{}) *Button{
     return &Button{self.Object.Call("button", x, y, key, callback, callbackContext, overFrame, outFrame, downFrame, upFrame)}
 }
 

@@ -27,7 +27,7 @@ type Matrix struct {
 // | c | d | ty |
 // | 0 | 0 | 1 |
 func NewMatrix() *Matrix {
-    return &Matrix{js.Global.Call("Phaser.Matrix")}
+    return &Matrix{js.Global.Get("Phaser").Get("Matrix").New()}
 }
 
 // The Matrix is a 3x3 matrix mostly used for display transforms within the renderer.
@@ -38,7 +38,7 @@ func NewMatrix() *Matrix {
 // | c | d | ty |
 // | 0 | 0 | 1 |
 func NewMatrix1O(a int) *Matrix {
-    return &Matrix{js.Global.Call("Phaser.Matrix", a)}
+    return &Matrix{js.Global.Get("Phaser").Get("Matrix").New(a)}
 }
 
 // The Matrix is a 3x3 matrix mostly used for display transforms within the renderer.
@@ -49,7 +49,7 @@ func NewMatrix1O(a int) *Matrix {
 // | c | d | ty |
 // | 0 | 0 | 1 |
 func NewMatrix2O(a int, b int) *Matrix {
-    return &Matrix{js.Global.Call("Phaser.Matrix", a, b)}
+    return &Matrix{js.Global.Get("Phaser").Get("Matrix").New(a, b)}
 }
 
 // The Matrix is a 3x3 matrix mostly used for display transforms within the renderer.
@@ -60,7 +60,7 @@ func NewMatrix2O(a int, b int) *Matrix {
 // | c | d | ty |
 // | 0 | 0 | 1 |
 func NewMatrix3O(a int, b int, c int) *Matrix {
-    return &Matrix{js.Global.Call("Phaser.Matrix", a, b, c)}
+    return &Matrix{js.Global.Get("Phaser").Get("Matrix").New(a, b, c)}
 }
 
 // The Matrix is a 3x3 matrix mostly used for display transforms within the renderer.
@@ -71,7 +71,7 @@ func NewMatrix3O(a int, b int, c int) *Matrix {
 // | c | d | ty |
 // | 0 | 0 | 1 |
 func NewMatrix4O(a int, b int, c int, d int) *Matrix {
-    return &Matrix{js.Global.Call("Phaser.Matrix", a, b, c, d)}
+    return &Matrix{js.Global.Get("Phaser").Get("Matrix").New(a, b, c, d)}
 }
 
 // The Matrix is a 3x3 matrix mostly used for display transforms within the renderer.
@@ -82,7 +82,7 @@ func NewMatrix4O(a int, b int, c int, d int) *Matrix {
 // | c | d | ty |
 // | 0 | 0 | 1 |
 func NewMatrix5O(a int, b int, c int, d int, tx int) *Matrix {
-    return &Matrix{js.Global.Call("Phaser.Matrix", a, b, c, d, tx)}
+    return &Matrix{js.Global.Get("Phaser").Get("Matrix").New(a, b, c, d, tx)}
 }
 
 // The Matrix is a 3x3 matrix mostly used for display transforms within the renderer.
@@ -93,7 +93,7 @@ func NewMatrix5O(a int, b int, c int, d int, tx int) *Matrix {
 // | c | d | ty |
 // | 0 | 0 | 1 |
 func NewMatrix6O(a int, b int, c int, d int, tx int, ty int) *Matrix {
-    return &Matrix{js.Global.Call("Phaser.Matrix", a, b, c, d, tx, ty)}
+    return &Matrix{js.Global.Get("Phaser").Get("Matrix").New(a, b, c, d, tx, ty)}
 }
 
 // The Matrix is a 3x3 matrix mostly used for display transforms within the renderer.
@@ -104,13 +104,13 @@ func NewMatrix6O(a int, b int, c int, d int, tx int, ty int) *Matrix {
 // | c | d | ty |
 // | 0 | 0 | 1 |
 func NewMatrixI(args ...interface{}) *Matrix {
-    return &Matrix{js.Global.Call("Phaser.Matrix", args)}
+    return &Matrix{js.Global.Get("Phaser").Get("Matrix").New(args)}
 }
 
 
 
 // 
-func (self *Matrix) GetAA() int{
+func (self *Matrix) A() int{
     return self.Object.Get("a").Int()
 }
 
@@ -120,7 +120,7 @@ func (self *Matrix) SetAA(member int) {
 }
 
 // 
-func (self *Matrix) GetBA() int{
+func (self *Matrix) B() int{
     return self.Object.Get("b").Int()
 }
 
@@ -130,7 +130,7 @@ func (self *Matrix) SetBA(member int) {
 }
 
 // 
-func (self *Matrix) GetCA() int{
+func (self *Matrix) C() int{
     return self.Object.Get("c").Int()
 }
 
@@ -140,7 +140,7 @@ func (self *Matrix) SetCA(member int) {
 }
 
 // 
-func (self *Matrix) GetDA() int{
+func (self *Matrix) D() int{
     return self.Object.Get("d").Int()
 }
 
@@ -150,7 +150,7 @@ func (self *Matrix) SetDA(member int) {
 }
 
 // 
-func (self *Matrix) GetTxA() int{
+func (self *Matrix) Tx() int{
     return self.Object.Get("tx").Int()
 }
 
@@ -160,7 +160,7 @@ func (self *Matrix) SetTxA(member int) {
 }
 
 // 
-func (self *Matrix) GetTyA() int{
+func (self *Matrix) Ty() int{
     return self.Object.Get("ty").Int()
 }
 
@@ -170,7 +170,7 @@ func (self *Matrix) SetTyA(member int) {
 }
 
 // The const type of this object.
-func (self *Matrix) GetTypeA() int{
+func (self *Matrix) Type() int{
     return self.Object.Get("type").Int()
 }
 
