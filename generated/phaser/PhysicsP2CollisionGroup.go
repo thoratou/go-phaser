@@ -1,4 +1,4 @@
-// Automatic generation for Phaser.Physics.P2.CollisionGroup
+// Package phaser Automatic generation for Phaser.Physics.P2.CollisionGroup
 // generated file PhysicsP2CollisionGroup.go
 package phaser
 
@@ -7,30 +7,28 @@ import (
 
 )
 
-// Collision Group
+// PhysicsP2CollisionGroup Collision Group
 type PhysicsP2CollisionGroup struct {
     *js.Object
 }
 
-
-// Collision Group
+// NewPhysicsP2CollisionGroup Collision Group
 func NewPhysicsP2CollisionGroup(bitmask int) *PhysicsP2CollisionGroup {
     return &PhysicsP2CollisionGroup{js.Global.Get("Phaser").Get("Physics").Get("P2").Get("CollisionGroup").New(bitmask)}
 }
-
-// Collision Group
+// NewPhysicsP2CollisionGroupI Collision Group
 func NewPhysicsP2CollisionGroupI(args ...interface{}) *PhysicsP2CollisionGroup {
     return &PhysicsP2CollisionGroup{js.Global.Get("Phaser").Get("Physics").Get("P2").Get("CollisionGroup").New(args)}
 }
 
 
 
-// The CollisionGroup bitmask.
+// Mask The CollisionGroup bitmask.
 func (self *PhysicsP2CollisionGroup) Mask() int{
     return self.Object.Get("mask").Int()
 }
 
-// The CollisionGroup bitmask.
+// SetMaskA The CollisionGroup bitmask.
 func (self *PhysicsP2CollisionGroup) SetMaskA(member int) {
     self.Object.Set("mask", member)
 }

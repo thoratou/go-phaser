@@ -1,4 +1,4 @@
-// Automatic generation for Phaser.Easing.Sinusoidal
+// Package phaser Automatic generation for Phaser.Easing.Sinusoidal
 // generated file EasingSinusoidal.go
 package phaser
 
@@ -7,18 +7,16 @@ import (
 
 )
 
-// Sinusoidal easing.
+// EasingSinusoidal Sinusoidal easing.
 type EasingSinusoidal struct {
     *js.Object
 }
 
-
-// Sinusoidal easing.
+// NewEasingSinusoidal Sinusoidal easing.
 func NewEasingSinusoidal() *EasingSinusoidal {
     return &EasingSinusoidal{js.Global.Get("Phaser").Get("Easing").Get("Sinusoidal").New()}
 }
-
-// Sinusoidal easing.
+// NewEasingSinusoidalI Sinusoidal easing.
 func NewEasingSinusoidalI(args ...interface{}) *EasingSinusoidal {
     return &EasingSinusoidal{js.Global.Get("Phaser").Get("Easing").Get("Sinusoidal").New(args)}
 }
@@ -26,33 +24,33 @@ func NewEasingSinusoidalI(args ...interface{}) *EasingSinusoidal {
 
 
 
-
-// Sinusoidal ease-in.
+// In Sinusoidal ease-in.
 func (self *EasingSinusoidal) In(k int) int{
     return self.Object.Call("In", k).Int()
 }
 
-// Sinusoidal ease-in.
+// InI Sinusoidal ease-in.
 func (self *EasingSinusoidal) InI(args ...interface{}) int{
     return self.Object.Call("In", args).Int()
 }
 
-// Sinusoidal ease-out.
+// Out Sinusoidal ease-out.
 func (self *EasingSinusoidal) Out(k int) int{
     return self.Object.Call("Out", k).Int()
 }
 
-// Sinusoidal ease-out.
+// OutI Sinusoidal ease-out.
 func (self *EasingSinusoidal) OutI(args ...interface{}) int{
     return self.Object.Call("Out", args).Int()
 }
 
-// Sinusoidal ease-in/out.
+// InOut Sinusoidal ease-in/out.
 func (self *EasingSinusoidal) InOut(k int) int{
     return self.Object.Call("InOut", k).Int()
 }
 
-// Sinusoidal ease-in/out.
+// InOutI Sinusoidal ease-in/out.
 func (self *EasingSinusoidal) InOutI(args ...interface{}) int{
     return self.Object.Call("InOut", args).Int()
 }
+

@@ -1,4 +1,4 @@
-// Automatic generation for Phaser.Gamepad
+// Package phaser Automatic generation for Phaser.Gamepad
 // generated file Gamepad.go
 package phaser
 
@@ -7,7 +7,7 @@ import (
 
 )
 
-// The Gamepad class handles gamepad input and dispatches gamepad events.
+// Gamepad The Gamepad class handles gamepad input and dispatches gamepad events.
 // 
 // Remember to call `gamepad.start()`.
 // 
@@ -19,8 +19,7 @@ type Gamepad struct {
     *js.Object
 }
 
-
-// The Gamepad class handles gamepad input and dispatches gamepad events.
+// NewGamepad The Gamepad class handles gamepad input and dispatches gamepad events.
 // 
 // Remember to call `gamepad.start()`.
 // 
@@ -31,8 +30,7 @@ type Gamepad struct {
 func NewGamepad(game *Game) *Gamepad {
     return &Gamepad{js.Global.Get("Phaser").Get("Gamepad").New(game)}
 }
-
-// The Gamepad class handles gamepad input and dispatches gamepad events.
+// NewGamepadI The Gamepad class handles gamepad input and dispatches gamepad events.
 // 
 // Remember to call `gamepad.start()`.
 // 
@@ -46,271 +44,271 @@ func NewGamepadI(args ...interface{}) *Gamepad {
 
 
 
-// Local reference to game.
+// Game Local reference to game.
 func (self *Gamepad) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
-// Local reference to game.
+// SetGameA Local reference to game.
 func (self *Gamepad) SetGameA(member *Game) {
     self.Object.Set("game", member)
 }
 
-// Gamepad input will only be processed if enabled.
+// Enabled Gamepad input will only be processed if enabled.
 func (self *Gamepad) Enabled() bool{
     return self.Object.Get("enabled").Bool()
 }
 
-// Gamepad input will only be processed if enabled.
+// SetEnabledA Gamepad input will only be processed if enabled.
 func (self *Gamepad) SetEnabledA(member bool) {
     self.Object.Set("enabled", member)
 }
 
-// The context under which the callbacks are run.
+// CallbackContext The context under which the callbacks are run.
 func (self *Gamepad) CallbackContext() interface{}{
     return self.Object.Get("callbackContext")
 }
 
-// The context under which the callbacks are run.
+// SetCallbackContextA The context under which the callbacks are run.
 func (self *Gamepad) SetCallbackContextA(member interface{}) {
     self.Object.Set("callbackContext", member)
 }
 
-// This callback is invoked every time any gamepad is connected
+// OnConnectCallback This callback is invoked every time any gamepad is connected
 func (self *Gamepad) OnConnectCallback() interface{}{
     return self.Object.Get("onConnectCallback")
 }
 
-// This callback is invoked every time any gamepad is connected
+// SetOnConnectCallbackA This callback is invoked every time any gamepad is connected
 func (self *Gamepad) SetOnConnectCallbackA(member interface{}) {
     self.Object.Set("onConnectCallback", member)
 }
 
-// This callback is invoked every time any gamepad is disconnected
+// OnDisconnectCallback This callback is invoked every time any gamepad is disconnected
 func (self *Gamepad) OnDisconnectCallback() interface{}{
     return self.Object.Get("onDisconnectCallback")
 }
 
-// This callback is invoked every time any gamepad is disconnected
+// SetOnDisconnectCallbackA This callback is invoked every time any gamepad is disconnected
 func (self *Gamepad) SetOnDisconnectCallbackA(member interface{}) {
     self.Object.Set("onDisconnectCallback", member)
 }
 
-// This callback is invoked every time any gamepad button is pressed down.
+// OnDownCallback This callback is invoked every time any gamepad button is pressed down.
 func (self *Gamepad) OnDownCallback() interface{}{
     return self.Object.Get("onDownCallback")
 }
 
-// This callback is invoked every time any gamepad button is pressed down.
+// SetOnDownCallbackA This callback is invoked every time any gamepad button is pressed down.
 func (self *Gamepad) SetOnDownCallbackA(member interface{}) {
     self.Object.Set("onDownCallback", member)
 }
 
-// This callback is invoked every time any gamepad button is released.
+// OnUpCallback This callback is invoked every time any gamepad button is released.
 func (self *Gamepad) OnUpCallback() interface{}{
     return self.Object.Get("onUpCallback")
 }
 
-// This callback is invoked every time any gamepad button is released.
+// SetOnUpCallbackA This callback is invoked every time any gamepad button is released.
 func (self *Gamepad) SetOnUpCallbackA(member interface{}) {
     self.Object.Set("onUpCallback", member)
 }
 
-// This callback is invoked every time any gamepad axis is changed.
+// OnAxisCallback This callback is invoked every time any gamepad axis is changed.
 func (self *Gamepad) OnAxisCallback() interface{}{
     return self.Object.Get("onAxisCallback")
 }
 
-// This callback is invoked every time any gamepad axis is changed.
+// SetOnAxisCallbackA This callback is invoked every time any gamepad axis is changed.
 func (self *Gamepad) SetOnAxisCallbackA(member interface{}) {
     self.Object.Set("onAxisCallback", member)
 }
 
-// This callback is invoked every time any gamepad button is changed to a value where value > 0 and value < 1.
+// OnFloatCallback This callback is invoked every time any gamepad button is changed to a value where value > 0 and value < 1.
 func (self *Gamepad) OnFloatCallback() interface{}{
     return self.Object.Get("onFloatCallback")
 }
 
-// This callback is invoked every time any gamepad button is changed to a value where value > 0 and value < 1.
+// SetOnFloatCallbackA This callback is invoked every time any gamepad button is changed to a value where value > 0 and value < 1.
 func (self *Gamepad) SetOnFloatCallbackA(member interface{}) {
     self.Object.Set("onFloatCallback", member)
 }
 
-// If the gamepad input is active or not - if not active it should not be updated from Input.js
+// Active If the gamepad input is active or not - if not active it should not be updated from Input.js
 func (self *Gamepad) Active() bool{
     return self.Object.Get("active").Bool()
 }
 
-// If the gamepad input is active or not - if not active it should not be updated from Input.js
+// SetActiveA If the gamepad input is active or not - if not active it should not be updated from Input.js
 func (self *Gamepad) SetActiveA(member bool) {
     self.Object.Set("active", member)
 }
 
-// Whether or not gamepads are supported in current browser.
+// Supported Whether or not gamepads are supported in current browser.
 func (self *Gamepad) Supported() bool{
     return self.Object.Get("supported").Bool()
 }
 
-// Whether or not gamepads are supported in current browser.
+// SetSupportedA Whether or not gamepads are supported in current browser.
 func (self *Gamepad) SetSupportedA(member bool) {
     self.Object.Set("supported", member)
 }
 
-// How many live gamepads are currently connected.
+// PadsConnected How many live gamepads are currently connected.
 func (self *Gamepad) PadsConnected() int{
     return self.Object.Get("padsConnected").Int()
 }
 
-// How many live gamepads are currently connected.
+// SetPadsConnectedA How many live gamepads are currently connected.
 func (self *Gamepad) SetPadsConnectedA(member int) {
     self.Object.Set("padsConnected", member)
 }
 
-// Gamepad #1
+// Pad1 Gamepad #1
 func (self *Gamepad) Pad1() *SinglePad{
     return &SinglePad{self.Object.Get("pad1")}
 }
 
-// Gamepad #1
+// SetPad1A Gamepad #1
 func (self *Gamepad) SetPad1A(member *SinglePad) {
     self.Object.Set("pad1", member)
 }
 
-// Gamepad #2
+// Pad2 Gamepad #2
 func (self *Gamepad) Pad2() *SinglePad{
     return &SinglePad{self.Object.Get("pad2")}
 }
 
-// Gamepad #2
+// SetPad2A Gamepad #2
 func (self *Gamepad) SetPad2A(member *SinglePad) {
     self.Object.Set("pad2", member)
 }
 
-// Gamepad #3
+// Pad3 Gamepad #3
 func (self *Gamepad) Pad3() *SinglePad{
     return &SinglePad{self.Object.Get("pad3")}
 }
 
-// Gamepad #3
+// SetPad3A Gamepad #3
 func (self *Gamepad) SetPad3A(member *SinglePad) {
     self.Object.Set("pad3", member)
 }
 
-// Gamepad #4
+// Pad4 Gamepad #4
 func (self *Gamepad) Pad4() *SinglePad{
     return &SinglePad{self.Object.Get("pad4")}
 }
 
-// Gamepad #4
+// SetPad4A Gamepad #4
 func (self *Gamepad) SetPad4A(member *SinglePad) {
     self.Object.Set("pad4", member)
 }
 
 
-
-// Add callbacks to the main Gamepad handler to handle connect/disconnect/button down/button up/axis change/float value buttons.
+// AddCallbacks Add callbacks to the main Gamepad handler to handle connect/disconnect/button down/button up/axis change/float value buttons.
 func (self *Gamepad) AddCallbacks(context interface{}, callbacks interface{}) {
     self.Object.Call("addCallbacks", context, callbacks)
 }
 
-// Add callbacks to the main Gamepad handler to handle connect/disconnect/button down/button up/axis change/float value buttons.
+// AddCallbacksI Add callbacks to the main Gamepad handler to handle connect/disconnect/button down/button up/axis change/float value buttons.
 func (self *Gamepad) AddCallbacksI(args ...interface{}) {
     self.Object.Call("addCallbacks", args)
 }
 
-// Starts the Gamepad event handling.
+// Start Starts the Gamepad event handling.
 // This MUST be called manually before Phaser will start polling the Gamepad API.
 func (self *Gamepad) Start() {
     self.Object.Call("start")
 }
 
-// Starts the Gamepad event handling.
+// StartI Starts the Gamepad event handling.
 // This MUST be called manually before Phaser will start polling the Gamepad API.
 func (self *Gamepad) StartI(args ...interface{}) {
     self.Object.Call("start", args)
 }
 
-// Main gamepad update loop. Should not be called manually.
+// Update Main gamepad update loop. Should not be called manually.
 func (self *Gamepad) Update() {
     self.Object.Call("update")
 }
 
-// Main gamepad update loop. Should not be called manually.
+// UpdateI Main gamepad update loop. Should not be called manually.
 func (self *Gamepad) UpdateI(args ...interface{}) {
     self.Object.Call("update", args)
 }
 
-// Updating connected gamepads (for Google Chrome). Should not be called manually.
+// _pollGamepads Updating connected gamepads (for Google Chrome). Should not be called manually.
 func (self *Gamepad) _pollGamepads() {
     self.Object.Call("_pollGamepads")
 }
 
-// Updating connected gamepads (for Google Chrome). Should not be called manually.
+// _pollGamepadsI Updating connected gamepads (for Google Chrome). Should not be called manually.
 func (self *Gamepad) _pollGamepadsI(args ...interface{}) {
     self.Object.Call("_pollGamepads", args)
 }
 
-// Sets the deadZone variable for all four gamepads
+// SetDeadZones Sets the deadZone variable for all four gamepads
 func (self *Gamepad) SetDeadZones() {
     self.Object.Call("setDeadZones")
 }
 
-// Sets the deadZone variable for all four gamepads
+// SetDeadZonesI Sets the deadZone variable for all four gamepads
 func (self *Gamepad) SetDeadZonesI(args ...interface{}) {
     self.Object.Call("setDeadZones", args)
 }
 
-// Stops the Gamepad event handling.
+// Stop Stops the Gamepad event handling.
 func (self *Gamepad) Stop() {
     self.Object.Call("stop")
 }
 
-// Stops the Gamepad event handling.
+// StopI Stops the Gamepad event handling.
 func (self *Gamepad) StopI(args ...interface{}) {
     self.Object.Call("stop", args)
 }
 
-// Reset all buttons/axes of all gamepads
+// Reset Reset all buttons/axes of all gamepads
 func (self *Gamepad) Reset() {
     self.Object.Call("reset")
 }
 
-// Reset all buttons/axes of all gamepads
+// ResetI Reset all buttons/axes of all gamepads
 func (self *Gamepad) ResetI(args ...interface{}) {
     self.Object.Call("reset", args)
 }
 
-// Returns the "just pressed" state of a button from ANY gamepad connected. Just pressed is considered true if the button was pressed down within the duration given (default 250ms).
+// JustPressed Returns the "just pressed" state of a button from ANY gamepad connected. Just pressed is considered true if the button was pressed down within the duration given (default 250ms).
 func (self *Gamepad) JustPressed(buttonCode int) bool{
     return self.Object.Call("justPressed", buttonCode).Bool()
 }
 
-// Returns the "just pressed" state of a button from ANY gamepad connected. Just pressed is considered true if the button was pressed down within the duration given (default 250ms).
+// JustPressed1O Returns the "just pressed" state of a button from ANY gamepad connected. Just pressed is considered true if the button was pressed down within the duration given (default 250ms).
 func (self *Gamepad) JustPressed1O(buttonCode int, duration int) bool{
     return self.Object.Call("justPressed", buttonCode, duration).Bool()
 }
 
-// Returns the "just pressed" state of a button from ANY gamepad connected. Just pressed is considered true if the button was pressed down within the duration given (default 250ms).
+// JustPressedI Returns the "just pressed" state of a button from ANY gamepad connected. Just pressed is considered true if the button was pressed down within the duration given (default 250ms).
 func (self *Gamepad) JustPressedI(args ...interface{}) bool{
     return self.Object.Call("justPressed", args).Bool()
 }
 
-// Returns true if the button is currently pressed down, on ANY gamepad.
+// IsDown Returns true if the button is currently pressed down, on ANY gamepad.
 func (self *Gamepad) IsDown(buttonCode int) bool{
     return self.Object.Call("isDown", buttonCode).Bool()
 }
 
-// Returns true if the button is currently pressed down, on ANY gamepad.
+// IsDownI Returns true if the button is currently pressed down, on ANY gamepad.
 func (self *Gamepad) IsDownI(args ...interface{}) bool{
     return self.Object.Call("isDown", args).Bool()
 }
 
-// Destroys this object and the associated event listeners.
+// Destroy Destroys this object and the associated event listeners.
 func (self *Gamepad) Destroy() {
     self.Object.Call("destroy")
 }
 
-// Destroys this object and the associated event listeners.
+// DestroyI Destroys this object and the associated event listeners.
 func (self *Gamepad) DestroyI(args ...interface{}) {
     self.Object.Call("destroy", args)
 }
+

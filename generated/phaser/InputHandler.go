@@ -1,4 +1,4 @@
-// Automatic generation for Phaser.InputHandler
+// Package phaser Automatic generation for Phaser.InputHandler
 // generated file InputHandler.go
 package phaser
 
@@ -7,199 +7,197 @@ import (
 
 )
 
-// The Input Handler is bound to a specific Sprite and is responsible for managing all Input events on that Sprite.
+// InputHandler The Input Handler is bound to a specific Sprite and is responsible for managing all Input events on that Sprite.
 type InputHandler struct {
     *js.Object
 }
 
-
-// The Input Handler is bound to a specific Sprite and is responsible for managing all Input events on that Sprite.
+// NewInputHandler The Input Handler is bound to a specific Sprite and is responsible for managing all Input events on that Sprite.
 func NewInputHandler(sprite *Sprite) *InputHandler {
     return &InputHandler{js.Global.Get("Phaser").Get("InputHandler").New(sprite)}
 }
-
-// The Input Handler is bound to a specific Sprite and is responsible for managing all Input events on that Sprite.
+// NewInputHandlerI The Input Handler is bound to a specific Sprite and is responsible for managing all Input events on that Sprite.
 func NewInputHandlerI(args ...interface{}) *InputHandler {
     return &InputHandler{js.Global.Get("Phaser").Get("InputHandler").New(args)}
 }
 
 
 
-// The Sprite object to which this Input Handler belongs.
+// Sprite The Sprite object to which this Input Handler belongs.
 func (self *InputHandler) Sprite() *Sprite{
     return &Sprite{self.Object.Get("sprite")}
 }
 
-// The Sprite object to which this Input Handler belongs.
+// SetSpriteA The Sprite object to which this Input Handler belongs.
 func (self *InputHandler) SetSpriteA(member *Sprite) {
     self.Object.Set("sprite", member)
 }
 
-// A reference to the currently running game.
+// Game A reference to the currently running game.
 func (self *InputHandler) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
-// A reference to the currently running game.
+// SetGameA A reference to the currently running game.
 func (self *InputHandler) SetGameA(member *Game) {
     self.Object.Set("game", member)
 }
 
-// If enabled the Input Handler will process input requests and monitor pointer activity.
+// Enabled If enabled the Input Handler will process input requests and monitor pointer activity.
 func (self *InputHandler) Enabled() bool{
     return self.Object.Get("enabled").Bool()
 }
 
-// If enabled the Input Handler will process input requests and monitor pointer activity.
+// SetEnabledA If enabled the Input Handler will process input requests and monitor pointer activity.
 func (self *InputHandler) SetEnabledA(member bool) {
     self.Object.Set("enabled", member)
 }
 
-// A disposable flag used by the Pointer class when performing priority checks.
+// Checked A disposable flag used by the Pointer class when performing priority checks.
 func (self *InputHandler) Checked() bool{
     return self.Object.Get("checked").Bool()
 }
 
-// A disposable flag used by the Pointer class when performing priority checks.
+// SetCheckedA A disposable flag used by the Pointer class when performing priority checks.
 func (self *InputHandler) SetCheckedA(member bool) {
     self.Object.Set("checked", member)
 }
 
-// The priorityID is used to determine which game objects should get priority when input events occur. For example if you have
+// PriorityID The priorityID is used to determine which game objects should get priority when input events occur. For example if you have
 // several Sprites that overlap, by default the one at the top of the display list is given priority for input events. You can
 // stop this from happening by controlling the priorityID value. The higher the value, the more important they are considered to the Input events.
 func (self *InputHandler) PriorityID() int{
     return self.Object.Get("priorityID").Int()
 }
 
-// The priorityID is used to determine which game objects should get priority when input events occur. For example if you have
+// SetPriorityIDA The priorityID is used to determine which game objects should get priority when input events occur. For example if you have
 // several Sprites that overlap, by default the one at the top of the display list is given priority for input events. You can
 // stop this from happening by controlling the priorityID value. The higher the value, the more important they are considered to the Input events.
 func (self *InputHandler) SetPriorityIDA(member int) {
     self.Object.Set("priorityID", member)
 }
 
-// On a desktop browser you can set the 'hand' cursor to appear when moving over the Sprite.
+// UseHandCursor On a desktop browser you can set the 'hand' cursor to appear when moving over the Sprite.
 func (self *InputHandler) UseHandCursor() bool{
     return self.Object.Get("useHandCursor").Bool()
 }
 
-// On a desktop browser you can set the 'hand' cursor to appear when moving over the Sprite.
+// SetUseHandCursorA On a desktop browser you can set the 'hand' cursor to appear when moving over the Sprite.
 func (self *InputHandler) SetUseHandCursorA(member bool) {
     self.Object.Set("useHandCursor", member)
 }
 
-// true if the Sprite is being currently dragged.
+// IsDragged true if the Sprite is being currently dragged.
 func (self *InputHandler) IsDragged() bool{
     return self.Object.Get("isDragged").Bool()
 }
 
-// true if the Sprite is being currently dragged.
+// SetIsDraggedA true if the Sprite is being currently dragged.
 func (self *InputHandler) SetIsDraggedA(member bool) {
     self.Object.Set("isDragged", member)
 }
 
-// Controls if the Sprite is allowed to be dragged horizontally.
+// AllowHorizontalDrag Controls if the Sprite is allowed to be dragged horizontally.
 func (self *InputHandler) AllowHorizontalDrag() bool{
     return self.Object.Get("allowHorizontalDrag").Bool()
 }
 
-// Controls if the Sprite is allowed to be dragged horizontally.
+// SetAllowHorizontalDragA Controls if the Sprite is allowed to be dragged horizontally.
 func (self *InputHandler) SetAllowHorizontalDragA(member bool) {
     self.Object.Set("allowHorizontalDrag", member)
 }
 
-// Controls if the Sprite is allowed to be dragged vertically.
+// AllowVerticalDrag Controls if the Sprite is allowed to be dragged vertically.
 func (self *InputHandler) AllowVerticalDrag() bool{
     return self.Object.Get("allowVerticalDrag").Bool()
 }
 
-// Controls if the Sprite is allowed to be dragged vertically.
+// SetAllowVerticalDragA Controls if the Sprite is allowed to be dragged vertically.
 func (self *InputHandler) SetAllowVerticalDragA(member bool) {
     self.Object.Set("allowVerticalDrag", member)
 }
 
-// If true when this Sprite is clicked or dragged it will automatically be bought to the top of the Group it is within.
+// BringToTop If true when this Sprite is clicked or dragged it will automatically be bought to the top of the Group it is within.
 func (self *InputHandler) BringToTop() bool{
     return self.Object.Get("bringToTop").Bool()
 }
 
-// If true when this Sprite is clicked or dragged it will automatically be bought to the top of the Group it is within.
+// SetBringToTopA If true when this Sprite is clicked or dragged it will automatically be bought to the top of the Group it is within.
 func (self *InputHandler) SetBringToTopA(member bool) {
     self.Object.Set("bringToTop", member)
 }
 
-// A Point object that contains by how far the Sprite snap is offset.
+// SnapOffset A Point object that contains by how far the Sprite snap is offset.
 func (self *InputHandler) SnapOffset() *Point{
     return &Point{self.Object.Get("snapOffset")}
 }
 
-// A Point object that contains by how far the Sprite snap is offset.
+// SetSnapOffsetA A Point object that contains by how far the Sprite snap is offset.
 func (self *InputHandler) SetSnapOffsetA(member *Point) {
     self.Object.Set("snapOffset", member)
 }
 
-// When the Sprite is dragged this controls if the center of the Sprite will snap to the pointer on drag or not.
+// SnapOnDrag When the Sprite is dragged this controls if the center of the Sprite will snap to the pointer on drag or not.
 func (self *InputHandler) SnapOnDrag() bool{
     return self.Object.Get("snapOnDrag").Bool()
 }
 
-// When the Sprite is dragged this controls if the center of the Sprite will snap to the pointer on drag or not.
+// SetSnapOnDragA When the Sprite is dragged this controls if the center of the Sprite will snap to the pointer on drag or not.
 func (self *InputHandler) SetSnapOnDragA(member bool) {
     self.Object.Set("snapOnDrag", member)
 }
 
-// When the Sprite is dragged this controls if the Sprite will be snapped on release.
+// SnapOnRelease When the Sprite is dragged this controls if the Sprite will be snapped on release.
 func (self *InputHandler) SnapOnRelease() bool{
     return self.Object.Get("snapOnRelease").Bool()
 }
 
-// When the Sprite is dragged this controls if the Sprite will be snapped on release.
+// SetSnapOnReleaseA When the Sprite is dragged this controls if the Sprite will be snapped on release.
 func (self *InputHandler) SetSnapOnReleaseA(member bool) {
     self.Object.Set("snapOnRelease", member)
 }
 
-// When a Sprite has snapping enabled this holds the width of the snap grid.
+// SnapX When a Sprite has snapping enabled this holds the width of the snap grid.
 func (self *InputHandler) SnapX() int{
     return self.Object.Get("snapX").Int()
 }
 
-// When a Sprite has snapping enabled this holds the width of the snap grid.
+// SetSnapXA When a Sprite has snapping enabled this holds the width of the snap grid.
 func (self *InputHandler) SetSnapXA(member int) {
     self.Object.Set("snapX", member)
 }
 
-// When a Sprite has snapping enabled this holds the height of the snap grid.
+// SnapY When a Sprite has snapping enabled this holds the height of the snap grid.
 func (self *InputHandler) SnapY() int{
     return self.Object.Get("snapY").Int()
 }
 
-// When a Sprite has snapping enabled this holds the height of the snap grid.
+// SetSnapYA When a Sprite has snapping enabled this holds the height of the snap grid.
 func (self *InputHandler) SetSnapYA(member int) {
     self.Object.Set("snapY", member)
 }
 
-// This defines the top-left X coordinate of the snap grid.
+// SnapOffsetX This defines the top-left X coordinate of the snap grid.
 func (self *InputHandler) SnapOffsetX() int{
     return self.Object.Get("snapOffsetX").Int()
 }
 
-// This defines the top-left X coordinate of the snap grid.
+// SetSnapOffsetXA This defines the top-left X coordinate of the snap grid.
 func (self *InputHandler) SetSnapOffsetXA(member int) {
     self.Object.Set("snapOffsetX", member)
 }
 
-// This defines the top-left Y coordinate of the snap grid..
+// SnapOffsetY This defines the top-left Y coordinate of the snap grid..
 func (self *InputHandler) SnapOffsetY() int{
     return self.Object.Get("snapOffsetY").Int()
 }
 
-// This defines the top-left Y coordinate of the snap grid..
+// SetSnapOffsetYA This defines the top-left Y coordinate of the snap grid..
 func (self *InputHandler) SetSnapOffsetYA(member int) {
     self.Object.Set("snapOffsetY", member)
 }
 
-// Set to true to use pixel perfect hit detection when checking if the pointer is over this Sprite.
+// PixelPerfectOver Set to true to use pixel perfect hit detection when checking if the pointer is over this Sprite.
 // The x/y coordinates of the pointer are tested against the image in combination with the InputHandler.pixelPerfectAlpha value.
 // This feature only works for display objects with image based textures such as Sprites. It won't work on BitmapText or Rope.
 // Warning: This is expensive, especially on mobile (where it's not even needed!) so only enable if required. Also see the less-expensive InputHandler.pixelPerfectClick. Use a pixel perfect check when testing for pointer over.
@@ -207,7 +205,7 @@ func (self *InputHandler) PixelPerfectOver() bool{
     return self.Object.Get("pixelPerfectOver").Bool()
 }
 
-// Set to true to use pixel perfect hit detection when checking if the pointer is over this Sprite.
+// SetPixelPerfectOverA Set to true to use pixel perfect hit detection when checking if the pointer is over this Sprite.
 // The x/y coordinates of the pointer are tested against the image in combination with the InputHandler.pixelPerfectAlpha value.
 // This feature only works for display objects with image based textures such as Sprites. It won't work on BitmapText or Rope.
 // Warning: This is expensive, especially on mobile (where it's not even needed!) so only enable if required. Also see the less-expensive InputHandler.pixelPerfectClick. Use a pixel perfect check when testing for pointer over.
@@ -215,7 +213,7 @@ func (self *InputHandler) SetPixelPerfectOverA(member bool) {
     self.Object.Set("pixelPerfectOver", member)
 }
 
-// Set to true to use pixel perfect hit detection when checking if the pointer is over this Sprite when it's clicked or touched.
+// PixelPerfectClick Set to true to use pixel perfect hit detection when checking if the pointer is over this Sprite when it's clicked or touched.
 // The x/y coordinates of the pointer are tested against the image in combination with the InputHandler.pixelPerfectAlpha value.
 // This feature only works for display objects with image based textures such as Sprites. It won't work on BitmapText or Rope.
 // Warning: This is expensive so only enable if you really need it. Use a pixel perfect check when testing for clicks or touches on the Sprite.
@@ -223,7 +221,7 @@ func (self *InputHandler) PixelPerfectClick() bool{
     return self.Object.Get("pixelPerfectClick").Bool()
 }
 
-// Set to true to use pixel perfect hit detection when checking if the pointer is over this Sprite when it's clicked or touched.
+// SetPixelPerfectClickA Set to true to use pixel perfect hit detection when checking if the pointer is over this Sprite when it's clicked or touched.
 // The x/y coordinates of the pointer are tested against the image in combination with the InputHandler.pixelPerfectAlpha value.
 // This feature only works for display objects with image based textures such as Sprites. It won't work on BitmapText or Rope.
 // Warning: This is expensive so only enable if you really need it. Use a pixel perfect check when testing for clicks or touches on the Sprite.
@@ -231,620 +229,619 @@ func (self *InputHandler) SetPixelPerfectClickA(member bool) {
     self.Object.Set("pixelPerfectClick", member)
 }
 
-// The alpha tolerance threshold. If the alpha value of the pixel matches or is above this value, it's considered a hit.
+// PixelPerfectAlpha The alpha tolerance threshold. If the alpha value of the pixel matches or is above this value, it's considered a hit.
 func (self *InputHandler) PixelPerfectAlpha() int{
     return self.Object.Get("pixelPerfectAlpha").Int()
 }
 
-// The alpha tolerance threshold. If the alpha value of the pixel matches or is above this value, it's considered a hit.
+// SetPixelPerfectAlphaA The alpha tolerance threshold. If the alpha value of the pixel matches or is above this value, it's considered a hit.
 func (self *InputHandler) SetPixelPerfectAlphaA(member int) {
     self.Object.Set("pixelPerfectAlpha", member)
 }
 
-// Is this sprite allowed to be dragged by the mouse? true = yes, false = no
+// Draggable Is this sprite allowed to be dragged by the mouse? true = yes, false = no
 func (self *InputHandler) Draggable() bool{
     return self.Object.Get("draggable").Bool()
 }
 
-// Is this sprite allowed to be dragged by the mouse? true = yes, false = no
+// SetDraggableA Is this sprite allowed to be dragged by the mouse? true = yes, false = no
 func (self *InputHandler) SetDraggableA(member bool) {
     self.Object.Set("draggable", member)
 }
 
-// A region of the game world within which the sprite is restricted during drag.
+// BoundsRect A region of the game world within which the sprite is restricted during drag.
 func (self *InputHandler) BoundsRect() *Rectangle{
     return &Rectangle{self.Object.Get("boundsRect")}
 }
 
-// A region of the game world within which the sprite is restricted during drag.
+// SetBoundsRectA A region of the game world within which the sprite is restricted during drag.
 func (self *InputHandler) SetBoundsRectA(member *Rectangle) {
     self.Object.Set("boundsRect", member)
 }
 
-// A Sprite the bounds of which this sprite is restricted during drag.
+// BoundsSprite A Sprite the bounds of which this sprite is restricted during drag.
 func (self *InputHandler) BoundsSprite() *Sprite{
     return &Sprite{self.Object.Get("boundsSprite")}
 }
 
-// A Sprite the bounds of which this sprite is restricted during drag.
+// SetBoundsSpriteA A Sprite the bounds of which this sprite is restricted during drag.
 func (self *InputHandler) SetBoundsSpriteA(member *Sprite) {
     self.Object.Set("boundsSprite", member)
 }
 
-// EXPERIMENTAL: Please do not use this property unless you know what it does. Likely to change in the future.
+// ScaleLayer EXPERIMENTAL: Please do not use this property unless you know what it does. Likely to change in the future.
 func (self *InputHandler) ScaleLayer() bool{
     return self.Object.Get("scaleLayer").Bool()
 }
 
-// EXPERIMENTAL: Please do not use this property unless you know what it does. Likely to change in the future.
+// SetScaleLayerA EXPERIMENTAL: Please do not use this property unless you know what it does. Likely to change in the future.
 func (self *InputHandler) SetScaleLayerA(member bool) {
     self.Object.Set("scaleLayer", member)
 }
 
-// The offset from the Sprites position that dragging takes place from.
+// DragOffset The offset from the Sprites position that dragging takes place from.
 func (self *InputHandler) DragOffset() *Point{
     return &Point{self.Object.Get("dragOffset")}
 }
 
-// The offset from the Sprites position that dragging takes place from.
+// SetDragOffsetA The offset from the Sprites position that dragging takes place from.
 func (self *InputHandler) SetDragOffsetA(member *Point) {
     self.Object.Set("dragOffset", member)
 }
 
-// Is the Sprite dragged from its center, or the point at which the Pointer was pressed down upon it?
+// DragFromCenter Is the Sprite dragged from its center, or the point at which the Pointer was pressed down upon it?
 func (self *InputHandler) DragFromCenter() bool{
     return self.Object.Get("dragFromCenter").Bool()
 }
 
-// Is the Sprite dragged from its center, or the point at which the Pointer was pressed down upon it?
+// SetDragFromCenterA Is the Sprite dragged from its center, or the point at which the Pointer was pressed down upon it?
 func (self *InputHandler) SetDragFromCenterA(member bool) {
     self.Object.Set("dragFromCenter", member)
 }
 
-// If enabled, when the Sprite stops being dragged, it will only dispatch the `onDragStop` event, and not the `onInputUp` event. If set to `false` it will dispatch both events.
+// DragStopBlocksInputUp If enabled, when the Sprite stops being dragged, it will only dispatch the `onDragStop` event, and not the `onInputUp` event. If set to `false` it will dispatch both events.
 func (self *InputHandler) DragStopBlocksInputUp() bool{
     return self.Object.Get("dragStopBlocksInputUp").Bool()
 }
 
-// If enabled, when the Sprite stops being dragged, it will only dispatch the `onDragStop` event, and not the `onInputUp` event. If set to `false` it will dispatch both events.
+// SetDragStopBlocksInputUpA If enabled, when the Sprite stops being dragged, it will only dispatch the `onDragStop` event, and not the `onInputUp` event. If set to `false` it will dispatch both events.
 func (self *InputHandler) SetDragStopBlocksInputUpA(member bool) {
     self.Object.Set("dragStopBlocksInputUp", member)
 }
 
-// The Point from which the most recent drag started from. Useful if you need to return an object to its starting position.
+// DragStartPoint The Point from which the most recent drag started from. Useful if you need to return an object to its starting position.
 func (self *InputHandler) DragStartPoint() *Point{
     return &Point{self.Object.Get("dragStartPoint")}
 }
 
-// The Point from which the most recent drag started from. Useful if you need to return an object to its starting position.
+// SetDragStartPointA The Point from which the most recent drag started from. Useful if you need to return an object to its starting position.
 func (self *InputHandler) SetDragStartPointA(member *Point) {
     self.Object.Set("dragStartPoint", member)
 }
 
-// The distance, in pixels, the pointer has to move while being held down, before the Sprite thinks it is being dragged.
+// DragDistanceThreshold The distance, in pixels, the pointer has to move while being held down, before the Sprite thinks it is being dragged.
 func (self *InputHandler) DragDistanceThreshold() int{
     return self.Object.Get("dragDistanceThreshold").Int()
 }
 
-// The distance, in pixels, the pointer has to move while being held down, before the Sprite thinks it is being dragged.
+// SetDragDistanceThresholdA The distance, in pixels, the pointer has to move while being held down, before the Sprite thinks it is being dragged.
 func (self *InputHandler) SetDragDistanceThresholdA(member int) {
     self.Object.Set("dragDistanceThreshold", member)
 }
 
-// The amount of time, in ms, the pointer has to be held down over the Sprite before it thinks it is being dragged.
+// DragTimeThreshold The amount of time, in ms, the pointer has to be held down over the Sprite before it thinks it is being dragged.
 func (self *InputHandler) DragTimeThreshold() int{
     return self.Object.Get("dragTimeThreshold").Int()
 }
 
-// The amount of time, in ms, the pointer has to be held down over the Sprite before it thinks it is being dragged.
+// SetDragTimeThresholdA The amount of time, in ms, the pointer has to be held down over the Sprite before it thinks it is being dragged.
 func (self *InputHandler) SetDragTimeThresholdA(member int) {
     self.Object.Set("dragTimeThreshold", member)
 }
 
-// A Point object containing the coordinates of the Pointer when it was first pressed down onto this Sprite.
+// DownPoint A Point object containing the coordinates of the Pointer when it was first pressed down onto this Sprite.
 func (self *InputHandler) DownPoint() *Point{
     return &Point{self.Object.Get("downPoint")}
 }
 
-// A Point object containing the coordinates of the Pointer when it was first pressed down onto this Sprite.
+// SetDownPointA A Point object containing the coordinates of the Pointer when it was first pressed down onto this Sprite.
 func (self *InputHandler) SetDownPointA(member *Point) {
     self.Object.Set("downPoint", member)
 }
 
-// If the sprite is set to snap while dragging this holds the point of the most recent 'snap' event.
+// SnapPoint If the sprite is set to snap while dragging this holds the point of the most recent 'snap' event.
 func (self *InputHandler) SnapPoint() *Point{
     return &Point{self.Object.Get("snapPoint")}
 }
 
-// If the sprite is set to snap while dragging this holds the point of the most recent 'snap' event.
+// SetSnapPointA If the sprite is set to snap while dragging this holds the point of the most recent 'snap' event.
 func (self *InputHandler) SetSnapPointA(member *Point) {
     self.Object.Set("snapPoint", member)
 }
 
 
-
-// Starts the Input Handler running. This is called automatically when you enable input on a Sprite, or can be called directly if you need to set a specific priority.
+// Start Starts the Input Handler running. This is called automatically when you enable input on a Sprite, or can be called directly if you need to set a specific priority.
 func (self *InputHandler) Start() *Sprite{
     return &Sprite{self.Object.Call("start")}
 }
 
-// Starts the Input Handler running. This is called automatically when you enable input on a Sprite, or can be called directly if you need to set a specific priority.
+// Start1O Starts the Input Handler running. This is called automatically when you enable input on a Sprite, or can be called directly if you need to set a specific priority.
 func (self *InputHandler) Start1O(priority int) *Sprite{
     return &Sprite{self.Object.Call("start", priority)}
 }
 
-// Starts the Input Handler running. This is called automatically when you enable input on a Sprite, or can be called directly if you need to set a specific priority.
+// Start2O Starts the Input Handler running. This is called automatically when you enable input on a Sprite, or can be called directly if you need to set a specific priority.
 func (self *InputHandler) Start2O(priority int, useHandCursor bool) *Sprite{
     return &Sprite{self.Object.Call("start", priority, useHandCursor)}
 }
 
-// Starts the Input Handler running. This is called automatically when you enable input on a Sprite, or can be called directly if you need to set a specific priority.
+// StartI Starts the Input Handler running. This is called automatically when you enable input on a Sprite, or can be called directly if you need to set a specific priority.
 func (self *InputHandler) StartI(args ...interface{}) *Sprite{
     return &Sprite{self.Object.Call("start", args)}
 }
 
-// Handles when the parent Sprite is added to a new Group.
+// AddedToGroup Handles when the parent Sprite is added to a new Group.
 func (self *InputHandler) AddedToGroup() {
     self.Object.Call("addedToGroup")
 }
 
-// Handles when the parent Sprite is added to a new Group.
+// AddedToGroupI Handles when the parent Sprite is added to a new Group.
 func (self *InputHandler) AddedToGroupI(args ...interface{}) {
     self.Object.Call("addedToGroup", args)
 }
 
-// Handles when the parent Sprite is removed from a Group.
+// RemovedFromGroup Handles when the parent Sprite is removed from a Group.
 func (self *InputHandler) RemovedFromGroup() {
     self.Object.Call("removedFromGroup")
 }
 
-// Handles when the parent Sprite is removed from a Group.
+// RemovedFromGroupI Handles when the parent Sprite is removed from a Group.
 func (self *InputHandler) RemovedFromGroupI(args ...interface{}) {
     self.Object.Call("removedFromGroup", args)
 }
 
-// Resets the Input Handler and disables it.
+// Reset Resets the Input Handler and disables it.
 func (self *InputHandler) Reset() {
     self.Object.Call("reset")
 }
 
-// Resets the Input Handler and disables it.
+// ResetI Resets the Input Handler and disables it.
 func (self *InputHandler) ResetI(args ...interface{}) {
     self.Object.Call("reset", args)
 }
 
-// Stops the Input Handler from running.
+// Stop Stops the Input Handler from running.
 func (self *InputHandler) Stop() {
     self.Object.Call("stop")
 }
 
-// Stops the Input Handler from running.
+// StopI Stops the Input Handler from running.
 func (self *InputHandler) StopI(args ...interface{}) {
     self.Object.Call("stop", args)
 }
 
-// Clean up memory.
+// Destroy Clean up memory.
 func (self *InputHandler) Destroy() {
     self.Object.Call("destroy")
 }
 
-// Clean up memory.
+// DestroyI Clean up memory.
 func (self *InputHandler) DestroyI(args ...interface{}) {
     self.Object.Call("destroy", args)
 }
 
-// Checks if the object this InputHandler is bound to is valid for consideration in the Pointer move event.
+// ValidForInput Checks if the object this InputHandler is bound to is valid for consideration in the Pointer move event.
 // This is called by Phaser.Pointer and shouldn't typically be called directly.
 func (self *InputHandler) ValidForInput(highestID int, highestRenderID int) bool{
     return self.Object.Call("validForInput", highestID, highestRenderID).Bool()
 }
 
-// Checks if the object this InputHandler is bound to is valid for consideration in the Pointer move event.
+// ValidForInput1O Checks if the object this InputHandler is bound to is valid for consideration in the Pointer move event.
 // This is called by Phaser.Pointer and shouldn't typically be called directly.
 func (self *InputHandler) ValidForInput1O(highestID int, highestRenderID int, includePixelPerfect bool) bool{
     return self.Object.Call("validForInput", highestID, highestRenderID, includePixelPerfect).Bool()
 }
 
-// Checks if the object this InputHandler is bound to is valid for consideration in the Pointer move event.
+// ValidForInputI Checks if the object this InputHandler is bound to is valid for consideration in the Pointer move event.
 // This is called by Phaser.Pointer and shouldn't typically be called directly.
 func (self *InputHandler) ValidForInputI(args ...interface{}) bool{
     return self.Object.Call("validForInput", args).Bool()
 }
 
-// Is this object using pixel perfect checking?
+// IsPixelPerfect Is this object using pixel perfect checking?
 func (self *InputHandler) IsPixelPerfect() bool{
     return self.Object.Call("isPixelPerfect").Bool()
 }
 
-// Is this object using pixel perfect checking?
+// IsPixelPerfectI Is this object using pixel perfect checking?
 func (self *InputHandler) IsPixelPerfectI(args ...interface{}) bool{
     return self.Object.Call("isPixelPerfect", args).Bool()
 }
 
-// The x coordinate of the Input pointer, relative to the top-left of the parent Sprite.
+// PointerX The x coordinate of the Input pointer, relative to the top-left of the parent Sprite.
 // This value is only set when the pointer is over this Sprite.
 func (self *InputHandler) PointerX() int{
     return self.Object.Call("pointerX").Int()
 }
 
-// The x coordinate of the Input pointer, relative to the top-left of the parent Sprite.
+// PointerX1O The x coordinate of the Input pointer, relative to the top-left of the parent Sprite.
 // This value is only set when the pointer is over this Sprite.
 func (self *InputHandler) PointerX1O(pointerId int) int{
     return self.Object.Call("pointerX", pointerId).Int()
 }
 
-// The x coordinate of the Input pointer, relative to the top-left of the parent Sprite.
+// PointerXI The x coordinate of the Input pointer, relative to the top-left of the parent Sprite.
 // This value is only set when the pointer is over this Sprite.
 func (self *InputHandler) PointerXI(args ...interface{}) int{
     return self.Object.Call("pointerX", args).Int()
 }
 
-// The y coordinate of the Input pointer, relative to the top-left of the parent Sprite
+// PointerY The y coordinate of the Input pointer, relative to the top-left of the parent Sprite
 // This value is only set when the pointer is over this Sprite.
 func (self *InputHandler) PointerY() int{
     return self.Object.Call("pointerY").Int()
 }
 
-// The y coordinate of the Input pointer, relative to the top-left of the parent Sprite
+// PointerY1O The y coordinate of the Input pointer, relative to the top-left of the parent Sprite
 // This value is only set when the pointer is over this Sprite.
 func (self *InputHandler) PointerY1O(pointerId int) int{
     return self.Object.Call("pointerY", pointerId).Int()
 }
 
-// The y coordinate of the Input pointer, relative to the top-left of the parent Sprite
+// PointerYI The y coordinate of the Input pointer, relative to the top-left of the parent Sprite
 // This value is only set when the pointer is over this Sprite.
 func (self *InputHandler) PointerYI(args ...interface{}) int{
     return self.Object.Call("pointerY", args).Int()
 }
 
-// If the Pointer is down this returns true.
+// PointerDown If the Pointer is down this returns true.
 // This *only* checks if the Pointer is down, not if it's down over any specific Sprite.
 func (self *InputHandler) PointerDown() bool{
     return self.Object.Call("pointerDown").Bool()
 }
 
-// If the Pointer is down this returns true.
+// PointerDown1O If the Pointer is down this returns true.
 // This *only* checks if the Pointer is down, not if it's down over any specific Sprite.
 func (self *InputHandler) PointerDown1O(pointerId int) bool{
     return self.Object.Call("pointerDown", pointerId).Bool()
 }
 
-// If the Pointer is down this returns true.
+// PointerDownI If the Pointer is down this returns true.
 // This *only* checks if the Pointer is down, not if it's down over any specific Sprite.
 func (self *InputHandler) PointerDownI(args ...interface{}) bool{
     return self.Object.Call("pointerDown", args).Bool()
 }
 
-// If the Pointer is up this returns true.
+// PointerUp If the Pointer is up this returns true.
 // This *only* checks if the Pointer is up, not if it's up over any specific Sprite.
 func (self *InputHandler) PointerUp() bool{
     return self.Object.Call("pointerUp").Bool()
 }
 
-// If the Pointer is up this returns true.
+// PointerUp1O If the Pointer is up this returns true.
 // This *only* checks if the Pointer is up, not if it's up over any specific Sprite.
 func (self *InputHandler) PointerUp1O(pointerId int) bool{
     return self.Object.Call("pointerUp", pointerId).Bool()
 }
 
-// If the Pointer is up this returns true.
+// PointerUpI If the Pointer is up this returns true.
 // This *only* checks if the Pointer is up, not if it's up over any specific Sprite.
 func (self *InputHandler) PointerUpI(args ...interface{}) bool{
     return self.Object.Call("pointerUp", args).Bool()
 }
 
-// A timestamp representing when the Pointer first touched the touchscreen.
+// PointerTimeDown A timestamp representing when the Pointer first touched the touchscreen.
 func (self *InputHandler) PointerTimeDown() int{
     return self.Object.Call("pointerTimeDown").Int()
 }
 
-// A timestamp representing when the Pointer first touched the touchscreen.
+// PointerTimeDown1O A timestamp representing when the Pointer first touched the touchscreen.
 func (self *InputHandler) PointerTimeDown1O(pointerId int) int{
     return self.Object.Call("pointerTimeDown", pointerId).Int()
 }
 
-// A timestamp representing when the Pointer first touched the touchscreen.
+// PointerTimeDownI A timestamp representing when the Pointer first touched the touchscreen.
 func (self *InputHandler) PointerTimeDownI(args ...interface{}) int{
     return self.Object.Call("pointerTimeDown", args).Int()
 }
 
-// A timestamp representing when the Pointer left the touchscreen.
+// PointerTimeUp A timestamp representing when the Pointer left the touchscreen.
 func (self *InputHandler) PointerTimeUp() int{
     return self.Object.Call("pointerTimeUp").Int()
 }
 
-// A timestamp representing when the Pointer left the touchscreen.
+// PointerTimeUp1O A timestamp representing when the Pointer left the touchscreen.
 func (self *InputHandler) PointerTimeUp1O(pointerId int) int{
     return self.Object.Call("pointerTimeUp", pointerId).Int()
 }
 
-// A timestamp representing when the Pointer left the touchscreen.
+// PointerTimeUpI A timestamp representing when the Pointer left the touchscreen.
 func (self *InputHandler) PointerTimeUpI(args ...interface{}) int{
     return self.Object.Call("pointerTimeUp", args).Int()
 }
 
-// Is the Pointer over this Sprite?
+// PointerOver Is the Pointer over this Sprite?
 func (self *InputHandler) PointerOver() bool{
     return self.Object.Call("pointerOver").Bool()
 }
 
-// Is the Pointer over this Sprite?
+// PointerOver1O Is the Pointer over this Sprite?
 func (self *InputHandler) PointerOver1O(pointerId int) bool{
     return self.Object.Call("pointerOver", pointerId).Bool()
 }
 
-// Is the Pointer over this Sprite?
+// PointerOverI Is the Pointer over this Sprite?
 func (self *InputHandler) PointerOverI(args ...interface{}) bool{
     return self.Object.Call("pointerOver", args).Bool()
 }
 
-// Is the Pointer outside of this Sprite?
+// PointerOut Is the Pointer outside of this Sprite?
 func (self *InputHandler) PointerOut() bool{
     return self.Object.Call("pointerOut").Bool()
 }
 
-// Is the Pointer outside of this Sprite?
+// PointerOut1O Is the Pointer outside of this Sprite?
 func (self *InputHandler) PointerOut1O(pointerId int) bool{
     return self.Object.Call("pointerOut", pointerId).Bool()
 }
 
-// Is the Pointer outside of this Sprite?
+// PointerOutI Is the Pointer outside of this Sprite?
 func (self *InputHandler) PointerOutI(args ...interface{}) bool{
     return self.Object.Call("pointerOut", args).Bool()
 }
 
-// A timestamp representing when the Pointer first touched the touchscreen.
+// PointerTimeOver A timestamp representing when the Pointer first touched the touchscreen.
 func (self *InputHandler) PointerTimeOver() int{
     return self.Object.Call("pointerTimeOver").Int()
 }
 
-// A timestamp representing when the Pointer first touched the touchscreen.
+// PointerTimeOver1O A timestamp representing when the Pointer first touched the touchscreen.
 func (self *InputHandler) PointerTimeOver1O(pointerId int) int{
     return self.Object.Call("pointerTimeOver", pointerId).Int()
 }
 
-// A timestamp representing when the Pointer first touched the touchscreen.
+// PointerTimeOverI A timestamp representing when the Pointer first touched the touchscreen.
 func (self *InputHandler) PointerTimeOverI(args ...interface{}) int{
     return self.Object.Call("pointerTimeOver", args).Int()
 }
 
-// A timestamp representing when the Pointer left the touchscreen.
+// PointerTimeOut A timestamp representing when the Pointer left the touchscreen.
 func (self *InputHandler) PointerTimeOut() int{
     return self.Object.Call("pointerTimeOut").Int()
 }
 
-// A timestamp representing when the Pointer left the touchscreen.
+// PointerTimeOut1O A timestamp representing when the Pointer left the touchscreen.
 func (self *InputHandler) PointerTimeOut1O(pointerId int) int{
     return self.Object.Call("pointerTimeOut", pointerId).Int()
 }
 
-// A timestamp representing when the Pointer left the touchscreen.
+// PointerTimeOutI A timestamp representing when the Pointer left the touchscreen.
 func (self *InputHandler) PointerTimeOutI(args ...interface{}) int{
     return self.Object.Call("pointerTimeOut", args).Int()
 }
 
-// Is this sprite being dragged by the mouse or not?
+// PointerDragged Is this sprite being dragged by the mouse or not?
 func (self *InputHandler) PointerDragged() bool{
     return self.Object.Call("pointerDragged").Bool()
 }
 
-// Is this sprite being dragged by the mouse or not?
+// PointerDragged1O Is this sprite being dragged by the mouse or not?
 func (self *InputHandler) PointerDragged1O(pointerId int) bool{
     return self.Object.Call("pointerDragged", pointerId).Bool()
 }
 
-// Is this sprite being dragged by the mouse or not?
+// PointerDraggedI Is this sprite being dragged by the mouse or not?
 func (self *InputHandler) PointerDraggedI(args ...interface{}) bool{
     return self.Object.Call("pointerDragged", args).Bool()
 }
 
-// Checks if the given pointer is both down and over the Sprite this InputHandler belongs to.
+// CheckPointerDown Checks if the given pointer is both down and over the Sprite this InputHandler belongs to.
 // Use the `fastTest` flag is to quickly check just the bounding hit area even if `InputHandler.pixelPerfectOver` is `true`.
 func (self *InputHandler) CheckPointerDown(pointer *Pointer) bool{
     return self.Object.Call("checkPointerDown", pointer).Bool()
 }
 
-// Checks if the given pointer is both down and over the Sprite this InputHandler belongs to.
+// CheckPointerDown1O Checks if the given pointer is both down and over the Sprite this InputHandler belongs to.
 // Use the `fastTest` flag is to quickly check just the bounding hit area even if `InputHandler.pixelPerfectOver` is `true`.
 func (self *InputHandler) CheckPointerDown1O(pointer *Pointer, fastTest bool) bool{
     return self.Object.Call("checkPointerDown", pointer, fastTest).Bool()
 }
 
-// Checks if the given pointer is both down and over the Sprite this InputHandler belongs to.
+// CheckPointerDownI Checks if the given pointer is both down and over the Sprite this InputHandler belongs to.
 // Use the `fastTest` flag is to quickly check just the bounding hit area even if `InputHandler.pixelPerfectOver` is `true`.
 func (self *InputHandler) CheckPointerDownI(args ...interface{}) bool{
     return self.Object.Call("checkPointerDown", args).Bool()
 }
 
-// Checks if the given pointer is over the Sprite this InputHandler belongs to.
+// CheckPointerOver Checks if the given pointer is over the Sprite this InputHandler belongs to.
 // Use the `fastTest` flag is to quickly check just the bounding hit area even if `InputHandler.pixelPerfectOver` is `true`.
 func (self *InputHandler) CheckPointerOver(pointer *Pointer) bool{
     return self.Object.Call("checkPointerOver", pointer).Bool()
 }
 
-// Checks if the given pointer is over the Sprite this InputHandler belongs to.
+// CheckPointerOver1O Checks if the given pointer is over the Sprite this InputHandler belongs to.
 // Use the `fastTest` flag is to quickly check just the bounding hit area even if `InputHandler.pixelPerfectOver` is `true`.
 func (self *InputHandler) CheckPointerOver1O(pointer *Pointer, fastTest bool) bool{
     return self.Object.Call("checkPointerOver", pointer, fastTest).Bool()
 }
 
-// Checks if the given pointer is over the Sprite this InputHandler belongs to.
+// CheckPointerOverI Checks if the given pointer is over the Sprite this InputHandler belongs to.
 // Use the `fastTest` flag is to quickly check just the bounding hit area even if `InputHandler.pixelPerfectOver` is `true`.
 func (self *InputHandler) CheckPointerOverI(args ...interface{}) bool{
     return self.Object.Call("checkPointerOver", args).Bool()
 }
 
-// Runs a pixel perfect check against the given x/y coordinates of the Sprite this InputHandler is bound to.
+// CheckPixel Runs a pixel perfect check against the given x/y coordinates of the Sprite this InputHandler is bound to.
 // It compares the alpha value of the pixel and if >= InputHandler.pixelPerfectAlpha it returns true.
 func (self *InputHandler) CheckPixel(x int, y int) bool{
     return self.Object.Call("checkPixel", x, y).Bool()
 }
 
-// Runs a pixel perfect check against the given x/y coordinates of the Sprite this InputHandler is bound to.
+// CheckPixel1O Runs a pixel perfect check against the given x/y coordinates of the Sprite this InputHandler is bound to.
 // It compares the alpha value of the pixel and if >= InputHandler.pixelPerfectAlpha it returns true.
 func (self *InputHandler) CheckPixel1O(x int, y int, pointer *Pointer) bool{
     return self.Object.Call("checkPixel", x, y, pointer).Bool()
 }
 
-// Runs a pixel perfect check against the given x/y coordinates of the Sprite this InputHandler is bound to.
+// CheckPixelI Runs a pixel perfect check against the given x/y coordinates of the Sprite this InputHandler is bound to.
 // It compares the alpha value of the pixel and if >= InputHandler.pixelPerfectAlpha it returns true.
 func (self *InputHandler) CheckPixelI(args ...interface{}) bool{
     return self.Object.Call("checkPixel", args).Bool()
 }
 
-// Internal Update method. This is called automatically and handles the Pointer
+// Update Internal Update method. This is called automatically and handles the Pointer
 // and drag update loops.
 func (self *InputHandler) Update(pointer *Pointer) bool{
     return self.Object.Call("update", pointer).Bool()
 }
 
-// Internal Update method. This is called automatically and handles the Pointer
+// UpdateI Internal Update method. This is called automatically and handles the Pointer
 // and drag update loops.
 func (self *InputHandler) UpdateI(args ...interface{}) bool{
     return self.Object.Call("update", args).Bool()
 }
 
-// Internal method handling the pointer over event.
+// _pointerOverHandler Internal method handling the pointer over event.
 func (self *InputHandler) _pointerOverHandler(pointer *Pointer) {
     self.Object.Call("_pointerOverHandler", pointer)
 }
 
-// Internal method handling the pointer over event.
+// _pointerOverHandler1O Internal method handling the pointer over event.
 func (self *InputHandler) _pointerOverHandler1O(pointer *Pointer, silent bool) {
     self.Object.Call("_pointerOverHandler", pointer, silent)
 }
 
-// Internal method handling the pointer over event.
+// _pointerOverHandlerI Internal method handling the pointer over event.
 func (self *InputHandler) _pointerOverHandlerI(args ...interface{}) {
     self.Object.Call("_pointerOverHandler", args)
 }
 
-// Internal method handling the pointer out event.
+// _pointerOutHandler Internal method handling the pointer out event.
 func (self *InputHandler) _pointerOutHandler(pointer *Pointer) {
     self.Object.Call("_pointerOutHandler", pointer)
 }
 
-// Internal method handling the pointer out event.
+// _pointerOutHandler1O Internal method handling the pointer out event.
 func (self *InputHandler) _pointerOutHandler1O(pointer *Pointer, silent bool) {
     self.Object.Call("_pointerOutHandler", pointer, silent)
 }
 
-// Internal method handling the pointer out event.
+// _pointerOutHandlerI Internal method handling the pointer out event.
 func (self *InputHandler) _pointerOutHandlerI(args ...interface{}) {
     self.Object.Call("_pointerOutHandler", args)
 }
 
-// Internal method handling the touched / clicked event.
+// _touchedHandler Internal method handling the touched / clicked event.
 func (self *InputHandler) _touchedHandler(pointer *Pointer) {
     self.Object.Call("_touchedHandler", pointer)
 }
 
-// Internal method handling the touched / clicked event.
+// _touchedHandlerI Internal method handling the touched / clicked event.
 func (self *InputHandler) _touchedHandlerI(args ...interface{}) {
     self.Object.Call("_touchedHandler", args)
 }
 
-// Internal method handling the drag threshold timer.
+// DragTimeElapsed Internal method handling the drag threshold timer.
 func (self *InputHandler) DragTimeElapsed(pointer *Pointer) {
     self.Object.Call("dragTimeElapsed", pointer)
 }
 
-// Internal method handling the drag threshold timer.
+// DragTimeElapsedI Internal method handling the drag threshold timer.
 func (self *InputHandler) DragTimeElapsedI(args ...interface{}) {
     self.Object.Call("dragTimeElapsed", args)
 }
 
-// Internal method handling the pointer released event.
+// _releasedHandler Internal method handling the pointer released event.
 func (self *InputHandler) _releasedHandler(pointer *Pointer) {
     self.Object.Call("_releasedHandler", pointer)
 }
 
-// Internal method handling the pointer released event.
+// _releasedHandlerI Internal method handling the pointer released event.
 func (self *InputHandler) _releasedHandlerI(args ...interface{}) {
     self.Object.Call("_releasedHandler", args)
 }
 
-// Called as a Pointer actively drags this Game Object.
+// UpdateDrag Called as a Pointer actively drags this Game Object.
 func (self *InputHandler) UpdateDrag(pointer *Pointer, fromStart bool) bool{
     return self.Object.Call("updateDrag", pointer, fromStart).Bool()
 }
 
-// Called as a Pointer actively drags this Game Object.
+// UpdateDragI Called as a Pointer actively drags this Game Object.
 func (self *InputHandler) UpdateDragI(args ...interface{}) bool{
     return self.Object.Call("updateDrag", args).Bool()
 }
 
-// Returns true if the pointer has entered the Sprite within the specified delay time (defaults to 500ms, half a second)
+// JustOver Returns true if the pointer has entered the Sprite within the specified delay time (defaults to 500ms, half a second)
 func (self *InputHandler) JustOver(pointerId int, delay int) bool{
     return self.Object.Call("justOver", pointerId, delay).Bool()
 }
 
-// Returns true if the pointer has entered the Sprite within the specified delay time (defaults to 500ms, half a second)
+// JustOverI Returns true if the pointer has entered the Sprite within the specified delay time (defaults to 500ms, half a second)
 func (self *InputHandler) JustOverI(args ...interface{}) bool{
     return self.Object.Call("justOver", args).Bool()
 }
 
-// Returns true if the pointer has left the Sprite within the specified delay time (defaults to 500ms, half a second)
+// JustOut Returns true if the pointer has left the Sprite within the specified delay time (defaults to 500ms, half a second)
 func (self *InputHandler) JustOut(pointerId int, delay int) bool{
     return self.Object.Call("justOut", pointerId, delay).Bool()
 }
 
-// Returns true if the pointer has left the Sprite within the specified delay time (defaults to 500ms, half a second)
+// JustOutI Returns true if the pointer has left the Sprite within the specified delay time (defaults to 500ms, half a second)
 func (self *InputHandler) JustOutI(args ...interface{}) bool{
     return self.Object.Call("justOut", args).Bool()
 }
 
-// Returns true if the pointer has touched or clicked on the Sprite within the specified delay time (defaults to 500ms, half a second)
+// JustPressed Returns true if the pointer has touched or clicked on the Sprite within the specified delay time (defaults to 500ms, half a second)
 func (self *InputHandler) JustPressed(pointerId int, delay int) bool{
     return self.Object.Call("justPressed", pointerId, delay).Bool()
 }
 
-// Returns true if the pointer has touched or clicked on the Sprite within the specified delay time (defaults to 500ms, half a second)
+// JustPressedI Returns true if the pointer has touched or clicked on the Sprite within the specified delay time (defaults to 500ms, half a second)
 func (self *InputHandler) JustPressedI(args ...interface{}) bool{
     return self.Object.Call("justPressed", args).Bool()
 }
 
-// Returns true if the pointer was touching this Sprite, but has been released within the specified delay time (defaults to 500ms, half a second)
+// JustReleased Returns true if the pointer was touching this Sprite, but has been released within the specified delay time (defaults to 500ms, half a second)
 func (self *InputHandler) JustReleased(pointerId int, delay int) bool{
     return self.Object.Call("justReleased", pointerId, delay).Bool()
 }
 
-// Returns true if the pointer was touching this Sprite, but has been released within the specified delay time (defaults to 500ms, half a second)
+// JustReleasedI Returns true if the pointer was touching this Sprite, but has been released within the specified delay time (defaults to 500ms, half a second)
 func (self *InputHandler) JustReleasedI(args ...interface{}) bool{
     return self.Object.Call("justReleased", args).Bool()
 }
 
-// If the pointer is currently over this Sprite this returns how long it has been there for in milliseconds.
+// OverDuration If the pointer is currently over this Sprite this returns how long it has been there for in milliseconds.
 func (self *InputHandler) OverDuration() int{
     return self.Object.Call("overDuration").Int()
 }
 
-// If the pointer is currently over this Sprite this returns how long it has been there for in milliseconds.
+// OverDuration1O If the pointer is currently over this Sprite this returns how long it has been there for in milliseconds.
 func (self *InputHandler) OverDuration1O(pointerId int) int{
     return self.Object.Call("overDuration", pointerId).Int()
 }
 
-// If the pointer is currently over this Sprite this returns how long it has been there for in milliseconds.
+// OverDurationI If the pointer is currently over this Sprite this returns how long it has been there for in milliseconds.
 func (self *InputHandler) OverDurationI(args ...interface{}) int{
     return self.Object.Call("overDuration", args).Int()
 }
 
-// If the pointer is currently over this Sprite this returns how long it has been there for in milliseconds.
+// DownDuration If the pointer is currently over this Sprite this returns how long it has been there for in milliseconds.
 func (self *InputHandler) DownDuration() int{
     return self.Object.Call("downDuration").Int()
 }
 
-// If the pointer is currently over this Sprite this returns how long it has been there for in milliseconds.
+// DownDuration1O If the pointer is currently over this Sprite this returns how long it has been there for in milliseconds.
 func (self *InputHandler) DownDuration1O(pointerId int) int{
     return self.Object.Call("downDuration", pointerId).Int()
 }
 
-// If the pointer is currently over this Sprite this returns how long it has been there for in milliseconds.
+// DownDurationI If the pointer is currently over this Sprite this returns how long it has been there for in milliseconds.
 func (self *InputHandler) DownDurationI(args ...interface{}) int{
     return self.Object.Call("downDuration", args).Int()
 }
 
-// Allow this Sprite to be dragged by any valid pointer.
+// EnableDrag Allow this Sprite to be dragged by any valid pointer.
 // 
 // When the drag begins the Sprite.events.onDragStart event will be dispatched.
 // 
@@ -866,7 +863,7 @@ func (self *InputHandler) EnableDrag() {
     self.Object.Call("enableDrag")
 }
 
-// Allow this Sprite to be dragged by any valid pointer.
+// EnableDrag1O Allow this Sprite to be dragged by any valid pointer.
 // 
 // When the drag begins the Sprite.events.onDragStart event will be dispatched.
 // 
@@ -888,7 +885,7 @@ func (self *InputHandler) EnableDrag1O(lockCenter bool) {
     self.Object.Call("enableDrag", lockCenter)
 }
 
-// Allow this Sprite to be dragged by any valid pointer.
+// EnableDrag2O Allow this Sprite to be dragged by any valid pointer.
 // 
 // When the drag begins the Sprite.events.onDragStart event will be dispatched.
 // 
@@ -910,7 +907,7 @@ func (self *InputHandler) EnableDrag2O(lockCenter bool, bringToTop bool) {
     self.Object.Call("enableDrag", lockCenter, bringToTop)
 }
 
-// Allow this Sprite to be dragged by any valid pointer.
+// EnableDrag3O Allow this Sprite to be dragged by any valid pointer.
 // 
 // When the drag begins the Sprite.events.onDragStart event will be dispatched.
 // 
@@ -932,7 +929,7 @@ func (self *InputHandler) EnableDrag3O(lockCenter bool, bringToTop bool, pixelPe
     self.Object.Call("enableDrag", lockCenter, bringToTop, pixelPerfect)
 }
 
-// Allow this Sprite to be dragged by any valid pointer.
+// EnableDrag4O Allow this Sprite to be dragged by any valid pointer.
 // 
 // When the drag begins the Sprite.events.onDragStart event will be dispatched.
 // 
@@ -954,7 +951,7 @@ func (self *InputHandler) EnableDrag4O(lockCenter bool, bringToTop bool, pixelPe
     self.Object.Call("enableDrag", lockCenter, bringToTop, pixelPerfect, alphaThreshold)
 }
 
-// Allow this Sprite to be dragged by any valid pointer.
+// EnableDrag5O Allow this Sprite to be dragged by any valid pointer.
 // 
 // When the drag begins the Sprite.events.onDragStart event will be dispatched.
 // 
@@ -976,7 +973,7 @@ func (self *InputHandler) EnableDrag5O(lockCenter bool, bringToTop bool, pixelPe
     self.Object.Call("enableDrag", lockCenter, bringToTop, pixelPerfect, alphaThreshold, boundsRect)
 }
 
-// Allow this Sprite to be dragged by any valid pointer.
+// EnableDrag6O Allow this Sprite to be dragged by any valid pointer.
 // 
 // When the drag begins the Sprite.events.onDragStart event will be dispatched.
 // 
@@ -998,7 +995,7 @@ func (self *InputHandler) EnableDrag6O(lockCenter bool, bringToTop bool, pixelPe
     self.Object.Call("enableDrag", lockCenter, bringToTop, pixelPerfect, alphaThreshold, boundsRect, boundsSprite)
 }
 
-// Allow this Sprite to be dragged by any valid pointer.
+// EnableDragI Allow this Sprite to be dragged by any valid pointer.
 // 
 // When the drag begins the Sprite.events.onDragStart event will be dispatched.
 // 
@@ -1020,140 +1017,141 @@ func (self *InputHandler) EnableDragI(args ...interface{}) {
     self.Object.Call("enableDrag", args)
 }
 
-// Stops this sprite from being able to be dragged.
+// DisableDrag Stops this sprite from being able to be dragged.
 // If it is currently the target of an active drag it will be stopped immediately; also disables any set callbacks.
 func (self *InputHandler) DisableDrag() {
     self.Object.Call("disableDrag")
 }
 
-// Stops this sprite from being able to be dragged.
+// DisableDragI Stops this sprite from being able to be dragged.
 // If it is currently the target of an active drag it will be stopped immediately; also disables any set callbacks.
 func (self *InputHandler) DisableDragI(args ...interface{}) {
     self.Object.Call("disableDrag", args)
 }
 
-// Called by Pointer when drag starts on this Sprite. Should not usually be called directly.
+// StartDrag Called by Pointer when drag starts on this Sprite. Should not usually be called directly.
 func (self *InputHandler) StartDrag(pointer *Pointer) {
     self.Object.Call("startDrag", pointer)
 }
 
-// Called by Pointer when drag starts on this Sprite. Should not usually be called directly.
+// StartDragI Called by Pointer when drag starts on this Sprite. Should not usually be called directly.
 func (self *InputHandler) StartDragI(args ...interface{}) {
     self.Object.Call("startDrag", args)
 }
 
-// Warning: EXPERIMENTAL
+// GlobalToLocalX Warning: EXPERIMENTAL
 func (self *InputHandler) GlobalToLocalX(x int) {
     self.Object.Call("globalToLocalX", x)
 }
 
-// Warning: EXPERIMENTAL
+// GlobalToLocalXI Warning: EXPERIMENTAL
 func (self *InputHandler) GlobalToLocalXI(args ...interface{}) {
     self.Object.Call("globalToLocalX", args)
 }
 
-// Warning: EXPERIMENTAL
+// GlobalToLocalY Warning: EXPERIMENTAL
 func (self *InputHandler) GlobalToLocalY(y int) {
     self.Object.Call("globalToLocalY", y)
 }
 
-// Warning: EXPERIMENTAL
+// GlobalToLocalYI Warning: EXPERIMENTAL
 func (self *InputHandler) GlobalToLocalYI(args ...interface{}) {
     self.Object.Call("globalToLocalY", args)
 }
 
-// Called by Pointer when drag is stopped on this Sprite. Should not usually be called directly.
+// StopDrag Called by Pointer when drag is stopped on this Sprite. Should not usually be called directly.
 func (self *InputHandler) StopDrag(pointer *Pointer) {
     self.Object.Call("stopDrag", pointer)
 }
 
-// Called by Pointer when drag is stopped on this Sprite. Should not usually be called directly.
+// StopDragI Called by Pointer when drag is stopped on this Sprite. Should not usually be called directly.
 func (self *InputHandler) StopDragI(args ...interface{}) {
     self.Object.Call("stopDrag", args)
 }
 
-// Restricts this sprite to drag movement only on the given axis. Note: If both are set to false the sprite will never move!
+// SetDragLock Restricts this sprite to drag movement only on the given axis. Note: If both are set to false the sprite will never move!
 func (self *InputHandler) SetDragLock() {
     self.Object.Call("setDragLock")
 }
 
-// Restricts this sprite to drag movement only on the given axis. Note: If both are set to false the sprite will never move!
+// SetDragLock1O Restricts this sprite to drag movement only on the given axis. Note: If both are set to false the sprite will never move!
 func (self *InputHandler) SetDragLock1O(allowHorizontal bool) {
     self.Object.Call("setDragLock", allowHorizontal)
 }
 
-// Restricts this sprite to drag movement only on the given axis. Note: If both are set to false the sprite will never move!
+// SetDragLock2O Restricts this sprite to drag movement only on the given axis. Note: If both are set to false the sprite will never move!
 func (self *InputHandler) SetDragLock2O(allowHorizontal bool, allowVertical bool) {
     self.Object.Call("setDragLock", allowHorizontal, allowVertical)
 }
 
-// Restricts this sprite to drag movement only on the given axis. Note: If both are set to false the sprite will never move!
+// SetDragLockI Restricts this sprite to drag movement only on the given axis. Note: If both are set to false the sprite will never move!
 func (self *InputHandler) SetDragLockI(args ...interface{}) {
     self.Object.Call("setDragLock", args)
 }
 
-// Make this Sprite snap to the given grid either during drag or when it's released.
+// EnableSnap Make this Sprite snap to the given grid either during drag or when it's released.
 // For example 16x16 as the snapX and snapY would make the sprite snap to every 16 pixels.
 func (self *InputHandler) EnableSnap(snapX int, snapY int) {
     self.Object.Call("enableSnap", snapX, snapY)
 }
 
-// Make this Sprite snap to the given grid either during drag or when it's released.
+// EnableSnap1O Make this Sprite snap to the given grid either during drag or when it's released.
 // For example 16x16 as the snapX and snapY would make the sprite snap to every 16 pixels.
 func (self *InputHandler) EnableSnap1O(snapX int, snapY int, onDrag bool) {
     self.Object.Call("enableSnap", snapX, snapY, onDrag)
 }
 
-// Make this Sprite snap to the given grid either during drag or when it's released.
+// EnableSnap2O Make this Sprite snap to the given grid either during drag or when it's released.
 // For example 16x16 as the snapX and snapY would make the sprite snap to every 16 pixels.
 func (self *InputHandler) EnableSnap2O(snapX int, snapY int, onDrag bool, onRelease bool) {
     self.Object.Call("enableSnap", snapX, snapY, onDrag, onRelease)
 }
 
-// Make this Sprite snap to the given grid either during drag or when it's released.
+// EnableSnap3O Make this Sprite snap to the given grid either during drag or when it's released.
 // For example 16x16 as the snapX and snapY would make the sprite snap to every 16 pixels.
 func (self *InputHandler) EnableSnap3O(snapX int, snapY int, onDrag bool, onRelease bool, snapOffsetX int) {
     self.Object.Call("enableSnap", snapX, snapY, onDrag, onRelease, snapOffsetX)
 }
 
-// Make this Sprite snap to the given grid either during drag or when it's released.
+// EnableSnap4O Make this Sprite snap to the given grid either during drag or when it's released.
 // For example 16x16 as the snapX and snapY would make the sprite snap to every 16 pixels.
 func (self *InputHandler) EnableSnap4O(snapX int, snapY int, onDrag bool, onRelease bool, snapOffsetX int, snapOffsetY int) {
     self.Object.Call("enableSnap", snapX, snapY, onDrag, onRelease, snapOffsetX, snapOffsetY)
 }
 
-// Make this Sprite snap to the given grid either during drag or when it's released.
+// EnableSnapI Make this Sprite snap to the given grid either during drag or when it's released.
 // For example 16x16 as the snapX and snapY would make the sprite snap to every 16 pixels.
 func (self *InputHandler) EnableSnapI(args ...interface{}) {
     self.Object.Call("enableSnap", args)
 }
 
-// Stops the sprite from snapping to a grid during drag or release.
+// DisableSnap Stops the sprite from snapping to a grid during drag or release.
 func (self *InputHandler) DisableSnap() {
     self.Object.Call("disableSnap")
 }
 
-// Stops the sprite from snapping to a grid during drag or release.
+// DisableSnapI Stops the sprite from snapping to a grid during drag or release.
 func (self *InputHandler) DisableSnapI(args ...interface{}) {
     self.Object.Call("disableSnap", args)
 }
 
-// Bounds Rect check for the sprite drag
+// CheckBoundsRect Bounds Rect check for the sprite drag
 func (self *InputHandler) CheckBoundsRect() {
     self.Object.Call("checkBoundsRect")
 }
 
-// Bounds Rect check for the sprite drag
+// CheckBoundsRectI Bounds Rect check for the sprite drag
 func (self *InputHandler) CheckBoundsRectI(args ...interface{}) {
     self.Object.Call("checkBoundsRect", args)
 }
 
-// Parent Sprite Bounds check for the sprite drag.
+// CheckBoundsSprite Parent Sprite Bounds check for the sprite drag.
 func (self *InputHandler) CheckBoundsSprite() {
     self.Object.Call("checkBoundsSprite")
 }
 
-// Parent Sprite Bounds check for the sprite drag.
+// CheckBoundsSpriteI Parent Sprite Bounds check for the sprite drag.
 func (self *InputHandler) CheckBoundsSpriteI(args ...interface{}) {
     self.Object.Call("checkBoundsSprite", args)
 }
+

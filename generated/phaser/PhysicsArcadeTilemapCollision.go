@@ -1,4 +1,4 @@
-// Automatic generation for Phaser.Physics.Arcade.TilemapCollision
+// Package phaser Automatic generation for Phaser.Physics.Arcade.TilemapCollision
 // generated file PhysicsArcadeTilemapCollision.go
 package phaser
 
@@ -7,30 +7,28 @@ import (
 
 )
 
-// The Arcade Physics Tile map collision methods.
+// PhysicsArcadeTilemapCollision The Arcade Physics Tile map collision methods.
 type PhysicsArcadeTilemapCollision struct {
     *js.Object
 }
 
-
-// The Arcade Physics Tile map collision methods.
+// NewPhysicsArcadeTilemapCollision The Arcade Physics Tile map collision methods.
 func NewPhysicsArcadeTilemapCollision() *PhysicsArcadeTilemapCollision {
     return &PhysicsArcadeTilemapCollision{js.Global.Get("Phaser").Get("Physics").Get("Arcade").Get("TilemapCollision").New()}
 }
-
-// The Arcade Physics Tile map collision methods.
+// NewPhysicsArcadeTilemapCollisionI The Arcade Physics Tile map collision methods.
 func NewPhysicsArcadeTilemapCollisionI(args ...interface{}) *PhysicsArcadeTilemapCollision {
     return &PhysicsArcadeTilemapCollision{js.Global.Get("Phaser").Get("Physics").Get("Arcade").Get("TilemapCollision").New(args)}
 }
 
 
 
-// A value added to the delta values during collision with tiles. Adjust this if you get tunneling.
+// TILE_BIAS A value added to the delta values during collision with tiles. Adjust this if you get tunneling.
 func (self *PhysicsArcadeTilemapCollision) TILE_BIAS() int{
     return self.Object.Get("TILE_BIAS").Int()
 }
 
-// A value added to the delta values during collision with tiles. Adjust this if you get tunneling.
+// SetTILE_BIASA A value added to the delta values during collision with tiles. Adjust this if you get tunneling.
 func (self *PhysicsArcadeTilemapCollision) SetTILE_BIASA(member int) {
     self.Object.Set("TILE_BIAS", member)
 }

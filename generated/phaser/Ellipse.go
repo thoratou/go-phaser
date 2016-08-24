@@ -1,4 +1,4 @@
-// Automatic generation for Phaser.Ellipse
+// Package phaser Automatic generation for Phaser.Ellipse
 // generated file Ellipse.go
 package phaser
 
@@ -7,229 +7,223 @@ import (
 
 )
 
-// Creates a Ellipse object. A curve on a plane surrounding two focal points.
+// Ellipse Creates a Ellipse object. A curve on a plane surrounding two focal points.
 type Ellipse struct {
     *js.Object
 }
 
-
-// Creates a Ellipse object. A curve on a plane surrounding two focal points.
+// NewEllipse Creates a Ellipse object. A curve on a plane surrounding two focal points.
 func NewEllipse() *Ellipse {
     return &Ellipse{js.Global.Get("Phaser").Get("Ellipse").New()}
 }
-
-// Creates a Ellipse object. A curve on a plane surrounding two focal points.
+// NewEllipse1O Creates a Ellipse object. A curve on a plane surrounding two focal points.
 func NewEllipse1O(x int) *Ellipse {
     return &Ellipse{js.Global.Get("Phaser").Get("Ellipse").New(x)}
 }
-
-// Creates a Ellipse object. A curve on a plane surrounding two focal points.
+// NewEllipse2O Creates a Ellipse object. A curve on a plane surrounding two focal points.
 func NewEllipse2O(x int, y int) *Ellipse {
     return &Ellipse{js.Global.Get("Phaser").Get("Ellipse").New(x, y)}
 }
-
-// Creates a Ellipse object. A curve on a plane surrounding two focal points.
+// NewEllipse3O Creates a Ellipse object. A curve on a plane surrounding two focal points.
 func NewEllipse3O(x int, y int, width int) *Ellipse {
     return &Ellipse{js.Global.Get("Phaser").Get("Ellipse").New(x, y, width)}
 }
-
-// Creates a Ellipse object. A curve on a plane surrounding two focal points.
+// NewEllipse4O Creates a Ellipse object. A curve on a plane surrounding two focal points.
 func NewEllipse4O(x int, y int, width int, height int) *Ellipse {
     return &Ellipse{js.Global.Get("Phaser").Get("Ellipse").New(x, y, width, height)}
 }
-
-// Creates a Ellipse object. A curve on a plane surrounding two focal points.
+// NewEllipseI Creates a Ellipse object. A curve on a plane surrounding two focal points.
 func NewEllipseI(args ...interface{}) *Ellipse {
     return &Ellipse{js.Global.Get("Phaser").Get("Ellipse").New(args)}
 }
 
 
 
-// The X coordinate of the upper-left corner of the framing rectangle of this ellipse.
+// X The X coordinate of the upper-left corner of the framing rectangle of this ellipse.
 func (self *Ellipse) X() int{
     return self.Object.Get("x").Int()
 }
 
-// The X coordinate of the upper-left corner of the framing rectangle of this ellipse.
+// SetXA The X coordinate of the upper-left corner of the framing rectangle of this ellipse.
 func (self *Ellipse) SetXA(member int) {
     self.Object.Set("x", member)
 }
 
-// The Y coordinate of the upper-left corner of the framing rectangle of this ellipse.
+// Y The Y coordinate of the upper-left corner of the framing rectangle of this ellipse.
 func (self *Ellipse) Y() int{
     return self.Object.Get("y").Int()
 }
 
-// The Y coordinate of the upper-left corner of the framing rectangle of this ellipse.
+// SetYA The Y coordinate of the upper-left corner of the framing rectangle of this ellipse.
 func (self *Ellipse) SetYA(member int) {
     self.Object.Set("y", member)
 }
 
-// The overall width of this ellipse.
+// Width The overall width of this ellipse.
 func (self *Ellipse) Width() int{
     return self.Object.Get("width").Int()
 }
 
-// The overall width of this ellipse.
+// SetWidthA The overall width of this ellipse.
 func (self *Ellipse) SetWidthA(member int) {
     self.Object.Set("width", member)
 }
 
-// The overall height of this ellipse.
+// Height The overall height of this ellipse.
 func (self *Ellipse) Height() int{
     return self.Object.Get("height").Int()
 }
 
-// The overall height of this ellipse.
+// SetHeightA The overall height of this ellipse.
 func (self *Ellipse) SetHeightA(member int) {
     self.Object.Set("height", member)
 }
 
-// The const type of this object.
+// Type The const type of this object.
 func (self *Ellipse) Type() int{
     return self.Object.Get("type").Int()
 }
 
-// The const type of this object.
+// SetTypeA The const type of this object.
 func (self *Ellipse) SetTypeA(member int) {
     self.Object.Set("type", member)
 }
 
-// The left coordinate of the Ellipse. The same as the X coordinate.
+// Left The left coordinate of the Ellipse. The same as the X coordinate.
 func (self *Ellipse) Left() interface{}{
     return self.Object.Get("left")
 }
 
-// The left coordinate of the Ellipse. The same as the X coordinate.
+// SetLeftA The left coordinate of the Ellipse. The same as the X coordinate.
 func (self *Ellipse) SetLeftA(member interface{}) {
     self.Object.Set("left", member)
 }
 
-// The x coordinate of the rightmost point of the Ellipse. Changing the right property of an Ellipse object has no effect on the x property, but does adjust the width. Gets or sets the value of the rightmost point of the ellipse.
+// Right The x coordinate of the rightmost point of the Ellipse. Changing the right property of an Ellipse object has no effect on the x property, but does adjust the width. Gets or sets the value of the rightmost point of the ellipse.
 func (self *Ellipse) Right() int{
     return self.Object.Get("right").Int()
 }
 
-// The x coordinate of the rightmost point of the Ellipse. Changing the right property of an Ellipse object has no effect on the x property, but does adjust the width. Gets or sets the value of the rightmost point of the ellipse.
+// SetRightA The x coordinate of the rightmost point of the Ellipse. Changing the right property of an Ellipse object has no effect on the x property, but does adjust the width. Gets or sets the value of the rightmost point of the ellipse.
 func (self *Ellipse) SetRightA(member int) {
     self.Object.Set("right", member)
 }
 
-// The top of the Ellipse. The same as its y property. Gets or sets the top of the ellipse.
+// Top The top of the Ellipse. The same as its y property. Gets or sets the top of the ellipse.
 func (self *Ellipse) Top() int{
     return self.Object.Get("top").Int()
 }
 
-// The top of the Ellipse. The same as its y property. Gets or sets the top of the ellipse.
+// SetTopA The top of the Ellipse. The same as its y property. Gets or sets the top of the ellipse.
 func (self *Ellipse) SetTopA(member int) {
     self.Object.Set("top", member)
 }
 
-// The sum of the y and height properties. Changing the bottom property of an Ellipse doesn't adjust the y property, but does change the height. Gets or sets the bottom of the ellipse.
+// Bottom The sum of the y and height properties. Changing the bottom property of an Ellipse doesn't adjust the y property, but does change the height. Gets or sets the bottom of the ellipse.
 func (self *Ellipse) Bottom() int{
     return self.Object.Get("bottom").Int()
 }
 
-// The sum of the y and height properties. Changing the bottom property of an Ellipse doesn't adjust the y property, but does change the height. Gets or sets the bottom of the ellipse.
+// SetBottomA The sum of the y and height properties. Changing the bottom property of an Ellipse doesn't adjust the y property, but does change the height. Gets or sets the bottom of the ellipse.
 func (self *Ellipse) SetBottomA(member int) {
     self.Object.Set("bottom", member)
 }
 
-// Determines whether or not this Ellipse object is empty. Will return a value of true if the Ellipse objects dimensions are less than or equal to 0; otherwise false.
+// Empty Determines whether or not this Ellipse object is empty. Will return a value of true if the Ellipse objects dimensions are less than or equal to 0; otherwise false.
 // If set to true it will reset all of the Ellipse objects properties to 0. An Ellipse object is empty if its width or height is less than or equal to 0. Gets or sets the empty state of the ellipse.
 func (self *Ellipse) Empty() bool{
     return self.Object.Get("empty").Bool()
 }
 
-// Determines whether or not this Ellipse object is empty. Will return a value of true if the Ellipse objects dimensions are less than or equal to 0; otherwise false.
+// SetEmptyA Determines whether or not this Ellipse object is empty. Will return a value of true if the Ellipse objects dimensions are less than or equal to 0; otherwise false.
 // If set to true it will reset all of the Ellipse objects properties to 0. An Ellipse object is empty if its width or height is less than or equal to 0. Gets or sets the empty state of the ellipse.
 func (self *Ellipse) SetEmptyA(member bool) {
     self.Object.Set("empty", member)
 }
 
 
-
-// Sets the members of the Ellipse to the specified values.
+// SetTo Sets the members of the Ellipse to the specified values.
 func (self *Ellipse) SetTo(x int, y int, width int, height int) *Ellipse{
     return &Ellipse{self.Object.Call("setTo", x, y, width, height)}
 }
 
-// Sets the members of the Ellipse to the specified values.
+// SetToI Sets the members of the Ellipse to the specified values.
 func (self *Ellipse) SetToI(args ...interface{}) *Ellipse{
     return &Ellipse{self.Object.Call("setTo", args)}
 }
 
-// Returns the framing rectangle of the ellipse as a Phaser.Rectangle object.
+// GetBounds Returns the framing rectangle of the ellipse as a Phaser.Rectangle object.
 func (self *Ellipse) GetBounds() *Rectangle{
     return &Rectangle{self.Object.Call("getBounds")}
 }
 
-// Returns the framing rectangle of the ellipse as a Phaser.Rectangle object.
+// GetBoundsI Returns the framing rectangle of the ellipse as a Phaser.Rectangle object.
 func (self *Ellipse) GetBoundsI(args ...interface{}) *Rectangle{
     return &Rectangle{self.Object.Call("getBounds", args)}
 }
 
-// Copies the x, y, width and height properties from any given object to this Ellipse.
+// CopyFrom Copies the x, y, width and height properties from any given object to this Ellipse.
 func (self *Ellipse) CopyFrom(source interface{}) *Ellipse{
     return &Ellipse{self.Object.Call("copyFrom", source)}
 }
 
-// Copies the x, y, width and height properties from any given object to this Ellipse.
+// CopyFromI Copies the x, y, width and height properties from any given object to this Ellipse.
 func (self *Ellipse) CopyFromI(args ...interface{}) *Ellipse{
     return &Ellipse{self.Object.Call("copyFrom", args)}
 }
 
-// Copies the x, y, width and height properties from this Ellipse to any given object.
+// CopyTo Copies the x, y, width and height properties from this Ellipse to any given object.
 func (self *Ellipse) CopyTo(dest interface{}) interface{}{
     return self.Object.Call("copyTo", dest)
 }
 
-// Copies the x, y, width and height properties from this Ellipse to any given object.
+// CopyToI Copies the x, y, width and height properties from this Ellipse to any given object.
 func (self *Ellipse) CopyToI(args ...interface{}) interface{}{
     return self.Object.Call("copyTo", args)
 }
 
-// Returns a new Ellipse object with the same values for the x, y, width, and height properties as this Ellipse object.
+// Clone Returns a new Ellipse object with the same values for the x, y, width, and height properties as this Ellipse object.
 func (self *Ellipse) Clone(output *Ellipse) *Ellipse{
     return &Ellipse{self.Object.Call("clone", output)}
 }
 
-// Returns a new Ellipse object with the same values for the x, y, width, and height properties as this Ellipse object.
+// CloneI Returns a new Ellipse object with the same values for the x, y, width, and height properties as this Ellipse object.
 func (self *Ellipse) CloneI(args ...interface{}) *Ellipse{
     return &Ellipse{self.Object.Call("clone", args)}
 }
 
-// Return true if the given x/y coordinates are within this Ellipse object.
+// Contains Return true if the given x/y coordinates are within this Ellipse object.
 func (self *Ellipse) Contains(x int, y int) bool{
     return self.Object.Call("contains", x, y).Bool()
 }
 
-// Return true if the given x/y coordinates are within this Ellipse object.
+// ContainsI Return true if the given x/y coordinates are within this Ellipse object.
 func (self *Ellipse) ContainsI(args ...interface{}) bool{
     return self.Object.Call("contains", args).Bool()
 }
 
-// Returns a uniformly distributed random point from anywhere within this Ellipse.
+// Random Returns a uniformly distributed random point from anywhere within this Ellipse.
 func (self *Ellipse) Random() *Point{
     return &Point{self.Object.Call("random")}
 }
 
-// Returns a uniformly distributed random point from anywhere within this Ellipse.
+// Random1O Returns a uniformly distributed random point from anywhere within this Ellipse.
 func (self *Ellipse) Random1O(out interface{}) *Point{
     return &Point{self.Object.Call("random", out)}
 }
 
-// Returns a uniformly distributed random point from anywhere within this Ellipse.
+// RandomI Returns a uniformly distributed random point from anywhere within this Ellipse.
 func (self *Ellipse) RandomI(args ...interface{}) *Point{
     return &Point{self.Object.Call("random", args)}
 }
 
-// Returns a string representation of this object.
+// ToString Returns a string representation of this object.
 func (self *Ellipse) ToString() string{
     return self.Object.Call("toString").String()
 }
 
-// Returns a string representation of this object.
+// ToStringI Returns a string representation of this object.
 func (self *Ellipse) ToStringI(args ...interface{}) string{
     return self.Object.Call("toString", args).String()
 }
+

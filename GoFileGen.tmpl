@@ -1,4 +1,4 @@
-// Automatic generation for {{.Name}}
+// Package {{.GetNamespace}} Automatic generation for {{.Name}}
 // generated file {{.GetNameNoNamespace}}.go
 package {{.GetNamespace}}
 
@@ -10,7 +10,8 @@ import (
 )
 {{$class := . -}}
 {{/* class generation */}}
-{{- range .GetDescriptionLines}}
+// {{.GetNameNoNamespace}} {{.GetFirstDescriptionLine}} 
+{{- range .GetNextDescriptionLines}}
 // {{. -}}
 {{- end}}
 type {{.GetNameNoNamespace}} struct {
@@ -18,7 +19,8 @@ type {{.GetNameNoNamespace}} struct {
 }
 
 {{range .Constructor.GoFunctions -}}
-{{- range .GetDescriptionLines}}
+// New{{.Return.GetType}}{{.Suffix}} {{.GetFirstDescriptionLine}} 
+{{- range .GetNextDescriptionLines}}
 // {{. -}}
 {{- end}}
 func New{{.Return.GetType}}{{.Suffix}}({{.GetParameterFullString}}) *{{.Return.GetType}} {
@@ -30,7 +32,8 @@ func New{{.Return.GetType}}{{.Suffix}}({{.GetParameterFullString}}) *{{.Return.G
 
 {{range .Members -}}
 {{if not .IsPrivate}}{{if not .Type.IsCallback}}
-{{- range .GetDescriptionLines}}
+// {{.GetNameUpperInitial}} {{.GetFirstDescriptionLine}} 
+{{- range .GetNextDescriptionLines}}
 // {{. -}}
 {{- end}}
 func (self *{{$class.GetNameNoNamespace}}) {{.GetNameUpperInitial}}() {{.Type.GetTypeOptionalPointer -}} {
@@ -63,7 +66,8 @@ func (self *{{$class.GetNameNoNamespace}}) {{.GetNameUpperInitial}}() {{.Type.Ge
 {{end}}{{end -}}
 
 {{if not .IsPrivate}}
-{{- range .GetDescriptionLines}}
+// Set{{.GetNameUpperInitial}}A {{.GetFirstDescriptionLine}} 
+{{- range .GetNextDescriptionLines}}
 // {{. -}}
 {{- end}}
 func (self *{{$class.GetNameNoNamespace}}) Set{{.GetNameUpperInitial}}A(member {{.Type.GetTypeOptionalPointer}}) {
@@ -73,7 +77,8 @@ func (self *{{$class.GetNameNoNamespace}}) Set{{.GetNameUpperInitial}}A(member {
 {{- end}}
 
 {{range .Functions -}}
-{{- range .GetDescriptionLines}}
+// {{.GetNameUpperInitial}}{{.Suffix}} {{.GetFirstDescriptionLine}} 
+{{- range .GetNextDescriptionLines}}
 // {{. -}}
 {{- end}}
 func (self *{{$class.GetNameNoNamespace}}) {{.GetNameUpperInitial}}{{.Suffix}}({{.GetParameterFullString}}) {{if not .Return.IsVoid -}}{{.Return.GetTypeOptionalPointer}} {{- end}}{
@@ -111,4 +116,5 @@ func (self *{{$class.GetNameNoNamespace}}) {{.GetNameUpperInitial}}{{.Suffix}}({
     return &{{.Return.GetType}}{self.Object.Call("{{.Name}}"{{.GetParameterCallStringWithCommaPrefix}})}
 {{end -}}
 }
+
 {{end}}

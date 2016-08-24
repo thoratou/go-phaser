@@ -1,4 +1,4 @@
-// Automatic generation for Phaser.Easing.Cubic
+// Package phaser Automatic generation for Phaser.Easing.Cubic
 // generated file EasingCubic.go
 package phaser
 
@@ -7,18 +7,16 @@ import (
 
 )
 
-// Cubic easing.
+// EasingCubic Cubic easing.
 type EasingCubic struct {
     *js.Object
 }
 
-
-// Cubic easing.
+// NewEasingCubic Cubic easing.
 func NewEasingCubic() *EasingCubic {
     return &EasingCubic{js.Global.Get("Phaser").Get("Easing").Get("Cubic").New()}
 }
-
-// Cubic easing.
+// NewEasingCubicI Cubic easing.
 func NewEasingCubicI(args ...interface{}) *EasingCubic {
     return &EasingCubic{js.Global.Get("Phaser").Get("Easing").Get("Cubic").New(args)}
 }
@@ -26,33 +24,33 @@ func NewEasingCubicI(args ...interface{}) *EasingCubic {
 
 
 
-
-// Cubic ease-in.
+// In Cubic ease-in.
 func (self *EasingCubic) In(k int) int{
     return self.Object.Call("In", k).Int()
 }
 
-// Cubic ease-in.
+// InI Cubic ease-in.
 func (self *EasingCubic) InI(args ...interface{}) int{
     return self.Object.Call("In", args).Int()
 }
 
-// Cubic ease-out.
+// Out Cubic ease-out.
 func (self *EasingCubic) Out(k int) int{
     return self.Object.Call("Out", k).Int()
 }
 
-// Cubic ease-out.
+// OutI Cubic ease-out.
 func (self *EasingCubic) OutI(args ...interface{}) int{
     return self.Object.Call("Out", args).Int()
 }
 
-// Cubic ease-in/out.
+// InOut Cubic ease-in/out.
 func (self *EasingCubic) InOut(k int) int{
     return self.Object.Call("InOut", k).Int()
 }
 
-// Cubic ease-in/out.
+// InOutI Cubic ease-in/out.
 func (self *EasingCubic) InOutI(args ...interface{}) int{
     return self.Object.Call("InOut", args).Int()
 }
+

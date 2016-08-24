@@ -1,4 +1,4 @@
-// Automatic generation for mat2
+// Package phaser Automatic generation for mat2
 // generated file Mat2.go
 package phaser
 
@@ -7,18 +7,16 @@ import (
 
 )
 
-// 
+// Mat2 empty description
 type Mat2 struct {
     *js.Object
 }
 
-
-// 
+// NewMat2 empty description
 func NewMat2() *Mat2 {
     return &Mat2{js.Global.Get("mat2").New()}
 }
-
-// 
+// NewMat2I empty description
 func NewMat2I(args ...interface{}) *Mat2 {
     return &Mat2{js.Global.Get("mat2").New(args)}
 }

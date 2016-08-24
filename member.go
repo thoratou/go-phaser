@@ -12,8 +12,12 @@ func (m *Member) GetNameUpperInitial() string {
 	return UpperInitial(m.Name)
 }
 
-func (m *Member) GetDescriptionLines() []string {
-	return SplitMultilines(m.Description)
+func (m *Member) GetFirstDescriptionLine() string {
+	return FirstDescriptionLine(m.Description)
+}
+
+func (m *Member) GetNextDescriptionLines() []string {
+	return NextDescriptionLines(m.Description)
 }
 
 func (m *Member) IsPrivate() bool {

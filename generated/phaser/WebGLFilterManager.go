@@ -1,4 +1,4 @@
-// Automatic generation for PIXI.WebGLFilterManager
+// Package phaser Automatic generation for PIXI.WebGLFilterManager
 // generated file WebGLFilterManager.go
 package phaser
 
@@ -7,25 +7,23 @@ import (
 
 )
 
-// 
+// WebGLFilterManager empty description
 type WebGLFilterManager struct {
     *js.Object
 }
 
-
-// 
+// NewWebGLFilterManager empty description
 func NewWebGLFilterManager() *WebGLFilterManager {
     return &WebGLFilterManager{js.Global.Get("PIXI").Get("WebGLFilterManager").New()}
 }
-
-// 
+// NewWebGLFilterManagerI empty description
 func NewWebGLFilterManagerI(args ...interface{}) *WebGLFilterManager {
     return &WebGLFilterManager{js.Global.Get("PIXI").Get("WebGLFilterManager").New(args)}
 }
 
 
 
-// 
+// FilterStack empty description
 func (self *WebGLFilterManager) FilterStack() []interface{}{
 	array00 := self.Object.Get("filterStack")
 	length00 := array00.Length()
@@ -36,99 +34,99 @@ func (self *WebGLFilterManager) FilterStack() []interface{}{
 	return out00
 }
 
-// 
+// SetFilterStackA empty description
 func (self *WebGLFilterManager) SetFilterStackA(member []interface{}) {
     self.Object.Set("filterStack", member)
 }
 
-// 
+// OffsetX empty description
 func (self *WebGLFilterManager) OffsetX() int{
     return self.Object.Get("offsetX").Int()
 }
 
-// 
+// SetOffsetXA empty description
 func (self *WebGLFilterManager) SetOffsetXA(member int) {
     self.Object.Set("offsetX", member)
 }
 
-// 
+// OffsetY empty description
 func (self *WebGLFilterManager) OffsetY() int{
     return self.Object.Get("offsetY").Int()
 }
 
-// 
+// SetOffsetYA empty description
 func (self *WebGLFilterManager) SetOffsetYA(member int) {
     self.Object.Set("offsetY", member)
 }
 
 
-
-// Initialises the context and the properties.
+// SetContext Initialises the context and the properties.
 func (self *WebGLFilterManager) SetContext(gl *WebGLContext) {
     self.Object.Call("setContext", gl)
 }
 
-// Initialises the context and the properties.
+// SetContextI Initialises the context and the properties.
 func (self *WebGLFilterManager) SetContextI(args ...interface{}) {
     self.Object.Call("setContext", args)
 }
 
-// 
+// Begin empty description
 func (self *WebGLFilterManager) Begin(renderSession *RenderSession, buffer *ArrayBuffer) {
     self.Object.Call("begin", renderSession, buffer)
 }
 
-// 
+// BeginI empty description
 func (self *WebGLFilterManager) BeginI(args ...interface{}) {
     self.Object.Call("begin", args)
 }
 
-// Applies the filter and adds it to the current filter stack.
+// PushFilter Applies the filter and adds it to the current filter stack.
 func (self *WebGLFilterManager) PushFilter(filterBlock interface{}) {
     self.Object.Call("pushFilter", filterBlock)
 }
 
-// Applies the filter and adds it to the current filter stack.
+// PushFilterI Applies the filter and adds it to the current filter stack.
 func (self *WebGLFilterManager) PushFilterI(args ...interface{}) {
     self.Object.Call("pushFilter", args)
 }
 
-// Removes the last filter from the filter stack and doesn't return it.
+// PopFilter Removes the last filter from the filter stack and doesn't return it.
 func (self *WebGLFilterManager) PopFilter() {
     self.Object.Call("popFilter")
 }
 
-// Removes the last filter from the filter stack and doesn't return it.
+// PopFilterI Removes the last filter from the filter stack and doesn't return it.
 func (self *WebGLFilterManager) PopFilterI(args ...interface{}) {
     self.Object.Call("popFilter", args)
 }
 
-// Applies the filter to the specified area.
+// ApplyFilterPass Applies the filter to the specified area.
 func (self *WebGLFilterManager) ApplyFilterPass(filter *AbstractFilter, filterArea *Texture, width int, height int) {
     self.Object.Call("applyFilterPass", filter, filterArea, width, height)
 }
 
-// Applies the filter to the specified area.
+// ApplyFilterPassI Applies the filter to the specified area.
 func (self *WebGLFilterManager) ApplyFilterPassI(args ...interface{}) {
     self.Object.Call("applyFilterPass", args)
 }
 
-// Initialises the shader buffers.
+// InitShaderBuffers Initialises the shader buffers.
 func (self *WebGLFilterManager) InitShaderBuffers() {
     self.Object.Call("initShaderBuffers")
 }
 
-// Initialises the shader buffers.
+// InitShaderBuffersI Initialises the shader buffers.
 func (self *WebGLFilterManager) InitShaderBuffersI(args ...interface{}) {
     self.Object.Call("initShaderBuffers", args)
 }
 
-// Destroys the filter and removes it from the filter stack.
+// Destroy Destroys the filter and removes it from the filter stack.
 func (self *WebGLFilterManager) Destroy() {
     self.Object.Call("destroy")
 }
 
-// Destroys the filter and removes it from the filter stack.
+// DestroyI Destroys the filter and removes it from the filter stack.
 func (self *WebGLFilterManager) DestroyI(args ...interface{}) {
     self.Object.Call("destroy", args)
 }
+

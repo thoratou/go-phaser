@@ -1,4 +1,4 @@
-// Automatic generation for Phaser.Component.ScaleMinMax
+// Package phaser Automatic generation for Phaser.Component.ScaleMinMax
 // generated file ComponentScaleMinMax.go
 package phaser
 
@@ -7,45 +7,43 @@ import (
 
 )
 
-// The ScaleMinMax component allows a Game Object to limit how far it can be scaled by its parent.
+// ComponentScaleMinMax The ScaleMinMax component allows a Game Object to limit how far it can be scaled by its parent.
 type ComponentScaleMinMax struct {
     *js.Object
 }
 
-
-// The ScaleMinMax component allows a Game Object to limit how far it can be scaled by its parent.
+// NewComponentScaleMinMax The ScaleMinMax component allows a Game Object to limit how far it can be scaled by its parent.
 func NewComponentScaleMinMax() *ComponentScaleMinMax {
     return &ComponentScaleMinMax{js.Global.Get("Phaser").Get("Component").Get("ScaleMinMax").New()}
 }
-
-// The ScaleMinMax component allows a Game Object to limit how far it can be scaled by its parent.
+// NewComponentScaleMinMaxI The ScaleMinMax component allows a Game Object to limit how far it can be scaled by its parent.
 func NewComponentScaleMinMaxI(args ...interface{}) *ComponentScaleMinMax {
     return &ComponentScaleMinMax{js.Global.Get("Phaser").Get("Component").Get("ScaleMinMax").New(args)}
 }
 
 
 
-// The callback that will apply any scale limiting to the worldTransform.
+// TransformCallback The callback that will apply any scale limiting to the worldTransform.
 func (self *ComponentScaleMinMax) TransformCallback() interface{}{
     return self.Object.Get("transformCallback")
 }
 
-// The callback that will apply any scale limiting to the worldTransform.
+// SetTransformCallbackA The callback that will apply any scale limiting to the worldTransform.
 func (self *ComponentScaleMinMax) SetTransformCallbackA(member interface{}) {
     self.Object.Set("transformCallback", member)
 }
 
-// The context under which `transformCallback` is called.
+// TransformCallbackContext The context under which `transformCallback` is called.
 func (self *ComponentScaleMinMax) TransformCallbackContext() interface{}{
     return self.Object.Get("transformCallbackContext")
 }
 
-// The context under which `transformCallback` is called.
+// SetTransformCallbackContextA The context under which `transformCallback` is called.
 func (self *ComponentScaleMinMax) SetTransformCallbackContextA(member interface{}) {
     self.Object.Set("transformCallbackContext", member)
 }
 
-// The minimum scale this Game Object will scale down to.
+// ScaleMin The minimum scale this Game Object will scale down to.
 // 
 // It allows you to prevent a parent from scaling this Game Object lower than the given value.
 // 
@@ -54,7 +52,7 @@ func (self *ComponentScaleMinMax) ScaleMin() *Point{
     return &Point{self.Object.Get("scaleMin")}
 }
 
-// The minimum scale this Game Object will scale down to.
+// SetScaleMinA The minimum scale this Game Object will scale down to.
 // 
 // It allows you to prevent a parent from scaling this Game Object lower than the given value.
 // 
@@ -63,7 +61,7 @@ func (self *ComponentScaleMinMax) SetScaleMinA(member *Point) {
     self.Object.Set("scaleMin", member)
 }
 
-// The maximum scale this Game Object will scale up to. 
+// ScaleMax The maximum scale this Game Object will scale up to. 
 // 
 // It allows you to prevent a parent from scaling this Game Object higher than the given value.
 // 
@@ -72,7 +70,7 @@ func (self *ComponentScaleMinMax) ScaleMax() *Point{
     return &Point{self.Object.Get("scaleMax")}
 }
 
-// The maximum scale this Game Object will scale up to. 
+// SetScaleMaxA The maximum scale this Game Object will scale up to. 
 // 
 // It allows you to prevent a parent from scaling this Game Object higher than the given value.
 // 
@@ -82,18 +80,17 @@ func (self *ComponentScaleMinMax) SetScaleMaxA(member *Point) {
 }
 
 
-
-// Adjust scaling limits, if set, to this Game Object.
+// CheckTransform Adjust scaling limits, if set, to this Game Object.
 func (self *ComponentScaleMinMax) CheckTransform(wt *Matrix) {
     self.Object.Call("checkTransform", wt)
 }
 
-// Adjust scaling limits, if set, to this Game Object.
+// CheckTransformI Adjust scaling limits, if set, to this Game Object.
 func (self *ComponentScaleMinMax) CheckTransformI(args ...interface{}) {
     self.Object.Call("checkTransform", args)
 }
 
-// Sets the scaleMin and scaleMax values. These values are used to limit how far this Game Object will scale based on its parent.
+// SetScaleMinMax Sets the scaleMin and scaleMax values. These values are used to limit how far this Game Object will scale based on its parent.
 // 
 // For example if this Game Object has a `minScale` value of 1 and its parent has a `scale` value of 0.5, the 0.5 will be ignored 
 // and the scale value of 1 will be used, as the parents scale is lower than the minimum scale this Game Object should adhere to.
@@ -114,7 +111,7 @@ func (self *ComponentScaleMinMax) SetScaleMinMax(minX interface{}, minY interfac
     self.Object.Call("setScaleMinMax", minX, minY, maxX, maxY)
 }
 
-// Sets the scaleMin and scaleMax values. These values are used to limit how far this Game Object will scale based on its parent.
+// SetScaleMinMaxI Sets the scaleMin and scaleMax values. These values are used to limit how far this Game Object will scale based on its parent.
 // 
 // For example if this Game Object has a `minScale` value of 1 and its parent has a `scale` value of 0.5, the 0.5 will be ignored 
 // and the scale value of 1 will be used, as the parents scale is lower than the minimum scale this Game Object should adhere to.
@@ -134,3 +131,4 @@ func (self *ComponentScaleMinMax) SetScaleMinMax(minX interface{}, minY interfac
 func (self *ComponentScaleMinMax) SetScaleMinMaxI(args ...interface{}) {
     self.Object.Call("setScaleMinMax", args)
 }
+

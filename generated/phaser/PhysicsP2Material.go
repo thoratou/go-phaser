@@ -1,4 +1,4 @@
-// Automatic generation for Phaser.Physics.P2.Material
+// Package phaser Automatic generation for Phaser.Physics.P2.Material
 // generated file PhysicsP2Material.go
 package phaser
 
@@ -7,22 +7,20 @@ import (
 
 )
 
-// A P2 Material.
+// PhysicsP2Material A P2 Material.
 // 
 // \o/ ~ "Because I'm a Material girl"
 type PhysicsP2Material struct {
     *js.Object
 }
 
-
-// A P2 Material.
+// NewPhysicsP2Material A P2 Material.
 // 
 // \o/ ~ "Because I'm a Material girl"
 func NewPhysicsP2Material(name string) *PhysicsP2Material {
     return &PhysicsP2Material{js.Global.Get("Phaser").Get("Physics").Get("P2").Get("Material").New(name)}
 }
-
-// A P2 Material.
+// NewPhysicsP2MaterialI A P2 Material.
 // 
 // \o/ ~ "Because I'm a Material girl"
 func NewPhysicsP2MaterialI(args ...interface{}) *PhysicsP2Material {
@@ -31,12 +29,12 @@ func NewPhysicsP2MaterialI(args ...interface{}) *PhysicsP2Material {
 
 
 
-// The user defined name given to this Material.
+// Name The user defined name given to this Material.
 func (self *PhysicsP2Material) Name() string{
     return self.Object.Get("name").String()
 }
 
-// The user defined name given to this Material.
+// SetNameA The user defined name given to this Material.
 func (self *PhysicsP2Material) SetNameA(member string) {
     self.Object.Set("name", member)
 }

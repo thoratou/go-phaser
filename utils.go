@@ -41,6 +41,23 @@ func SplitMultilines(str string) []string {
 	return strings.Split(lines, "\n")
 }
 
+func FirstDescriptionLine(str string) string {
+	lines := SplitMultilines(str)
+	if len(lines) == 0 || (len(lines) == 1 && lines[0] == "") {
+		return "empty description"
+	}
+	return lines[0]
+}
+
+func NextDescriptionLines(str string) []string {
+	lines := SplitMultilines(str)
+	if len(lines) < 2 {
+		return []string{}
+	}
+	lines = lines[1:]
+	return lines
+}
+
 func GoNativeType(str string) string {
 	switch str {
 	case "boolean":

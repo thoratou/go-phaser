@@ -1,4 +1,4 @@
-// Automatic generation for Phaser.FrameData
+// Package phaser Automatic generation for Phaser.FrameData
 // generated file FrameData.go
 package phaser
 
@@ -7,87 +7,84 @@ import (
 
 )
 
-// FrameData is a container for Frame objects, which are the internal representation of animation data in Phaser.
+// FrameData FrameData is a container for Frame objects, which are the internal representation of animation data in Phaser.
 type FrameData struct {
     *js.Object
 }
 
-
-// FrameData is a container for Frame objects, which are the internal representation of animation data in Phaser.
+// NewFrameData FrameData is a container for Frame objects, which are the internal representation of animation data in Phaser.
 func NewFrameData() *FrameData {
     return &FrameData{js.Global.Get("Phaser").Get("FrameData").New()}
 }
-
-// FrameData is a container for Frame objects, which are the internal representation of animation data in Phaser.
+// NewFrameDataI FrameData is a container for Frame objects, which are the internal representation of animation data in Phaser.
 func NewFrameDataI(args ...interface{}) *FrameData {
     return &FrameData{js.Global.Get("Phaser").Get("FrameData").New(args)}
 }
 
 
 
-// The total number of frames in this FrameData set.
+// Total The total number of frames in this FrameData set.
 func (self *FrameData) Total() int{
     return self.Object.Get("total").Int()
 }
 
-// The total number of frames in this FrameData set.
+// SetTotalA The total number of frames in this FrameData set.
 func (self *FrameData) SetTotalA(member int) {
     self.Object.Set("total", member)
 }
 
 
-
-// Adds a new Frame to this FrameData collection. Typically called by the Animation.Parser and not directly.
+// AddFrame Adds a new Frame to this FrameData collection. Typically called by the Animation.Parser and not directly.
 func (self *FrameData) AddFrame(frame *Frame) *Frame{
     return &Frame{self.Object.Call("addFrame", frame)}
 }
 
-// Adds a new Frame to this FrameData collection. Typically called by the Animation.Parser and not directly.
+// AddFrameI Adds a new Frame to this FrameData collection. Typically called by the Animation.Parser and not directly.
 func (self *FrameData) AddFrameI(args ...interface{}) *Frame{
     return &Frame{self.Object.Call("addFrame", args)}
 }
 
-// Get a Frame by its numerical index.
+// GetFrame Get a Frame by its numerical index.
 func (self *FrameData) GetFrame(index int) *Frame{
     return &Frame{self.Object.Call("getFrame", index)}
 }
 
-// Get a Frame by its numerical index.
+// GetFrameI Get a Frame by its numerical index.
 func (self *FrameData) GetFrameI(args ...interface{}) *Frame{
     return &Frame{self.Object.Call("getFrame", args)}
 }
 
-// Get a Frame by its frame name.
+// GetFrameByName Get a Frame by its frame name.
 func (self *FrameData) GetFrameByName(name string) *Frame{
     return &Frame{self.Object.Call("getFrameByName", name)}
 }
 
-// Get a Frame by its frame name.
+// GetFrameByNameI Get a Frame by its frame name.
 func (self *FrameData) GetFrameByNameI(args ...interface{}) *Frame{
     return &Frame{self.Object.Call("getFrameByName", args)}
 }
 
-// Check if there is a Frame with the given name.
+// CheckFrameName Check if there is a Frame with the given name.
 func (self *FrameData) CheckFrameName(name string) bool{
     return self.Object.Call("checkFrameName", name).Bool()
 }
 
-// Check if there is a Frame with the given name.
+// CheckFrameNameI Check if there is a Frame with the given name.
 func (self *FrameData) CheckFrameNameI(args ...interface{}) bool{
     return self.Object.Call("checkFrameName", args).Bool()
 }
 
-// Makes a copy of this FrameData including copies (not references) to all of the Frames it contains.
+// Clone Makes a copy of this FrameData including copies (not references) to all of the Frames it contains.
 func (self *FrameData) Clone() *FrameData{
     return &FrameData{self.Object.Call("clone")}
 }
 
-// Makes a copy of this FrameData including copies (not references) to all of the Frames it contains.
+// CloneI Makes a copy of this FrameData including copies (not references) to all of the Frames it contains.
 func (self *FrameData) CloneI(args ...interface{}) *FrameData{
     return &FrameData{self.Object.Call("clone", args)}
 }
 
-// Returns a range of frames based on the given start and end frame indexes and returns them in an Array.
+// GetFrameRange Returns a range of frames based on the given start and end frame indexes and returns them in an Array.
 func (self *FrameData) GetFrameRange(start int, end int) []interface{}{
 	array00 := self.Object.Call("getFrameRange", start, end)
 	length00 := array00.Length()
@@ -98,7 +95,7 @@ func (self *FrameData) GetFrameRange(start int, end int) []interface{}{
 	return out00
 }
 
-// Returns a range of frames based on the given start and end frame indexes and returns them in an Array.
+// GetFrameRange1O Returns a range of frames based on the given start and end frame indexes and returns them in an Array.
 func (self *FrameData) GetFrameRange1O(start int, end int, output []interface{}) []interface{}{
 	array00 := self.Object.Call("getFrameRange", start, end, output)
 	length00 := array00.Length()
@@ -109,7 +106,7 @@ func (self *FrameData) GetFrameRange1O(start int, end int, output []interface{})
 	return out00
 }
 
-// Returns a range of frames based on the given start and end frame indexes and returns them in an Array.
+// GetFrameRangeI Returns a range of frames based on the given start and end frame indexes and returns them in an Array.
 func (self *FrameData) GetFrameRangeI(args ...interface{}) []interface{}{
 	array00 := self.Object.Call("getFrameRange", args)
 	length00 := array00.Length()
@@ -120,7 +117,7 @@ func (self *FrameData) GetFrameRangeI(args ...interface{}) []interface{}{
 	return out00
 }
 
-// Returns all of the Frames in this FrameData set where the frame index is found in the input array.
+// GetFrames Returns all of the Frames in this FrameData set where the frame index is found in the input array.
 // The frames are returned in the output array, or if none is provided in a new Array object.
 func (self *FrameData) GetFrames() []interface{}{
 	array00 := self.Object.Call("getFrames")
@@ -132,7 +129,7 @@ func (self *FrameData) GetFrames() []interface{}{
 	return out00
 }
 
-// Returns all of the Frames in this FrameData set where the frame index is found in the input array.
+// GetFrames1O Returns all of the Frames in this FrameData set where the frame index is found in the input array.
 // The frames are returned in the output array, or if none is provided in a new Array object.
 func (self *FrameData) GetFrames1O(frames []interface{}) []interface{}{
 	array00 := self.Object.Call("getFrames", frames)
@@ -144,7 +141,7 @@ func (self *FrameData) GetFrames1O(frames []interface{}) []interface{}{
 	return out00
 }
 
-// Returns all of the Frames in this FrameData set where the frame index is found in the input array.
+// GetFrames2O Returns all of the Frames in this FrameData set where the frame index is found in the input array.
 // The frames are returned in the output array, or if none is provided in a new Array object.
 func (self *FrameData) GetFrames2O(frames []interface{}, useNumericIndex bool) []interface{}{
 	array00 := self.Object.Call("getFrames", frames, useNumericIndex)
@@ -156,7 +153,7 @@ func (self *FrameData) GetFrames2O(frames []interface{}, useNumericIndex bool) [
 	return out00
 }
 
-// Returns all of the Frames in this FrameData set where the frame index is found in the input array.
+// GetFrames3O Returns all of the Frames in this FrameData set where the frame index is found in the input array.
 // The frames are returned in the output array, or if none is provided in a new Array object.
 func (self *FrameData) GetFrames3O(frames []interface{}, useNumericIndex bool, output []interface{}) []interface{}{
 	array00 := self.Object.Call("getFrames", frames, useNumericIndex, output)
@@ -168,7 +165,7 @@ func (self *FrameData) GetFrames3O(frames []interface{}, useNumericIndex bool, o
 	return out00
 }
 
-// Returns all of the Frames in this FrameData set where the frame index is found in the input array.
+// GetFramesI Returns all of the Frames in this FrameData set where the frame index is found in the input array.
 // The frames are returned in the output array, or if none is provided in a new Array object.
 func (self *FrameData) GetFramesI(args ...interface{}) []interface{}{
 	array00 := self.Object.Call("getFrames", args)
@@ -180,7 +177,7 @@ func (self *FrameData) GetFramesI(args ...interface{}) []interface{}{
 	return out00
 }
 
-// Returns all of the Frame indexes in this FrameData set.
+// GetFrameIndexes Returns all of the Frame indexes in this FrameData set.
 // The frames indexes are returned in the output array, or if none is provided in a new Array object.
 func (self *FrameData) GetFrameIndexes() []interface{}{
 	array00 := self.Object.Call("getFrameIndexes")
@@ -192,7 +189,7 @@ func (self *FrameData) GetFrameIndexes() []interface{}{
 	return out00
 }
 
-// Returns all of the Frame indexes in this FrameData set.
+// GetFrameIndexes1O Returns all of the Frame indexes in this FrameData set.
 // The frames indexes are returned in the output array, or if none is provided in a new Array object.
 func (self *FrameData) GetFrameIndexes1O(frames []interface{}) []interface{}{
 	array00 := self.Object.Call("getFrameIndexes", frames)
@@ -204,7 +201,7 @@ func (self *FrameData) GetFrameIndexes1O(frames []interface{}) []interface{}{
 	return out00
 }
 
-// Returns all of the Frame indexes in this FrameData set.
+// GetFrameIndexes2O Returns all of the Frame indexes in this FrameData set.
 // The frames indexes are returned in the output array, or if none is provided in a new Array object.
 func (self *FrameData) GetFrameIndexes2O(frames []interface{}, useNumericIndex bool) []interface{}{
 	array00 := self.Object.Call("getFrameIndexes", frames, useNumericIndex)
@@ -216,7 +213,7 @@ func (self *FrameData) GetFrameIndexes2O(frames []interface{}, useNumericIndex b
 	return out00
 }
 
-// Returns all of the Frame indexes in this FrameData set.
+// GetFrameIndexes3O Returns all of the Frame indexes in this FrameData set.
 // The frames indexes are returned in the output array, or if none is provided in a new Array object.
 func (self *FrameData) GetFrameIndexes3O(frames []interface{}, useNumericIndex bool, output []interface{}) []interface{}{
 	array00 := self.Object.Call("getFrameIndexes", frames, useNumericIndex, output)
@@ -228,7 +225,7 @@ func (self *FrameData) GetFrameIndexes3O(frames []interface{}, useNumericIndex b
 	return out00
 }
 
-// Returns all of the Frame indexes in this FrameData set.
+// GetFrameIndexesI Returns all of the Frame indexes in this FrameData set.
 // The frames indexes are returned in the output array, or if none is provided in a new Array object.
 func (self *FrameData) GetFrameIndexesI(args ...interface{}) []interface{}{
 	array00 := self.Object.Call("getFrameIndexes", args)
@@ -240,12 +237,13 @@ func (self *FrameData) GetFrameIndexesI(args ...interface{}) []interface{}{
 	return out00
 }
 
-// Destroys this FrameData collection by nulling the _frames and _frameNames arrays.
+// Destroy Destroys this FrameData collection by nulling the _frames and _frameNames arrays.
 func (self *FrameData) Destroy() {
     self.Object.Call("destroy")
 }
 
-// Destroys this FrameData collection by nulling the _frames and _frameNames arrays.
+// DestroyI Destroys this FrameData collection by nulling the _frames and _frameNames arrays.
 func (self *FrameData) DestroyI(args ...interface{}) {
     self.Object.Call("destroy", args)
 }
+

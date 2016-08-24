@@ -1,4 +1,4 @@
-// Automatic generation for PIXI.GraphicsData
+// Package phaser Automatic generation for PIXI.GraphicsData
 // generated file GraphicsData.go
 package phaser
 
@@ -7,18 +7,16 @@ import (
 
 )
 
-// A GraphicsData object.
+// GraphicsData A GraphicsData object.
 type GraphicsData struct {
     *js.Object
 }
 
-
-// A GraphicsData object.
+// NewGraphicsData A GraphicsData object.
 func NewGraphicsData() *GraphicsData {
     return &GraphicsData{js.Global.Get("PIXI").Get("GraphicsData").New()}
 }
-
-// A GraphicsData object.
+// NewGraphicsDataI A GraphicsData object.
 func NewGraphicsDataI(args ...interface{}) *GraphicsData {
     return &GraphicsData{js.Global.Get("PIXI").Get("GraphicsData").New(args)}
 }

@@ -1,4 +1,4 @@
-// Automatic generation for Phaser.Polygon
+// Package phaser Automatic generation for Phaser.Polygon
 // generated file Polygon.go
 package phaser
 
@@ -7,7 +7,7 @@ import (
 
 )
 
-// Creates a new Polygon.
+// Polygon Creates a new Polygon.
 // 
 // The points can be set from a variety of formats:
 // 
@@ -21,8 +21,7 @@ type Polygon struct {
     *js.Object
 }
 
-
-// Creates a new Polygon.
+// NewPolygon Creates a new Polygon.
 // 
 // The points can be set from a variety of formats:
 // 
@@ -35,8 +34,7 @@ type Polygon struct {
 func NewPolygon(points interface{}) *Polygon {
     return &Polygon{js.Global.Get("Phaser").Get("Polygon").New(points)}
 }
-
-// Creates a new Polygon.
+// NewPolygonI Creates a new Polygon.
 // 
 // The points can be set from a variety of formats:
 // 
@@ -52,47 +50,47 @@ func NewPolygonI(args ...interface{}) *Polygon {
 
 
 
-// The area of this Polygon.
+// Area The area of this Polygon.
 func (self *Polygon) Area() int{
     return self.Object.Get("area").Int()
 }
 
-// The area of this Polygon.
+// SetAreaA The area of this Polygon.
 func (self *Polygon) SetAreaA(member int) {
     self.Object.Set("area", member)
 }
 
-// Is the Polygon closed or not?
+// Closed Is the Polygon closed or not?
 func (self *Polygon) Closed() bool{
     return self.Object.Get("closed").Bool()
 }
 
-// Is the Polygon closed or not?
+// SetClosedA Is the Polygon closed or not?
 func (self *Polygon) SetClosedA(member bool) {
     self.Object.Set("closed", member)
 }
 
-// Has this Polygon been flattened by a call to `Polygon.flatten` ?
+// Flattened Has this Polygon been flattened by a call to `Polygon.flatten` ?
 func (self *Polygon) Flattened() bool{
     return self.Object.Get("flattened").Bool()
 }
 
-// Has this Polygon been flattened by a call to `Polygon.flatten` ?
+// SetFlattenedA Has this Polygon been flattened by a call to `Polygon.flatten` ?
 func (self *Polygon) SetFlattenedA(member bool) {
     self.Object.Set("flattened", member)
 }
 
-// The base object type.
+// Type The base object type.
 func (self *Polygon) Type() int{
     return self.Object.Get("type").Int()
 }
 
-// The base object type.
+// SetTypeA The base object type.
 func (self *Polygon) SetTypeA(member int) {
     self.Object.Set("type", member)
 }
 
-// Sets and modifies the points of this polygon.
+// Points Sets and modifies the points of this polygon.
 // 
 // See {@link Phaser.Polygon#setTo setTo} for the different kinds of arrays formats that can be assigned. The array of vertex points.
 func (self *Polygon) Points() []Point{
@@ -105,7 +103,7 @@ func (self *Polygon) Points() []Point{
 	return out00
 }
 
-// Sets and modifies the points of this polygon.
+// SetPointsA Sets and modifies the points of this polygon.
 // 
 // See {@link Phaser.Polygon#setTo setTo} for the different kinds of arrays formats that can be assigned. The array of vertex points.
 func (self *Polygon) SetPointsA(member []Point) {
@@ -113,8 +111,7 @@ func (self *Polygon) SetPointsA(member []Point) {
 }
 
 
-
-// Export the points as an array of flat numbers, following the sequence [ x,y, x,y, x,y ]
+// ToNumberArray Export the points as an array of flat numbers, following the sequence [ x,y, x,y, x,y ]
 func (self *Polygon) ToNumberArray() []interface{}{
 	array00 := self.Object.Call("toNumberArray")
 	length00 := array00.Length()
@@ -125,7 +122,7 @@ func (self *Polygon) ToNumberArray() []interface{}{
 	return out00
 }
 
-// Export the points as an array of flat numbers, following the sequence [ x,y, x,y, x,y ]
+// ToNumberArray1O Export the points as an array of flat numbers, following the sequence [ x,y, x,y, x,y ]
 func (self *Polygon) ToNumberArray1O(output []interface{}) []interface{}{
 	array00 := self.Object.Call("toNumberArray", output)
 	length00 := array00.Length()
@@ -136,7 +133,7 @@ func (self *Polygon) ToNumberArray1O(output []interface{}) []interface{}{
 	return out00
 }
 
-// Export the points as an array of flat numbers, following the sequence [ x,y, x,y, x,y ]
+// ToNumberArrayI Export the points as an array of flat numbers, following the sequence [ x,y, x,y, x,y ]
 func (self *Polygon) ToNumberArrayI(args ...interface{}) []interface{}{
 	array00 := self.Object.Call("toNumberArray", args)
 	length00 := array00.Length()
@@ -147,49 +144,49 @@ func (self *Polygon) ToNumberArrayI(args ...interface{}) []interface{}{
 	return out00
 }
 
-// Flattens this Polygon so the points are a sequence of numbers.
+// Flatten Flattens this Polygon so the points are a sequence of numbers.
 // Any Point objects found are removed and replaced with two numbers.
 // Also sets the Polygon.flattened property to `true`.
 func (self *Polygon) Flatten() *Polygon{
     return &Polygon{self.Object.Call("flatten")}
 }
 
-// Flattens this Polygon so the points are a sequence of numbers.
+// FlattenI Flattens this Polygon so the points are a sequence of numbers.
 // Any Point objects found are removed and replaced with two numbers.
 // Also sets the Polygon.flattened property to `true`.
 func (self *Polygon) FlattenI(args ...interface{}) *Polygon{
     return &Polygon{self.Object.Call("flatten", args)}
 }
 
-// Creates a copy of the given Polygon.
+// Clone Creates a copy of the given Polygon.
 // This is a deep clone, the resulting copy contains new Phaser.Point objects
 func (self *Polygon) Clone() *Polygon{
     return &Polygon{self.Object.Call("clone")}
 }
 
-// Creates a copy of the given Polygon.
+// Clone1O Creates a copy of the given Polygon.
 // This is a deep clone, the resulting copy contains new Phaser.Point objects
 func (self *Polygon) Clone1O(output *Polygon) *Polygon{
     return &Polygon{self.Object.Call("clone", output)}
 }
 
-// Creates a copy of the given Polygon.
+// CloneI Creates a copy of the given Polygon.
 // This is a deep clone, the resulting copy contains new Phaser.Point objects
 func (self *Polygon) CloneI(args ...interface{}) *Polygon{
     return &Polygon{self.Object.Call("clone", args)}
 }
 
-// Checks whether the x and y coordinates are contained within this polygon.
+// Contains Checks whether the x and y coordinates are contained within this polygon.
 func (self *Polygon) Contains(x int, y int) bool{
     return self.Object.Call("contains", x, y).Bool()
 }
 
-// Checks whether the x and y coordinates are contained within this polygon.
+// ContainsI Checks whether the x and y coordinates are contained within this polygon.
 func (self *Polygon) ContainsI(args ...interface{}) bool{
     return self.Object.Call("contains", args).Bool()
 }
 
-// Sets this Polygon to the given points.
+// SetTo Sets this Polygon to the given points.
 // 
 // The points can be set from a variety of formats:
 // 
@@ -206,7 +203,7 @@ func (self *Polygon) SetTo(points interface{}) *Polygon{
     return &Polygon{self.Object.Call("setTo", points)}
 }
 
-// Sets this Polygon to the given points.
+// SetToI Sets this Polygon to the given points.
 // 
 // The points can be set from a variety of formats:
 // 
@@ -223,12 +220,13 @@ func (self *Polygon) SetToI(args ...interface{}) *Polygon{
     return &Polygon{self.Object.Call("setTo", args)}
 }
 
-// Calcuates the area of the Polygon. This is available in the property Polygon.area
+// CalculateArea Calcuates the area of the Polygon. This is available in the property Polygon.area
 func (self *Polygon) CalculateArea(y0 int) int{
     return self.Object.Call("calculateArea", y0).Int()
 }
 
-// Calcuates the area of the Polygon. This is available in the property Polygon.area
+// CalculateAreaI Calcuates the area of the Polygon. This is available in the property Polygon.area
 func (self *Polygon) CalculateAreaI(args ...interface{}) int{
     return self.Object.Call("calculateArea", args).Int()
 }
+

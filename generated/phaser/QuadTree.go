@@ -1,4 +1,4 @@
-// Automatic generation for Phaser.QuadTree
+// Package phaser Automatic generation for Phaser.QuadTree
 // generated file QuadTree.go
 package phaser
 
@@ -7,43 +7,38 @@ import (
 
 )
 
-// A QuadTree implementation. The original code was a conversion of the Java code posted to GameDevTuts.
+// QuadTree A QuadTree implementation. The original code was a conversion of the Java code posted to GameDevTuts.
 // However I've tweaked it massively to add node indexing, removed lots of temp. var creation and significantly increased performance as a result.
 // Original version at https://github.com/timohausmann/quadtree-js/
 type QuadTree struct {
     *js.Object
 }
 
-
-// A QuadTree implementation. The original code was a conversion of the Java code posted to GameDevTuts.
+// NewQuadTree A QuadTree implementation. The original code was a conversion of the Java code posted to GameDevTuts.
 // However I've tweaked it massively to add node indexing, removed lots of temp. var creation and significantly increased performance as a result.
 // Original version at https://github.com/timohausmann/quadtree-js/
 func NewQuadTree(x int, y int, width int, height int) *QuadTree {
     return &QuadTree{js.Global.Get("Phaser").Get("QuadTree").New(x, y, width, height)}
 }
-
-// A QuadTree implementation. The original code was a conversion of the Java code posted to GameDevTuts.
+// NewQuadTree1O A QuadTree implementation. The original code was a conversion of the Java code posted to GameDevTuts.
 // However I've tweaked it massively to add node indexing, removed lots of temp. var creation and significantly increased performance as a result.
 // Original version at https://github.com/timohausmann/quadtree-js/
 func NewQuadTree1O(x int, y int, width int, height int, maxObjects int) *QuadTree {
     return &QuadTree{js.Global.Get("Phaser").Get("QuadTree").New(x, y, width, height, maxObjects)}
 }
-
-// A QuadTree implementation. The original code was a conversion of the Java code posted to GameDevTuts.
+// NewQuadTree2O A QuadTree implementation. The original code was a conversion of the Java code posted to GameDevTuts.
 // However I've tweaked it massively to add node indexing, removed lots of temp. var creation and significantly increased performance as a result.
 // Original version at https://github.com/timohausmann/quadtree-js/
 func NewQuadTree2O(x int, y int, width int, height int, maxObjects int, maxLevels int) *QuadTree {
     return &QuadTree{js.Global.Get("Phaser").Get("QuadTree").New(x, y, width, height, maxObjects, maxLevels)}
 }
-
-// A QuadTree implementation. The original code was a conversion of the Java code posted to GameDevTuts.
+// NewQuadTree3O A QuadTree implementation. The original code was a conversion of the Java code posted to GameDevTuts.
 // However I've tweaked it massively to add node indexing, removed lots of temp. var creation and significantly increased performance as a result.
 // Original version at https://github.com/timohausmann/quadtree-js/
 func NewQuadTree3O(x int, y int, width int, height int, maxObjects int, maxLevels int, level int) *QuadTree {
     return &QuadTree{js.Global.Get("Phaser").Get("QuadTree").New(x, y, width, height, maxObjects, maxLevels, level)}
 }
-
-// A QuadTree implementation. The original code was a conversion of the Java code posted to GameDevTuts.
+// NewQuadTreeI A QuadTree implementation. The original code was a conversion of the Java code posted to GameDevTuts.
 // However I've tweaked it massively to add node indexing, removed lots of temp. var creation and significantly increased performance as a result.
 // Original version at https://github.com/timohausmann/quadtree-js/
 func NewQuadTreeI(args ...interface{}) *QuadTree {
@@ -52,47 +47,47 @@ func NewQuadTreeI(args ...interface{}) *QuadTree {
 
 
 
-// The maximum number of objects per node.
+// MaxObjects The maximum number of objects per node.
 func (self *QuadTree) MaxObjects() int{
     return self.Object.Get("maxObjects").Int()
 }
 
-// The maximum number of objects per node.
+// SetMaxObjectsA The maximum number of objects per node.
 func (self *QuadTree) SetMaxObjectsA(member int) {
     self.Object.Set("maxObjects", member)
 }
 
-// The maximum number of levels to break down to.
+// MaxLevels The maximum number of levels to break down to.
 func (self *QuadTree) MaxLevels() int{
     return self.Object.Get("maxLevels").Int()
 }
 
-// The maximum number of levels to break down to.
+// SetMaxLevelsA The maximum number of levels to break down to.
 func (self *QuadTree) SetMaxLevelsA(member int) {
     self.Object.Set("maxLevels", member)
 }
 
-// The current level.
+// Level The current level.
 func (self *QuadTree) Level() int{
     return self.Object.Get("level").Int()
 }
 
-// The current level.
+// SetLevelA The current level.
 func (self *QuadTree) SetLevelA(member int) {
     self.Object.Set("level", member)
 }
 
-// Object that contains the quadtree bounds.
+// Bounds Object that contains the quadtree bounds.
 func (self *QuadTree) Bounds() interface{}{
     return self.Object.Get("bounds")
 }
 
-// Object that contains the quadtree bounds.
+// SetBoundsA Object that contains the quadtree bounds.
 func (self *QuadTree) SetBoundsA(member interface{}) {
     self.Object.Set("bounds", member)
 }
 
-// Array of quadtree children.
+// Objects Array of quadtree children.
 func (self *QuadTree) Objects() []interface{}{
 	array00 := self.Object.Get("objects")
 	length00 := array00.Length()
@@ -103,12 +98,12 @@ func (self *QuadTree) Objects() []interface{}{
 	return out00
 }
 
-// Array of quadtree children.
+// SetObjectsA Array of quadtree children.
 func (self *QuadTree) SetObjectsA(member []interface{}) {
     self.Object.Set("objects", member)
 }
 
-// Array of associated child nodes.
+// Nodes Array of associated child nodes.
 func (self *QuadTree) Nodes() []interface{}{
 	array00 := self.Object.Get("nodes")
 	length00 := array00.Length()
@@ -119,89 +114,88 @@ func (self *QuadTree) Nodes() []interface{}{
 	return out00
 }
 
-// Array of associated child nodes.
+// SetNodesA Array of associated child nodes.
 func (self *QuadTree) SetNodesA(member []interface{}) {
     self.Object.Set("nodes", member)
 }
 
 
-
-// Resets the QuadTree.
+// Reset Resets the QuadTree.
 func (self *QuadTree) Reset(x int, y int, width int, height int) {
     self.Object.Call("reset", x, y, width, height)
 }
 
-// Resets the QuadTree.
+// Reset1O Resets the QuadTree.
 func (self *QuadTree) Reset1O(x int, y int, width int, height int, maxObjects int) {
     self.Object.Call("reset", x, y, width, height, maxObjects)
 }
 
-// Resets the QuadTree.
+// Reset2O Resets the QuadTree.
 func (self *QuadTree) Reset2O(x int, y int, width int, height int, maxObjects int, maxLevels int) {
     self.Object.Call("reset", x, y, width, height, maxObjects, maxLevels)
 }
 
-// Resets the QuadTree.
+// Reset3O Resets the QuadTree.
 func (self *QuadTree) Reset3O(x int, y int, width int, height int, maxObjects int, maxLevels int, level int) {
     self.Object.Call("reset", x, y, width, height, maxObjects, maxLevels, level)
 }
 
-// Resets the QuadTree.
+// ResetI Resets the QuadTree.
 func (self *QuadTree) ResetI(args ...interface{}) {
     self.Object.Call("reset", args)
 }
 
-// Populates this quadtree with the children of the given Group. In order to be added the child must exist and have a body property.
+// Populate Populates this quadtree with the children of the given Group. In order to be added the child must exist and have a body property.
 func (self *QuadTree) Populate(group *Group) {
     self.Object.Call("populate", group)
 }
 
-// Populates this quadtree with the children of the given Group. In order to be added the child must exist and have a body property.
+// PopulateI Populates this quadtree with the children of the given Group. In order to be added the child must exist and have a body property.
 func (self *QuadTree) PopulateI(args ...interface{}) {
     self.Object.Call("populate", args)
 }
 
-// Handler for the populate method.
+// PopulateHandler Handler for the populate method.
 func (self *QuadTree) PopulateHandler(sprite interface{}) {
     self.Object.Call("populateHandler", sprite)
 }
 
-// Handler for the populate method.
+// PopulateHandlerI Handler for the populate method.
 func (self *QuadTree) PopulateHandlerI(args ...interface{}) {
     self.Object.Call("populateHandler", args)
 }
 
-// Split the node into 4 subnodes
+// Split Split the node into 4 subnodes
 func (self *QuadTree) Split() {
     self.Object.Call("split")
 }
 
-// Split the node into 4 subnodes
+// SplitI Split the node into 4 subnodes
 func (self *QuadTree) SplitI(args ...interface{}) {
     self.Object.Call("split", args)
 }
 
-// Insert the object into the node. If the node exceeds the capacity, it will split and add all objects to their corresponding subnodes.
+// Insert Insert the object into the node. If the node exceeds the capacity, it will split and add all objects to their corresponding subnodes.
 func (self *QuadTree) Insert(body interface{}) {
     self.Object.Call("insert", body)
 }
 
-// Insert the object into the node. If the node exceeds the capacity, it will split and add all objects to their corresponding subnodes.
+// InsertI Insert the object into the node. If the node exceeds the capacity, it will split and add all objects to their corresponding subnodes.
 func (self *QuadTree) InsertI(args ...interface{}) {
     self.Object.Call("insert", args)
 }
 
-// Determine which node the object belongs to.
+// GetIndex Determine which node the object belongs to.
 func (self *QuadTree) GetIndex(rect interface{}) int{
     return self.Object.Call("getIndex", rect).Int()
 }
 
-// Determine which node the object belongs to.
+// GetIndexI Determine which node the object belongs to.
 func (self *QuadTree) GetIndexI(args ...interface{}) int{
     return self.Object.Call("getIndex", args).Int()
 }
 
-// Return all objects that could collide with the given Sprite or Rectangle.
+// Retrieve Return all objects that could collide with the given Sprite or Rectangle.
 func (self *QuadTree) Retrieve(source interface{}) []interface{}{
 	array00 := self.Object.Call("retrieve", source)
 	length00 := array00.Length()
@@ -212,7 +206,7 @@ func (self *QuadTree) Retrieve(source interface{}) []interface{}{
 	return out00
 }
 
-// Return all objects that could collide with the given Sprite or Rectangle.
+// RetrieveI Return all objects that could collide with the given Sprite or Rectangle.
 func (self *QuadTree) RetrieveI(args ...interface{}) []interface{}{
 	array00 := self.Object.Call("retrieve", args)
 	length00 := array00.Length()
@@ -223,12 +217,13 @@ func (self *QuadTree) RetrieveI(args ...interface{}) []interface{}{
 	return out00
 }
 
-// Clear the quadtree.
+// Clear Clear the quadtree.
 func (self *QuadTree) Clear() {
     self.Object.Call("clear")
 }
 
-// Clear the quadtree.
+// ClearI Clear the quadtree.
 func (self *QuadTree) ClearI(args ...interface{}) {
     self.Object.Call("clear", args)
 }
+

@@ -1,4 +1,4 @@
-// Automatic generation for Phaser.Component.Bounds
+// Package phaser Automatic generation for Phaser.Component.Bounds
 // generated file ComponentBounds.go
 package phaser
 
@@ -7,127 +7,124 @@ import (
 
 )
 
-// The Bounds component contains properties related to the bounds of the Game Object.
+// ComponentBounds The Bounds component contains properties related to the bounds of the Game Object.
 type ComponentBounds struct {
     *js.Object
 }
 
-
-// The Bounds component contains properties related to the bounds of the Game Object.
+// NewComponentBounds The Bounds component contains properties related to the bounds of the Game Object.
 func NewComponentBounds() *ComponentBounds {
     return &ComponentBounds{js.Global.Get("Phaser").Get("Component").Get("Bounds").New()}
 }
-
-// The Bounds component contains properties related to the bounds of the Game Object.
+// NewComponentBoundsI The Bounds component contains properties related to the bounds of the Game Object.
 func NewComponentBoundsI(args ...interface{}) *ComponentBounds {
     return &ComponentBounds{js.Global.Get("Phaser").Get("Component").Get("Bounds").New(args)}
 }
 
 
 
-// The amount the Game Object is visually offset from its x coordinate.
+// OffsetX The amount the Game Object is visually offset from its x coordinate.
 // This is the same as `width * anchor.x`.
 // It will only be > 0 if anchor.x is not equal to zero.
 func (self *ComponentBounds) OffsetX() int{
     return self.Object.Get("offsetX").Int()
 }
 
-// The amount the Game Object is visually offset from its x coordinate.
+// SetOffsetXA The amount the Game Object is visually offset from its x coordinate.
 // This is the same as `width * anchor.x`.
 // It will only be > 0 if anchor.x is not equal to zero.
 func (self *ComponentBounds) SetOffsetXA(member int) {
     self.Object.Set("offsetX", member)
 }
 
-// The amount the Game Object is visually offset from its y coordinate.
+// OffsetY The amount the Game Object is visually offset from its y coordinate.
 // This is the same as `height * anchor.y`.
 // It will only be > 0 if anchor.y is not equal to zero.
 func (self *ComponentBounds) OffsetY() int{
     return self.Object.Get("offsetY").Int()
 }
 
-// The amount the Game Object is visually offset from its y coordinate.
+// SetOffsetYA The amount the Game Object is visually offset from its y coordinate.
 // This is the same as `height * anchor.y`.
 // It will only be > 0 if anchor.y is not equal to zero.
 func (self *ComponentBounds) SetOffsetYA(member int) {
     self.Object.Set("offsetY", member)
 }
 
-// The center x coordinate of the Game Object.
+// CenterX The center x coordinate of the Game Object.
 // This is the same as `(x - offsetX) + (width / 2)`.
 func (self *ComponentBounds) CenterX() int{
     return self.Object.Get("centerX").Int()
 }
 
-// The center x coordinate of the Game Object.
+// SetCenterXA The center x coordinate of the Game Object.
 // This is the same as `(x - offsetX) + (width / 2)`.
 func (self *ComponentBounds) SetCenterXA(member int) {
     self.Object.Set("centerX", member)
 }
 
-// The center y coordinate of the Game Object.
+// CenterY The center y coordinate of the Game Object.
 // This is the same as `(y - offsetY) + (height / 2)`.
 func (self *ComponentBounds) CenterY() int{
     return self.Object.Get("centerY").Int()
 }
 
-// The center y coordinate of the Game Object.
+// SetCenterYA The center y coordinate of the Game Object.
 // This is the same as `(y - offsetY) + (height / 2)`.
 func (self *ComponentBounds) SetCenterYA(member int) {
     self.Object.Set("centerY", member)
 }
 
-// The left coordinate of the Game Object.
+// Left The left coordinate of the Game Object.
 // This is the same as `x - offsetX`.
 func (self *ComponentBounds) Left() int{
     return self.Object.Get("left").Int()
 }
 
-// The left coordinate of the Game Object.
+// SetLeftA The left coordinate of the Game Object.
 // This is the same as `x - offsetX`.
 func (self *ComponentBounds) SetLeftA(member int) {
     self.Object.Set("left", member)
 }
 
-// The right coordinate of the Game Object.
+// Right The right coordinate of the Game Object.
 // This is the same as `x + width - offsetX`.
 func (self *ComponentBounds) Right() int{
     return self.Object.Get("right").Int()
 }
 
-// The right coordinate of the Game Object.
+// SetRightA The right coordinate of the Game Object.
 // This is the same as `x + width - offsetX`.
 func (self *ComponentBounds) SetRightA(member int) {
     self.Object.Set("right", member)
 }
 
-// The y coordinate of the Game Object.
+// Top The y coordinate of the Game Object.
 // This is the same as `y - offsetY`.
 func (self *ComponentBounds) Top() int{
     return self.Object.Get("top").Int()
 }
 
-// The y coordinate of the Game Object.
+// SetTopA The y coordinate of the Game Object.
 // This is the same as `y - offsetY`.
 func (self *ComponentBounds) SetTopA(member int) {
     self.Object.Set("top", member)
 }
 
-// The sum of the y and height properties.
+// Bottom The sum of the y and height properties.
 // This is the same as `y + height - offsetY`.
 func (self *ComponentBounds) Bottom() int{
     return self.Object.Get("bottom").Int()
 }
 
-// The sum of the y and height properties.
+// SetBottomA The sum of the y and height properties.
 // This is the same as `y + height - offsetY`.
 func (self *ComponentBounds) SetBottomA(member int) {
     self.Object.Set("bottom", member)
 }
 
 
-
-// Aligns this Game Object within another Game Object, or Rectangle, known as the
+// AlignIn Aligns this Game Object within another Game Object, or Rectangle, known as the
 // 'container', to one of 9 possible positions.
 // 
 // The container must be a Game Object, or Phaser.Rectangle object. This can include properties
@@ -161,7 +158,7 @@ func (self *ComponentBounds) AlignIn(container interface{}) interface{}{
     return self.Object.Call("alignIn", container)
 }
 
-// Aligns this Game Object within another Game Object, or Rectangle, known as the
+// AlignIn1O Aligns this Game Object within another Game Object, or Rectangle, known as the
 // 'container', to one of 9 possible positions.
 // 
 // The container must be a Game Object, or Phaser.Rectangle object. This can include properties
@@ -195,7 +192,7 @@ func (self *ComponentBounds) AlignIn1O(container interface{}, position int) inte
     return self.Object.Call("alignIn", container, position)
 }
 
-// Aligns this Game Object within another Game Object, or Rectangle, known as the
+// AlignIn2O Aligns this Game Object within another Game Object, or Rectangle, known as the
 // 'container', to one of 9 possible positions.
 // 
 // The container must be a Game Object, or Phaser.Rectangle object. This can include properties
@@ -229,7 +226,7 @@ func (self *ComponentBounds) AlignIn2O(container interface{}, position int, offs
     return self.Object.Call("alignIn", container, position, offsetX)
 }
 
-// Aligns this Game Object within another Game Object, or Rectangle, known as the
+// AlignIn3O Aligns this Game Object within another Game Object, or Rectangle, known as the
 // 'container', to one of 9 possible positions.
 // 
 // The container must be a Game Object, or Phaser.Rectangle object. This can include properties
@@ -263,7 +260,7 @@ func (self *ComponentBounds) AlignIn3O(container interface{}, position int, offs
     return self.Object.Call("alignIn", container, position, offsetX, offsetY)
 }
 
-// Aligns this Game Object within another Game Object, or Rectangle, known as the
+// AlignInI Aligns this Game Object within another Game Object, or Rectangle, known as the
 // 'container', to one of 9 possible positions.
 // 
 // The container must be a Game Object, or Phaser.Rectangle object. This can include properties
@@ -297,7 +294,7 @@ func (self *ComponentBounds) AlignInI(args ...interface{}) interface{}{
     return self.Object.Call("alignIn", args)
 }
 
-// Aligns this Game Object to the side of another Game Object, or Rectangle, known as the
+// AlignTo Aligns this Game Object to the side of another Game Object, or Rectangle, known as the
 // 'parent', in one of 11 possible positions.
 // 
 // The parent must be a Game Object, or Phaser.Rectangle object. This can include properties
@@ -332,7 +329,7 @@ func (self *ComponentBounds) AlignTo(parent interface{}) interface{}{
     return self.Object.Call("alignTo", parent)
 }
 
-// Aligns this Game Object to the side of another Game Object, or Rectangle, known as the
+// AlignTo1O Aligns this Game Object to the side of another Game Object, or Rectangle, known as the
 // 'parent', in one of 11 possible positions.
 // 
 // The parent must be a Game Object, or Phaser.Rectangle object. This can include properties
@@ -367,7 +364,7 @@ func (self *ComponentBounds) AlignTo1O(parent interface{}, position int) interfa
     return self.Object.Call("alignTo", parent, position)
 }
 
-// Aligns this Game Object to the side of another Game Object, or Rectangle, known as the
+// AlignTo2O Aligns this Game Object to the side of another Game Object, or Rectangle, known as the
 // 'parent', in one of 11 possible positions.
 // 
 // The parent must be a Game Object, or Phaser.Rectangle object. This can include properties
@@ -402,7 +399,7 @@ func (self *ComponentBounds) AlignTo2O(parent interface{}, position int, offsetX
     return self.Object.Call("alignTo", parent, position, offsetX)
 }
 
-// Aligns this Game Object to the side of another Game Object, or Rectangle, known as the
+// AlignTo3O Aligns this Game Object to the side of another Game Object, or Rectangle, known as the
 // 'parent', in one of 11 possible positions.
 // 
 // The parent must be a Game Object, or Phaser.Rectangle object. This can include properties
@@ -437,7 +434,7 @@ func (self *ComponentBounds) AlignTo3O(parent interface{}, position int, offsetX
     return self.Object.Call("alignTo", parent, position, offsetX, offsetY)
 }
 
-// Aligns this Game Object to the side of another Game Object, or Rectangle, known as the
+// AlignToI Aligns this Game Object to the side of another Game Object, or Rectangle, known as the
 // 'parent', in one of 11 possible positions.
 // 
 // The parent must be a Game Object, or Phaser.Rectangle object. This can include properties
@@ -471,3 +468,4 @@ func (self *ComponentBounds) AlignTo3O(parent interface{}, position int, offsetX
 func (self *ComponentBounds) AlignToI(args ...interface{}) interface{}{
     return self.Object.Call("alignTo", args)
 }
+

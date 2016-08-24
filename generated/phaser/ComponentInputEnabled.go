@@ -1,4 +1,4 @@
-// Automatic generation for Phaser.Component.InputEnabled
+// Package phaser Automatic generation for Phaser.Component.InputEnabled
 // generated file ComponentInputEnabled.go
 package phaser
 
@@ -7,25 +7,23 @@ import (
 
 )
 
-// The InputEnabled component allows a Game Object to have its own InputHandler and process input related events.
+// ComponentInputEnabled The InputEnabled component allows a Game Object to have its own InputHandler and process input related events.
 type ComponentInputEnabled struct {
     *js.Object
 }
 
-
-// The InputEnabled component allows a Game Object to have its own InputHandler and process input related events.
+// NewComponentInputEnabled The InputEnabled component allows a Game Object to have its own InputHandler and process input related events.
 func NewComponentInputEnabled() *ComponentInputEnabled {
     return &ComponentInputEnabled{js.Global.Get("Phaser").Get("Component").Get("InputEnabled").New()}
 }
-
-// The InputEnabled component allows a Game Object to have its own InputHandler and process input related events.
+// NewComponentInputEnabledI The InputEnabled component allows a Game Object to have its own InputHandler and process input related events.
 func NewComponentInputEnabledI(args ...interface{}) *ComponentInputEnabled {
     return &ComponentInputEnabled{js.Global.Get("Phaser").Get("Component").Get("InputEnabled").New(args)}
 }
 
 
 
-// The Input Handler for this Game Object.
+// Input The Input Handler for this Game Object.
 // 
 // By default it is disabled. If you wish this Game Object to process input events you should enable it with: `inputEnabled = true`.
 // 
@@ -34,7 +32,7 @@ func (self *ComponentInputEnabled) Input() interface{}{
     return self.Object.Get("input")
 }
 
-// The Input Handler for this Game Object.
+// SetInputA The Input Handler for this Game Object.
 // 
 // By default it is disabled. If you wish this Game Object to process input events you should enable it with: `inputEnabled = true`.
 // 
@@ -43,7 +41,7 @@ func (self *ComponentInputEnabled) SetInputA(member interface{}) {
     self.Object.Set("input", member)
 }
 
-// By default a Game Object won't process any input events. By setting `inputEnabled` to true a Phaser.InputHandler is created
+// InputEnabled By default a Game Object won't process any input events. By setting `inputEnabled` to true a Phaser.InputHandler is created
 // for this Game Object and it will then start to process click / touch events and more.
 // 
 // You can then access the Input Handler via `this.input`.
@@ -59,7 +57,7 @@ func (self *ComponentInputEnabled) InputEnabled() bool{
     return self.Object.Get("inputEnabled").Bool()
 }
 
-// By default a Game Object won't process any input events. By setting `inputEnabled` to true a Phaser.InputHandler is created
+// SetInputEnabledA By default a Game Object won't process any input events. By setting `inputEnabled` to true a Phaser.InputHandler is created
 // for this Game Object and it will then start to process click / touch events and more.
 // 
 // You can then access the Input Handler via `this.input`.

@@ -1,4 +1,4 @@
-// Automatic generation for Phaser.Component.LoadTexture
+// Package phaser Automatic generation for Phaser.Component.LoadTexture
 // generated file ComponentLoadTexture.go
 package phaser
 
@@ -7,25 +7,23 @@ import (
 
 )
 
-// The LoadTexture component manages the loading of a texture into the Game Object and the changing of frames.
+// ComponentLoadTexture The LoadTexture component manages the loading of a texture into the Game Object and the changing of frames.
 type ComponentLoadTexture struct {
     *js.Object
 }
 
-
-// The LoadTexture component manages the loading of a texture into the Game Object and the changing of frames.
+// NewComponentLoadTexture The LoadTexture component manages the loading of a texture into the Game Object and the changing of frames.
 func NewComponentLoadTexture() *ComponentLoadTexture {
     return &ComponentLoadTexture{js.Global.Get("Phaser").Get("Component").Get("LoadTexture").New()}
 }
-
-// The LoadTexture component manages the loading of a texture into the Game Object and the changing of frames.
+// NewComponentLoadTextureI The LoadTexture component manages the loading of a texture into the Game Object and the changing of frames.
 func NewComponentLoadTextureI(args ...interface{}) *ComponentLoadTexture {
     return &ComponentLoadTexture{js.Global.Get("Phaser").Get("Component").Get("LoadTexture").New(args)}
 }
 
 
 
-// Gets or sets the current frame index of the texture being used to render this Game Object.
+// Frame Gets or sets the current frame index of the texture being used to render this Game Object.
 // 
 // To change the frame set `frame` to the index of the new frame in the sprite sheet you wish this Game Object to use,
 // for example: `player.frame = 4`.
@@ -39,7 +37,7 @@ func (self *ComponentLoadTexture) Frame() int{
     return self.Object.Get("frame").Int()
 }
 
-// Gets or sets the current frame index of the texture being used to render this Game Object.
+// SetFrameA Gets or sets the current frame index of the texture being used to render this Game Object.
 // 
 // To change the frame set `frame` to the index of the new frame in the sprite sheet you wish this Game Object to use,
 // for example: `player.frame = 4`.
@@ -53,7 +51,7 @@ func (self *ComponentLoadTexture) SetFrameA(member int) {
     self.Object.Set("frame", member)
 }
 
-// Gets or sets the current frame name of the texture being used to render this Game Object.
+// FrameName Gets or sets the current frame name of the texture being used to render this Game Object.
 // 
 // To change the frame set `frameName` to the name of the new frame in the texture atlas you wish this Game Object to use, 
 // for example: `player.frameName = "idle"`.
@@ -67,7 +65,7 @@ func (self *ComponentLoadTexture) FrameName() string{
     return self.Object.Get("frameName").String()
 }
 
-// Gets or sets the current frame name of the texture being used to render this Game Object.
+// SetFrameNameA Gets or sets the current frame name of the texture being used to render this Game Object.
 // 
 // To change the frame set `frameName` to the name of the new frame in the texture atlas you wish this Game Object to use, 
 // for example: `player.frameName = "idle"`.
@@ -82,8 +80,7 @@ func (self *ComponentLoadTexture) SetFrameNameA(member string) {
 }
 
 
-
-// Changes the base texture the Game Object is using. The old texture is removed and the new one is referenced or fetched from the Cache.
+// LoadTexture Changes the base texture the Game Object is using. The old texture is removed and the new one is referenced or fetched from the Cache.
 // 
 // If your Game Object is using a frame from a texture atlas and you just wish to change to another frame, then see the `frame` or `frameName` properties instead.
 // 
@@ -103,7 +100,7 @@ func (self *ComponentLoadTexture) LoadTexture(key interface{}) {
     self.Object.Call("loadTexture", key)
 }
 
-// Changes the base texture the Game Object is using. The old texture is removed and the new one is referenced or fetched from the Cache.
+// LoadTexture1O Changes the base texture the Game Object is using. The old texture is removed and the new one is referenced or fetched from the Cache.
 // 
 // If your Game Object is using a frame from a texture atlas and you just wish to change to another frame, then see the `frame` or `frameName` properties instead.
 // 
@@ -123,7 +120,7 @@ func (self *ComponentLoadTexture) LoadTexture1O(key interface{}, frame interface
     self.Object.Call("loadTexture", key, frame)
 }
 
-// Changes the base texture the Game Object is using. The old texture is removed and the new one is referenced or fetched from the Cache.
+// LoadTexture2O Changes the base texture the Game Object is using. The old texture is removed and the new one is referenced or fetched from the Cache.
 // 
 // If your Game Object is using a frame from a texture atlas and you just wish to change to another frame, then see the `frame` or `frameName` properties instead.
 // 
@@ -143,7 +140,7 @@ func (self *ComponentLoadTexture) LoadTexture2O(key interface{}, frame interface
     self.Object.Call("loadTexture", key, frame, stopAnimation)
 }
 
-// Changes the base texture the Game Object is using. The old texture is removed and the new one is referenced or fetched from the Cache.
+// LoadTextureI Changes the base texture the Game Object is using. The old texture is removed and the new one is referenced or fetched from the Cache.
 // 
 // If your Game Object is using a frame from a texture atlas and you just wish to change to another frame, then see the `frame` or `frameName` properties instead.
 // 
@@ -163,21 +160,21 @@ func (self *ComponentLoadTexture) LoadTextureI(args ...interface{}) {
     self.Object.Call("loadTexture", args)
 }
 
-// Sets the texture frame the Game Object uses for rendering.
+// SetFrame Sets the texture frame the Game Object uses for rendering.
 // 
 // This is primarily an internal method used by `loadTexture`, but is exposed for the use of plugins and custom classes.
 func (self *ComponentLoadTexture) SetFrame(frame *Frame) {
     self.Object.Call("setFrame", frame)
 }
 
-// Sets the texture frame the Game Object uses for rendering.
+// SetFrameI Sets the texture frame the Game Object uses for rendering.
 // 
 // This is primarily an internal method used by `loadTexture`, but is exposed for the use of plugins and custom classes.
 func (self *ComponentLoadTexture) SetFrameI(args ...interface{}) {
     self.Object.Call("setFrame", args)
 }
 
-// Resizes the Frame dimensions that the Game Object uses for rendering.
+// ResizeFrame Resizes the Frame dimensions that the Game Object uses for rendering.
 // 
 // You shouldn't normally need to ever call this, but in the case of special texture types such as Video or BitmapData
 // it can be useful to adjust the dimensions directly in this way.
@@ -185,7 +182,7 @@ func (self *ComponentLoadTexture) ResizeFrame(parent interface{}, width int, hei
     self.Object.Call("resizeFrame", parent, width, height)
 }
 
-// Resizes the Frame dimensions that the Game Object uses for rendering.
+// ResizeFrameI Resizes the Frame dimensions that the Game Object uses for rendering.
 // 
 // You shouldn't normally need to ever call this, but in the case of special texture types such as Video or BitmapData
 // it can be useful to adjust the dimensions directly in this way.
@@ -193,12 +190,13 @@ func (self *ComponentLoadTexture) ResizeFrameI(args ...interface{}) {
     self.Object.Call("resizeFrame", args)
 }
 
-// Resets the texture frame dimensions that the Game Object uses for rendering.
+// ResetFrame Resets the texture frame dimensions that the Game Object uses for rendering.
 func (self *ComponentLoadTexture) ResetFrame() {
     self.Object.Call("resetFrame")
 }
 
-// Resets the texture frame dimensions that the Game Object uses for rendering.
+// ResetFrameI Resets the texture frame dimensions that the Game Object uses for rendering.
 func (self *ComponentLoadTexture) ResetFrameI(args ...interface{}) {
     self.Object.Call("resetFrame", args)
 }
+

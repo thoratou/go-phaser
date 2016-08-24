@@ -1,4 +1,4 @@
-// Automatic generation for Phaser.AnimationManager
+// Package phaser Automatic generation for Phaser.AnimationManager
 // generated file AnimationManager.go
 package phaser
 
@@ -7,20 +7,18 @@ import (
 
 )
 
-// The Animation Manager is used to add, play and update Phaser Animations.
+// AnimationManager The Animation Manager is used to add, play and update Phaser Animations.
 // Any Game Object such as Phaser.Sprite that supports animation contains a single AnimationManager instance.
 type AnimationManager struct {
     *js.Object
 }
 
-
-// The Animation Manager is used to add, play and update Phaser Animations.
+// NewAnimationManager The Animation Manager is used to add, play and update Phaser Animations.
 // Any Game Object such as Phaser.Sprite that supports animation contains a single AnimationManager instance.
 func NewAnimationManager(sprite *Sprite) *AnimationManager {
     return &AnimationManager{js.Global.Get("Phaser").Get("AnimationManager").New(sprite)}
 }
-
-// The Animation Manager is used to add, play and update Phaser Animations.
+// NewAnimationManagerI The Animation Manager is used to add, play and update Phaser Animations.
 // Any Game Object such as Phaser.Sprite that supports animation contains a single AnimationManager instance.
 func NewAnimationManagerI(args ...interface{}) *AnimationManager {
     return &AnimationManager{js.Global.Get("Phaser").Get("AnimationManager").New(args)}
@@ -28,206 +26,205 @@ func NewAnimationManagerI(args ...interface{}) *AnimationManager {
 
 
 
-// A reference to the parent Sprite that owns this AnimationManager.
+// Sprite A reference to the parent Sprite that owns this AnimationManager.
 func (self *AnimationManager) Sprite() *Sprite{
     return &Sprite{self.Object.Get("sprite")}
 }
 
-// A reference to the parent Sprite that owns this AnimationManager.
+// SetSpriteA A reference to the parent Sprite that owns this AnimationManager.
 func (self *AnimationManager) SetSpriteA(member *Sprite) {
     self.Object.Set("sprite", member)
 }
 
-// A reference to the currently running Game.
+// Game A reference to the currently running Game.
 func (self *AnimationManager) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
-// A reference to the currently running Game.
+// SetGameA A reference to the currently running Game.
 func (self *AnimationManager) SetGameA(member *Game) {
     self.Object.Set("game", member)
 }
 
-// The currently displayed Frame of animation, if any.
+// CurrentFrame The currently displayed Frame of animation, if any.
 // This property is only set once an Animation starts playing. Until that point it remains set as `null`.
 func (self *AnimationManager) CurrentFrame() *Frame{
     return &Frame{self.Object.Get("currentFrame")}
 }
 
-// The currently displayed Frame of animation, if any.
+// SetCurrentFrameA The currently displayed Frame of animation, if any.
 // This property is only set once an Animation starts playing. Until that point it remains set as `null`.
 func (self *AnimationManager) SetCurrentFrameA(member *Frame) {
     self.Object.Set("currentFrame", member)
 }
 
-// The currently displayed animation, if any.
+// CurrentAnim The currently displayed animation, if any.
 func (self *AnimationManager) CurrentAnim() *Animation{
     return &Animation{self.Object.Get("currentAnim")}
 }
 
-// The currently displayed animation, if any.
+// SetCurrentAnimA The currently displayed animation, if any.
 func (self *AnimationManager) SetCurrentAnimA(member *Animation) {
     self.Object.Set("currentAnim", member)
 }
 
-// Should the animation data continue to update even if the Sprite.visible is set to false.
+// UpdateIfVisible Should the animation data continue to update even if the Sprite.visible is set to false.
 func (self *AnimationManager) UpdateIfVisible() bool{
     return self.Object.Get("updateIfVisible").Bool()
 }
 
-// Should the animation data continue to update even if the Sprite.visible is set to false.
+// SetUpdateIfVisibleA Should the animation data continue to update even if the Sprite.visible is set to false.
 func (self *AnimationManager) SetUpdateIfVisibleA(member bool) {
     self.Object.Set("updateIfVisible", member)
 }
 
-// Set to true once animation data has been loaded.
+// IsLoaded Set to true once animation data has been loaded.
 func (self *AnimationManager) IsLoaded() bool{
     return self.Object.Get("isLoaded").Bool()
 }
 
-// Set to true once animation data has been loaded.
+// SetIsLoadedA Set to true once animation data has been loaded.
 func (self *AnimationManager) SetIsLoadedA(member bool) {
     self.Object.Set("isLoaded", member)
 }
 
-// The current animations FrameData.
+// FrameData The current animations FrameData.
 func (self *AnimationManager) FrameData() *FrameData{
     return &FrameData{self.Object.Get("frameData")}
 }
 
-// The current animations FrameData.
+// SetFrameDataA The current animations FrameData.
 func (self *AnimationManager) SetFrameDataA(member *FrameData) {
     self.Object.Set("frameData", member)
 }
 
-// The total number of frames in the currently loaded FrameData, or -1 if no FrameData is loaded.
+// FrameTotal The total number of frames in the currently loaded FrameData, or -1 if no FrameData is loaded.
 func (self *AnimationManager) FrameTotal() int{
     return self.Object.Get("frameTotal").Int()
 }
 
-// The total number of frames in the currently loaded FrameData, or -1 if no FrameData is loaded.
+// SetFrameTotalA The total number of frames in the currently loaded FrameData, or -1 if no FrameData is loaded.
 func (self *AnimationManager) SetFrameTotalA(member int) {
     self.Object.Set("frameTotal", member)
 }
 
-// Gets and sets the paused state of the current animation.
+// Paused Gets and sets the paused state of the current animation.
 func (self *AnimationManager) Paused() bool{
     return self.Object.Get("paused").Bool()
 }
 
-// Gets and sets the paused state of the current animation.
+// SetPausedA Gets and sets the paused state of the current animation.
 func (self *AnimationManager) SetPausedA(member bool) {
     self.Object.Set("paused", member)
 }
 
-// Gets the current animation name, if set.
+// Name Gets the current animation name, if set.
 func (self *AnimationManager) Name() string{
     return self.Object.Get("name").String()
 }
 
-// Gets the current animation name, if set.
+// SetNameA Gets the current animation name, if set.
 func (self *AnimationManager) SetNameA(member string) {
     self.Object.Set("name", member)
 }
 
-// Gets or sets the current frame index and updates the Texture Cache for display.
+// Frame Gets or sets the current frame index and updates the Texture Cache for display.
 func (self *AnimationManager) Frame() int{
     return self.Object.Get("frame").Int()
 }
 
-// Gets or sets the current frame index and updates the Texture Cache for display.
+// SetFrameA Gets or sets the current frame index and updates the Texture Cache for display.
 func (self *AnimationManager) SetFrameA(member int) {
     self.Object.Set("frame", member)
 }
 
-// Gets or sets the current frame name and updates the Texture Cache for display.
+// FrameName Gets or sets the current frame name and updates the Texture Cache for display.
 func (self *AnimationManager) FrameName() string{
     return self.Object.Get("frameName").String()
 }
 
-// Gets or sets the current frame name and updates the Texture Cache for display.
+// SetFrameNameA Gets or sets the current frame name and updates the Texture Cache for display.
 func (self *AnimationManager) SetFrameNameA(member string) {
     self.Object.Set("frameName", member)
 }
 
 
-
-// Loads FrameData into the internal temporary vars and resets the frame index to zero.
+// LoadFrameData Loads FrameData into the internal temporary vars and resets the frame index to zero.
 // This is called automatically when a new Sprite is created.
 func (self *AnimationManager) LoadFrameData(frameData *FrameData, frame interface{}) bool{
     return self.Object.Call("loadFrameData", frameData, frame).Bool()
 }
 
-// Loads FrameData into the internal temporary vars and resets the frame index to zero.
+// LoadFrameDataI Loads FrameData into the internal temporary vars and resets the frame index to zero.
 // This is called automatically when a new Sprite is created.
 func (self *AnimationManager) LoadFrameDataI(args ...interface{}) bool{
     return self.Object.Call("loadFrameData", args).Bool()
 }
 
-// Loads FrameData into the internal temporary vars and resets the frame index to zero.
+// CopyFrameData Loads FrameData into the internal temporary vars and resets the frame index to zero.
 // This is called automatically when a new Sprite is created.
 func (self *AnimationManager) CopyFrameData(frameData *FrameData, frame interface{}) bool{
     return self.Object.Call("copyFrameData", frameData, frame).Bool()
 }
 
-// Loads FrameData into the internal temporary vars and resets the frame index to zero.
+// CopyFrameDataI Loads FrameData into the internal temporary vars and resets the frame index to zero.
 // This is called automatically when a new Sprite is created.
 func (self *AnimationManager) CopyFrameDataI(args ...interface{}) bool{
     return self.Object.Call("copyFrameData", args).Bool()
 }
 
-// Adds a new animation under the given key. Optionally set the frames, frame rate and loop.
+// Add Adds a new animation under the given key. Optionally set the frames, frame rate and loop.
 // Animations added in this way are played back with the play function.
 func (self *AnimationManager) Add(name string) *Animation{
     return &Animation{self.Object.Call("add", name)}
 }
 
-// Adds a new animation under the given key. Optionally set the frames, frame rate and loop.
+// Add1O Adds a new animation under the given key. Optionally set the frames, frame rate and loop.
 // Animations added in this way are played back with the play function.
 func (self *AnimationManager) Add1O(name string, frames []interface{}) *Animation{
     return &Animation{self.Object.Call("add", name, frames)}
 }
 
-// Adds a new animation under the given key. Optionally set the frames, frame rate and loop.
+// Add2O Adds a new animation under the given key. Optionally set the frames, frame rate and loop.
 // Animations added in this way are played back with the play function.
 func (self *AnimationManager) Add2O(name string, frames []interface{}, frameRate int) *Animation{
     return &Animation{self.Object.Call("add", name, frames, frameRate)}
 }
 
-// Adds a new animation under the given key. Optionally set the frames, frame rate and loop.
+// Add3O Adds a new animation under the given key. Optionally set the frames, frame rate and loop.
 // Animations added in this way are played back with the play function.
 func (self *AnimationManager) Add3O(name string, frames []interface{}, frameRate int, loop bool) *Animation{
     return &Animation{self.Object.Call("add", name, frames, frameRate, loop)}
 }
 
-// Adds a new animation under the given key. Optionally set the frames, frame rate and loop.
+// Add4O Adds a new animation under the given key. Optionally set the frames, frame rate and loop.
 // Animations added in this way are played back with the play function.
 func (self *AnimationManager) Add4O(name string, frames []interface{}, frameRate int, loop bool, useNumericIndex bool) *Animation{
     return &Animation{self.Object.Call("add", name, frames, frameRate, loop, useNumericIndex)}
 }
 
-// Adds a new animation under the given key. Optionally set the frames, frame rate and loop.
+// AddI Adds a new animation under the given key. Optionally set the frames, frame rate and loop.
 // Animations added in this way are played back with the play function.
 func (self *AnimationManager) AddI(args ...interface{}) *Animation{
     return &Animation{self.Object.Call("add", args)}
 }
 
-// Check whether the frames in the given array are valid and exist.
+// ValidateFrames Check whether the frames in the given array are valid and exist.
 func (self *AnimationManager) ValidateFrames(frames []interface{}) bool{
     return self.Object.Call("validateFrames", frames).Bool()
 }
 
-// Check whether the frames in the given array are valid and exist.
+// ValidateFrames1O Check whether the frames in the given array are valid and exist.
 func (self *AnimationManager) ValidateFrames1O(frames []interface{}, useNumericIndex bool) bool{
     return self.Object.Call("validateFrames", frames, useNumericIndex).Bool()
 }
 
-// Check whether the frames in the given array are valid and exist.
+// ValidateFramesI Check whether the frames in the given array are valid and exist.
 func (self *AnimationManager) ValidateFramesI(args ...interface{}) bool{
     return self.Object.Call("validateFrames", args).Bool()
 }
 
-// Play an animation based on the given key. The animation should previously have been added via `animations.add`
+// Play Play an animation based on the given key. The animation should previously have been added via `animations.add`
 // 
 // If the requested animation is already playing this request will be ignored. 
 // If you need to reset an already running animation do so directly on the Animation object itself.
@@ -235,7 +232,7 @@ func (self *AnimationManager) Play(name string) *Animation{
     return &Animation{self.Object.Call("play", name)}
 }
 
-// Play an animation based on the given key. The animation should previously have been added via `animations.add`
+// Play1O Play an animation based on the given key. The animation should previously have been added via `animations.add`
 // 
 // If the requested animation is already playing this request will be ignored. 
 // If you need to reset an already running animation do so directly on the Animation object itself.
@@ -243,7 +240,7 @@ func (self *AnimationManager) Play1O(name string, frameRate int) *Animation{
     return &Animation{self.Object.Call("play", name, frameRate)}
 }
 
-// Play an animation based on the given key. The animation should previously have been added via `animations.add`
+// Play2O Play an animation based on the given key. The animation should previously have been added via `animations.add`
 // 
 // If the requested animation is already playing this request will be ignored. 
 // If you need to reset an already running animation do so directly on the Animation object itself.
@@ -251,7 +248,7 @@ func (self *AnimationManager) Play2O(name string, frameRate int, loop bool) *Ani
     return &Animation{self.Object.Call("play", name, frameRate, loop)}
 }
 
-// Play an animation based on the given key. The animation should previously have been added via `animations.add`
+// Play3O Play an animation based on the given key. The animation should previously have been added via `animations.add`
 // 
 // If the requested animation is already playing this request will be ignored. 
 // If you need to reset an already running animation do so directly on the Animation object itself.
@@ -259,7 +256,7 @@ func (self *AnimationManager) Play3O(name string, frameRate int, loop bool, kill
     return &Animation{self.Object.Call("play", name, frameRate, loop, killOnComplete)}
 }
 
-// Play an animation based on the given key. The animation should previously have been added via `animations.add`
+// PlayI Play an animation based on the given key. The animation should previously have been added via `animations.add`
 // 
 // If the requested animation is already playing this request will be ignored. 
 // If you need to reset an already running animation do so directly on the Animation object itself.
@@ -267,98 +264,99 @@ func (self *AnimationManager) PlayI(args ...interface{}) *Animation{
     return &Animation{self.Object.Call("play", args)}
 }
 
-// Stop playback of an animation. If a name is given that specific animation is stopped, otherwise the current animation is stopped.
+// Stop Stop playback of an animation. If a name is given that specific animation is stopped, otherwise the current animation is stopped.
 // The currentAnim property of the AnimationManager is automatically set to the animation given.
 func (self *AnimationManager) Stop() {
     self.Object.Call("stop")
 }
 
-// Stop playback of an animation. If a name is given that specific animation is stopped, otherwise the current animation is stopped.
+// Stop1O Stop playback of an animation. If a name is given that specific animation is stopped, otherwise the current animation is stopped.
 // The currentAnim property of the AnimationManager is automatically set to the animation given.
 func (self *AnimationManager) Stop1O(name string) {
     self.Object.Call("stop", name)
 }
 
-// Stop playback of an animation. If a name is given that specific animation is stopped, otherwise the current animation is stopped.
+// Stop2O Stop playback of an animation. If a name is given that specific animation is stopped, otherwise the current animation is stopped.
 // The currentAnim property of the AnimationManager is automatically set to the animation given.
 func (self *AnimationManager) Stop2O(name string, resetFrame bool) {
     self.Object.Call("stop", name, resetFrame)
 }
 
-// Stop playback of an animation. If a name is given that specific animation is stopped, otherwise the current animation is stopped.
+// StopI Stop playback of an animation. If a name is given that specific animation is stopped, otherwise the current animation is stopped.
 // The currentAnim property of the AnimationManager is automatically set to the animation given.
 func (self *AnimationManager) StopI(args ...interface{}) {
     self.Object.Call("stop", args)
 }
 
-// The main update function is called by the Sprites update loop. It's responsible for updating animation frames and firing related events.
+// Update The main update function is called by the Sprites update loop. It's responsible for updating animation frames and firing related events.
 func (self *AnimationManager) Update() bool{
     return self.Object.Call("update").Bool()
 }
 
-// The main update function is called by the Sprites update loop. It's responsible for updating animation frames and firing related events.
+// UpdateI The main update function is called by the Sprites update loop. It's responsible for updating animation frames and firing related events.
 func (self *AnimationManager) UpdateI(args ...interface{}) bool{
     return self.Object.Call("update", args).Bool()
 }
 
-// Advances by the given number of frames in the current animation, taking the loop value into consideration.
+// Next Advances by the given number of frames in the current animation, taking the loop value into consideration.
 func (self *AnimationManager) Next() {
     self.Object.Call("next")
 }
 
-// Advances by the given number of frames in the current animation, taking the loop value into consideration.
+// Next1O Advances by the given number of frames in the current animation, taking the loop value into consideration.
 func (self *AnimationManager) Next1O(quantity int) {
     self.Object.Call("next", quantity)
 }
 
-// Advances by the given number of frames in the current animation, taking the loop value into consideration.
+// NextI Advances by the given number of frames in the current animation, taking the loop value into consideration.
 func (self *AnimationManager) NextI(args ...interface{}) {
     self.Object.Call("next", args)
 }
 
-// Moves backwards the given number of frames in the current animation, taking the loop value into consideration.
+// Previous Moves backwards the given number of frames in the current animation, taking the loop value into consideration.
 func (self *AnimationManager) Previous() {
     self.Object.Call("previous")
 }
 
-// Moves backwards the given number of frames in the current animation, taking the loop value into consideration.
+// Previous1O Moves backwards the given number of frames in the current animation, taking the loop value into consideration.
 func (self *AnimationManager) Previous1O(quantity int) {
     self.Object.Call("previous", quantity)
 }
 
-// Moves backwards the given number of frames in the current animation, taking the loop value into consideration.
+// PreviousI Moves backwards the given number of frames in the current animation, taking the loop value into consideration.
 func (self *AnimationManager) PreviousI(args ...interface{}) {
     self.Object.Call("previous", args)
 }
 
-// Returns an animation that was previously added by name.
+// GetAnimation Returns an animation that was previously added by name.
 func (self *AnimationManager) GetAnimation(name string) *Animation{
     return &Animation{self.Object.Call("getAnimation", name)}
 }
 
-// Returns an animation that was previously added by name.
+// GetAnimationI Returns an animation that was previously added by name.
 func (self *AnimationManager) GetAnimationI(args ...interface{}) *Animation{
     return &Animation{self.Object.Call("getAnimation", args)}
 }
 
-// Refreshes the current frame data back to the parent Sprite and also resets the texture data.
+// RefreshFrame Refreshes the current frame data back to the parent Sprite and also resets the texture data.
 func (self *AnimationManager) RefreshFrame() {
     self.Object.Call("refreshFrame")
 }
 
-// Refreshes the current frame data back to the parent Sprite and also resets the texture data.
+// RefreshFrameI Refreshes the current frame data back to the parent Sprite and also resets the texture data.
 func (self *AnimationManager) RefreshFrameI(args ...interface{}) {
     self.Object.Call("refreshFrame", args)
 }
 
-// Destroys all references this AnimationManager contains.
+// Destroy Destroys all references this AnimationManager contains.
 // Iterates through the list of animations stored in this manager and calls destroy on each of them.
 func (self *AnimationManager) Destroy() {
     self.Object.Call("destroy")
 }
 
-// Destroys all references this AnimationManager contains.
+// DestroyI Destroys all references this AnimationManager contains.
 // Iterates through the list of animations stored in this manager and calls destroy on each of them.
 func (self *AnimationManager) DestroyI(args ...interface{}) {
     self.Object.Call("destroy", args)
 }
+

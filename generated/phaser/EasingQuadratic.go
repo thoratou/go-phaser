@@ -1,4 +1,4 @@
-// Automatic generation for Phaser.Easing.Quadratic
+// Package phaser Automatic generation for Phaser.Easing.Quadratic
 // generated file EasingQuadratic.go
 package phaser
 
@@ -7,18 +7,16 @@ import (
 
 )
 
-// Quadratic easing.
+// EasingQuadratic Quadratic easing.
 type EasingQuadratic struct {
     *js.Object
 }
 
-
-// Quadratic easing.
+// NewEasingQuadratic Quadratic easing.
 func NewEasingQuadratic() *EasingQuadratic {
     return &EasingQuadratic{js.Global.Get("Phaser").Get("Easing").Get("Quadratic").New()}
 }
-
-// Quadratic easing.
+// NewEasingQuadraticI Quadratic easing.
 func NewEasingQuadraticI(args ...interface{}) *EasingQuadratic {
     return &EasingQuadratic{js.Global.Get("Phaser").Get("Easing").Get("Quadratic").New(args)}
 }
@@ -26,33 +24,33 @@ func NewEasingQuadraticI(args ...interface{}) *EasingQuadratic {
 
 
 
-
-// Ease-in.
+// In Ease-in.
 func (self *EasingQuadratic) In(k int) int{
     return self.Object.Call("In", k).Int()
 }
 
-// Ease-in.
+// InI Ease-in.
 func (self *EasingQuadratic) InI(args ...interface{}) int{
     return self.Object.Call("In", args).Int()
 }
 
-// Ease-out.
+// Out Ease-out.
 func (self *EasingQuadratic) Out(k int) int{
     return self.Object.Call("Out", k).Int()
 }
 
-// Ease-out.
+// OutI Ease-out.
 func (self *EasingQuadratic) OutI(args ...interface{}) int{
     return self.Object.Call("Out", args).Int()
 }
 
-// Ease-in/out.
+// InOut Ease-in/out.
 func (self *EasingQuadratic) InOut(k int) int{
     return self.Object.Call("InOut", k).Int()
 }
 
-// Ease-in/out.
+// InOutI Ease-in/out.
 func (self *EasingQuadratic) InOutI(args ...interface{}) int{
     return self.Object.Call("InOut", args).Int()
 }
+

@@ -1,4 +1,4 @@
-// Automatic generation for Phaser.Component.Angle
+// Package phaser Automatic generation for Phaser.Component.Angle
 // generated file ComponentAngle.go
 package phaser
 
@@ -7,25 +7,23 @@ import (
 
 )
 
-// The Angle Component provides access to an `angle` property; the rotation of a Game Object in degrees.
+// ComponentAngle The Angle Component provides access to an `angle` property; the rotation of a Game Object in degrees.
 type ComponentAngle struct {
     *js.Object
 }
 
-
-// The Angle Component provides access to an `angle` property; the rotation of a Game Object in degrees.
+// NewComponentAngle The Angle Component provides access to an `angle` property; the rotation of a Game Object in degrees.
 func NewComponentAngle() *ComponentAngle {
     return &ComponentAngle{js.Global.Get("Phaser").Get("Component").Get("Angle").New()}
 }
-
-// The Angle Component provides access to an `angle` property; the rotation of a Game Object in degrees.
+// NewComponentAngleI The Angle Component provides access to an `angle` property; the rotation of a Game Object in degrees.
 func NewComponentAngleI(args ...interface{}) *ComponentAngle {
     return &ComponentAngle{js.Global.Get("Phaser").Get("Component").Get("Angle").New(args)}
 }
 
 
 
-// The angle property is the rotation of the Game Object in *degrees* from its original orientation.
+// Angle The angle property is the rotation of the Game Object in *degrees* from its original orientation.
 // 
 // Values from 0 to 180 represent clockwise rotation; values from 0 to -180 represent counterclockwise rotation.
 // 
@@ -38,7 +36,7 @@ func (self *ComponentAngle) Angle() int{
     return self.Object.Get("angle").Int()
 }
 
-// The angle property is the rotation of the Game Object in *degrees* from its original orientation.
+// SetAngleA The angle property is the rotation of the Game Object in *degrees* from its original orientation.
 // 
 // Values from 0 to 180 represent clockwise rotation; values from 0 to -180 represent counterclockwise rotation.
 // 

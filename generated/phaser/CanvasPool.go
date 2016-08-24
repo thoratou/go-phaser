@@ -1,4 +1,4 @@
-// Automatic generation for PIXI.CanvasPool
+// Package phaser Automatic generation for PIXI.CanvasPool
 // generated file CanvasPool.go
 package phaser
 
@@ -9,25 +9,23 @@ import (
 
 )
 
-// The CanvasPool is a global static object that allows Pixi and Phaser to pool canvas DOM elements.
+// CanvasPool The CanvasPool is a global static object that allows Pixi and Phaser to pool canvas DOM elements.
 type CanvasPool struct {
     *js.Object
 }
 
-
-// The CanvasPool is a global static object that allows Pixi and Phaser to pool canvas DOM elements.
+// NewCanvasPool The CanvasPool is a global static object that allows Pixi and Phaser to pool canvas DOM elements.
 func NewCanvasPool() *CanvasPool {
     return &CanvasPool{js.Global.Get("PIXI").Get("CanvasPool").New()}
 }
-
-// The CanvasPool is a global static object that allows Pixi and Phaser to pool canvas DOM elements.
+// NewCanvasPoolI The CanvasPool is a global static object that allows Pixi and Phaser to pool canvas DOM elements.
 func NewCanvasPoolI(args ...interface{}) *CanvasPool {
     return &CanvasPool{js.Global.Get("PIXI").Get("CanvasPool").New(args)}
 }
 
 
 
-// The pool into which the canvas dom elements are placed.
+// Pool The pool into which the canvas dom elements are placed.
 func (self *CanvasPool) Pool() []interface{}{
 	array00 := self.Object.Get("pool")
 	length00 := array00.Length()
@@ -38,69 +36,69 @@ func (self *CanvasPool) Pool() []interface{}{
 	return out00
 }
 
-// The pool into which the canvas dom elements are placed.
+// SetPoolA The pool into which the canvas dom elements are placed.
 func (self *CanvasPool) SetPoolA(member []interface{}) {
     self.Object.Set("pool", member)
 }
 
 
-
-// Creates a new Canvas DOM element, or pulls one from the pool if free.
+// Create Creates a new Canvas DOM element, or pulls one from the pool if free.
 func (self *CanvasPool) Create(parent interface{}, width int, height int) dom.HTMLCanvasElement{
     return WrapHTMLCanvasElement(self.Object.Call("create", parent, width, height))
 }
 
-// Creates a new Canvas DOM element, or pulls one from the pool if free.
+// CreateI Creates a new Canvas DOM element, or pulls one from the pool if free.
 func (self *CanvasPool) CreateI(args ...interface{}) dom.HTMLCanvasElement{
     return WrapHTMLCanvasElement(self.Object.Call("create", args))
 }
 
-// Gets the first free canvas index from the pool.
+// GetFirst Gets the first free canvas index from the pool.
 func (self *CanvasPool) GetFirst() int{
     return self.Object.Call("getFirst").Int()
 }
 
-// Gets the first free canvas index from the pool.
+// GetFirstI Gets the first free canvas index from the pool.
 func (self *CanvasPool) GetFirstI(args ...interface{}) int{
     return self.Object.Call("getFirst", args).Int()
 }
 
-// Removes the parent from a canvas element from the pool, freeing it up for re-use.
+// Remove Removes the parent from a canvas element from the pool, freeing it up for re-use.
 func (self *CanvasPool) Remove(parent interface{}) {
     self.Object.Call("remove", parent)
 }
 
-// Removes the parent from a canvas element from the pool, freeing it up for re-use.
+// RemoveI Removes the parent from a canvas element from the pool, freeing it up for re-use.
 func (self *CanvasPool) RemoveI(args ...interface{}) {
     self.Object.Call("remove", args)
 }
 
-// Removes the parent from a canvas element from the pool, freeing it up for re-use.
+// RemoveByCanvas Removes the parent from a canvas element from the pool, freeing it up for re-use.
 func (self *CanvasPool) RemoveByCanvas(canvas *dom.HTMLCanvasElement) {
     self.Object.Call("removeByCanvas", canvas)
 }
 
-// Removes the parent from a canvas element from the pool, freeing it up for re-use.
+// RemoveByCanvasI Removes the parent from a canvas element from the pool, freeing it up for re-use.
 func (self *CanvasPool) RemoveByCanvasI(args ...interface{}) {
     self.Object.Call("removeByCanvas", args)
 }
 
-// Gets the total number of used canvas elements in the pool.
+// GetTotal Gets the total number of used canvas elements in the pool.
 func (self *CanvasPool) GetTotal() int{
     return self.Object.Call("getTotal").Int()
 }
 
-// Gets the total number of used canvas elements in the pool.
+// GetTotalI Gets the total number of used canvas elements in the pool.
 func (self *CanvasPool) GetTotalI(args ...interface{}) int{
     return self.Object.Call("getTotal", args).Int()
 }
 
-// Gets the total number of free canvas elements in the pool.
+// GetFree Gets the total number of free canvas elements in the pool.
 func (self *CanvasPool) GetFree() int{
     return self.Object.Call("getFree").Int()
 }
 
-// Gets the total number of free canvas elements in the pool.
+// GetFreeI Gets the total number of free canvas elements in the pool.
 func (self *CanvasPool) GetFreeI(args ...interface{}) int{
     return self.Object.Call("getFree", args).Int()
 }
+

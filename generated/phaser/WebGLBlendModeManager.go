@@ -1,4 +1,4 @@
-// Automatic generation for PIXI.WebGLBlendModeManager
+// Package phaser Automatic generation for PIXI.WebGLBlendModeManager
 // generated file WebGLBlendModeManager.go
 package phaser
 
@@ -7,62 +7,60 @@ import (
 
 )
 
-// 
+// WebGLBlendModeManager empty description
 type WebGLBlendModeManager struct {
     *js.Object
 }
 
-
-// 
+// NewWebGLBlendModeManager empty description
 func NewWebGLBlendModeManager(gl *WebGLContext) *WebGLBlendModeManager {
     return &WebGLBlendModeManager{js.Global.Get("PIXI").Get("WebGLBlendModeManager").New(gl)}
 }
-
-// 
+// NewWebGLBlendModeManagerI empty description
 func NewWebGLBlendModeManagerI(args ...interface{}) *WebGLBlendModeManager {
     return &WebGLBlendModeManager{js.Global.Get("PIXI").Get("WebGLBlendModeManager").New(args)}
 }
 
 
 
-// 
+// CurrentBlendMode empty description
 func (self *WebGLBlendModeManager) CurrentBlendMode() int{
     return self.Object.Get("currentBlendMode").Int()
 }
 
-// 
+// SetCurrentBlendModeA empty description
 func (self *WebGLBlendModeManager) SetCurrentBlendModeA(member int) {
     self.Object.Set("currentBlendMode", member)
 }
 
 
-
-// Sets the WebGL Context.
+// SetContext Sets the WebGL Context.
 func (self *WebGLBlendModeManager) SetContext(gl *WebGLContext) {
     self.Object.Call("setContext", gl)
 }
 
-// Sets the WebGL Context.
+// SetContextI Sets the WebGL Context.
 func (self *WebGLBlendModeManager) SetContextI(args ...interface{}) {
     self.Object.Call("setContext", args)
 }
 
-// Sets-up the given blendMode from WebGL's point of view.
+// SetBlendMode Sets-up the given blendMode from WebGL's point of view.
 func (self *WebGLBlendModeManager) SetBlendMode(blendMode int) {
     self.Object.Call("setBlendMode", blendMode)
 }
 
-// Sets-up the given blendMode from WebGL's point of view.
+// SetBlendModeI Sets-up the given blendMode from WebGL's point of view.
 func (self *WebGLBlendModeManager) SetBlendModeI(args ...interface{}) {
     self.Object.Call("setBlendMode", args)
 }
 
-// Destroys this object.
+// Destroy Destroys this object.
 func (self *WebGLBlendModeManager) Destroy() {
     self.Object.Call("destroy")
 }
 
-// Destroys this object.
+// DestroyI Destroys this object.
 func (self *WebGLBlendModeManager) DestroyI(args ...interface{}) {
     self.Object.Call("destroy", args)
 }
+

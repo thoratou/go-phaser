@@ -1,4 +1,4 @@
-// Automatic generation for PIXI.CanvasGraphics
+// Package phaser Automatic generation for PIXI.CanvasGraphics
 // generated file CanvasGraphics.go
 package phaser
 
@@ -7,18 +7,16 @@ import (
 
 )
 
-// A set of functions used by the canvas renderer to draw the primitive graphics data.
+// CanvasGraphics A set of functions used by the canvas renderer to draw the primitive graphics data.
 type CanvasGraphics struct {
     *js.Object
 }
 
-
-// A set of functions used by the canvas renderer to draw the primitive graphics data.
+// NewCanvasGraphics A set of functions used by the canvas renderer to draw the primitive graphics data.
 func NewCanvasGraphics() *CanvasGraphics {
     return &CanvasGraphics{js.Global.Get("PIXI").Get("CanvasGraphics").New()}
 }
-
-// A set of functions used by the canvas renderer to draw the primitive graphics data.
+// NewCanvasGraphicsI A set of functions used by the canvas renderer to draw the primitive graphics data.
 func NewCanvasGraphicsI(args ...interface{}) *CanvasGraphics {
     return &CanvasGraphics{js.Global.Get("PIXI").Get("CanvasGraphics").New(args)}
 }

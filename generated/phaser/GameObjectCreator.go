@@ -1,4 +1,4 @@
-// Automatic generation for Phaser.GameObjectCreator
+// Package phaser Automatic generation for Phaser.GameObjectCreator
 // generated file GameObjectCreator.go
 package phaser
 
@@ -7,20 +7,18 @@ import (
 
 )
 
-// The GameObjectCreator is a quick way to create common game objects _without_ adding them to the game world.
+// GameObjectCreator The GameObjectCreator is a quick way to create common game objects _without_ adding them to the game world.
 // The object creator can be accessed with {@linkcode Phaser.Game#make `game.make`}.
 type GameObjectCreator struct {
     *js.Object
 }
 
-
-// The GameObjectCreator is a quick way to create common game objects _without_ adding them to the game world.
+// NewGameObjectCreator The GameObjectCreator is a quick way to create common game objects _without_ adding them to the game world.
 // The object creator can be accessed with {@linkcode Phaser.Game#make `game.make`}.
 func NewGameObjectCreator(game *Game) *GameObjectCreator {
     return &GameObjectCreator{js.Global.Get("Phaser").Get("GameObjectCreator").New(game)}
 }
-
-// The GameObjectCreator is a quick way to create common game objects _without_ adding them to the game world.
+// NewGameObjectCreatorI The GameObjectCreator is a quick way to create common game objects _without_ adding them to the game world.
 // The object creator can be accessed with {@linkcode Phaser.Game#make `game.make`}.
 func NewGameObjectCreatorI(args ...interface{}) *GameObjectCreator {
     return &GameObjectCreator{js.Global.Get("Phaser").Get("GameObjectCreator").New(args)}
@@ -28,29 +26,28 @@ func NewGameObjectCreatorI(args ...interface{}) *GameObjectCreator {
 
 
 
-// A reference to the currently running Game.
+// Game A reference to the currently running Game.
 func (self *GameObjectCreator) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
-// A reference to the currently running Game.
+// SetGameA A reference to the currently running Game.
 func (self *GameObjectCreator) SetGameA(member *Game) {
     self.Object.Set("game", member)
 }
 
-// A reference to the game world.
+// World A reference to the game world.
 func (self *GameObjectCreator) World() *World{
     return &World{self.Object.Get("world")}
 }
 
-// A reference to the game world.
+// SetWorldA A reference to the game world.
 func (self *GameObjectCreator) SetWorldA(member *World) {
     self.Object.Set("world", member)
 }
 
 
-
-// Create a new Image object.
+// Image Create a new Image object.
 // 
 // An Image is a light-weight object you can use to display anything that doesn't need physics or animation.
 // It can still rotate, scale, crop and receive input events. This makes it perfect for logos, backgrounds, simple buttons and other non-Sprite graphics.
@@ -58,7 +55,7 @@ func (self *GameObjectCreator) Image(x int, y int, key interface{}) *Image{
     return &Image{self.Object.Call("image", x, y, key)}
 }
 
-// Create a new Image object.
+// Image1O Create a new Image object.
 // 
 // An Image is a light-weight object you can use to display anything that doesn't need physics or animation.
 // It can still rotate, scale, crop and receive input events. This makes it perfect for logos, backgrounds, simple buttons and other non-Sprite graphics.
@@ -66,7 +63,7 @@ func (self *GameObjectCreator) Image1O(x int, y int, key interface{}, frame inte
     return &Image{self.Object.Call("image", x, y, key, frame)}
 }
 
-// Create a new Image object.
+// ImageI Create a new Image object.
 // 
 // An Image is a light-weight object you can use to display anything that doesn't need physics or animation.
 // It can still rotate, scale, crop and receive input events. This makes it perfect for logos, backgrounds, simple buttons and other non-Sprite graphics.
@@ -74,251 +71,251 @@ func (self *GameObjectCreator) ImageI(args ...interface{}) *Image{
     return &Image{self.Object.Call("image", args)}
 }
 
-// Create a new Sprite with specific position and sprite sheet key.
+// Sprite Create a new Sprite with specific position and sprite sheet key.
 func (self *GameObjectCreator) Sprite(x int, y int, key interface{}) *Sprite{
     return &Sprite{self.Object.Call("sprite", x, y, key)}
 }
 
-// Create a new Sprite with specific position and sprite sheet key.
+// Sprite1O Create a new Sprite with specific position and sprite sheet key.
 func (self *GameObjectCreator) Sprite1O(x int, y int, key interface{}, frame interface{}) *Sprite{
     return &Sprite{self.Object.Call("sprite", x, y, key, frame)}
 }
 
-// Create a new Sprite with specific position and sprite sheet key.
+// SpriteI Create a new Sprite with specific position and sprite sheet key.
 func (self *GameObjectCreator) SpriteI(args ...interface{}) *Sprite{
     return &Sprite{self.Object.Call("sprite", args)}
 }
 
-// Create a tween object for a specific object.
+// Tween Create a tween object for a specific object.
 // 
 // The object can be any JavaScript object or Phaser object such as Sprite.
 func (self *GameObjectCreator) Tween(obj interface{}) *Tween{
     return &Tween{self.Object.Call("tween", obj)}
 }
 
-// Create a tween object for a specific object.
+// TweenI Create a tween object for a specific object.
 // 
 // The object can be any JavaScript object or Phaser object such as Sprite.
 func (self *GameObjectCreator) TweenI(args ...interface{}) *Tween{
     return &Tween{self.Object.Call("tween", args)}
 }
 
-// A Group is a container for display objects that allows for fast pooling, recycling and collision checks.
+// Group A Group is a container for display objects that allows for fast pooling, recycling and collision checks.
 func (self *GameObjectCreator) Group(parent interface{}) *Group{
     return &Group{self.Object.Call("group", parent)}
 }
 
-// A Group is a container for display objects that allows for fast pooling, recycling and collision checks.
+// Group1O A Group is a container for display objects that allows for fast pooling, recycling and collision checks.
 func (self *GameObjectCreator) Group1O(parent interface{}, name string) *Group{
     return &Group{self.Object.Call("group", parent, name)}
 }
 
-// A Group is a container for display objects that allows for fast pooling, recycling and collision checks.
+// Group2O A Group is a container for display objects that allows for fast pooling, recycling and collision checks.
 func (self *GameObjectCreator) Group2O(parent interface{}, name string, addToStage bool) *Group{
     return &Group{self.Object.Call("group", parent, name, addToStage)}
 }
 
-// A Group is a container for display objects that allows for fast pooling, recycling and collision checks.
+// Group3O A Group is a container for display objects that allows for fast pooling, recycling and collision checks.
 func (self *GameObjectCreator) Group3O(parent interface{}, name string, addToStage bool, enableBody bool) *Group{
     return &Group{self.Object.Call("group", parent, name, addToStage, enableBody)}
 }
 
-// A Group is a container for display objects that allows for fast pooling, recycling and collision checks.
+// Group4O A Group is a container for display objects that allows for fast pooling, recycling and collision checks.
 func (self *GameObjectCreator) Group4O(parent interface{}, name string, addToStage bool, enableBody bool, physicsBodyType int) *Group{
     return &Group{self.Object.Call("group", parent, name, addToStage, enableBody, physicsBodyType)}
 }
 
-// A Group is a container for display objects that allows for fast pooling, recycling and collision checks.
+// GroupI A Group is a container for display objects that allows for fast pooling, recycling and collision checks.
 func (self *GameObjectCreator) GroupI(args ...interface{}) *Group{
     return &Group{self.Object.Call("group", args)}
 }
 
-// Create a new SpriteBatch.
+// SpriteBatch Create a new SpriteBatch.
 func (self *GameObjectCreator) SpriteBatch(parent interface{}) *SpriteBatch{
     return &SpriteBatch{self.Object.Call("spriteBatch", parent)}
 }
 
-// Create a new SpriteBatch.
+// SpriteBatch1O Create a new SpriteBatch.
 func (self *GameObjectCreator) SpriteBatch1O(parent interface{}, name string) *SpriteBatch{
     return &SpriteBatch{self.Object.Call("spriteBatch", parent, name)}
 }
 
-// Create a new SpriteBatch.
+// SpriteBatch2O Create a new SpriteBatch.
 func (self *GameObjectCreator) SpriteBatch2O(parent interface{}, name string, addToStage bool) *SpriteBatch{
     return &SpriteBatch{self.Object.Call("spriteBatch", parent, name, addToStage)}
 }
 
-// Create a new SpriteBatch.
+// SpriteBatchI Create a new SpriteBatch.
 func (self *GameObjectCreator) SpriteBatchI(args ...interface{}) *SpriteBatch{
     return &SpriteBatch{self.Object.Call("spriteBatch", args)}
 }
 
-// Creates a new Sound object.
+// Audio Creates a new Sound object.
 func (self *GameObjectCreator) Audio(key string) *Sound{
     return &Sound{self.Object.Call("audio", key)}
 }
 
-// Creates a new Sound object.
+// Audio1O Creates a new Sound object.
 func (self *GameObjectCreator) Audio1O(key string, volume int) *Sound{
     return &Sound{self.Object.Call("audio", key, volume)}
 }
 
-// Creates a new Sound object.
+// Audio2O Creates a new Sound object.
 func (self *GameObjectCreator) Audio2O(key string, volume int, loop bool) *Sound{
     return &Sound{self.Object.Call("audio", key, volume, loop)}
 }
 
-// Creates a new Sound object.
+// Audio3O Creates a new Sound object.
 func (self *GameObjectCreator) Audio3O(key string, volume int, loop bool, connect bool) *Sound{
     return &Sound{self.Object.Call("audio", key, volume, loop, connect)}
 }
 
-// Creates a new Sound object.
+// AudioI Creates a new Sound object.
 func (self *GameObjectCreator) AudioI(args ...interface{}) *Sound{
     return &Sound{self.Object.Call("audio", args)}
 }
 
-// Creates a new AudioSprite object.
+// AudioSprite Creates a new AudioSprite object.
 func (self *GameObjectCreator) AudioSprite(key string) *AudioSprite{
     return &AudioSprite{self.Object.Call("audioSprite", key)}
 }
 
-// Creates a new AudioSprite object.
+// AudioSpriteI Creates a new AudioSprite object.
 func (self *GameObjectCreator) AudioSpriteI(args ...interface{}) *AudioSprite{
     return &AudioSprite{self.Object.Call("audioSprite", args)}
 }
 
-// Creates a new Sound object.
+// Sound Creates a new Sound object.
 func (self *GameObjectCreator) Sound(key string) *Sound{
     return &Sound{self.Object.Call("sound", key)}
 }
 
-// Creates a new Sound object.
+// Sound1O Creates a new Sound object.
 func (self *GameObjectCreator) Sound1O(key string, volume int) *Sound{
     return &Sound{self.Object.Call("sound", key, volume)}
 }
 
-// Creates a new Sound object.
+// Sound2O Creates a new Sound object.
 func (self *GameObjectCreator) Sound2O(key string, volume int, loop bool) *Sound{
     return &Sound{self.Object.Call("sound", key, volume, loop)}
 }
 
-// Creates a new Sound object.
+// Sound3O Creates a new Sound object.
 func (self *GameObjectCreator) Sound3O(key string, volume int, loop bool, connect bool) *Sound{
     return &Sound{self.Object.Call("sound", key, volume, loop, connect)}
 }
 
-// Creates a new Sound object.
+// SoundI Creates a new Sound object.
 func (self *GameObjectCreator) SoundI(args ...interface{}) *Sound{
     return &Sound{self.Object.Call("sound", args)}
 }
 
-// Creates a new TileSprite object.
+// TileSprite Creates a new TileSprite object.
 func (self *GameObjectCreator) TileSprite(x int, y int, width int, height int, key interface{}, frame interface{}) *TileSprite{
     return &TileSprite{self.Object.Call("tileSprite", x, y, width, height, key, frame)}
 }
 
-// Creates a new TileSprite object.
+// TileSpriteI Creates a new TileSprite object.
 func (self *GameObjectCreator) TileSpriteI(args ...interface{}) *TileSprite{
     return &TileSprite{self.Object.Call("tileSprite", args)}
 }
 
-// Creates a new Rope object.
+// Rope Creates a new Rope object.
 func (self *GameObjectCreator) Rope(x int, y int, width int, height int, key interface{}, frame interface{}) *Rope{
     return &Rope{self.Object.Call("rope", x, y, width, height, key, frame)}
 }
 
-// Creates a new Rope object.
+// RopeI Creates a new Rope object.
 func (self *GameObjectCreator) RopeI(args ...interface{}) *Rope{
     return &Rope{self.Object.Call("rope", args)}
 }
 
-// Creates a new Text object.
+// Text Creates a new Text object.
 func (self *GameObjectCreator) Text(x int, y int, text string, style interface{}) *Text{
     return &Text{self.Object.Call("text", x, y, text, style)}
 }
 
-// Creates a new Text object.
+// TextI Creates a new Text object.
 func (self *GameObjectCreator) TextI(args ...interface{}) *Text{
     return &Text{self.Object.Call("text", args)}
 }
 
-// Creates a new Button object.
+// Button Creates a new Button object.
 func (self *GameObjectCreator) Button() *Button{
     return &Button{self.Object.Call("button")}
 }
 
-// Creates a new Button object.
+// Button1O Creates a new Button object.
 func (self *GameObjectCreator) Button1O(x int) *Button{
     return &Button{self.Object.Call("button", x)}
 }
 
-// Creates a new Button object.
+// Button2O Creates a new Button object.
 func (self *GameObjectCreator) Button2O(x int, y int) *Button{
     return &Button{self.Object.Call("button", x, y)}
 }
 
-// Creates a new Button object.
+// Button3O Creates a new Button object.
 func (self *GameObjectCreator) Button3O(x int, y int, key string) *Button{
     return &Button{self.Object.Call("button", x, y, key)}
 }
 
-// Creates a new Button object.
+// Button4O Creates a new Button object.
 func (self *GameObjectCreator) Button4O(x int, y int, key string, callback interface{}) *Button{
     return &Button{self.Object.Call("button", x, y, key, callback)}
 }
 
-// Creates a new Button object.
+// Button5O Creates a new Button object.
 func (self *GameObjectCreator) Button5O(x int, y int, key string, callback interface{}, callbackContext interface{}) *Button{
     return &Button{self.Object.Call("button", x, y, key, callback, callbackContext)}
 }
 
-// Creates a new Button object.
+// Button6O Creates a new Button object.
 func (self *GameObjectCreator) Button6O(x int, y int, key string, callback interface{}, callbackContext interface{}, overFrame interface{}) *Button{
     return &Button{self.Object.Call("button", x, y, key, callback, callbackContext, overFrame)}
 }
 
-// Creates a new Button object.
+// Button7O Creates a new Button object.
 func (self *GameObjectCreator) Button7O(x int, y int, key string, callback interface{}, callbackContext interface{}, overFrame interface{}, outFrame interface{}) *Button{
     return &Button{self.Object.Call("button", x, y, key, callback, callbackContext, overFrame, outFrame)}
 }
 
-// Creates a new Button object.
+// Button8O Creates a new Button object.
 func (self *GameObjectCreator) Button8O(x int, y int, key string, callback interface{}, callbackContext interface{}, overFrame interface{}, outFrame interface{}, downFrame interface{}) *Button{
     return &Button{self.Object.Call("button", x, y, key, callback, callbackContext, overFrame, outFrame, downFrame)}
 }
 
-// Creates a new Button object.
+// Button9O Creates a new Button object.
 func (self *GameObjectCreator) Button9O(x int, y int, key string, callback interface{}, callbackContext interface{}, overFrame interface{}, outFrame interface{}, downFrame interface{}, upFrame interface{}) *Button{
     return &Button{self.Object.Call("button", x, y, key, callback, callbackContext, overFrame, outFrame, downFrame, upFrame)}
 }
 
-// Creates a new Button object.
+// ButtonI Creates a new Button object.
 func (self *GameObjectCreator) ButtonI(args ...interface{}) *Button{
     return &Button{self.Object.Call("button", args)}
 }
 
-// Creates a new Graphics object.
+// Graphics Creates a new Graphics object.
 func (self *GameObjectCreator) Graphics() *Graphics{
     return &Graphics{self.Object.Call("graphics")}
 }
 
-// Creates a new Graphics object.
+// Graphics1O Creates a new Graphics object.
 func (self *GameObjectCreator) Graphics1O(x int) *Graphics{
     return &Graphics{self.Object.Call("graphics", x)}
 }
 
-// Creates a new Graphics object.
+// Graphics2O Creates a new Graphics object.
 func (self *GameObjectCreator) Graphics2O(x int, y int) *Graphics{
     return &Graphics{self.Object.Call("graphics", x, y)}
 }
 
-// Creates a new Graphics object.
+// GraphicsI Creates a new Graphics object.
 func (self *GameObjectCreator) GraphicsI(args ...interface{}) *Graphics{
     return &Graphics{self.Object.Call("graphics", args)}
 }
 
-// Creat a new Emitter.
+// Emitter Creat a new Emitter.
 // 
 // An Emitter is a lightweight particle emitter. It can be used for one-time explosions or for
 // continuous effects like rain and fire. All it really does is launch Particle objects out
@@ -327,7 +324,7 @@ func (self *GameObjectCreator) Emitter() *Emitter{
     return &Emitter{self.Object.Call("emitter")}
 }
 
-// Creat a new Emitter.
+// Emitter1O Creat a new Emitter.
 // 
 // An Emitter is a lightweight particle emitter. It can be used for one-time explosions or for
 // continuous effects like rain and fire. All it really does is launch Particle objects out
@@ -336,7 +333,7 @@ func (self *GameObjectCreator) Emitter1O(x int) *Emitter{
     return &Emitter{self.Object.Call("emitter", x)}
 }
 
-// Creat a new Emitter.
+// Emitter2O Creat a new Emitter.
 // 
 // An Emitter is a lightweight particle emitter. It can be used for one-time explosions or for
 // continuous effects like rain and fire. All it really does is launch Particle objects out
@@ -345,7 +342,7 @@ func (self *GameObjectCreator) Emitter2O(x int, y int) *Emitter{
     return &Emitter{self.Object.Call("emitter", x, y)}
 }
 
-// Creat a new Emitter.
+// Emitter3O Creat a new Emitter.
 // 
 // An Emitter is a lightweight particle emitter. It can be used for one-time explosions or for
 // continuous effects like rain and fire. All it really does is launch Particle objects out
@@ -354,7 +351,7 @@ func (self *GameObjectCreator) Emitter3O(x int, y int, maxParticles int) *Emitte
     return &Emitter{self.Object.Call("emitter", x, y, maxParticles)}
 }
 
-// Creat a new Emitter.
+// EmitterI Creat a new Emitter.
 // 
 // An Emitter is a lightweight particle emitter. It can be used for one-time explosions or for
 // continuous effects like rain and fire. All it really does is launch Particle objects out
@@ -363,7 +360,7 @@ func (self *GameObjectCreator) EmitterI(args ...interface{}) *Emitter{
     return &Emitter{self.Object.Call("emitter", args)}
 }
 
-// Create a new RetroFont object.
+// RetroFont Create a new RetroFont object.
 // 
 // A RetroFont can be used as a texture for an Image or Sprite and optionally add it to the Cache.
 // A RetroFont uses a bitmap which contains fixed with characters for the font set. You use character spacing to define the set.
@@ -375,7 +372,7 @@ func (self *GameObjectCreator) RetroFont(font string, characterWidth int, charac
     return &RetroFont{self.Object.Call("retroFont", font, characterWidth, characterHeight, chars, charsPerRow)}
 }
 
-// Create a new RetroFont object.
+// RetroFont1O Create a new RetroFont object.
 // 
 // A RetroFont can be used as a texture for an Image or Sprite and optionally add it to the Cache.
 // A RetroFont uses a bitmap which contains fixed with characters for the font set. You use character spacing to define the set.
@@ -387,7 +384,7 @@ func (self *GameObjectCreator) RetroFont1O(font string, characterWidth int, char
     return &RetroFont{self.Object.Call("retroFont", font, characterWidth, characterHeight, chars, charsPerRow, xSpacing)}
 }
 
-// Create a new RetroFont object.
+// RetroFont2O Create a new RetroFont object.
 // 
 // A RetroFont can be used as a texture for an Image or Sprite and optionally add it to the Cache.
 // A RetroFont uses a bitmap which contains fixed with characters for the font set. You use character spacing to define the set.
@@ -399,7 +396,7 @@ func (self *GameObjectCreator) RetroFont2O(font string, characterWidth int, char
     return &RetroFont{self.Object.Call("retroFont", font, characterWidth, characterHeight, chars, charsPerRow, xSpacing, ySpacing)}
 }
 
-// Create a new RetroFont object.
+// RetroFont3O Create a new RetroFont object.
 // 
 // A RetroFont can be used as a texture for an Image or Sprite and optionally add it to the Cache.
 // A RetroFont uses a bitmap which contains fixed with characters for the font set. You use character spacing to define the set.
@@ -411,7 +408,7 @@ func (self *GameObjectCreator) RetroFont3O(font string, characterWidth int, char
     return &RetroFont{self.Object.Call("retroFont", font, characterWidth, characterHeight, chars, charsPerRow, xSpacing, ySpacing, xOffset)}
 }
 
-// Create a new RetroFont object.
+// RetroFont4O Create a new RetroFont object.
 // 
 // A RetroFont can be used as a texture for an Image or Sprite and optionally add it to the Cache.
 // A RetroFont uses a bitmap which contains fixed with characters for the font set. You use character spacing to define the set.
@@ -423,7 +420,7 @@ func (self *GameObjectCreator) RetroFont4O(font string, characterWidth int, char
     return &RetroFont{self.Object.Call("retroFont", font, characterWidth, characterHeight, chars, charsPerRow, xSpacing, ySpacing, xOffset, yOffset)}
 }
 
-// Create a new RetroFont object.
+// RetroFontI Create a new RetroFont object.
 // 
 // A RetroFont can be used as a texture for an Image or Sprite and optionally add it to the Cache.
 // A RetroFont uses a bitmap which contains fixed with characters for the font set. You use character spacing to define the set.
@@ -435,7 +432,7 @@ func (self *GameObjectCreator) RetroFontI(args ...interface{}) *RetroFont{
     return &RetroFont{self.Object.Call("retroFont", args)}
 }
 
-// Create a new BitmapText object.
+// BitmapText Create a new BitmapText object.
 // 
 // BitmapText objects work by taking a texture file and an XML file that describes the font structure.
 // It then generates a new Sprite object for each letter of the text, proportionally spaced out and aligned to 
@@ -456,7 +453,7 @@ func (self *GameObjectCreator) BitmapText(x int, y int, font string) *BitmapText
     return &BitmapText{self.Object.Call("bitmapText", x, y, font)}
 }
 
-// Create a new BitmapText object.
+// BitmapText1O Create a new BitmapText object.
 // 
 // BitmapText objects work by taking a texture file and an XML file that describes the font structure.
 // It then generates a new Sprite object for each letter of the text, proportionally spaced out and aligned to 
@@ -477,7 +474,7 @@ func (self *GameObjectCreator) BitmapText1O(x int, y int, font string, text stri
     return &BitmapText{self.Object.Call("bitmapText", x, y, font, text)}
 }
 
-// Create a new BitmapText object.
+// BitmapText2O Create a new BitmapText object.
 // 
 // BitmapText objects work by taking a texture file and an XML file that describes the font structure.
 // It then generates a new Sprite object for each letter of the text, proportionally spaced out and aligned to 
@@ -498,7 +495,7 @@ func (self *GameObjectCreator) BitmapText2O(x int, y int, font string, text stri
     return &BitmapText{self.Object.Call("bitmapText", x, y, font, text, size)}
 }
 
-// Create a new BitmapText object.
+// BitmapText3O Create a new BitmapText object.
 // 
 // BitmapText objects work by taking a texture file and an XML file that describes the font structure.
 // It then generates a new Sprite object for each letter of the text, proportionally spaced out and aligned to 
@@ -519,7 +516,7 @@ func (self *GameObjectCreator) BitmapText3O(x int, y int, font string, text stri
     return &BitmapText{self.Object.Call("bitmapText", x, y, font, text, size, align)}
 }
 
-// Create a new BitmapText object.
+// BitmapTextI Create a new BitmapText object.
 // 
 // BitmapText objects work by taking a texture file and an XML file that describes the font structure.
 // It then generates a new Sprite object for each letter of the text, proportionally spaced out and aligned to 
@@ -540,7 +537,7 @@ func (self *GameObjectCreator) BitmapTextI(args ...interface{}) *BitmapText{
     return &BitmapText{self.Object.Call("bitmapText", args)}
 }
 
-// Creates a new Phaser.Tilemap object.
+// Tilemap Creates a new Phaser.Tilemap object.
 // 
 // The map can either be populated with data from a Tiled JSON file or from a CSV file.
 // To do this pass the Cache key as the first parameter. When using Tiled data you need only provide the key.
@@ -551,7 +548,7 @@ func (self *GameObjectCreator) Tilemap() {
     self.Object.Call("tilemap")
 }
 
-// Creates a new Phaser.Tilemap object.
+// Tilemap1O Creates a new Phaser.Tilemap object.
 // 
 // The map can either be populated with data from a Tiled JSON file or from a CSV file.
 // To do this pass the Cache key as the first parameter. When using Tiled data you need only provide the key.
@@ -562,7 +559,7 @@ func (self *GameObjectCreator) Tilemap1O(key string) {
     self.Object.Call("tilemap", key)
 }
 
-// Creates a new Phaser.Tilemap object.
+// Tilemap2O Creates a new Phaser.Tilemap object.
 // 
 // The map can either be populated with data from a Tiled JSON file or from a CSV file.
 // To do this pass the Cache key as the first parameter. When using Tiled data you need only provide the key.
@@ -573,7 +570,7 @@ func (self *GameObjectCreator) Tilemap2O(key string, tileWidth int) {
     self.Object.Call("tilemap", key, tileWidth)
 }
 
-// Creates a new Phaser.Tilemap object.
+// Tilemap3O Creates a new Phaser.Tilemap object.
 // 
 // The map can either be populated with data from a Tiled JSON file or from a CSV file.
 // To do this pass the Cache key as the first parameter. When using Tiled data you need only provide the key.
@@ -584,7 +581,7 @@ func (self *GameObjectCreator) Tilemap3O(key string, tileWidth int, tileHeight i
     self.Object.Call("tilemap", key, tileWidth, tileHeight)
 }
 
-// Creates a new Phaser.Tilemap object.
+// Tilemap4O Creates a new Phaser.Tilemap object.
 // 
 // The map can either be populated with data from a Tiled JSON file or from a CSV file.
 // To do this pass the Cache key as the first parameter. When using Tiled data you need only provide the key.
@@ -595,7 +592,7 @@ func (self *GameObjectCreator) Tilemap4O(key string, tileWidth int, tileHeight i
     self.Object.Call("tilemap", key, tileWidth, tileHeight, width)
 }
 
-// Creates a new Phaser.Tilemap object.
+// Tilemap5O Creates a new Phaser.Tilemap object.
 // 
 // The map can either be populated with data from a Tiled JSON file or from a CSV file.
 // To do this pass the Cache key as the first parameter. When using Tiled data you need only provide the key.
@@ -606,7 +603,7 @@ func (self *GameObjectCreator) Tilemap5O(key string, tileWidth int, tileHeight i
     self.Object.Call("tilemap", key, tileWidth, tileHeight, width, height)
 }
 
-// Creates a new Phaser.Tilemap object.
+// TilemapI Creates a new Phaser.Tilemap object.
 // 
 // The map can either be populated with data from a Tiled JSON file or from a CSV file.
 // To do this pass the Cache key as the first parameter. When using Tiled data you need only provide the key.
@@ -617,84 +614,85 @@ func (self *GameObjectCreator) TilemapI(args ...interface{}) {
     self.Object.Call("tilemap", args)
 }
 
-// A dynamic initially blank canvas to which images can be drawn.
+// RenderTexture A dynamic initially blank canvas to which images can be drawn.
 func (self *GameObjectCreator) RenderTexture() *RenderTexture{
     return &RenderTexture{self.Object.Call("renderTexture")}
 }
 
-// A dynamic initially blank canvas to which images can be drawn.
+// RenderTexture1O A dynamic initially blank canvas to which images can be drawn.
 func (self *GameObjectCreator) RenderTexture1O(width int) *RenderTexture{
     return &RenderTexture{self.Object.Call("renderTexture", width)}
 }
 
-// A dynamic initially blank canvas to which images can be drawn.
+// RenderTexture2O A dynamic initially blank canvas to which images can be drawn.
 func (self *GameObjectCreator) RenderTexture2O(width int, height int) *RenderTexture{
     return &RenderTexture{self.Object.Call("renderTexture", width, height)}
 }
 
-// A dynamic initially blank canvas to which images can be drawn.
+// RenderTexture3O A dynamic initially blank canvas to which images can be drawn.
 func (self *GameObjectCreator) RenderTexture3O(width int, height int, key string) *RenderTexture{
     return &RenderTexture{self.Object.Call("renderTexture", width, height, key)}
 }
 
-// A dynamic initially blank canvas to which images can be drawn.
+// RenderTexture4O A dynamic initially blank canvas to which images can be drawn.
 func (self *GameObjectCreator) RenderTexture4O(width int, height int, key string, addToCache bool) *RenderTexture{
     return &RenderTexture{self.Object.Call("renderTexture", width, height, key, addToCache)}
 }
 
-// A dynamic initially blank canvas to which images can be drawn.
+// RenderTextureI A dynamic initially blank canvas to which images can be drawn.
 func (self *GameObjectCreator) RenderTextureI(args ...interface{}) *RenderTexture{
     return &RenderTexture{self.Object.Call("renderTexture", args)}
 }
 
-// Create a BitmpaData object.
+// BitmapData Create a BitmpaData object.
 // 
 // A BitmapData object can be manipulated and drawn to like a traditional Canvas object and used to texture Sprites.
 func (self *GameObjectCreator) BitmapData() *BitmapData{
     return &BitmapData{self.Object.Call("bitmapData")}
 }
 
-// Create a BitmpaData object.
+// BitmapData1O Create a BitmpaData object.
 // 
 // A BitmapData object can be manipulated and drawn to like a traditional Canvas object and used to texture Sprites.
 func (self *GameObjectCreator) BitmapData1O(width int) *BitmapData{
     return &BitmapData{self.Object.Call("bitmapData", width)}
 }
 
-// Create a BitmpaData object.
+// BitmapData2O Create a BitmpaData object.
 // 
 // A BitmapData object can be manipulated and drawn to like a traditional Canvas object and used to texture Sprites.
 func (self *GameObjectCreator) BitmapData2O(width int, height int) *BitmapData{
     return &BitmapData{self.Object.Call("bitmapData", width, height)}
 }
 
-// Create a BitmpaData object.
+// BitmapData3O Create a BitmpaData object.
 // 
 // A BitmapData object can be manipulated and drawn to like a traditional Canvas object and used to texture Sprites.
 func (self *GameObjectCreator) BitmapData3O(width int, height int, key string) *BitmapData{
     return &BitmapData{self.Object.Call("bitmapData", width, height, key)}
 }
 
-// Create a BitmpaData object.
+// BitmapData4O Create a BitmpaData object.
 // 
 // A BitmapData object can be manipulated and drawn to like a traditional Canvas object and used to texture Sprites.
 func (self *GameObjectCreator) BitmapData4O(width int, height int, key string, addToCache bool) *BitmapData{
     return &BitmapData{self.Object.Call("bitmapData", width, height, key, addToCache)}
 }
 
-// Create a BitmpaData object.
+// BitmapDataI Create a BitmpaData object.
 // 
 // A BitmapData object can be manipulated and drawn to like a traditional Canvas object and used to texture Sprites.
 func (self *GameObjectCreator) BitmapDataI(args ...interface{}) *BitmapData{
     return &BitmapData{self.Object.Call("bitmapData", args)}
 }
 
-// A WebGL shader/filter that can be applied to Sprites.
+// Filter A WebGL shader/filter that can be applied to Sprites.
 func (self *GameObjectCreator) Filter(filter string, args interface{}) *Filter{
     return &Filter{self.Object.Call("filter", filter, args)}
 }
 
-// A WebGL shader/filter that can be applied to Sprites.
+// FilterI A WebGL shader/filter that can be applied to Sprites.
 func (self *GameObjectCreator) FilterI(args ...interface{}) *Filter{
     return &Filter{self.Object.Call("filter", args)}
 }
+

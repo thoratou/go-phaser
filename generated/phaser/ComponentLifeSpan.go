@@ -1,4 +1,4 @@
-// Automatic generation for Phaser.Component.LifeSpan
+// Package phaser Automatic generation for Phaser.Component.LifeSpan
 // generated file ComponentLifeSpan.go
 package phaser
 
@@ -7,25 +7,23 @@ import (
 
 )
 
-// LifeSpan Component Features.
+// ComponentLifeSpan LifeSpan Component Features.
 type ComponentLifeSpan struct {
     *js.Object
 }
 
-
-// LifeSpan Component Features.
+// NewComponentLifeSpan LifeSpan Component Features.
 func NewComponentLifeSpan() *ComponentLifeSpan {
     return &ComponentLifeSpan{js.Global.Get("Phaser").Get("Component").Get("LifeSpan").New()}
 }
-
-// LifeSpan Component Features.
+// NewComponentLifeSpanI LifeSpan Component Features.
 func NewComponentLifeSpanI(args ...interface{}) *ComponentLifeSpan {
     return &ComponentLifeSpan{js.Global.Get("Phaser").Get("Component").Get("LifeSpan").New(args)}
 }
 
 
 
-// A useful flag to control if the Game Object is alive or dead.
+// Alive A useful flag to control if the Game Object is alive or dead.
 // 
 // This is set automatically by the Health components `damage` method should the object run out of health.
 // Or you can toggle it via your game code.
@@ -36,7 +34,7 @@ func (self *ComponentLifeSpan) Alive() bool{
     return self.Object.Get("alive").Bool()
 }
 
-// A useful flag to control if the Game Object is alive or dead.
+// SetAliveA A useful flag to control if the Game Object is alive or dead.
 // 
 // This is set automatically by the Health components `damage` method should the object run out of health.
 // Or you can toggle it via your game code.
@@ -47,7 +45,7 @@ func (self *ComponentLifeSpan) SetAliveA(member bool) {
     self.Object.Set("alive", member)
 }
 
-// The lifespan allows you to give a Game Object a lifespan in milliseconds.
+// Lifespan The lifespan allows you to give a Game Object a lifespan in milliseconds.
 // 
 // Once the Game Object is 'born' you can set this to a positive value.
 // 
@@ -59,7 +57,7 @@ func (self *ComponentLifeSpan) Lifespan() int{
     return self.Object.Get("lifespan").Int()
 }
 
-// The lifespan allows you to give a Game Object a lifespan in milliseconds.
+// SetLifespanA The lifespan allows you to give a Game Object a lifespan in milliseconds.
 // 
 // Once the Game Object is 'born' you can set this to a positive value.
 // 
@@ -72,20 +70,19 @@ func (self *ComponentLifeSpan) SetLifespanA(member int) {
 }
 
 
-
-// The LifeSpan component preUpdate handler.
+// PreUpdate The LifeSpan component preUpdate handler.
 // Called automatically by the Game Object.
 func (self *ComponentLifeSpan) PreUpdate() {
     self.Object.Call("preUpdate")
 }
 
-// The LifeSpan component preUpdate handler.
+// PreUpdateI The LifeSpan component preUpdate handler.
 // Called automatically by the Game Object.
 func (self *ComponentLifeSpan) PreUpdateI(args ...interface{}) {
     self.Object.Call("preUpdate", args)
 }
 
-// Brings a 'dead' Game Object back to life, optionally resetting its health value in the process.
+// Revive Brings a 'dead' Game Object back to life, optionally resetting its health value in the process.
 // 
 // A resurrected Game Object has its `alive`, `exists` and `visible` properties all set to true.
 // 
@@ -94,7 +91,7 @@ func (self *ComponentLifeSpan) Revive() *DisplayObject{
     return &DisplayObject{self.Object.Call("revive")}
 }
 
-// Brings a 'dead' Game Object back to life, optionally resetting its health value in the process.
+// Revive1O Brings a 'dead' Game Object back to life, optionally resetting its health value in the process.
 // 
 // A resurrected Game Object has its `alive`, `exists` and `visible` properties all set to true.
 // 
@@ -103,7 +100,7 @@ func (self *ComponentLifeSpan) Revive1O(health int) *DisplayObject{
     return &DisplayObject{self.Object.Call("revive", health)}
 }
 
-// Brings a 'dead' Game Object back to life, optionally resetting its health value in the process.
+// ReviveI Brings a 'dead' Game Object back to life, optionally resetting its health value in the process.
 // 
 // A resurrected Game Object has its `alive`, `exists` and `visible` properties all set to true.
 // 
@@ -112,7 +109,7 @@ func (self *ComponentLifeSpan) ReviveI(args ...interface{}) *DisplayObject{
     return &DisplayObject{self.Object.Call("revive", args)}
 }
 
-// Kills a Game Object. A killed Game Object has its `alive`, `exists` and `visible` properties all set to false.
+// Kill Kills a Game Object. A killed Game Object has its `alive`, `exists` and `visible` properties all set to false.
 // 
 // It will dispatch the `onKilled` event. You can listen to `events.onKilled` for the signal.
 // 
@@ -124,7 +121,7 @@ func (self *ComponentLifeSpan) Kill() *DisplayObject{
     return &DisplayObject{self.Object.Call("kill")}
 }
 
-// Kills a Game Object. A killed Game Object has its `alive`, `exists` and `visible` properties all set to false.
+// KillI Kills a Game Object. A killed Game Object has its `alive`, `exists` and `visible` properties all set to false.
 // 
 // It will dispatch the `onKilled` event. You can listen to `events.onKilled` for the signal.
 // 
@@ -135,3 +132,4 @@ func (self *ComponentLifeSpan) Kill() *DisplayObject{
 func (self *ComponentLifeSpan) KillI(args ...interface{}) *DisplayObject{
     return &DisplayObject{self.Object.Call("kill", args)}
 }
+

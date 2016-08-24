@@ -1,4 +1,4 @@
-// Automatic generation for Phaser.Component.Animation
+// Package phaser Automatic generation for Phaser.Component.Animation
 // generated file ComponentAnimation.go
 package phaser
 
@@ -7,18 +7,16 @@ import (
 
 )
 
-// The Animation Component provides a `play` method, which is a proxy to the `AnimationManager.play` method.
+// ComponentAnimation The Animation Component provides a `play` method, which is a proxy to the `AnimationManager.play` method.
 type ComponentAnimation struct {
     *js.Object
 }
 
-
-// The Animation Component provides a `play` method, which is a proxy to the `AnimationManager.play` method.
+// NewComponentAnimation The Animation Component provides a `play` method, which is a proxy to the `AnimationManager.play` method.
 func NewComponentAnimation() *ComponentAnimation {
     return &ComponentAnimation{js.Global.Get("Phaser").Get("Component").Get("Animation").New()}
 }
-
-// The Animation Component provides a `play` method, which is a proxy to the `AnimationManager.play` method.
+// NewComponentAnimationI The Animation Component provides a `play` method, which is a proxy to the `AnimationManager.play` method.
 func NewComponentAnimationI(args ...interface{}) *ComponentAnimation {
     return &ComponentAnimation{js.Global.Get("Phaser").Get("Component").Get("Animation").New(args)}
 }
@@ -26,8 +24,7 @@ func NewComponentAnimationI(args ...interface{}) *ComponentAnimation {
 
 
 
-
-// Plays an Animation.
+// Play Plays an Animation.
 // 
 // The animation should have previously been created via `animations.add`.
 // 
@@ -37,7 +34,7 @@ func (self *ComponentAnimation) Play(name string) *Animation{
     return &Animation{self.Object.Call("play", name)}
 }
 
-// Plays an Animation.
+// Play1O Plays an Animation.
 // 
 // The animation should have previously been created via `animations.add`.
 // 
@@ -47,7 +44,7 @@ func (self *ComponentAnimation) Play1O(name string, frameRate int) *Animation{
     return &Animation{self.Object.Call("play", name, frameRate)}
 }
 
-// Plays an Animation.
+// Play2O Plays an Animation.
 // 
 // The animation should have previously been created via `animations.add`.
 // 
@@ -57,7 +54,7 @@ func (self *ComponentAnimation) Play2O(name string, frameRate int, loop bool) *A
     return &Animation{self.Object.Call("play", name, frameRate, loop)}
 }
 
-// Plays an Animation.
+// Play3O Plays an Animation.
 // 
 // The animation should have previously been created via `animations.add`.
 // 
@@ -67,7 +64,7 @@ func (self *ComponentAnimation) Play3O(name string, frameRate int, loop bool, ki
     return &Animation{self.Object.Call("play", name, frameRate, loop, killOnComplete)}
 }
 
-// Plays an Animation.
+// PlayI Plays an Animation.
 // 
 // The animation should have previously been created via `animations.add`.
 // 
@@ -76,3 +73,4 @@ func (self *ComponentAnimation) Play3O(name string, frameRate int, loop bool, ki
 func (self *ComponentAnimation) PlayI(args ...interface{}) *Animation{
     return &Animation{self.Object.Call("play", args)}
 }
+

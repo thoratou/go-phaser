@@ -1,4 +1,4 @@
-// Automatic generation for Phaser.MSPointer
+// Package phaser Automatic generation for Phaser.MSPointer
 // generated file MSPointer.go
 package phaser
 
@@ -7,7 +7,7 @@ import (
 
 )
 
-// The MSPointer class handles Microsoft touch interactions with the game and the resulting Pointer objects.
+// MSPointer The MSPointer class handles Microsoft touch interactions with the game and the resulting Pointer objects.
 // 
 // It will work only in Internet Explorer 10+ and Windows Store or Windows Phone 8 apps using JavaScript.
 // http://msdn.microsoft.com/en-us/library/ie/hh673557(v=vs.85).aspx
@@ -21,8 +21,7 @@ type MSPointer struct {
     *js.Object
 }
 
-
-// The MSPointer class handles Microsoft touch interactions with the game and the resulting Pointer objects.
+// NewMSPointer The MSPointer class handles Microsoft touch interactions with the game and the resulting Pointer objects.
 // 
 // It will work only in Internet Explorer 10+ and Windows Store or Windows Phone 8 apps using JavaScript.
 // http://msdn.microsoft.com/en-us/library/ie/hh673557(v=vs.85).aspx
@@ -35,8 +34,7 @@ type MSPointer struct {
 func NewMSPointer(game *Game) *MSPointer {
     return &MSPointer{js.Global.Get("Phaser").Get("MSPointer").New(game)}
 }
-
-// The MSPointer class handles Microsoft touch interactions with the game and the resulting Pointer objects.
+// NewMSPointerI The MSPointer class handles Microsoft touch interactions with the game and the resulting Pointer objects.
 // 
 // It will work only in Internet Explorer 10+ and Windows Store or Windows Phone 8 apps using JavaScript.
 // http://msdn.microsoft.com/en-us/library/ie/hh673557(v=vs.85).aspx
@@ -52,180 +50,180 @@ func NewMSPointerI(args ...interface{}) *MSPointer {
 
 
 
-// A reference to the currently running game.
+// Game A reference to the currently running game.
 func (self *MSPointer) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
-// A reference to the currently running game.
+// SetGameA A reference to the currently running game.
 func (self *MSPointer) SetGameA(member *Game) {
     self.Object.Set("game", member)
 }
 
-// A reference to the Phaser Input Manager.
+// Input A reference to the Phaser Input Manager.
 func (self *MSPointer) Input() *Input{
     return &Input{self.Object.Get("input")}
 }
 
-// A reference to the Phaser Input Manager.
+// SetInputA A reference to the Phaser Input Manager.
 func (self *MSPointer) SetInputA(member *Input) {
     self.Object.Set("input", member)
 }
 
-// The context under which callbacks are called (defaults to game).
+// CallbackContext The context under which callbacks are called (defaults to game).
 func (self *MSPointer) CallbackContext() interface{}{
     return self.Object.Get("callbackContext")
 }
 
-// The context under which callbacks are called (defaults to game).
+// SetCallbackContextA The context under which callbacks are called (defaults to game).
 func (self *MSPointer) SetCallbackContextA(member interface{}) {
     self.Object.Set("callbackContext", member)
 }
 
-// A callback that can be fired on a MSPointerDown event.
+// PointerDownCallback A callback that can be fired on a MSPointerDown event.
 func (self *MSPointer) PointerDownCallback() interface{}{
     return self.Object.Get("pointerDownCallback")
 }
 
-// A callback that can be fired on a MSPointerDown event.
+// SetPointerDownCallbackA A callback that can be fired on a MSPointerDown event.
 func (self *MSPointer) SetPointerDownCallbackA(member interface{}) {
     self.Object.Set("pointerDownCallback", member)
 }
 
-// A callback that can be fired on a MSPointerMove event.
+// PointerMoveCallback A callback that can be fired on a MSPointerMove event.
 func (self *MSPointer) PointerMoveCallback() interface{}{
     return self.Object.Get("pointerMoveCallback")
 }
 
-// A callback that can be fired on a MSPointerMove event.
+// SetPointerMoveCallbackA A callback that can be fired on a MSPointerMove event.
 func (self *MSPointer) SetPointerMoveCallbackA(member interface{}) {
     self.Object.Set("pointerMoveCallback", member)
 }
 
-// A callback that can be fired on a MSPointerUp event.
+// PointerUpCallback A callback that can be fired on a MSPointerUp event.
 func (self *MSPointer) PointerUpCallback() interface{}{
     return self.Object.Get("pointerUpCallback")
 }
 
-// A callback that can be fired on a MSPointerUp event.
+// SetPointerUpCallbackA A callback that can be fired on a MSPointerUp event.
 func (self *MSPointer) SetPointerUpCallbackA(member interface{}) {
     self.Object.Set("pointerUpCallback", member)
 }
 
-// If true the Pointer events will have event.preventDefault applied to them, if false they will propagate fully.
+// Capture If true the Pointer events will have event.preventDefault applied to them, if false they will propagate fully.
 func (self *MSPointer) Capture() bool{
     return self.Object.Get("capture").Bool()
 }
 
-// If true the Pointer events will have event.preventDefault applied to them, if false they will propagate fully.
+// SetCaptureA If true the Pointer events will have event.preventDefault applied to them, if false they will propagate fully.
 func (self *MSPointer) SetCaptureA(member bool) {
     self.Object.Set("capture", member)
 }
 
-// This property was removed in Phaser 2.4 and should no longer be used.
+// Button This property was removed in Phaser 2.4 and should no longer be used.
 // Instead please see the Pointer button properties such as `Pointer.leftButton`, `Pointer.rightButton` and so on.
 // Or Pointer.button holds the DOM event button value if you require that.
 func (self *MSPointer) Button() int{
     return self.Object.Get("button").Int()
 }
 
-// This property was removed in Phaser 2.4 and should no longer be used.
+// SetButtonA This property was removed in Phaser 2.4 and should no longer be used.
 // Instead please see the Pointer button properties such as `Pointer.leftButton`, `Pointer.rightButton` and so on.
 // Or Pointer.button holds the DOM event button value if you require that.
 func (self *MSPointer) SetButtonA(member int) {
     self.Object.Set("button", member)
 }
 
-// The browser MSPointer DOM event. Will be null if no event has ever been received.
+// Event The browser MSPointer DOM event. Will be null if no event has ever been received.
 // Access this property only inside a Pointer event handler and do not keep references to it.
 func (self *MSPointer) Event() interface{}{
     return self.Object.Get("event")
 }
 
-// The browser MSPointer DOM event. Will be null if no event has ever been received.
+// SetEventA The browser MSPointer DOM event. Will be null if no event has ever been received.
 // Access this property only inside a Pointer event handler and do not keep references to it.
 func (self *MSPointer) SetEventA(member interface{}) {
     self.Object.Set("event", member)
 }
 
-// MSPointer input will only be processed if enabled.
+// Enabled MSPointer input will only be processed if enabled.
 func (self *MSPointer) Enabled() bool{
     return self.Object.Get("enabled").Bool()
 }
 
-// MSPointer input will only be processed if enabled.
+// SetEnabledA MSPointer input will only be processed if enabled.
 func (self *MSPointer) SetEnabledA(member bool) {
     self.Object.Set("enabled", member)
 }
 
 
-
-// Starts the event listeners running.
+// Start Starts the event listeners running.
 func (self *MSPointer) Start() {
     self.Object.Call("start")
 }
 
-// Starts the event listeners running.
+// StartI Starts the event listeners running.
 func (self *MSPointer) StartI(args ...interface{}) {
     self.Object.Call("start", args)
 }
 
-// The function that handles the PointerDown event.
+// OnPointerDown The function that handles the PointerDown event.
 func (self *MSPointer) OnPointerDown(event *PointerEvent) {
     self.Object.Call("onPointerDown", event)
 }
 
-// The function that handles the PointerDown event.
+// OnPointerDownI The function that handles the PointerDown event.
 func (self *MSPointer) OnPointerDownI(args ...interface{}) {
     self.Object.Call("onPointerDown", args)
 }
 
-// The function that handles the PointerMove event.
+// OnPointerMove The function that handles the PointerMove event.
 func (self *MSPointer) OnPointerMove(event *PointerEvent) {
     self.Object.Call("onPointerMove", event)
 }
 
-// The function that handles the PointerMove event.
+// OnPointerMoveI The function that handles the PointerMove event.
 func (self *MSPointer) OnPointerMoveI(args ...interface{}) {
     self.Object.Call("onPointerMove", args)
 }
 
-// The function that handles the PointerUp event.
+// OnPointerUp The function that handles the PointerUp event.
 func (self *MSPointer) OnPointerUp(event *PointerEvent) {
     self.Object.Call("onPointerUp", event)
 }
 
-// The function that handles the PointerUp event.
+// OnPointerUpI The function that handles the PointerUp event.
 func (self *MSPointer) OnPointerUpI(args ...interface{}) {
     self.Object.Call("onPointerUp", args)
 }
 
-// The internal method that handles the mouse up event from the window.
+// OnPointerUpGlobal The internal method that handles the mouse up event from the window.
 func (self *MSPointer) OnPointerUpGlobal(event *PointerEvent) {
     self.Object.Call("onPointerUpGlobal", event)
 }
 
-// The internal method that handles the mouse up event from the window.
+// OnPointerUpGlobalI The internal method that handles the mouse up event from the window.
 func (self *MSPointer) OnPointerUpGlobalI(args ...interface{}) {
     self.Object.Call("onPointerUpGlobal", args)
 }
 
-// The internal method that handles the pointer out event from the browser.
+// OnPointerOut The internal method that handles the pointer out event from the browser.
 func (self *MSPointer) OnPointerOut(event *PointerEvent) {
     self.Object.Call("onPointerOut", event)
 }
 
-// The internal method that handles the pointer out event from the browser.
+// OnPointerOutI The internal method that handles the pointer out event from the browser.
 func (self *MSPointer) OnPointerOutI(args ...interface{}) {
     self.Object.Call("onPointerOut", args)
 }
 
-// Stop the event listeners.
+// Stop Stop the event listeners.
 func (self *MSPointer) Stop() {
     self.Object.Call("stop")
 }
 
-// Stop the event listeners.
+// StopI Stop the event listeners.
 func (self *MSPointer) StopI(args ...interface{}) {
     self.Object.Call("stop", args)
 }
+

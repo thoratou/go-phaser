@@ -1,4 +1,4 @@
-// Automatic generation for Phaser.Loader
+// Package phaser Automatic generation for Phaser.Loader
 // generated file Loader.go
 package phaser
 
@@ -7,7 +7,7 @@ import (
 
 )
 
-// The Loader handles loading all external content such as Images, Sounds, Texture Atlases and data files.
+// Loader The Loader handles loading all external content such as Images, Sounds, Texture Atlases and data files.
 // 
 // The loader uses a combination of tag loading (eg. Image elements) and XHR and provides progress and completion callbacks.
 // 
@@ -20,8 +20,7 @@ type Loader struct {
     *js.Object
 }
 
-
-// The Loader handles loading all external content such as Images, Sounds, Texture Atlases and data files.
+// NewLoader The Loader handles loading all external content such as Images, Sounds, Texture Atlases and data files.
 // 
 // The loader uses a combination of tag loading (eg. Image elements) and XHR and provides progress and completion callbacks.
 // 
@@ -33,8 +32,7 @@ type Loader struct {
 func NewLoader(game *Game) *Loader {
     return &Loader{js.Global.Get("Phaser").Get("Loader").New(game)}
 }
-
-// The Loader handles loading all external content such as Images, Sounds, Texture Atlases and data files.
+// NewLoaderI The Loader handles loading all external content such as Images, Sounds, Texture Atlases and data files.
 // 
 // The loader uses a combination of tag loading (eg. Image elements) and XHR and provides progress and completion callbacks.
 // 
@@ -49,95 +47,95 @@ func NewLoaderI(args ...interface{}) *Loader {
 
 
 
-// Local reference to game.
+// Game Local reference to game.
 func (self *Loader) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
-// Local reference to game.
+// SetGameA Local reference to game.
 func (self *Loader) SetGameA(member *Game) {
     self.Object.Set("game", member)
 }
 
-// Local reference to the Phaser.Cache.
+// Cache Local reference to the Phaser.Cache.
 func (self *Loader) Cache() *Cache{
     return &Cache{self.Object.Get("cache")}
 }
 
-// Local reference to the Phaser.Cache.
+// SetCacheA Local reference to the Phaser.Cache.
 func (self *Loader) SetCacheA(member *Cache) {
     self.Object.Set("cache", member)
 }
 
-// If true all calls to Loader.reset will be ignored. Useful if you need to create a load queue before swapping to a preloader state.
+// ResetLocked If true all calls to Loader.reset will be ignored. Useful if you need to create a load queue before swapping to a preloader state.
 func (self *Loader) ResetLocked() bool{
     return self.Object.Get("resetLocked").Bool()
 }
 
-// If true all calls to Loader.reset will be ignored. Useful if you need to create a load queue before swapping to a preloader state.
+// SetResetLockedA If true all calls to Loader.reset will be ignored. Useful if you need to create a load queue before swapping to a preloader state.
 func (self *Loader) SetResetLockedA(member bool) {
     self.Object.Set("resetLocked", member)
 }
 
-// True if the Loader is in the process of loading the queue.
+// IsLoading True if the Loader is in the process of loading the queue.
 func (self *Loader) IsLoading() bool{
     return self.Object.Get("isLoading").Bool()
 }
 
-// True if the Loader is in the process of loading the queue.
+// SetIsLoadingA True if the Loader is in the process of loading the queue.
 func (self *Loader) SetIsLoadingA(member bool) {
     self.Object.Set("isLoading", member)
 }
 
-// True if all assets in the queue have finished loading.
+// HasLoaded True if all assets in the queue have finished loading.
 func (self *Loader) HasLoaded() bool{
     return self.Object.Get("hasLoaded").Bool()
 }
 
-// True if all assets in the queue have finished loading.
+// SetHasLoadedA True if all assets in the queue have finished loading.
 func (self *Loader) SetHasLoadedA(member bool) {
     self.Object.Set("hasLoaded", member)
 }
 
-// You can optionally link a progress sprite with {@link Phaser.Loader#setPreloadSprite setPreloadSprite}.
+// PreloadSprite You can optionally link a progress sprite with {@link Phaser.Loader#setPreloadSprite setPreloadSprite}.
 // 
 // This property is an object containing: sprite, rect, direction, width and height
 func (self *Loader) PreloadSprite() interface{}{
     return self.Object.Get("preloadSprite")
 }
 
-// You can optionally link a progress sprite with {@link Phaser.Loader#setPreloadSprite setPreloadSprite}.
+// SetPreloadSpriteA You can optionally link a progress sprite with {@link Phaser.Loader#setPreloadSprite setPreloadSprite}.
 // 
 // This property is an object containing: sprite, rect, direction, width and height
 func (self *Loader) SetPreloadSpriteA(member interface{}) {
     self.Object.Set("preloadSprite", member)
 }
 
-// The crossOrigin value applied to loaded images. Very often this needs to be set to 'anonymous'.
+// CrossOrigin The crossOrigin value applied to loaded images. Very often this needs to be set to 'anonymous'.
 func (self *Loader) CrossOrigin() interface{}{
     return self.Object.Get("crossOrigin")
 }
 
-// The crossOrigin value applied to loaded images. Very often this needs to be set to 'anonymous'.
+// SetCrossOriginA The crossOrigin value applied to loaded images. Very often this needs to be set to 'anonymous'.
 func (self *Loader) SetCrossOriginA(member interface{}) {
     self.Object.Set("crossOrigin", member)
 }
 
-// If you want to append a URL before the path of any asset you can set this here.
+// BaseURL If you want to append a URL before the path of any asset you can set this here.
 // Useful if allowing the asset base url to be configured outside of the game code.
 // The string _must_ end with a "/".
 func (self *Loader) BaseURL() string{
     return self.Object.Get("baseURL").String()
 }
 
-// If you want to append a URL before the path of any asset you can set this here.
+// SetBaseURLA If you want to append a URL before the path of any asset you can set this here.
 // Useful if allowing the asset base url to be configured outside of the game code.
 // The string _must_ end with a "/".
 func (self *Loader) SetBaseURLA(member string) {
     self.Object.Set("baseURL", member)
 }
 
-// The value of `path`, if set, is placed before any _relative_ file path given. For example:
+// Path The value of `path`, if set, is placed before any _relative_ file path given. For example:
 // 
 // `load.path = "images/sprites/";
 // load.image("ball", "ball.png");
@@ -155,7 +153,7 @@ func (self *Loader) Path() string{
     return self.Object.Get("path").String()
 }
 
-// The value of `path`, if set, is placed before any _relative_ file path given. For example:
+// SetPathA The value of `path`, if set, is placed before any _relative_ file path given. For example:
 // 
 // `load.path = "images/sprites/";
 // load.image("ball", "ball.png");
@@ -173,43 +171,43 @@ func (self *Loader) SetPathA(member string) {
     self.Object.Set("path", member)
 }
 
-// Used to map the application mime-types to to the Accept header in XHR requests.
+// Headers Used to map the application mime-types to to the Accept header in XHR requests.
 // If you don't require these mappings, or they cause problems on your server, then
 // remove them from the headers object and the XHR request will not try to use them.
 func (self *Loader) Headers() interface{}{
     return self.Object.Get("headers")
 }
 
-// Used to map the application mime-types to to the Accept header in XHR requests.
+// SetHeadersA Used to map the application mime-types to to the Accept header in XHR requests.
 // If you don't require these mappings, or they cause problems on your server, then
 // remove them from the headers object and the XHR request will not try to use them.
 func (self *Loader) SetHeadersA(member interface{}) {
     self.Object.Set("headers", member)
 }
 
-// This event is dispatched when the loading process starts: before the first file has been requested,
+// OnLoadStart This event is dispatched when the loading process starts: before the first file has been requested,
 // but after all the initial packs have been loaded.
 func (self *Loader) OnLoadStart() *Signal{
     return &Signal{self.Object.Get("onLoadStart")}
 }
 
-// This event is dispatched when the loading process starts: before the first file has been requested,
+// SetOnLoadStartA This event is dispatched when the loading process starts: before the first file has been requested,
 // but after all the initial packs have been loaded.
 func (self *Loader) SetOnLoadStartA(member *Signal) {
     self.Object.Set("onLoadStart", member)
 }
 
-// This event is dispatched when the final file in the load queue has either loaded or failed.
+// OnLoadComplete This event is dispatched when the final file in the load queue has either loaded or failed.
 func (self *Loader) OnLoadComplete() *Signal{
     return &Signal{self.Object.Get("onLoadComplete")}
 }
 
-// This event is dispatched when the final file in the load queue has either loaded or failed.
+// SetOnLoadCompleteA This event is dispatched when the final file in the load queue has either loaded or failed.
 func (self *Loader) SetOnLoadCompleteA(member *Signal) {
     self.Object.Set("onLoadComplete", member)
 }
 
-// This event is dispatched when an asset pack has either loaded or failed to load.
+// OnPackComplete This event is dispatched when an asset pack has either loaded or failed to load.
 // 
 // This is called when the asset pack manifest file has loaded and successfully added its contents to the loader queue.
 // 
@@ -218,7 +216,7 @@ func (self *Loader) OnPackComplete() *Signal{
     return &Signal{self.Object.Get("onPackComplete")}
 }
 
-// This event is dispatched when an asset pack has either loaded or failed to load.
+// SetOnPackCompleteA This event is dispatched when an asset pack has either loaded or failed to load.
 // 
 // This is called when the asset pack manifest file has loaded and successfully added its contents to the loader queue.
 // 
@@ -227,7 +225,7 @@ func (self *Loader) SetOnPackCompleteA(member *Signal) {
     self.Object.Set("onPackComplete", member)
 }
 
-// This event is dispatched immediately before a file starts loading.
+// OnFileStart This event is dispatched immediately before a file starts loading.
 // It's possible the file may fail (eg. download error, invalid format) after this event is sent.
 // 
 // Params: `(progress, file key, file url)`
@@ -235,7 +233,7 @@ func (self *Loader) OnFileStart() *Signal{
     return &Signal{self.Object.Get("onFileStart")}
 }
 
-// This event is dispatched immediately before a file starts loading.
+// SetOnFileStartA This event is dispatched immediately before a file starts loading.
 // It's possible the file may fail (eg. download error, invalid format) after this event is sent.
 // 
 // Params: `(progress, file key, file url)`
@@ -243,7 +241,7 @@ func (self *Loader) SetOnFileStartA(member *Signal) {
     self.Object.Set("onFileStart", member)
 }
 
-// This event is dispatched when a file has either loaded or failed to load.
+// OnFileComplete This event is dispatched when a file has either loaded or failed to load.
 // 
 // Any function bound to this will receive the following parameters:
 // 
@@ -254,7 +252,7 @@ func (self *Loader) OnFileComplete() *Signal{
     return &Signal{self.Object.Get("onFileComplete")}
 }
 
-// This event is dispatched when a file has either loaded or failed to load.
+// SetOnFileCompleteA This event is dispatched when a file has either loaded or failed to load.
 // 
 // Any function bound to this will receive the following parameters:
 // 
@@ -265,7 +263,7 @@ func (self *Loader) SetOnFileCompleteA(member *Signal) {
     self.Object.Set("onFileComplete", member)
 }
 
-// This event is dispatched when a file (or pack) errors as a result of the load request.
+// OnFileError This event is dispatched when a file (or pack) errors as a result of the load request.
 // 
 // For files it will be triggered before `onFileComplete`. For packs it will be triggered before `onPackComplete`.
 // 
@@ -274,7 +272,7 @@ func (self *Loader) OnFileError() *Signal{
     return &Signal{self.Object.Get("onFileError")}
 }
 
-// This event is dispatched when a file (or pack) errors as a result of the load request.
+// SetOnFileErrorA This event is dispatched when a file (or pack) errors as a result of the load request.
 // 
 // For files it will be triggered before `onFileComplete`. For packs it will be triggered before `onPackComplete`.
 // 
@@ -283,119 +281,119 @@ func (self *Loader) SetOnFileErrorA(member *Signal) {
     self.Object.Set("onFileError", member)
 }
 
-// If true and if the browser supports XDomainRequest, it will be used in preference for XHR.
+// UseXDomainRequest If true and if the browser supports XDomainRequest, it will be used in preference for XHR.
 // 
 // This is only relevant for IE 9 and should _only_ be enabled for IE 9 clients when required by the server/CDN.
 func (self *Loader) UseXDomainRequest() bool{
     return self.Object.Get("useXDomainRequest").Bool()
 }
 
-// If true and if the browser supports XDomainRequest, it will be used in preference for XHR.
+// SetUseXDomainRequestA If true and if the browser supports XDomainRequest, it will be used in preference for XHR.
 // 
 // This is only relevant for IE 9 and should _only_ be enabled for IE 9 clients when required by the server/CDN.
 func (self *Loader) SetUseXDomainRequestA(member bool) {
     self.Object.Set("useXDomainRequest", member)
 }
 
-// If true (the default) then parallel downloading will be enabled.
+// EnableParallel If true (the default) then parallel downloading will be enabled.
 // 
 // To disable all parallel downloads this must be set to false prior to any resource being loaded.
 func (self *Loader) EnableParallel() bool{
     return self.Object.Get("enableParallel").Bool()
 }
 
-// If true (the default) then parallel downloading will be enabled.
+// SetEnableParallelA If true (the default) then parallel downloading will be enabled.
 // 
 // To disable all parallel downloads this must be set to false prior to any resource being loaded.
 func (self *Loader) SetEnableParallelA(member bool) {
     self.Object.Set("enableParallel", member)
 }
 
-// The number of concurrent / parallel resources to try and fetch at once.
+// MaxParallelDownloads The number of concurrent / parallel resources to try and fetch at once.
 // 
 // Many current browsers limit 6 requests per domain; this is slightly conservative.
 func (self *Loader) MaxParallelDownloads() int{
     return self.Object.Get("maxParallelDownloads").Int()
 }
 
-// The number of concurrent / parallel resources to try and fetch at once.
+// SetMaxParallelDownloadsA The number of concurrent / parallel resources to try and fetch at once.
 // 
 // Many current browsers limit 6 requests per domain; this is slightly conservative.
 func (self *Loader) SetMaxParallelDownloadsA(member int) {
     self.Object.Set("maxParallelDownloads", member)
 }
 
-// A counter: if more than zero, files will be automatically added as a synchronization point.
+// _withSyncPointDepth A counter: if more than zero, files will be automatically added as a synchronization point.
 func (self *Loader) _withSyncPointDepth() interface{}{
     return self.Object.Get("_withSyncPointDepth")
 }
 
-// A counter: if more than zero, files will be automatically added as a synchronization point.
+// Set_withSyncPointDepthA A counter: if more than zero, files will be automatically added as a synchronization point.
 func (self *Loader) Set_withSyncPointDepthA(member interface{}) {
     self.Object.Set("_withSyncPointDepth", member)
 }
 
-// 
+// TEXTURE_ATLAS_JSON_ARRAY empty description
 func (self *Loader) TEXTURE_ATLAS_JSON_ARRAY() int{
     return self.Object.Get("TEXTURE_ATLAS_JSON_ARRAY").Int()
 }
 
-// 
+// SetTEXTURE_ATLAS_JSON_ARRAYA empty description
 func (self *Loader) SetTEXTURE_ATLAS_JSON_ARRAYA(member int) {
     self.Object.Set("TEXTURE_ATLAS_JSON_ARRAY", member)
 }
 
-// 
+// TEXTURE_ATLAS_JSON_HASH empty description
 func (self *Loader) TEXTURE_ATLAS_JSON_HASH() int{
     return self.Object.Get("TEXTURE_ATLAS_JSON_HASH").Int()
 }
 
-// 
+// SetTEXTURE_ATLAS_JSON_HASHA empty description
 func (self *Loader) SetTEXTURE_ATLAS_JSON_HASHA(member int) {
     self.Object.Set("TEXTURE_ATLAS_JSON_HASH", member)
 }
 
-// 
+// TEXTURE_ATLAS_XML_STARLING empty description
 func (self *Loader) TEXTURE_ATLAS_XML_STARLING() int{
     return self.Object.Get("TEXTURE_ATLAS_XML_STARLING").Int()
 }
 
-// 
+// SetTEXTURE_ATLAS_XML_STARLINGA empty description
 func (self *Loader) SetTEXTURE_ATLAS_XML_STARLINGA(member int) {
     self.Object.Set("TEXTURE_ATLAS_XML_STARLING", member)
 }
 
-// 
+// PHYSICS_LIME_CORONA_JSON empty description
 func (self *Loader) PHYSICS_LIME_CORONA_JSON() int{
     return self.Object.Get("PHYSICS_LIME_CORONA_JSON").Int()
 }
 
-// 
+// SetPHYSICS_LIME_CORONA_JSONA empty description
 func (self *Loader) SetPHYSICS_LIME_CORONA_JSONA(member int) {
     self.Object.Set("PHYSICS_LIME_CORONA_JSON", member)
 }
 
-// 
+// PHYSICS_PHASER_JSON empty description
 func (self *Loader) PHYSICS_PHASER_JSON() int{
     return self.Object.Get("PHYSICS_PHASER_JSON").Int()
 }
 
-// 
+// SetPHYSICS_PHASER_JSONA empty description
 func (self *Loader) SetPHYSICS_PHASER_JSONA(member int) {
     self.Object.Set("PHYSICS_PHASER_JSON", member)
 }
 
-// 
+// TEXTURE_ATLAS_JSON_PYXEL empty description
 func (self *Loader) TEXTURE_ATLAS_JSON_PYXEL() int{
     return self.Object.Get("TEXTURE_ATLAS_JSON_PYXEL").Int()
 }
 
-// 
+// SetTEXTURE_ATLAS_JSON_PYXELA empty description
 func (self *Loader) SetTEXTURE_ATLAS_JSON_PYXELA(member int) {
     self.Object.Set("TEXTURE_ATLAS_JSON_PYXEL", member)
 }
 
-// The non-rounded load progress value (from 0.0 to 100.0).
+// ProgressFloat The non-rounded load progress value (from 0.0 to 100.0).
 // 
 // A general indicator of the progress.
 // It is possible for the progress to decrease, after `onLoadStart`, if more files are dynamically added.
@@ -403,7 +401,7 @@ func (self *Loader) ProgressFloat() interface{}{
     return self.Object.Get("progressFloat")
 }
 
-// The non-rounded load progress value (from 0.0 to 100.0).
+// SetProgressFloatA The non-rounded load progress value (from 0.0 to 100.0).
 // 
 // A general indicator of the progress.
 // It is possible for the progress to decrease, after `onLoadStart`, if more files are dynamically added.
@@ -411,19 +409,18 @@ func (self *Loader) SetProgressFloatA(member interface{}) {
     self.Object.Set("progressFloat", member)
 }
 
-// The rounded load progress percentage value (from 0 to 100). See {@link Phaser.Loader#progressFloat}.
+// Progress The rounded load progress percentage value (from 0 to 100). See {@link Phaser.Loader#progressFloat}.
 func (self *Loader) Progress() interface{}{
     return self.Object.Get("progress")
 }
 
-// The rounded load progress percentage value (from 0 to 100). See {@link Phaser.Loader#progressFloat}.
+// SetProgressA The rounded load progress percentage value (from 0 to 100). See {@link Phaser.Loader#progressFloat}.
 func (self *Loader) SetProgressA(member interface{}) {
     self.Object.Set("progress", member)
 }
 
 
-
-// Set a Sprite to be a "preload" sprite by passing it to this method.
+// SetPreloadSprite Set a Sprite to be a "preload" sprite by passing it to this method.
 // 
 // A "preload" sprite will have its width or height crop adjusted based on the percentage of the loader in real-time.
 // This allows you to easily make loading bars for games.
@@ -433,7 +430,7 @@ func (self *Loader) SetPreloadSprite(sprite interface{}) {
     self.Object.Call("setPreloadSprite", sprite)
 }
 
-// Set a Sprite to be a "preload" sprite by passing it to this method.
+// SetPreloadSprite1O Set a Sprite to be a "preload" sprite by passing it to this method.
 // 
 // A "preload" sprite will have its width or height crop adjusted based on the percentage of the loader in real-time.
 // This allows you to easily make loading bars for games.
@@ -443,7 +440,7 @@ func (self *Loader) SetPreloadSprite1O(sprite interface{}, direction int) {
     self.Object.Call("setPreloadSprite", sprite, direction)
 }
 
-// Set a Sprite to be a "preload" sprite by passing it to this method.
+// SetPreloadSpriteI Set a Sprite to be a "preload" sprite by passing it to this method.
 // 
 // A "preload" sprite will have its width or height crop adjusted based on the percentage of the loader in real-time.
 // This allows you to easily make loading bars for games.
@@ -453,63 +450,63 @@ func (self *Loader) SetPreloadSpriteI(args ...interface{}) {
     self.Object.Call("setPreloadSprite", args)
 }
 
-// Called automatically by ScaleManager when the game resizes in RESIZE scalemode.
+// Resize Called automatically by ScaleManager when the game resizes in RESIZE scalemode.
 // 
 // This can be used to adjust the preloading sprite size, eg.
 func (self *Loader) Resize() {
     self.Object.Call("resize")
 }
 
-// Called automatically by ScaleManager when the game resizes in RESIZE scalemode.
+// ResizeI Called automatically by ScaleManager when the game resizes in RESIZE scalemode.
 // 
 // This can be used to adjust the preloading sprite size, eg.
 func (self *Loader) ResizeI(args ...interface{}) {
     self.Object.Call("resize", args)
 }
 
-// Check whether a file/asset with a specific key is queued to be loaded.
+// CheckKeyExists Check whether a file/asset with a specific key is queued to be loaded.
 // 
 // To access a loaded asset use Phaser.Cache, eg. {@link Phaser.Cache#checkImageKey}
 func (self *Loader) CheckKeyExists(type_ string, key string) bool{
     return self.Object.Call("checkKeyExists", type_, key).Bool()
 }
 
-// Check whether a file/asset with a specific key is queued to be loaded.
+// CheckKeyExistsI Check whether a file/asset with a specific key is queued to be loaded.
 // 
 // To access a loaded asset use Phaser.Cache, eg. {@link Phaser.Cache#checkImageKey}
 func (self *Loader) CheckKeyExistsI(args ...interface{}) bool{
     return self.Object.Call("checkKeyExists", args).Bool()
 }
 
-// Get the queue-index of the file/asset with a specific key.
+// GetAssetIndex Get the queue-index of the file/asset with a specific key.
 // 
 // Only assets in the download file queue will be found.
 func (self *Loader) GetAssetIndex(type_ string, key string) int{
     return self.Object.Call("getAssetIndex", type_, key).Int()
 }
 
-// Get the queue-index of the file/asset with a specific key.
+// GetAssetIndexI Get the queue-index of the file/asset with a specific key.
 // 
 // Only assets in the download file queue will be found.
 func (self *Loader) GetAssetIndexI(args ...interface{}) int{
     return self.Object.Call("getAssetIndex", args).Int()
 }
 
-// Find a file/asset with a specific key.
+// GetAsset Find a file/asset with a specific key.
 // 
 // Only assets in the download file queue will be found.
 func (self *Loader) GetAsset(type_ string, key string) interface{}{
     return self.Object.Call("getAsset", type_, key)
 }
 
-// Find a file/asset with a specific key.
+// GetAssetI Find a file/asset with a specific key.
 // 
 // Only assets in the download file queue will be found.
 func (self *Loader) GetAssetI(args ...interface{}) interface{}{
     return self.Object.Call("getAsset", args)
 }
 
-// Reset the loader and clear any queued assets. If `Loader.resetLocked` is true this operation will abort.
+// Reset Reset the loader and clear any queued assets. If `Loader.resetLocked` is true this operation will abort.
 // 
 // This will abort any loading and clear any queued assets.
 // 
@@ -518,7 +515,7 @@ func (self *Loader) Reset() {
     self.Object.Call("reset")
 }
 
-// Reset the loader and clear any queued assets. If `Loader.resetLocked` is true this operation will abort.
+// Reset1O Reset the loader and clear any queued assets. If `Loader.resetLocked` is true this operation will abort.
 // 
 // This will abort any loading and clear any queued assets.
 // 
@@ -527,7 +524,7 @@ func (self *Loader) Reset1O(hard bool) {
     self.Object.Call("reset", hard)
 }
 
-// Reset the loader and clear any queued assets. If `Loader.resetLocked` is true this operation will abort.
+// Reset2O Reset the loader and clear any queued assets. If `Loader.resetLocked` is true this operation will abort.
 // 
 // This will abort any loading and clear any queued assets.
 // 
@@ -536,7 +533,7 @@ func (self *Loader) Reset2O(hard bool, clearEvents bool) {
     self.Object.Call("reset", hard, clearEvents)
 }
 
-// Reset the loader and clear any queued assets. If `Loader.resetLocked` is true this operation will abort.
+// ResetI Reset the loader and clear any queued assets. If `Loader.resetLocked` is true this operation will abort.
 // 
 // This will abort any loading and clear any queued assets.
 // 
@@ -545,47 +542,47 @@ func (self *Loader) ResetI(args ...interface{}) {
     self.Object.Call("reset", args)
 }
 
-// Internal function that adds a new entry to the file list. Do not call directly.
+// AddToFileList Internal function that adds a new entry to the file list. Do not call directly.
 func (self *Loader) AddToFileList(type_ string, key string) *Loader{
     return &Loader{self.Object.Call("addToFileList", type_, key)}
 }
 
-// Internal function that adds a new entry to the file list. Do not call directly.
+// AddToFileList1O Internal function that adds a new entry to the file list. Do not call directly.
 func (self *Loader) AddToFileList1O(type_ string, key string, url string) *Loader{
     return &Loader{self.Object.Call("addToFileList", type_, key, url)}
 }
 
-// Internal function that adds a new entry to the file list. Do not call directly.
+// AddToFileList2O Internal function that adds a new entry to the file list. Do not call directly.
 func (self *Loader) AddToFileList2O(type_ string, key string, url string, properties interface{}) *Loader{
     return &Loader{self.Object.Call("addToFileList", type_, key, url, properties)}
 }
 
-// Internal function that adds a new entry to the file list. Do not call directly.
+// AddToFileList3O Internal function that adds a new entry to the file list. Do not call directly.
 func (self *Loader) AddToFileList3O(type_ string, key string, url string, properties interface{}, overwrite bool) *Loader{
     return &Loader{self.Object.Call("addToFileList", type_, key, url, properties, overwrite)}
 }
 
-// Internal function that adds a new entry to the file list. Do not call directly.
+// AddToFileList4O Internal function that adds a new entry to the file list. Do not call directly.
 func (self *Loader) AddToFileList4O(type_ string, key string, url string, properties interface{}, overwrite bool, extension string) *Loader{
     return &Loader{self.Object.Call("addToFileList", type_, key, url, properties, overwrite, extension)}
 }
 
-// Internal function that adds a new entry to the file list. Do not call directly.
+// AddToFileListI Internal function that adds a new entry to the file list. Do not call directly.
 func (self *Loader) AddToFileListI(args ...interface{}) *Loader{
     return &Loader{self.Object.Call("addToFileList", args)}
 }
 
-// Internal function that replaces an existing entry in the file list with a new one. Do not call directly.
+// ReplaceInFileList Internal function that replaces an existing entry in the file list with a new one. Do not call directly.
 func (self *Loader) ReplaceInFileList(type_ string, key string, url string, properties interface{}) {
     self.Object.Call("replaceInFileList", type_, key, url, properties)
 }
 
-// Internal function that replaces an existing entry in the file list with a new one. Do not call directly.
+// ReplaceInFileListI Internal function that replaces an existing entry in the file list with a new one. Do not call directly.
 func (self *Loader) ReplaceInFileListI(args ...interface{}) {
     self.Object.Call("replaceInFileList", args)
 }
 
-// Add a JSON resource pack ('packfile') to the Loader.
+// Pack Add a JSON resource pack ('packfile') to the Loader.
 // 
 // A packfile is a JSON file that contains a list of assets to the be loaded.
 // Please see the example 'loader/asset pack' in the Phaser Examples repository.
@@ -602,7 +599,7 @@ func (self *Loader) Pack(key string) *Loader{
     return &Loader{self.Object.Call("pack", key)}
 }
 
-// Add a JSON resource pack ('packfile') to the Loader.
+// Pack1O Add a JSON resource pack ('packfile') to the Loader.
 // 
 // A packfile is a JSON file that contains a list of assets to the be loaded.
 // Please see the example 'loader/asset pack' in the Phaser Examples repository.
@@ -619,7 +616,7 @@ func (self *Loader) Pack1O(key string, url string) *Loader{
     return &Loader{self.Object.Call("pack", key, url)}
 }
 
-// Add a JSON resource pack ('packfile') to the Loader.
+// Pack2O Add a JSON resource pack ('packfile') to the Loader.
 // 
 // A packfile is a JSON file that contains a list of assets to the be loaded.
 // Please see the example 'loader/asset pack' in the Phaser Examples repository.
@@ -636,7 +633,7 @@ func (self *Loader) Pack2O(key string, url string, data interface{}) *Loader{
     return &Loader{self.Object.Call("pack", key, url, data)}
 }
 
-// Add a JSON resource pack ('packfile') to the Loader.
+// Pack3O Add a JSON resource pack ('packfile') to the Loader.
 // 
 // A packfile is a JSON file that contains a list of assets to the be loaded.
 // Please see the example 'loader/asset pack' in the Phaser Examples repository.
@@ -653,7 +650,7 @@ func (self *Loader) Pack3O(key string, url string, data interface{}, callbackCon
     return &Loader{self.Object.Call("pack", key, url, data, callbackContext)}
 }
 
-// Add a JSON resource pack ('packfile') to the Loader.
+// PackI Add a JSON resource pack ('packfile') to the Loader.
 // 
 // A packfile is a JSON file that contains a list of assets to the be loaded.
 // Please see the example 'loader/asset pack' in the Phaser Examples repository.
@@ -670,7 +667,7 @@ func (self *Loader) PackI(args ...interface{}) *Loader{
     return &Loader{self.Object.Call("pack", args)}
 }
 
-// Adds an Image to the current load queue.
+// Image Adds an Image to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -689,7 +686,7 @@ func (self *Loader) Image(key string) *Loader{
     return &Loader{self.Object.Call("image", key)}
 }
 
-// Adds an Image to the current load queue.
+// Image1O Adds an Image to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -708,7 +705,7 @@ func (self *Loader) Image1O(key string, url string) *Loader{
     return &Loader{self.Object.Call("image", key, url)}
 }
 
-// Adds an Image to the current load queue.
+// Image2O Adds an Image to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -727,7 +724,7 @@ func (self *Loader) Image2O(key string, url string, overwrite bool) *Loader{
     return &Loader{self.Object.Call("image", key, url, overwrite)}
 }
 
-// Adds an Image to the current load queue.
+// ImageI Adds an Image to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -746,7 +743,7 @@ func (self *Loader) ImageI(args ...interface{}) *Loader{
     return &Loader{self.Object.Call("image", args)}
 }
 
-// Adds an array of images to the current load queue.
+// Images Adds an array of images to the current load queue.
 // 
 // It works by passing each element of the array to the Loader.image method.
 // 
@@ -767,7 +764,7 @@ func (self *Loader) Images(keys []interface{}) *Loader{
     return &Loader{self.Object.Call("images", keys)}
 }
 
-// Adds an array of images to the current load queue.
+// Images1O Adds an array of images to the current load queue.
 // 
 // It works by passing each element of the array to the Loader.image method.
 // 
@@ -788,7 +785,7 @@ func (self *Loader) Images1O(keys []interface{}, urls []interface{}) *Loader{
     return &Loader{self.Object.Call("images", keys, urls)}
 }
 
-// Adds an array of images to the current load queue.
+// ImagesI Adds an array of images to the current load queue.
 // 
 // It works by passing each element of the array to the Loader.image method.
 // 
@@ -809,7 +806,7 @@ func (self *Loader) ImagesI(args ...interface{}) *Loader{
     return &Loader{self.Object.Call("images", args)}
 }
 
-// Adds a Text file to the current load queue.
+// Text Adds a Text file to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -826,7 +823,7 @@ func (self *Loader) Text(key string) *Loader{
     return &Loader{self.Object.Call("text", key)}
 }
 
-// Adds a Text file to the current load queue.
+// Text1O Adds a Text file to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -843,7 +840,7 @@ func (self *Loader) Text1O(key string, url string) *Loader{
     return &Loader{self.Object.Call("text", key, url)}
 }
 
-// Adds a Text file to the current load queue.
+// Text2O Adds a Text file to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -860,7 +857,7 @@ func (self *Loader) Text2O(key string, url string, overwrite bool) *Loader{
     return &Loader{self.Object.Call("text", key, url, overwrite)}
 }
 
-// Adds a Text file to the current load queue.
+// TextI Adds a Text file to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -877,7 +874,7 @@ func (self *Loader) TextI(args ...interface{}) *Loader{
     return &Loader{self.Object.Call("text", args)}
 }
 
-// Adds a JSON file to the current load queue.
+// Json Adds a JSON file to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -895,7 +892,7 @@ func (self *Loader) Json(key string) *Loader{
     return &Loader{self.Object.Call("json", key)}
 }
 
-// Adds a JSON file to the current load queue.
+// Json1O Adds a JSON file to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -913,7 +910,7 @@ func (self *Loader) Json1O(key string, url string) *Loader{
     return &Loader{self.Object.Call("json", key, url)}
 }
 
-// Adds a JSON file to the current load queue.
+// Json2O Adds a JSON file to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -931,7 +928,7 @@ func (self *Loader) Json2O(key string, url string, overwrite bool) *Loader{
     return &Loader{self.Object.Call("json", key, url, overwrite)}
 }
 
-// Adds a JSON file to the current load queue.
+// JsonI Adds a JSON file to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -949,7 +946,7 @@ func (self *Loader) JsonI(args ...interface{}) *Loader{
     return &Loader{self.Object.Call("json", args)}
 }
 
-// Adds a fragment shader file to the current load queue.
+// Shader Adds a fragment shader file to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -966,7 +963,7 @@ func (self *Loader) Shader(key string) *Loader{
     return &Loader{self.Object.Call("shader", key)}
 }
 
-// Adds a fragment shader file to the current load queue.
+// Shader1O Adds a fragment shader file to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -983,7 +980,7 @@ func (self *Loader) Shader1O(key string, url string) *Loader{
     return &Loader{self.Object.Call("shader", key, url)}
 }
 
-// Adds a fragment shader file to the current load queue.
+// Shader2O Adds a fragment shader file to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -1000,7 +997,7 @@ func (self *Loader) Shader2O(key string, url string, overwrite bool) *Loader{
     return &Loader{self.Object.Call("shader", key, url, overwrite)}
 }
 
-// Adds a fragment shader file to the current load queue.
+// ShaderI Adds a fragment shader file to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -1017,7 +1014,7 @@ func (self *Loader) ShaderI(args ...interface{}) *Loader{
     return &Loader{self.Object.Call("shader", args)}
 }
 
-// Adds an XML file to the current load queue.
+// Xml Adds an XML file to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -1034,7 +1031,7 @@ func (self *Loader) Xml(key string) *Loader{
     return &Loader{self.Object.Call("xml", key)}
 }
 
-// Adds an XML file to the current load queue.
+// Xml1O Adds an XML file to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -1051,7 +1048,7 @@ func (self *Loader) Xml1O(key string, url string) *Loader{
     return &Loader{self.Object.Call("xml", key, url)}
 }
 
-// Adds an XML file to the current load queue.
+// Xml2O Adds an XML file to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -1068,7 +1065,7 @@ func (self *Loader) Xml2O(key string, url string, overwrite bool) *Loader{
     return &Loader{self.Object.Call("xml", key, url, overwrite)}
 }
 
-// Adds an XML file to the current load queue.
+// XmlI Adds an XML file to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -1085,7 +1082,7 @@ func (self *Loader) XmlI(args ...interface{}) *Loader{
     return &Loader{self.Object.Call("xml", args)}
 }
 
-// Adds a JavaScript file to the current load queue.
+// Script Adds a JavaScript file to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -1105,7 +1102,7 @@ func (self *Loader) Script(key string) *Loader{
     return &Loader{self.Object.Call("script", key)}
 }
 
-// Adds a JavaScript file to the current load queue.
+// Script1O Adds a JavaScript file to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -1125,7 +1122,7 @@ func (self *Loader) Script1O(key string, url string) *Loader{
     return &Loader{self.Object.Call("script", key, url)}
 }
 
-// Adds a JavaScript file to the current load queue.
+// Script2O Adds a JavaScript file to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -1145,7 +1142,7 @@ func (self *Loader) Script2O(key string, url string, callback interface{}) *Load
     return &Loader{self.Object.Call("script", key, url, callback)}
 }
 
-// Adds a JavaScript file to the current load queue.
+// Script3O Adds a JavaScript file to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -1165,7 +1162,7 @@ func (self *Loader) Script3O(key string, url string, callback interface{}, callb
     return &Loader{self.Object.Call("script", key, url, callback, callbackContext)}
 }
 
-// Adds a JavaScript file to the current load queue.
+// ScriptI Adds a JavaScript file to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -1185,7 +1182,7 @@ func (self *Loader) ScriptI(args ...interface{}) *Loader{
     return &Loader{self.Object.Call("script", args)}
 }
 
-// Adds a binary file to the current load queue.
+// Binary Adds a binary file to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -1207,7 +1204,7 @@ func (self *Loader) Binary(key string) *Loader{
     return &Loader{self.Object.Call("binary", key)}
 }
 
-// Adds a binary file to the current load queue.
+// Binary1O Adds a binary file to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -1229,7 +1226,7 @@ func (self *Loader) Binary1O(key string, url string) *Loader{
     return &Loader{self.Object.Call("binary", key, url)}
 }
 
-// Adds a binary file to the current load queue.
+// Binary2O Adds a binary file to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -1251,7 +1248,7 @@ func (self *Loader) Binary2O(key string, url string, callback interface{}) *Load
     return &Loader{self.Object.Call("binary", key, url, callback)}
 }
 
-// Adds a binary file to the current load queue.
+// Binary3O Adds a binary file to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -1273,7 +1270,7 @@ func (self *Loader) Binary3O(key string, url string, callback interface{}, callb
     return &Loader{self.Object.Call("binary", key, url, callback, callbackContext)}
 }
 
-// Adds a binary file to the current load queue.
+// BinaryI Adds a binary file to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -1295,7 +1292,7 @@ func (self *Loader) BinaryI(args ...interface{}) *Loader{
     return &Loader{self.Object.Call("binary", args)}
 }
 
-// Adds a Sprite Sheet to the current load queue.
+// Spritesheet Adds a Sprite Sheet to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -1319,7 +1316,7 @@ func (self *Loader) Spritesheet(key string, url string, frameWidth int, frameHei
     return &Loader{self.Object.Call("spritesheet", key, url, frameWidth, frameHeight)}
 }
 
-// Adds a Sprite Sheet to the current load queue.
+// Spritesheet1O Adds a Sprite Sheet to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -1343,7 +1340,7 @@ func (self *Loader) Spritesheet1O(key string, url string, frameWidth int, frameH
     return &Loader{self.Object.Call("spritesheet", key, url, frameWidth, frameHeight, frameMax)}
 }
 
-// Adds a Sprite Sheet to the current load queue.
+// Spritesheet2O Adds a Sprite Sheet to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -1367,7 +1364,7 @@ func (self *Loader) Spritesheet2O(key string, url string, frameWidth int, frameH
     return &Loader{self.Object.Call("spritesheet", key, url, frameWidth, frameHeight, frameMax, margin)}
 }
 
-// Adds a Sprite Sheet to the current load queue.
+// Spritesheet3O Adds a Sprite Sheet to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -1391,7 +1388,7 @@ func (self *Loader) Spritesheet3O(key string, url string, frameWidth int, frameH
     return &Loader{self.Object.Call("spritesheet", key, url, frameWidth, frameHeight, frameMax, margin, spacing)}
 }
 
-// Adds a Sprite Sheet to the current load queue.
+// SpritesheetI Adds a Sprite Sheet to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -1415,7 +1412,7 @@ func (self *Loader) SpritesheetI(args ...interface{}) *Loader{
     return &Loader{self.Object.Call("spritesheet", args)}
 }
 
-// Adds an audio file to the current load queue.
+// Audio Adds an audio file to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -1432,7 +1429,7 @@ func (self *Loader) Audio(key string, urls interface{}) *Loader{
     return &Loader{self.Object.Call("audio", key, urls)}
 }
 
-// Adds an audio file to the current load queue.
+// Audio1O Adds an audio file to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -1449,7 +1446,7 @@ func (self *Loader) Audio1O(key string, urls interface{}, autoDecode bool) *Load
     return &Loader{self.Object.Call("audio", key, urls, autoDecode)}
 }
 
-// Adds an audio file to the current load queue.
+// AudioI Adds an audio file to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -1466,7 +1463,7 @@ func (self *Loader) AudioI(args ...interface{}) *Loader{
     return &Loader{self.Object.Call("audio", args)}
 }
 
-// Adds an audio sprite file to the current load queue.
+// Audiosprite Adds an audio sprite file to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -1483,7 +1480,7 @@ func (self *Loader) Audiosprite(key string, urls interface{}) *Loader{
     return &Loader{self.Object.Call("audiosprite", key, urls)}
 }
 
-// Adds an audio sprite file to the current load queue.
+// Audiosprite1O Adds an audio sprite file to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -1500,7 +1497,7 @@ func (self *Loader) Audiosprite1O(key string, urls interface{}, jsonURL string) 
     return &Loader{self.Object.Call("audiosprite", key, urls, jsonURL)}
 }
 
-// Adds an audio sprite file to the current load queue.
+// Audiosprite2O Adds an audio sprite file to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -1517,7 +1514,7 @@ func (self *Loader) Audiosprite2O(key string, urls interface{}, jsonURL string, 
     return &Loader{self.Object.Call("audiosprite", key, urls, jsonURL, jsonData)}
 }
 
-// Adds an audio sprite file to the current load queue.
+// Audiosprite3O Adds an audio sprite file to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -1534,7 +1531,7 @@ func (self *Loader) Audiosprite3O(key string, urls interface{}, jsonURL string, 
     return &Loader{self.Object.Call("audiosprite", key, urls, jsonURL, jsonData, autoDecode)}
 }
 
-// Adds an audio sprite file to the current load queue.
+// AudiospriteI Adds an audio sprite file to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -1551,7 +1548,7 @@ func (self *Loader) AudiospriteI(args ...interface{}) *Loader{
     return &Loader{self.Object.Call("audiosprite", args)}
 }
 
-// Adds a video file to the current load queue.
+// Video Adds a video file to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -1566,7 +1563,7 @@ func (self *Loader) Video(key string, urls interface{}) *Loader{
     return &Loader{self.Object.Call("video", key, urls)}
 }
 
-// Adds a video file to the current load queue.
+// Video1O Adds a video file to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -1581,7 +1578,7 @@ func (self *Loader) Video1O(key string, urls interface{}, loadEvent string) *Loa
     return &Loader{self.Object.Call("video", key, urls, loadEvent)}
 }
 
-// Adds a video file to the current load queue.
+// Video2O Adds a video file to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -1596,7 +1593,7 @@ func (self *Loader) Video2O(key string, urls interface{}, loadEvent string, asBl
     return &Loader{self.Object.Call("video", key, urls, loadEvent, asBlob)}
 }
 
-// Adds a video file to the current load queue.
+// VideoI Adds a video file to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -1611,7 +1608,7 @@ func (self *Loader) VideoI(args ...interface{}) *Loader{
     return &Loader{self.Object.Call("video", args)}
 }
 
-// Adds a Tile Map data file to the current load queue.
+// Tilemap Adds a Tile Map data file to the current load queue.
 // 
 // You can choose to either load the data externally, by providing a URL to a json file.
 // Or you can pass in a JSON object or String via the `data` parameter.
@@ -1635,7 +1632,7 @@ func (self *Loader) Tilemap(key string) *Loader{
     return &Loader{self.Object.Call("tilemap", key)}
 }
 
-// Adds a Tile Map data file to the current load queue.
+// Tilemap1O Adds a Tile Map data file to the current load queue.
 // 
 // You can choose to either load the data externally, by providing a URL to a json file.
 // Or you can pass in a JSON object or String via the `data` parameter.
@@ -1659,7 +1656,7 @@ func (self *Loader) Tilemap1O(key string, url string) *Loader{
     return &Loader{self.Object.Call("tilemap", key, url)}
 }
 
-// Adds a Tile Map data file to the current load queue.
+// Tilemap2O Adds a Tile Map data file to the current load queue.
 // 
 // You can choose to either load the data externally, by providing a URL to a json file.
 // Or you can pass in a JSON object or String via the `data` parameter.
@@ -1683,7 +1680,7 @@ func (self *Loader) Tilemap2O(key string, url string, data interface{}) *Loader{
     return &Loader{self.Object.Call("tilemap", key, url, data)}
 }
 
-// Adds a Tile Map data file to the current load queue.
+// Tilemap3O Adds a Tile Map data file to the current load queue.
 // 
 // You can choose to either load the data externally, by providing a URL to a json file.
 // Or you can pass in a JSON object or String via the `data` parameter.
@@ -1707,7 +1704,7 @@ func (self *Loader) Tilemap3O(key string, url string, data interface{}, format i
     return &Loader{self.Object.Call("tilemap", key, url, data, format)}
 }
 
-// Adds a Tile Map data file to the current load queue.
+// TilemapI Adds a Tile Map data file to the current load queue.
 // 
 // You can choose to either load the data externally, by providing a URL to a json file.
 // Or you can pass in a JSON object or String via the `data` parameter.
@@ -1731,7 +1728,7 @@ func (self *Loader) TilemapI(args ...interface{}) *Loader{
     return &Loader{self.Object.Call("tilemap", args)}
 }
 
-// Adds a physics data file to the current load queue.
+// Physics Adds a physics data file to the current load queue.
 // 
 // The data must be in `Lime + Corona` JSON format. [Physics Editor](https://www.codeandweb.com) by code'n'web exports in this format natively.
 // 
@@ -1757,7 +1754,7 @@ func (self *Loader) Physics(key string) *Loader{
     return &Loader{self.Object.Call("physics", key)}
 }
 
-// Adds a physics data file to the current load queue.
+// Physics1O Adds a physics data file to the current load queue.
 // 
 // The data must be in `Lime + Corona` JSON format. [Physics Editor](https://www.codeandweb.com) by code'n'web exports in this format natively.
 // 
@@ -1783,7 +1780,7 @@ func (self *Loader) Physics1O(key string, url string) *Loader{
     return &Loader{self.Object.Call("physics", key, url)}
 }
 
-// Adds a physics data file to the current load queue.
+// Physics2O Adds a physics data file to the current load queue.
 // 
 // The data must be in `Lime + Corona` JSON format. [Physics Editor](https://www.codeandweb.com) by code'n'web exports in this format natively.
 // 
@@ -1809,7 +1806,7 @@ func (self *Loader) Physics2O(key string, url string, data interface{}) *Loader{
     return &Loader{self.Object.Call("physics", key, url, data)}
 }
 
-// Adds a physics data file to the current load queue.
+// Physics3O Adds a physics data file to the current load queue.
 // 
 // The data must be in `Lime + Corona` JSON format. [Physics Editor](https://www.codeandweb.com) by code'n'web exports in this format natively.
 // 
@@ -1835,7 +1832,7 @@ func (self *Loader) Physics3O(key string, url string, data interface{}, format s
     return &Loader{self.Object.Call("physics", key, url, data, format)}
 }
 
-// Adds a physics data file to the current load queue.
+// PhysicsI Adds a physics data file to the current load queue.
 // 
 // The data must be in `Lime + Corona` JSON format. [Physics Editor](https://www.codeandweb.com) by code'n'web exports in this format natively.
 // 
@@ -1861,7 +1858,7 @@ func (self *Loader) PhysicsI(args ...interface{}) *Loader{
     return &Loader{self.Object.Call("physics", args)}
 }
 
-// Adds Bitmap Font files to the current load queue.
+// BitmapFont Adds Bitmap Font files to the current load queue.
 // 
 // To create the Bitmap Font files you can use:
 // 
@@ -1892,7 +1889,7 @@ func (self *Loader) BitmapFont(key string, textureURL string, atlasURL string, a
     return &Loader{self.Object.Call("bitmapFont", key, textureURL, atlasURL, atlasData)}
 }
 
-// Adds Bitmap Font files to the current load queue.
+// BitmapFont1O Adds Bitmap Font files to the current load queue.
 // 
 // To create the Bitmap Font files you can use:
 // 
@@ -1923,7 +1920,7 @@ func (self *Loader) BitmapFont1O(key string, textureURL string, atlasURL string,
     return &Loader{self.Object.Call("bitmapFont", key, textureURL, atlasURL, atlasData, xSpacing)}
 }
 
-// Adds Bitmap Font files to the current load queue.
+// BitmapFont2O Adds Bitmap Font files to the current load queue.
 // 
 // To create the Bitmap Font files you can use:
 // 
@@ -1954,7 +1951,7 @@ func (self *Loader) BitmapFont2O(key string, textureURL string, atlasURL string,
     return &Loader{self.Object.Call("bitmapFont", key, textureURL, atlasURL, atlasData, xSpacing, ySpacing)}
 }
 
-// Adds Bitmap Font files to the current load queue.
+// BitmapFontI Adds Bitmap Font files to the current load queue.
 // 
 // To create the Bitmap Font files you can use:
 // 
@@ -1985,7 +1982,7 @@ func (self *Loader) BitmapFontI(args ...interface{}) *Loader{
     return &Loader{self.Object.Call("bitmapFont", args)}
 }
 
-// Adds a Texture Atlas file to the current load queue.
+// AtlasJSONArray Adds a Texture Atlas file to the current load queue.
 // 
 // Unlike `Loader.atlasJSONHash` this call expects the atlas data to be in a JSON Array format.
 // 
@@ -2020,7 +2017,7 @@ func (self *Loader) AtlasJSONArray(key string) *Loader{
     return &Loader{self.Object.Call("atlasJSONArray", key)}
 }
 
-// Adds a Texture Atlas file to the current load queue.
+// AtlasJSONArray1O Adds a Texture Atlas file to the current load queue.
 // 
 // Unlike `Loader.atlasJSONHash` this call expects the atlas data to be in a JSON Array format.
 // 
@@ -2055,7 +2052,7 @@ func (self *Loader) AtlasJSONArray1O(key string, textureURL string) *Loader{
     return &Loader{self.Object.Call("atlasJSONArray", key, textureURL)}
 }
 
-// Adds a Texture Atlas file to the current load queue.
+// AtlasJSONArray2O Adds a Texture Atlas file to the current load queue.
 // 
 // Unlike `Loader.atlasJSONHash` this call expects the atlas data to be in a JSON Array format.
 // 
@@ -2090,7 +2087,7 @@ func (self *Loader) AtlasJSONArray2O(key string, textureURL string, atlasURL str
     return &Loader{self.Object.Call("atlasJSONArray", key, textureURL, atlasURL)}
 }
 
-// Adds a Texture Atlas file to the current load queue.
+// AtlasJSONArray3O Adds a Texture Atlas file to the current load queue.
 // 
 // Unlike `Loader.atlasJSONHash` this call expects the atlas data to be in a JSON Array format.
 // 
@@ -2125,7 +2122,7 @@ func (self *Loader) AtlasJSONArray3O(key string, textureURL string, atlasURL str
     return &Loader{self.Object.Call("atlasJSONArray", key, textureURL, atlasURL, atlasData)}
 }
 
-// Adds a Texture Atlas file to the current load queue.
+// AtlasJSONArrayI Adds a Texture Atlas file to the current load queue.
 // 
 // Unlike `Loader.atlasJSONHash` this call expects the atlas data to be in a JSON Array format.
 // 
@@ -2160,7 +2157,7 @@ func (self *Loader) AtlasJSONArrayI(args ...interface{}) *Loader{
     return &Loader{self.Object.Call("atlasJSONArray", args)}
 }
 
-// Adds a Texture Atlas file to the current load queue.
+// AtlasJSONHash Adds a Texture Atlas file to the current load queue.
 // 
 // Unlike `Loader.atlas` this call expects the atlas data to be in a JSON Hash format.
 // 
@@ -2195,7 +2192,7 @@ func (self *Loader) AtlasJSONHash(key string) *Loader{
     return &Loader{self.Object.Call("atlasJSONHash", key)}
 }
 
-// Adds a Texture Atlas file to the current load queue.
+// AtlasJSONHash1O Adds a Texture Atlas file to the current load queue.
 // 
 // Unlike `Loader.atlas` this call expects the atlas data to be in a JSON Hash format.
 // 
@@ -2230,7 +2227,7 @@ func (self *Loader) AtlasJSONHash1O(key string, textureURL string) *Loader{
     return &Loader{self.Object.Call("atlasJSONHash", key, textureURL)}
 }
 
-// Adds a Texture Atlas file to the current load queue.
+// AtlasJSONHash2O Adds a Texture Atlas file to the current load queue.
 // 
 // Unlike `Loader.atlas` this call expects the atlas data to be in a JSON Hash format.
 // 
@@ -2265,7 +2262,7 @@ func (self *Loader) AtlasJSONHash2O(key string, textureURL string, atlasURL stri
     return &Loader{self.Object.Call("atlasJSONHash", key, textureURL, atlasURL)}
 }
 
-// Adds a Texture Atlas file to the current load queue.
+// AtlasJSONHash3O Adds a Texture Atlas file to the current load queue.
 // 
 // Unlike `Loader.atlas` this call expects the atlas data to be in a JSON Hash format.
 // 
@@ -2300,7 +2297,7 @@ func (self *Loader) AtlasJSONHash3O(key string, textureURL string, atlasURL stri
     return &Loader{self.Object.Call("atlasJSONHash", key, textureURL, atlasURL, atlasData)}
 }
 
-// Adds a Texture Atlas file to the current load queue.
+// AtlasJSONHashI Adds a Texture Atlas file to the current load queue.
 // 
 // Unlike `Loader.atlas` this call expects the atlas data to be in a JSON Hash format.
 // 
@@ -2335,7 +2332,7 @@ func (self *Loader) AtlasJSONHashI(args ...interface{}) *Loader{
     return &Loader{self.Object.Call("atlasJSONHash", args)}
 }
 
-// Adds a Texture Atlas file to the current load queue.
+// AtlasXML Adds a Texture Atlas file to the current load queue.
 // 
 // This call expects the atlas data to be in the Starling XML data format.
 // 
@@ -2370,7 +2367,7 @@ func (self *Loader) AtlasXML(key string) *Loader{
     return &Loader{self.Object.Call("atlasXML", key)}
 }
 
-// Adds a Texture Atlas file to the current load queue.
+// AtlasXML1O Adds a Texture Atlas file to the current load queue.
 // 
 // This call expects the atlas data to be in the Starling XML data format.
 // 
@@ -2405,7 +2402,7 @@ func (self *Loader) AtlasXML1O(key string, textureURL string) *Loader{
     return &Loader{self.Object.Call("atlasXML", key, textureURL)}
 }
 
-// Adds a Texture Atlas file to the current load queue.
+// AtlasXML2O Adds a Texture Atlas file to the current load queue.
 // 
 // This call expects the atlas data to be in the Starling XML data format.
 // 
@@ -2440,7 +2437,7 @@ func (self *Loader) AtlasXML2O(key string, textureURL string, atlasURL string) *
     return &Loader{self.Object.Call("atlasXML", key, textureURL, atlasURL)}
 }
 
-// Adds a Texture Atlas file to the current load queue.
+// AtlasXML3O Adds a Texture Atlas file to the current load queue.
 // 
 // This call expects the atlas data to be in the Starling XML data format.
 // 
@@ -2475,7 +2472,7 @@ func (self *Loader) AtlasXML3O(key string, textureURL string, atlasURL string, a
     return &Loader{self.Object.Call("atlasXML", key, textureURL, atlasURL, atlasData)}
 }
 
-// Adds a Texture Atlas file to the current load queue.
+// AtlasXMLI Adds a Texture Atlas file to the current load queue.
 // 
 // This call expects the atlas data to be in the Starling XML data format.
 // 
@@ -2510,7 +2507,7 @@ func (self *Loader) AtlasXMLI(args ...interface{}) *Loader{
     return &Loader{self.Object.Call("atlasXML", args)}
 }
 
-// Adds a Texture Atlas file to the current load queue.
+// Atlas Adds a Texture Atlas file to the current load queue.
 // 
 // To create the Texture Atlas you can use tools such as:
 // 
@@ -2543,7 +2540,7 @@ func (self *Loader) Atlas(key string) *Loader{
     return &Loader{self.Object.Call("atlas", key)}
 }
 
-// Adds a Texture Atlas file to the current load queue.
+// Atlas1O Adds a Texture Atlas file to the current load queue.
 // 
 // To create the Texture Atlas you can use tools such as:
 // 
@@ -2576,7 +2573,7 @@ func (self *Loader) Atlas1O(key string, textureURL string) *Loader{
     return &Loader{self.Object.Call("atlas", key, textureURL)}
 }
 
-// Adds a Texture Atlas file to the current load queue.
+// Atlas2O Adds a Texture Atlas file to the current load queue.
 // 
 // To create the Texture Atlas you can use tools such as:
 // 
@@ -2609,7 +2606,7 @@ func (self *Loader) Atlas2O(key string, textureURL string, atlasURL string) *Loa
     return &Loader{self.Object.Call("atlas", key, textureURL, atlasURL)}
 }
 
-// Adds a Texture Atlas file to the current load queue.
+// Atlas3O Adds a Texture Atlas file to the current load queue.
 // 
 // To create the Texture Atlas you can use tools such as:
 // 
@@ -2642,7 +2639,7 @@ func (self *Loader) Atlas3O(key string, textureURL string, atlasURL string, atla
     return &Loader{self.Object.Call("atlas", key, textureURL, atlasURL, atlasData)}
 }
 
-// Adds a Texture Atlas file to the current load queue.
+// Atlas4O Adds a Texture Atlas file to the current load queue.
 // 
 // To create the Texture Atlas you can use tools such as:
 // 
@@ -2675,7 +2672,7 @@ func (self *Loader) Atlas4O(key string, textureURL string, atlasURL string, atla
     return &Loader{self.Object.Call("atlas", key, textureURL, atlasURL, atlasData, format)}
 }
 
-// Adds a Texture Atlas file to the current load queue.
+// AtlasI Adds a Texture Atlas file to the current load queue.
 // 
 // To create the Texture Atlas you can use tools such as:
 // 
@@ -2708,7 +2705,7 @@ func (self *Loader) AtlasI(args ...interface{}) *Loader{
     return &Loader{self.Object.Call("atlas", args)}
 }
 
-// Add a synchronization point to the assets/files added within the supplied callback.
+// WithSyncPoints Add a synchronization point to the assets/files added within the supplied callback.
 // 
 // A synchronization point denotes that an asset _must_ be completely loaded before
 // subsequent assets can be loaded. An asset marked as a sync-point does not need to wait
@@ -2718,7 +2715,7 @@ func (self *Loader) WithSyncPoints(callback interface{}) *Loader{
     return &Loader{self.Object.Call("withSyncPoints", callback)}
 }
 
-// Add a synchronization point to the assets/files added within the supplied callback.
+// WithSyncPoints1O Add a synchronization point to the assets/files added within the supplied callback.
 // 
 // A synchronization point denotes that an asset _must_ be completely loaded before
 // subsequent assets can be loaded. An asset marked as a sync-point does not need to wait
@@ -2728,7 +2725,7 @@ func (self *Loader) WithSyncPoints1O(callback interface{}, callbackContext inter
     return &Loader{self.Object.Call("withSyncPoints", callback, callbackContext)}
 }
 
-// Add a synchronization point to the assets/files added within the supplied callback.
+// WithSyncPointsI Add a synchronization point to the assets/files added within the supplied callback.
 // 
 // A synchronization point denotes that an asset _must_ be completely loaded before
 // subsequent assets can be loaded. An asset marked as a sync-point does not need to wait
@@ -2738,55 +2735,55 @@ func (self *Loader) WithSyncPointsI(args ...interface{}) *Loader{
     return &Loader{self.Object.Call("withSyncPoints", args)}
 }
 
-// Add a synchronization point to a specific file/asset in the load queue.
+// AddSyncPoint Add a synchronization point to a specific file/asset in the load queue.
 // 
 // This has no effect on already loaded assets.
 func (self *Loader) AddSyncPoint(type_ string, key string) *Loader{
     return &Loader{self.Object.Call("addSyncPoint", type_, key)}
 }
 
-// Add a synchronization point to a specific file/asset in the load queue.
+// AddSyncPointI Add a synchronization point to a specific file/asset in the load queue.
 // 
 // This has no effect on already loaded assets.
 func (self *Loader) AddSyncPointI(args ...interface{}) *Loader{
     return &Loader{self.Object.Call("addSyncPoint", args)}
 }
 
-// Remove a file/asset from the loading queue.
+// RemoveFile Remove a file/asset from the loading queue.
 // 
 // A file that is loaded or has started loading cannot be removed.
 func (self *Loader) RemoveFile(type_ string, key string) {
     self.Object.Call("removeFile", type_, key)
 }
 
-// Remove a file/asset from the loading queue.
+// RemoveFileI Remove a file/asset from the loading queue.
 // 
 // A file that is loaded or has started loading cannot be removed.
 func (self *Loader) RemoveFileI(args ...interface{}) {
     self.Object.Call("removeFile", args)
 }
 
-// Remove all file loading requests - this is _insufficient_ to stop current loading. Use `reset` instead.
+// RemoveAll Remove all file loading requests - this is _insufficient_ to stop current loading. Use `reset` instead.
 func (self *Loader) RemoveAll() {
     self.Object.Call("removeAll")
 }
 
-// Remove all file loading requests - this is _insufficient_ to stop current loading. Use `reset` instead.
+// RemoveAllI Remove all file loading requests - this is _insufficient_ to stop current loading. Use `reset` instead.
 func (self *Loader) RemoveAllI(args ...interface{}) {
     self.Object.Call("removeAll", args)
 }
 
-// Start loading the assets. Normally you don't need to call this yourself as the StateManager will do so.
+// Start Start loading the assets. Normally you don't need to call this yourself as the StateManager will do so.
 func (self *Loader) Start() {
     self.Object.Call("start")
 }
 
-// Start loading the assets. Normally you don't need to call this yourself as the StateManager will do so.
+// StartI Start loading the assets. Normally you don't need to call this yourself as the StateManager will do so.
 func (self *Loader) StartI(args ...interface{}) {
     self.Object.Call("start", args)
 }
 
-// Process the next item(s) in the file/asset queue.
+// ProcessLoadQueue Process the next item(s) in the file/asset queue.
 // 
 // Process the queue and start loading enough items to fill up the inflight queue.
 // 
@@ -2798,7 +2795,7 @@ func (self *Loader) ProcessLoadQueue() {
     self.Object.Call("processLoadQueue")
 }
 
-// Process the next item(s) in the file/asset queue.
+// ProcessLoadQueueI Process the next item(s) in the file/asset queue.
 // 
 // Process the queue and start loading enough items to fill up the inflight queue.
 // 
@@ -2810,262 +2807,263 @@ func (self *Loader) ProcessLoadQueueI(args ...interface{}) {
     self.Object.Call("processLoadQueue", args)
 }
 
-// The loading is all finished.
+// FinishedLoading The loading is all finished.
 func (self *Loader) FinishedLoading() {
     self.Object.Call("finishedLoading")
 }
 
-// The loading is all finished.
+// FinishedLoading1O The loading is all finished.
 func (self *Loader) FinishedLoading1O(abnormal bool) {
     self.Object.Call("finishedLoading", abnormal)
 }
 
-// The loading is all finished.
+// FinishedLoadingI The loading is all finished.
 func (self *Loader) FinishedLoadingI(args ...interface{}) {
     self.Object.Call("finishedLoading", args)
 }
 
-// Informs the loader that the given file resource has been fetched and processed;
+// AsyncComplete Informs the loader that the given file resource has been fetched and processed;
 // or such a request has failed.
 func (self *Loader) AsyncComplete(file interface{}) {
     self.Object.Call("asyncComplete", file)
 }
 
-// Informs the loader that the given file resource has been fetched and processed;
+// AsyncComplete1O Informs the loader that the given file resource has been fetched and processed;
 // or such a request has failed.
 func (self *Loader) AsyncComplete1O(file interface{}, error string) {
     self.Object.Call("asyncComplete", file, error)
 }
 
-// Informs the loader that the given file resource has been fetched and processed;
+// AsyncCompleteI Informs the loader that the given file resource has been fetched and processed;
 // or such a request has failed.
 func (self *Loader) AsyncCompleteI(args ...interface{}) {
     self.Object.Call("asyncComplete", args)
 }
 
-// Process pack data. This will usually modify the file list.
+// ProcessPack Process pack data. This will usually modify the file list.
 func (self *Loader) ProcessPack(pack interface{}) {
     self.Object.Call("processPack", pack)
 }
 
-// Process pack data. This will usually modify the file list.
+// ProcessPackI Process pack data. This will usually modify the file list.
 func (self *Loader) ProcessPackI(args ...interface{}) {
     self.Object.Call("processPack", args)
 }
 
-// Transforms the asset URL.
+// TransformUrl Transforms the asset URL.
 // 
 // The default implementation prepends the baseURL if the url doesn't begin with http or //
 func (self *Loader) TransformUrl(url string, file interface{}) string{
     return self.Object.Call("transformUrl", url, file).String()
 }
 
-// Transforms the asset URL.
+// TransformUrlI Transforms the asset URL.
 // 
 // The default implementation prepends the baseURL if the url doesn't begin with http or //
 func (self *Loader) TransformUrlI(args ...interface{}) string{
     return self.Object.Call("transformUrl", args).String()
 }
 
-// Start fetching a resource.
+// LoadFile Start fetching a resource.
 // 
 // All code paths, async or otherwise, from this function must return to `asyncComplete`.
 func (self *Loader) LoadFile(file interface{}) {
     self.Object.Call("loadFile", file)
 }
 
-// Start fetching a resource.
+// LoadFileI Start fetching a resource.
 // 
 // All code paths, async or otherwise, from this function must return to `asyncComplete`.
 func (self *Loader) LoadFileI(args ...interface{}) {
     self.Object.Call("loadFile", args)
 }
 
-// Continue async loading through an Image tag.
+// LoadImageTag Continue async loading through an Image tag.
 func (self *Loader) LoadImageTag() {
     self.Object.Call("loadImageTag")
 }
 
-// Continue async loading through an Image tag.
+// LoadImageTagI Continue async loading through an Image tag.
 func (self *Loader) LoadImageTagI(args ...interface{}) {
     self.Object.Call("loadImageTag", args)
 }
 
-// Continue async loading through a Video tag.
+// LoadVideoTag Continue async loading through a Video tag.
 func (self *Loader) LoadVideoTag() {
     self.Object.Call("loadVideoTag")
 }
 
-// Continue async loading through a Video tag.
+// LoadVideoTagI Continue async loading through a Video tag.
 func (self *Loader) LoadVideoTagI(args ...interface{}) {
     self.Object.Call("loadVideoTag", args)
 }
 
-// Continue async loading through an Audio tag.
+// LoadAudioTag Continue async loading through an Audio tag.
 func (self *Loader) LoadAudioTag() {
     self.Object.Call("loadAudioTag")
 }
 
-// Continue async loading through an Audio tag.
+// LoadAudioTagI Continue async loading through an Audio tag.
 func (self *Loader) LoadAudioTagI(args ...interface{}) {
     self.Object.Call("loadAudioTag", args)
 }
 
-// Starts the xhr loader.
+// XhrLoad Starts the xhr loader.
 // 
 // This is designed specifically to use with asset file processing.
 func (self *Loader) XhrLoad(file interface{}, url string, type_ string, onload interface{}) {
     self.Object.Call("xhrLoad", file, url, type_, onload)
 }
 
-// Starts the xhr loader.
+// XhrLoad1O Starts the xhr loader.
 // 
 // This is designed specifically to use with asset file processing.
 func (self *Loader) XhrLoad1O(file interface{}, url string, type_ string, onload interface{}, onerror interface{}) {
     self.Object.Call("xhrLoad", file, url, type_, onload, onerror)
 }
 
-// Starts the xhr loader.
+// XhrLoadI Starts the xhr loader.
 // 
 // This is designed specifically to use with asset file processing.
 func (self *Loader) XhrLoadI(args ...interface{}) {
     self.Object.Call("xhrLoad", args)
 }
 
-// Give a bunch of URLs, return the first URL that has an extension this device thinks it can play.
+// GetVideoURL Give a bunch of URLs, return the first URL that has an extension this device thinks it can play.
 // 
 // It is assumed that the device can play "blob:" or "data:" URIs - There is no mime-type checking on data URIs.
 func (self *Loader) GetVideoURL(urls interface{}) string{
     return self.Object.Call("getVideoURL", urls).String()
 }
 
-// Give a bunch of URLs, return the first URL that has an extension this device thinks it can play.
+// GetVideoURLI Give a bunch of URLs, return the first URL that has an extension this device thinks it can play.
 // 
 // It is assumed that the device can play "blob:" or "data:" URIs - There is no mime-type checking on data URIs.
 func (self *Loader) GetVideoURLI(args ...interface{}) string{
     return self.Object.Call("getVideoURL", args).String()
 }
 
-// Give a bunch of URLs, return the first URL that has an extension this device thinks it can play.
+// GetAudioURL Give a bunch of URLs, return the first URL that has an extension this device thinks it can play.
 // 
 // It is assumed that the device can play "blob:" or "data:" URIs - There is no mime-type checking on data URIs.
 func (self *Loader) GetAudioURL(urls interface{}) string{
     return self.Object.Call("getAudioURL", urls).String()
 }
 
-// Give a bunch of URLs, return the first URL that has an extension this device thinks it can play.
+// GetAudioURLI Give a bunch of URLs, return the first URL that has an extension this device thinks it can play.
 // 
 // It is assumed that the device can play "blob:" or "data:" URIs - There is no mime-type checking on data URIs.
 func (self *Loader) GetAudioURLI(args ...interface{}) string{
     return self.Object.Call("getAudioURL", args).String()
 }
 
-// Error occurred when loading a file.
+// FileError Error occurred when loading a file.
 func (self *Loader) FileError(file interface{}, xhr *XMLHttpRequest, reason string) {
     self.Object.Call("fileError", file, xhr, reason)
 }
 
-// Error occurred when loading a file.
+// FileErrorI Error occurred when loading a file.
 func (self *Loader) FileErrorI(args ...interface{}) {
     self.Object.Call("fileError", args)
 }
 
-// Called when a file/resources had been downloaded and needs to be processed further.
+// FileComplete Called when a file/resources had been downloaded and needs to be processed further.
 func (self *Loader) FileComplete(file interface{}, xhr *XMLHttpRequest) {
     self.Object.Call("fileComplete", file, xhr)
 }
 
-// Called when a file/resources had been downloaded and needs to be processed further.
+// FileCompleteI Called when a file/resources had been downloaded and needs to be processed further.
 func (self *Loader) FileCompleteI(args ...interface{}) {
     self.Object.Call("fileComplete", args)
 }
 
-// Successfully loaded a JSON file - only used for certain types.
+// JsonLoadComplete Successfully loaded a JSON file - only used for certain types.
 func (self *Loader) JsonLoadComplete(file interface{}, xhr *XMLHttpRequest) {
     self.Object.Call("jsonLoadComplete", file, xhr)
 }
 
-// Successfully loaded a JSON file - only used for certain types.
+// JsonLoadCompleteI Successfully loaded a JSON file - only used for certain types.
 func (self *Loader) JsonLoadCompleteI(args ...interface{}) {
     self.Object.Call("jsonLoadComplete", args)
 }
 
-// Successfully loaded a CSV file - only used for certain types.
+// CsvLoadComplete Successfully loaded a CSV file - only used for certain types.
 func (self *Loader) CsvLoadComplete(file interface{}, xhr *XMLHttpRequest) {
     self.Object.Call("csvLoadComplete", file, xhr)
 }
 
-// Successfully loaded a CSV file - only used for certain types.
+// CsvLoadCompleteI Successfully loaded a CSV file - only used for certain types.
 func (self *Loader) CsvLoadCompleteI(args ...interface{}) {
     self.Object.Call("csvLoadComplete", args)
 }
 
-// Successfully loaded an XML file - only used for certain types.
+// XmlLoadComplete Successfully loaded an XML file - only used for certain types.
 func (self *Loader) XmlLoadComplete(file interface{}, xhr *XMLHttpRequest) {
     self.Object.Call("xmlLoadComplete", file, xhr)
 }
 
-// Successfully loaded an XML file - only used for certain types.
+// XmlLoadCompleteI Successfully loaded an XML file - only used for certain types.
 func (self *Loader) XmlLoadCompleteI(args ...interface{}) {
     self.Object.Call("xmlLoadComplete", args)
 }
 
-// Parses string data as XML.
+// ParseXml Parses string data as XML.
 func (self *Loader) ParseXml(data string) *XMLDocument{
     return &XMLDocument{self.Object.Call("parseXml", data)}
 }
 
-// Parses string data as XML.
+// ParseXmlI Parses string data as XML.
 func (self *Loader) ParseXmlI(args ...interface{}) *XMLDocument{
     return &XMLDocument{self.Object.Call("parseXml", args)}
 }
 
-// Update the loading sprite progress.
+// NextFile Update the loading sprite progress.
 func (self *Loader) NextFile(previousFile interface{}, success bool) {
     self.Object.Call("nextFile", previousFile, success)
 }
 
-// Update the loading sprite progress.
+// NextFileI Update the loading sprite progress.
 func (self *Loader) NextFileI(args ...interface{}) {
     self.Object.Call("nextFile", args)
 }
 
-// Returns the number of files that have already been loaded, even if they errored.
+// TotalLoadedFiles Returns the number of files that have already been loaded, even if they errored.
 func (self *Loader) TotalLoadedFiles() int{
     return self.Object.Call("totalLoadedFiles").Int()
 }
 
-// Returns the number of files that have already been loaded, even if they errored.
+// TotalLoadedFilesI Returns the number of files that have already been loaded, even if they errored.
 func (self *Loader) TotalLoadedFilesI(args ...interface{}) int{
     return self.Object.Call("totalLoadedFiles", args).Int()
 }
 
-// Returns the number of files still waiting to be processed in the load queue. This value decreases as each file in the queue is loaded.
+// TotalQueuedFiles Returns the number of files still waiting to be processed in the load queue. This value decreases as each file in the queue is loaded.
 func (self *Loader) TotalQueuedFiles() int{
     return self.Object.Call("totalQueuedFiles").Int()
 }
 
-// Returns the number of files still waiting to be processed in the load queue. This value decreases as each file in the queue is loaded.
+// TotalQueuedFilesI Returns the number of files still waiting to be processed in the load queue. This value decreases as each file in the queue is loaded.
 func (self *Loader) TotalQueuedFilesI(args ...interface{}) int{
     return self.Object.Call("totalQueuedFiles", args).Int()
 }
 
-// Returns the number of asset packs that have already been loaded, even if they errored.
+// TotalLoadedPacks Returns the number of asset packs that have already been loaded, even if they errored.
 func (self *Loader) TotalLoadedPacks() int{
     return self.Object.Call("totalLoadedPacks").Int()
 }
 
-// Returns the number of asset packs that have already been loaded, even if they errored.
+// TotalLoadedPacksI Returns the number of asset packs that have already been loaded, even if they errored.
 func (self *Loader) TotalLoadedPacksI(args ...interface{}) int{
     return self.Object.Call("totalLoadedPacks", args).Int()
 }
 
-// Returns the number of asset packs still waiting to be processed in the load queue. This value decreases as each pack in the queue is loaded.
+// TotalQueuedPacks Returns the number of asset packs still waiting to be processed in the load queue. This value decreases as each pack in the queue is loaded.
 func (self *Loader) TotalQueuedPacks() int{
     return self.Object.Call("totalQueuedPacks").Int()
 }
 
-// Returns the number of asset packs still waiting to be processed in the load queue. This value decreases as each pack in the queue is loaded.
+// TotalQueuedPacksI Returns the number of asset packs still waiting to be processed in the load queue. This value decreases as each pack in the queue is loaded.
 func (self *Loader) TotalQueuedPacksI(args ...interface{}) int{
     return self.Object.Call("totalQueuedPacks", args).Int()
 }
+

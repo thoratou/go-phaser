@@ -1,4 +1,4 @@
-// Automatic generation for Phaser.Component.Overlap
+// Package phaser Automatic generation for Phaser.Component.Overlap
 // generated file ComponentOverlap.go
 package phaser
 
@@ -7,18 +7,16 @@ import (
 
 )
 
-// The Overlap component allows a Game Object to check if it overlaps with the bounds of another Game Object.
+// ComponentOverlap The Overlap component allows a Game Object to check if it overlaps with the bounds of another Game Object.
 type ComponentOverlap struct {
     *js.Object
 }
 
-
-// The Overlap component allows a Game Object to check if it overlaps with the bounds of another Game Object.
+// NewComponentOverlap The Overlap component allows a Game Object to check if it overlaps with the bounds of another Game Object.
 func NewComponentOverlap() *ComponentOverlap {
     return &ComponentOverlap{js.Global.Get("Phaser").Get("Component").Get("Overlap").New()}
 }
-
-// The Overlap component allows a Game Object to check if it overlaps with the bounds of another Game Object.
+// NewComponentOverlapI The Overlap component allows a Game Object to check if it overlaps with the bounds of another Game Object.
 func NewComponentOverlapI(args ...interface{}) *ComponentOverlap {
     return &ComponentOverlap{js.Global.Get("Phaser").Get("Component").Get("Overlap").New(args)}
 }
@@ -26,8 +24,7 @@ func NewComponentOverlapI(args ...interface{}) *ComponentOverlap {
 
 
 
-
-// Checks to see if the bounds of this Game Object overlaps with the bounds of the given Display Object, 
+// Overlap Checks to see if the bounds of this Game Object overlaps with the bounds of the given Display Object, 
 // which can be a Sprite, Image, TileSprite or anything that extends those such as Button or provides a `getBounds` method and result.
 // 
 // This check ignores the `hitArea` property if set and runs a `getBounds` comparison on both objects to determine the result.
@@ -38,7 +35,7 @@ func (self *ComponentOverlap) Overlap(displayObject interface{}) bool{
     return self.Object.Call("overlap", displayObject).Bool()
 }
 
-// Checks to see if the bounds of this Game Object overlaps with the bounds of the given Display Object, 
+// OverlapI Checks to see if the bounds of this Game Object overlaps with the bounds of the given Display Object, 
 // which can be a Sprite, Image, TileSprite or anything that extends those such as Button or provides a `getBounds` method and result.
 // 
 // This check ignores the `hitArea` property if set and runs a `getBounds` comparison on both objects to determine the result.
@@ -48,3 +45,4 @@ func (self *ComponentOverlap) Overlap(displayObject interface{}) bool{
 func (self *ComponentOverlap) OverlapI(args ...interface{}) bool{
     return self.Object.Call("overlap", args).Bool()
 }
+

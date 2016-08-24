@@ -1,4 +1,4 @@
-// Automatic generation for Phaser.Time
+// Package phaser Automatic generation for Phaser.Time
 // generated file Time.go
 package phaser
 
@@ -7,7 +7,7 @@ import (
 
 )
 
-// This is the core internal game clock.
+// Time This is the core internal game clock.
 // 
 // It manages the elapsed time and calculation of elapsed values, used for game object motion and tweens,
 // and also handles the standard Timer pool.
@@ -36,8 +36,7 @@ type Time struct {
     *js.Object
 }
 
-
-// This is the core internal game clock.
+// NewTime This is the core internal game clock.
 // 
 // It manages the elapsed time and calculation of elapsed values, used for game object motion and tweens,
 // and also handles the standard Timer pool.
@@ -65,8 +64,7 @@ type Time struct {
 func NewTime(game *Game) *Time {
     return &Time{js.Global.Get("Phaser").Get("Time").New(game)}
 }
-
-// This is the core internal game clock.
+// NewTimeI This is the core internal game clock.
 // 
 // It manages the elapsed time and calculation of elapsed values, used for game object motion and tweens,
 // and also handles the standard Timer pool.
@@ -97,37 +95,37 @@ func NewTimeI(args ...interface{}) *Time {
 
 
 
-// Local reference to game.
+// Game Local reference to game.
 func (self *Time) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
-// Local reference to game.
+// SetGameA Local reference to game.
 func (self *Time) SetGameA(member *Game) {
     self.Object.Set("game", member)
 }
 
-// The `Date.now()` value when the time was last updated.
+// Time The `Date.now()` value when the time was last updated.
 func (self *Time) Time() int{
     return self.Object.Get("time").Int()
 }
 
-// The `Date.now()` value when the time was last updated.
+// SetTimeA The `Date.now()` value when the time was last updated.
 func (self *Time) SetTimeA(member int) {
     self.Object.Set("time", member)
 }
 
-// The `now` when the previous update occurred.
+// PrevTime The `now` when the previous update occurred.
 func (self *Time) PrevTime() int{
     return self.Object.Get("prevTime").Int()
 }
 
-// The `now` when the previous update occurred.
+// SetPrevTimeA The `now` when the previous update occurred.
 func (self *Time) SetPrevTimeA(member int) {
     self.Object.Set("prevTime", member)
 }
 
-// An increasing value representing cumulative milliseconds since an undisclosed epoch.
+// Now An increasing value representing cumulative milliseconds since an undisclosed epoch.
 // 
 // While this value is in milliseconds and can be used to compute time deltas,
 // it must must _not_ be used with `Date.now()` as it may not use the same epoch / starting reference.
@@ -138,7 +136,7 @@ func (self *Time) Now() int{
     return self.Object.Get("now").Int()
 }
 
-// An increasing value representing cumulative milliseconds since an undisclosed epoch.
+// SetNowA An increasing value representing cumulative milliseconds since an undisclosed epoch.
 // 
 // While this value is in milliseconds and can be used to compute time deltas,
 // it must must _not_ be used with `Date.now()` as it may not use the same epoch / starting reference.
@@ -149,7 +147,7 @@ func (self *Time) SetNowA(member int) {
     self.Object.Set("now", member)
 }
 
-// Elapsed time since the last time update, in milliseconds, based on `now`.
+// Elapsed Elapsed time since the last time update, in milliseconds, based on `now`.
 // 
 // This value _may_ include time that the game is paused/inactive.
 // 
@@ -159,7 +157,7 @@ func (self *Time) Elapsed() int{
     return self.Object.Get("elapsed").Int()
 }
 
-// Elapsed time since the last time update, in milliseconds, based on `now`.
+// SetElapsedA Elapsed time since the last time update, in milliseconds, based on `now`.
 // 
 // This value _may_ include time that the game is paused/inactive.
 // 
@@ -169,7 +167,7 @@ func (self *Time) SetElapsedA(member int) {
     self.Object.Set("elapsed", member)
 }
 
-// The time in ms since the last time update, in milliseconds, based on `time`.
+// ElapsedMS The time in ms since the last time update, in milliseconds, based on `time`.
 // 
 // This value is corrected for game pauses and will be "about zero" after a game is resumed.
 // 
@@ -179,7 +177,7 @@ func (self *Time) ElapsedMS() int{
     return self.Object.Get("elapsedMS").Int()
 }
 
-// The time in ms since the last time update, in milliseconds, based on `time`.
+// SetElapsedMSA The time in ms since the last time update, in milliseconds, based on `time`.
 // 
 // This value is corrected for game pauses and will be "about zero" after a game is resumed.
 // 
@@ -189,7 +187,7 @@ func (self *Time) SetElapsedMSA(member int) {
     self.Object.Set("elapsedMS", member)
 }
 
-// The physics update delta, in fractional seconds.
+// PhysicsElapsed The physics update delta, in fractional seconds.
 // 
 // This should be used as an applicable multiplier by all logic update steps (eg. `preUpdate/postUpdate/update`)
 // to ensure consistent game timing. Game/logic timing can drift from real-world time if the system
@@ -200,7 +198,7 @@ func (self *Time) PhysicsElapsed() int{
     return self.Object.Get("physicsElapsed").Int()
 }
 
-// The physics update delta, in fractional seconds.
+// SetPhysicsElapsedA The physics update delta, in fractional seconds.
 // 
 // This should be used as an applicable multiplier by all logic update steps (eg. `preUpdate/postUpdate/update`)
 // to ensure consistent game timing. Game/logic timing can drift from real-world time if the system
@@ -211,27 +209,27 @@ func (self *Time) SetPhysicsElapsedA(member int) {
     self.Object.Set("physicsElapsed", member)
 }
 
-// The physics update delta, in milliseconds - equivalent to `physicsElapsed * 1000`.
+// PhysicsElapsedMS The physics update delta, in milliseconds - equivalent to `physicsElapsed * 1000`.
 func (self *Time) PhysicsElapsedMS() int{
     return self.Object.Get("physicsElapsedMS").Int()
 }
 
-// The physics update delta, in milliseconds - equivalent to `physicsElapsed * 1000`.
+// SetPhysicsElapsedMSA The physics update delta, in milliseconds - equivalent to `physicsElapsed * 1000`.
 func (self *Time) SetPhysicsElapsedMSA(member int) {
     self.Object.Set("physicsElapsedMS", member)
 }
 
-// The desiredFps multiplier as used by Game.update.
+// DesiredFpsMult The desiredFps multiplier as used by Game.update.
 func (self *Time) DesiredFpsMult() int{
     return self.Object.Get("desiredFpsMult").Int()
 }
 
-// The desiredFps multiplier as used by Game.update.
+// SetDesiredFpsMultA The desiredFps multiplier as used by Game.update.
 func (self *Time) SetDesiredFpsMultA(member int) {
     self.Object.Set("desiredFpsMult", member)
 }
 
-// The suggested frame rate for your game, based on an averaged real frame rate.
+// SuggestedFps The suggested frame rate for your game, based on an averaged real frame rate.
 // This value is only populated if `Time.advancedTiming` is enabled.
 // 
 // _Note:_ This is not available until after a few frames have passed; until then
@@ -240,7 +238,7 @@ func (self *Time) SuggestedFps() int{
     return self.Object.Get("suggestedFps").Int()
 }
 
-// The suggested frame rate for your game, based on an averaged real frame rate.
+// SetSuggestedFpsA The suggested frame rate for your game, based on an averaged real frame rate.
 // This value is only populated if `Time.advancedTiming` is enabled.
 // 
 // _Note:_ This is not available until after a few frames have passed; until then
@@ -249,59 +247,59 @@ func (self *Time) SetSuggestedFpsA(member int) {
     self.Object.Set("suggestedFps", member)
 }
 
-// Scaling factor to make the game move smoothly in slow motion
+// SlowMotion Scaling factor to make the game move smoothly in slow motion
 // - 1.0 = normal speed
 // - 2.0 = half speed
 func (self *Time) SlowMotion() int{
     return self.Object.Get("slowMotion").Int()
 }
 
-// Scaling factor to make the game move smoothly in slow motion
+// SetSlowMotionA Scaling factor to make the game move smoothly in slow motion
 // - 1.0 = normal speed
 // - 2.0 = half speed
 func (self *Time) SetSlowMotionA(member int) {
     self.Object.Set("slowMotion", member)
 }
 
-// If true then advanced profiling, including the fps rate, fps min/max, suggestedFps and msMin/msMax are updated.
+// AdvancedTiming If true then advanced profiling, including the fps rate, fps min/max, suggestedFps and msMin/msMax are updated.
 func (self *Time) AdvancedTiming() bool{
     return self.Object.Get("advancedTiming").Bool()
 }
 
-// If true then advanced profiling, including the fps rate, fps min/max, suggestedFps and msMin/msMax are updated.
+// SetAdvancedTimingA If true then advanced profiling, including the fps rate, fps min/max, suggestedFps and msMin/msMax are updated.
 func (self *Time) SetAdvancedTimingA(member bool) {
     self.Object.Set("advancedTiming", member)
 }
 
-// Advanced timing result: The number of render frames record in the last second.
+// Frames Advanced timing result: The number of render frames record in the last second.
 // 
 // Only calculated if {@link Phaser.Time#advancedTiming advancedTiming} is enabled.
 func (self *Time) Frames() int{
     return self.Object.Get("frames").Int()
 }
 
-// Advanced timing result: The number of render frames record in the last second.
+// SetFramesA Advanced timing result: The number of render frames record in the last second.
 // 
 // Only calculated if {@link Phaser.Time#advancedTiming advancedTiming} is enabled.
 func (self *Time) SetFramesA(member int) {
     self.Object.Set("frames", member)
 }
 
-// Advanced timing result: Frames per second.
+// Fps Advanced timing result: Frames per second.
 // 
 // Only calculated if {@link Phaser.Time#advancedTiming advancedTiming} is enabled.
 func (self *Time) Fps() int{
     return self.Object.Get("fps").Int()
 }
 
-// Advanced timing result: Frames per second.
+// SetFpsA Advanced timing result: Frames per second.
 // 
 // Only calculated if {@link Phaser.Time#advancedTiming advancedTiming} is enabled.
 func (self *Time) SetFpsA(member int) {
     self.Object.Set("fps", member)
 }
 
-// Advanced timing result: The lowest rate the fps has dropped to.
+// FpsMin Advanced timing result: The lowest rate the fps has dropped to.
 // 
 // Only calculated if {@link Phaser.Time#advancedTiming advancedTiming} is enabled.
 // This value can be manually reset.
@@ -309,7 +307,7 @@ func (self *Time) FpsMin() int{
     return self.Object.Get("fpsMin").Int()
 }
 
-// Advanced timing result: The lowest rate the fps has dropped to.
+// SetFpsMinA Advanced timing result: The lowest rate the fps has dropped to.
 // 
 // Only calculated if {@link Phaser.Time#advancedTiming advancedTiming} is enabled.
 // This value can be manually reset.
@@ -317,7 +315,7 @@ func (self *Time) SetFpsMinA(member int) {
     self.Object.Set("fpsMin", member)
 }
 
-// Advanced timing result: The highest rate the fps has reached (usually no higher than 60fps).
+// FpsMax Advanced timing result: The highest rate the fps has reached (usually no higher than 60fps).
 // 
 // Only calculated if {@link Phaser.Time#advancedTiming advancedTiming} is enabled.
 // This value can be manually reset.
@@ -325,7 +323,7 @@ func (self *Time) FpsMax() int{
     return self.Object.Get("fpsMax").Int()
 }
 
-// Advanced timing result: The highest rate the fps has reached (usually no higher than 60fps).
+// SetFpsMaxA Advanced timing result: The highest rate the fps has reached (usually no higher than 60fps).
 // 
 // Only calculated if {@link Phaser.Time#advancedTiming advancedTiming} is enabled.
 // This value can be manually reset.
@@ -333,7 +331,7 @@ func (self *Time) SetFpsMaxA(member int) {
     self.Object.Set("fpsMax", member)
 }
 
-// Advanced timing result: The minimum amount of time the game has taken between consecutive frames.
+// MsMin Advanced timing result: The minimum amount of time the game has taken between consecutive frames.
 // 
 // Only calculated if {@link Phaser.Time#advancedTiming advancedTiming} is enabled.
 // This value can be manually reset.
@@ -341,7 +339,7 @@ func (self *Time) MsMin() int{
     return self.Object.Get("msMin").Int()
 }
 
-// Advanced timing result: The minimum amount of time the game has taken between consecutive frames.
+// SetMsMinA Advanced timing result: The minimum amount of time the game has taken between consecutive frames.
 // 
 // Only calculated if {@link Phaser.Time#advancedTiming advancedTiming} is enabled.
 // This value can be manually reset.
@@ -349,7 +347,7 @@ func (self *Time) SetMsMinA(member int) {
     self.Object.Set("msMin", member)
 }
 
-// Advanced timing result: The maximum amount of time the game has taken between consecutive frames.
+// MsMax Advanced timing result: The maximum amount of time the game has taken between consecutive frames.
 // 
 // Only calculated if {@link Phaser.Time#advancedTiming advancedTiming} is enabled.
 // This value can be manually reset.
@@ -357,7 +355,7 @@ func (self *Time) MsMax() int{
     return self.Object.Get("msMax").Int()
 }
 
-// Advanced timing result: The maximum amount of time the game has taken between consecutive frames.
+// SetMsMaxA Advanced timing result: The maximum amount of time the game has taken between consecutive frames.
 // 
 // Only calculated if {@link Phaser.Time#advancedTiming advancedTiming} is enabled.
 // This value can be manually reset.
@@ -365,56 +363,56 @@ func (self *Time) SetMsMaxA(member int) {
     self.Object.Set("msMax", member)
 }
 
-// Records how long the game was last paused, in milliseconds.
+// PauseDuration Records how long the game was last paused, in milliseconds.
 // (This is not updated until the game is resumed.)
 func (self *Time) PauseDuration() int{
     return self.Object.Get("pauseDuration").Int()
 }
 
-// Records how long the game was last paused, in milliseconds.
+// SetPauseDurationA Records how long the game was last paused, in milliseconds.
 // (This is not updated until the game is resumed.)
 func (self *Time) SetPauseDurationA(member int) {
     self.Object.Set("pauseDuration", member)
 }
 
-// The value that setTimeout needs to work out when to next update
+// TimeToCall The value that setTimeout needs to work out when to next update
 func (self *Time) TimeToCall() int{
     return self.Object.Get("timeToCall").Int()
 }
 
-// The value that setTimeout needs to work out when to next update
+// SetTimeToCallA The value that setTimeout needs to work out when to next update
 func (self *Time) SetTimeToCallA(member int) {
     self.Object.Set("timeToCall", member)
 }
 
-// The time when the next call is expected when using setTimer to control the update loop
+// TimeExpected The time when the next call is expected when using setTimer to control the update loop
 func (self *Time) TimeExpected() int{
     return self.Object.Get("timeExpected").Int()
 }
 
-// The time when the next call is expected when using setTimer to control the update loop
+// SetTimeExpectedA The time when the next call is expected when using setTimer to control the update loop
 func (self *Time) SetTimeExpectedA(member int) {
     self.Object.Set("timeExpected", member)
 }
 
-// A {@link Phaser.Timer} object bound to the master clock (this Time object) which events can be added to.
+// Events A {@link Phaser.Timer} object bound to the master clock (this Time object) which events can be added to.
 func (self *Time) Events() *Timer{
     return &Timer{self.Object.Get("events")}
 }
 
-// A {@link Phaser.Timer} object bound to the master clock (this Time object) which events can be added to.
+// SetEventsA A {@link Phaser.Timer} object bound to the master clock (this Time object) which events can be added to.
 func (self *Time) SetEventsA(member *Timer) {
     self.Object.Set("events", member)
 }
 
-// The desired frame rate of the game.
+// DesiredFps The desired frame rate of the game.
 // 
 // This is used is used to calculate the physic / logic multiplier and how to apply catch-up logic updates. The desired frame rate of the game. Defaults to 60.
 func (self *Time) DesiredFps() int{
     return self.Object.Get("desiredFps").Int()
 }
 
-// The desired frame rate of the game.
+// SetDesiredFpsA The desired frame rate of the game.
 // 
 // This is used is used to calculate the physic / logic multiplier and how to apply catch-up logic updates. The desired frame rate of the game. Defaults to 60.
 func (self *Time) SetDesiredFpsA(member int) {
@@ -422,152 +420,152 @@ func (self *Time) SetDesiredFpsA(member int) {
 }
 
 
-
-// Called automatically by Phaser.Game after boot. Should not be called directly.
+// Boot Called automatically by Phaser.Game after boot. Should not be called directly.
 func (self *Time) Boot() {
     self.Object.Call("boot")
 }
 
-// Called automatically by Phaser.Game after boot. Should not be called directly.
+// BootI Called automatically by Phaser.Game after boot. Should not be called directly.
 func (self *Time) BootI(args ...interface{}) {
     self.Object.Call("boot", args)
 }
 
-// Adds an existing Phaser.Timer object to the Timer pool.
+// Add Adds an existing Phaser.Timer object to the Timer pool.
 func (self *Time) Add(timer *Timer) *Timer{
     return &Timer{self.Object.Call("add", timer)}
 }
 
-// Adds an existing Phaser.Timer object to the Timer pool.
+// AddI Adds an existing Phaser.Timer object to the Timer pool.
 func (self *Time) AddI(args ...interface{}) *Timer{
     return &Timer{self.Object.Call("add", args)}
 }
 
-// Creates a new stand-alone Phaser.Timer object.
+// Create Creates a new stand-alone Phaser.Timer object.
 func (self *Time) Create() *Timer{
     return &Timer{self.Object.Call("create")}
 }
 
-// Creates a new stand-alone Phaser.Timer object.
+// Create1O Creates a new stand-alone Phaser.Timer object.
 func (self *Time) Create1O(autoDestroy bool) *Timer{
     return &Timer{self.Object.Call("create", autoDestroy)}
 }
 
-// Creates a new stand-alone Phaser.Timer object.
+// CreateI Creates a new stand-alone Phaser.Timer object.
 func (self *Time) CreateI(args ...interface{}) *Timer{
     return &Timer{self.Object.Call("create", args)}
 }
 
-// Remove all Timer objects, regardless of their state and clears all Timers from the {@link Phaser.Time#events events} timer.
+// RemoveAll Remove all Timer objects, regardless of their state and clears all Timers from the {@link Phaser.Time#events events} timer.
 func (self *Time) RemoveAll() {
     self.Object.Call("removeAll")
 }
 
-// Remove all Timer objects, regardless of their state and clears all Timers from the {@link Phaser.Time#events events} timer.
+// RemoveAllI Remove all Timer objects, regardless of their state and clears all Timers from the {@link Phaser.Time#events events} timer.
 func (self *Time) RemoveAllI(args ...interface{}) {
     self.Object.Call("removeAll", args)
 }
 
-// Refreshes the Time.time and Time.elapsedMS properties from the system clock.
+// Refresh Refreshes the Time.time and Time.elapsedMS properties from the system clock.
 func (self *Time) Refresh() {
     self.Object.Call("refresh")
 }
 
-// Refreshes the Time.time and Time.elapsedMS properties from the system clock.
+// RefreshI Refreshes the Time.time and Time.elapsedMS properties from the system clock.
 func (self *Time) RefreshI(args ...interface{}) {
     self.Object.Call("refresh", args)
 }
 
-// Updates the game clock and if enabled the advanced timing data. This is called automatically by Phaser.Game.
+// Update Updates the game clock and if enabled the advanced timing data. This is called automatically by Phaser.Game.
 func (self *Time) Update(time int) {
     self.Object.Call("update", time)
 }
 
-// Updates the game clock and if enabled the advanced timing data. This is called automatically by Phaser.Game.
+// UpdateI Updates the game clock and if enabled the advanced timing data. This is called automatically by Phaser.Game.
 func (self *Time) UpdateI(args ...interface{}) {
     self.Object.Call("update", args)
 }
 
-// Handles the updating of the Phaser.Timers (if any)
+// UpdateTimers Handles the updating of the Phaser.Timers (if any)
 // Called automatically by Time.update.
 func (self *Time) UpdateTimers() {
     self.Object.Call("updateTimers")
 }
 
-// Handles the updating of the Phaser.Timers (if any)
+// UpdateTimersI Handles the updating of the Phaser.Timers (if any)
 // Called automatically by Time.update.
 func (self *Time) UpdateTimersI(args ...interface{}) {
     self.Object.Call("updateTimers", args)
 }
 
-// Handles the updating of the advanced timing values (if enabled)
+// UpdateAdvancedTiming Handles the updating of the advanced timing values (if enabled)
 // Called automatically by Time.update.
 func (self *Time) UpdateAdvancedTiming() {
     self.Object.Call("updateAdvancedTiming")
 }
 
-// Handles the updating of the advanced timing values (if enabled)
+// UpdateAdvancedTimingI Handles the updating of the advanced timing values (if enabled)
 // Called automatically by Time.update.
 func (self *Time) UpdateAdvancedTimingI(args ...interface{}) {
     self.Object.Call("updateAdvancedTiming", args)
 }
 
-// Called when the game enters a paused state.
+// GamePaused Called when the game enters a paused state.
 func (self *Time) GamePaused() {
     self.Object.Call("gamePaused")
 }
 
-// Called when the game enters a paused state.
+// GamePausedI Called when the game enters a paused state.
 func (self *Time) GamePausedI(args ...interface{}) {
     self.Object.Call("gamePaused", args)
 }
 
-// Called when the game resumes from a paused state.
+// GameResumed Called when the game resumes from a paused state.
 func (self *Time) GameResumed() {
     self.Object.Call("gameResumed")
 }
 
-// Called when the game resumes from a paused state.
+// GameResumedI Called when the game resumes from a paused state.
 func (self *Time) GameResumedI(args ...interface{}) {
     self.Object.Call("gameResumed", args)
 }
 
-// The number of seconds that have elapsed since the game was started.
+// TotalElapsedSeconds The number of seconds that have elapsed since the game was started.
 func (self *Time) TotalElapsedSeconds() int{
     return self.Object.Call("totalElapsedSeconds").Int()
 }
 
-// The number of seconds that have elapsed since the game was started.
+// TotalElapsedSecondsI The number of seconds that have elapsed since the game was started.
 func (self *Time) TotalElapsedSecondsI(args ...interface{}) int{
     return self.Object.Call("totalElapsedSeconds", args).Int()
 }
 
-// How long has passed since the given time.
+// ElapsedSince How long has passed since the given time.
 func (self *Time) ElapsedSince(since int) int{
     return self.Object.Call("elapsedSince", since).Int()
 }
 
-// How long has passed since the given time.
+// ElapsedSinceI How long has passed since the given time.
 func (self *Time) ElapsedSinceI(args ...interface{}) int{
     return self.Object.Call("elapsedSince", args).Int()
 }
 
-// How long has passed since the given time (in seconds).
+// ElapsedSecondsSince How long has passed since the given time (in seconds).
 func (self *Time) ElapsedSecondsSince(since int) int{
     return self.Object.Call("elapsedSecondsSince", since).Int()
 }
 
-// How long has passed since the given time (in seconds).
+// ElapsedSecondsSinceI How long has passed since the given time (in seconds).
 func (self *Time) ElapsedSecondsSinceI(args ...interface{}) int{
     return self.Object.Call("elapsedSecondsSince", args).Int()
 }
 
-// Resets the private _started value to now and removes all currently running Timers.
+// Reset Resets the private _started value to now and removes all currently running Timers.
 func (self *Time) Reset() {
     self.Object.Call("reset")
 }
 
-// Resets the private _started value to now and removes all currently running Timers.
+// ResetI Resets the private _started value to now and removes all currently running Timers.
 func (self *Time) ResetI(args ...interface{}) {
     self.Object.Call("reset", args)
 }
+

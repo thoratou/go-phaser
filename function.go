@@ -18,8 +18,12 @@ func (f *Function) GetNameSplit() []string {
 	return strings.Split(f.Name, ".")
 }
 
-func (f *Function) GetDescriptionLines() []string {
-	return SplitMultilines(f.Description)
+func (f *Function) GetFirstDescriptionLine() string {
+	return FirstDescriptionLine(f.Description)
+}
+
+func (f *Function) GetNextDescriptionLines() []string {
+	return NextDescriptionLines(f.Description)
 }
 
 func (f *Function) GetParameterFullString() string {

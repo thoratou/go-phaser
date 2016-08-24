@@ -1,4 +1,4 @@
-// Automatic generation for PIXI.PolyK
+// Package phaser Automatic generation for PIXI.PolyK
 // generated file PolyK.go
 package phaser
 
@@ -7,22 +7,20 @@ import (
 
 )
 
-// Based on the Polyk library http://polyk.ivank.net released under MIT licence.
+// PolyK Based on the Polyk library http://polyk.ivank.net released under MIT licence.
 // This is an amazing lib!
 // Slightly modified by Mat Groves (matgroves.com);
 type PolyK struct {
     *js.Object
 }
 
-
-// Based on the Polyk library http://polyk.ivank.net released under MIT licence.
+// NewPolyK Based on the Polyk library http://polyk.ivank.net released under MIT licence.
 // This is an amazing lib!
 // Slightly modified by Mat Groves (matgroves.com);
 func NewPolyK() *PolyK {
     return &PolyK{js.Global.Get("PIXI").Get("PolyK").New()}
 }
-
-// Based on the Polyk library http://polyk.ivank.net released under MIT licence.
+// NewPolyKI Based on the Polyk library http://polyk.ivank.net released under MIT licence.
 // This is an amazing lib!
 // Slightly modified by Mat Groves (matgroves.com);
 func NewPolyKI(args ...interface{}) *PolyK {
@@ -32,33 +30,33 @@ func NewPolyKI(args ...interface{}) *PolyK {
 
 
 
-
-// Triangulates shapes for webGL graphic fills.
+// Triangulate Triangulates shapes for webGL graphic fills.
 func (self *PolyK) Triangulate() {
     self.Object.Call("Triangulate")
 }
 
-// Triangulates shapes for webGL graphic fills.
+// TriangulateI Triangulates shapes for webGL graphic fills.
 func (self *PolyK) TriangulateI(args ...interface{}) {
     self.Object.Call("Triangulate", args)
 }
 
-// Checks whether a point is within a triangle
+// _PointInTriangle Checks whether a point is within a triangle
 func (self *PolyK) _PointInTriangle(px int, py int, ax int, ay int, bx int, by int, cx int, cy int) bool{
     return self.Object.Call("_PointInTriangle", px, py, ax, ay, bx, by, cx, cy).Bool()
 }
 
-// Checks whether a point is within a triangle
+// _PointInTriangleI Checks whether a point is within a triangle
 func (self *PolyK) _PointInTriangleI(args ...interface{}) bool{
     return self.Object.Call("_PointInTriangle", args).Bool()
 }
 
-// Checks whether a shape is convex
+// _convex Checks whether a shape is convex
 func (self *PolyK) _convex() bool{
     return self.Object.Call("_convex").Bool()
 }
 
-// Checks whether a shape is convex
+// _convexI Checks whether a shape is convex
 func (self *PolyK) _convexI(args ...interface{}) bool{
     return self.Object.Call("_convex", args).Bool()
 }
+

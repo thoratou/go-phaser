@@ -1,4 +1,4 @@
-// Automatic generation for PIXI.StripShader
+// Package phaser Automatic generation for PIXI.StripShader
 // generated file StripShader.go
 package phaser
 
@@ -7,45 +7,43 @@ import (
 
 )
 
-// 
+// StripShader empty description
 type StripShader struct {
     *js.Object
 }
 
-
-// 
+// NewStripShader empty description
 func NewStripShader(gl *WebGLContext) *StripShader {
     return &StripShader{js.Global.Get("PIXI").Get("StripShader").New(gl)}
 }
-
-// 
+// NewStripShaderI empty description
 func NewStripShaderI(args ...interface{}) *StripShader {
     return &StripShader{js.Global.Get("PIXI").Get("StripShader").New(args)}
 }
 
 
 
-// 
+// Gl empty description
 func (self *StripShader) Gl() WebGLContext{
     return WrapWebGLContext(self.Object.Get("gl"))
 }
 
-// 
+// SetGlA empty description
 func (self *StripShader) SetGlA(member WebGLContext) {
     self.Object.Set("gl", member)
 }
 
-// The WebGL program.
+// Program The WebGL program.
 func (self *StripShader) Program() interface{}{
     return self.Object.Get("program")
 }
 
-// The WebGL program.
+// SetProgramA The WebGL program.
 func (self *StripShader) SetProgramA(member interface{}) {
     self.Object.Set("program", member)
 }
 
-// The fragment shader.
+// FragmentSrc The fragment shader.
 func (self *StripShader) FragmentSrc() []interface{}{
 	array00 := self.Object.Get("fragmentSrc")
 	length00 := array00.Length()
@@ -56,12 +54,12 @@ func (self *StripShader) FragmentSrc() []interface{}{
 	return out00
 }
 
-// The fragment shader.
+// SetFragmentSrcA The fragment shader.
 func (self *StripShader) SetFragmentSrcA(member []interface{}) {
     self.Object.Set("fragmentSrc", member)
 }
 
-// The vertex shader.
+// VertexSrc The vertex shader.
 func (self *StripShader) VertexSrc() []interface{}{
 	array00 := self.Object.Get("vertexSrc")
 	length00 := array00.Length()
@@ -72,29 +70,29 @@ func (self *StripShader) VertexSrc() []interface{}{
 	return out00
 }
 
-// The vertex shader.
+// SetVertexSrcA The vertex shader.
 func (self *StripShader) SetVertexSrcA(member []interface{}) {
     self.Object.Set("vertexSrc", member)
 }
 
 
-
-// Initialises the shader.
+// Init Initialises the shader.
 func (self *StripShader) Init() {
     self.Object.Call("init")
 }
 
-// Initialises the shader.
+// InitI Initialises the shader.
 func (self *StripShader) InitI(args ...interface{}) {
     self.Object.Call("init", args)
 }
 
-// Destroys the shader.
+// Destroy Destroys the shader.
 func (self *StripShader) Destroy() {
     self.Object.Call("destroy")
 }
 
-// Destroys the shader.
+// DestroyI Destroys the shader.
 func (self *StripShader) DestroyI(args ...interface{}) {
     self.Object.Call("destroy", args)
 }
+

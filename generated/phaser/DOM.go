@@ -1,4 +1,4 @@
-// Automatic generation for Phaser.DOM
+// Package phaser Automatic generation for Phaser.DOM
 // generated file DOM.go
 package phaser
 
@@ -7,7 +7,7 @@ import (
 
 )
 
-// DOM utility class.
+// DOM DOM utility class.
 // 
 // Provides a useful Window and Element functions as well as cross-browser compatibility buffer.
 // 
@@ -17,8 +17,7 @@ type DOM struct {
     *js.Object
 }
 
-
-// DOM utility class.
+// NewDOM DOM utility class.
 // 
 // Provides a useful Window and Element functions as well as cross-browser compatibility buffer.
 // 
@@ -27,8 +26,7 @@ type DOM struct {
 func NewDOM() *DOM {
     return &DOM{js.Global.Get("Phaser").Get("DOM").New()}
 }
-
-// DOM utility class.
+// NewDOMI DOM utility class.
 // 
 // Provides a useful Window and Element functions as well as cross-browser compatibility buffer.
 // 
@@ -40,7 +38,7 @@ func NewDOMI(args ...interface{}) *DOM {
 
 
 
-// The bounds of the Visual viewport, as discussed in 
+// VisualBounds The bounds of the Visual viewport, as discussed in 
 // {@link http://www.quirksmode.org/mobile/viewports.html A tale of two viewports — part one}
 // with one difference: the viewport size _excludes_ scrollbars, as found on some desktop browsers.   
 // 
@@ -52,7 +50,7 @@ func (self *DOM) VisualBounds() *Rectangle{
     return &Rectangle{self.Object.Get("visualBounds")}
 }
 
-// The bounds of the Visual viewport, as discussed in 
+// SetVisualBoundsA The bounds of the Visual viewport, as discussed in 
 // {@link http://www.quirksmode.org/mobile/viewports.html A tale of two viewports — part one}
 // with one difference: the viewport size _excludes_ scrollbars, as found on some desktop browsers.   
 // 
@@ -64,7 +62,7 @@ func (self *DOM) SetVisualBoundsA(member *Rectangle) {
     self.Object.Set("visualBounds", member)
 }
 
-// The bounds of the Layout viewport, as discussed in 
+// LayoutBounds The bounds of the Layout viewport, as discussed in 
 // {@link http://www.quirksmode.org/mobile/viewports2.html A tale of two viewports — part two};
 // but honoring the constraints as specified applicable viewport meta-tag.
 // 
@@ -80,7 +78,7 @@ func (self *DOM) LayoutBounds() *Rectangle{
     return &Rectangle{self.Object.Get("layoutBounds")}
 }
 
-// The bounds of the Layout viewport, as discussed in 
+// SetLayoutBoundsA The bounds of the Layout viewport, as discussed in 
 // {@link http://www.quirksmode.org/mobile/viewports2.html A tale of two viewports — part two};
 // but honoring the constraints as specified applicable viewport meta-tag.
 // 
@@ -96,7 +94,7 @@ func (self *DOM) SetLayoutBoundsA(member *Rectangle) {
     self.Object.Set("layoutBounds", member)
 }
 
-// The size of the document / Layout viewport.
+// DocumentBounds The size of the document / Layout viewport.
 // 
 // This incorrectly reports the dimensions in IE.
 // 
@@ -105,7 +103,7 @@ func (self *DOM) DocumentBounds() *Rectangle{
     return &Rectangle{self.Object.Get("documentBounds")}
 }
 
-// The size of the document / Layout viewport.
+// SetDocumentBoundsA The size of the document / Layout viewport.
 // 
 // This incorrectly reports the dimensions in IE.
 // 
@@ -114,50 +112,49 @@ func (self *DOM) SetDocumentBoundsA(member *Rectangle) {
     self.Object.Set("documentBounds", member)
 }
 
-// A cross-browser window.scrollX.
+// ScrollX A cross-browser window.scrollX.
 func (self *DOM) ScrollX() int{
     return self.Object.Get("scrollX").Int()
 }
 
-// A cross-browser window.scrollX.
+// SetScrollXA A cross-browser window.scrollX.
 func (self *DOM) SetScrollXA(member int) {
     self.Object.Set("scrollX", member)
 }
 
-// A cross-browser window.scrollY.
+// ScrollY A cross-browser window.scrollY.
 func (self *DOM) ScrollY() int{
     return self.Object.Get("scrollY").Int()
 }
 
-// A cross-browser window.scrollY.
+// SetScrollYA A cross-browser window.scrollY.
 func (self *DOM) SetScrollYA(member int) {
     self.Object.Set("scrollY", member)
 }
 
 
-
-// Get the [absolute] position of the element relative to the Document.
+// GetOffset Get the [absolute] position of the element relative to the Document.
 // 
 // The value may vary slightly as the page is scrolled due to rounding errors.
 func (self *DOM) GetOffset(element *DOMElement) *Point{
     return &Point{self.Object.Call("getOffset", element)}
 }
 
-// Get the [absolute] position of the element relative to the Document.
+// GetOffset1O Get the [absolute] position of the element relative to the Document.
 // 
 // The value may vary slightly as the page is scrolled due to rounding errors.
 func (self *DOM) GetOffset1O(element *DOMElement, point *Point) *Point{
     return &Point{self.Object.Call("getOffset", element, point)}
 }
 
-// Get the [absolute] position of the element relative to the Document.
+// GetOffsetI Get the [absolute] position of the element relative to the Document.
 // 
 // The value may vary slightly as the page is scrolled due to rounding errors.
 func (self *DOM) GetOffsetI(args ...interface{}) *Point{
     return &Point{self.Object.Call("getOffset", args)}
 }
 
-// A cross-browser element.getBoundingClientRect method with optional cushion.
+// GetBounds A cross-browser element.getBoundingClientRect method with optional cushion.
 // 
 // Returns a plain object containing the properties `top/bottom/left/right/width/height` with respect to the top-left corner of the current viewport.
 // Its properties match the native rectangle.
@@ -167,7 +164,7 @@ func (self *DOM) GetBounds(element interface{}) interface{}{
     return self.Object.Call("getBounds", element)
 }
 
-// A cross-browser element.getBoundingClientRect method with optional cushion.
+// GetBounds1O A cross-browser element.getBoundingClientRect method with optional cushion.
 // 
 // Returns a plain object containing the properties `top/bottom/left/right/width/height` with respect to the top-left corner of the current viewport.
 // Its properties match the native rectangle.
@@ -177,7 +174,7 @@ func (self *DOM) GetBounds1O(element interface{}, cushion int) interface{}{
     return self.Object.Call("getBounds", element, cushion)
 }
 
-// A cross-browser element.getBoundingClientRect method with optional cushion.
+// GetBoundsI A cross-browser element.getBoundingClientRect method with optional cushion.
 // 
 // Returns a plain object containing the properties `top/bottom/left/right/width/height` with respect to the top-left corner of the current viewport.
 // Its properties match the native rectangle.
@@ -187,37 +184,37 @@ func (self *DOM) GetBoundsI(args ...interface{}) interface{}{
     return self.Object.Call("getBounds", args)
 }
 
-// Calibrates element coordinates for `inLayoutViewport` checks.
+// Calibrate Calibrates element coordinates for `inLayoutViewport` checks.
 func (self *DOM) Calibrate(coords interface{}) interface{}{
     return self.Object.Call("calibrate", coords)
 }
 
-// Calibrates element coordinates for `inLayoutViewport` checks.
+// Calibrate1O Calibrates element coordinates for `inLayoutViewport` checks.
 func (self *DOM) Calibrate1O(coords interface{}, cushion int) interface{}{
     return self.Object.Call("calibrate", coords, cushion)
 }
 
-// Calibrates element coordinates for `inLayoutViewport` checks.
+// CalibrateI Calibrates element coordinates for `inLayoutViewport` checks.
 func (self *DOM) CalibrateI(args ...interface{}) interface{}{
     return self.Object.Call("calibrate", args)
 }
 
-// Get the Visual viewport aspect ratio (or the aspect ratio of an object or element)
+// GetAspectRatio Get the Visual viewport aspect ratio (or the aspect ratio of an object or element)
 func (self *DOM) GetAspectRatio() int{
     return self.Object.Call("getAspectRatio").Int()
 }
 
-// Get the Visual viewport aspect ratio (or the aspect ratio of an object or element)
+// GetAspectRatio1O Get the Visual viewport aspect ratio (or the aspect ratio of an object or element)
 func (self *DOM) GetAspectRatio1O(object interface{}) int{
     return self.Object.Call("getAspectRatio", object).Int()
 }
 
-// Get the Visual viewport aspect ratio (or the aspect ratio of an object or element)
+// GetAspectRatioI Get the Visual viewport aspect ratio (or the aspect ratio of an object or element)
 func (self *DOM) GetAspectRatioI(args ...interface{}) int{
     return self.Object.Call("getAspectRatio", args).Int()
 }
 
-// Tests if the given DOM element is within the Layout viewport.
+// InLayoutViewport Tests if the given DOM element is within the Layout viewport.
 // 
 // The optional cushion parameter allows you to specify a distance.
 // 
@@ -227,7 +224,7 @@ func (self *DOM) InLayoutViewport(element interface{}) bool{
     return self.Object.Call("inLayoutViewport", element).Bool()
 }
 
-// Tests if the given DOM element is within the Layout viewport.
+// InLayoutViewport1O Tests if the given DOM element is within the Layout viewport.
 // 
 // The optional cushion parameter allows you to specify a distance.
 // 
@@ -237,7 +234,7 @@ func (self *DOM) InLayoutViewport1O(element interface{}, cushion int) bool{
     return self.Object.Call("inLayoutViewport", element, cushion).Bool()
 }
 
-// Tests if the given DOM element is within the Layout viewport.
+// InLayoutViewportI Tests if the given DOM element is within the Layout viewport.
 // 
 // The optional cushion parameter allows you to specify a distance.
 // 
@@ -247,7 +244,7 @@ func (self *DOM) InLayoutViewportI(args ...interface{}) bool{
     return self.Object.Call("inLayoutViewport", args).Bool()
 }
 
-// Returns the device screen orientation.
+// GetScreenOrientation Returns the device screen orientation.
 // 
 // Orientation values: 'portrait-primary', 'landscape-primary', 'portrait-secondary', 'landscape-secondary'.
 // 
@@ -270,7 +267,7 @@ func (self *DOM) GetScreenOrientation() {
     self.Object.Call("getScreenOrientation")
 }
 
-// Returns the device screen orientation.
+// GetScreenOrientation1O Returns the device screen orientation.
 // 
 // Orientation values: 'portrait-primary', 'landscape-primary', 'portrait-secondary', 'landscape-secondary'.
 // 
@@ -293,7 +290,7 @@ func (self *DOM) GetScreenOrientation1O(primaryFallback string) {
     self.Object.Call("getScreenOrientation", primaryFallback)
 }
 
-// Returns the device screen orientation.
+// GetScreenOrientationI Returns the device screen orientation.
 // 
 // Orientation values: 'portrait-primary', 'landscape-primary', 'portrait-secondary', 'landscape-secondary'.
 // 
@@ -315,3 +312,4 @@ func (self *DOM) GetScreenOrientation1O(primaryFallback string) {
 func (self *DOM) GetScreenOrientationI(args ...interface{}) {
     self.Object.Call("getScreenOrientation", args)
 }
+

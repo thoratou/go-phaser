@@ -1,4 +1,4 @@
-// Automatic generation for Phaser.Physics
+// Package phaser Automatic generation for Phaser.Physics
 // generated file Physics.go
 package phaser
 
@@ -7,7 +7,7 @@ import (
 
 )
 
-// The Physics Manager is responsible for looking after all of the running physics systems.
+// Physics The Physics Manager is responsible for looking after all of the running physics systems.
 // Phaser supports 4 physics systems: Arcade Physics, P2, Ninja Physics and Box2D via a commercial plugin.
 // 
 // Game Objects (such as Sprites) can only belong to 1 physics system, but you can have multiple systems active in a single game.
@@ -18,8 +18,7 @@ type Physics struct {
     *js.Object
 }
 
-
-// The Physics Manager is responsible for looking after all of the running physics systems.
+// NewPhysics The Physics Manager is responsible for looking after all of the running physics systems.
 // Phaser supports 4 physics systems: Arcade Physics, P2, Ninja Physics and Box2D via a commercial plugin.
 // 
 // Game Objects (such as Sprites) can only belong to 1 physics system, but you can have multiple systems active in a single game.
@@ -29,8 +28,7 @@ type Physics struct {
 func NewPhysics(game *Game) *Physics {
     return &Physics{js.Global.Get("Phaser").Get("Physics").New(game)}
 }
-
-// The Physics Manager is responsible for looking after all of the running physics systems.
+// NewPhysics1O The Physics Manager is responsible for looking after all of the running physics systems.
 // Phaser supports 4 physics systems: Arcade Physics, P2, Ninja Physics and Box2D via a commercial plugin.
 // 
 // Game Objects (such as Sprites) can only belong to 1 physics system, but you can have multiple systems active in a single game.
@@ -40,8 +38,7 @@ func NewPhysics(game *Game) *Physics {
 func NewPhysics1O(game *Game, physicsConfig interface{}) *Physics {
     return &Physics{js.Global.Get("Phaser").Get("Physics").New(game, physicsConfig)}
 }
-
-// The Physics Manager is responsible for looking after all of the running physics systems.
+// NewPhysicsI The Physics Manager is responsible for looking after all of the running physics systems.
 // Phaser supports 4 physics systems: Arcade Physics, P2, Ninja Physics and Box2D via a commercial plugin.
 // 
 // Game Objects (such as Sprites) can only belong to 1 physics system, but you can have multiple systems active in a single game.
@@ -54,159 +51,158 @@ func NewPhysicsI(args ...interface{}) *Physics {
 
 
 
-// Local reference to game.
+// Game Local reference to game.
 func (self *Physics) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
-// Local reference to game.
+// SetGameA Local reference to game.
 func (self *Physics) SetGameA(member *Game) {
     self.Object.Set("game", member)
 }
 
-// The physics configuration object as passed to the game on creation.
+// Config The physics configuration object as passed to the game on creation.
 func (self *Physics) Config() interface{}{
     return self.Object.Get("config")
 }
 
-// The physics configuration object as passed to the game on creation.
+// SetConfigA The physics configuration object as passed to the game on creation.
 func (self *Physics) SetConfigA(member interface{}) {
     self.Object.Set("config", member)
 }
 
-// The Arcade Physics system.
+// Arcade The Arcade Physics system.
 func (self *Physics) Arcade() *PhysicsArcade{
     return &PhysicsArcade{self.Object.Get("arcade")}
 }
 
-// The Arcade Physics system.
+// SetArcadeA The Arcade Physics system.
 func (self *Physics) SetArcadeA(member *PhysicsArcade) {
     self.Object.Set("arcade", member)
 }
 
-// The P2.JS Physics system.
+// P2 The P2.JS Physics system.
 func (self *Physics) P2() *PhysicsP2{
     return &PhysicsP2{self.Object.Get("p2")}
 }
 
-// The P2.JS Physics system.
+// SetP2A The P2.JS Physics system.
 func (self *Physics) SetP2A(member *PhysicsP2) {
     self.Object.Set("p2", member)
 }
 
-// The N+ Ninja Physics system.
+// Ninja The N+ Ninja Physics system.
 func (self *Physics) Ninja() *PhysicsNinja{
     return &PhysicsNinja{self.Object.Get("ninja")}
 }
 
-// The N+ Ninja Physics system.
+// SetNinjaA The N+ Ninja Physics system.
 func (self *Physics) SetNinjaA(member *PhysicsNinja) {
     self.Object.Set("ninja", member)
 }
 
-// The Box2D Physics system.
+// Box2d The Box2D Physics system.
 func (self *Physics) Box2d() *PhysicsBox2D{
     return &PhysicsBox2D{self.Object.Get("box2d")}
 }
 
-// The Box2D Physics system.
+// SetBox2dA The Box2D Physics system.
 func (self *Physics) SetBox2dA(member *PhysicsBox2D) {
     self.Object.Set("box2d", member)
 }
 
-// The Chipmunk Physics system (to be done).
+// Chipmunk The Chipmunk Physics system (to be done).
 func (self *Physics) Chipmunk() *PhysicsChipmunk{
     return &PhysicsChipmunk{self.Object.Get("chipmunk")}
 }
 
-// The Chipmunk Physics system (to be done).
+// SetChipmunkA The Chipmunk Physics system (to be done).
 func (self *Physics) SetChipmunkA(member *PhysicsChipmunk) {
     self.Object.Set("chipmunk", member)
 }
 
-// The MatterJS Physics system (coming soon).
+// Matter The MatterJS Physics system (coming soon).
 func (self *Physics) Matter() *PhysicsMatter{
     return &PhysicsMatter{self.Object.Get("matter")}
 }
 
-// The MatterJS Physics system (coming soon).
+// SetMatterA The MatterJS Physics system (coming soon).
 func (self *Physics) SetMatterA(member *PhysicsMatter) {
     self.Object.Set("matter", member)
 }
 
-// 
+// ARCADE empty description
 func (self *Physics) ARCADE() int{
     return self.Object.Get("ARCADE").Int()
 }
 
-// 
+// SetARCADEA empty description
 func (self *Physics) SetARCADEA(member int) {
     self.Object.Set("ARCADE", member)
 }
 
-// 
+// P2JS empty description
 func (self *Physics) P2JS() int{
     return self.Object.Get("P2JS").Int()
 }
 
-// 
+// SetP2JSA empty description
 func (self *Physics) SetP2JSA(member int) {
     self.Object.Set("P2JS", member)
 }
 
-// 
+// NINJA empty description
 func (self *Physics) NINJA() int{
     return self.Object.Get("NINJA").Int()
 }
 
-// 
+// SetNINJAA empty description
 func (self *Physics) SetNINJAA(member int) {
     self.Object.Set("NINJA", member)
 }
 
-// 
+// BOX2D empty description
 func (self *Physics) BOX2D() int{
     return self.Object.Get("BOX2D").Int()
 }
 
-// 
+// SetBOX2DA empty description
 func (self *Physics) SetBOX2DA(member int) {
     self.Object.Set("BOX2D", member)
 }
 
-// 
+// CHIPMUNK empty description
 func (self *Physics) CHIPMUNK() int{
     return self.Object.Get("CHIPMUNK").Int()
 }
 
-// 
+// SetCHIPMUNKA empty description
 func (self *Physics) SetCHIPMUNKA(member int) {
     self.Object.Set("CHIPMUNK", member)
 }
 
-// 
+// MATTERJS empty description
 func (self *Physics) MATTERJS() int{
     return self.Object.Get("MATTERJS").Int()
 }
 
-// 
+// SetMATTERJSA empty description
 func (self *Physics) SetMATTERJSA(member int) {
     self.Object.Set("MATTERJS", member)
 }
 
 
-
-// Parses the Physics Configuration object passed to the Game constructor and starts any physics systems specified within.
+// ParseConfig Parses the Physics Configuration object passed to the Game constructor and starts any physics systems specified within.
 func (self *Physics) ParseConfig() {
     self.Object.Call("parseConfig")
 }
 
-// Parses the Physics Configuration object passed to the Game constructor and starts any physics systems specified within.
+// ParseConfigI Parses the Physics Configuration object passed to the Game constructor and starts any physics systems specified within.
 func (self *Physics) ParseConfigI(args ...interface{}) {
     self.Object.Call("parseConfig", args)
 }
 
-// This will create an instance of the requested physics simulation.
+// StartSystem This will create an instance of the requested physics simulation.
 // Phaser.Physics.Arcade is running by default, but all others need activating directly.
 // 
 // You can start the following physics systems:
@@ -225,7 +221,7 @@ func (self *Physics) StartSystem(system int) {
     self.Object.Call("startSystem", system)
 }
 
-// This will create an instance of the requested physics simulation.
+// StartSystemI This will create an instance of the requested physics simulation.
 // Phaser.Physics.Arcade is running by default, but all others need activating directly.
 // 
 // You can start the following physics systems:
@@ -244,7 +240,7 @@ func (self *Physics) StartSystemI(args ...interface{}) {
     self.Object.Call("startSystem", args)
 }
 
-// This will create a default physics body on the given game object or array of objects.
+// Enable This will create a default physics body on the given game object or array of objects.
 // A game object can only have 1 physics body active at any one time, and it can't be changed until the object is destroyed.
 // It can be for any of the physics systems that have been started:
 // 
@@ -261,7 +257,7 @@ func (self *Physics) Enable(object interface{}) {
     self.Object.Call("enable", object)
 }
 
-// This will create a default physics body on the given game object or array of objects.
+// Enable1O This will create a default physics body on the given game object or array of objects.
 // A game object can only have 1 physics body active at any one time, and it can't be changed until the object is destroyed.
 // It can be for any of the physics systems that have been started:
 // 
@@ -278,7 +274,7 @@ func (self *Physics) Enable1O(object interface{}, system int) {
     self.Object.Call("enable", object, system)
 }
 
-// This will create a default physics body on the given game object or array of objects.
+// Enable2O This will create a default physics body on the given game object or array of objects.
 // A game object can only have 1 physics body active at any one time, and it can't be changed until the object is destroyed.
 // It can be for any of the physics systems that have been started:
 // 
@@ -295,7 +291,7 @@ func (self *Physics) Enable2O(object interface{}, system int, debug bool) {
     self.Object.Call("enable", object, system, debug)
 }
 
-// This will create a default physics body on the given game object or array of objects.
+// EnableI This will create a default physics body on the given game object or array of objects.
 // A game object can only have 1 physics body active at any one time, and it can't be changed until the object is destroyed.
 // It can be for any of the physics systems that have been started:
 // 
@@ -312,62 +308,63 @@ func (self *Physics) EnableI(args ...interface{}) {
     self.Object.Call("enable", args)
 }
 
-// preUpdate checks.
+// PreUpdate preUpdate checks.
 func (self *Physics) PreUpdate() {
     self.Object.Call("preUpdate")
 }
 
-// preUpdate checks.
+// PreUpdateI preUpdate checks.
 func (self *Physics) PreUpdateI(args ...interface{}) {
     self.Object.Call("preUpdate", args)
 }
 
-// Updates all running physics systems.
+// Update Updates all running physics systems.
 func (self *Physics) Update() {
     self.Object.Call("update")
 }
 
-// Updates all running physics systems.
+// UpdateI Updates all running physics systems.
 func (self *Physics) UpdateI(args ...interface{}) {
     self.Object.Call("update", args)
 }
 
-// Updates the physics bounds to match the world dimensions.
+// SetBoundsToWorld Updates the physics bounds to match the world dimensions.
 func (self *Physics) SetBoundsToWorld() {
     self.Object.Call("setBoundsToWorld")
 }
 
-// Updates the physics bounds to match the world dimensions.
+// SetBoundsToWorldI Updates the physics bounds to match the world dimensions.
 func (self *Physics) SetBoundsToWorldI(args ...interface{}) {
     self.Object.Call("setBoundsToWorld", args)
 }
 
-// Clears down all active physics systems. This doesn't destroy them, it just clears them of objects and is called when the State changes.
+// Clear Clears down all active physics systems. This doesn't destroy them, it just clears them of objects and is called when the State changes.
 func (self *Physics) Clear() {
     self.Object.Call("clear")
 }
 
-// Clears down all active physics systems. This doesn't destroy them, it just clears them of objects and is called when the State changes.
+// ClearI Clears down all active physics systems. This doesn't destroy them, it just clears them of objects and is called when the State changes.
 func (self *Physics) ClearI(args ...interface{}) {
     self.Object.Call("clear", args)
 }
 
-// Resets the active physics system. Called automatically on a Phaser.State swap.
+// Reset Resets the active physics system. Called automatically on a Phaser.State swap.
 func (self *Physics) Reset() {
     self.Object.Call("reset")
 }
 
-// Resets the active physics system. Called automatically on a Phaser.State swap.
+// ResetI Resets the active physics system. Called automatically on a Phaser.State swap.
 func (self *Physics) ResetI(args ...interface{}) {
     self.Object.Call("reset", args)
 }
 
-// Destroys all active physics systems. Usually only called on a Game Shutdown, not on a State swap.
+// Destroy Destroys all active physics systems. Usually only called on a Game Shutdown, not on a State swap.
 func (self *Physics) Destroy() {
     self.Object.Call("destroy")
 }
 
-// Destroys all active physics systems. Usually only called on a Game Shutdown, not on a State swap.
+// DestroyI Destroys all active physics systems. Usually only called on a Game Shutdown, not on a State swap.
 func (self *Physics) DestroyI(args ...interface{}) {
     self.Object.Call("destroy", args)
 }
+

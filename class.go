@@ -28,6 +28,10 @@ func (c *Class) GetNameNoNamespace() string {
 	return TypeNoNamespace(c.Name)
 }
 
-func (c *Class) GetDescriptionLines() []string {
-	return SplitMultilines(c.Description)
+func (c *Class) GetFirstDescriptionLine() string {
+	return FirstDescriptionLine(c.Description)
+}
+
+func (c *Class) GetNextDescriptionLines() []string {
+	return NextDescriptionLines(c.Description)
 }

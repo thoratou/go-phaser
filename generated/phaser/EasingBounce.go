@@ -1,4 +1,4 @@
-// Automatic generation for Phaser.Easing.Bounce
+// Package phaser Automatic generation for Phaser.Easing.Bounce
 // generated file EasingBounce.go
 package phaser
 
@@ -7,18 +7,16 @@ import (
 
 )
 
-// Bounce easing.
+// EasingBounce Bounce easing.
 type EasingBounce struct {
     *js.Object
 }
 
-
-// Bounce easing.
+// NewEasingBounce Bounce easing.
 func NewEasingBounce() *EasingBounce {
     return &EasingBounce{js.Global.Get("Phaser").Get("Easing").Get("Bounce").New()}
 }
-
-// Bounce easing.
+// NewEasingBounceI Bounce easing.
 func NewEasingBounceI(args ...interface{}) *EasingBounce {
     return &EasingBounce{js.Global.Get("Phaser").Get("Easing").Get("Bounce").New(args)}
 }
@@ -26,33 +24,33 @@ func NewEasingBounceI(args ...interface{}) *EasingBounce {
 
 
 
-
-// Bounce ease-in.
+// In Bounce ease-in.
 func (self *EasingBounce) In(k int) int{
     return self.Object.Call("In", k).Int()
 }
 
-// Bounce ease-in.
+// InI Bounce ease-in.
 func (self *EasingBounce) InI(args ...interface{}) int{
     return self.Object.Call("In", args).Int()
 }
 
-// Bounce ease-out.
+// Out Bounce ease-out.
 func (self *EasingBounce) Out(k int) int{
     return self.Object.Call("Out", k).Int()
 }
 
-// Bounce ease-out.
+// OutI Bounce ease-out.
 func (self *EasingBounce) OutI(args ...interface{}) int{
     return self.Object.Call("Out", args).Int()
 }
 
-// Bounce ease-in/out.
+// InOut Bounce ease-in/out.
 func (self *EasingBounce) InOut(k int) int{
     return self.Object.Call("InOut", k).Int()
 }
 
-// Bounce ease-in/out.
+// InOutI Bounce ease-in/out.
 func (self *EasingBounce) InOutI(args ...interface{}) int{
     return self.Object.Call("InOut", args).Int()
 }
+

@@ -1,4 +1,4 @@
-// Automatic generation for mat2d
+// Package phaser Automatic generation for mat2d
 // generated file Mat2d.go
 package phaser
 
@@ -7,7 +7,7 @@ import (
 
 )
 
-// A mat2d contains six elements defined as:
+// Mat2d A mat2d contains six elements defined as:
 // <pre>
 // [a, c, tx,
 //  b, d, ty]
@@ -23,8 +23,7 @@ type Mat2d struct {
     *js.Object
 }
 
-
-// A mat2d contains six elements defined as:
+// NewMat2d A mat2d contains six elements defined as:
 // <pre>
 // [a, c, tx,
 //  b, d, ty]
@@ -39,8 +38,7 @@ type Mat2d struct {
 func NewMat2d() *Mat2d {
     return &Mat2d{js.Global.Get("mat2d").New()}
 }
-
-// A mat2d contains six elements defined as:
+// NewMat2dI A mat2d contains six elements defined as:
 // <pre>
 // [a, c, tx,
 //  b, d, ty]

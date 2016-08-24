@@ -1,4 +1,4 @@
-// Automatic generation for Phaser.Tile
+// Package phaser Automatic generation for Phaser.Tile
 // generated file Tile.go
 package phaser
 
@@ -7,414 +7,412 @@ import (
 
 )
 
-// A Tile is a representation of a single tile within the Tilemap.
+// Tile A Tile is a representation of a single tile within the Tilemap.
 type Tile struct {
     *js.Object
 }
 
-
-// A Tile is a representation of a single tile within the Tilemap.
+// NewTile A Tile is a representation of a single tile within the Tilemap.
 func NewTile(layer interface{}, index int, x int, y int, width int, height int) *Tile {
     return &Tile{js.Global.Get("Phaser").Get("Tile").New(layer, index, x, y, width, height)}
 }
-
-// A Tile is a representation of a single tile within the Tilemap.
+// NewTileI A Tile is a representation of a single tile within the Tilemap.
 func NewTileI(args ...interface{}) *Tile {
     return &Tile{js.Global.Get("Phaser").Get("Tile").New(args)}
 }
 
 
 
-// The layer in the Tilemap data that this tile belongs to.
+// Layer The layer in the Tilemap data that this tile belongs to.
 func (self *Tile) Layer() interface{}{
     return self.Object.Get("layer")
 }
 
-// The layer in the Tilemap data that this tile belongs to.
+// SetLayerA The layer in the Tilemap data that this tile belongs to.
 func (self *Tile) SetLayerA(member interface{}) {
     self.Object.Set("layer", member)
 }
 
-// The index of this tile within the map data corresponding to the tileset, or -1 if this represents a blank/null tile.
+// Index The index of this tile within the map data corresponding to the tileset, or -1 if this represents a blank/null tile.
 func (self *Tile) Index() int{
     return self.Object.Get("index").Int()
 }
 
-// The index of this tile within the map data corresponding to the tileset, or -1 if this represents a blank/null tile.
+// SetIndexA The index of this tile within the map data corresponding to the tileset, or -1 if this represents a blank/null tile.
 func (self *Tile) SetIndexA(member int) {
     self.Object.Set("index", member)
 }
 
-// The x map coordinate of this tile.
+// X The x map coordinate of this tile.
 func (self *Tile) X() int{
     return self.Object.Get("x").Int()
 }
 
-// The x map coordinate of this tile.
+// SetXA The x map coordinate of this tile.
 func (self *Tile) SetXA(member int) {
     self.Object.Set("x", member)
 }
 
-// The y map coordinate of this tile.
+// Y The y map coordinate of this tile.
 func (self *Tile) Y() int{
     return self.Object.Get("y").Int()
 }
 
-// The y map coordinate of this tile.
+// SetYA The y map coordinate of this tile.
 func (self *Tile) SetYA(member int) {
     self.Object.Set("y", member)
 }
 
-// The rotation angle of this tile.
+// Rotation The rotation angle of this tile.
 func (self *Tile) Rotation() int{
     return self.Object.Get("rotation").Int()
 }
 
-// The rotation angle of this tile.
+// SetRotationA The rotation angle of this tile.
 func (self *Tile) SetRotationA(member int) {
     self.Object.Set("rotation", member)
 }
 
-// Whether this tile is flipped (mirrored) or not.
+// Flipped Whether this tile is flipped (mirrored) or not.
 func (self *Tile) Flipped() bool{
     return self.Object.Get("flipped").Bool()
 }
 
-// Whether this tile is flipped (mirrored) or not.
+// SetFlippedA Whether this tile is flipped (mirrored) or not.
 func (self *Tile) SetFlippedA(member bool) {
     self.Object.Set("flipped", member)
 }
 
-// The x map coordinate of this tile.
+// WorldX The x map coordinate of this tile.
 func (self *Tile) WorldX() interface{}{
     return self.Object.Get("worldX")
 }
 
-// The x map coordinate of this tile.
+// SetWorldXA The x map coordinate of this tile.
 func (self *Tile) SetWorldXA(member interface{}) {
     self.Object.Set("worldX", member)
 }
 
-// The y map coordinate of this tile.
+// WorldY The y map coordinate of this tile.
 func (self *Tile) WorldY() interface{}{
     return self.Object.Get("worldY")
 }
 
-// The y map coordinate of this tile.
+// SetWorldYA The y map coordinate of this tile.
 func (self *Tile) SetWorldYA(member interface{}) {
     self.Object.Set("worldY", member)
 }
 
-// The width of the tile in pixels.
+// Width The width of the tile in pixels.
 func (self *Tile) Width() int{
     return self.Object.Get("width").Int()
 }
 
-// The width of the tile in pixels.
+// SetWidthA The width of the tile in pixels.
 func (self *Tile) SetWidthA(member int) {
     self.Object.Set("width", member)
 }
 
-// The height of the tile in pixels.
+// Height The height of the tile in pixels.
 func (self *Tile) Height() int{
     return self.Object.Get("height").Int()
 }
 
-// The height of the tile in pixels.
+// SetHeightA The height of the tile in pixels.
 func (self *Tile) SetHeightA(member int) {
     self.Object.Set("height", member)
 }
 
-// The width of the tile in pixels.
+// CenterX The width of the tile in pixels.
 func (self *Tile) CenterX() interface{}{
     return self.Object.Get("centerX")
 }
 
-// The width of the tile in pixels.
+// SetCenterXA The width of the tile in pixels.
 func (self *Tile) SetCenterXA(member interface{}) {
     self.Object.Set("centerX", member)
 }
 
-// The height of the tile in pixels.
+// CenterY The height of the tile in pixels.
 func (self *Tile) CenterY() interface{}{
     return self.Object.Get("centerY")
 }
 
-// The height of the tile in pixels.
+// SetCenterYA The height of the tile in pixels.
 func (self *Tile) SetCenterYA(member interface{}) {
     self.Object.Set("centerY", member)
 }
 
-// The alpha value at which this tile is drawn to the canvas.
+// Alpha The alpha value at which this tile is drawn to the canvas.
 func (self *Tile) Alpha() int{
     return self.Object.Get("alpha").Int()
 }
 
-// The alpha value at which this tile is drawn to the canvas.
+// SetAlphaA The alpha value at which this tile is drawn to the canvas.
 func (self *Tile) SetAlphaA(member int) {
     self.Object.Set("alpha", member)
 }
 
-// Tile specific properties.
+// Properties Tile specific properties.
 func (self *Tile) Properties() interface{}{
     return self.Object.Get("properties")
 }
 
-// Tile specific properties.
+// SetPropertiesA Tile specific properties.
 func (self *Tile) SetPropertiesA(member interface{}) {
     self.Object.Set("properties", member)
 }
 
-// Has this tile been walked / turned into a poly?
+// Scanned Has this tile been walked / turned into a poly?
 func (self *Tile) Scanned() bool{
     return self.Object.Get("scanned").Bool()
 }
 
-// Has this tile been walked / turned into a poly?
+// SetScannedA Has this tile been walked / turned into a poly?
 func (self *Tile) SetScannedA(member bool) {
     self.Object.Set("scanned", member)
 }
 
-// Is the top of this tile an interesting edge?
+// FaceTop Is the top of this tile an interesting edge?
 func (self *Tile) FaceTop() bool{
     return self.Object.Get("faceTop").Bool()
 }
 
-// Is the top of this tile an interesting edge?
+// SetFaceTopA Is the top of this tile an interesting edge?
 func (self *Tile) SetFaceTopA(member bool) {
     self.Object.Set("faceTop", member)
 }
 
-// Is the bottom of this tile an interesting edge?
+// FaceBottom Is the bottom of this tile an interesting edge?
 func (self *Tile) FaceBottom() bool{
     return self.Object.Get("faceBottom").Bool()
 }
 
-// Is the bottom of this tile an interesting edge?
+// SetFaceBottomA Is the bottom of this tile an interesting edge?
 func (self *Tile) SetFaceBottomA(member bool) {
     self.Object.Set("faceBottom", member)
 }
 
-// Is the left of this tile an interesting edge?
+// FaceLeft Is the left of this tile an interesting edge?
 func (self *Tile) FaceLeft() bool{
     return self.Object.Get("faceLeft").Bool()
 }
 
-// Is the left of this tile an interesting edge?
+// SetFaceLeftA Is the left of this tile an interesting edge?
 func (self *Tile) SetFaceLeftA(member bool) {
     self.Object.Set("faceLeft", member)
 }
 
-// Is the right of this tile an interesting edge?
+// FaceRight Is the right of this tile an interesting edge?
 func (self *Tile) FaceRight() bool{
     return self.Object.Get("faceRight").Bool()
 }
 
-// Is the right of this tile an interesting edge?
+// SetFaceRightA Is the right of this tile an interesting edge?
 func (self *Tile) SetFaceRightA(member bool) {
     self.Object.Set("faceRight", member)
 }
 
-// Indicating collide with any object on the left.
+// CollideLeft Indicating collide with any object on the left.
 func (self *Tile) CollideLeft() bool{
     return self.Object.Get("collideLeft").Bool()
 }
 
-// Indicating collide with any object on the left.
+// SetCollideLeftA Indicating collide with any object on the left.
 func (self *Tile) SetCollideLeftA(member bool) {
     self.Object.Set("collideLeft", member)
 }
 
-// Indicating collide with any object on the right.
+// CollideRight Indicating collide with any object on the right.
 func (self *Tile) CollideRight() bool{
     return self.Object.Get("collideRight").Bool()
 }
 
-// Indicating collide with any object on the right.
+// SetCollideRightA Indicating collide with any object on the right.
 func (self *Tile) SetCollideRightA(member bool) {
     self.Object.Set("collideRight", member)
 }
 
-// Indicating collide with any object on the top.
+// CollideUp Indicating collide with any object on the top.
 func (self *Tile) CollideUp() bool{
     return self.Object.Get("collideUp").Bool()
 }
 
-// Indicating collide with any object on the top.
+// SetCollideUpA Indicating collide with any object on the top.
 func (self *Tile) SetCollideUpA(member bool) {
     self.Object.Set("collideUp", member)
 }
 
-// Indicating collide with any object on the bottom.
+// CollideDown Indicating collide with any object on the bottom.
 func (self *Tile) CollideDown() bool{
     return self.Object.Get("collideDown").Bool()
 }
 
-// Indicating collide with any object on the bottom.
+// SetCollideDownA Indicating collide with any object on the bottom.
 func (self *Tile) SetCollideDownA(member bool) {
     self.Object.Set("collideDown", member)
 }
 
-// Tile collision callback.
+// CollisionCallback Tile collision callback.
 func (self *Tile) CollisionCallback() interface{}{
     return self.Object.Get("collisionCallback")
 }
 
-// Tile collision callback.
+// SetCollisionCallbackA Tile collision callback.
 func (self *Tile) SetCollisionCallbackA(member interface{}) {
     self.Object.Set("collisionCallback", member)
 }
 
-// The context in which the collision callback will be called.
+// CollisionCallbackContext The context in which the collision callback will be called.
 func (self *Tile) CollisionCallbackContext() interface{}{
     return self.Object.Get("collisionCallbackContext")
 }
 
-// The context in which the collision callback will be called.
+// SetCollisionCallbackContextA The context in which the collision callback will be called.
 func (self *Tile) SetCollisionCallbackContextA(member interface{}) {
     self.Object.Set("collisionCallbackContext", member)
 }
 
-// True if this tile can collide on any of its faces.
+// Collides True if this tile can collide on any of its faces.
 func (self *Tile) Collides() bool{
     return self.Object.Get("collides").Bool()
 }
 
-// True if this tile can collide on any of its faces.
+// SetCollidesA True if this tile can collide on any of its faces.
 func (self *Tile) SetCollidesA(member bool) {
     self.Object.Set("collides", member)
 }
 
-// True if this tile can collide on any of its faces or has a collision callback set.
+// CanCollide True if this tile can collide on any of its faces or has a collision callback set.
 func (self *Tile) CanCollide() bool{
     return self.Object.Get("canCollide").Bool()
 }
 
-// True if this tile can collide on any of its faces or has a collision callback set.
+// SetCanCollideA True if this tile can collide on any of its faces or has a collision callback set.
 func (self *Tile) SetCanCollideA(member bool) {
     self.Object.Set("canCollide", member)
 }
 
-// The x value in pixels.
+// Left The x value in pixels.
 func (self *Tile) Left() int{
     return self.Object.Get("left").Int()
 }
 
-// The x value in pixels.
+// SetLeftA The x value in pixels.
 func (self *Tile) SetLeftA(member int) {
     self.Object.Set("left", member)
 }
 
-// The sum of the x and width properties.
+// Right The sum of the x and width properties.
 func (self *Tile) Right() int{
     return self.Object.Get("right").Int()
 }
 
-// The sum of the x and width properties.
+// SetRightA The sum of the x and width properties.
 func (self *Tile) SetRightA(member int) {
     self.Object.Set("right", member)
 }
 
-// The y value.
+// Top The y value.
 func (self *Tile) Top() int{
     return self.Object.Get("top").Int()
 }
 
-// The y value.
+// SetTopA The y value.
 func (self *Tile) SetTopA(member int) {
     self.Object.Set("top", member)
 }
 
-// The sum of the y and height properties.
+// Bottom The sum of the y and height properties.
 func (self *Tile) Bottom() int{
     return self.Object.Get("bottom").Int()
 }
 
-// The sum of the y and height properties.
+// SetBottomA The sum of the y and height properties.
 func (self *Tile) SetBottomA(member int) {
     self.Object.Set("bottom", member)
 }
 
 
-
-// Check if the given x and y world coordinates are within this Tile.
+// ContainsPoint Check if the given x and y world coordinates are within this Tile.
 func (self *Tile) ContainsPoint(x int, y int) bool{
     return self.Object.Call("containsPoint", x, y).Bool()
 }
 
-// Check if the given x and y world coordinates are within this Tile.
+// ContainsPointI Check if the given x and y world coordinates are within this Tile.
 func (self *Tile) ContainsPointI(args ...interface{}) bool{
     return self.Object.Call("containsPoint", args).Bool()
 }
 
-// Check for intersection with this tile.
+// Intersects Check for intersection with this tile.
 func (self *Tile) Intersects(x int, y int, right int, bottom int) {
     self.Object.Call("intersects", x, y, right, bottom)
 }
 
-// Check for intersection with this tile.
+// IntersectsI Check for intersection with this tile.
 func (self *Tile) IntersectsI(args ...interface{}) {
     self.Object.Call("intersects", args)
 }
 
-// Set a callback to be called when this tile is hit by an object.
+// SetCollisionCallback Set a callback to be called when this tile is hit by an object.
 // The callback must true true for collision processing to take place.
 func (self *Tile) SetCollisionCallback(callback interface{}, context interface{}) {
     self.Object.Call("setCollisionCallback", callback, context)
 }
 
-// Set a callback to be called when this tile is hit by an object.
+// SetCollisionCallbackI Set a callback to be called when this tile is hit by an object.
 // The callback must true true for collision processing to take place.
 func (self *Tile) SetCollisionCallbackI(args ...interface{}) {
     self.Object.Call("setCollisionCallback", args)
 }
 
-// Clean up memory.
+// Destroy Clean up memory.
 func (self *Tile) Destroy() {
     self.Object.Call("destroy")
 }
 
-// Clean up memory.
+// DestroyI Clean up memory.
 func (self *Tile) DestroyI(args ...interface{}) {
     self.Object.Call("destroy", args)
 }
 
-// Sets the collision flags for each side of this tile and updates the interesting faces list.
+// SetCollision Sets the collision flags for each side of this tile and updates the interesting faces list.
 func (self *Tile) SetCollision(left bool, right bool, up bool, down bool) {
     self.Object.Call("setCollision", left, right, up, down)
 }
 
-// Sets the collision flags for each side of this tile and updates the interesting faces list.
+// SetCollisionI Sets the collision flags for each side of this tile and updates the interesting faces list.
 func (self *Tile) SetCollisionI(args ...interface{}) {
     self.Object.Call("setCollision", args)
 }
 
-// Reset collision status flags.
+// ResetCollision Reset collision status flags.
 func (self *Tile) ResetCollision() {
     self.Object.Call("resetCollision")
 }
 
-// Reset collision status flags.
+// ResetCollisionI Reset collision status flags.
 func (self *Tile) ResetCollisionI(args ...interface{}) {
     self.Object.Call("resetCollision", args)
 }
 
-// Is this tile interesting?
+// IsInteresting Is this tile interesting?
 func (self *Tile) IsInteresting(collides bool, faces bool) bool{
     return self.Object.Call("isInteresting", collides, faces).Bool()
 }
 
-// Is this tile interesting?
+// IsInterestingI Is this tile interesting?
 func (self *Tile) IsInterestingI(args ...interface{}) bool{
     return self.Object.Call("isInteresting", args).Bool()
 }
 
-// Copies the tile data and properties from the given tile to this tile.
+// Copy Copies the tile data and properties from the given tile to this tile.
 func (self *Tile) Copy(tile *Tile) {
     self.Object.Call("copy", tile)
 }
 
-// Copies the tile data and properties from the given tile to this tile.
+// CopyI Copies the tile data and properties from the given tile to this tile.
 func (self *Tile) CopyI(args ...interface{}) {
     self.Object.Call("copy", args)
 }
+

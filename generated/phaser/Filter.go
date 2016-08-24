@@ -1,4 +1,4 @@
-// Automatic generation for Phaser.Filter
+// Package phaser Automatic generation for Phaser.Filter
 // generated file Filter.go
 package phaser
 
@@ -7,7 +7,7 @@ import (
 
 )
 
-// This is a base Filter class to use for any Phaser filter development.
+// Filter This is a base Filter class to use for any Phaser filter development.
 // 
 // The vast majority of filters (including all of those that ship with Phaser) use fragment shaders, and
 // therefore only work in WebGL and are not supported by Canvas at all.
@@ -15,16 +15,14 @@ type Filter struct {
     *js.Object
 }
 
-
-// This is a base Filter class to use for any Phaser filter development.
+// NewFilter This is a base Filter class to use for any Phaser filter development.
 // 
 // The vast majority of filters (including all of those that ship with Phaser) use fragment shaders, and
 // therefore only work in WebGL and are not supported by Canvas at all.
 func NewFilter(game *Game, uniforms interface{}, fragmentSrc interface{}) *Filter {
     return &Filter{js.Global.Get("Phaser").Get("Filter").New(game, uniforms, fragmentSrc)}
 }
-
-// This is a base Filter class to use for any Phaser filter development.
+// NewFilterI This is a base Filter class to use for any Phaser filter development.
 // 
 // The vast majority of filters (including all of those that ship with Phaser) use fragment shaders, and
 // therefore only work in WebGL and are not supported by Canvas at all.
@@ -34,134 +32,133 @@ func NewFilterI(args ...interface{}) *Filter {
 
 
 
-// A reference to the currently running game.
+// Game A reference to the currently running game.
 func (self *Filter) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
-// A reference to the currently running game.
+// SetGameA A reference to the currently running game.
 func (self *Filter) SetGameA(member *Game) {
     self.Object.Set("game", member)
 }
 
-// The const type of this object, either Phaser.WEBGL_FILTER or Phaser.CANVAS_FILTER.
+// Type The const type of this object, either Phaser.WEBGL_FILTER or Phaser.CANVAS_FILTER.
 func (self *Filter) Type() int{
     return self.Object.Get("type").Int()
 }
 
-// The const type of this object, either Phaser.WEBGL_FILTER or Phaser.CANVAS_FILTER.
+// SetTypeA The const type of this object, either Phaser.WEBGL_FILTER or Phaser.CANVAS_FILTER.
 func (self *Filter) SetTypeA(member int) {
     self.Object.Set("type", member)
 }
 
-// Internal PIXI var.
+// Dirty Internal PIXI var.
 func (self *Filter) Dirty() bool{
     return self.Object.Get("dirty").Bool()
 }
 
-// Internal PIXI var.
+// SetDirtyA Internal PIXI var.
 func (self *Filter) SetDirtyA(member bool) {
     self.Object.Set("dirty", member)
 }
 
-// Internal PIXI var.
+// Padding Internal PIXI var.
 func (self *Filter) Padding() int{
     return self.Object.Get("padding").Int()
 }
 
-// Internal PIXI var.
+// SetPaddingA Internal PIXI var.
 func (self *Filter) SetPaddingA(member int) {
     self.Object.Set("padding", member)
 }
 
-// The previous position of the pointer (we don't update the uniform if the same)
+// PrevPoint The previous position of the pointer (we don't update the uniform if the same)
 func (self *Filter) PrevPoint() *Point{
     return &Point{self.Object.Get("prevPoint")}
 }
 
-// The previous position of the pointer (we don't update the uniform if the same)
+// SetPrevPointA The previous position of the pointer (we don't update the uniform if the same)
 func (self *Filter) SetPrevPointA(member *Point) {
     self.Object.Set("prevPoint", member)
 }
 
-// Default uniform mappings. Compatible with ShaderToy and GLSLSandbox.
+// Uniforms Default uniform mappings. Compatible with ShaderToy and GLSLSandbox.
 func (self *Filter) Uniforms() interface{}{
     return self.Object.Get("uniforms")
 }
 
-// Default uniform mappings. Compatible with ShaderToy and GLSLSandbox.
+// SetUniformsA Default uniform mappings. Compatible with ShaderToy and GLSLSandbox.
 func (self *Filter) SetUniformsA(member interface{}) {
     self.Object.Set("uniforms", member)
 }
 
-// The fragment shader code.
+// FragmentSrc The fragment shader code.
 func (self *Filter) FragmentSrc() interface{}{
     return self.Object.Get("fragmentSrc")
 }
 
-// The fragment shader code.
+// SetFragmentSrcA The fragment shader code.
 func (self *Filter) SetFragmentSrcA(member interface{}) {
     self.Object.Set("fragmentSrc", member)
 }
 
-// The width (resolution uniform)
+// Width The width (resolution uniform)
 func (self *Filter) Width() int{
     return self.Object.Get("width").Int()
 }
 
-// The width (resolution uniform)
+// SetWidthA The width (resolution uniform)
 func (self *Filter) SetWidthA(member int) {
     self.Object.Set("width", member)
 }
 
-// The height (resolution uniform)
+// Height The height (resolution uniform)
 func (self *Filter) Height() int{
     return self.Object.Get("height").Int()
 }
 
-// The height (resolution uniform)
+// SetHeightA The height (resolution uniform)
 func (self *Filter) SetHeightA(member int) {
     self.Object.Set("height", member)
 }
 
 
-
-// Should be over-ridden.
+// Init Should be over-ridden.
 func (self *Filter) Init() {
     self.Object.Call("init")
 }
 
-// Should be over-ridden.
+// InitI Should be over-ridden.
 func (self *Filter) InitI(args ...interface{}) {
     self.Object.Call("init", args)
 }
 
-// Set the resolution uniforms on the filter.
+// SetResolution Set the resolution uniforms on the filter.
 func (self *Filter) SetResolution(width int, height int) {
     self.Object.Call("setResolution", width, height)
 }
 
-// Set the resolution uniforms on the filter.
+// SetResolutionI Set the resolution uniforms on the filter.
 func (self *Filter) SetResolutionI(args ...interface{}) {
     self.Object.Call("setResolution", args)
 }
 
-// Updates the filter.
+// Update Updates the filter.
 func (self *Filter) Update() {
     self.Object.Call("update")
 }
 
-// Updates the filter.
+// Update1O Updates the filter.
 func (self *Filter) Update1O(pointer *Pointer) {
     self.Object.Call("update", pointer)
 }
 
-// Updates the filter.
+// UpdateI Updates the filter.
 func (self *Filter) UpdateI(args ...interface{}) {
     self.Object.Call("update", args)
 }
 
-// Creates a new Phaser.Image object using a blank texture and assigns 
+// AddToWorld Creates a new Phaser.Image object using a blank texture and assigns 
 // this Filter to it. The image is then added to the world.
 // 
 // If you don't provide width and height values then Filter.width and Filter.height are used.
@@ -172,7 +169,7 @@ func (self *Filter) AddToWorld() *Image{
     return &Image{self.Object.Call("addToWorld")}
 }
 
-// Creates a new Phaser.Image object using a blank texture and assigns 
+// AddToWorld1O Creates a new Phaser.Image object using a blank texture and assigns 
 // this Filter to it. The image is then added to the world.
 // 
 // If you don't provide width and height values then Filter.width and Filter.height are used.
@@ -183,7 +180,7 @@ func (self *Filter) AddToWorld1O(x int) *Image{
     return &Image{self.Object.Call("addToWorld", x)}
 }
 
-// Creates a new Phaser.Image object using a blank texture and assigns 
+// AddToWorld2O Creates a new Phaser.Image object using a blank texture and assigns 
 // this Filter to it. The image is then added to the world.
 // 
 // If you don't provide width and height values then Filter.width and Filter.height are used.
@@ -194,7 +191,7 @@ func (self *Filter) AddToWorld2O(x int, y int) *Image{
     return &Image{self.Object.Call("addToWorld", x, y)}
 }
 
-// Creates a new Phaser.Image object using a blank texture and assigns 
+// AddToWorld3O Creates a new Phaser.Image object using a blank texture and assigns 
 // this Filter to it. The image is then added to the world.
 // 
 // If you don't provide width and height values then Filter.width and Filter.height are used.
@@ -205,7 +202,7 @@ func (self *Filter) AddToWorld3O(x int, y int, width int) *Image{
     return &Image{self.Object.Call("addToWorld", x, y, width)}
 }
 
-// Creates a new Phaser.Image object using a blank texture and assigns 
+// AddToWorld4O Creates a new Phaser.Image object using a blank texture and assigns 
 // this Filter to it. The image is then added to the world.
 // 
 // If you don't provide width and height values then Filter.width and Filter.height are used.
@@ -216,7 +213,7 @@ func (self *Filter) AddToWorld4O(x int, y int, width int, height int) *Image{
     return &Image{self.Object.Call("addToWorld", x, y, width, height)}
 }
 
-// Creates a new Phaser.Image object using a blank texture and assigns 
+// AddToWorld5O Creates a new Phaser.Image object using a blank texture and assigns 
 // this Filter to it. The image is then added to the world.
 // 
 // If you don't provide width and height values then Filter.width and Filter.height are used.
@@ -227,7 +224,7 @@ func (self *Filter) AddToWorld5O(x int, y int, width int, height int, anchorX in
     return &Image{self.Object.Call("addToWorld", x, y, width, height, anchorX)}
 }
 
-// Creates a new Phaser.Image object using a blank texture and assigns 
+// AddToWorld6O Creates a new Phaser.Image object using a blank texture and assigns 
 // this Filter to it. The image is then added to the world.
 // 
 // If you don't provide width and height values then Filter.width and Filter.height are used.
@@ -238,7 +235,7 @@ func (self *Filter) AddToWorld6O(x int, y int, width int, height int, anchorX in
     return &Image{self.Object.Call("addToWorld", x, y, width, height, anchorX, anchorY)}
 }
 
-// Creates a new Phaser.Image object using a blank texture and assigns 
+// AddToWorldI Creates a new Phaser.Image object using a blank texture and assigns 
 // this Filter to it. The image is then added to the world.
 // 
 // If you don't provide width and height values then Filter.width and Filter.height are used.
@@ -249,12 +246,13 @@ func (self *Filter) AddToWorldI(args ...interface{}) *Image{
     return &Image{self.Object.Call("addToWorld", args)}
 }
 
-// Clear down this Filter and null out references
+// Destroy Clear down this Filter and null out references
 func (self *Filter) Destroy() {
     self.Object.Call("destroy")
 }
 
-// Clear down this Filter and null out references
+// DestroyI Clear down this Filter and null out references
 func (self *Filter) DestroyI(args ...interface{}) {
     self.Object.Call("destroy", args)
 }
+

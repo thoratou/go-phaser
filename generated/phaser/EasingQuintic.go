@@ -1,4 +1,4 @@
-// Automatic generation for Phaser.Easing.Quintic
+// Package phaser Automatic generation for Phaser.Easing.Quintic
 // generated file EasingQuintic.go
 package phaser
 
@@ -7,18 +7,16 @@ import (
 
 )
 
-// Quintic easing.
+// EasingQuintic Quintic easing.
 type EasingQuintic struct {
     *js.Object
 }
 
-
-// Quintic easing.
+// NewEasingQuintic Quintic easing.
 func NewEasingQuintic() *EasingQuintic {
     return &EasingQuintic{js.Global.Get("Phaser").Get("Easing").Get("Quintic").New()}
 }
-
-// Quintic easing.
+// NewEasingQuinticI Quintic easing.
 func NewEasingQuinticI(args ...interface{}) *EasingQuintic {
     return &EasingQuintic{js.Global.Get("Phaser").Get("Easing").Get("Quintic").New(args)}
 }
@@ -26,33 +24,33 @@ func NewEasingQuinticI(args ...interface{}) *EasingQuintic {
 
 
 
-
-// Quintic ease-in.
+// In Quintic ease-in.
 func (self *EasingQuintic) In(k int) int{
     return self.Object.Call("In", k).Int()
 }
 
-// Quintic ease-in.
+// InI Quintic ease-in.
 func (self *EasingQuintic) InI(args ...interface{}) int{
     return self.Object.Call("In", args).Int()
 }
 
-// Quintic ease-out.
+// Out Quintic ease-out.
 func (self *EasingQuintic) Out(k int) int{
     return self.Object.Call("Out", k).Int()
 }
 
-// Quintic ease-out.
+// OutI Quintic ease-out.
 func (self *EasingQuintic) OutI(args ...interface{}) int{
     return self.Object.Call("Out", args).Int()
 }
 
-// Quintic ease-in/out.
+// InOut Quintic ease-in/out.
 func (self *EasingQuintic) InOut(k int) int{
     return self.Object.Call("InOut", k).Int()
 }
 
-// Quintic ease-in/out.
+// InOutI Quintic ease-in/out.
 func (self *EasingQuintic) InOutI(args ...interface{}) int{
     return self.Object.Call("InOut", args).Int()
 }
+

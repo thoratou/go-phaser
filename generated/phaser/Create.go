@@ -1,4 +1,4 @@
-// Automatic generation for Phaser.Create
+// Package phaser Automatic generation for Phaser.Create
 // generated file Create.go
 package phaser
 
@@ -9,7 +9,7 @@ import (
 
 )
 
-// The Phaser.Create class is a collection of smaller helper methods that allow you to generate game content
+// Create The Phaser.Create class is a collection of smaller helper methods that allow you to generate game content
 // quickly and easily, without the need for any external files. You can create textures for sprites and in
 // coming releases we'll add dynamic sound effect generation support as well (like sfxr).
 // 
@@ -18,8 +18,7 @@ type Create struct {
     *js.Object
 }
 
-
-// The Phaser.Create class is a collection of smaller helper methods that allow you to generate game content
+// NewCreate The Phaser.Create class is a collection of smaller helper methods that allow you to generate game content
 // quickly and easily, without the need for any external files. You can create textures for sprites and in
 // coming releases we'll add dynamic sound effect generation support as well (like sfxr).
 // 
@@ -27,8 +26,7 @@ type Create struct {
 func NewCreate(game *Game) *Create {
     return &Create{js.Global.Get("Phaser").Get("Create").New(game)}
 }
-
-// The Phaser.Create class is a collection of smaller helper methods that allow you to generate game content
+// NewCreateI The Phaser.Create class is a collection of smaller helper methods that allow you to generate game content
 // quickly and easily, without the need for any external files. You can create textures for sprites and in
 // coming releases we'll add dynamic sound effect generation support as well (like sfxr).
 // 
@@ -39,47 +37,47 @@ func NewCreateI(args ...interface{}) *Create {
 
 
 
-// A reference to the currently running Game.
+// Game A reference to the currently running Game.
 func (self *Create) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
-// A reference to the currently running Game.
+// SetGameA A reference to the currently running Game.
 func (self *Create) SetGameA(member *Game) {
     self.Object.Set("game", member)
 }
 
-// The internal BitmapData Create uses to generate textures from.
+// Bmd The internal BitmapData Create uses to generate textures from.
 func (self *Create) Bmd() *BitmapData{
     return &BitmapData{self.Object.Get("bmd")}
 }
 
-// The internal BitmapData Create uses to generate textures from.
+// SetBmdA The internal BitmapData Create uses to generate textures from.
 func (self *Create) SetBmdA(member *BitmapData) {
     self.Object.Set("bmd", member)
 }
 
-// The canvas the BitmapData uses.
+// Canvas The canvas the BitmapData uses.
 func (self *Create) Canvas() dom.HTMLCanvasElement{
     return WrapHTMLCanvasElement(self.Object.Get("canvas"))
 }
 
-// The canvas the BitmapData uses.
+// SetCanvasA The canvas the BitmapData uses.
 func (self *Create) SetCanvasA(member dom.HTMLCanvasElement) {
     self.Object.Set("canvas", member)
 }
 
-// The 2d context of the canvas.
+// Ctx The 2d context of the canvas.
 func (self *Create) Ctx() interface{}{
     return self.Object.Get("ctx")
 }
 
-// The 2d context of the canvas.
+// SetCtxA The 2d context of the canvas.
 func (self *Create) SetCtxA(member interface{}) {
     self.Object.Set("ctx", member)
 }
 
-// A range of 16 color palettes for use with sprite generation.
+// Palettes A range of 16 color palettes for use with sprite generation.
 func (self *Create) Palettes() []interface{}{
 	array00 := self.Object.Get("palettes")
 	length00 := array00.Length()
@@ -90,64 +88,63 @@ func (self *Create) Palettes() []interface{}{
 	return out00
 }
 
-// A range of 16 color palettes for use with sprite generation.
+// SetPalettesA A range of 16 color palettes for use with sprite generation.
 func (self *Create) SetPalettesA(member []interface{}) {
     self.Object.Set("palettes", member)
 }
 
-// A 16 color palette by [Arne](http://androidarts.com/palette/16pal.htm)
+// PALETTE_ARNE A 16 color palette by [Arne](http://androidarts.com/palette/16pal.htm)
 func (self *Create) PALETTE_ARNE() int{
     return self.Object.Get("PALETTE_ARNE").Int()
 }
 
-// A 16 color palette by [Arne](http://androidarts.com/palette/16pal.htm)
+// SetPALETTE_ARNEA A 16 color palette by [Arne](http://androidarts.com/palette/16pal.htm)
 func (self *Create) SetPALETTE_ARNEA(member int) {
     self.Object.Set("PALETTE_ARNE", member)
 }
 
-// A 16 color JMP inspired palette.
+// PALETTE_JMP A 16 color JMP inspired palette.
 func (self *Create) PALETTE_JMP() int{
     return self.Object.Get("PALETTE_JMP").Int()
 }
 
-// A 16 color JMP inspired palette.
+// SetPALETTE_JMPA A 16 color JMP inspired palette.
 func (self *Create) SetPALETTE_JMPA(member int) {
     self.Object.Set("PALETTE_JMP", member)
 }
 
-// A 16 color CGA inspired palette.
+// PALETTE_CGA A 16 color CGA inspired palette.
 func (self *Create) PALETTE_CGA() int{
     return self.Object.Get("PALETTE_CGA").Int()
 }
 
-// A 16 color CGA inspired palette.
+// SetPALETTE_CGAA A 16 color CGA inspired palette.
 func (self *Create) SetPALETTE_CGAA(member int) {
     self.Object.Set("PALETTE_CGA", member)
 }
 
-// A 16 color C64 inspired palette.
+// PALETTE_C64 A 16 color C64 inspired palette.
 func (self *Create) PALETTE_C64() int{
     return self.Object.Get("PALETTE_C64").Int()
 }
 
-// A 16 color C64 inspired palette.
+// SetPALETTE_C64A A 16 color C64 inspired palette.
 func (self *Create) SetPALETTE_C64A(member int) {
     self.Object.Set("PALETTE_C64", member)
 }
 
-// A 16 color palette inspired by Japanese computers like the MSX.
+// PALETTE_JAPANESE_MACHINE A 16 color palette inspired by Japanese computers like the MSX.
 func (self *Create) PALETTE_JAPANESE_MACHINE() int{
     return self.Object.Get("PALETTE_JAPANESE_MACHINE").Int()
 }
 
-// A 16 color palette inspired by Japanese computers like the MSX.
+// SetPALETTE_JAPANESE_MACHINEA A 16 color palette inspired by Japanese computers like the MSX.
 func (self *Create) SetPALETTE_JAPANESE_MACHINEA(member int) {
     self.Object.Set("PALETTE_JAPANESE_MACHINE", member)
 }
 
 
-
-// Generates a new PIXI.Texture from the given data, which can be applied to a Sprite.
+// Texture Generates a new PIXI.Texture from the given data, which can be applied to a Sprite.
 // 
 // This allows you to create game graphics quickly and easily, with no external files but that use actual proper images
 // rather than Phaser.Graphics objects, which are expensive to render and limited in scope.
@@ -172,7 +169,7 @@ func (self *Create) Texture(key string, data []interface{}) *Texture{
     return &Texture{self.Object.Call("texture", key, data)}
 }
 
-// Generates a new PIXI.Texture from the given data, which can be applied to a Sprite.
+// Texture1O Generates a new PIXI.Texture from the given data, which can be applied to a Sprite.
 // 
 // This allows you to create game graphics quickly and easily, with no external files but that use actual proper images
 // rather than Phaser.Graphics objects, which are expensive to render and limited in scope.
@@ -197,7 +194,7 @@ func (self *Create) Texture1O(key string, data []interface{}, pixelWidth int) *T
     return &Texture{self.Object.Call("texture", key, data, pixelWidth)}
 }
 
-// Generates a new PIXI.Texture from the given data, which can be applied to a Sprite.
+// Texture2O Generates a new PIXI.Texture from the given data, which can be applied to a Sprite.
 // 
 // This allows you to create game graphics quickly and easily, with no external files but that use actual proper images
 // rather than Phaser.Graphics objects, which are expensive to render and limited in scope.
@@ -222,7 +219,7 @@ func (self *Create) Texture2O(key string, data []interface{}, pixelWidth int, pi
     return &Texture{self.Object.Call("texture", key, data, pixelWidth, pixelHeight)}
 }
 
-// Generates a new PIXI.Texture from the given data, which can be applied to a Sprite.
+// Texture3O Generates a new PIXI.Texture from the given data, which can be applied to a Sprite.
 // 
 // This allows you to create game graphics quickly and easily, with no external files but that use actual proper images
 // rather than Phaser.Graphics objects, which are expensive to render and limited in scope.
@@ -247,7 +244,7 @@ func (self *Create) Texture3O(key string, data []interface{}, pixelWidth int, pi
     return &Texture{self.Object.Call("texture", key, data, pixelWidth, pixelHeight, palette)}
 }
 
-// Generates a new PIXI.Texture from the given data, which can be applied to a Sprite.
+// TextureI Generates a new PIXI.Texture from the given data, which can be applied to a Sprite.
 // 
 // This allows you to create game graphics quickly and easily, with no external files but that use actual proper images
 // rather than Phaser.Graphics objects, which are expensive to render and limited in scope.
@@ -272,12 +269,13 @@ func (self *Create) TextureI(args ...interface{}) *Texture{
     return &Texture{self.Object.Call("texture", args)}
 }
 
-// Creates a grid texture based on the given dimensions.
+// Grid Creates a grid texture based on the given dimensions.
 func (self *Create) Grid(key string, width int, height int, cellWidth int, cellHeight int, color string) *Texture{
     return &Texture{self.Object.Call("grid", key, width, height, cellWidth, cellHeight, color)}
 }
 
-// Creates a grid texture based on the given dimensions.
+// GridI Creates a grid texture based on the given dimensions.
 func (self *Create) GridI(args ...interface{}) *Texture{
     return &Texture{self.Object.Call("grid", args)}
 }
+

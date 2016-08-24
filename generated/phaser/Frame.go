@@ -1,4 +1,4 @@
-// Automatic generation for Phaser.Frame
+// Package phaser Automatic generation for Phaser.Frame
 // generated file Frame.go
 package phaser
 
@@ -7,269 +7,267 @@ import (
 
 )
 
-// A Frame is a single frame of an animation and is part of a FrameData collection.
+// Frame A Frame is a single frame of an animation and is part of a FrameData collection.
 type Frame struct {
     *js.Object
 }
 
-
-// A Frame is a single frame of an animation and is part of a FrameData collection.
+// NewFrame A Frame is a single frame of an animation and is part of a FrameData collection.
 func NewFrame(index int, x int, y int, width int, height int, name string) *Frame {
     return &Frame{js.Global.Get("Phaser").Get("Frame").New(index, x, y, width, height, name)}
 }
-
-// A Frame is a single frame of an animation and is part of a FrameData collection.
+// NewFrameI A Frame is a single frame of an animation and is part of a FrameData collection.
 func NewFrameI(args ...interface{}) *Frame {
     return &Frame{js.Global.Get("Phaser").Get("Frame").New(args)}
 }
 
 
 
-// The index of this Frame within the FrameData set it is being added to.
+// Index The index of this Frame within the FrameData set it is being added to.
 func (self *Frame) Index() int{
     return self.Object.Get("index").Int()
 }
 
-// The index of this Frame within the FrameData set it is being added to.
+// SetIndexA The index of this Frame within the FrameData set it is being added to.
 func (self *Frame) SetIndexA(member int) {
     self.Object.Set("index", member)
 }
 
-// X position within the image to cut from.
+// X X position within the image to cut from.
 func (self *Frame) X() int{
     return self.Object.Get("x").Int()
 }
 
-// X position within the image to cut from.
+// SetXA X position within the image to cut from.
 func (self *Frame) SetXA(member int) {
     self.Object.Set("x", member)
 }
 
-// Y position within the image to cut from.
+// Y Y position within the image to cut from.
 func (self *Frame) Y() int{
     return self.Object.Get("y").Int()
 }
 
-// Y position within the image to cut from.
+// SetYA Y position within the image to cut from.
 func (self *Frame) SetYA(member int) {
     self.Object.Set("y", member)
 }
 
-// Width of the frame.
+// Width Width of the frame.
 func (self *Frame) Width() int{
     return self.Object.Get("width").Int()
 }
 
-// Width of the frame.
+// SetWidthA Width of the frame.
 func (self *Frame) SetWidthA(member int) {
     self.Object.Set("width", member)
 }
 
-// Height of the frame.
+// Height Height of the frame.
 func (self *Frame) Height() int{
     return self.Object.Get("height").Int()
 }
 
-// Height of the frame.
+// SetHeightA Height of the frame.
 func (self *Frame) SetHeightA(member int) {
     self.Object.Set("height", member)
 }
 
-// Useful for Texture Atlas files (is set to the filename value).
+// Name Useful for Texture Atlas files (is set to the filename value).
 func (self *Frame) Name() string{
     return self.Object.Get("name").String()
 }
 
-// Useful for Texture Atlas files (is set to the filename value).
+// SetNameA Useful for Texture Atlas files (is set to the filename value).
 func (self *Frame) SetNameA(member string) {
     self.Object.Set("name", member)
 }
 
-// Center X position within the image to cut from.
+// CenterX Center X position within the image to cut from.
 func (self *Frame) CenterX() int{
     return self.Object.Get("centerX").Int()
 }
 
-// Center X position within the image to cut from.
+// SetCenterXA Center X position within the image to cut from.
 func (self *Frame) SetCenterXA(member int) {
     self.Object.Set("centerX", member)
 }
 
-// Center Y position within the image to cut from.
+// CenterY Center Y position within the image to cut from.
 func (self *Frame) CenterY() int{
     return self.Object.Get("centerY").Int()
 }
 
-// Center Y position within the image to cut from.
+// SetCenterYA Center Y position within the image to cut from.
 func (self *Frame) SetCenterYA(member int) {
     self.Object.Set("centerY", member)
 }
 
-// The distance from the top left to the bottom-right of this Frame.
+// Distance The distance from the top left to the bottom-right of this Frame.
 func (self *Frame) Distance() int{
     return self.Object.Get("distance").Int()
 }
 
-// The distance from the top left to the bottom-right of this Frame.
+// SetDistanceA The distance from the top left to the bottom-right of this Frame.
 func (self *Frame) SetDistanceA(member int) {
     self.Object.Set("distance", member)
 }
 
-// Rotated? (not yet implemented)
+// Rotated Rotated? (not yet implemented)
 func (self *Frame) Rotated() bool{
     return self.Object.Get("rotated").Bool()
 }
 
-// Rotated? (not yet implemented)
+// SetRotatedA Rotated? (not yet implemented)
 func (self *Frame) SetRotatedA(member bool) {
     self.Object.Set("rotated", member)
 }
 
-// Either 'cw' or 'ccw', rotation is always 90 degrees.
+// RotationDirection Either 'cw' or 'ccw', rotation is always 90 degrees.
 func (self *Frame) RotationDirection() string{
     return self.Object.Get("rotationDirection").String()
 }
 
-// Either 'cw' or 'ccw', rotation is always 90 degrees.
+// SetRotationDirectionA Either 'cw' or 'ccw', rotation is always 90 degrees.
 func (self *Frame) SetRotationDirectionA(member string) {
     self.Object.Set("rotationDirection", member)
 }
 
-// Was it trimmed when packed?
+// Trimmed Was it trimmed when packed?
 func (self *Frame) Trimmed() bool{
     return self.Object.Get("trimmed").Bool()
 }
 
-// Was it trimmed when packed?
+// SetTrimmedA Was it trimmed when packed?
 func (self *Frame) SetTrimmedA(member bool) {
     self.Object.Set("trimmed", member)
 }
 
-// Width of the original sprite before it was trimmed.
+// SourceSizeW Width of the original sprite before it was trimmed.
 func (self *Frame) SourceSizeW() int{
     return self.Object.Get("sourceSizeW").Int()
 }
 
-// Width of the original sprite before it was trimmed.
+// SetSourceSizeWA Width of the original sprite before it was trimmed.
 func (self *Frame) SetSourceSizeWA(member int) {
     self.Object.Set("sourceSizeW", member)
 }
 
-// Height of the original sprite before it was trimmed.
+// SourceSizeH Height of the original sprite before it was trimmed.
 func (self *Frame) SourceSizeH() int{
     return self.Object.Get("sourceSizeH").Int()
 }
 
-// Height of the original sprite before it was trimmed.
+// SetSourceSizeHA Height of the original sprite before it was trimmed.
 func (self *Frame) SetSourceSizeHA(member int) {
     self.Object.Set("sourceSizeH", member)
 }
 
-// X position of the trimmed sprite inside original sprite.
+// SpriteSourceSizeX X position of the trimmed sprite inside original sprite.
 func (self *Frame) SpriteSourceSizeX() int{
     return self.Object.Get("spriteSourceSizeX").Int()
 }
 
-// X position of the trimmed sprite inside original sprite.
+// SetSpriteSourceSizeXA X position of the trimmed sprite inside original sprite.
 func (self *Frame) SetSpriteSourceSizeXA(member int) {
     self.Object.Set("spriteSourceSizeX", member)
 }
 
-// Y position of the trimmed sprite inside original sprite.
+// SpriteSourceSizeY Y position of the trimmed sprite inside original sprite.
 func (self *Frame) SpriteSourceSizeY() int{
     return self.Object.Get("spriteSourceSizeY").Int()
 }
 
-// Y position of the trimmed sprite inside original sprite.
+// SetSpriteSourceSizeYA Y position of the trimmed sprite inside original sprite.
 func (self *Frame) SetSpriteSourceSizeYA(member int) {
     self.Object.Set("spriteSourceSizeY", member)
 }
 
-// Width of the trimmed sprite.
+// SpriteSourceSizeW Width of the trimmed sprite.
 func (self *Frame) SpriteSourceSizeW() int{
     return self.Object.Get("spriteSourceSizeW").Int()
 }
 
-// Width of the trimmed sprite.
+// SetSpriteSourceSizeWA Width of the trimmed sprite.
 func (self *Frame) SetSpriteSourceSizeWA(member int) {
     self.Object.Set("spriteSourceSizeW", member)
 }
 
-// Height of the trimmed sprite.
+// SpriteSourceSizeH Height of the trimmed sprite.
 func (self *Frame) SpriteSourceSizeH() int{
     return self.Object.Get("spriteSourceSizeH").Int()
 }
 
-// Height of the trimmed sprite.
+// SetSpriteSourceSizeHA Height of the trimmed sprite.
 func (self *Frame) SetSpriteSourceSizeHA(member int) {
     self.Object.Set("spriteSourceSizeH", member)
 }
 
-// The right of the Frame (x + width).
+// Right The right of the Frame (x + width).
 func (self *Frame) Right() int{
     return self.Object.Get("right").Int()
 }
 
-// The right of the Frame (x + width).
+// SetRightA The right of the Frame (x + width).
 func (self *Frame) SetRightA(member int) {
     self.Object.Set("right", member)
 }
 
-// The bottom of the frame (y + height).
+// Bottom The bottom of the frame (y + height).
 func (self *Frame) Bottom() int{
     return self.Object.Get("bottom").Int()
 }
 
-// The bottom of the frame (y + height).
+// SetBottomA The bottom of the frame (y + height).
 func (self *Frame) SetBottomA(member int) {
     self.Object.Set("bottom", member)
 }
 
 
-
-// Adjusts of all the Frame properties based on the given width and height values.
+// Resize Adjusts of all the Frame properties based on the given width and height values.
 func (self *Frame) Resize(width int, height int) {
     self.Object.Call("resize", width, height)
 }
 
-// Adjusts of all the Frame properties based on the given width and height values.
+// ResizeI Adjusts of all the Frame properties based on the given width and height values.
 func (self *Frame) ResizeI(args ...interface{}) {
     self.Object.Call("resize", args)
 }
 
-// If the frame was trimmed when added to the Texture Atlas this records the trim and source data.
+// SetTrim If the frame was trimmed when added to the Texture Atlas this records the trim and source data.
 func (self *Frame) SetTrim(trimmed bool, actualWidth int, actualHeight int, destX int, destY int, destWidth int, destHeight int) {
     self.Object.Call("setTrim", trimmed, actualWidth, actualHeight, destX, destY, destWidth, destHeight)
 }
 
-// If the frame was trimmed when added to the Texture Atlas this records the trim and source data.
+// SetTrimI If the frame was trimmed when added to the Texture Atlas this records the trim and source data.
 func (self *Frame) SetTrimI(args ...interface{}) {
     self.Object.Call("setTrim", args)
 }
 
-// Clones this Frame into a new Phaser.Frame object and returns it.
+// Clone Clones this Frame into a new Phaser.Frame object and returns it.
 // Note that all properties are cloned, including the name, index and UUID.
 func (self *Frame) Clone() *Frame{
     return &Frame{self.Object.Call("clone")}
 }
 
-// Clones this Frame into a new Phaser.Frame object and returns it.
+// CloneI Clones this Frame into a new Phaser.Frame object and returns it.
 // Note that all properties are cloned, including the name, index and UUID.
 func (self *Frame) CloneI(args ...interface{}) *Frame{
     return &Frame{self.Object.Call("clone", args)}
 }
 
-// Returns a Rectangle set to the dimensions of this Frame.
+// GetRect Returns a Rectangle set to the dimensions of this Frame.
 func (self *Frame) GetRect() *Rectangle{
     return &Rectangle{self.Object.Call("getRect")}
 }
 
-// Returns a Rectangle set to the dimensions of this Frame.
+// GetRect1O Returns a Rectangle set to the dimensions of this Frame.
 func (self *Frame) GetRect1O(out *Rectangle) *Rectangle{
     return &Rectangle{self.Object.Call("getRect", out)}
 }
 
-// Returns a Rectangle set to the dimensions of this Frame.
+// GetRectI Returns a Rectangle set to the dimensions of this Frame.
 func (self *Frame) GetRectI(args ...interface{}) *Rectangle{
     return &Rectangle{self.Object.Call("getRect", args)}
 }
+

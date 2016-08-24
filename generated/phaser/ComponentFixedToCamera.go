@@ -1,4 +1,4 @@
-// Automatic generation for Phaser.Component.FixedToCamera
+// Package phaser Automatic generation for Phaser.Component.FixedToCamera
 // generated file ComponentFixedToCamera.go
 package phaser
 
@@ -7,20 +7,18 @@ import (
 
 )
 
-// The FixedToCamera component enables a Game Object to be rendered relative to the game camera coordinates, regardless 
+// ComponentFixedToCamera The FixedToCamera component enables a Game Object to be rendered relative to the game camera coordinates, regardless 
 // of where in the world the camera is. This is used for things like sticking game UI to the camera that scrolls as it moves around the world.
 type ComponentFixedToCamera struct {
     *js.Object
 }
 
-
-// The FixedToCamera component enables a Game Object to be rendered relative to the game camera coordinates, regardless 
+// NewComponentFixedToCamera The FixedToCamera component enables a Game Object to be rendered relative to the game camera coordinates, regardless 
 // of where in the world the camera is. This is used for things like sticking game UI to the camera that scrolls as it moves around the world.
 func NewComponentFixedToCamera() *ComponentFixedToCamera {
     return &ComponentFixedToCamera{js.Global.Get("Phaser").Get("Component").Get("FixedToCamera").New()}
 }
-
-// The FixedToCamera component enables a Game Object to be rendered relative to the game camera coordinates, regardless 
+// NewComponentFixedToCameraI The FixedToCamera component enables a Game Object to be rendered relative to the game camera coordinates, regardless 
 // of where in the world the camera is. This is used for things like sticking game UI to the camera that scrolls as it moves around the world.
 func NewComponentFixedToCameraI(args ...interface{}) *ComponentFixedToCamera {
     return &ComponentFixedToCamera{js.Global.Get("Phaser").Get("Component").Get("FixedToCamera").New(args)}
@@ -28,7 +26,7 @@ func NewComponentFixedToCameraI(args ...interface{}) *ComponentFixedToCamera {
 
 
 
-// A Game Object that is "fixed" to the camera uses its x/y coordinates as offsets from the top left of the camera during rendering.
+// FixedToCamera A Game Object that is "fixed" to the camera uses its x/y coordinates as offsets from the top left of the camera during rendering.
 // 
 // The values are adjusted at the rendering stage, overriding the Game Objects actual world position.
 // 
@@ -45,7 +43,7 @@ func (self *ComponentFixedToCamera) FixedToCamera() bool{
     return self.Object.Get("fixedToCamera").Bool()
 }
 
-// A Game Object that is "fixed" to the camera uses its x/y coordinates as offsets from the top left of the camera during rendering.
+// SetFixedToCameraA A Game Object that is "fixed" to the camera uses its x/y coordinates as offsets from the top left of the camera during rendering.
 // 
 // The values are adjusted at the rendering stage, overriding the Game Objects actual world position.
 // 
@@ -62,14 +60,14 @@ func (self *ComponentFixedToCamera) SetFixedToCameraA(member bool) {
     self.Object.Set("fixedToCamera", member)
 }
 
-// The x/y coordinate offset applied to the top-left of the camera that this Game Object will be drawn at if `fixedToCamera` is true.
+// CameraOffset The x/y coordinate offset applied to the top-left of the camera that this Game Object will be drawn at if `fixedToCamera` is true.
 // 
 // The values are relative to the top-left of the camera view and in addition to any parent of the Game Object on the display list.
 func (self *ComponentFixedToCamera) CameraOffset() *Point{
     return &Point{self.Object.Get("cameraOffset")}
 }
 
-// The x/y coordinate offset applied to the top-left of the camera that this Game Object will be drawn at if `fixedToCamera` is true.
+// SetCameraOffsetA The x/y coordinate offset applied to the top-left of the camera that this Game Object will be drawn at if `fixedToCamera` is true.
 // 
 // The values are relative to the top-left of the camera view and in addition to any parent of the Game Object on the display list.
 func (self *ComponentFixedToCamera) SetCameraOffsetA(member *Point) {
@@ -77,15 +75,15 @@ func (self *ComponentFixedToCamera) SetCameraOffsetA(member *Point) {
 }
 
 
-
-// The FixedToCamera component postUpdate handler.
+// PostUpdate The FixedToCamera component postUpdate handler.
 // Called automatically by the Game Object.
 func (self *ComponentFixedToCamera) PostUpdate() {
     self.Object.Call("postUpdate")
 }
 
-// The FixedToCamera component postUpdate handler.
+// PostUpdateI The FixedToCamera component postUpdate handler.
 // Called automatically by the Game Object.
 func (self *ComponentFixedToCamera) PostUpdateI(args ...interface{}) {
     self.Object.Call("postUpdate", args)
 }
+

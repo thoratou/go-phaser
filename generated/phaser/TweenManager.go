@@ -1,4 +1,4 @@
-// Automatic generation for Phaser.TweenManager
+// Package phaser Automatic generation for Phaser.TweenManager
 // generated file TweenManager.go
 package phaser
 
@@ -7,7 +7,7 @@ import (
 
 )
 
-// Phaser.Game has a single instance of the TweenManager through which all Tween objects are created and updated.
+// TweenManager Phaser.Game has a single instance of the TweenManager through which all Tween objects are created and updated.
 // Tweens are hooked into the game clock and pause system, adjusting based on the game state.
 // 
 // TweenManager is based heavily on tween.js by http://soledadpenades.com.
@@ -18,8 +18,7 @@ type TweenManager struct {
     *js.Object
 }
 
-
-// Phaser.Game has a single instance of the TweenManager through which all Tween objects are created and updated.
+// NewTweenManager Phaser.Game has a single instance of the TweenManager through which all Tween objects are created and updated.
 // Tweens are hooked into the game clock and pause system, adjusting based on the game state.
 // 
 // TweenManager is based heavily on tween.js by http://soledadpenades.com.
@@ -29,8 +28,7 @@ type TweenManager struct {
 func NewTweenManager(game *Game) *TweenManager {
     return &TweenManager{js.Global.Get("Phaser").Get("TweenManager").New(game)}
 }
-
-// Phaser.Game has a single instance of the TweenManager through which all Tween objects are created and updated.
+// NewTweenManagerI Phaser.Game has a single instance of the TweenManager through which all Tween objects are created and updated.
 // Tweens are hooked into the game clock and pause system, adjusting based on the game state.
 // 
 // TweenManager is based heavily on tween.js by http://soledadpenades.com.
@@ -43,17 +41,17 @@ func NewTweenManagerI(args ...interface{}) *TweenManager {
 
 
 
-// Local reference to game.
+// Game Local reference to game.
 func (self *TweenManager) Game() *Game{
     return &Game{self.Object.Get("game")}
 }
 
-// Local reference to game.
+// SetGameA Local reference to game.
 func (self *TweenManager) SetGameA(member *Game) {
     self.Object.Set("game", member)
 }
 
-// Are all newly created Tweens frame or time based? A frame based tween will use the physics elapsed timer when updating. This means
+// FrameBased Are all newly created Tweens frame or time based? A frame based tween will use the physics elapsed timer when updating. This means
 // it will retain the same consistent frame rate, regardless of the speed of the device. The duration value given should
 // be given in frames.
 // 
@@ -64,7 +62,7 @@ func (self *TweenManager) FrameBased() bool{
     return self.Object.Get("frameBased").Bool()
 }
 
-// Are all newly created Tweens frame or time based? A frame based tween will use the physics elapsed timer when updating. This means
+// SetFrameBasedA Are all newly created Tweens frame or time based? A frame based tween will use the physics elapsed timer when updating. This means
 // it will retain the same consistent frame rate, regardless of the speed of the device. The duration value given should
 // be given in frames.
 // 
@@ -76,8 +74,7 @@ func (self *TweenManager) SetFrameBasedA(member bool) {
 }
 
 
-
-// Get all the tween objects in an array.
+// GetAll Get all the tween objects in an array.
 func (self *TweenManager) GetAll() []Tween{
 	array00 := self.Object.Call("getAll")
 	length00 := array00.Length()
@@ -89,7 +86,7 @@ func (self *TweenManager) GetAll() []Tween{
 	return out00
 }
 
-// Get all the tween objects in an array.
+// GetAllI Get all the tween objects in an array.
 func (self *TweenManager) GetAllI(args ...interface{}) []Tween{
 	array00 := self.Object.Call("getAll", args)
 	length00 := array00.Length()
@@ -101,117 +98,118 @@ func (self *TweenManager) GetAllI(args ...interface{}) []Tween{
 	return out00
 }
 
-// Remove all tweens running and in the queue. Doesn't call any of the tween onComplete events.
+// RemoveAll Remove all tweens running and in the queue. Doesn't call any of the tween onComplete events.
 func (self *TweenManager) RemoveAll() {
     self.Object.Call("removeAll")
 }
 
-// Remove all tweens running and in the queue. Doesn't call any of the tween onComplete events.
+// RemoveAllI Remove all tweens running and in the queue. Doesn't call any of the tween onComplete events.
 func (self *TweenManager) RemoveAllI(args ...interface{}) {
     self.Object.Call("removeAll", args)
 }
 
-// Remove all tweens from a specific object, array of objects or Group.
+// RemoveFrom Remove all tweens from a specific object, array of objects or Group.
 func (self *TweenManager) RemoveFrom(obj interface{}) {
     self.Object.Call("removeFrom", obj)
 }
 
-// Remove all tweens from a specific object, array of objects or Group.
+// RemoveFrom1O Remove all tweens from a specific object, array of objects or Group.
 func (self *TweenManager) RemoveFrom1O(obj interface{}, children bool) {
     self.Object.Call("removeFrom", obj, children)
 }
 
-// Remove all tweens from a specific object, array of objects or Group.
+// RemoveFromI Remove all tweens from a specific object, array of objects or Group.
 func (self *TweenManager) RemoveFromI(args ...interface{}) {
     self.Object.Call("removeFrom", args)
 }
 
-// Add a new tween into the TweenManager.
+// Add Add a new tween into the TweenManager.
 func (self *TweenManager) Add(tween *Tween) *Tween{
     return &Tween{self.Object.Call("add", tween)}
 }
 
-// Add a new tween into the TweenManager.
+// AddI Add a new tween into the TweenManager.
 func (self *TweenManager) AddI(args ...interface{}) *Tween{
     return &Tween{self.Object.Call("add", args)}
 }
 
-// Create a tween object for a specific object. The object can be any JavaScript object or Phaser object such as Sprite.
+// Create Create a tween object for a specific object. The object can be any JavaScript object or Phaser object such as Sprite.
 func (self *TweenManager) Create(object interface{}) *Tween{
     return &Tween{self.Object.Call("create", object)}
 }
 
-// Create a tween object for a specific object. The object can be any JavaScript object or Phaser object such as Sprite.
+// CreateI Create a tween object for a specific object. The object can be any JavaScript object or Phaser object such as Sprite.
 func (self *TweenManager) CreateI(args ...interface{}) *Tween{
     return &Tween{self.Object.Call("create", args)}
 }
 
-// Remove a tween from this manager.
+// Remove Remove a tween from this manager.
 func (self *TweenManager) Remove(tween *Tween) {
     self.Object.Call("remove", tween)
 }
 
-// Remove a tween from this manager.
+// RemoveI Remove a tween from this manager.
 func (self *TweenManager) RemoveI(args ...interface{}) {
     self.Object.Call("remove", args)
 }
 
-// Update all the tween objects you added to this manager.
+// Update Update all the tween objects you added to this manager.
 func (self *TweenManager) Update() bool{
     return self.Object.Call("update").Bool()
 }
 
-// Update all the tween objects you added to this manager.
+// UpdateI Update all the tween objects you added to this manager.
 func (self *TweenManager) UpdateI(args ...interface{}) bool{
     return self.Object.Call("update", args).Bool()
 }
 
-// Checks to see if a particular Sprite is currently being tweened.
+// IsTweening Checks to see if a particular Sprite is currently being tweened.
 func (self *TweenManager) IsTweening(object interface{}) bool{
     return self.Object.Call("isTweening", object).Bool()
 }
 
-// Checks to see if a particular Sprite is currently being tweened.
+// IsTweeningI Checks to see if a particular Sprite is currently being tweened.
 func (self *TweenManager) IsTweeningI(args ...interface{}) bool{
     return self.Object.Call("isTweening", args).Bool()
 }
 
-// Private. Called by game focus loss. Pauses all currently running tweens.
+// _pauseAll Private. Called by game focus loss. Pauses all currently running tweens.
 func (self *TweenManager) _pauseAll() {
     self.Object.Call("_pauseAll")
 }
 
-// Private. Called by game focus loss. Pauses all currently running tweens.
+// _pauseAllI Private. Called by game focus loss. Pauses all currently running tweens.
 func (self *TweenManager) _pauseAllI(args ...interface{}) {
     self.Object.Call("_pauseAll", args)
 }
 
-// Private. Called by game focus loss. Resumes all currently paused tweens.
+// _resumeAll Private. Called by game focus loss. Resumes all currently paused tweens.
 func (self *TweenManager) _resumeAll() {
     self.Object.Call("_resumeAll")
 }
 
-// Private. Called by game focus loss. Resumes all currently paused tweens.
+// _resumeAllI Private. Called by game focus loss. Resumes all currently paused tweens.
 func (self *TweenManager) _resumeAllI(args ...interface{}) {
     self.Object.Call("_resumeAll", args)
 }
 
-// Pauses all currently running tweens.
+// PauseAll Pauses all currently running tweens.
 func (self *TweenManager) PauseAll() {
     self.Object.Call("pauseAll")
 }
 
-// Pauses all currently running tweens.
+// PauseAllI Pauses all currently running tweens.
 func (self *TweenManager) PauseAllI(args ...interface{}) {
     self.Object.Call("pauseAll", args)
 }
 
-// Resumes all currently paused tweens.
+// ResumeAll Resumes all currently paused tweens.
 func (self *TweenManager) ResumeAll() {
     self.Object.Call("resumeAll")
 }
 
-// Resumes all currently paused tweens.
+// ResumeAllI Resumes all currently paused tweens.
 func (self *TweenManager) ResumeAllI(args ...interface{}) {
     self.Object.Call("resumeAll", args)
 }
+

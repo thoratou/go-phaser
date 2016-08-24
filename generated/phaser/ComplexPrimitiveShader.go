@@ -1,4 +1,4 @@
-// Automatic generation for PIXI.ComplexPrimitiveShader
+// Package phaser Automatic generation for PIXI.ComplexPrimitiveShader
 // generated file ComplexPrimitiveShader.go
 package phaser
 
@@ -7,45 +7,43 @@ import (
 
 )
 
-// 
+// ComplexPrimitiveShader empty description
 type ComplexPrimitiveShader struct {
     *js.Object
 }
 
-
-// 
+// NewComplexPrimitiveShader empty description
 func NewComplexPrimitiveShader(gl *WebGLContext) *ComplexPrimitiveShader {
     return &ComplexPrimitiveShader{js.Global.Get("PIXI").Get("ComplexPrimitiveShader").New(gl)}
 }
-
-// 
+// NewComplexPrimitiveShaderI empty description
 func NewComplexPrimitiveShaderI(args ...interface{}) *ComplexPrimitiveShader {
     return &ComplexPrimitiveShader{js.Global.Get("PIXI").Get("ComplexPrimitiveShader").New(args)}
 }
 
 
 
-// 
+// Gl empty description
 func (self *ComplexPrimitiveShader) Gl() WebGLContext{
     return WrapWebGLContext(self.Object.Get("gl"))
 }
 
-// 
+// SetGlA empty description
 func (self *ComplexPrimitiveShader) SetGlA(member WebGLContext) {
     self.Object.Set("gl", member)
 }
 
-// The WebGL program.
+// Program The WebGL program.
 func (self *ComplexPrimitiveShader) Program() interface{}{
     return self.Object.Get("program")
 }
 
-// The WebGL program.
+// SetProgramA The WebGL program.
 func (self *ComplexPrimitiveShader) SetProgramA(member interface{}) {
     self.Object.Set("program", member)
 }
 
-// The fragment shader.
+// FragmentSrc The fragment shader.
 func (self *ComplexPrimitiveShader) FragmentSrc() []interface{}{
 	array00 := self.Object.Get("fragmentSrc")
 	length00 := array00.Length()
@@ -56,12 +54,12 @@ func (self *ComplexPrimitiveShader) FragmentSrc() []interface{}{
 	return out00
 }
 
-// The fragment shader.
+// SetFragmentSrcA The fragment shader.
 func (self *ComplexPrimitiveShader) SetFragmentSrcA(member []interface{}) {
     self.Object.Set("fragmentSrc", member)
 }
 
-// The vertex shader.
+// VertexSrc The vertex shader.
 func (self *ComplexPrimitiveShader) VertexSrc() []interface{}{
 	array00 := self.Object.Get("vertexSrc")
 	length00 := array00.Length()
@@ -72,29 +70,29 @@ func (self *ComplexPrimitiveShader) VertexSrc() []interface{}{
 	return out00
 }
 
-// The vertex shader.
+// SetVertexSrcA The vertex shader.
 func (self *ComplexPrimitiveShader) SetVertexSrcA(member []interface{}) {
     self.Object.Set("vertexSrc", member)
 }
 
 
-
-// Initialises the shader.
+// Init Initialises the shader.
 func (self *ComplexPrimitiveShader) Init() {
     self.Object.Call("init")
 }
 
-// Initialises the shader.
+// InitI Initialises the shader.
 func (self *ComplexPrimitiveShader) InitI(args ...interface{}) {
     self.Object.Call("init", args)
 }
 
-// Destroys the shader.
+// Destroy Destroys the shader.
 func (self *ComplexPrimitiveShader) Destroy() {
     self.Object.Call("destroy")
 }
 
-// Destroys the shader.
+// DestroyI Destroys the shader.
 func (self *ComplexPrimitiveShader) DestroyI(args ...interface{}) {
     self.Object.Call("destroy", args)
 }
+
