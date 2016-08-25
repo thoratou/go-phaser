@@ -51,6 +51,16 @@ func NewTimerI(args ...interface{}) *Timer {
 
 
 
+// Timer Binding conversion method to Timer point 
+func ToTimer(jsStruct interface{}) *Timer {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Timer{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game Local reference to game.
 func (self *Timer) Game() *Game{
     return &Game{self.Object.Get("game")}

@@ -56,4 +56,14 @@ func NewMat2dI(args ...interface{}) *Mat2d {
 
 
 
+// Mat2d Binding conversion method to Mat2d point 
+func ToMat2d(jsStruct interface{}) *Mat2d {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Mat2d{Object: object}
+	}
+	return nil
+}
+
+
+
 

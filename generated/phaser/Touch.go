@@ -29,6 +29,16 @@ func NewTouchI(args ...interface{}) *Touch {
 
 
 
+// Touch Binding conversion method to Touch point 
+func ToTouch(jsStruct interface{}) *Touch {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Touch{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game A reference to the currently running game.
 func (self *Touch) Game() *Game{
     return &Game{self.Object.Get("game")}

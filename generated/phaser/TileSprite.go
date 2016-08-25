@@ -83,6 +83,16 @@ func NewTileSpriteI(args ...interface{}) *TileSprite {
 
 
 
+// TileSprite Binding conversion method to TileSprite point 
+func ToTileSprite(jsStruct interface{}) *TileSprite {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &TileSprite{Object: object}
+	}
+	return nil
+}
+
+
+
 // Type The const type of this object.
 func (self *TileSprite) Type() int{
     return self.Object.Get("type").Int()

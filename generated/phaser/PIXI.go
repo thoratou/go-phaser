@@ -29,6 +29,16 @@ func NewPIXII(args ...interface{}) *PIXI {
 
 
 
+// PIXI Binding conversion method to PIXI point 
+func ToPIXI(jsStruct interface{}) *PIXI {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &PIXI{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game A reference to the Phaser Game instance that owns this Pixi renderer.
 func (self *PIXI) Game() *PhaserGame{
     return &PhaserGame{self.Object.Get("game")}

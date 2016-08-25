@@ -23,6 +23,16 @@ func NewPhysicsArcadeTilemapCollisionI(args ...interface{}) *PhysicsArcadeTilema
 
 
 
+// PhysicsArcadeTilemapCollision Binding conversion method to PhysicsArcadeTilemapCollision point 
+func ToPhysicsArcadeTilemapCollision(jsStruct interface{}) *PhysicsArcadeTilemapCollision {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &PhysicsArcadeTilemapCollision{Object: object}
+	}
+	return nil
+}
+
+
+
 // TILE_BIAS A value added to the delta values during collision with tiles. Adjust this if you get tunneling.
 func (self *PhysicsArcadeTilemapCollision) TILE_BIAS() int{
     return self.Object.Get("TILE_BIAS").Int()

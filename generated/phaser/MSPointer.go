@@ -50,6 +50,16 @@ func NewMSPointerI(args ...interface{}) *MSPointer {
 
 
 
+// MSPointer Binding conversion method to MSPointer point 
+func ToMSPointer(jsStruct interface{}) *MSPointer {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &MSPointer{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game A reference to the currently running game.
 func (self *MSPointer) Game() *Game{
     return &Game{self.Object.Get("game")}

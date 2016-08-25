@@ -23,6 +23,16 @@ func NewArrayUtilsI(args ...interface{}) *ArrayUtils {
 
 
 
+// ArrayUtils Binding conversion method to ArrayUtils point 
+func ToArrayUtils(jsStruct interface{}) *ArrayUtils {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &ArrayUtils{Object: object}
+	}
+	return nil
+}
+
+
+
 
 // GetRandomItem Fetch a random entry from the given array.
 // 

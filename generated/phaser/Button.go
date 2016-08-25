@@ -191,6 +191,16 @@ func NewButtonI(args ...interface{}) *Button {
 
 
 
+// Button Binding conversion method to Button point 
+func ToButton(jsStruct interface{}) *Button {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Button{Object: object}
+	}
+	return nil
+}
+
+
+
 // Type The Phaser Object Type.
 func (self *Button) Type() int{
     return self.Object.Get("type").Int()

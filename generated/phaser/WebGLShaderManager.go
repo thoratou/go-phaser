@@ -23,6 +23,16 @@ func NewWebGLShaderManagerI(args ...interface{}) *WebGLShaderManager {
 
 
 
+// WebGLShaderManager Binding conversion method to WebGLShaderManager point 
+func ToWebGLShaderManager(jsStruct interface{}) *WebGLShaderManager {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &WebGLShaderManager{Object: object}
+	}
+	return nil
+}
+
+
+
 // MaxAttibs empty description
 func (self *WebGLShaderManager) MaxAttibs() int{
     return self.Object.Get("maxAttibs").Int()

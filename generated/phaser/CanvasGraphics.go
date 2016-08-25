@@ -23,4 +23,14 @@ func NewCanvasGraphicsI(args ...interface{}) *CanvasGraphics {
 
 
 
+// CanvasGraphics Binding conversion method to CanvasGraphics point 
+func ToCanvasGraphics(jsStruct interface{}) *CanvasGraphics {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &CanvasGraphics{Object: object}
+	}
+	return nil
+}
+
+
+
 

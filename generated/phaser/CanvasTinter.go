@@ -25,6 +25,16 @@ func NewCanvasTinterI(args ...interface{}) *CanvasTinter {
 
 
 
+// CanvasTinter Binding conversion method to CanvasTinter point 
+func ToCanvasTinter(jsStruct interface{}) *CanvasTinter {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &CanvasTinter{Object: object}
+	}
+	return nil
+}
+
+
+
 // CanHandleAlpha If the browser isn't capable of handling tinting with alpha this will be false.
 // This property is only applicable if using tintWithPerPixel.
 func (self *CanvasTinter) CanHandleAlpha() bool{

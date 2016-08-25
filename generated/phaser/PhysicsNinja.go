@@ -68,6 +68,16 @@ func NewPhysicsNinjaI(args ...interface{}) *PhysicsNinja {
 
 
 
+// PhysicsNinja Binding conversion method to PhysicsNinja point 
+func ToPhysicsNinja(jsStruct interface{}) *PhysicsNinja {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &PhysicsNinja{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game Local reference to game.
 func (self *PhysicsNinja) Game() *Game{
     return &Game{self.Object.Get("game")}

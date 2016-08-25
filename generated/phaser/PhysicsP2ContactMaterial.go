@@ -27,4 +27,14 @@ func NewPhysicsP2ContactMaterialI(args ...interface{}) *PhysicsP2ContactMaterial
 
 
 
+// PhysicsP2ContactMaterial Binding conversion method to PhysicsP2ContactMaterial point 
+func ToPhysicsP2ContactMaterial(jsStruct interface{}) *PhysicsP2ContactMaterial {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &PhysicsP2ContactMaterial{Object: object}
+	}
+	return nil
+}
+
+
+
 

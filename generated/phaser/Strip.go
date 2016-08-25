@@ -23,6 +23,16 @@ func NewStripI(args ...interface{}) *Strip {
 
 
 
+// Strip Binding conversion method to Strip point 
+func ToStrip(jsStruct interface{}) *Strip {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Strip{Object: object}
+	}
+	return nil
+}
+
+
+
 // Texture The texture of the strip
 func (self *Strip) Texture() *Texture{
     return &Texture{self.Object.Get("texture")}

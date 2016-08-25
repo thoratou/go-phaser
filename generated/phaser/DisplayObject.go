@@ -38,6 +38,16 @@ func NewDisplayObjectI(args ...interface{}) *DisplayObject {
 
 
 
+// DisplayObject Binding conversion method to DisplayObject point 
+func ToDisplayObject(jsStruct interface{}) *DisplayObject {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &DisplayObject{Object: object}
+	}
+	return nil
+}
+
+
+
 // Position The coordinates, in pixels, of this DisplayObject, relative to its parent container.
 // 
 // The value of this property does not reflect any positioning happening further up the display list.

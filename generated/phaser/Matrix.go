@@ -101,6 +101,16 @@ func NewMatrixI(args ...interface{}) *Matrix {
 
 
 
+// Matrix Binding conversion method to Matrix point 
+func ToMatrix(jsStruct interface{}) *Matrix {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Matrix{Object: object}
+	}
+	return nil
+}
+
+
+
 // A empty description
 func (self *Matrix) A() int{
     return self.Object.Get("a").Int()

@@ -39,6 +39,16 @@ func NewEllipseI(args ...interface{}) *Ellipse {
 
 
 
+// Ellipse Binding conversion method to Ellipse point 
+func ToEllipse(jsStruct interface{}) *Ellipse {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Ellipse{Object: object}
+	}
+	return nil
+}
+
+
+
 // X The X coordinate of the upper-left corner of the framing rectangle of this ellipse.
 func (self *Ellipse) X() int{
     return self.Object.Get("x").Int()

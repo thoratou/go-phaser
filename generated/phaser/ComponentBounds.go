@@ -23,6 +23,16 @@ func NewComponentBoundsI(args ...interface{}) *ComponentBounds {
 
 
 
+// ComponentBounds Binding conversion method to ComponentBounds point 
+func ToComponentBounds(jsStruct interface{}) *ComponentBounds {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &ComponentBounds{Object: object}
+	}
+	return nil
+}
+
+
+
 // OffsetX The amount the Game Object is visually offset from its x coordinate.
 // This is the same as `width * anchor.x`.
 // It will only be > 0 if anchor.x is not equal to zero.

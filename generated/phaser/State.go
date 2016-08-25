@@ -26,6 +26,16 @@ func NewStateI(args ...interface{}) *State {
 
 
 
+// State Binding conversion method to State point 
+func ToState(jsStruct interface{}) *State {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &State{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game This is a reference to the currently running Game.
 func (self *State) Game() *Game{
     return &Game{self.Object.Get("game")}

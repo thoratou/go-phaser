@@ -47,6 +47,16 @@ func NewPhysicsNinjaTileI(args ...interface{}) *PhysicsNinjaTile {
 
 
 
+// PhysicsNinjaTile Binding conversion method to PhysicsNinjaTile point 
+func ToPhysicsNinjaTile(jsStruct interface{}) *PhysicsNinjaTile {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &PhysicsNinjaTile{Object: object}
+	}
+	return nil
+}
+
+
+
 // Body A reference to the body that owns this shape.
 func (self *PhysicsNinjaTile) Body() interface{}{
     return self.Object.Get("body")

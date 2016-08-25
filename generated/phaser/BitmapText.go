@@ -167,6 +167,16 @@ func NewBitmapTextI(args ...interface{}) *BitmapText {
 
 
 
+// BitmapText Binding conversion method to BitmapText point 
+func ToBitmapText(jsStruct interface{}) *BitmapText {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &BitmapText{Object: object}
+	}
+	return nil
+}
+
+
+
 // Type The const type of this object.
 func (self *BitmapText) Type() int{
     return self.Object.Get("type").Int()

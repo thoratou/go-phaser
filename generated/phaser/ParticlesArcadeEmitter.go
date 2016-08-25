@@ -47,6 +47,16 @@ func NewParticlesArcadeEmitterI(args ...interface{}) *ParticlesArcadeEmitter {
 
 
 
+// ParticlesArcadeEmitter Binding conversion method to ParticlesArcadeEmitter point 
+func ToParticlesArcadeEmitter(jsStruct interface{}) *ParticlesArcadeEmitter {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &ParticlesArcadeEmitter{Object: object}
+	}
+	return nil
+}
+
+
+
 // MaxParticles The total number of particles in this emitter.
 func (self *ParticlesArcadeEmitter) MaxParticles() int{
     return self.Object.Get("maxParticles").Int()

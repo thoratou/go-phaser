@@ -35,6 +35,16 @@ func NewWorldI(args ...interface{}) *World {
 
 
 
+// World Binding conversion method to World point 
+func ToWorld(jsStruct interface{}) *World {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &World{Object: object}
+	}
+	return nil
+}
+
+
+
 // Bounds The World has no fixed size, but it does have a bounds outside of which objects are no longer considered as being "in world" and you should use this to clean-up the display list and purge dead objects.
 // By default we set the Bounds to be from 0,0 to Game.width,Game.height. I.e. it will match the size given to the game constructor with 0,0 representing the top-left of the display.
 // However 0,0 is actually the center of the world, and if you rotate or scale the world all of that will happen from 0,0.

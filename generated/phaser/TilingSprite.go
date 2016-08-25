@@ -23,6 +23,16 @@ func NewTilingSpriteI(args ...interface{}) *TilingSprite {
 
 
 
+// TilingSprite Binding conversion method to TilingSprite point 
+func ToTilingSprite(jsStruct interface{}) *TilingSprite {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &TilingSprite{Object: object}
+	}
+	return nil
+}
+
+
+
 // Width The width of the tiling sprite
 func (self *TilingSprite) Width() int{
     return self.Object.Get("width").Int()

@@ -47,6 +47,16 @@ func NewQuadTreeI(args ...interface{}) *QuadTree {
 
 
 
+// QuadTree Binding conversion method to QuadTree point 
+func ToQuadTree(jsStruct interface{}) *QuadTree {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &QuadTree{Object: object}
+	}
+	return nil
+}
+
+
+
 // MaxObjects The maximum number of objects per node.
 func (self *QuadTree) MaxObjects() int{
     return self.Object.Get("maxObjects").Int()

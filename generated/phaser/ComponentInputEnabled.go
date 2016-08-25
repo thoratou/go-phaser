@@ -23,6 +23,16 @@ func NewComponentInputEnabledI(args ...interface{}) *ComponentInputEnabled {
 
 
 
+// ComponentInputEnabled Binding conversion method to ComponentInputEnabled point 
+func ToComponentInputEnabled(jsStruct interface{}) *ComponentInputEnabled {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &ComponentInputEnabled{Object: object}
+	}
+	return nil
+}
+
+
+
 // Input The Input Handler for this Game Object.
 // 
 // By default it is disabled. If you wish this Game Object to process input events you should enable it with: `inputEnabled = true`.

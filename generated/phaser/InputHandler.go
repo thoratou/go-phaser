@@ -23,6 +23,16 @@ func NewInputHandlerI(args ...interface{}) *InputHandler {
 
 
 
+// InputHandler Binding conversion method to InputHandler point 
+func ToInputHandler(jsStruct interface{}) *InputHandler {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &InputHandler{Object: object}
+	}
+	return nil
+}
+
+
+
 // Sprite The Sprite object to which this Input Handler belongs.
 func (self *InputHandler) Sprite() *Sprite{
     return &Sprite{self.Object.Get("sprite")}

@@ -23,6 +23,16 @@ func NewEasingBounceI(args ...interface{}) *EasingBounce {
 
 
 
+// EasingBounce Binding conversion method to EasingBounce point 
+func ToEasingBounce(jsStruct interface{}) *EasingBounce {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &EasingBounce{Object: object}
+	}
+	return nil
+}
+
+
+
 
 // In Bounce ease-in.
 func (self *EasingBounce) In(k int) int{

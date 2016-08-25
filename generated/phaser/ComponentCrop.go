@@ -26,6 +26,16 @@ func NewComponentCropI(args ...interface{}) *ComponentCrop {
 
 
 
+// ComponentCrop Binding conversion method to ComponentCrop point 
+func ToComponentCrop(jsStruct interface{}) *ComponentCrop {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &ComponentCrop{Object: object}
+	}
+	return nil
+}
+
+
+
 // CropRect The Rectangle used to crop the texture this Game Object uses.
 // Set this property via `crop`. 
 // If you modify this property directly you must call `updateCrop` in order to have the change take effect.

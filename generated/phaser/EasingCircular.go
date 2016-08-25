@@ -23,6 +23,16 @@ func NewEasingCircularI(args ...interface{}) *EasingCircular {
 
 
 
+// EasingCircular Binding conversion method to EasingCircular point 
+func ToEasingCircular(jsStruct interface{}) *EasingCircular {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &EasingCircular{Object: object}
+	}
+	return nil
+}
+
+
+
 
 // In Circular ease-in.
 func (self *EasingCircular) In(k int) int{

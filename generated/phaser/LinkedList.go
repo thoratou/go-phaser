@@ -38,6 +38,16 @@ func NewLinkedListI(args ...interface{}) *LinkedList {
 
 
 
+// LinkedList Binding conversion method to LinkedList point 
+func ToLinkedList(jsStruct interface{}) *LinkedList {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &LinkedList{Object: object}
+	}
+	return nil
+}
+
+
+
 // Next Next element in the list.
 func (self *LinkedList) Next() interface{}{
     return self.Object.Get("next")

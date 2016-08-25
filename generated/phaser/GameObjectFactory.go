@@ -32,6 +32,16 @@ func NewGameObjectFactoryI(args ...interface{}) *GameObjectFactory {
 
 
 
+// GameObjectFactory Binding conversion method to GameObjectFactory point 
+func ToGameObjectFactory(jsStruct interface{}) *GameObjectFactory {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &GameObjectFactory{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game A reference to the currently running Game.
 func (self *GameObjectFactory) Game() *Game{
     return &Game{self.Object.Get("game")}

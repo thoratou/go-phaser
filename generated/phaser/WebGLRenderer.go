@@ -34,6 +34,16 @@ func NewWebGLRendererI(args ...interface{}) *WebGLRenderer {
 
 
 
+// WebGLRenderer Binding conversion method to WebGLRenderer point 
+func ToWebGLRenderer(jsStruct interface{}) *WebGLRenderer {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &WebGLRenderer{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game empty description
 func (self *WebGLRenderer) Game() *PhaserGame{
     return &PhaserGame{self.Object.Get("game")}

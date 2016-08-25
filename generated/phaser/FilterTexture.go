@@ -23,6 +23,16 @@ func NewFilterTextureI(args ...interface{}) *FilterTexture {
 
 
 
+// FilterTexture Binding conversion method to FilterTexture point 
+func ToFilterTexture(jsStruct interface{}) *FilterTexture {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &FilterTexture{Object: object}
+	}
+	return nil
+}
+
+
+
 // Gl empty description
 func (self *FilterTexture) Gl() WebGLContext{
     return WrapWebGLContext(self.Object.Get("gl"))

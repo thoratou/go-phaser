@@ -29,6 +29,16 @@ func NewComponentHealthI(args ...interface{}) *ComponentHealth {
 
 
 
+// ComponentHealth Binding conversion method to ComponentHealth point 
+func ToComponentHealth(jsStruct interface{}) *ComponentHealth {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &ComponentHealth{Object: object}
+	}
+	return nil
+}
+
+
+
 // Health The Game Objects health value. This is a handy property for setting and manipulating health on a Game Object.
 // 
 // It can be used in combination with the `damage` method or modified directly.

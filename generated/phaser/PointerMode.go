@@ -41,6 +41,16 @@ func NewPointerModeI(args ...interface{}) *PointerMode {
 
 
 
+// PointerMode Binding conversion method to PointerMode point 
+func ToPointerMode(jsStruct interface{}) *PointerMode {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &PointerMode{Object: object}
+	}
+	return nil
+}
+
+
+
 // CURSOR A 'CURSOR' is a pointer with a *passive cursor* such as a mouse, touchpad, watcom stylus, or even TV-control arrow-pad.
 // 
 // It has the property that a cursor is passively moved without activating the input.

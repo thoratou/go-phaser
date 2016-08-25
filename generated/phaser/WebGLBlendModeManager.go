@@ -23,6 +23,16 @@ func NewWebGLBlendModeManagerI(args ...interface{}) *WebGLBlendModeManager {
 
 
 
+// WebGLBlendModeManager Binding conversion method to WebGLBlendModeManager point 
+func ToWebGLBlendModeManager(jsStruct interface{}) *WebGLBlendModeManager {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &WebGLBlendModeManager{Object: object}
+	}
+	return nil
+}
+
+
+
 // CurrentBlendMode empty description
 func (self *WebGLBlendModeManager) CurrentBlendMode() int{
     return self.Object.Get("currentBlendMode").Int()

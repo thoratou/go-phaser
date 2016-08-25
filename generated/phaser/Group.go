@@ -99,6 +99,16 @@ func NewGroupI(args ...interface{}) *Group {
 
 
 
+// Group Binding conversion method to Group point 
+func ToGroup(jsStruct interface{}) *Group {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Group{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game A reference to the currently running Game.
 func (self *Group) Game() *Game{
     return &Game{self.Object.Get("game")}

@@ -23,4 +23,14 @@ func NewQuatI(args ...interface{}) *Quat {
 
 
 
+// Quat Binding conversion method to Quat point 
+func ToQuat(jsStruct interface{}) *Quat {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Quat{Object: object}
+	}
+	return nil
+}
+
+
+
 

@@ -47,6 +47,16 @@ func NewArraySetI(args ...interface{}) *ArraySet {
 
 
 
+// ArraySet Binding conversion method to ArraySet point 
+func ToArraySet(jsStruct interface{}) *ArraySet {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &ArraySet{Object: object}
+	}
+	return nil
+}
+
+
+
 // Position Current cursor position as established by `first` and `next`.
 func (self *ArraySet) Position() int{
     return self.Object.Get("position").Int()

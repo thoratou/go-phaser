@@ -44,6 +44,16 @@ func NewGamepadI(args ...interface{}) *Gamepad {
 
 
 
+// Gamepad Binding conversion method to Gamepad point 
+func ToGamepad(jsStruct interface{}) *Gamepad {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Gamepad{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game Local reference to game.
 func (self *Gamepad) Game() *Game{
     return &Game{self.Object.Get("game")}

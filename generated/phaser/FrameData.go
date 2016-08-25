@@ -23,6 +23,16 @@ func NewFrameDataI(args ...interface{}) *FrameData {
 
 
 
+// FrameData Binding conversion method to FrameData point 
+func ToFrameData(jsStruct interface{}) *FrameData {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &FrameData{Object: object}
+	}
+	return nil
+}
+
+
+
 // Total The total number of frames in this FrameData set.
 func (self *FrameData) Total() int{
     return self.Object.Get("total").Int()

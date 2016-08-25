@@ -23,6 +23,16 @@ func NewTilemapParserI(args ...interface{}) *TilemapParser {
 
 
 
+// TilemapParser Binding conversion method to TilemapParser point 
+func ToTilemapParser(jsStruct interface{}) *TilemapParser {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &TilemapParser{Object: object}
+	}
+	return nil
+}
+
+
+
 // INSERT_NULL When scanning the Tiled map data the TilemapParser can either insert a null value (true) or
 // a Phaser.Tile instance with an index of -1 (false, the default). Depending on your game type
 // depends how this should be configured. If you've a large sparsely populated map and the tile

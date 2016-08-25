@@ -141,6 +141,16 @@ func NewGraphicsI(args ...interface{}) *Graphics {
 
 
 
+// Graphics Binding conversion method to Graphics point 
+func ToGraphics(jsStruct interface{}) *Graphics {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Graphics{Object: object}
+	}
+	return nil
+}
+
+
+
 // Type The const type of this object.
 func (self *Graphics) Type() int{
     return self.Object.Get("type").Int()

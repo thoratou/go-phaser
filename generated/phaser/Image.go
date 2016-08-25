@@ -46,6 +46,16 @@ func NewImageI(args ...interface{}) *Image {
 
 
 
+// Image Binding conversion method to Image point 
+func ToImage(jsStruct interface{}) *Image {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Image{Object: object}
+	}
+	return nil
+}
+
+
+
 // Type The const type of this object.
 func (self *Image) Type() int{
     return self.Object.Get("type").Int()

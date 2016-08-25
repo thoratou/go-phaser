@@ -23,4 +23,14 @@ func NewEarCutI(args ...interface{}) *EarCut {
 
 
 
+// EarCut Binding conversion method to EarCut point 
+func ToEarCut(jsStruct interface{}) *EarCut {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &EarCut{Object: object}
+	}
+	return nil
+}
+
+
+
 

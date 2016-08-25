@@ -43,6 +43,16 @@ func NewPhysicsP2PrismaticConstraintI(args ...interface{}) *PhysicsP2PrismaticCo
 
 
 
+// PhysicsP2PrismaticConstraint Binding conversion method to PhysicsP2PrismaticConstraint point 
+func ToPhysicsP2PrismaticConstraint(jsStruct interface{}) *PhysicsP2PrismaticConstraint {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &PhysicsP2PrismaticConstraint{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game Local reference to game.
 func (self *PhysicsP2PrismaticConstraint) Game() *Game{
     return &Game{self.Object.Get("game")}

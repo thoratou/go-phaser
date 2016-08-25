@@ -23,6 +23,16 @@ func NewStripShaderI(args ...interface{}) *StripShader {
 
 
 
+// StripShader Binding conversion method to StripShader point 
+func ToStripShader(jsStruct interface{}) *StripShader {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &StripShader{Object: object}
+	}
+	return nil
+}
+
+
+
 // Gl empty description
 func (self *StripShader) Gl() WebGLContext{
     return WrapWebGLContext(self.Object.Get("gl"))

@@ -23,6 +23,16 @@ func NewPhysicsP2InversePointProxyI(args ...interface{}) *PhysicsP2InversePointP
 
 
 
+// PhysicsP2InversePointProxy Binding conversion method to PhysicsP2InversePointProxy point 
+func ToPhysicsP2InversePointProxy(jsStruct interface{}) *PhysicsP2InversePointProxy {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &PhysicsP2InversePointProxy{Object: object}
+	}
+	return nil
+}
+
+
+
 // X The x property of this InversePointProxy get and set in pixels.
 func (self *PhysicsP2InversePointProxy) X() int{
     return self.Object.Get("x").Int()

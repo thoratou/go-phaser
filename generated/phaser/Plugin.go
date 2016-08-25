@@ -23,6 +23,16 @@ func NewPluginI(args ...interface{}) *Plugin {
 
 
 
+// Plugin Binding conversion method to Plugin point 
+func ToPlugin(jsStruct interface{}) *Plugin {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Plugin{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game A reference to the currently running game.
 func (self *Plugin) Game() *Game{
     return &Game{self.Object.Get("game")}

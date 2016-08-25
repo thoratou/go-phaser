@@ -161,6 +161,16 @@ func NewSignalI(args ...interface{}) *Signal {
 
 
 
+// Signal Binding conversion method to Signal point 
+func ToSignal(jsStruct interface{}) *Signal {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Signal{Object: object}
+	}
+	return nil
+}
+
+
+
 // Memorize Memorize the previously dispatched event?
 // 
 // If an event has been memorized it is automatically dispatched when a new listener is added with {@link Phaser.Signal#add add} or {@link Phaser.Signal#addOnce addOnce}.

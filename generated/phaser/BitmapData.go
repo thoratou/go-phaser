@@ -73,6 +73,16 @@ func NewBitmapDataI(args ...interface{}) *BitmapData {
 
 
 
+// BitmapData Binding conversion method to BitmapData point 
+func ToBitmapData(jsStruct interface{}) *BitmapData {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &BitmapData{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game A reference to the currently running game.
 func (self *BitmapData) Game() *Game{
     return &Game{self.Object.Get("game")}

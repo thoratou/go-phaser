@@ -36,6 +36,16 @@ func NewTextureI(args ...interface{}) *Texture {
 
 
 
+// Texture Binding conversion method to Texture point 
+func ToTexture(jsStruct interface{}) *Texture {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Texture{Object: object}
+	}
+	return nil
+}
+
+
+
 // NoFrame Does this Texture have any frame data assigned to it?
 func (self *Texture) NoFrame() bool{
     return self.Object.Get("noFrame").Bool()

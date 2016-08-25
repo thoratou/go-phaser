@@ -26,6 +26,16 @@ func NewAbstractFilterI(args ...interface{}) *AbstractFilter {
 
 
 
+// AbstractFilter Binding conversion method to AbstractFilter point 
+func ToAbstractFilter(jsStruct interface{}) *AbstractFilter {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &AbstractFilter{Object: object}
+	}
+	return nil
+}
+
+
+
 // Dirty empty description
 func (self *AbstractFilter) Dirty() bool{
     return self.Object.Get("dirty").Bool()

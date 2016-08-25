@@ -30,6 +30,16 @@ func New{{.Return.GetType}}{{.Suffix}}({{.GetParameterFullString}}) *{{.Return.G
 }
 {{end}}
 
+{{/* conversion function */}}
+// {{.GetNameNoNamespace}} Binding conversion method to {{.GetNameNoNamespace}} point 
+func To{{.GetNameNoNamespace}}(jsStruct interface{}) *{{.GetNameNoNamespace}} {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &{{.GetNameNoNamespace}}{Object: object}
+	}
+	return nil
+}
+
+
 {{range .Members -}}
 {{if not .IsPrivate}}{{if not .Type.IsCallback}}
 // {{.GetNameUpperInitial}} {{.GetFirstDescriptionLine}} 

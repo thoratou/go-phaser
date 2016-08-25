@@ -23,6 +23,16 @@ func NewEasingElasticI(args ...interface{}) *EasingElastic {
 
 
 
+// EasingElastic Binding conversion method to EasingElastic point 
+func ToEasingElastic(jsStruct interface{}) *EasingElastic {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &EasingElastic{Object: object}
+	}
+	return nil
+}
+
+
+
 
 // In Elastic ease-in.
 func (self *EasingElastic) In(k int) int{

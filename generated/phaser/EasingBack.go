@@ -23,6 +23,16 @@ func NewEasingBackI(args ...interface{}) *EasingBack {
 
 
 
+// EasingBack Binding conversion method to EasingBack point 
+func ToEasingBack(jsStruct interface{}) *EasingBack {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &EasingBack{Object: object}
+	}
+	return nil
+}
+
+
+
 
 // In Back ease-in.
 func (self *EasingBack) In(k int) int{

@@ -23,6 +23,16 @@ func NewEasingQuarticI(args ...interface{}) *EasingQuartic {
 
 
 
+// EasingQuartic Binding conversion method to EasingQuartic point 
+func ToEasingQuartic(jsStruct interface{}) *EasingQuartic {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &EasingQuartic{Object: object}
+	}
+	return nil
+}
+
+
+
 
 // In Quartic ease-in.
 func (self *EasingQuartic) In(k int) int{

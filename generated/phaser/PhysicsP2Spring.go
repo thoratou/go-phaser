@@ -51,6 +51,16 @@ func NewPhysicsP2SpringI(args ...interface{}) *PhysicsP2Spring {
 
 
 
+// PhysicsP2Spring Binding conversion method to PhysicsP2Spring point 
+func ToPhysicsP2Spring(jsStruct interface{}) *PhysicsP2Spring {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &PhysicsP2Spring{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game Local reference to game.
 func (self *PhysicsP2Spring) Game() *Game{
     return &Game{self.Object.Get("game")}

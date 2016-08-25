@@ -23,6 +23,16 @@ func NewEasingCubicI(args ...interface{}) *EasingCubic {
 
 
 
+// EasingCubic Binding conversion method to EasingCubic point 
+func ToEasingCubic(jsStruct interface{}) *EasingCubic {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &EasingCubic{Object: object}
+	}
+	return nil
+}
+
+
+
 
 // In Cubic ease-in.
 func (self *EasingCubic) In(k int) int{

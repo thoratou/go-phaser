@@ -23,4 +23,14 @@ func NewGraphicsDataI(args ...interface{}) *GraphicsData {
 
 
 
+// GraphicsData Binding conversion method to GraphicsData point 
+func ToGraphicsData(jsStruct interface{}) *GraphicsData {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &GraphicsData{Object: object}
+	}
+	return nil
+}
+
+
+
 

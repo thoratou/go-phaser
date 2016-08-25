@@ -23,6 +23,16 @@ func NewTileI(args ...interface{}) *Tile {
 
 
 
+// Tile Binding conversion method to Tile point 
+func ToTile(jsStruct interface{}) *Tile {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Tile{Object: object}
+	}
+	return nil
+}
+
+
+
 // Layer The layer in the Tilemap data that this tile belongs to.
 func (self *Tile) Layer() interface{}{
     return self.Object.Get("layer")

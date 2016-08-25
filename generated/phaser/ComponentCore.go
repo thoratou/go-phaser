@@ -23,6 +23,16 @@ func NewComponentCoreI(args ...interface{}) *ComponentCore {
 
 
 
+// ComponentCore Binding conversion method to ComponentCore point 
+func ToComponentCore(jsStruct interface{}) *ComponentCore {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &ComponentCore{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game A reference to the currently running Game.
 func (self *ComponentCore) Game() *Game{
     return &Game{self.Object.Get("game")}

@@ -61,6 +61,16 @@ func NewPhysicsNinjaBodyI(args ...interface{}) *PhysicsNinjaBody {
 
 
 
+// PhysicsNinjaBody Binding conversion method to PhysicsNinjaBody point 
+func ToPhysicsNinjaBody(jsStruct interface{}) *PhysicsNinjaBody {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &PhysicsNinjaBody{Object: object}
+	}
+	return nil
+}
+
+
+
 // Sprite Reference to the parent Sprite.
 func (self *PhysicsNinjaBody) Sprite() *Sprite{
     return &Sprite{self.Object.Get("sprite")}

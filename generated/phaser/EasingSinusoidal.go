@@ -23,6 +23,16 @@ func NewEasingSinusoidalI(args ...interface{}) *EasingSinusoidal {
 
 
 
+// EasingSinusoidal Binding conversion method to EasingSinusoidal point 
+func ToEasingSinusoidal(jsStruct interface{}) *EasingSinusoidal {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &EasingSinusoidal{Object: object}
+	}
+	return nil
+}
+
+
+
 
 // In Sinusoidal ease-in.
 func (self *EasingSinusoidal) In(k int) int{

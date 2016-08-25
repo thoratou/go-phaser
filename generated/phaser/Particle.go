@@ -23,6 +23,16 @@ func NewParticleI(args ...interface{}) *Particle {
 
 
 
+// Particle Binding conversion method to Particle point 
+func ToParticle(jsStruct interface{}) *Particle {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Particle{Object: object}
+	}
+	return nil
+}
+
+
+
 // AutoScale If this Particle automatically scales this is set to true by Particle.setScaleData.
 func (self *Particle) AutoScale() bool{
     return self.Object.Get("autoScale").Bool()

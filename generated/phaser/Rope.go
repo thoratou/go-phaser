@@ -35,6 +35,16 @@ func NewRopeI(args ...interface{}) *Rope {
 
 
 
+// Rope Binding conversion method to Rope point 
+func ToRope(jsStruct interface{}) *Rope {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Rope{Object: object}
+	}
+	return nil
+}
+
+
+
 // Type The const type of this object.
 func (self *Rope) Type() int{
     return self.Object.Get("type").Int()

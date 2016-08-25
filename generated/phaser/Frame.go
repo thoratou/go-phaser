@@ -23,6 +23,16 @@ func NewFrameI(args ...interface{}) *Frame {
 
 
 
+// Frame Binding conversion method to Frame point 
+func ToFrame(jsStruct interface{}) *Frame {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Frame{Object: object}
+	}
+	return nil
+}
+
+
+
 // Index The index of this Frame within the FrameData set it is being added to.
 func (self *Frame) Index() int{
     return self.Object.Get("index").Int()

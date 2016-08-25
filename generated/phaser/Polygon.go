@@ -50,6 +50,16 @@ func NewPolygonI(args ...interface{}) *Polygon {
 
 
 
+// Polygon Binding conversion method to Polygon point 
+func ToPolygon(jsStruct interface{}) *Polygon {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Polygon{Object: object}
+	}
+	return nil
+}
+
+
+
 // Area The area of this Polygon.
 func (self *Polygon) Area() int{
     return self.Object.Get("area").Int()

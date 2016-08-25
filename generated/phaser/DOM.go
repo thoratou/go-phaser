@@ -38,6 +38,16 @@ func NewDOMI(args ...interface{}) *DOM {
 
 
 
+// DOM Binding conversion method to DOM point 
+func ToDOM(jsStruct interface{}) *DOM {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &DOM{Object: object}
+	}
+	return nil
+}
+
+
+
 // VisualBounds The bounds of the Visual viewport, as discussed in 
 // {@link http://www.quirksmode.org/mobile/viewports.html A tale of two viewports — part one}
 // with one difference: the viewport size _excludes_ scrollbars, as found on some desktop browsers.   

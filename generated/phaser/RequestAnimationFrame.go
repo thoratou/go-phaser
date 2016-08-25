@@ -27,6 +27,16 @@ func NewRequestAnimationFrameI(args ...interface{}) *RequestAnimationFrame {
 
 
 
+// RequestAnimationFrame Binding conversion method to RequestAnimationFrame point 
+func ToRequestAnimationFrame(jsStruct interface{}) *RequestAnimationFrame {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &RequestAnimationFrame{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game The currently running game.
 func (self *RequestAnimationFrame) Game() *Game{
     return &Game{self.Object.Get("game")}

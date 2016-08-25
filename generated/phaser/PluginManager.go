@@ -23,6 +23,16 @@ func NewPluginManagerI(args ...interface{}) *PluginManager {
 
 
 
+// PluginManager Binding conversion method to PluginManager point 
+func ToPluginManager(jsStruct interface{}) *PluginManager {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &PluginManager{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game A reference to the currently running game.
 func (self *PluginManager) Game() *Game{
     return &Game{self.Object.Get("game")}

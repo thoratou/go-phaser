@@ -41,6 +41,16 @@ func NewPhysicsP2BodyDebugI(args ...interface{}) *PhysicsP2BodyDebug {
 
 
 
+// PhysicsP2BodyDebug Binding conversion method to PhysicsP2BodyDebug point 
+func ToPhysicsP2BodyDebug(jsStruct interface{}) *PhysicsP2BodyDebug {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &PhysicsP2BodyDebug{Object: object}
+	}
+	return nil
+}
+
+
+
 // Ppu Pixels per Length Unit.
 func (self *PhysicsP2BodyDebug) Ppu() int{
     return self.Object.Get("ppu").Int()

@@ -37,6 +37,16 @@ func NewCreateI(args ...interface{}) *Create {
 
 
 
+// Create Binding conversion method to Create point 
+func ToCreate(jsStruct interface{}) *Create {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Create{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game A reference to the currently running Game.
 func (self *Create) Game() *Game{
     return &Game{self.Object.Get("game")}

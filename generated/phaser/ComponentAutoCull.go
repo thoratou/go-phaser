@@ -26,6 +26,16 @@ func NewComponentAutoCullI(args ...interface{}) *ComponentAutoCull {
 
 
 
+// ComponentAutoCull Binding conversion method to ComponentAutoCull point 
+func ToComponentAutoCull(jsStruct interface{}) *ComponentAutoCull {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &ComponentAutoCull{Object: object}
+	}
+	return nil
+}
+
+
+
 // AutoCull A Game Object with `autoCull` set to true will check its bounds against the World Camera every frame.
 // If it is not intersecting the Camera bounds at any point then it has its `renderable` property set to `false`.
 // This keeps the Game Object alive and still processing updates, but forces it to skip the render step entirely.

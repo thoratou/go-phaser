@@ -32,6 +32,16 @@ func NewFilterI(args ...interface{}) *Filter {
 
 
 
+// Filter Binding conversion method to Filter point 
+func ToFilter(jsStruct interface{}) *Filter {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Filter{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game A reference to the currently running game.
 func (self *Filter) Game() *Game{
     return &Game{self.Object.Get("game")}

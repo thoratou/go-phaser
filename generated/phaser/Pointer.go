@@ -23,6 +23,16 @@ func NewPointerI(args ...interface{}) *Pointer {
 
 
 
+// Pointer Binding conversion method to Pointer point 
+func ToPointer(jsStruct interface{}) *Pointer {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Pointer{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game A reference to the currently running game.
 func (self *Pointer) Game() *Game{
     return &Game{self.Object.Get("game")}

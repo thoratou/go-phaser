@@ -26,6 +26,16 @@ func NewComponentFixedToCameraI(args ...interface{}) *ComponentFixedToCamera {
 
 
 
+// ComponentFixedToCamera Binding conversion method to ComponentFixedToCamera point 
+func ToComponentFixedToCamera(jsStruct interface{}) *ComponentFixedToCamera {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &ComponentFixedToCamera{Object: object}
+	}
+	return nil
+}
+
+
+
 // FixedToCamera A Game Object that is "fixed" to the camera uses its x/y coordinates as offsets from the top left of the camera during rendering.
 // 
 // The values are adjusted at the rendering stage, overriding the Game Objects actual world position.

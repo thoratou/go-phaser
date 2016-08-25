@@ -23,4 +23,14 @@ func NewGlMatrixI(args ...interface{}) *GlMatrix {
 
 
 
+// GlMatrix Binding conversion method to GlMatrix point 
+func ToGlMatrix(jsStruct interface{}) *GlMatrix {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &GlMatrix{Object: object}
+	}
+	return nil
+}
+
+
+
 

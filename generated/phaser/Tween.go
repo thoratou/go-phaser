@@ -35,6 +35,16 @@ func NewTweenI(args ...interface{}) *Tween {
 
 
 
+// Tween Binding conversion method to Tween point 
+func ToTween(jsStruct interface{}) *Tween {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Tween{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game A reference to the currently running Game.
 func (self *Tween) Game() *Game{
     return &Game{self.Object.Get("game")}

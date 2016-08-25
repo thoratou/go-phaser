@@ -28,6 +28,16 @@ func NewCanvasRendererI(args ...interface{}) *CanvasRenderer {
 
 
 
+// CanvasRenderer Binding conversion method to CanvasRenderer point 
+func ToCanvasRenderer(jsStruct interface{}) *CanvasRenderer {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &CanvasRenderer{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game empty description
 func (self *CanvasRenderer) Game() *PhaserGame{
     return &PhaserGame{self.Object.Get("game")}

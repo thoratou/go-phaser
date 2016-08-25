@@ -23,4 +23,14 @@ func NewEasingI(args ...interface{}) *Easing {
 
 
 
+// Easing Binding conversion method to Easing point 
+func ToEasing(jsStruct interface{}) *Easing {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Easing{Object: object}
+	}
+	return nil
+}
+
+
+
 

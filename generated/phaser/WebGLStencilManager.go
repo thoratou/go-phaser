@@ -23,6 +23,16 @@ func NewWebGLStencilManagerI(args ...interface{}) *WebGLStencilManager {
 
 
 
+// WebGLStencilManager Binding conversion method to WebGLStencilManager point 
+func ToWebGLStencilManager(jsStruct interface{}) *WebGLStencilManager {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &WebGLStencilManager{Object: object}
+	}
+	return nil
+}
+
+
+
 
 // SetContext Sets the drawing context to the one given in parameter.
 func (self *WebGLStencilManager) SetContext(gl *WebGLContext) {

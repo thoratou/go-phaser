@@ -29,6 +29,16 @@ func NewComponentInWorldI(args ...interface{}) *ComponentInWorld {
 
 
 
+// ComponentInWorld Binding conversion method to ComponentInWorld point 
+func ToComponentInWorld(jsStruct interface{}) *ComponentInWorld {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &ComponentInWorld{Object: object}
+	}
+	return nil
+}
+
+
+
 // CheckWorldBounds If this is set to `true` the Game Object checks if it is within the World bounds each frame. 
 // 
 // When it is no longer intersecting the world bounds it dispatches the `onOutOfBounds` event.

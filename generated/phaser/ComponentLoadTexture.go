@@ -23,6 +23,16 @@ func NewComponentLoadTextureI(args ...interface{}) *ComponentLoadTexture {
 
 
 
+// ComponentLoadTexture Binding conversion method to ComponentLoadTexture point 
+func ToComponentLoadTexture(jsStruct interface{}) *ComponentLoadTexture {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &ComponentLoadTexture{Object: object}
+	}
+	return nil
+}
+
+
+
 // Frame Gets or sets the current frame index of the texture being used to render this Game Object.
 // 
 // To change the frame set `frame` to the index of the new frame in the sprite sheet you wish this Game Object to use,

@@ -52,6 +52,16 @@ func NewUtilsDebugI(args ...interface{}) *UtilsDebug {
 
 
 
+// UtilsDebug Binding conversion method to UtilsDebug point 
+func ToUtilsDebug(jsStruct interface{}) *UtilsDebug {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &UtilsDebug{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game A reference to the currently running Game.
 func (self *UtilsDebug) Game() *Game{
     return &Game{self.Object.Get("game")}

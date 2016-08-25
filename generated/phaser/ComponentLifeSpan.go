@@ -23,6 +23,16 @@ func NewComponentLifeSpanI(args ...interface{}) *ComponentLifeSpan {
 
 
 
+// ComponentLifeSpan Binding conversion method to ComponentLifeSpan point 
+func ToComponentLifeSpan(jsStruct interface{}) *ComponentLifeSpan {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &ComponentLifeSpan{Object: object}
+	}
+	return nil
+}
+
+
+
 // Alive A useful flag to control if the Game Object is alive or dead.
 // 
 // This is set automatically by the Health components `damage` method should the object run out of health.

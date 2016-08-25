@@ -23,6 +23,16 @@ func NewWebGLSpriteBatchI(args ...interface{}) *WebGLSpriteBatch {
 
 
 
+// WebGLSpriteBatch Binding conversion method to WebGLSpriteBatch point 
+func ToWebGLSpriteBatch(jsStruct interface{}) *WebGLSpriteBatch {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &WebGLSpriteBatch{Object: object}
+	}
+	return nil
+}
+
+
+
 // VertSize empty description
 func (self *WebGLSpriteBatch) VertSize() int{
     return self.Object.Get("vertSize").Int()

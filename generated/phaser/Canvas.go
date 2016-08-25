@@ -28,6 +28,16 @@ func NewCanvasI(args ...interface{}) *Canvas {
 
 
 
+// Canvas Binding conversion method to Canvas point 
+func ToCanvas(jsStruct interface{}) *Canvas {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Canvas{Object: object}
+	}
+	return nil
+}
+
+
+
 
 // Create Creates a `canvas` DOM element. The element is not automatically added to the document.
 func (self *Canvas) Create(parent interface{}) dom.HTMLCanvasElement{

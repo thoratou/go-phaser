@@ -26,6 +26,16 @@ func NewStageI(args ...interface{}) *Stage {
 
 
 
+// Stage Binding conversion method to Stage point 
+func ToStage(jsStruct interface{}) *Stage {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Stage{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game A reference to the currently running Game.
 func (self *Stage) Game() *Game{
     return &Game{self.Object.Get("game")}

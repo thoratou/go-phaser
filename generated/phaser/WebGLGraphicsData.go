@@ -23,6 +23,16 @@ func NewWebGLGraphicsDataI(args ...interface{}) *WebGLGraphicsData {
 
 
 
+// WebGLGraphicsData Binding conversion method to WebGLGraphicsData point 
+func ToWebGLGraphicsData(jsStruct interface{}) *WebGLGraphicsData {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &WebGLGraphicsData{Object: object}
+	}
+	return nil
+}
+
+
+
 
 // Reset empty description
 func (self *WebGLGraphicsData) Reset() {

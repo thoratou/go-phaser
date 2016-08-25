@@ -26,6 +26,16 @@ func NewGameObjectCreatorI(args ...interface{}) *GameObjectCreator {
 
 
 
+// GameObjectCreator Binding conversion method to GameObjectCreator point 
+func ToGameObjectCreator(jsStruct interface{}) *GameObjectCreator {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &GameObjectCreator{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game A reference to the currently running Game.
 func (self *GameObjectCreator) Game() *Game{
     return &Game{self.Object.Get("game")}

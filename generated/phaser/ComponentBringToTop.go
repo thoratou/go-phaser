@@ -23,6 +23,16 @@ func NewComponentBringToTopI(args ...interface{}) *ComponentBringToTop {
 
 
 
+// ComponentBringToTop Binding conversion method to ComponentBringToTop point 
+func ToComponentBringToTop(jsStruct interface{}) *ComponentBringToTop {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &ComponentBringToTop{Object: object}
+	}
+	return nil
+}
+
+
+
 
 // BringToTop Brings this Game Object to the top of its parents display list.
 // Visually this means it will render over the top of any old child in the same Group.

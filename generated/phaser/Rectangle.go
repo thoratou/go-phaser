@@ -26,6 +26,16 @@ func NewRectangleI(args ...interface{}) *Rectangle {
 
 
 
+// Rectangle Binding conversion method to Rectangle point 
+func ToRectangle(jsStruct interface{}) *Rectangle {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Rectangle{Object: object}
+	}
+	return nil
+}
+
+
+
 // X The x coordinate of the top-left corner of the Rectangle.
 func (self *Rectangle) X() int{
     return self.Object.Get("x").Int()

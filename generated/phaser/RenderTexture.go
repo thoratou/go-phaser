@@ -53,6 +53,16 @@ func NewRenderTextureI(args ...interface{}) *RenderTexture {
 
 
 
+// RenderTexture Binding conversion method to RenderTexture point 
+func ToRenderTexture(jsStruct interface{}) *RenderTexture {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &RenderTexture{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game A reference to the currently running game.
 func (self *RenderTexture) Game() *Game{
     return &Game{self.Object.Get("game")}

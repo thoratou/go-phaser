@@ -56,6 +56,16 @@ func NewSpriteBatchI(args ...interface{}) *SpriteBatch {
 
 
 
+// SpriteBatch Binding conversion method to SpriteBatch point 
+func ToSpriteBatch(jsStruct interface{}) *SpriteBatch {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &SpriteBatch{Object: object}
+	}
+	return nil
+}
+
+
+
 // Type Internal Phaser Type value.
 func (self *SpriteBatch) Type() int{
     return self.Object.Get("type").Int()

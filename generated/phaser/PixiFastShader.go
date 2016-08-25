@@ -23,6 +23,16 @@ func NewPixiFastShaderI(args ...interface{}) *PixiFastShader {
 
 
 
+// PixiFastShader Binding conversion method to PixiFastShader point 
+func ToPixiFastShader(jsStruct interface{}) *PixiFastShader {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &PixiFastShader{Object: object}
+	}
+	return nil
+}
+
+
+
 // Gl empty description
 func (self *PixiFastShader) Gl() WebGLContext{
     return WrapWebGLContext(self.Object.Get("gl"))

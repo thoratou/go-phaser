@@ -95,6 +95,16 @@ func NewTimeI(args ...interface{}) *Time {
 
 
 
+// Time Binding conversion method to Time point 
+func ToTime(jsStruct interface{}) *Time {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Time{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game Local reference to game.
 func (self *Time) Game() *Game{
     return &Game{self.Object.Get("game")}

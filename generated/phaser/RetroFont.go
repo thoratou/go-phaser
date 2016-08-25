@@ -53,6 +53,16 @@ func NewRetroFontI(args ...interface{}) *RetroFont {
 
 
 
+// RetroFont Binding conversion method to RetroFont point 
+func ToRetroFont(jsStruct interface{}) *RetroFont {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &RetroFont{Object: object}
+	}
+	return nil
+}
+
+
+
 // CharacterWidth The width of each character in the font set.
 func (self *RetroFont) CharacterWidth() int{
     return self.Object.Get("characterWidth").Int()

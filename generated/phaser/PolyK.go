@@ -29,6 +29,16 @@ func NewPolyKI(args ...interface{}) *PolyK {
 
 
 
+// PolyK Binding conversion method to PolyK point 
+func ToPolyK(jsStruct interface{}) *PolyK {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &PolyK{Object: object}
+	}
+	return nil
+}
+
+
+
 
 // Triangulate Triangulates shapes for webGL graphic fills.
 func (self *PolyK) Triangulate() {

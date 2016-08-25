@@ -25,6 +25,16 @@ func NewCanvasBufferI(args ...interface{}) *CanvasBuffer {
 
 
 
+// CanvasBuffer Binding conversion method to CanvasBuffer point 
+func ToCanvasBuffer(jsStruct interface{}) *CanvasBuffer {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &CanvasBuffer{Object: object}
+	}
+	return nil
+}
+
+
+
 // Width The width of the Canvas in pixels.
 func (self *CanvasBuffer) Width() int{
     return self.Object.Get("width").Int()

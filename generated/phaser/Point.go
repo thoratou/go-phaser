@@ -46,6 +46,16 @@ func NewPointI(args ...interface{}) *Point {
 
 
 
+// Point Binding conversion method to Point point 
+func ToPoint(jsStruct interface{}) *Point {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Point{Object: object}
+	}
+	return nil
+}
+
+
+
 // X The x value of the point.
 func (self *Point) X() int{
     return self.Object.Get("x").Int()

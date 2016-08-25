@@ -26,6 +26,16 @@ func NewComponentPhysicsBodyI(args ...interface{}) *ComponentPhysicsBody {
 
 
 
+// ComponentPhysicsBody Binding conversion method to ComponentPhysicsBody point 
+func ToComponentPhysicsBody(jsStruct interface{}) *ComponentPhysicsBody {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &ComponentPhysicsBody{Object: object}
+	}
+	return nil
+}
+
+
+
 // Body `body` is the Game Objects physics body. Once a Game Object is enabled for physics you access all associated 
 // properties and methods via it.
 // 

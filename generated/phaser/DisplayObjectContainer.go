@@ -26,6 +26,16 @@ func NewDisplayObjectContainerI(args ...interface{}) *DisplayObjectContainer {
 
 
 
+// DisplayObjectContainer Binding conversion method to DisplayObjectContainer point 
+func ToDisplayObjectContainer(jsStruct interface{}) *DisplayObjectContainer {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &DisplayObjectContainer{Object: object}
+	}
+	return nil
+}
+
+
+
 // Children [read-only] The array of children of this container.
 func (self *DisplayObjectContainer) Children() []DisplayObject{
 	array00 := self.Object.Get("children")

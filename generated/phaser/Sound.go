@@ -31,6 +31,16 @@ func NewSoundI(args ...interface{}) *Sound {
 
 
 
+// Sound Binding conversion method to Sound point 
+func ToSound(jsStruct interface{}) *Sound {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Sound{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game A reference to the currently running Game.
 func (self *Sound) Game() *Game{
     return &Game{self.Object.Get("game")}

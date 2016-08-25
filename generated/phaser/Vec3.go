@@ -23,4 +23,14 @@ func NewVec3I(args ...interface{}) *Vec3 {
 
 
 
+// Vec3 Binding conversion method to Vec3 point 
+func ToVec3(jsStruct interface{}) *Vec3 {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Vec3{Object: object}
+	}
+	return nil
+}
+
+
+
 

@@ -41,6 +41,16 @@ func NewAnimationI(args ...interface{}) *Animation {
 
 
 
+// Animation Binding conversion method to Animation point 
+func ToAnimation(jsStruct interface{}) *Animation {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Animation{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game A reference to the currently running Game.
 func (self *Animation) Game() *Game{
     return &Game{self.Object.Get("game")}

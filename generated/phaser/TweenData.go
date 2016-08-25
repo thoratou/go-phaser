@@ -29,6 +29,16 @@ func NewTweenDataI(args ...interface{}) *TweenData {
 
 
 
+// TweenData Binding conversion method to TweenData point 
+func ToTweenData(jsStruct interface{}) *TweenData {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &TweenData{Object: object}
+	}
+	return nil
+}
+
+
+
 // Parent The Tween which owns this TweenData.
 func (self *TweenData) Parent() *Tween{
     return &Tween{self.Object.Get("parent")}

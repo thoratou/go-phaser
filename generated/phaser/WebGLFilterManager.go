@@ -23,6 +23,16 @@ func NewWebGLFilterManagerI(args ...interface{}) *WebGLFilterManager {
 
 
 
+// WebGLFilterManager Binding conversion method to WebGLFilterManager point 
+func ToWebGLFilterManager(jsStruct interface{}) *WebGLFilterManager {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &WebGLFilterManager{Object: object}
+	}
+	return nil
+}
+
+
+
 // FilterStack empty description
 func (self *WebGLFilterManager) FilterStack() []interface{}{
 	array00 := self.Object.Get("filterStack")

@@ -23,4 +23,14 @@ func NewMat3I(args ...interface{}) *Mat3 {
 
 
 
+// Mat3 Binding conversion method to Mat3 point 
+func ToMat3(jsStruct interface{}) *Mat3 {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Mat3{Object: object}
+	}
+	return nil
+}
+
+
+
 

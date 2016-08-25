@@ -23,6 +23,16 @@ func NewEasingLinearI(args ...interface{}) *EasingLinear {
 
 
 
+// EasingLinear Binding conversion method to EasingLinear point 
+func ToEasingLinear(jsStruct interface{}) *EasingLinear {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &EasingLinear{Object: object}
+	}
+	return nil
+}
+
+
+
 
 // None Linear Easing (no variation).
 func (self *EasingLinear) None(k int) int{

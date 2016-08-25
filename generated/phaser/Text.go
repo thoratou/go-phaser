@@ -193,6 +193,16 @@ func NewTextI(args ...interface{}) *Text {
 
 
 
+// Text Binding conversion method to Text point 
+func ToText(jsStruct interface{}) *Text {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Text{Object: object}
+	}
+	return nil
+}
+
+
+
 // Type The const type of this object.
 func (self *Text) Type() int{
     return self.Object.Get("type").Int()

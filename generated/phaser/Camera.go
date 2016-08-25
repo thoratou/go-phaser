@@ -26,6 +26,16 @@ func NewCameraI(args ...interface{}) *Camera {
 
 
 
+// Camera Binding conversion method to Camera point 
+func ToCamera(jsStruct interface{}) *Camera {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Camera{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game A reference to the currently running Game.
 func (self *Camera) Game() *Game{
     return &Game{self.Object.Get("game")}

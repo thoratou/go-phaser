@@ -23,6 +23,16 @@ func NewWebGLMaskManagerI(args ...interface{}) *WebGLMaskManager {
 
 
 
+// WebGLMaskManager Binding conversion method to WebGLMaskManager point 
+func ToWebGLMaskManager(jsStruct interface{}) *WebGLMaskManager {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &WebGLMaskManager{Object: object}
+	}
+	return nil
+}
+
+
+
 
 // SetContext Sets the drawing context to the one given in parameter.
 func (self *WebGLMaskManager) SetContext(gl *WebGLContext) {

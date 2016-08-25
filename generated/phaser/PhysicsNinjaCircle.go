@@ -26,6 +26,16 @@ func NewPhysicsNinjaCircleI(args ...interface{}) *PhysicsNinjaCircle {
 
 
 
+// PhysicsNinjaCircle Binding conversion method to PhysicsNinjaCircle point 
+func ToPhysicsNinjaCircle(jsStruct interface{}) *PhysicsNinjaCircle {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &PhysicsNinjaCircle{Object: object}
+	}
+	return nil
+}
+
+
+
 // Body A reference to the body that owns this shape.
 func (self *PhysicsNinjaCircle) Body() interface{}{
     return self.Object.Get("body")

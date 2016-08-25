@@ -101,6 +101,16 @@ func NewGameI(args ...interface{}) *Game {
 
 
 
+// Game Binding conversion method to Game point 
+func ToGame(jsStruct interface{}) *Game {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Game{Object: object}
+	}
+	return nil
+}
+
+
+
 // Id Phaser Game ID (for when Pixi supports multiple instances).
 func (self *Game) Id() int{
     return self.Object.Get("id").Int()

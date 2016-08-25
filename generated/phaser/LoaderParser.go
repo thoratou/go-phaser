@@ -23,6 +23,16 @@ func NewLoaderParserI(args ...interface{}) *LoaderParser {
 
 
 
+// LoaderParser Binding conversion method to LoaderParser point 
+func ToLoaderParser(jsStruct interface{}) *LoaderParser {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &LoaderParser{Object: object}
+	}
+	return nil
+}
+
+
+
 
 // BitmapFont Alias for xmlBitmapFont, for backwards compatibility.
 func (self *LoaderParser) BitmapFont(xml interface{}, baseTexture *BaseTexture) interface{}{

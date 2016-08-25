@@ -79,6 +79,16 @@ func NewCreatureI(args ...interface{}) *Creature {
 
 
 
+// Creature Binding conversion method to Creature point 
+func ToCreature(jsStruct interface{}) *Creature {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Creature{Object: object}
+	}
+	return nil
+}
+
+
+
 // Type The const type of this object.
 func (self *Creature) Type() int{
     return self.Object.Get("type").Int()

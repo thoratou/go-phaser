@@ -23,6 +23,16 @@ func NewComplexPrimitiveShaderI(args ...interface{}) *ComplexPrimitiveShader {
 
 
 
+// ComplexPrimitiveShader Binding conversion method to ComplexPrimitiveShader point 
+func ToComplexPrimitiveShader(jsStruct interface{}) *ComplexPrimitiveShader {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &ComplexPrimitiveShader{Object: object}
+	}
+	return nil
+}
+
+
+
 // Gl empty description
 func (self *ComplexPrimitiveShader) Gl() WebGLContext{
     return WrapWebGLContext(self.Object.Get("gl"))

@@ -71,6 +71,16 @@ func NewEventsI(args ...interface{}) *Events {
 
 
 
+// Events Binding conversion method to Events point 
+func ToEvents(jsStruct interface{}) *Events {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Events{Object: object}
+	}
+	return nil
+}
+
+
+
 // Parent The Sprite that owns these events.
 func (self *Events) Parent() *Sprite{
     return &Sprite{self.Object.Get("parent")}

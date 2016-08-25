@@ -23,6 +23,16 @@ func NewCanvasMaskManagerI(args ...interface{}) *CanvasMaskManager {
 
 
 
+// CanvasMaskManager Binding conversion method to CanvasMaskManager point 
+func ToCanvasMaskManager(jsStruct interface{}) *CanvasMaskManager {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &CanvasMaskManager{Object: object}
+	}
+	return nil
+}
+
+
+
 
 // PushMask This method adds it to the current stack of masks.
 func (self *CanvasMaskManager) PushMask(maskData interface{}, renderSession interface{}) {

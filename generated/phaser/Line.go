@@ -39,6 +39,16 @@ func NewLineI(args ...interface{}) *Line {
 
 
 
+// Line Binding conversion method to Line point 
+func ToLine(jsStruct interface{}) *Line {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Line{Object: object}
+	}
+	return nil
+}
+
+
+
 // Start The start point of the line.
 func (self *Line) Start() *Point{
     return &Point{self.Object.Get("start")}

@@ -23,6 +23,16 @@ func NewWebGLGraphicsI(args ...interface{}) *WebGLGraphics {
 
 
 
+// WebGLGraphics Binding conversion method to WebGLGraphics point 
+func ToWebGLGraphics(jsStruct interface{}) *WebGLGraphics {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &WebGLGraphics{Object: object}
+	}
+	return nil
+}
+
+
+
 
 // RenderGraphics Renders the graphics object
 func (self *WebGLGraphics) RenderGraphics(graphics *Graphics, renderSession interface{}) {

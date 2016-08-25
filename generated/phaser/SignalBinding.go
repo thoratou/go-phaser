@@ -47,6 +47,16 @@ func NewSignalBindingI(args ...interface{}) *SignalBinding {
 
 
 
+// SignalBinding Binding conversion method to SignalBinding point 
+func ToSignalBinding(jsStruct interface{}) *SignalBinding {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &SignalBinding{Object: object}
+	}
+	return nil
+}
+
+
+
 // Context Context on which listener will be executed (object that should represent the `this` variable inside listener function).
 func (self *SignalBinding) Context() interface{}{
     return self.Object.Get("context")

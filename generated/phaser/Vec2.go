@@ -23,4 +23,14 @@ func NewVec2I(args ...interface{}) *Vec2 {
 
 
 
+// Vec2 Binding conversion method to Vec2 point 
+func ToVec2(jsStruct interface{}) *Vec2 {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Vec2{Object: object}
+	}
+	return nil
+}
+
+
+
 

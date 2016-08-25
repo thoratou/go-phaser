@@ -74,6 +74,16 @@ func NewPhysicsP2BodyI(args ...interface{}) *PhysicsP2Body {
 
 
 
+// PhysicsP2Body Binding conversion method to PhysicsP2Body point 
+func ToPhysicsP2Body(jsStruct interface{}) *PhysicsP2Body {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &PhysicsP2Body{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game Local reference to game.
 func (self *PhysicsP2Body) Game() *Game{
     return &Game{self.Object.Get("game")}

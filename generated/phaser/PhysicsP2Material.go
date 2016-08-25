@@ -29,6 +29,16 @@ func NewPhysicsP2MaterialI(args ...interface{}) *PhysicsP2Material {
 
 
 
+// PhysicsP2Material Binding conversion method to PhysicsP2Material point 
+func ToPhysicsP2Material(jsStruct interface{}) *PhysicsP2Material {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &PhysicsP2Material{Object: object}
+	}
+	return nil
+}
+
+
+
 // Name The user defined name given to this Material.
 func (self *PhysicsP2Material) Name() string{
     return self.Object.Get("name").String()

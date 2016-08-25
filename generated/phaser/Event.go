@@ -23,6 +23,16 @@ func NewEventI(args ...interface{}) *Event {
 
 
 
+// Event Binding conversion method to Event point 
+func ToEvent(jsStruct interface{}) *Event {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Event{Object: object}
+	}
+	return nil
+}
+
+
+
 // Target The original target the event triggered on.
 func (self *Event) Target() interface{}{
     return self.Object.Get("target")

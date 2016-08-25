@@ -55,6 +55,16 @@ func NewRandomDataGeneratorI(args ...interface{}) *RandomDataGenerator {
 
 
 
+// RandomDataGenerator Binding conversion method to RandomDataGenerator point 
+func ToRandomDataGenerator(jsStruct interface{}) *RandomDataGenerator {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &RandomDataGenerator{Object: object}
+	}
+	return nil
+}
+
+
+
 
 // Rnd Private random helper.
 func (self *RandomDataGenerator) Rnd() int{

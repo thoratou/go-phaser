@@ -23,6 +23,16 @@ func NewAnimationParserI(args ...interface{}) *AnimationParser {
 
 
 
+// AnimationParser Binding conversion method to AnimationParser point 
+func ToAnimationParser(jsStruct interface{}) *AnimationParser {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &AnimationParser{Object: object}
+	}
+	return nil
+}
+
+
+
 
 // SpriteSheet Parse a Sprite Sheet and extract the animation frame data from it.
 func (self *AnimationParser) SpriteSheet(game *Game, key interface{}, frameWidth int, frameHeight int) *FrameData{

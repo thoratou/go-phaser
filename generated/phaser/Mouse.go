@@ -44,6 +44,16 @@ func NewMouseI(args ...interface{}) *Mouse {
 
 
 
+// Mouse Binding conversion method to Mouse point 
+func ToMouse(jsStruct interface{}) *Mouse {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Mouse{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game A reference to the currently running game.
 func (self *Mouse) Game() *Game{
     return &Game{self.Object.Get("game")}

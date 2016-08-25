@@ -23,6 +23,16 @@ func NewParticlesI(args ...interface{}) *Particles {
 
 
 
+// Particles Binding conversion method to Particles point 
+func ToParticles(jsStruct interface{}) *Particles {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Particles{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game A reference to the currently running Game.
 func (self *Particles) Game() *Game{
     return &Game{self.Object.Get("game")}

@@ -28,6 +28,16 @@ func NewInputI(args ...interface{}) *Input {
 
 
 
+// Input Binding conversion method to Input point 
+func ToInput(jsStruct interface{}) *Input {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Input{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game A reference to the currently running game.
 func (self *Input) Game() *Game{
     return &Game{self.Object.Get("game")}

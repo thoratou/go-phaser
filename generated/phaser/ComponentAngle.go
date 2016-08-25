@@ -23,6 +23,16 @@ func NewComponentAngleI(args ...interface{}) *ComponentAngle {
 
 
 
+// ComponentAngle Binding conversion method to ComponentAngle point 
+func ToComponentAngle(jsStruct interface{}) *ComponentAngle {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &ComponentAngle{Object: object}
+	}
+	return nil
+}
+
+
+
 // Angle The angle property is the rotation of the Game Object in *degrees* from its original orientation.
 // 
 // Values from 0 to 180 represent clockwise rotation; values from 0 to -180 represent counterclockwise rotation.

@@ -36,6 +36,16 @@ func NewDeviceI(args ...interface{}) *Device {
 
 
 
+// Device Binding conversion method to Device point 
+func ToDevice(jsStruct interface{}) *Device {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Device{Object: object}
+	}
+	return nil
+}
+
+
+
 // DeviceReadyAt The time the device became ready.
 func (self *Device) DeviceReadyAt() int{
     return self.Object.Get("deviceReadyAt").Int()

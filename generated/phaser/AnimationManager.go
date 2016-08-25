@@ -26,6 +26,16 @@ func NewAnimationManagerI(args ...interface{}) *AnimationManager {
 
 
 
+// AnimationManager Binding conversion method to AnimationManager point 
+func ToAnimationManager(jsStruct interface{}) *AnimationManager {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &AnimationManager{Object: object}
+	}
+	return nil
+}
+
+
+
 // Sprite A reference to the parent Sprite that owns this AnimationManager.
 func (self *AnimationManager) Sprite() *Sprite{
     return &Sprite{self.Object.Get("sprite")}

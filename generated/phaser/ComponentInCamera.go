@@ -23,6 +23,16 @@ func NewComponentInCameraI(args ...interface{}) *ComponentInCamera {
 
 
 
+// ComponentInCamera Binding conversion method to ComponentInCamera point 
+func ToComponentInCamera(jsStruct interface{}) *ComponentInCamera {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &ComponentInCamera{Object: object}
+	}
+	return nil
+}
+
+
+
 // InCamera Checks if this Game Objects bounds intersects with the Game Cameras bounds.
 // 
 // It will be `true` if they intersect, or `false` if the Game Object is fully outside of the Cameras bounds.

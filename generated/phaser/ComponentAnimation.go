@@ -23,6 +23,16 @@ func NewComponentAnimationI(args ...interface{}) *ComponentAnimation {
 
 
 
+// ComponentAnimation Binding conversion method to ComponentAnimation point 
+func ToComponentAnimation(jsStruct interface{}) *ComponentAnimation {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &ComponentAnimation{Object: object}
+	}
+	return nil
+}
+
+
+
 
 // Play Plays an Animation.
 // 

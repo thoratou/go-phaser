@@ -25,6 +25,16 @@ func NewCanvasPoolI(args ...interface{}) *CanvasPool {
 
 
 
+// CanvasPool Binding conversion method to CanvasPool point 
+func ToCanvasPool(jsStruct interface{}) *CanvasPool {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &CanvasPool{Object: object}
+	}
+	return nil
+}
+
+
+
 // Pool The pool into which the canvas dom elements are placed.
 func (self *CanvasPool) Pool() []interface{}{
 	array00 := self.Object.Get("pool")

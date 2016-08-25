@@ -47,6 +47,16 @@ func NewLoaderI(args ...interface{}) *Loader {
 
 
 
+// Loader Binding conversion method to Loader point 
+func ToLoader(jsStruct interface{}) *Loader {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Loader{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game Local reference to game.
 func (self *Loader) Game() *Game{
     return &Game{self.Object.Get("game")}

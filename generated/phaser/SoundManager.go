@@ -59,6 +59,16 @@ func NewSoundManagerI(args ...interface{}) *SoundManager {
 
 
 
+// SoundManager Binding conversion method to SoundManager point 
+func ToSoundManager(jsStruct interface{}) *SoundManager {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &SoundManager{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game Local reference to game.
 func (self *SoundManager) Game() *Game{
     return &Game{self.Object.Get("game")}

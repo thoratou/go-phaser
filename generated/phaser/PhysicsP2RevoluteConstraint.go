@@ -36,6 +36,16 @@ func NewPhysicsP2RevoluteConstraintI(args ...interface{}) *PhysicsP2RevoluteCons
 
 
 
+// PhysicsP2RevoluteConstraint Binding conversion method to PhysicsP2RevoluteConstraint point 
+func ToPhysicsP2RevoluteConstraint(jsStruct interface{}) *PhysicsP2RevoluteConstraint {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &PhysicsP2RevoluteConstraint{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game Local reference to game.
 func (self *PhysicsP2RevoluteConstraint) Game() *Game{
     return &Game{self.Object.Get("game")}

@@ -26,6 +26,16 @@ func NewPhysicsNinjaAABBI(args ...interface{}) *PhysicsNinjaAABB {
 
 
 
+// PhysicsNinjaAABB Binding conversion method to PhysicsNinjaAABB point 
+func ToPhysicsNinjaAABB(jsStruct interface{}) *PhysicsNinjaAABB {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &PhysicsNinjaAABB{Object: object}
+	}
+	return nil
+}
+
+
+
 // Body A reference to the body that owns this shape.
 func (self *PhysicsNinjaAABB) Body() interface{}{
     return self.Object.Get("body")

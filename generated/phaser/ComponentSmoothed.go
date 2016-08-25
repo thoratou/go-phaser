@@ -23,6 +23,16 @@ func NewComponentSmoothedI(args ...interface{}) *ComponentSmoothed {
 
 
 
+// ComponentSmoothed Binding conversion method to ComponentSmoothed point 
+func ToComponentSmoothed(jsStruct interface{}) *ComponentSmoothed {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &ComponentSmoothed{Object: object}
+	}
+	return nil
+}
+
+
+
 // Smoothed Enable or disable texture smoothing for this Game Object.
 // 
 // It only takes effect if the Game Object is using an image based texture.

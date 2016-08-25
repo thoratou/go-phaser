@@ -91,6 +91,16 @@ func NewTilemapI(args ...interface{}) *Tilemap {
 
 
 
+// Tilemap Binding conversion method to Tilemap point 
+func ToTilemap(jsStruct interface{}) *Tilemap {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Tilemap{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game A reference to the currently running Game.
 func (self *Tilemap) Game() *Game{
     return &Game{self.Object.Get("game")}

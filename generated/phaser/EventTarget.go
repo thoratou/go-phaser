@@ -23,6 +23,16 @@ func NewEventTargetI(args ...interface{}) *EventTarget {
 
 
 
+// EventTarget Binding conversion method to EventTarget point 
+func ToEventTarget(jsStruct interface{}) *EventTarget {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &EventTarget{Object: object}
+	}
+	return nil
+}
+
+
+
 
 // Mixin Mixes in the properties of the EventTarget prototype onto another object
 func (self *EventTarget) Mixin(object interface{}) {

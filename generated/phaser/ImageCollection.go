@@ -59,6 +59,16 @@ func NewImageCollectionI(args ...interface{}) *ImageCollection {
 
 
 
+// ImageCollection Binding conversion method to ImageCollection point 
+func ToImageCollection(jsStruct interface{}) *ImageCollection {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &ImageCollection{Object: object}
+	}
+	return nil
+}
+
+
+
 // Name The name of the Image Collection.
 func (self *ImageCollection) Name() string{
     return self.Object.Get("name").String()

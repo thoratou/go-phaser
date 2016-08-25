@@ -37,6 +37,16 @@ func NewTilemapLayerI(args ...interface{}) *TilemapLayer {
 
 
 
+// TilemapLayer Binding conversion method to TilemapLayer point 
+func ToTilemapLayer(jsStruct interface{}) *TilemapLayer {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &TilemapLayer{Object: object}
+	}
+	return nil
+}
+
+
+
 // Map The Tilemap to which this layer is bound.
 func (self *TilemapLayer) Map() *Tilemap{
     return &Tilemap{self.Object.Get("map")}

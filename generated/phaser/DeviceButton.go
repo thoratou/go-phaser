@@ -68,6 +68,16 @@ func NewDeviceButtonI(args ...interface{}) *DeviceButton {
 
 
 
+// DeviceButton Binding conversion method to DeviceButton point 
+func ToDeviceButton(jsStruct interface{}) *DeviceButton {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &DeviceButton{Object: object}
+	}
+	return nil
+}
+
+
+
 // Parent A reference to the Pointer or Gamepad that owns this button.
 func (self *DeviceButton) Parent() interface{}{
     return self.Object.Get("parent")

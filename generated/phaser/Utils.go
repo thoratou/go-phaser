@@ -23,6 +23,16 @@ func NewUtilsI(args ...interface{}) *Utils {
 
 
 
+// Utils Binding conversion method to Utils point 
+func ToUtils(jsStruct interface{}) *Utils {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Utils{Object: object}
+	}
+	return nil
+}
+
+
+
 
 // ReverseString Takes the given string and reverses it, returning the reversed string.
 // For example if given the string `Atari 520ST` it would return `TS025 iratA`.

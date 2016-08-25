@@ -51,6 +51,16 @@ func NewRoundedRectangleI(args ...interface{}) *RoundedRectangle {
 
 
 
+// RoundedRectangle Binding conversion method to RoundedRectangle point 
+func ToRoundedRectangle(jsStruct interface{}) *RoundedRectangle {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &RoundedRectangle{Object: object}
+	}
+	return nil
+}
+
+
+
 // X The x coordinate of the top-left corner of the Rectangle.
 func (self *RoundedRectangle) X() int{
     return self.Object.Get("x").Int()

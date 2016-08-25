@@ -41,6 +41,16 @@ func NewTweenManagerI(args ...interface{}) *TweenManager {
 
 
 
+// TweenManager Binding conversion method to TweenManager point 
+func ToTweenManager(jsStruct interface{}) *TweenManager {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &TweenManager{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game Local reference to game.
 func (self *TweenManager) Game() *Game{
     return &Game{self.Object.Get("game")}

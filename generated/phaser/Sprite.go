@@ -35,6 +35,16 @@ func NewSpriteI(args ...interface{}) *Sprite {
 
 
 
+// Sprite Binding conversion method to Sprite point 
+func ToSprite(jsStruct interface{}) *Sprite {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Sprite{Object: object}
+	}
+	return nil
+}
+
+
+
 // Type The const type of this object.
 func (self *Sprite) Type() int{
     return self.Object.Get("type").Int()

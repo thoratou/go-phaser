@@ -23,6 +23,16 @@ func NewKeyI(args ...interface{}) *Key {
 
 
 
+// Key Binding conversion method to Key point 
+func ToKey(jsStruct interface{}) *Key {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Key{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game A reference to the currently running game.
 func (self *Key) Game() *Game{
     return &Game{self.Object.Get("game")}

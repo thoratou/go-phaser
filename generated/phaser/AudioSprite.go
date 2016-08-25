@@ -26,6 +26,16 @@ func NewAudioSpriteI(args ...interface{}) *AudioSprite {
 
 
 
+// AudioSprite Binding conversion method to AudioSprite point 
+func ToAudioSprite(jsStruct interface{}) *AudioSprite {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &AudioSprite{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game A reference to the currently running Game.
 func (self *AudioSprite) Game() *Game{
     return &Game{self.Object.Get("game")}

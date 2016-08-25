@@ -61,6 +61,16 @@ func NewTilesetI(args ...interface{}) *Tileset {
 
 
 
+// Tileset Binding conversion method to Tileset point 
+func ToTileset(jsStruct interface{}) *Tileset {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Tileset{Object: object}
+	}
+	return nil
+}
+
+
+
 // Name The name of the Tileset.
 func (self *Tileset) Name() string{
     return self.Object.Get("name").String()

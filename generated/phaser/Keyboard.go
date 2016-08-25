@@ -44,6 +44,16 @@ func NewKeyboardI(args ...interface{}) *Keyboard {
 
 
 
+// Keyboard Binding conversion method to Keyboard point 
+func ToKeyboard(jsStruct interface{}) *Keyboard {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Keyboard{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game Local reference to game.
 func (self *Keyboard) Game() *Game{
     return &Game{self.Object.Get("game")}

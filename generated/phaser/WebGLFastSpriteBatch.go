@@ -23,6 +23,16 @@ func NewWebGLFastSpriteBatchI(args ...interface{}) *WebGLFastSpriteBatch {
 
 
 
+// WebGLFastSpriteBatch Binding conversion method to WebGLFastSpriteBatch point 
+func ToWebGLFastSpriteBatch(jsStruct interface{}) *WebGLFastSpriteBatch {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &WebGLFastSpriteBatch{Object: object}
+	}
+	return nil
+}
+
+
+
 // VertSize empty description
 func (self *WebGLFastSpriteBatch) VertSize() int{
     return self.Object.Get("vertSize").Int()

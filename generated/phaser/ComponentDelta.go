@@ -23,6 +23,16 @@ func NewComponentDeltaI(args ...interface{}) *ComponentDelta {
 
 
 
+// ComponentDelta Binding conversion method to ComponentDelta point 
+func ToComponentDelta(jsStruct interface{}) *ComponentDelta {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &ComponentDelta{Object: object}
+	}
+	return nil
+}
+
+
+
 // DeltaX Returns the delta x value. The difference between world.x now and in the previous frame.
 // 
 // The value will be positive if the Game Object has moved to the right or negative if to the left.

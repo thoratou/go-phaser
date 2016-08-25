@@ -41,6 +41,16 @@ func NewCircleI(args ...interface{}) *Circle {
 
 
 
+// Circle Binding conversion method to Circle point 
+func ToCircle(jsStruct interface{}) *Circle {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Circle{Object: object}
+	}
+	return nil
+}
+
+
+
 // X The x coordinate of the center of the circle.
 func (self *Circle) X() int{
     return self.Object.Get("x").Int()

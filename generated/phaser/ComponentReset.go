@@ -23,6 +23,16 @@ func NewComponentResetI(args ...interface{}) *ComponentReset {
 
 
 
+// ComponentReset Binding conversion method to ComponentReset point 
+func ToComponentReset(jsStruct interface{}) *ComponentReset {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &ComponentReset{Object: object}
+	}
+	return nil
+}
+
+
+
 
 // Reset Resets the Game Object.
 // 

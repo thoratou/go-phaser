@@ -23,6 +23,16 @@ func NewEasingExponentialI(args ...interface{}) *EasingExponential {
 
 
 
+// EasingExponential Binding conversion method to EasingExponential point 
+func ToEasingExponential(jsStruct interface{}) *EasingExponential {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &EasingExponential{Object: object}
+	}
+	return nil
+}
+
+
+
 
 // In Exponential ease-in.
 func (self *EasingExponential) In(k int) int{

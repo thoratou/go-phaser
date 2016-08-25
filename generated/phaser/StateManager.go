@@ -27,6 +27,16 @@ func NewStateManagerI(args ...interface{}) *StateManager {
 
 
 
+// StateManager Binding conversion method to StateManager point 
+func ToStateManager(jsStruct interface{}) *StateManager {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &StateManager{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game A reference to the currently running game.
 func (self *StateManager) Game() *Game{
     return &Game{self.Object.Get("game")}

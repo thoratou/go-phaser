@@ -44,6 +44,16 @@ func NewTimerEventI(args ...interface{}) *TimerEvent {
 
 
 
+// TimerEvent Binding conversion method to TimerEvent point 
+func ToTimerEvent(jsStruct interface{}) *TimerEvent {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &TimerEvent{Object: object}
+	}
+	return nil
+}
+
+
+
 // Timer The Timer object that this TimerEvent belongs to.
 func (self *TimerEvent) Timer() *Timer{
     return &Timer{self.Object.Get("timer")}

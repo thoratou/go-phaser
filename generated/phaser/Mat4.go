@@ -23,4 +23,14 @@ func NewMat4I(args ...interface{}) *Mat4 {
 
 
 
+// Mat4 Binding conversion method to Mat4 point 
+func ToMat4(jsStruct interface{}) *Mat4 {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Mat4{Object: object}
+	}
+	return nil
+}
+
+
+
 

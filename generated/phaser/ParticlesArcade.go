@@ -23,4 +23,14 @@ func NewParticlesArcadeI(args ...interface{}) *ParticlesArcade {
 
 
 
+// ParticlesArcade Binding conversion method to ParticlesArcade point 
+func ToParticlesArcade(jsStruct interface{}) *ParticlesArcade {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &ParticlesArcade{Object: object}
+	}
+	return nil
+}
+
+
+
 

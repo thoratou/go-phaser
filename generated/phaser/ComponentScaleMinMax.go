@@ -23,6 +23,16 @@ func NewComponentScaleMinMaxI(args ...interface{}) *ComponentScaleMinMax {
 
 
 
+// ComponentScaleMinMax Binding conversion method to ComponentScaleMinMax point 
+func ToComponentScaleMinMax(jsStruct interface{}) *ComponentScaleMinMax {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &ComponentScaleMinMax{Object: object}
+	}
+	return nil
+}
+
+
+
 // TransformCallback The callback that will apply any scale limiting to the worldTransform.
 func (self *ComponentScaleMinMax) TransformCallback() interface{}{
     return self.Object.Get("transformCallback")

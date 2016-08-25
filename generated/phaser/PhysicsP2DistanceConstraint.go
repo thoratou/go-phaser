@@ -35,6 +35,16 @@ func NewPhysicsP2DistanceConstraintI(args ...interface{}) *PhysicsP2DistanceCons
 
 
 
+// PhysicsP2DistanceConstraint Binding conversion method to PhysicsP2DistanceConstraint point 
+func ToPhysicsP2DistanceConstraint(jsStruct interface{}) *PhysicsP2DistanceConstraint {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &PhysicsP2DistanceConstraint{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game Local reference to game.
 func (self *PhysicsP2DistanceConstraint) Game() *Game{
     return &Game{self.Object.Get("game")}

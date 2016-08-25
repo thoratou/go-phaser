@@ -52,6 +52,16 @@ func NewScaleManagerI(args ...interface{}) *ScaleManager {
 
 
 
+// ScaleManager Binding conversion method to ScaleManager point 
+func ToScaleManager(jsStruct interface{}) *ScaleManager {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &ScaleManager{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game A reference to the currently running game.
 func (self *ScaleManager) Game() *Game{
     return &Game{self.Object.Get("game")}

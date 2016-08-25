@@ -23,6 +23,16 @@ func NewComponentDestroyI(args ...interface{}) *ComponentDestroy {
 
 
 
+// ComponentDestroy Binding conversion method to ComponentDestroy point 
+func ToComponentDestroy(jsStruct interface{}) *ComponentDestroy {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &ComponentDestroy{Object: object}
+	}
+	return nil
+}
+
+
+
 // DestroyPhase As a Game Object runs through its destroy method this flag is set to true, 
 // and can be checked in any sub-systems or plugins it is being destroyed from.
 func (self *ComponentDestroy) DestroyPhase() bool{

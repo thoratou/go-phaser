@@ -35,6 +35,16 @@ func NewFlexLayerI(args ...interface{}) *FlexLayer {
 
 
 
+// FlexLayer Binding conversion method to FlexLayer point 
+func ToFlexLayer(jsStruct interface{}) *FlexLayer {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &FlexLayer{Object: object}
+	}
+	return nil
+}
+
+
+
 // Manager A reference to the ScaleManager.
 func (self *FlexLayer) Manager() interface{}{
     return self.Object.Get("manager")

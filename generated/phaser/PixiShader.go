@@ -23,6 +23,16 @@ func NewPixiShaderI(args ...interface{}) *PixiShader {
 
 
 
+// PixiShader Binding conversion method to PixiShader point 
+func ToPixiShader(jsStruct interface{}) *PixiShader {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &PixiShader{Object: object}
+	}
+	return nil
+}
+
+
+
 // Gl empty description
 func (self *PixiShader) Gl() WebGLContext{
     return WrapWebGLContext(self.Object.Get("gl"))

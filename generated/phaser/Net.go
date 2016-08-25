@@ -23,6 +23,16 @@ func NewNetI(args ...interface{}) *Net {
 
 
 
+// Net Binding conversion method to Net point 
+func ToNet(jsStruct interface{}) *Net {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Net{Object: object}
+	}
+	return nil
+}
+
+
+
 
 // GetHostName Returns the hostname given by the browser.
 func (self *Net) GetHostName() string{

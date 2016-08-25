@@ -23,6 +23,16 @@ func NewSinglePadI(args ...interface{}) *SinglePad {
 
 
 
+// SinglePad Binding conversion method to SinglePad point 
+func ToSinglePad(jsStruct interface{}) *SinglePad {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &SinglePad{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game Local reference to game.
 func (self *SinglePad) Game() *Game{
     return &Game{self.Object.Get("game")}

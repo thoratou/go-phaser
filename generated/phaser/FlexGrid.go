@@ -38,6 +38,16 @@ func NewFlexGridI(args ...interface{}) *FlexGrid {
 
 
 
+// FlexGrid Binding conversion method to FlexGrid point 
+func ToFlexGrid(jsStruct interface{}) *FlexGrid {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &FlexGrid{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game A reference to the currently running Game.
 func (self *FlexGrid) Game() *Game{
     return &Game{self.Object.Get("game")}

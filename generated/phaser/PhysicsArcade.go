@@ -23,6 +23,16 @@ func NewPhysicsArcadeI(args ...interface{}) *PhysicsArcade {
 
 
 
+// PhysicsArcade Binding conversion method to PhysicsArcade point 
+func ToPhysicsArcade(jsStruct interface{}) *PhysicsArcade {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &PhysicsArcade{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game Local reference to game.
 func (self *PhysicsArcade) Game() *Game{
     return &Game{self.Object.Get("game")}

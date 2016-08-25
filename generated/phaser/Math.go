@@ -29,6 +29,16 @@ func NewMathI(args ...interface{}) *Math {
 
 
 
+// Math Binding conversion method to Math point 
+func ToMath(jsStruct interface{}) *Math {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Math{Object: object}
+	}
+	return nil
+}
+
+
+
 // PI2 Twice PI.
 func (self *Math) PI2() interface{}{
     return self.Object.Get("PI2")

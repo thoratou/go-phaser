@@ -23,6 +23,16 @@ func NewEasingQuinticI(args ...interface{}) *EasingQuintic {
 
 
 
+// EasingQuintic Binding conversion method to EasingQuintic point 
+func ToEasingQuintic(jsStruct interface{}) *EasingQuintic {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &EasingQuintic{Object: object}
+	}
+	return nil
+}
+
+
+
 
 // In Quintic ease-in.
 func (self *EasingQuintic) In(k int) int{

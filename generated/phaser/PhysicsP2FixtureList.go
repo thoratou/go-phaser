@@ -38,6 +38,16 @@ func NewPhysicsP2FixtureListI(args ...interface{}) *PhysicsP2FixtureList {
 
 
 
+// PhysicsP2FixtureList Binding conversion method to PhysicsP2FixtureList point 
+func ToPhysicsP2FixtureList(jsStruct interface{}) *PhysicsP2FixtureList {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &PhysicsP2FixtureList{Object: object}
+	}
+	return nil
+}
+
+
+
 
 // Init empty description
 func (self *PhysicsP2FixtureList) Init() {

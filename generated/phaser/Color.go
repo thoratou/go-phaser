@@ -23,6 +23,16 @@ func NewColorI(args ...interface{}) *Color {
 
 
 
+// Color Binding conversion method to Color point 
+func ToColor(jsStruct interface{}) *Color {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Color{Object: object}
+	}
+	return nil
+}
+
+
+
 
 // PackPixel Packs the r, g, b, a components into a single integer, for use with Int32Array.
 // If device is little endian then ABGR order is used. Otherwise RGBA order is used.

@@ -23,6 +23,16 @@ func NewPrimitiveShaderI(args ...interface{}) *PrimitiveShader {
 
 
 
+// PrimitiveShader Binding conversion method to PrimitiveShader point 
+func ToPrimitiveShader(jsStruct interface{}) *PrimitiveShader {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &PrimitiveShader{Object: object}
+	}
+	return nil
+}
+
+
+
 // Gl empty description
 func (self *PrimitiveShader) Gl() WebGLContext{
     return WrapWebGLContext(self.Object.Get("gl"))

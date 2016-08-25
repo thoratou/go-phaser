@@ -23,6 +23,16 @@ func NewPhysicsP2CollisionGroupI(args ...interface{}) *PhysicsP2CollisionGroup {
 
 
 
+// PhysicsP2CollisionGroup Binding conversion method to PhysicsP2CollisionGroup point 
+func ToPhysicsP2CollisionGroup(jsStruct interface{}) *PhysicsP2CollisionGroup {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &PhysicsP2CollisionGroup{Object: object}
+	}
+	return nil
+}
+
+
+
 // Mask The CollisionGroup bitmask.
 func (self *PhysicsP2CollisionGroup) Mask() int{
     return self.Object.Get("mask").Int()

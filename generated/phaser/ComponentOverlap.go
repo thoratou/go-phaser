@@ -23,6 +23,16 @@ func NewComponentOverlapI(args ...interface{}) *ComponentOverlap {
 
 
 
+// ComponentOverlap Binding conversion method to ComponentOverlap point 
+func ToComponentOverlap(jsStruct interface{}) *ComponentOverlap {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &ComponentOverlap{Object: object}
+	}
+	return nil
+}
+
+
+
 
 // Overlap Checks to see if the bounds of this Game Object overlaps with the bounds of the given Display Object, 
 // which can be a Sprite, Image, TileSprite or anything that extends those such as Button or provides a `getBounds` method and result.

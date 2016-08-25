@@ -85,6 +85,16 @@ func NewCacheI(args ...interface{}) *Cache {
 
 
 
+// Cache Binding conversion method to Cache point 
+func ToCache(jsStruct interface{}) *Cache {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &Cache{Object: object}
+	}
+	return nil
+}
+
+
+
 // Game Local reference to game.
 func (self *Cache) Game() *Game{
     return &Game{self.Object.Get("game")}

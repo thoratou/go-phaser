@@ -23,6 +23,16 @@ func NewBaseTextureI(args ...interface{}) *BaseTexture {
 
 
 
+// BaseTexture Binding conversion method to BaseTexture point 
+func ToBaseTexture(jsStruct interface{}) *BaseTexture {
+    if object, ok := jsStruct.(*js.Object); ok {
+		return &BaseTexture{Object: object}
+	}
+	return nil
+}
+
+
+
 // Resolution The Resolution of the texture.
 func (self *BaseTexture) Resolution() int{
     return self.Object.Get("resolution").Int()
