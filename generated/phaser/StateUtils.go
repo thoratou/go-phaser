@@ -30,19 +30,19 @@ func WrapState(state interface{}) *CustomState {
 	}
 
 	if typedState, match := customState.State.(statePreload); match {
-		customState.Set("preload", typedState.Preload)
+		customState.Get("__proto__").Set("preload", typedState.Preload)
 	}
 
 	if typedState, match := customState.State.(stateCreate); match {
-		customState.Set("create", typedState.Create)
+		customState.Get("__proto__").Set("create", typedState.Create)
 	}
 
 	if typedState, match := customState.State.(stateUpdate); match {
-		customState.Set("update", typedState.Update)
+		customState.Get("__proto__").Set("update", typedState.Update)
 	}
 
 	if typedState, match := customState.State.(stateRender); match {
-		customState.Set("render", typedState.Render)
+		customState.Get("__proto__").Set("render", typedState.Render)
 	}
 
 	return customState
