@@ -112,7 +112,10 @@ func (self *PixiShader) InitI(args ...interface{}) {
 
 // InitUniforms Initialises the shader uniform values.
 // 
+// 
+// 
 // Uniforms are specified in the GLSL_ES Specification: http://www.khronos.org/registry/webgl/specs/latest/1.0/
+// 
 // http://www.khronos.org/registry/gles/specs/2.0/GLSL_ES_Specification_1.0.17.pdf
 func (self *PixiShader) InitUniforms() {
     self.Object.Call("initUniforms")
@@ -120,7 +123,10 @@ func (self *PixiShader) InitUniforms() {
 
 // InitUniformsI Initialises the shader uniform values.
 // 
+// 
+// 
 // Uniforms are specified in the GLSL_ES Specification: http://www.khronos.org/registry/webgl/specs/latest/1.0/
+// 
 // http://www.khronos.org/registry/gles/specs/2.0/GLSL_ES_Specification_1.0.17.pdf
 func (self *PixiShader) InitUniformsI(args ...interface{}) {
     self.Object.Call("initUniforms", args)

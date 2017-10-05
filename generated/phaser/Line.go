@@ -535,3 +535,29 @@ func (self *Line) IntersectsPointsI(args ...interface{}) *Point{
     return &Point{self.Object.Call("intersectsPoints", args)}
 }
 
+// IntersectsRectangle Checks for intersection between the Line and a Rectangle shape, or a rectangle-like
+// object, with public `x`, `y`, `right` and `bottom` properties, such as a Sprite or Body.
+// 
+// An intersection is considered valid if:
+// 
+// The line starts within, or ends within, the Rectangle.
+// The line segment intersects one of the 4 rectangle edges.
+// 
+// The for the purposes of this function rectangles are considered 'solid'.
+func (self *Line) IntersectsRectangle(line *Line, rect interface{}) bool{
+    return self.Object.Call("intersectsRectangle", line, rect).Bool()
+}
+
+// IntersectsRectangleI Checks for intersection between the Line and a Rectangle shape, or a rectangle-like
+// object, with public `x`, `y`, `right` and `bottom` properties, such as a Sprite or Body.
+// 
+// An intersection is considered valid if:
+// 
+// The line starts within, or ends within, the Rectangle.
+// The line segment intersects one of the 4 rectangle edges.
+// 
+// The for the purposes of this function rectangles are considered 'solid'.
+func (self *Line) IntersectsRectangleI(args ...interface{}) bool{
+    return self.Object.Call("intersectsRectangle", args).Bool()
+}
+

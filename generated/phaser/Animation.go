@@ -249,12 +249,12 @@ func (self *Animation) SetFrameA(member int) {
     self.Object.Set("frame", member)
 }
 
-// Speed Gets or sets the current speed of the animation in frames per second. Changing this in a playing animation will take effect from the next frame. Minimum value is 1.
+// Speed Gets or sets the current speed of the animation in frames per second. Changing this in a playing animation will take effect from the next frame. Value must be greater than 0.
 func (self *Animation) Speed() int{
     return self.Object.Get("speed").Int()
 }
 
-// SetSpeedA Gets or sets the current speed of the animation in frames per second. Changing this in a playing animation will take effect from the next frame. Minimum value is 1.
+// SetSpeedA Gets or sets the current speed of the animation in frames per second. Changing this in a playing animation will take effect from the next frame. Value must be greater than 0.
 func (self *Animation) SetSpeedA(member int) {
     self.Object.Set("speed", member)
 }
@@ -305,12 +305,12 @@ func (self *Animation) RestartI(args ...interface{}) {
     self.Object.Call("restart", args)
 }
 
-// Reverse Reverses the animation direction
+// Reverse Reverses the animation direction.
 func (self *Animation) Reverse() *Animation{
     return &Animation{self.Object.Call("reverse")}
 }
 
-// ReverseI Reverses the animation direction
+// ReverseI Reverses the animation direction.
 func (self *Animation) ReverseI(args ...interface{}) *Animation{
     return &Animation{self.Object.Call("reverse", args)}
 }

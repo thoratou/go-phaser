@@ -142,13 +142,13 @@ func (self *PhysicsArcadeBody) SetAllowRotationA(member bool) {
     self.Object.Set("allowRotation", member)
 }
 
-// Rotation An Arcade Physics Body can have angularVelocity and angularAcceleration. Please understand that the collision Body
+// Rotation The Body's rotation in degrees, as calculated by its angularVelocity and angularAcceleration. Please understand that the collision Body
 // itself never rotates, it is always axis-aligned. However these values are passed up to the parent Sprite and updates its rotation.
 func (self *PhysicsArcadeBody) Rotation() int{
     return self.Object.Get("rotation").Int()
 }
 
-// SetRotationA An Arcade Physics Body can have angularVelocity and angularAcceleration. Please understand that the collision Body
+// SetRotationA The Body's rotation in degrees, as calculated by its angularVelocity and angularAcceleration. Please understand that the collision Body
 // itself never rotates, it is always axis-aligned. However these values are passed up to the parent Sprite and updates its rotation.
 func (self *PhysicsArcadeBody) SetRotationA(member int) {
     self.Object.Set("rotation", member)
@@ -446,42 +446,42 @@ func (self *PhysicsArcadeBody) SetFrictionA(member *Point) {
     self.Object.Set("friction", member)
 }
 
-// AngularVelocity The angular velocity controls the rotation speed of the Body. It is measured in radians per second.
+// AngularVelocity The angular velocity controls the rotation speed of the Body. It is measured in degrees per second.
 func (self *PhysicsArcadeBody) AngularVelocity() int{
     return self.Object.Get("angularVelocity").Int()
 }
 
-// SetAngularVelocityA The angular velocity controls the rotation speed of the Body. It is measured in radians per second.
+// SetAngularVelocityA The angular velocity controls the rotation speed of the Body. It is measured in degrees per second.
 func (self *PhysicsArcadeBody) SetAngularVelocityA(member int) {
     self.Object.Set("angularVelocity", member)
 }
 
-// AngularAcceleration The angular acceleration is the rate of change of the angular velocity. Measured in radians per second squared.
+// AngularAcceleration The angular acceleration is the rate of change of the angular velocity. Measured in degrees per second squared.
 func (self *PhysicsArcadeBody) AngularAcceleration() int{
     return self.Object.Get("angularAcceleration").Int()
 }
 
-// SetAngularAccelerationA The angular acceleration is the rate of change of the angular velocity. Measured in radians per second squared.
+// SetAngularAccelerationA The angular acceleration is the rate of change of the angular velocity. Measured in degrees per second squared.
 func (self *PhysicsArcadeBody) SetAngularAccelerationA(member int) {
     self.Object.Set("angularAcceleration", member)
 }
 
-// AngularDrag The drag applied during the rotation of the Body.
+// AngularDrag The drag applied during the rotation of the Body. Measured in degrees per second squared.
 func (self *PhysicsArcadeBody) AngularDrag() int{
     return self.Object.Get("angularDrag").Int()
 }
 
-// SetAngularDragA The drag applied during the rotation of the Body.
+// SetAngularDragA The drag applied during the rotation of the Body. Measured in degrees per second squared.
 func (self *PhysicsArcadeBody) SetAngularDragA(member int) {
     self.Object.Set("angularDrag", member)
 }
 
-// MaxAngular The maximum angular velocity in radians per second that the Body can reach.
+// MaxAngular The maximum angular velocity in degrees per second that the Body can reach.
 func (self *PhysicsArcadeBody) MaxAngular() int{
     return self.Object.Get("maxAngular").Int()
 }
 
-// SetMaxAngularA The maximum angular velocity in radians per second that the Body can reach.
+// SetMaxAngularA The maximum angular velocity in degrees per second that the Body can reach.
 func (self *PhysicsArcadeBody) SetMaxAngularA(member int) {
     self.Object.Set("maxAngular", member)
 }
@@ -496,12 +496,12 @@ func (self *PhysicsArcadeBody) SetMassA(member int) {
     self.Object.Set("mass", member)
 }
 
-// Angle The angle of the Body in radians, as calculated by its angularVelocity.
+// Angle The angle of the Body's velocity in radians.
 func (self *PhysicsArcadeBody) Angle() int{
     return self.Object.Get("angle").Int()
 }
 
-// SetAngleA The angle of the Body in radians, as calculated by its angularVelocity.
+// SetAngleA The angle of the Body's velocity in radians.
 func (self *PhysicsArcadeBody) SetAngleA(member int) {
     self.Object.Set("angle", member)
 }
@@ -625,13 +625,17 @@ func (self *PhysicsArcadeBody) SetCollideWorldBoundsA(member bool) {
 }
 
 // CheckCollision Set the checkCollision properties to control which directions collision is processed for this Body.
-// For example checkCollision.up = false means it won't collide when the collision happened while moving up. An object containing allowed collision.
+// For example checkCollision.up = false means it won't collide when the collision happened while moving up.
+// If you need to disable a Body entirely, use `body.enable = false`, this will also disable motion.
+// If you need to disable just collision and/or overlap checks, but retain motion, set `checkCollision.none = true`. An object containing allowed collision.
 func (self *PhysicsArcadeBody) CheckCollision() interface{}{
     return self.Object.Get("checkCollision")
 }
 
 // SetCheckCollisionA Set the checkCollision properties to control which directions collision is processed for this Body.
-// For example checkCollision.up = false means it won't collide when the collision happened while moving up. An object containing allowed collision.
+// For example checkCollision.up = false means it won't collide when the collision happened while moving up.
+// If you need to disable a Body entirely, use `body.enable = false`, this will also disable motion.
+// If you need to disable just collision and/or overlap checks, but retain motion, set `checkCollision.none = true`. An object containing allowed collision.
 func (self *PhysicsArcadeBody) SetCheckCollisionA(member interface{}) {
     self.Object.Set("checkCollision", member)
 }
@@ -1274,14 +1278,14 @@ func (self *PhysicsArcadeBody) OnFloorI(args ...interface{}) bool{
     return self.Object.Call("onFloor", args).Bool()
 }
 
-// OnTop Returns true if the top of this Body is in contact with either the world bounds or a tile.
-func (self *PhysicsArcadeBody) OnTop() bool{
-    return self.Object.Call("onTop").Bool()
+// OnCeiling Returns true if the top of this Body is in contact with either the world bounds or a tile.
+func (self *PhysicsArcadeBody) OnCeiling() bool{
+    return self.Object.Call("onCeiling").Bool()
 }
 
-// OnTopI Returns true if the top of this Body is in contact with either the world bounds or a tile.
-func (self *PhysicsArcadeBody) OnTopI(args ...interface{}) bool{
-    return self.Object.Call("onTop", args).Bool()
+// OnCeilingI Returns true if the top of this Body is in contact with either the world bounds or a tile.
+func (self *PhysicsArcadeBody) OnCeilingI(args ...interface{}) bool{
+    return self.Object.Call("onCeiling", args).Bool()
 }
 
 // OnWall Returns true if either side of this Body is in contact with either the world bounds or a tile.

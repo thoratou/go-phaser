@@ -361,6 +361,16 @@ func (self *BitmapData) LoadI(args ...interface{}) *BitmapData{
     return &BitmapData{self.Object.Call("load", args)}
 }
 
+// Cls Clears the BitmapData context using a clearRect.
+func (self *BitmapData) Cls() {
+    self.Object.Call("cls")
+}
+
+// ClsI Clears the BitmapData context using a clearRect.
+func (self *BitmapData) ClsI(args ...interface{}) {
+    self.Object.Call("cls", args)
+}
+
 // Clear Clears the BitmapData context using a clearRect.
 // 
 // You can optionally define the area to clear.
@@ -425,16 +435,6 @@ func (self *BitmapData) Clear4O(x int, y int, width int, height int) *BitmapData
 // but Phaser will not do this automatically for you.
 func (self *BitmapData) ClearI(args ...interface{}) *BitmapData{
     return &BitmapData{self.Object.Call("clear", args)}
-}
-
-// Cls Clears the BitmapData context using a clearRect.
-func (self *BitmapData) Cls() {
-    self.Object.Call("cls")
-}
-
-// ClsI Clears the BitmapData context using a clearRect.
-func (self *BitmapData) ClsI(args ...interface{}) {
-    self.Object.Call("cls", args)
 }
 
 // Fill Fills the BitmapData with the given color.

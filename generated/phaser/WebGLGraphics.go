@@ -85,6 +85,7 @@ func (self *WebGLGraphics) BuildRoundedRectangleI(args ...interface{}) {
 }
 
 // QuadraticBezierCurve Calculate the points for a quadratic bezier curve. (helper function..)
+// 
 // Based on: https://stackoverflow.com/questions/785097/how-do-i-implement-a-bezier-curve-in-c
 func (self *WebGLGraphics) QuadraticBezierCurve(fromX int, fromY int, cpX int, cpY int, toX int, toY int) []int{
 	array00 := self.Object.Call("quadraticBezierCurve", fromX, fromY, cpX, cpY, toX, toY)
@@ -98,6 +99,7 @@ func (self *WebGLGraphics) QuadraticBezierCurve(fromX int, fromY int, cpX int, c
 }
 
 // QuadraticBezierCurveI Calculate the points for a quadratic bezier curve. (helper function..)
+// 
 // Based on: https://stackoverflow.com/questions/785097/how-do-i-implement-a-bezier-curve-in-c
 func (self *WebGLGraphics) QuadraticBezierCurveI(args ...interface{}) []int{
 	array00 := self.Object.Call("quadraticBezierCurve", args)

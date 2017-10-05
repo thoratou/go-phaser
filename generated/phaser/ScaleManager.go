@@ -288,6 +288,24 @@ func (self *ScaleManager) SetLeaveIncorrectOrientationA(member *Signal) {
     self.Object.Set("leaveIncorrectOrientation", member)
 }
 
+// HasPhaserSetFullScreen This boolean provides you with a way to determine if the browser is in Full Screen
+// mode (via the Full Screen API), and Phaser was the one responsible for activating it.
+// 
+// It's possible that ScaleManager.isFullScreen returns `true` even if Phaser wasn't the
+// one that made the browser go full-screen, so this flag lets you determine that.
+func (self *ScaleManager) HasPhaserSetFullScreen() bool{
+    return self.Object.Get("hasPhaserSetFullScreen").Bool()
+}
+
+// SetHasPhaserSetFullScreenA This boolean provides you with a way to determine if the browser is in Full Screen
+// mode (via the Full Screen API), and Phaser was the one responsible for activating it.
+// 
+// It's possible that ScaleManager.isFullScreen returns `true` even if Phaser wasn't the
+// one that made the browser go full-screen, so this flag lets you determine that.
+func (self *ScaleManager) SetHasPhaserSetFullScreenA(member bool) {
+    self.Object.Set("hasPhaserSetFullScreen", member)
+}
+
 // FullScreenTarget If specified, this is the DOM element on which the Fullscreen API enter request will be invoked.
 // The target element must have the correct CSS styling and contain the Display canvas.
 // 

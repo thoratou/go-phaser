@@ -184,6 +184,15 @@ func (self *Loader) SetPathA(member string) {
 // Headers Used to map the application mime-types to to the Accept header in XHR requests.
 // If you don't require these mappings, or they cause problems on your server, then
 // remove them from the headers object and the XHR request will not try to use them.
+// 
+// This object can also be used to set the `X-Requested-With` header to 
+// `XMLHttpRequest` (or any other value you need). To enable this do:
+// 
+// `this.load.headers.requestedWith = 'XMLHttpRequest'`
+// 
+// before adding anything to the Loader. The XHR loader will then call:
+// 
+// `setRequestHeader('X-Requested-With', this.headers['requestedWith'])`
 func (self *Loader) Headers() interface{}{
     return self.Object.Get("headers")
 }
@@ -191,6 +200,15 @@ func (self *Loader) Headers() interface{}{
 // SetHeadersA Used to map the application mime-types to to the Accept header in XHR requests.
 // If you don't require these mappings, or they cause problems on your server, then
 // remove them from the headers object and the XHR request will not try to use them.
+// 
+// This object can also be used to set the `X-Requested-With` header to 
+// `XMLHttpRequest` (or any other value you need). To enable this do:
+// 
+// `this.load.headers.requestedWith = 'XMLHttpRequest'`
+// 
+// before adding anything to the Loader. The XHR loader will then call:
+// 
+// `setRequestHeader('X-Requested-With', this.headers['requestedWith'])`
 func (self *Loader) SetHeadersA(member interface{}) {
     self.Object.Set("headers", member)
 }
@@ -1473,7 +1491,7 @@ func (self *Loader) AudioI(args ...interface{}) *Loader{
     return &Loader{self.Object.Call("audio", args)}
 }
 
-// Audiosprite Adds an audio sprite file to the current load queue.
+// AudioSprite Adds an audio sprite file to the current load queue.
 // 
 // The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
 // 
@@ -1486,74 +1504,99 @@ func (self *Loader) AudioI(args ...interface{}) *Loader{
 // Retrieve the file via `Cache.getSoundData(key)`.
 // 
 // The URL can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+func (self *Loader) AudioSprite(key string, urls interface{}) *Loader{
+    return &Loader{self.Object.Call("audioSprite", key, urls)}
+}
+
+// AudioSprite1O Adds an audio sprite file to the current load queue.
+// 
+// The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
+// 
+// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+// 
+// Audio Sprites are a combination of audio files and a JSON configuration.
+// 
+// The JSON follows the format of that created by https://github.com/tonistiigi/audiosprite
+// 
+// Retrieve the file via `Cache.getSoundData(key)`.
+// 
+// The URL can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+func (self *Loader) AudioSprite1O(key string, urls interface{}, jsonURL string) *Loader{
+    return &Loader{self.Object.Call("audioSprite", key, urls, jsonURL)}
+}
+
+// AudioSprite2O Adds an audio sprite file to the current load queue.
+// 
+// The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
+// 
+// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+// 
+// Audio Sprites are a combination of audio files and a JSON configuration.
+// 
+// The JSON follows the format of that created by https://github.com/tonistiigi/audiosprite
+// 
+// Retrieve the file via `Cache.getSoundData(key)`.
+// 
+// The URL can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+func (self *Loader) AudioSprite2O(key string, urls interface{}, jsonURL string, jsonData interface{}) *Loader{
+    return &Loader{self.Object.Call("audioSprite", key, urls, jsonURL, jsonData)}
+}
+
+// AudioSprite3O Adds an audio sprite file to the current load queue.
+// 
+// The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
+// 
+// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+// 
+// Audio Sprites are a combination of audio files and a JSON configuration.
+// 
+// The JSON follows the format of that created by https://github.com/tonistiigi/audiosprite
+// 
+// Retrieve the file via `Cache.getSoundData(key)`.
+// 
+// The URL can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+func (self *Loader) AudioSprite3O(key string, urls interface{}, jsonURL string, jsonData interface{}, autoDecode bool) *Loader{
+    return &Loader{self.Object.Call("audioSprite", key, urls, jsonURL, jsonData, autoDecode)}
+}
+
+// AudioSpriteI Adds an audio sprite file to the current load queue.
+// 
+// The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
+// 
+// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+// 
+// Audio Sprites are a combination of audio files and a JSON configuration.
+// 
+// The JSON follows the format of that created by https://github.com/tonistiigi/audiosprite
+// 
+// Retrieve the file via `Cache.getSoundData(key)`.
+// 
+// The URL can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+func (self *Loader) AudioSpriteI(args ...interface{}) *Loader{
+    return &Loader{self.Object.Call("audioSprite", args)}
+}
+
+// Audiosprite A legacy alias for Loader.audioSprite. Please see that method for documentation.
 func (self *Loader) Audiosprite(key string, urls interface{}) *Loader{
     return &Loader{self.Object.Call("audiosprite", key, urls)}
 }
 
-// Audiosprite1O Adds an audio sprite file to the current load queue.
-// 
-// The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
-// 
-// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
-// 
-// Audio Sprites are a combination of audio files and a JSON configuration.
-// 
-// The JSON follows the format of that created by https://github.com/tonistiigi/audiosprite
-// 
-// Retrieve the file via `Cache.getSoundData(key)`.
-// 
-// The URL can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// Audiosprite1O A legacy alias for Loader.audioSprite. Please see that method for documentation.
 func (self *Loader) Audiosprite1O(key string, urls interface{}, jsonURL string) *Loader{
     return &Loader{self.Object.Call("audiosprite", key, urls, jsonURL)}
 }
 
-// Audiosprite2O Adds an audio sprite file to the current load queue.
-// 
-// The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
-// 
-// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
-// 
-// Audio Sprites are a combination of audio files and a JSON configuration.
-// 
-// The JSON follows the format of that created by https://github.com/tonistiigi/audiosprite
-// 
-// Retrieve the file via `Cache.getSoundData(key)`.
-// 
-// The URL can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// Audiosprite2O A legacy alias for Loader.audioSprite. Please see that method for documentation.
 func (self *Loader) Audiosprite2O(key string, urls interface{}, jsonURL string, jsonData interface{}) *Loader{
     return &Loader{self.Object.Call("audiosprite", key, urls, jsonURL, jsonData)}
 }
 
-// Audiosprite3O Adds an audio sprite file to the current load queue.
-// 
-// The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
-// 
-// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
-// 
-// Audio Sprites are a combination of audio files and a JSON configuration.
-// 
-// The JSON follows the format of that created by https://github.com/tonistiigi/audiosprite
-// 
-// Retrieve the file via `Cache.getSoundData(key)`.
-// 
-// The URL can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// Audiosprite3O A legacy alias for Loader.audioSprite. Please see that method for documentation.
 func (self *Loader) Audiosprite3O(key string, urls interface{}, jsonURL string, jsonData interface{}, autoDecode bool) *Loader{
     return &Loader{self.Object.Call("audiosprite", key, urls, jsonURL, jsonData, autoDecode)}
 }
 
-// AudiospriteI Adds an audio sprite file to the current load queue.
-// 
-// The file is **not** loaded immediately after calling this method. The file is added to the queue ready to be loaded when the loader starts.
-// 
-// The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
-// 
-// Audio Sprites are a combination of audio files and a JSON configuration.
-// 
-// The JSON follows the format of that created by https://github.com/tonistiigi/audiosprite
-// 
-// Retrieve the file via `Cache.getSoundData(key)`.
-// 
-// The URL can be relative or absolute. If the URL is relative the `Loader.baseURL` and `Loader.path` values will be prepended to it.
+// AudiospriteI A legacy alias for Loader.audioSprite. Please see that method for documentation.
 func (self *Loader) AudiospriteI(args ...interface{}) *Loader{
     return &Loader{self.Object.Call("audiosprite", args)}
 }
@@ -1620,6 +1663,10 @@ func (self *Loader) VideoI(args ...interface{}) *Loader{
 
 // Tilemap Adds a Tile Map data file to the current load queue.
 // 
+// Phaser can load data in two different formats: CSV and Tiled JSON.
+// 
+// Tiled is a free software package, specifically for creating tilemaps, and is available from http://www.mapeditor.org
+// 
 // You can choose to either load the data externally, by providing a URL to a json file.
 // Or you can pass in a JSON object or String via the `data` parameter.
 // If you pass a String the data is automatically run through `JSON.parse` and then immediately added to the Phaser.Cache.
@@ -1643,6 +1690,10 @@ func (self *Loader) Tilemap(key string) *Loader{
 }
 
 // Tilemap1O Adds a Tile Map data file to the current load queue.
+// 
+// Phaser can load data in two different formats: CSV and Tiled JSON.
+// 
+// Tiled is a free software package, specifically for creating tilemaps, and is available from http://www.mapeditor.org
 // 
 // You can choose to either load the data externally, by providing a URL to a json file.
 // Or you can pass in a JSON object or String via the `data` parameter.
@@ -1668,6 +1719,10 @@ func (self *Loader) Tilemap1O(key string, url string) *Loader{
 
 // Tilemap2O Adds a Tile Map data file to the current load queue.
 // 
+// Phaser can load data in two different formats: CSV and Tiled JSON.
+// 
+// Tiled is a free software package, specifically for creating tilemaps, and is available from http://www.mapeditor.org
+// 
 // You can choose to either load the data externally, by providing a URL to a json file.
 // Or you can pass in a JSON object or String via the `data` parameter.
 // If you pass a String the data is automatically run through `JSON.parse` and then immediately added to the Phaser.Cache.
@@ -1692,6 +1747,10 @@ func (self *Loader) Tilemap2O(key string, url string, data interface{}) *Loader{
 
 // Tilemap3O Adds a Tile Map data file to the current load queue.
 // 
+// Phaser can load data in two different formats: CSV and Tiled JSON.
+// 
+// Tiled is a free software package, specifically for creating tilemaps, and is available from http://www.mapeditor.org
+// 
 // You can choose to either load the data externally, by providing a URL to a json file.
 // Or you can pass in a JSON object or String via the `data` parameter.
 // If you pass a String the data is automatically run through `JSON.parse` and then immediately added to the Phaser.Cache.
@@ -1715,6 +1774,10 @@ func (self *Loader) Tilemap3O(key string, url string, data interface{}, format i
 }
 
 // TilemapI Adds a Tile Map data file to the current load queue.
+// 
+// Phaser can load data in two different formats: CSV and Tiled JSON.
+// 
+// Tiled is a free software package, specifically for creating tilemaps, and is available from http://www.mapeditor.org
 // 
 // You can choose to either load the data externally, by providing a URL to a json file.
 // Or you can pass in a JSON object or String via the `data` parameter.

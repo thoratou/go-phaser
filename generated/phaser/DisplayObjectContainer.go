@@ -8,17 +8,20 @@ import (
 )
 
 // DisplayObjectContainer A DisplayObjectContainer represents a collection of display objects.
+// 
 // It is the base class of all display objects that act as a container for other objects.
 type DisplayObjectContainer struct {
     *js.Object
 }
 
 // NewDisplayObjectContainer A DisplayObjectContainer represents a collection of display objects.
+// 
 // It is the base class of all display objects that act as a container for other objects.
 func NewDisplayObjectContainer() *DisplayObjectContainer {
     return &DisplayObjectContainer{js.Global.Get("PIXI").Get("DisplayObjectContainer").New()}
 }
 // NewDisplayObjectContainerI A DisplayObjectContainer represents a collection of display objects.
+// 
 // It is the base class of all display objects that act as a container for other objects.
 func NewDisplayObjectContainerI(args ...interface{}) *DisplayObjectContainer {
     return &DisplayObjectContainer{js.Global.Get("PIXI").Get("DisplayObjectContainer").New(args)}
@@ -54,7 +57,11 @@ func (self *DisplayObjectContainer) SetChildrenA(member []DisplayObject) {
 
 // IgnoreChildInput If `ignoreChildInput`  is `false` it will allow this objects _children_ to be considered as valid for Input events.
 // 
+// 
+// 
 // If this property is `true` then the children will _not_ be considered as valid for Input events.
+// 
+// 
 // 
 // Note that this property isn't recursive: only immediate children are influenced, it doesn't scan further down.
 func (self *DisplayObjectContainer) IgnoreChildInput() bool{
@@ -63,7 +70,11 @@ func (self *DisplayObjectContainer) IgnoreChildInput() bool{
 
 // SetIgnoreChildInputA If `ignoreChildInput`  is `false` it will allow this objects _children_ to be considered as valid for Input events.
 // 
+// 
+// 
 // If this property is `true` then the children will _not_ be considered as valid for Input events.
+// 
+// 
 // 
 // Note that this property isn't recursive: only immediate children are influenced, it doesn't scan further down.
 func (self *DisplayObjectContainer) SetIgnoreChildInputA(member bool) {
@@ -181,44 +192,39 @@ func (self *DisplayObjectContainer) RemoveChildrenI(args ...interface{}) {
     self.Object.Call("removeChildren", args)
 }
 
-// GetBounds Retrieves the bounds of the displayObjectContainer as a rectangle. The bounds calculation takes all visible children into consideration.
+// GetBounds Retrieves the global bounds of the displayObjectContainer as a rectangle. The bounds calculation takes all visible children into consideration.
 func (self *DisplayObjectContainer) GetBounds() *Rectangle{
     return &Rectangle{self.Object.Call("getBounds")}
 }
 
-// GetBoundsI Retrieves the bounds of the displayObjectContainer as a rectangle. The bounds calculation takes all visible children into consideration.
+// GetBounds1O Retrieves the global bounds of the displayObjectContainer as a rectangle. The bounds calculation takes all visible children into consideration.
+func (self *DisplayObjectContainer) GetBounds1O(targetCoordinateSpace interface{}) *Rectangle{
+    return &Rectangle{self.Object.Call("getBounds", targetCoordinateSpace)}
+}
+
+// GetBoundsI Retrieves the global bounds of the displayObjectContainer as a rectangle. The bounds calculation takes all visible children into consideration.
 func (self *DisplayObjectContainer) GetBoundsI(args ...interface{}) *Rectangle{
     return &Rectangle{self.Object.Call("getBounds", args)}
 }
 
-// GetLocalBounds Retrieves the non-global local bounds of the displayObjectContainer as a rectangle. The calculation takes all visible children into consideration.
+// GetLocalBounds Retrieves the non-global local bounds of the displayObjectContainer as a rectangle without any transformations. The calculation takes all visible children into consideration.
 func (self *DisplayObjectContainer) GetLocalBounds() *Rectangle{
     return &Rectangle{self.Object.Call("getLocalBounds")}
 }
 
-// GetLocalBoundsI Retrieves the non-global local bounds of the displayObjectContainer as a rectangle. The calculation takes all visible children into consideration.
+// GetLocalBoundsI Retrieves the non-global local bounds of the displayObjectContainer as a rectangle without any transformations. The calculation takes all visible children into consideration.
 func (self *DisplayObjectContainer) GetLocalBoundsI(args ...interface{}) *Rectangle{
     return &Rectangle{self.Object.Call("getLocalBounds", args)}
 }
 
-// SetStageReference Sets the containers Stage reference. This is the Stage that this object, and all of its children, is connected to.
-func (self *DisplayObjectContainer) SetStageReference(stage *Stage) {
-    self.Object.Call("setStageReference", stage)
+// Contains Determines whether the specified display object is a child of the DisplayObjectContainer instance or the instance itself.
+func (self *DisplayObjectContainer) Contains(child *DisplayObject) bool{
+    return self.Object.Call("contains", child).Bool()
 }
 
-// SetStageReferenceI Sets the containers Stage reference. This is the Stage that this object, and all of its children, is connected to.
-func (self *DisplayObjectContainer) SetStageReferenceI(args ...interface{}) {
-    self.Object.Call("setStageReference", args)
-}
-
-// RemoveStageReference Removes the current stage reference from the container and all of its children.
-func (self *DisplayObjectContainer) RemoveStageReference() {
-    self.Object.Call("removeStageReference")
-}
-
-// RemoveStageReferenceI Removes the current stage reference from the container and all of its children.
-func (self *DisplayObjectContainer) RemoveStageReferenceI(args ...interface{}) {
-    self.Object.Call("removeStageReference", args)
+// ContainsI Determines whether the specified display object is a child of the DisplayObjectContainer instance or the instance itself.
+func (self *DisplayObjectContainer) ContainsI(args ...interface{}) bool{
+    return self.Object.Call("contains", args).Bool()
 }
 
 // _renderWebGL Renders the object using the WebGL renderer

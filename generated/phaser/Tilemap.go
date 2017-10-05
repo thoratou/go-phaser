@@ -8,6 +8,9 @@ import (
 )
 
 // Tilemap Creates a new Phaser.Tilemap object. The map can either be populated with data from a Tiled JSON file or from a CSV file.
+// 
+// Tiled is a free software package specifically for creating tile maps, and is available from http://www.mapeditor.org
+// 
 // To do this pass the Cache key as the first parameter. When using Tiled data you need only provide the key.
 // When using CSV data you must provide the key and the tileWidth and tileHeight parameters.
 // If creating a blank tilemap to be populated later, you can either specify no parameters at all and then use `Tilemap.create` or pass the map and tile dimensions here.
@@ -19,6 +22,9 @@ type Tilemap struct {
 }
 
 // NewTilemap Creates a new Phaser.Tilemap object. The map can either be populated with data from a Tiled JSON file or from a CSV file.
+// 
+// Tiled is a free software package specifically for creating tile maps, and is available from http://www.mapeditor.org
+// 
 // To do this pass the Cache key as the first parameter. When using Tiled data you need only provide the key.
 // When using CSV data you must provide the key and the tileWidth and tileHeight parameters.
 // If creating a blank tilemap to be populated later, you can either specify no parameters at all and then use `Tilemap.create` or pass the map and tile dimensions here.
@@ -29,6 +35,9 @@ func NewTilemap(game *Game) *Tilemap {
     return &Tilemap{js.Global.Get("Phaser").Get("Tilemap").New(game)}
 }
 // NewTilemap1O Creates a new Phaser.Tilemap object. The map can either be populated with data from a Tiled JSON file or from a CSV file.
+// 
+// Tiled is a free software package specifically for creating tile maps, and is available from http://www.mapeditor.org
+// 
 // To do this pass the Cache key as the first parameter. When using Tiled data you need only provide the key.
 // When using CSV data you must provide the key and the tileWidth and tileHeight parameters.
 // If creating a blank tilemap to be populated later, you can either specify no parameters at all and then use `Tilemap.create` or pass the map and tile dimensions here.
@@ -39,6 +48,9 @@ func NewTilemap1O(game *Game, key string) *Tilemap {
     return &Tilemap{js.Global.Get("Phaser").Get("Tilemap").New(game, key)}
 }
 // NewTilemap2O Creates a new Phaser.Tilemap object. The map can either be populated with data from a Tiled JSON file or from a CSV file.
+// 
+// Tiled is a free software package specifically for creating tile maps, and is available from http://www.mapeditor.org
+// 
 // To do this pass the Cache key as the first parameter. When using Tiled data you need only provide the key.
 // When using CSV data you must provide the key and the tileWidth and tileHeight parameters.
 // If creating a blank tilemap to be populated later, you can either specify no parameters at all and then use `Tilemap.create` or pass the map and tile dimensions here.
@@ -49,6 +61,9 @@ func NewTilemap2O(game *Game, key string, tileWidth int) *Tilemap {
     return &Tilemap{js.Global.Get("Phaser").Get("Tilemap").New(game, key, tileWidth)}
 }
 // NewTilemap3O Creates a new Phaser.Tilemap object. The map can either be populated with data from a Tiled JSON file or from a CSV file.
+// 
+// Tiled is a free software package specifically for creating tile maps, and is available from http://www.mapeditor.org
+// 
 // To do this pass the Cache key as the first parameter. When using Tiled data you need only provide the key.
 // When using CSV data you must provide the key and the tileWidth and tileHeight parameters.
 // If creating a blank tilemap to be populated later, you can either specify no parameters at all and then use `Tilemap.create` or pass the map and tile dimensions here.
@@ -59,6 +74,9 @@ func NewTilemap3O(game *Game, key string, tileWidth int, tileHeight int) *Tilema
     return &Tilemap{js.Global.Get("Phaser").Get("Tilemap").New(game, key, tileWidth, tileHeight)}
 }
 // NewTilemap4O Creates a new Phaser.Tilemap object. The map can either be populated with data from a Tiled JSON file or from a CSV file.
+// 
+// Tiled is a free software package specifically for creating tile maps, and is available from http://www.mapeditor.org
+// 
 // To do this pass the Cache key as the first parameter. When using Tiled data you need only provide the key.
 // When using CSV data you must provide the key and the tileWidth and tileHeight parameters.
 // If creating a blank tilemap to be populated later, you can either specify no parameters at all and then use `Tilemap.create` or pass the map and tile dimensions here.
@@ -69,6 +87,9 @@ func NewTilemap4O(game *Game, key string, tileWidth int, tileHeight int, width i
     return &Tilemap{js.Global.Get("Phaser").Get("Tilemap").New(game, key, tileWidth, tileHeight, width)}
 }
 // NewTilemap5O Creates a new Phaser.Tilemap object. The map can either be populated with data from a Tiled JSON file or from a CSV file.
+// 
+// Tiled is a free software package specifically for creating tile maps, and is available from http://www.mapeditor.org
+// 
 // To do this pass the Cache key as the first parameter. When using Tiled data you need only provide the key.
 // When using CSV data you must provide the key and the tileWidth and tileHeight parameters.
 // If creating a blank tilemap to be populated later, you can either specify no parameters at all and then use `Tilemap.create` or pass the map and tile dimensions here.
@@ -79,6 +100,9 @@ func NewTilemap5O(game *Game, key string, tileWidth int, tileHeight int, width i
     return &Tilemap{js.Global.Get("Phaser").Get("Tilemap").New(game, key, tileWidth, tileHeight, width, height)}
 }
 // NewTilemapI Creates a new Phaser.Tilemap object. The map can either be populated with data from a Tiled JSON file or from a CSV file.
+// 
+// Tiled is a free software package specifically for creating tile maps, and is available from http://www.mapeditor.org
+// 
 // To do this pass the Cache key as the first parameter. When using Tiled data you need only provide the key.
 // When using CSV data you must provide the key and the tileWidth and tileHeight parameters.
 // If creating a blank tilemap to be populated later, you can either specify no parameters at all and then use `Tilemap.create` or pass the map and tile dimensions here.
@@ -347,6 +371,16 @@ func (self *Tilemap) Images() []interface{}{
 // SetImagesA An array of Tiled Image Layers.
 func (self *Tilemap) SetImagesA(member []interface{}) {
     self.Object.Set("images", member)
+}
+
+// EnableDebug If set then console.log is used to dump out useful layer creation debug data.
+func (self *Tilemap) EnableDebug() bool{
+    return self.Object.Get("enableDebug").Bool()
+}
+
+// SetEnableDebugA If set then console.log is used to dump out useful layer creation debug data.
+func (self *Tilemap) SetEnableDebugA(member bool) {
+    self.Object.Set("enableDebug", member)
 }
 
 // CurrentLayer The current layer.
@@ -653,14 +687,6 @@ func (self *Tilemap) CreateLayer2O(layer interface{}, width int, height int) *Ti
 // If you wish to create a blank layer to put your own tiles on then see Tilemap.createBlankLayer.
 func (self *Tilemap) CreateLayer3O(layer interface{}, width int, height int, group *Group) *TilemapLayer{
     return &TilemapLayer{self.Object.Call("createLayer", layer, width, height, group)}
-}
-
-// CreateLayer4O Creates a new TilemapLayer object. By default TilemapLayers are fixed to the camera.
-// The `layer` parameter is important. If you've created your map in Tiled then you can get this by looking in Tiled and looking at the Layer name.
-// Or you can open the JSON file it exports and look at the layers[].name value. Either way it must match.
-// If you wish to create a blank layer to put your own tiles on then see Tilemap.createBlankLayer.
-func (self *Tilemap) CreateLayer4O(layer interface{}, width int, height int, group *Group, pixiTest bool) *TilemapLayer{
-    return &TilemapLayer{self.Object.Call("createLayer", layer, width, height, group, pixiTest)}
 }
 
 // CreateLayerI Creates a new TilemapLayer object. By default TilemapLayers are fixed to the camera.

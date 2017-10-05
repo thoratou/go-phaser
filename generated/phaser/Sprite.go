@@ -66,16 +66,22 @@ func (self *Sprite) SetPhysicsTypeA(member int) {
 }
 
 // Anchor The anchor sets the origin point of the texture.
+// 
 // The default is 0,0 this means the texture's origin is the top left
+// 
 // Setting than anchor to 0.5,0.5 means the textures origin is centered
+// 
 // Setting the anchor to 1,1 would mean the textures origin points will be the bottom right corner
 func (self *Sprite) Anchor() *Point{
     return &Point{self.Object.Get("anchor")}
 }
 
 // SetAnchorA The anchor sets the origin point of the texture.
+// 
 // The default is 0,0 this means the texture's origin is the top left
+// 
 // Setting than anchor to 0.5,0.5 means the textures origin is centered
+// 
 // Setting the anchor to 1,1 would mean the textures origin points will be the bottom right corner
 func (self *Sprite) SetAnchorA(member *Point) {
     self.Object.Set("anchor", member)
@@ -113,6 +119,8 @@ func (self *Sprite) SetTintedTextureA(member *Canvas) {
 
 // BlendMode The blend mode to be applied to the sprite. Set to PIXI.blendModes.NORMAL to remove any blend mode.
 // 
+// 
+// 
 // Warning: You cannot have a blend mode and a filter active on the same Sprite. Doing so will render the sprite invisible.
 func (self *Sprite) BlendMode() int{
     return self.Object.Get("blendMode").Int()
@@ -120,17 +128,23 @@ func (self *Sprite) BlendMode() int{
 
 // SetBlendModeA The blend mode to be applied to the sprite. Set to PIXI.blendModes.NORMAL to remove any blend mode.
 // 
+// 
+// 
 // Warning: You cannot have a blend mode and a filter active on the same Sprite. Doing so will render the sprite invisible.
 func (self *Sprite) SetBlendModeA(member int) {
     self.Object.Set("blendMode", member)
 }
 
-// Shader The shader that will be used to render the texture to the stage. Set to null to remove a current shader.
+// Shader The shader that will be used to render this Sprite.
+// 
+// Set to null to remove a current shader.
 func (self *Sprite) Shader() *AbstractFilter{
     return &AbstractFilter{self.Object.Get("shader")}
 }
 
-// SetShaderA The shader that will be used to render the texture to the stage. Set to null to remove a current shader.
+// SetShaderA The shader that will be used to render this Sprite.
+// 
+// Set to null to remove a current shader.
 func (self *Sprite) SetShaderA(member *AbstractFilter) {
     self.Object.Set("shader", member)
 }
@@ -183,7 +197,11 @@ func (self *Sprite) SetChildrenA(member []DisplayObject) {
 
 // IgnoreChildInput If `ignoreChildInput`  is `false` it will allow this objects _children_ to be considered as valid for Input events.
 // 
+// 
+// 
 // If this property is `true` then the children will _not_ be considered as valid for Input events.
+// 
+// 
 // 
 // Note that this property isn't recursive: only immediate children are influenced, it doesn't scan further down.
 func (self *Sprite) IgnoreChildInput() bool{
@@ -192,7 +210,11 @@ func (self *Sprite) IgnoreChildInput() bool{
 
 // SetIgnoreChildInputA If `ignoreChildInput`  is `false` it will allow this objects _children_ to be considered as valid for Input events.
 // 
+// 
+// 
 // If this property is `true` then the children will _not_ be considered as valid for Input events.
+// 
+// 
 // 
 // Note that this property isn't recursive: only immediate children are influenced, it doesn't scan further down.
 func (self *Sprite) SetIgnoreChildInputA(member bool) {
@@ -1081,18 +1103,21 @@ func (self *Sprite) PreUpdateI(args ...interface{}) bool{
 }
 
 // SetTexture Sets the texture of the sprite. Be warned that this doesn't remove or destroy the previous
+// 
 // texture this Sprite was using.
 func (self *Sprite) SetTexture(texture *Texture) {
     self.Object.Call("setTexture", texture)
 }
 
 // SetTexture1O Sets the texture of the sprite. Be warned that this doesn't remove or destroy the previous
+// 
 // texture this Sprite was using.
 func (self *Sprite) SetTexture1O(texture *Texture, destroy bool) {
     self.Object.Call("setTexture", texture, destroy)
 }
 
 // SetTextureI Sets the texture of the sprite. Be warned that this doesn't remove or destroy the previous
+// 
 // texture this Sprite was using.
 func (self *Sprite) SetTextureI(args ...interface{}) {
     self.Object.Call("setTexture", args)
@@ -1109,29 +1134,55 @@ func (self *Sprite) OnTextureUpdateI(args ...interface{}) {
 }
 
 // GetBounds Returns the bounds of the Sprite as a rectangle.
+// 
 // The bounds calculation takes the worldTransform into account.
 // 
+// 
+// 
 // It is important to note that the transform is not updated when you call this method.
+// 
 // So if this Sprite is the child of a Display Object which has had its transform
+// 
 // updated since the last render pass, those changes will not yet have been applied
+// 
 // to this Sprites worldTransform. If you need to ensure that all parent transforms
+// 
 // are factored into this getBounds operation then you should call `updateTransform`
+// 
 // on the root most object in this Sprites display list first.
 func (self *Sprite) GetBounds(matrix *Matrix) *Rectangle{
     return &Rectangle{self.Object.Call("getBounds", matrix)}
 }
 
 // GetBoundsI Returns the bounds of the Sprite as a rectangle.
+// 
 // The bounds calculation takes the worldTransform into account.
 // 
+// 
+// 
 // It is important to note that the transform is not updated when you call this method.
+// 
 // So if this Sprite is the child of a Display Object which has had its transform
+// 
 // updated since the last render pass, those changes will not yet have been applied
+// 
 // to this Sprites worldTransform. If you need to ensure that all parent transforms
+// 
 // are factored into this getBounds operation then you should call `updateTransform`
+// 
 // on the root most object in this Sprites display list first.
 func (self *Sprite) GetBoundsI(args ...interface{}) *Rectangle{
     return &Rectangle{self.Object.Call("getBounds", args)}
+}
+
+// GetLocalBounds Retrieves the non-global local bounds of the Sprite as a rectangle. The calculation takes all visible children into consideration.
+func (self *Sprite) GetLocalBounds() *Rectangle{
+    return &Rectangle{self.Object.Call("getLocalBounds")}
+}
+
+// GetLocalBoundsI Retrieves the non-global local bounds of the Sprite as a rectangle. The calculation takes all visible children into consideration.
+func (self *Sprite) GetLocalBoundsI(args ...interface{}) *Rectangle{
+    return &Rectangle{self.Object.Call("getLocalBounds", args)}
 }
 
 // _renderWebGL Renders the object using the WebGL renderer
@@ -1254,34 +1305,14 @@ func (self *Sprite) RemoveChildrenI(args ...interface{}) {
     self.Object.Call("removeChildren", args)
 }
 
-// GetLocalBounds Retrieves the non-global local bounds of the displayObjectContainer as a rectangle. The calculation takes all visible children into consideration.
-func (self *Sprite) GetLocalBounds() *Rectangle{
-    return &Rectangle{self.Object.Call("getLocalBounds")}
+// Contains Determines whether the specified display object is a child of the DisplayObjectContainer instance or the instance itself.
+func (self *Sprite) Contains(child *DisplayObject) bool{
+    return self.Object.Call("contains", child).Bool()
 }
 
-// GetLocalBoundsI Retrieves the non-global local bounds of the displayObjectContainer as a rectangle. The calculation takes all visible children into consideration.
-func (self *Sprite) GetLocalBoundsI(args ...interface{}) *Rectangle{
-    return &Rectangle{self.Object.Call("getLocalBounds", args)}
-}
-
-// SetStageReference Sets the containers Stage reference. This is the Stage that this object, and all of its children, is connected to.
-func (self *Sprite) SetStageReference(stage *Stage) {
-    self.Object.Call("setStageReference", stage)
-}
-
-// SetStageReferenceI Sets the containers Stage reference. This is the Stage that this object, and all of its children, is connected to.
-func (self *Sprite) SetStageReferenceI(args ...interface{}) {
-    self.Object.Call("setStageReference", args)
-}
-
-// RemoveStageReference Removes the current stage reference from the container and all of its children.
-func (self *Sprite) RemoveStageReference() {
-    self.Object.Call("removeStageReference")
-}
-
-// RemoveStageReferenceI Removes the current stage reference from the container and all of its children.
-func (self *Sprite) RemoveStageReferenceI(args ...interface{}) {
-    self.Object.Call("removeStageReference", args)
+// ContainsI Determines whether the specified display object is a child of the DisplayObjectContainer instance or the instance itself.
+func (self *Sprite) ContainsI(args ...interface{}) bool{
+    return self.Object.Call("contains", args).Bool()
 }
 
 // Update Override this method in your own custom objects to handle any update requirements.

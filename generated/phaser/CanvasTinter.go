@@ -36,12 +36,14 @@ func ToCanvasTinter(jsStruct interface{}) *CanvasTinter {
 
 
 // CanHandleAlpha If the browser isn't capable of handling tinting with alpha this will be false.
+// 
 // This property is only applicable if using tintWithPerPixel.
 func (self *CanvasTinter) CanHandleAlpha() bool{
     return self.Object.Get("canHandleAlpha").Bool()
 }
 
 // SetCanHandleAlphaA If the browser isn't capable of handling tinting with alpha this will be false.
+// 
 // This property is only applicable if using tintWithPerPixel.
 func (self *CanvasTinter) SetCanHandleAlphaA(member bool) {
     self.Object.Set("canHandleAlpha", member)

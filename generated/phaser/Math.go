@@ -396,6 +396,48 @@ func (self *Math) CeilToI(args ...interface{}) int{
     return self.Object.Call("ceilTo", args).Int()
 }
 
+// RotateToAngle Rotates currentAngle towards targetAngle, taking the shortest rotation distance.
+// The lerp argument is the amount to rotate by in this call.
+func (self *Math) RotateToAngle(currentAngle int, targetAngle int) int{
+    return self.Object.Call("rotateToAngle", currentAngle, targetAngle).Int()
+}
+
+// RotateToAngle1O Rotates currentAngle towards targetAngle, taking the shortest rotation distance.
+// The lerp argument is the amount to rotate by in this call.
+func (self *Math) RotateToAngle1O(currentAngle int, targetAngle int, lerp int) int{
+    return self.Object.Call("rotateToAngle", currentAngle, targetAngle, lerp).Int()
+}
+
+// RotateToAngleI Rotates currentAngle towards targetAngle, taking the shortest rotation distance.
+// The lerp argument is the amount to rotate by in this call.
+func (self *Math) RotateToAngleI(args ...interface{}) int{
+    return self.Object.Call("rotateToAngle", args).Int()
+}
+
+// GetShortestAngle Gets the shortest angle between `angle1` and `angle2`.
+// Both angles must be in the range -180 to 180, which is the same clamped
+// range that `sprite.angle` uses, so you can pass in two sprite angles to
+// this method, and get the shortest angle back between the two of them.
+// 
+// The angle returned will be in the same range. If the returned angle is
+// greater than 0 then it's a counter-clockwise rotation, if < 0 then it's
+// a clockwise rotation.
+func (self *Math) GetShortestAngle(angle1 int, angle2 int) int{
+    return self.Object.Call("getShortestAngle", angle1, angle2).Int()
+}
+
+// GetShortestAngleI Gets the shortest angle between `angle1` and `angle2`.
+// Both angles must be in the range -180 to 180, which is the same clamped
+// range that `sprite.angle` uses, so you can pass in two sprite angles to
+// this method, and get the shortest angle back between the two of them.
+// 
+// The angle returned will be in the same range. If the returned angle is
+// greater than 0 then it's a counter-clockwise rotation, if < 0 then it's
+// a clockwise rotation.
+func (self *Math) GetShortestAngleI(args ...interface{}) int{
+    return self.Object.Call("getShortestAngle", args).Int()
+}
+
 // AngleBetween Find the angle of a segment from (x1, y1) -> (x2, y2).
 func (self *Math) AngleBetween(x1 int, y1 int, x2 int, y2 int) int{
     return self.Object.Call("angleBetween", x1, y1, x2, y2).Int()

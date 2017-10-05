@@ -10,17 +10,20 @@ import (
 )
 
 // CanvasRenderer The CanvasRenderer draws the Stage and all its content onto a 2d canvas. This renderer should be used for browsers that do not support webGL.
+// 
 // Don't forget to add the CanvasRenderer.view to your DOM or you will not see anything :)
 type CanvasRenderer struct {
     *js.Object
 }
 
 // NewCanvasRenderer The CanvasRenderer draws the Stage and all its content onto a 2d canvas. This renderer should be used for browsers that do not support webGL.
+// 
 // Don't forget to add the CanvasRenderer.view to your DOM or you will not see anything :)
 func NewCanvasRenderer(game *PhaserGame) *CanvasRenderer {
     return &CanvasRenderer{js.Global.Get("PIXI").Get("CanvasRenderer").New(game)}
 }
 // NewCanvasRendererI The CanvasRenderer draws the Stage and all its content onto a 2d canvas. This renderer should be used for browsers that do not support webGL.
+// 
 // Don't forget to add the CanvasRenderer.view to your DOM or you will not see anything :)
 func NewCanvasRendererI(args ...interface{}) *CanvasRenderer {
     return &CanvasRenderer{js.Global.Get("PIXI").Get("CanvasRenderer").New(args)}
@@ -69,16 +72,22 @@ func (self *CanvasRenderer) SetResolutionA(member int) {
 }
 
 // ClearBeforeRender This sets if the CanvasRenderer will clear the canvas or not before the new render pass.
+// 
 // If the Stage is NOT transparent Pixi will use a canvas sized fillRect operation every frame to set the canvas background color.
+// 
 // If the Stage is transparent Pixi will use clearRect to clear the canvas every frame.
+// 
 // Disable this by setting this to false. For example if your game has a canvas filling background image you often don't need this set.
 func (self *CanvasRenderer) ClearBeforeRender() bool{
     return self.Object.Get("clearBeforeRender").Bool()
 }
 
 // SetClearBeforeRenderA This sets if the CanvasRenderer will clear the canvas or not before the new render pass.
+// 
 // If the Stage is NOT transparent Pixi will use a canvas sized fillRect operation every frame to set the canvas background color.
+// 
 // If the Stage is transparent Pixi will use clearRect to clear the canvas every frame.
+// 
 // Disable this by setting this to false. For example if your game has a canvas filling background image you often don't need this set.
 func (self *CanvasRenderer) SetClearBeforeRenderA(member bool) {
     self.Object.Set("clearBeforeRender", member)
@@ -185,12 +194,12 @@ func (self *CanvasRenderer) SetRenderSessionA(member interface{}) {
 }
 
 
-// Render Renders the Stage to this canvas view
-func (self *CanvasRenderer) Render(stage *Stage) {
-    self.Object.Call("render", stage)
+// Render Renders the DisplayObjectContainer, usually the Phaser.Stage, to this canvas view.
+func (self *CanvasRenderer) Render(root interface{}) {
+    self.Object.Call("render", root)
 }
 
-// RenderI Renders the Stage to this canvas view
+// RenderI Renders the DisplayObjectContainer, usually the Phaser.Stage, to this canvas view.
 func (self *CanvasRenderer) RenderI(args ...interface{}) {
     self.Object.Call("render", args)
 }

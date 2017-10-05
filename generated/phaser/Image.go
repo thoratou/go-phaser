@@ -67,16 +67,22 @@ func (self *Image) SetTypeA(member int) {
 }
 
 // Anchor The anchor sets the origin point of the texture.
+// 
 // The default is 0,0 this means the texture's origin is the top left
+// 
 // Setting than anchor to 0.5,0.5 means the textures origin is centered
+// 
 // Setting the anchor to 1,1 would mean the textures origin points will be the bottom right corner
 func (self *Image) Anchor() *Point{
     return &Point{self.Object.Get("anchor")}
 }
 
 // SetAnchorA The anchor sets the origin point of the texture.
+// 
 // The default is 0,0 this means the texture's origin is the top left
+// 
 // Setting than anchor to 0.5,0.5 means the textures origin is centered
+// 
 // Setting the anchor to 1,1 would mean the textures origin points will be the bottom right corner
 func (self *Image) SetAnchorA(member *Point) {
     self.Object.Set("anchor", member)
@@ -114,6 +120,8 @@ func (self *Image) SetTintedTextureA(member *Canvas) {
 
 // BlendMode The blend mode to be applied to the sprite. Set to PIXI.blendModes.NORMAL to remove any blend mode.
 // 
+// 
+// 
 // Warning: You cannot have a blend mode and a filter active on the same Sprite. Doing so will render the sprite invisible.
 func (self *Image) BlendMode() int{
     return self.Object.Get("blendMode").Int()
@@ -121,17 +129,23 @@ func (self *Image) BlendMode() int{
 
 // SetBlendModeA The blend mode to be applied to the sprite. Set to PIXI.blendModes.NORMAL to remove any blend mode.
 // 
+// 
+// 
 // Warning: You cannot have a blend mode and a filter active on the same Sprite. Doing so will render the sprite invisible.
 func (self *Image) SetBlendModeA(member int) {
     self.Object.Set("blendMode", member)
 }
 
-// Shader The shader that will be used to render the texture to the stage. Set to null to remove a current shader.
+// Shader The shader that will be used to render this Sprite.
+// 
+// Set to null to remove a current shader.
 func (self *Image) Shader() *AbstractFilter{
     return &AbstractFilter{self.Object.Get("shader")}
 }
 
-// SetShaderA The shader that will be used to render the texture to the stage. Set to null to remove a current shader.
+// SetShaderA The shader that will be used to render this Sprite.
+// 
+// Set to null to remove a current shader.
 func (self *Image) SetShaderA(member *AbstractFilter) {
     self.Object.Set("shader", member)
 }
@@ -184,7 +198,11 @@ func (self *Image) SetChildrenA(member []DisplayObject) {
 
 // IgnoreChildInput If `ignoreChildInput`  is `false` it will allow this objects _children_ to be considered as valid for Input events.
 // 
+// 
+// 
 // If this property is `true` then the children will _not_ be considered as valid for Input events.
+// 
+// 
 // 
 // Note that this property isn't recursive: only immediate children are influenced, it doesn't scan further down.
 func (self *Image) IgnoreChildInput() bool{
@@ -193,7 +211,11 @@ func (self *Image) IgnoreChildInput() bool{
 
 // SetIgnoreChildInputA If `ignoreChildInput`  is `false` it will allow this objects _children_ to be considered as valid for Input events.
 // 
+// 
+// 
 // If this property is `true` then the children will _not_ be considered as valid for Input events.
+// 
+// 
 // 
 // Note that this property isn't recursive: only immediate children are influenced, it doesn't scan further down.
 func (self *Image) SetIgnoreChildInputA(member bool) {
@@ -776,6 +798,62 @@ func (self *Image) SetFrameNameA(member string) {
     self.Object.Set("frameName", member)
 }
 
+// TransformCallback The callback that will apply any scale limiting to the worldTransform.
+func (self *Image) TransformCallback() interface{}{
+    return self.Object.Get("transformCallback")
+}
+
+// SetTransformCallbackA The callback that will apply any scale limiting to the worldTransform.
+func (self *Image) SetTransformCallbackA(member interface{}) {
+    self.Object.Set("transformCallback", member)
+}
+
+// TransformCallbackContext The context under which `transformCallback` is called.
+func (self *Image) TransformCallbackContext() interface{}{
+    return self.Object.Get("transformCallbackContext")
+}
+
+// SetTransformCallbackContextA The context under which `transformCallback` is called.
+func (self *Image) SetTransformCallbackContextA(member interface{}) {
+    self.Object.Set("transformCallbackContext", member)
+}
+
+// ScaleMin The minimum scale this Game Object will scale down to.
+// 
+// It allows you to prevent a parent from scaling this Game Object lower than the given value.
+// 
+// Set it to `null` to remove the limit.
+func (self *Image) ScaleMin() *Point{
+    return &Point{self.Object.Get("scaleMin")}
+}
+
+// SetScaleMinA The minimum scale this Game Object will scale down to.
+// 
+// It allows you to prevent a parent from scaling this Game Object lower than the given value.
+// 
+// Set it to `null` to remove the limit.
+func (self *Image) SetScaleMinA(member *Point) {
+    self.Object.Set("scaleMin", member)
+}
+
+// ScaleMax The maximum scale this Game Object will scale up to. 
+// 
+// It allows you to prevent a parent from scaling this Game Object higher than the given value.
+// 
+// Set it to `null` to remove the limit.
+func (self *Image) ScaleMax() *Point{
+    return &Point{self.Object.Get("scaleMax")}
+}
+
+// SetScaleMaxA The maximum scale this Game Object will scale up to. 
+// 
+// It allows you to prevent a parent from scaling this Game Object higher than the given value.
+// 
+// Set it to `null` to remove the limit.
+func (self *Image) SetScaleMaxA(member *Point) {
+    self.Object.Set("scaleMax", member)
+}
+
 // Smoothed Enable or disable texture smoothing for this Game Object.
 // 
 // It only takes effect if the Game Object is using an image based texture.
@@ -806,18 +884,21 @@ func (self *Image) PreUpdateI(args ...interface{}) {
 }
 
 // SetTexture Sets the texture of the sprite. Be warned that this doesn't remove or destroy the previous
+// 
 // texture this Sprite was using.
 func (self *Image) SetTexture(texture *Texture) {
     self.Object.Call("setTexture", texture)
 }
 
 // SetTexture1O Sets the texture of the sprite. Be warned that this doesn't remove or destroy the previous
+// 
 // texture this Sprite was using.
 func (self *Image) SetTexture1O(texture *Texture, destroy bool) {
     self.Object.Call("setTexture", texture, destroy)
 }
 
 // SetTextureI Sets the texture of the sprite. Be warned that this doesn't remove or destroy the previous
+// 
 // texture this Sprite was using.
 func (self *Image) SetTextureI(args ...interface{}) {
     self.Object.Call("setTexture", args)
@@ -834,29 +915,55 @@ func (self *Image) OnTextureUpdateI(args ...interface{}) {
 }
 
 // GetBounds Returns the bounds of the Sprite as a rectangle.
+// 
 // The bounds calculation takes the worldTransform into account.
 // 
+// 
+// 
 // It is important to note that the transform is not updated when you call this method.
+// 
 // So if this Sprite is the child of a Display Object which has had its transform
+// 
 // updated since the last render pass, those changes will not yet have been applied
+// 
 // to this Sprites worldTransform. If you need to ensure that all parent transforms
+// 
 // are factored into this getBounds operation then you should call `updateTransform`
+// 
 // on the root most object in this Sprites display list first.
 func (self *Image) GetBounds(matrix *Matrix) *Rectangle{
     return &Rectangle{self.Object.Call("getBounds", matrix)}
 }
 
 // GetBoundsI Returns the bounds of the Sprite as a rectangle.
+// 
 // The bounds calculation takes the worldTransform into account.
 // 
+// 
+// 
 // It is important to note that the transform is not updated when you call this method.
+// 
 // So if this Sprite is the child of a Display Object which has had its transform
+// 
 // updated since the last render pass, those changes will not yet have been applied
+// 
 // to this Sprites worldTransform. If you need to ensure that all parent transforms
+// 
 // are factored into this getBounds operation then you should call `updateTransform`
+// 
 // on the root most object in this Sprites display list first.
 func (self *Image) GetBoundsI(args ...interface{}) *Rectangle{
     return &Rectangle{self.Object.Call("getBounds", args)}
+}
+
+// GetLocalBounds Retrieves the non-global local bounds of the Sprite as a rectangle. The calculation takes all visible children into consideration.
+func (self *Image) GetLocalBounds() *Rectangle{
+    return &Rectangle{self.Object.Call("getLocalBounds")}
+}
+
+// GetLocalBoundsI Retrieves the non-global local bounds of the Sprite as a rectangle. The calculation takes all visible children into consideration.
+func (self *Image) GetLocalBoundsI(args ...interface{}) *Rectangle{
+    return &Rectangle{self.Object.Call("getLocalBounds", args)}
 }
 
 // _renderWebGL Renders the object using the WebGL renderer
@@ -979,34 +1086,14 @@ func (self *Image) RemoveChildrenI(args ...interface{}) {
     self.Object.Call("removeChildren", args)
 }
 
-// GetLocalBounds Retrieves the non-global local bounds of the displayObjectContainer as a rectangle. The calculation takes all visible children into consideration.
-func (self *Image) GetLocalBounds() *Rectangle{
-    return &Rectangle{self.Object.Call("getLocalBounds")}
+// Contains Determines whether the specified display object is a child of the DisplayObjectContainer instance or the instance itself.
+func (self *Image) Contains(child *DisplayObject) bool{
+    return self.Object.Call("contains", child).Bool()
 }
 
-// GetLocalBoundsI Retrieves the non-global local bounds of the displayObjectContainer as a rectangle. The calculation takes all visible children into consideration.
-func (self *Image) GetLocalBoundsI(args ...interface{}) *Rectangle{
-    return &Rectangle{self.Object.Call("getLocalBounds", args)}
-}
-
-// SetStageReference Sets the containers Stage reference. This is the Stage that this object, and all of its children, is connected to.
-func (self *Image) SetStageReference(stage *Stage) {
-    self.Object.Call("setStageReference", stage)
-}
-
-// SetStageReferenceI Sets the containers Stage reference. This is the Stage that this object, and all of its children, is connected to.
-func (self *Image) SetStageReferenceI(args ...interface{}) {
-    self.Object.Call("setStageReference", args)
-}
-
-// RemoveStageReference Removes the current stage reference from the container and all of its children.
-func (self *Image) RemoveStageReference() {
-    self.Object.Call("removeStageReference")
-}
-
-// RemoveStageReferenceI Removes the current stage reference from the container and all of its children.
-func (self *Image) RemoveStageReferenceI(args ...interface{}) {
-    self.Object.Call("removeStageReference", args)
+// ContainsI Determines whether the specified display object is a child of the DisplayObjectContainer instance or the instance itself.
+func (self *Image) ContainsI(args ...interface{}) bool{
+    return self.Object.Call("contains", args).Bool()
 }
 
 // Update Override this method in your own custom objects to handle any update requirements.
@@ -1828,5 +1915,57 @@ func (self *Image) Reset1O(x int, y int, health int) *DisplayObject{
 // If this Game Object has a Physics Body it will reset the Body.
 func (self *Image) ResetI(args ...interface{}) *DisplayObject{
     return &DisplayObject{self.Object.Call("reset", args)}
+}
+
+// CheckTransform Adjust scaling limits, if set, to this Game Object.
+func (self *Image) CheckTransform(wt *Matrix) {
+    self.Object.Call("checkTransform", wt)
+}
+
+// CheckTransformI Adjust scaling limits, if set, to this Game Object.
+func (self *Image) CheckTransformI(args ...interface{}) {
+    self.Object.Call("checkTransform", args)
+}
+
+// SetScaleMinMax Sets the scaleMin and scaleMax values. These values are used to limit how far this Game Object will scale based on its parent.
+// 
+// For example if this Game Object has a `minScale` value of 1 and its parent has a `scale` value of 0.5, the 0.5 will be ignored 
+// and the scale value of 1 will be used, as the parents scale is lower than the minimum scale this Game Object should adhere to.
+// 
+// By setting these values you can carefully control how Game Objects deal with responsive scaling.
+// 
+// If only one parameter is given then that value will be used for both scaleMin and scaleMax:
+// `setScaleMinMax(1)` = scaleMin.x, scaleMin.y, scaleMax.x and scaleMax.y all = 1
+// 
+// If only two parameters are given the first is set as scaleMin.x and y and the second as scaleMax.x and y:
+// `setScaleMinMax(0.5, 2)` = scaleMin.x and y = 0.5 and scaleMax.x and y = 2
+// 
+// If you wish to set `scaleMin` with different values for x and y then either modify Game Object.scaleMin directly, 
+// or pass `null` for the `maxX` and `maxY` parameters.
+// 
+// Call `setScaleMinMax(null)` to clear all previously set values.
+func (self *Image) SetScaleMinMax(minX interface{}, minY interface{}, maxX interface{}, maxY interface{}) {
+    self.Object.Call("setScaleMinMax", minX, minY, maxX, maxY)
+}
+
+// SetScaleMinMaxI Sets the scaleMin and scaleMax values. These values are used to limit how far this Game Object will scale based on its parent.
+// 
+// For example if this Game Object has a `minScale` value of 1 and its parent has a `scale` value of 0.5, the 0.5 will be ignored 
+// and the scale value of 1 will be used, as the parents scale is lower than the minimum scale this Game Object should adhere to.
+// 
+// By setting these values you can carefully control how Game Objects deal with responsive scaling.
+// 
+// If only one parameter is given then that value will be used for both scaleMin and scaleMax:
+// `setScaleMinMax(1)` = scaleMin.x, scaleMin.y, scaleMax.x and scaleMax.y all = 1
+// 
+// If only two parameters are given the first is set as scaleMin.x and y and the second as scaleMax.x and y:
+// `setScaleMinMax(0.5, 2)` = scaleMin.x and y = 0.5 and scaleMax.x and y = 2
+// 
+// If you wish to set `scaleMin` with different values for x and y then either modify Game Object.scaleMin directly, 
+// or pass `null` for the `maxX` and `maxY` parameters.
+// 
+// Call `setScaleMinMax(null)` to clear all previously set values.
+func (self *Image) SetScaleMinMaxI(args ...interface{}) {
+    self.Object.Call("setScaleMinMax", args)
 }
 

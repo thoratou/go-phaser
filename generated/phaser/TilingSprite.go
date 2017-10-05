@@ -104,12 +104,14 @@ func (self *TilingSprite) SetTintA(member int) {
 }
 
 // TextureDebug If enabled a green rectangle will be drawn behind the generated tiling texture, allowing you to visually
+// 
 // debug the texture being used.
 func (self *TilingSprite) TextureDebug() bool{
     return self.Object.Get("textureDebug").Bool()
 }
 
 // SetTextureDebugA If enabled a green rectangle will be drawn behind the generated tiling texture, allowing you to visually
+// 
 // debug the texture being used.
 func (self *TilingSprite) SetTextureDebugA(member bool) {
     self.Object.Set("textureDebug", member)
@@ -156,28 +158,36 @@ func (self *TilingSprite) SetTilePatternA(member *PIXITexture) {
 }
 
 // RefreshTexture If true the TilingSprite will run generateTexture on its **next** render pass.
+// 
 // This is set by the likes of Phaser.LoadTexture.setFrame.
 func (self *TilingSprite) RefreshTexture() bool{
     return self.Object.Get("refreshTexture").Bool()
 }
 
 // SetRefreshTextureA If true the TilingSprite will run generateTexture on its **next** render pass.
+// 
 // This is set by the likes of Phaser.LoadTexture.setFrame.
 func (self *TilingSprite) SetRefreshTextureA(member bool) {
     self.Object.Set("refreshTexture", member)
 }
 
 // Anchor The anchor sets the origin point of the texture.
+// 
 // The default is 0,0 this means the texture's origin is the top left
+// 
 // Setting than anchor to 0.5,0.5 means the textures origin is centered
+// 
 // Setting the anchor to 1,1 would mean the textures origin points will be the bottom right corner
 func (self *TilingSprite) Anchor() *Point{
     return &Point{self.Object.Get("anchor")}
 }
 
 // SetAnchorA The anchor sets the origin point of the texture.
+// 
 // The default is 0,0 this means the texture's origin is the top left
+// 
 // Setting than anchor to 0.5,0.5 means the textures origin is centered
+// 
 // Setting the anchor to 1,1 would mean the textures origin points will be the bottom right corner
 func (self *TilingSprite) SetAnchorA(member *Point) {
     self.Object.Set("anchor", member)
@@ -203,12 +213,16 @@ func (self *TilingSprite) SetTintedTextureA(member *Canvas) {
     self.Object.Set("tintedTexture", member)
 }
 
-// Shader The shader that will be used to render the texture to the stage. Set to null to remove a current shader.
+// Shader The shader that will be used to render this Sprite.
+// 
+// Set to null to remove a current shader.
 func (self *TilingSprite) Shader() *AbstractFilter{
     return &AbstractFilter{self.Object.Get("shader")}
 }
 
-// SetShaderA The shader that will be used to render the texture to the stage. Set to null to remove a current shader.
+// SetShaderA The shader that will be used to render this Sprite.
+// 
+// Set to null to remove a current shader.
 func (self *TilingSprite) SetShaderA(member *AbstractFilter) {
     self.Object.Set("shader", member)
 }
@@ -241,7 +255,11 @@ func (self *TilingSprite) SetChildrenA(member []DisplayObject) {
 
 // IgnoreChildInput If `ignoreChildInput`  is `false` it will allow this objects _children_ to be considered as valid for Input events.
 // 
+// 
+// 
 // If this property is `true` then the children will _not_ be considered as valid for Input events.
+// 
+// 
 // 
 // Note that this property isn't recursive: only immediate children are influenced, it doesn't scan further down.
 func (self *TilingSprite) IgnoreChildInput() bool{
@@ -250,7 +268,11 @@ func (self *TilingSprite) IgnoreChildInput() bool{
 
 // SetIgnoreChildInputA If `ignoreChildInput`  is `false` it will allow this objects _children_ to be considered as valid for Input events.
 // 
+// 
+// 
 // If this property is `true` then the children will _not_ be considered as valid for Input events.
+// 
+// 
 // 
 // Note that this property isn't recursive: only immediate children are influenced, it doesn't scan further down.
 func (self *TilingSprite) SetIgnoreChildInputA(member bool) {
@@ -309,21 +331,34 @@ func (self *TilingSprite) GetBoundsI(args ...interface{}) *Rectangle{
 }
 
 // SetTexture Sets the texture of the sprite. Be warned that this doesn't remove or destroy the previous
+// 
 // texture this Sprite was using.
 func (self *TilingSprite) SetTexture(texture *Texture) {
     self.Object.Call("setTexture", texture)
 }
 
 // SetTexture1O Sets the texture of the sprite. Be warned that this doesn't remove or destroy the previous
+// 
 // texture this Sprite was using.
 func (self *TilingSprite) SetTexture1O(texture *Texture, destroy bool) {
     self.Object.Call("setTexture", texture, destroy)
 }
 
 // SetTextureI Sets the texture of the sprite. Be warned that this doesn't remove or destroy the previous
+// 
 // texture this Sprite was using.
 func (self *TilingSprite) SetTextureI(args ...interface{}) {
     self.Object.Call("setTexture", args)
+}
+
+// GetLocalBounds Retrieves the non-global local bounds of the Sprite as a rectangle. The calculation takes all visible children into consideration.
+func (self *TilingSprite) GetLocalBounds() *Rectangle{
+    return &Rectangle{self.Object.Call("getLocalBounds")}
+}
+
+// GetLocalBoundsI Retrieves the non-global local bounds of the Sprite as a rectangle. The calculation takes all visible children into consideration.
+func (self *TilingSprite) GetLocalBoundsI(args ...interface{}) *Rectangle{
+    return &Rectangle{self.Object.Call("getLocalBounds", args)}
 }
 
 // AddChild Adds a child to the container.
@@ -416,33 +451,13 @@ func (self *TilingSprite) RemoveChildrenI(args ...interface{}) {
     self.Object.Call("removeChildren", args)
 }
 
-// GetLocalBounds Retrieves the non-global local bounds of the displayObjectContainer as a rectangle. The calculation takes all visible children into consideration.
-func (self *TilingSprite) GetLocalBounds() *Rectangle{
-    return &Rectangle{self.Object.Call("getLocalBounds")}
+// Contains Determines whether the specified display object is a child of the DisplayObjectContainer instance or the instance itself.
+func (self *TilingSprite) Contains(child *DisplayObject) bool{
+    return self.Object.Call("contains", child).Bool()
 }
 
-// GetLocalBoundsI Retrieves the non-global local bounds of the displayObjectContainer as a rectangle. The calculation takes all visible children into consideration.
-func (self *TilingSprite) GetLocalBoundsI(args ...interface{}) *Rectangle{
-    return &Rectangle{self.Object.Call("getLocalBounds", args)}
-}
-
-// SetStageReference Sets the containers Stage reference. This is the Stage that this object, and all of its children, is connected to.
-func (self *TilingSprite) SetStageReference(stage *Stage) {
-    self.Object.Call("setStageReference", stage)
-}
-
-// SetStageReferenceI Sets the containers Stage reference. This is the Stage that this object, and all of its children, is connected to.
-func (self *TilingSprite) SetStageReferenceI(args ...interface{}) {
-    self.Object.Call("setStageReference", args)
-}
-
-// RemoveStageReference Removes the current stage reference from the container and all of its children.
-func (self *TilingSprite) RemoveStageReference() {
-    self.Object.Call("removeStageReference")
-}
-
-// RemoveStageReferenceI Removes the current stage reference from the container and all of its children.
-func (self *TilingSprite) RemoveStageReferenceI(args ...interface{}) {
-    self.Object.Call("removeStageReference", args)
+// ContainsI Determines whether the specified display object is a child of the DisplayObjectContainer instance or the instance itself.
+func (self *TilingSprite) ContainsI(args ...interface{}) bool{
+    return self.Object.Call("contains", args).Bool()
 }
 

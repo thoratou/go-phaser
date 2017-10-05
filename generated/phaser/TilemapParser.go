@@ -53,69 +53,33 @@ func (self *TilemapParser) SetINSERT_NULLA(member bool) {
     self.Object.Set("INSERT_NULL", member)
 }
 
-// FLIPPED_HORIZONTALLY_FLAG A tiled flag that resides within the 32 bit of the object gid and
-// indicates whether the tiled/object is flipped horizontally.
-func (self *TilemapParser) FLIPPED_HORIZONTALLY_FLAG() int{
-    return self.Object.Get("FLIPPED_HORIZONTALLY_FLAG").Int()
-}
 
-// SetFLIPPED_HORIZONTALLY_FLAGA A tiled flag that resides within the 32 bit of the object gid and
-// indicates whether the tiled/object is flipped horizontally.
-func (self *TilemapParser) SetFLIPPED_HORIZONTALLY_FLAGA(member int) {
-    self.Object.Set("FLIPPED_HORIZONTALLY_FLAG", member)
-}
-
-// FLIPPED_VERTICALLY_FLAG A tiled flag that resides within the 31 bit of the object gid and
-// indicates whether the tiled/object is flipped vertically.
-func (self *TilemapParser) FLIPPED_VERTICALLY_FLAG() int{
-    return self.Object.Get("FLIPPED_VERTICALLY_FLAG").Int()
-}
-
-// SetFLIPPED_VERTICALLY_FLAGA A tiled flag that resides within the 31 bit of the object gid and
-// indicates whether the tiled/object is flipped vertically.
-func (self *TilemapParser) SetFLIPPED_VERTICALLY_FLAGA(member int) {
-    self.Object.Set("FLIPPED_VERTICALLY_FLAG", member)
-}
-
-// FLIPPED_DIAGONALLY_FLAG A tiled flag that resides within the 30 bit of the object gid and
-// indicates whether the tiled/object is flipped diagonally.
-func (self *TilemapParser) FLIPPED_DIAGONALLY_FLAG() int{
-    return self.Object.Get("FLIPPED_DIAGONALLY_FLAG").Int()
-}
-
-// SetFLIPPED_DIAGONALLY_FLAGA A tiled flag that resides within the 30 bit of the object gid and
-// indicates whether the tiled/object is flipped diagonally.
-func (self *TilemapParser) SetFLIPPED_DIAGONALLY_FLAGA(member int) {
-    self.Object.Set("FLIPPED_DIAGONALLY_FLAG", member)
-}
-
-
-// Parse Parse tilemap data from the cache and creates a Tilemap object.
+// Parse Parse tilemap data from the cache and creates data for a Tilemap object.
 func (self *TilemapParser) Parse(game *Game, key string) interface{}{
     return self.Object.Call("parse", game, key)
 }
 
-// Parse1O Parse tilemap data from the cache and creates a Tilemap object.
+// Parse1O Parse tilemap data from the cache and creates data for a Tilemap object.
 func (self *TilemapParser) Parse1O(game *Game, key string, tileWidth int) interface{}{
     return self.Object.Call("parse", game, key, tileWidth)
 }
 
-// Parse2O Parse tilemap data from the cache and creates a Tilemap object.
+// Parse2O Parse tilemap data from the cache and creates data for a Tilemap object.
 func (self *TilemapParser) Parse2O(game *Game, key string, tileWidth int, tileHeight int) interface{}{
     return self.Object.Call("parse", game, key, tileWidth, tileHeight)
 }
 
-// Parse3O Parse tilemap data from the cache and creates a Tilemap object.
+// Parse3O Parse tilemap data from the cache and creates data for a Tilemap object.
 func (self *TilemapParser) Parse3O(game *Game, key string, tileWidth int, tileHeight int, width int) interface{}{
     return self.Object.Call("parse", game, key, tileWidth, tileHeight, width)
 }
 
-// Parse4O Parse tilemap data from the cache and creates a Tilemap object.
+// Parse4O Parse tilemap data from the cache and creates data for a Tilemap object.
 func (self *TilemapParser) Parse4O(game *Game, key string, tileWidth int, tileHeight int, width int, height int) interface{}{
     return self.Object.Call("parse", game, key, tileWidth, tileHeight, width, height)
 }
 
-// ParseI Parse tilemap data from the cache and creates a Tilemap object.
+// ParseI Parse tilemap data from the cache and creates data for a Tilemap object.
 func (self *TilemapParser) ParseI(args ...interface{}) interface{}{
     return self.Object.Call("parse", args)
 }

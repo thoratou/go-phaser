@@ -104,12 +104,14 @@ func (self *BaseTexture) SetPremultipliedAlphaA(member bool) {
 }
 
 // Mipmap Set this to true if a mipmap of this texture needs to be generated. This value needs to be set before the texture is used
+// 
 // Also the texture must be a power of two size to work
 func (self *BaseTexture) Mipmap() bool{
     return self.Object.Get("mipmap").Bool()
 }
 
 // SetMipmapA Set this to true if a mipmap of this texture needs to be generated. This value needs to be set before the texture is used
+// 
 // Also the texture must be a power of two size to work
 func (self *BaseTexture) SetMipmapA(member bool) {
     self.Object.Set("mipmap", member)
@@ -117,7 +119,10 @@ func (self *BaseTexture) SetMipmapA(member bool) {
 
 // SkipRender A BaseTexture can be set to skip the rendering phase in the WebGL Sprite Batch.
 // 
+// 
+// 
 // You may want to do this if you have a parent Sprite with no visible texture (i.e. uses the internal `__default` texture)
+// 
 // that has children that you do want to render, without causing a batch flush in the process.
 func (self *BaseTexture) SkipRender() bool{
     return self.Object.Get("skipRender").Bool()
@@ -125,7 +130,10 @@ func (self *BaseTexture) SkipRender() bool{
 
 // SetSkipRenderA A BaseTexture can be set to skip the rendering phase in the WebGL Sprite Batch.
 // 
+// 
+// 
 // You may want to do this if you have a parent Sprite with no visible texture (i.e. uses the internal `__default` texture)
+// 
 // that has children that you do want to render, without causing a batch flush in the process.
 func (self *BaseTexture) SetSkipRenderA(member bool) {
     self.Object.Set("skipRender", member)
@@ -133,14 +141,18 @@ func (self *BaseTexture) SetSkipRenderA(member bool) {
 
 
 // ForceLoaded Forces this BaseTexture to be set as loaded, with the given width and height.
+// 
 // Then calls BaseTexture.dirty.
+// 
 // Important for when you don't want to modify the source object by forcing in `complete` or dimension properties it may not have.
 func (self *BaseTexture) ForceLoaded(width int, height int) {
     self.Object.Call("forceLoaded", width, height)
 }
 
 // ForceLoadedI Forces this BaseTexture to be set as loaded, with the given width and height.
+// 
 // Then calls BaseTexture.dirty.
+// 
 // Important for when you don't want to modify the source object by forcing in `complete` or dimension properties it may not have.
 func (self *BaseTexture) ForceLoadedI(args ...interface{}) {
     self.Object.Call("forceLoaded", args)
@@ -177,12 +189,14 @@ func (self *BaseTexture) DirtyI(args ...interface{}) {
 }
 
 // UnloadFromGPU Removes the base texture from the GPU, useful for managing resources on the GPU.
+// 
 // Atexture is still 100% usable and will simply be reuploaded if there is a sprite on screen that is using it.
 func (self *BaseTexture) UnloadFromGPU() {
     self.Object.Call("unloadFromGPU")
 }
 
 // UnloadFromGPUI Removes the base texture from the GPU, useful for managing resources on the GPU.
+// 
 // Atexture is still 100% usable and will simply be reuploaded if there is a sprite on screen that is using it.
 func (self *BaseTexture) UnloadFromGPUI(args ...interface{}) {
     self.Object.Call("unloadFromGPU", args)

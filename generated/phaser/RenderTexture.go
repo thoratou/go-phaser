@@ -134,12 +134,14 @@ func (self *RenderTexture) SetFrameA(member *Rectangle) {
 }
 
 // Crop This is the area of the BaseTexture image to actually copy to the Canvas / WebGL when rendering,
+// 
 // irrespective of the actual frame size or placement (which can be influenced by trimmed texture atlases)
 func (self *RenderTexture) Crop() *Rectangle{
     return &Rectangle{self.Object.Get("crop")}
 }
 
 // SetCropA This is the area of the BaseTexture image to actually copy to the Canvas / WebGL when rendering,
+// 
 // irrespective of the actual frame size or placement (which can be influenced by trimmed texture atlases)
 func (self *RenderTexture) SetCropA(member *Rectangle) {
     self.Object.Set("crop", member)

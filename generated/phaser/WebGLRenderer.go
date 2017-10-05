@@ -10,23 +10,32 @@ import (
 )
 
 // WebGLRenderer The WebGLRenderer draws the stage and all its content onto a webGL enabled canvas. This renderer
+// 
 // should be used for browsers that support webGL. This Render works by automatically managing webGLBatchs.
+// 
 // So no need for Sprite Batches or Sprite Clouds.
+// 
 // Don't forget to add the view to your DOM or you will not see anything :)
 type WebGLRenderer struct {
     *js.Object
 }
 
 // NewWebGLRenderer The WebGLRenderer draws the stage and all its content onto a webGL enabled canvas. This renderer
+// 
 // should be used for browsers that support webGL. This Render works by automatically managing webGLBatchs.
+// 
 // So no need for Sprite Batches or Sprite Clouds.
+// 
 // Don't forget to add the view to your DOM or you will not see anything :)
 func NewWebGLRenderer(game *PhaserGame) *WebGLRenderer {
     return &WebGLRenderer{js.Global.Get("PIXI").Get("WebGLRenderer").New(game)}
 }
 // NewWebGLRendererI The WebGLRenderer draws the stage and all its content onto a webGL enabled canvas. This renderer
+// 
 // should be used for browsers that support webGL. This Render works by automatically managing webGLBatchs.
+// 
 // So no need for Sprite Batches or Sprite Clouds.
+// 
 // Don't forget to add the view to your DOM or you will not see anything :)
 func NewWebGLRendererI(args ...interface{}) *WebGLRenderer {
     return &WebGLRenderer{js.Global.Get("PIXI").Get("WebGLRenderer").New(args)}
@@ -105,16 +114,22 @@ func (self *WebGLRenderer) SetPreserveDrawingBufferA(member bool) {
 }
 
 // ClearBeforeRender This sets if the WebGLRenderer will clear the context texture or not before the new render pass. If true:
+// 
 // If the Stage is NOT transparent, Pixi will clear to alpha (0, 0, 0, 0).
+// 
 // If the Stage is transparent, Pixi will clear to the target Stage's background color.
+// 
 // Disable this by setting this to false. For example: if your game has a canvas filling background image, you often don't need this set.
 func (self *WebGLRenderer) ClearBeforeRender() bool{
     return self.Object.Get("clearBeforeRender").Bool()
 }
 
 // SetClearBeforeRenderA This sets if the WebGLRenderer will clear the context texture or not before the new render pass. If true:
+// 
 // If the Stage is NOT transparent, Pixi will clear to alpha (0, 0, 0, 0).
+// 
 // If the Stage is transparent, Pixi will clear to the target Stage's background color.
+// 
 // Disable this by setting this to false. For example: if your game has a canvas filling background image, you often don't need this set.
 func (self *WebGLRenderer) SetClearBeforeRenderA(member bool) {
     self.Object.Set("clearBeforeRender", member)

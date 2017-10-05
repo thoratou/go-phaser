@@ -8,27 +8,32 @@ import (
 )
 
 // Texture A texture stores the information that represents an image or part of an image. It cannot be added
+// 
 // to the display list directly. Instead use it as the texture for a PIXI.Sprite. If no frame is provided then the whole image is used.
 type Texture struct {
     *js.Object
 }
 
 // NewTexture A texture stores the information that represents an image or part of an image. It cannot be added
+// 
 // to the display list directly. Instead use it as the texture for a PIXI.Sprite. If no frame is provided then the whole image is used.
 func NewTexture(baseTexture *BaseTexture, frame *Rectangle) *Texture {
     return &Texture{js.Global.Get("PIXI").Get("Texture").New(baseTexture, frame)}
 }
 // NewTexture1O A texture stores the information that represents an image or part of an image. It cannot be added
+// 
 // to the display list directly. Instead use it as the texture for a PIXI.Sprite. If no frame is provided then the whole image is used.
 func NewTexture1O(baseTexture *BaseTexture, frame *Rectangle, crop *Rectangle) *Texture {
     return &Texture{js.Global.Get("PIXI").Get("Texture").New(baseTexture, frame, crop)}
 }
 // NewTexture2O A texture stores the information that represents an image or part of an image. It cannot be added
+// 
 // to the display list directly. Instead use it as the texture for a PIXI.Sprite. If no frame is provided then the whole image is used.
 func NewTexture2O(baseTexture *BaseTexture, frame *Rectangle, crop *Rectangle, trim *Rectangle) *Texture {
     return &Texture{js.Global.Get("PIXI").Get("Texture").New(baseTexture, frame, crop, trim)}
 }
 // NewTextureI A texture stores the information that represents an image or part of an image. It cannot be added
+// 
 // to the display list directly. Instead use it as the texture for a PIXI.Sprite. If no frame is provided then the whole image is used.
 func NewTextureI(args ...interface{}) *Texture {
     return &Texture{js.Global.Get("PIXI").Get("Texture").New(args)}
@@ -147,12 +152,14 @@ func (self *Texture) SetHeightA(member int) {
 }
 
 // Crop This is the area of the BaseTexture image to actually copy to the Canvas / WebGL when rendering,
+// 
 // irrespective of the actual frame size or placement (which can be influenced by trimmed texture atlases)
 func (self *Texture) Crop() *Rectangle{
     return &Rectangle{self.Object.Get("crop")}
 }
 
 // SetCropA This is the area of the BaseTexture image to actually copy to the Canvas / WebGL when rendering,
+// 
 // irrespective of the actual frame size or placement (which can be influenced by trimmed texture atlases)
 func (self *Texture) SetCropA(member *Rectangle) {
     self.Object.Set("crop", member)

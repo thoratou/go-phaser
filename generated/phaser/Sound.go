@@ -441,12 +441,12 @@ func (self *Sound) SetMuteA(member bool) {
     self.Object.Set("mute", member)
 }
 
-// Volume Gets or sets the volume of this sound, a value between 0 and 1.
+// Volume Gets or sets the volume of this sound, a value between 0 and 1. The value given is clamped to the range 0 to 1.
 func (self *Sound) Volume() int{
     return self.Object.Get("volume").Int()
 }
 
-// SetVolumeA Gets or sets the volume of this sound, a value between 0 and 1.
+// SetVolumeA Gets or sets the volume of this sound, a value between 0 and 1. The value given is clamped to the range 0 to 1.
 func (self *Sound) SetVolumeA(member int) {
     self.Object.Set("volume", member)
 }

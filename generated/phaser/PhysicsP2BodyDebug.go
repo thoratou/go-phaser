@@ -81,6 +81,74 @@ func (self *PhysicsP2BodyDebug) SetCanvasA(member *Graphics) {
     self.Object.Set("canvas", member)
 }
 
+// X The x coordinate of the group container.
+// 
+// You can adjust the group container itself by modifying its coordinates.
+// This will have no impact on the x/y coordinates of its children, but it will update their worldTransform and on-screen position.
+func (self *PhysicsP2BodyDebug) X() int{
+    return self.Object.Get("x").Int()
+}
+
+// SetXA The x coordinate of the group container.
+// 
+// You can adjust the group container itself by modifying its coordinates.
+// This will have no impact on the x/y coordinates of its children, but it will update their worldTransform and on-screen position.
+func (self *PhysicsP2BodyDebug) SetXA(member int) {
+    self.Object.Set("x", member)
+}
+
+// Y The y coordinate of the group container.
+// 
+// You can adjust the group container itself by modifying its coordinates.
+// This will have no impact on the x/y coordinates of its children, but it will update their worldTransform and on-screen position.
+func (self *PhysicsP2BodyDebug) Y() int{
+    return self.Object.Get("y").Int()
+}
+
+// SetYA The y coordinate of the group container.
+// 
+// You can adjust the group container itself by modifying its coordinates.
+// This will have no impact on the x/y coordinates of its children, but it will update their worldTransform and on-screen position.
+func (self *PhysicsP2BodyDebug) SetYA(member int) {
+    self.Object.Set("y", member)
+}
+
+// Rotation The angle of rotation of the group container, in radians.
+// 
+// This will adjust the group container itself by modifying its rotation.
+// This will have no impact on the rotation value of its children, but it will update their worldTransform and on-screen position.
+func (self *PhysicsP2BodyDebug) Rotation() int{
+    return self.Object.Get("rotation").Int()
+}
+
+// SetRotationA The angle of rotation of the group container, in radians.
+// 
+// This will adjust the group container itself by modifying its rotation.
+// This will have no impact on the rotation value of its children, but it will update their worldTransform and on-screen position.
+func (self *PhysicsP2BodyDebug) SetRotationA(member int) {
+    self.Object.Set("rotation", member)
+}
+
+// Visible The visible state of the group. Non-visible Groups and all of their children are not rendered.
+func (self *PhysicsP2BodyDebug) Visible() bool{
+    return self.Object.Get("visible").Bool()
+}
+
+// SetVisibleA The visible state of the group. Non-visible Groups and all of their children are not rendered.
+func (self *PhysicsP2BodyDebug) SetVisibleA(member bool) {
+    self.Object.Set("visible", member)
+}
+
+// Alpha The alpha value of the group container.
+func (self *PhysicsP2BodyDebug) Alpha() int{
+    return self.Object.Get("alpha").Int()
+}
+
+// SetAlphaA The alpha value of the group container.
+func (self *PhysicsP2BodyDebug) SetAlphaA(member int) {
+    self.Object.Set("alpha", member)
+}
+
 // Game A reference to the currently running Game.
 func (self *PhysicsP2BodyDebug) Game() *Game{
     return &Game{self.Object.Get("game")}
@@ -213,7 +281,7 @@ func (self *PhysicsP2BodyDebug) SetCursorA(member *DisplayObject) {
     self.Object.Set("cursor", member)
 }
 
-// InputEnableChildren A Group with `inputEnableChildren` set to `true` will automatically call `inputEnabled = true` 
+// InputEnableChildren A Group with `inputEnableChildren` set to `true` will automatically call `inputEnabled = true`
 // on any children _added_ to, or _created by_, this Group.
 // 
 // If there are children already in the Group at the time you set this property, they are not changed.
@@ -221,7 +289,7 @@ func (self *PhysicsP2BodyDebug) InputEnableChildren() bool{
     return self.Object.Get("inputEnableChildren").Bool()
 }
 
-// SetInputEnableChildrenA A Group with `inputEnableChildren` set to `true` will automatically call `inputEnabled = true` 
+// SetInputEnableChildrenA A Group with `inputEnableChildren` set to `true` will automatically call `inputEnabled = true`
 // on any children _added_ to, or _created by_, this Group.
 // 
 // If there are children already in the Group at the time you set this property, they are not changed.
@@ -253,7 +321,7 @@ func (self *PhysicsP2BodyDebug) SetOnChildInputDownA(member *Signal) {
 // of having been interacted with by a Pointer. You can bind functions to this Signal instead of to
 // every child Sprite.
 // 
-// This Signal is sent 3 arguments: A reference to the Sprite that triggered the signal, 
+// This Signal is sent 3 arguments: A reference to the Sprite that triggered the signal,
 // a reference to the Pointer that caused it, and a boolean value `isOver` that tells you if the Pointer
 // is still over the Sprite or not.
 func (self *PhysicsP2BodyDebug) OnChildInputUp() *Signal{
@@ -264,7 +332,7 @@ func (self *PhysicsP2BodyDebug) OnChildInputUp() *Signal{
 // of having been interacted with by a Pointer. You can bind functions to this Signal instead of to
 // every child Sprite.
 // 
-// This Signal is sent 3 arguments: A reference to the Sprite that triggered the signal, 
+// This Signal is sent 3 arguments: A reference to the Sprite that triggered the signal,
 // a reference to the Pointer that caused it, and a boolean value `isOver` that tells you if the Pointer
 // is still over the Sprite or not.
 func (self *PhysicsP2BodyDebug) SetOnChildInputUpA(member *Signal) {
@@ -359,7 +427,7 @@ func (self *PhysicsP2BodyDebug) SetPhysicsBodyTypeA(member int) {
 
 // PhysicsSortDirection If this Group contains Arcade Physics Sprites you can set a custom sort direction via this property.
 // 
-// It should be set to one of the Phaser.Physics.Arcade sort direction constants: 
+// It should be set to one of the Phaser.Physics.Arcade sort direction constants:
 // 
 // Phaser.Physics.Arcade.SORT_NONE
 // Phaser.Physics.Arcade.LEFT_RIGHT
@@ -374,7 +442,7 @@ func (self *PhysicsP2BodyDebug) PhysicsSortDirection() int{
 
 // SetPhysicsSortDirectionA If this Group contains Arcade Physics Sprites you can set a custom sort direction via this property.
 // 
-// It should be set to one of the Phaser.Physics.Arcade sort direction constants: 
+// It should be set to one of the Phaser.Physics.Arcade sort direction constants:
 // 
 // Phaser.Physics.Arcade.SORT_NONE
 // Phaser.Physics.Arcade.LEFT_RIGHT
@@ -507,11 +575,6 @@ func (self *PhysicsP2BodyDebug) SetAngleA(member int) {
 // 
 // It is derived by calling `getBounds`, calculating the Groups dimensions based on its
 // visible children.
-// 
-// Note that no ancestors are factored into the result, meaning that if this Group is 
-// nested within another Group, with heavy transforms on it, the result of this property 
-// is likely to be incorrect. It is safe to get and set this property if the Group is a
-// top-level descendant of Phaser.World, or untransformed parents.
 func (self *PhysicsP2BodyDebug) CenterX() int{
     return self.Object.Get("centerX").Int()
 }
@@ -520,11 +583,6 @@ func (self *PhysicsP2BodyDebug) CenterX() int{
 // 
 // It is derived by calling `getBounds`, calculating the Groups dimensions based on its
 // visible children.
-// 
-// Note that no ancestors are factored into the result, meaning that if this Group is 
-// nested within another Group, with heavy transforms on it, the result of this property 
-// is likely to be incorrect. It is safe to get and set this property if the Group is a
-// top-level descendant of Phaser.World, or untransformed parents.
 func (self *PhysicsP2BodyDebug) SetCenterXA(member int) {
     self.Object.Set("centerX", member)
 }
@@ -533,11 +591,6 @@ func (self *PhysicsP2BodyDebug) SetCenterXA(member int) {
 // 
 // It is derived by calling `getBounds`, calculating the Groups dimensions based on its
 // visible children.
-// 
-// Note that no ancestors are factored into the result, meaning that if this Group is 
-// nested within another Group, with heavy transforms on it, the result of this property 
-// is likely to be incorrect. It is safe to get and set this property if the Group is a
-// top-level descendant of Phaser.World, or untransformed parents.
 func (self *PhysicsP2BodyDebug) CenterY() int{
     return self.Object.Get("centerY").Int()
 }
@@ -546,11 +599,6 @@ func (self *PhysicsP2BodyDebug) CenterY() int{
 // 
 // It is derived by calling `getBounds`, calculating the Groups dimensions based on its
 // visible children.
-// 
-// Note that no ancestors are factored into the result, meaning that if this Group is 
-// nested within another Group, with heavy transforms on it, the result of this property 
-// is likely to be incorrect. It is safe to get and set this property if the Group is a
-// top-level descendant of Phaser.World, or untransformed parents.
 func (self *PhysicsP2BodyDebug) SetCenterYA(member int) {
     self.Object.Set("centerY", member)
 }
@@ -559,11 +607,6 @@ func (self *PhysicsP2BodyDebug) SetCenterYA(member int) {
 // 
 // It is derived by calling `getBounds`, calculating the Groups dimensions based on its
 // visible children.
-// 
-// Note that no ancestors are factored into the result, meaning that if this Group is 
-// nested within another Group, with heavy transforms on it, the result of this property 
-// is likely to be incorrect. It is safe to get and set this property if the Group is a
-// top-level descendant of Phaser.World, or untransformed parents.
 func (self *PhysicsP2BodyDebug) Left() int{
     return self.Object.Get("left").Int()
 }
@@ -572,11 +615,6 @@ func (self *PhysicsP2BodyDebug) Left() int{
 // 
 // It is derived by calling `getBounds`, calculating the Groups dimensions based on its
 // visible children.
-// 
-// Note that no ancestors are factored into the result, meaning that if this Group is 
-// nested within another Group, with heavy transforms on it, the result of this property 
-// is likely to be incorrect. It is safe to get and set this property if the Group is a
-// top-level descendant of Phaser.World, or untransformed parents.
 func (self *PhysicsP2BodyDebug) SetLeftA(member int) {
     self.Object.Set("left", member)
 }
@@ -585,11 +623,6 @@ func (self *PhysicsP2BodyDebug) SetLeftA(member int) {
 // 
 // It is derived by calling `getBounds`, calculating the Groups dimensions based on its
 // visible children.
-// 
-// Note that no ancestors are factored into the result, meaning that if this Group is 
-// nested within another Group, with heavy transforms on it, the result of this property 
-// is likely to be incorrect. It is safe to get and set this property if the Group is a
-// top-level descendant of Phaser.World, or untransformed parents.
 func (self *PhysicsP2BodyDebug) Right() int{
     return self.Object.Get("right").Int()
 }
@@ -598,11 +631,6 @@ func (self *PhysicsP2BodyDebug) Right() int{
 // 
 // It is derived by calling `getBounds`, calculating the Groups dimensions based on its
 // visible children.
-// 
-// Note that no ancestors are factored into the result, meaning that if this Group is 
-// nested within another Group, with heavy transforms on it, the result of this property 
-// is likely to be incorrect. It is safe to get and set this property if the Group is a
-// top-level descendant of Phaser.World, or untransformed parents.
 func (self *PhysicsP2BodyDebug) SetRightA(member int) {
     self.Object.Set("right", member)
 }
@@ -611,11 +639,6 @@ func (self *PhysicsP2BodyDebug) SetRightA(member int) {
 // 
 // It is derived by calling `getBounds`, calculating the Groups dimensions based on its
 // visible children.
-// 
-// Note that no ancestors are factored into the result, meaning that if this Group is 
-// nested within another Group, with heavy transforms on it, the result of this property 
-// is likely to be incorrect. It is safe to get and set this property if the Group is a
-// top-level descendant of Phaser.World, or untransformed parents.
 func (self *PhysicsP2BodyDebug) Top() int{
     return self.Object.Get("top").Int()
 }
@@ -624,11 +647,6 @@ func (self *PhysicsP2BodyDebug) Top() int{
 // 
 // It is derived by calling `getBounds`, calculating the Groups dimensions based on its
 // visible children.
-// 
-// Note that no ancestors are factored into the result, meaning that if this Group is 
-// nested within another Group, with heavy transforms on it, the result of this property 
-// is likely to be incorrect. It is safe to get and set this property if the Group is a
-// top-level descendant of Phaser.World, or untransformed parents.
 func (self *PhysicsP2BodyDebug) SetTopA(member int) {
     self.Object.Set("top", member)
 }
@@ -637,11 +655,6 @@ func (self *PhysicsP2BodyDebug) SetTopA(member int) {
 // 
 // It is derived by calling `getBounds`, calculating the Groups dimensions based on its
 // visible children.
-// 
-// Note that no ancestors are factored into the result, meaning that if this Group is 
-// nested within another Group, with heavy transforms on it, the result of this property 
-// is likely to be incorrect. It is safe to get and set this property if the Group is a
-// top-level descendant of Phaser.World, or untransformed parents.
 func (self *PhysicsP2BodyDebug) Bottom() int{
     return self.Object.Get("bottom").Int()
 }
@@ -650,81 +663,8 @@ func (self *PhysicsP2BodyDebug) Bottom() int{
 // 
 // It is derived by calling `getBounds`, calculating the Groups dimensions based on its
 // visible children.
-// 
-// Note that no ancestors are factored into the result, meaning that if this Group is 
-// nested within another Group, with heavy transforms on it, the result of this property 
-// is likely to be incorrect. It is safe to get and set this property if the Group is a
-// top-level descendant of Phaser.World, or untransformed parents.
 func (self *PhysicsP2BodyDebug) SetBottomA(member int) {
     self.Object.Set("bottom", member)
-}
-
-// X The x coordinate of the group container.
-// 
-// You can adjust the group container itself by modifying its coordinates.
-// This will have no impact on the x/y coordinates of its children, but it will update their worldTransform and on-screen position.
-func (self *PhysicsP2BodyDebug) X() int{
-    return self.Object.Get("x").Int()
-}
-
-// SetXA The x coordinate of the group container.
-// 
-// You can adjust the group container itself by modifying its coordinates.
-// This will have no impact on the x/y coordinates of its children, but it will update their worldTransform and on-screen position.
-func (self *PhysicsP2BodyDebug) SetXA(member int) {
-    self.Object.Set("x", member)
-}
-
-// Y The y coordinate of the group container.
-// 
-// You can adjust the group container itself by modifying its coordinates.
-// This will have no impact on the x/y coordinates of its children, but it will update their worldTransform and on-screen position.
-func (self *PhysicsP2BodyDebug) Y() int{
-    return self.Object.Get("y").Int()
-}
-
-// SetYA The y coordinate of the group container.
-// 
-// You can adjust the group container itself by modifying its coordinates.
-// This will have no impact on the x/y coordinates of its children, but it will update their worldTransform and on-screen position.
-func (self *PhysicsP2BodyDebug) SetYA(member int) {
-    self.Object.Set("y", member)
-}
-
-// Rotation The angle of rotation of the group container, in radians.
-// 
-// This will adjust the group container itself by modifying its rotation.
-// This will have no impact on the rotation value of its children, but it will update their worldTransform and on-screen position.
-func (self *PhysicsP2BodyDebug) Rotation() int{
-    return self.Object.Get("rotation").Int()
-}
-
-// SetRotationA The angle of rotation of the group container, in radians.
-// 
-// This will adjust the group container itself by modifying its rotation.
-// This will have no impact on the rotation value of its children, but it will update their worldTransform and on-screen position.
-func (self *PhysicsP2BodyDebug) SetRotationA(member int) {
-    self.Object.Set("rotation", member)
-}
-
-// Visible The visible state of the group. Non-visible Groups and all of their children are not rendered.
-func (self *PhysicsP2BodyDebug) Visible() bool{
-    return self.Object.Get("visible").Bool()
-}
-
-// SetVisibleA The visible state of the group. Non-visible Groups and all of their children are not rendered.
-func (self *PhysicsP2BodyDebug) SetVisibleA(member bool) {
-    self.Object.Set("visible", member)
-}
-
-// Alpha The alpha value of the group container.
-func (self *PhysicsP2BodyDebug) Alpha() int{
-    return self.Object.Get("alpha").Int()
-}
-
-// SetAlphaA The alpha value of the group container.
-func (self *PhysicsP2BodyDebug) SetAlphaA(member int) {
-    self.Object.Set("alpha", member)
 }
 
 // Children [read-only] The array of children of this container.
@@ -745,7 +685,11 @@ func (self *PhysicsP2BodyDebug) SetChildrenA(member []DisplayObject) {
 
 // IgnoreChildInput If `ignoreChildInput`  is `false` it will allow this objects _children_ to be considered as valid for Input events.
 // 
+// 
+// 
 // If this property is `true` then the children will _not_ be considered as valid for Input events.
+// 
+// 
 // 
 // Note that this property isn't recursive: only immediate children are influenced, it doesn't scan further down.
 func (self *PhysicsP2BodyDebug) IgnoreChildInput() bool{
@@ -754,7 +698,11 @@ func (self *PhysicsP2BodyDebug) IgnoreChildInput() bool{
 
 // SetIgnoreChildInputA If `ignoreChildInput`  is `false` it will allow this objects _children_ to be considered as valid for Input events.
 // 
+// 
+// 
 // If this property is `true` then the children will _not_ be considered as valid for Input events.
+// 
+// 
 // 
 // Note that this property isn't recursive: only immediate children are influenced, it doesn't scan further down.
 func (self *PhysicsP2BodyDebug) SetIgnoreChildInputA(member bool) {
@@ -902,11 +850,356 @@ func (self *PhysicsP2BodyDebug) ComponentToHexI(args ...interface{}) {
     self.Object.Call("componentToHex", args)
 }
 
+// AlignIn Aligns this Group within another Game Object, or Rectangle, known as the
+// 'container', to one of 9 possible positions.
+// 
+// The container must be a Game Object, or Phaser.Rectangle object. This can include properties
+// such as `World.bounds` or `Camera.view`, for aligning Groups within the world
+// and camera bounds. Or it can include other Sprites, Images, Text objects, BitmapText,
+// TileSprites or Buttons.
+// 
+// Please note that aligning a Group to another Game Object does **not** make it a child of
+// the container. It simply modifies its position coordinates so it aligns with it.
+// 
+// The position constants you can use are:
+// 
+// `Phaser.TOP_LEFT`, `Phaser.TOP_CENTER`, `Phaser.TOP_RIGHT`, `Phaser.LEFT_CENTER`,
+// `Phaser.CENTER`, `Phaser.RIGHT_CENTER`, `Phaser.BOTTOM_LEFT`,
+// `Phaser.BOTTOM_CENTER` and `Phaser.BOTTOM_RIGHT`.
+// 
+// Groups are placed in such a way that their _bounds_ align with the
+// container, taking into consideration rotation and scale of its children.
+// This allows you to neatly align Groups, irrespective of their position value.
+// 
+// The optional `offsetX` and `offsetY` arguments allow you to apply extra spacing to the final
+// aligned position of the Group. For example:
+// 
+// `group.alignIn(background, Phaser.BOTTOM_RIGHT, -20, -20)`
+// 
+// Would align the `group` to the bottom-right, but moved 20 pixels in from the corner.
+// Think of the offsets as applying an adjustment to the containers bounds before the alignment takes place.
+// So providing a negative offset will 'shrink' the container bounds by that amount, and providing a positive
+// one expands it.
+func (self *PhysicsP2BodyDebug) AlignIn(container interface{}) *Group{
+    return &Group{self.Object.Call("alignIn", container)}
+}
+
+// AlignIn1O Aligns this Group within another Game Object, or Rectangle, known as the
+// 'container', to one of 9 possible positions.
+// 
+// The container must be a Game Object, or Phaser.Rectangle object. This can include properties
+// such as `World.bounds` or `Camera.view`, for aligning Groups within the world
+// and camera bounds. Or it can include other Sprites, Images, Text objects, BitmapText,
+// TileSprites or Buttons.
+// 
+// Please note that aligning a Group to another Game Object does **not** make it a child of
+// the container. It simply modifies its position coordinates so it aligns with it.
+// 
+// The position constants you can use are:
+// 
+// `Phaser.TOP_LEFT`, `Phaser.TOP_CENTER`, `Phaser.TOP_RIGHT`, `Phaser.LEFT_CENTER`,
+// `Phaser.CENTER`, `Phaser.RIGHT_CENTER`, `Phaser.BOTTOM_LEFT`,
+// `Phaser.BOTTOM_CENTER` and `Phaser.BOTTOM_RIGHT`.
+// 
+// Groups are placed in such a way that their _bounds_ align with the
+// container, taking into consideration rotation and scale of its children.
+// This allows you to neatly align Groups, irrespective of their position value.
+// 
+// The optional `offsetX` and `offsetY` arguments allow you to apply extra spacing to the final
+// aligned position of the Group. For example:
+// 
+// `group.alignIn(background, Phaser.BOTTOM_RIGHT, -20, -20)`
+// 
+// Would align the `group` to the bottom-right, but moved 20 pixels in from the corner.
+// Think of the offsets as applying an adjustment to the containers bounds before the alignment takes place.
+// So providing a negative offset will 'shrink' the container bounds by that amount, and providing a positive
+// one expands it.
+func (self *PhysicsP2BodyDebug) AlignIn1O(container interface{}, position int) *Group{
+    return &Group{self.Object.Call("alignIn", container, position)}
+}
+
+// AlignIn2O Aligns this Group within another Game Object, or Rectangle, known as the
+// 'container', to one of 9 possible positions.
+// 
+// The container must be a Game Object, or Phaser.Rectangle object. This can include properties
+// such as `World.bounds` or `Camera.view`, for aligning Groups within the world
+// and camera bounds. Or it can include other Sprites, Images, Text objects, BitmapText,
+// TileSprites or Buttons.
+// 
+// Please note that aligning a Group to another Game Object does **not** make it a child of
+// the container. It simply modifies its position coordinates so it aligns with it.
+// 
+// The position constants you can use are:
+// 
+// `Phaser.TOP_LEFT`, `Phaser.TOP_CENTER`, `Phaser.TOP_RIGHT`, `Phaser.LEFT_CENTER`,
+// `Phaser.CENTER`, `Phaser.RIGHT_CENTER`, `Phaser.BOTTOM_LEFT`,
+// `Phaser.BOTTOM_CENTER` and `Phaser.BOTTOM_RIGHT`.
+// 
+// Groups are placed in such a way that their _bounds_ align with the
+// container, taking into consideration rotation and scale of its children.
+// This allows you to neatly align Groups, irrespective of their position value.
+// 
+// The optional `offsetX` and `offsetY` arguments allow you to apply extra spacing to the final
+// aligned position of the Group. For example:
+// 
+// `group.alignIn(background, Phaser.BOTTOM_RIGHT, -20, -20)`
+// 
+// Would align the `group` to the bottom-right, but moved 20 pixels in from the corner.
+// Think of the offsets as applying an adjustment to the containers bounds before the alignment takes place.
+// So providing a negative offset will 'shrink' the container bounds by that amount, and providing a positive
+// one expands it.
+func (self *PhysicsP2BodyDebug) AlignIn2O(container interface{}, position int, offsetX int) *Group{
+    return &Group{self.Object.Call("alignIn", container, position, offsetX)}
+}
+
+// AlignIn3O Aligns this Group within another Game Object, or Rectangle, known as the
+// 'container', to one of 9 possible positions.
+// 
+// The container must be a Game Object, or Phaser.Rectangle object. This can include properties
+// such as `World.bounds` or `Camera.view`, for aligning Groups within the world
+// and camera bounds. Or it can include other Sprites, Images, Text objects, BitmapText,
+// TileSprites or Buttons.
+// 
+// Please note that aligning a Group to another Game Object does **not** make it a child of
+// the container. It simply modifies its position coordinates so it aligns with it.
+// 
+// The position constants you can use are:
+// 
+// `Phaser.TOP_LEFT`, `Phaser.TOP_CENTER`, `Phaser.TOP_RIGHT`, `Phaser.LEFT_CENTER`,
+// `Phaser.CENTER`, `Phaser.RIGHT_CENTER`, `Phaser.BOTTOM_LEFT`,
+// `Phaser.BOTTOM_CENTER` and `Phaser.BOTTOM_RIGHT`.
+// 
+// Groups are placed in such a way that their _bounds_ align with the
+// container, taking into consideration rotation and scale of its children.
+// This allows you to neatly align Groups, irrespective of their position value.
+// 
+// The optional `offsetX` and `offsetY` arguments allow you to apply extra spacing to the final
+// aligned position of the Group. For example:
+// 
+// `group.alignIn(background, Phaser.BOTTOM_RIGHT, -20, -20)`
+// 
+// Would align the `group` to the bottom-right, but moved 20 pixels in from the corner.
+// Think of the offsets as applying an adjustment to the containers bounds before the alignment takes place.
+// So providing a negative offset will 'shrink' the container bounds by that amount, and providing a positive
+// one expands it.
+func (self *PhysicsP2BodyDebug) AlignIn3O(container interface{}, position int, offsetX int, offsetY int) *Group{
+    return &Group{self.Object.Call("alignIn", container, position, offsetX, offsetY)}
+}
+
+// AlignInI Aligns this Group within another Game Object, or Rectangle, known as the
+// 'container', to one of 9 possible positions.
+// 
+// The container must be a Game Object, or Phaser.Rectangle object. This can include properties
+// such as `World.bounds` or `Camera.view`, for aligning Groups within the world
+// and camera bounds. Or it can include other Sprites, Images, Text objects, BitmapText,
+// TileSprites or Buttons.
+// 
+// Please note that aligning a Group to another Game Object does **not** make it a child of
+// the container. It simply modifies its position coordinates so it aligns with it.
+// 
+// The position constants you can use are:
+// 
+// `Phaser.TOP_LEFT`, `Phaser.TOP_CENTER`, `Phaser.TOP_RIGHT`, `Phaser.LEFT_CENTER`,
+// `Phaser.CENTER`, `Phaser.RIGHT_CENTER`, `Phaser.BOTTOM_LEFT`,
+// `Phaser.BOTTOM_CENTER` and `Phaser.BOTTOM_RIGHT`.
+// 
+// Groups are placed in such a way that their _bounds_ align with the
+// container, taking into consideration rotation and scale of its children.
+// This allows you to neatly align Groups, irrespective of their position value.
+// 
+// The optional `offsetX` and `offsetY` arguments allow you to apply extra spacing to the final
+// aligned position of the Group. For example:
+// 
+// `group.alignIn(background, Phaser.BOTTOM_RIGHT, -20, -20)`
+// 
+// Would align the `group` to the bottom-right, but moved 20 pixels in from the corner.
+// Think of the offsets as applying an adjustment to the containers bounds before the alignment takes place.
+// So providing a negative offset will 'shrink' the container bounds by that amount, and providing a positive
+// one expands it.
+func (self *PhysicsP2BodyDebug) AlignInI(args ...interface{}) *Group{
+    return &Group{self.Object.Call("alignIn", args)}
+}
+
+// AlignTo Aligns this Group to the side of another Game Object, or Rectangle, known as the
+// 'parent', in one of 11 possible positions.
+// 
+// The parent must be a Game Object, or Phaser.Rectangle object. This can include properties
+// such as `World.bounds` or `Camera.view`, for aligning Groups within the world
+// and camera bounds. Or it can include other Sprites, Images, Text objects, BitmapText,
+// TileSprites or Buttons.
+// 
+// Please note that aligning a Group to another Game Object does **not** make it a child of
+// the parent. It simply modifies its position coordinates so it aligns with it.
+// 
+// The position constants you can use are:
+// 
+// `Phaser.TOP_LEFT` (default), `Phaser.TOP_CENTER`, `Phaser.TOP_RIGHT`, `Phaser.LEFT_TOP`,
+// `Phaser.LEFT_CENTER`, `Phaser.LEFT_BOTTOM`, `Phaser.RIGHT_TOP`, `Phaser.RIGHT_CENTER`,
+// `Phaser.RIGHT_BOTTOM`, `Phaser.BOTTOM_LEFT`, `Phaser.BOTTOM_CENTER`
+// and `Phaser.BOTTOM_RIGHT`.
+// 
+// Groups are placed in such a way that their _bounds_ align with the
+// parent, taking into consideration rotation and scale of the children.
+// This allows you to neatly align Groups, irrespective of their position value.
+// 
+// The optional `offsetX` and `offsetY` arguments allow you to apply extra spacing to the final
+// aligned position of the Group. For example:
+// 
+// `group.alignTo(background, Phaser.BOTTOM_RIGHT, -20, -20)`
+// 
+// Would align the `group` to the bottom-right, but moved 20 pixels in from the corner.
+// Think of the offsets as applying an adjustment to the parents bounds before the alignment takes place.
+// So providing a negative offset will 'shrink' the parent bounds by that amount, and providing a positive
+// one expands it.
+func (self *PhysicsP2BodyDebug) AlignTo(parent interface{}) *Group{
+    return &Group{self.Object.Call("alignTo", parent)}
+}
+
+// AlignTo1O Aligns this Group to the side of another Game Object, or Rectangle, known as the
+// 'parent', in one of 11 possible positions.
+// 
+// The parent must be a Game Object, or Phaser.Rectangle object. This can include properties
+// such as `World.bounds` or `Camera.view`, for aligning Groups within the world
+// and camera bounds. Or it can include other Sprites, Images, Text objects, BitmapText,
+// TileSprites or Buttons.
+// 
+// Please note that aligning a Group to another Game Object does **not** make it a child of
+// the parent. It simply modifies its position coordinates so it aligns with it.
+// 
+// The position constants you can use are:
+// 
+// `Phaser.TOP_LEFT` (default), `Phaser.TOP_CENTER`, `Phaser.TOP_RIGHT`, `Phaser.LEFT_TOP`,
+// `Phaser.LEFT_CENTER`, `Phaser.LEFT_BOTTOM`, `Phaser.RIGHT_TOP`, `Phaser.RIGHT_CENTER`,
+// `Phaser.RIGHT_BOTTOM`, `Phaser.BOTTOM_LEFT`, `Phaser.BOTTOM_CENTER`
+// and `Phaser.BOTTOM_RIGHT`.
+// 
+// Groups are placed in such a way that their _bounds_ align with the
+// parent, taking into consideration rotation and scale of the children.
+// This allows you to neatly align Groups, irrespective of their position value.
+// 
+// The optional `offsetX` and `offsetY` arguments allow you to apply extra spacing to the final
+// aligned position of the Group. For example:
+// 
+// `group.alignTo(background, Phaser.BOTTOM_RIGHT, -20, -20)`
+// 
+// Would align the `group` to the bottom-right, but moved 20 pixels in from the corner.
+// Think of the offsets as applying an adjustment to the parents bounds before the alignment takes place.
+// So providing a negative offset will 'shrink' the parent bounds by that amount, and providing a positive
+// one expands it.
+func (self *PhysicsP2BodyDebug) AlignTo1O(parent interface{}, position int) *Group{
+    return &Group{self.Object.Call("alignTo", parent, position)}
+}
+
+// AlignTo2O Aligns this Group to the side of another Game Object, or Rectangle, known as the
+// 'parent', in one of 11 possible positions.
+// 
+// The parent must be a Game Object, or Phaser.Rectangle object. This can include properties
+// such as `World.bounds` or `Camera.view`, for aligning Groups within the world
+// and camera bounds. Or it can include other Sprites, Images, Text objects, BitmapText,
+// TileSprites or Buttons.
+// 
+// Please note that aligning a Group to another Game Object does **not** make it a child of
+// the parent. It simply modifies its position coordinates so it aligns with it.
+// 
+// The position constants you can use are:
+// 
+// `Phaser.TOP_LEFT` (default), `Phaser.TOP_CENTER`, `Phaser.TOP_RIGHT`, `Phaser.LEFT_TOP`,
+// `Phaser.LEFT_CENTER`, `Phaser.LEFT_BOTTOM`, `Phaser.RIGHT_TOP`, `Phaser.RIGHT_CENTER`,
+// `Phaser.RIGHT_BOTTOM`, `Phaser.BOTTOM_LEFT`, `Phaser.BOTTOM_CENTER`
+// and `Phaser.BOTTOM_RIGHT`.
+// 
+// Groups are placed in such a way that their _bounds_ align with the
+// parent, taking into consideration rotation and scale of the children.
+// This allows you to neatly align Groups, irrespective of their position value.
+// 
+// The optional `offsetX` and `offsetY` arguments allow you to apply extra spacing to the final
+// aligned position of the Group. For example:
+// 
+// `group.alignTo(background, Phaser.BOTTOM_RIGHT, -20, -20)`
+// 
+// Would align the `group` to the bottom-right, but moved 20 pixels in from the corner.
+// Think of the offsets as applying an adjustment to the parents bounds before the alignment takes place.
+// So providing a negative offset will 'shrink' the parent bounds by that amount, and providing a positive
+// one expands it.
+func (self *PhysicsP2BodyDebug) AlignTo2O(parent interface{}, position int, offsetX int) *Group{
+    return &Group{self.Object.Call("alignTo", parent, position, offsetX)}
+}
+
+// AlignTo3O Aligns this Group to the side of another Game Object, or Rectangle, known as the
+// 'parent', in one of 11 possible positions.
+// 
+// The parent must be a Game Object, or Phaser.Rectangle object. This can include properties
+// such as `World.bounds` or `Camera.view`, for aligning Groups within the world
+// and camera bounds. Or it can include other Sprites, Images, Text objects, BitmapText,
+// TileSprites or Buttons.
+// 
+// Please note that aligning a Group to another Game Object does **not** make it a child of
+// the parent. It simply modifies its position coordinates so it aligns with it.
+// 
+// The position constants you can use are:
+// 
+// `Phaser.TOP_LEFT` (default), `Phaser.TOP_CENTER`, `Phaser.TOP_RIGHT`, `Phaser.LEFT_TOP`,
+// `Phaser.LEFT_CENTER`, `Phaser.LEFT_BOTTOM`, `Phaser.RIGHT_TOP`, `Phaser.RIGHT_CENTER`,
+// `Phaser.RIGHT_BOTTOM`, `Phaser.BOTTOM_LEFT`, `Phaser.BOTTOM_CENTER`
+// and `Phaser.BOTTOM_RIGHT`.
+// 
+// Groups are placed in such a way that their _bounds_ align with the
+// parent, taking into consideration rotation and scale of the children.
+// This allows you to neatly align Groups, irrespective of their position value.
+// 
+// The optional `offsetX` and `offsetY` arguments allow you to apply extra spacing to the final
+// aligned position of the Group. For example:
+// 
+// `group.alignTo(background, Phaser.BOTTOM_RIGHT, -20, -20)`
+// 
+// Would align the `group` to the bottom-right, but moved 20 pixels in from the corner.
+// Think of the offsets as applying an adjustment to the parents bounds before the alignment takes place.
+// So providing a negative offset will 'shrink' the parent bounds by that amount, and providing a positive
+// one expands it.
+func (self *PhysicsP2BodyDebug) AlignTo3O(parent interface{}, position int, offsetX int, offsetY int) *Group{
+    return &Group{self.Object.Call("alignTo", parent, position, offsetX, offsetY)}
+}
+
+// AlignToI Aligns this Group to the side of another Game Object, or Rectangle, known as the
+// 'parent', in one of 11 possible positions.
+// 
+// The parent must be a Game Object, or Phaser.Rectangle object. This can include properties
+// such as `World.bounds` or `Camera.view`, for aligning Groups within the world
+// and camera bounds. Or it can include other Sprites, Images, Text objects, BitmapText,
+// TileSprites or Buttons.
+// 
+// Please note that aligning a Group to another Game Object does **not** make it a child of
+// the parent. It simply modifies its position coordinates so it aligns with it.
+// 
+// The position constants you can use are:
+// 
+// `Phaser.TOP_LEFT` (default), `Phaser.TOP_CENTER`, `Phaser.TOP_RIGHT`, `Phaser.LEFT_TOP`,
+// `Phaser.LEFT_CENTER`, `Phaser.LEFT_BOTTOM`, `Phaser.RIGHT_TOP`, `Phaser.RIGHT_CENTER`,
+// `Phaser.RIGHT_BOTTOM`, `Phaser.BOTTOM_LEFT`, `Phaser.BOTTOM_CENTER`
+// and `Phaser.BOTTOM_RIGHT`.
+// 
+// Groups are placed in such a way that their _bounds_ align with the
+// parent, taking into consideration rotation and scale of the children.
+// This allows you to neatly align Groups, irrespective of their position value.
+// 
+// The optional `offsetX` and `offsetY` arguments allow you to apply extra spacing to the final
+// aligned position of the Group. For example:
+// 
+// `group.alignTo(background, Phaser.BOTTOM_RIGHT, -20, -20)`
+// 
+// Would align the `group` to the bottom-right, but moved 20 pixels in from the corner.
+// Think of the offsets as applying an adjustment to the parents bounds before the alignment takes place.
+// So providing a negative offset will 'shrink' the parent bounds by that amount, and providing a positive
+// one expands it.
+func (self *PhysicsP2BodyDebug) AlignToI(args ...interface{}) *Group{
+    return &Group{self.Object.Call("alignTo", args)}
+}
+
 // Add Adds an existing object as the top child in this group.
 // 
 // The child is automatically added to the top of the group, and is displayed above every previous child.
 // 
-// Or if the _optional_ index is specified, the child is added at the location specified by the index value, 
+// Or if the _optional_ index is specified, the child is added at the location specified by the index value,
 // this allows you to control child ordering.
 // 
 // If the child was already in this Group, it is simply returned, and nothing else happens to it.
@@ -924,7 +1217,7 @@ func (self *PhysicsP2BodyDebug) Add(child *DisplayObject) *DisplayObject{
 // 
 // The child is automatically added to the top of the group, and is displayed above every previous child.
 // 
-// Or if the _optional_ index is specified, the child is added at the location specified by the index value, 
+// Or if the _optional_ index is specified, the child is added at the location specified by the index value,
 // this allows you to control child ordering.
 // 
 // If the child was already in this Group, it is simply returned, and nothing else happens to it.
@@ -942,7 +1235,7 @@ func (self *PhysicsP2BodyDebug) Add1O(child *DisplayObject, silent bool) *Displa
 // 
 // The child is automatically added to the top of the group, and is displayed above every previous child.
 // 
-// Or if the _optional_ index is specified, the child is added at the location specified by the index value, 
+// Or if the _optional_ index is specified, the child is added at the location specified by the index value,
 // this allows you to control child ordering.
 // 
 // If the child was already in this Group, it is simply returned, and nothing else happens to it.
@@ -960,7 +1253,7 @@ func (self *PhysicsP2BodyDebug) Add2O(child *DisplayObject, silent bool, index i
 // 
 // The child is automatically added to the top of the group, and is displayed above every previous child.
 // 
-// Or if the _optional_ index is specified, the child is added at the location specified by the index value, 
+// Or if the _optional_ index is specified, the child is added at the location specified by the index value,
 // this allows you to control child ordering.
 // 
 // If the child was already in this Group, it is simply returned, and nothing else happens to it.
@@ -1100,7 +1393,7 @@ func (self *PhysicsP2BodyDebug) GetAtI(args ...interface{}) interface{}{
 // 
 // The child is automatically added to the top of the group, and is displayed above every previous child.
 // 
-// Or if the _optional_ index is specified, the child is added at the location specified by the index value, 
+// Or if the _optional_ index is specified, the child is added at the location specified by the index value,
 // this allows you to control child ordering.
 // 
 // If `Group.enableBody` is set, then a physics body will be created on the object, so long as one does not already exist.
@@ -1116,7 +1409,7 @@ func (self *PhysicsP2BodyDebug) Create(x int, y int) *DisplayObject{
 // 
 // The child is automatically added to the top of the group, and is displayed above every previous child.
 // 
-// Or if the _optional_ index is specified, the child is added at the location specified by the index value, 
+// Or if the _optional_ index is specified, the child is added at the location specified by the index value,
 // this allows you to control child ordering.
 // 
 // If `Group.enableBody` is set, then a physics body will be created on the object, so long as one does not already exist.
@@ -1132,7 +1425,7 @@ func (self *PhysicsP2BodyDebug) Create1O(x int, y int, key interface{}) *Display
 // 
 // The child is automatically added to the top of the group, and is displayed above every previous child.
 // 
-// Or if the _optional_ index is specified, the child is added at the location specified by the index value, 
+// Or if the _optional_ index is specified, the child is added at the location specified by the index value,
 // this allows you to control child ordering.
 // 
 // If `Group.enableBody` is set, then a physics body will be created on the object, so long as one does not already exist.
@@ -1148,7 +1441,7 @@ func (self *PhysicsP2BodyDebug) Create2O(x int, y int, key interface{}, frame in
 // 
 // The child is automatically added to the top of the group, and is displayed above every previous child.
 // 
-// Or if the _optional_ index is specified, the child is added at the location specified by the index value, 
+// Or if the _optional_ index is specified, the child is added at the location specified by the index value,
 // this allows you to control child ordering.
 // 
 // If `Group.enableBody` is set, then a physics body will be created on the object, so long as one does not already exist.
@@ -1164,7 +1457,7 @@ func (self *PhysicsP2BodyDebug) Create3O(x int, y int, key interface{}, frame in
 // 
 // The child is automatically added to the top of the group, and is displayed above every previous child.
 // 
-// Or if the _optional_ index is specified, the child is added at the location specified by the index value, 
+// Or if the _optional_ index is specified, the child is added at the location specified by the index value,
 // this allows you to control child ordering.
 // 
 // If `Group.enableBody` is set, then a physics body will be created on the object, so long as one does not already exist.
@@ -1180,7 +1473,7 @@ func (self *PhysicsP2BodyDebug) Create4O(x int, y int, key interface{}, frame in
 // 
 // The child is automatically added to the top of the group, and is displayed above every previous child.
 // 
-// Or if the _optional_ index is specified, the child is added at the location specified by the index value, 
+// Or if the _optional_ index is specified, the child is added at the location specified by the index value,
 // this allows you to control child ordering.
 // 
 // If `Group.enableBody` is set, then a physics body will be created on the object, so long as one does not already exist.
@@ -1222,7 +1515,7 @@ func (self *PhysicsP2BodyDebug) CreateI(args ...interface{}) *DisplayObject{
 // It will then create 20 'balls' of frame 0, 20 with frame 1 and 20 with frame 2.
 // In total it will have created 120 sprites.
 // 
-// By default the Sprites will have their `exists` property set to `false`, and they will be 
+// By default the Sprites will have their `exists` property set to `false`, and they will be
 // positioned at 0x0, relative to the `Group.x / y` values.
 // 
 // If `Group.enableBody` is set, then a physics body will be created on the objects, so long as one does not already exist.
@@ -1270,7 +1563,7 @@ func (self *PhysicsP2BodyDebug) CreateMultiple(quantity int, key interface{}) []
 // It will then create 20 'balls' of frame 0, 20 with frame 1 and 20 with frame 2.
 // In total it will have created 120 sprites.
 // 
-// By default the Sprites will have their `exists` property set to `false`, and they will be 
+// By default the Sprites will have their `exists` property set to `false`, and they will be
 // positioned at 0x0, relative to the `Group.x / y` values.
 // 
 // If `Group.enableBody` is set, then a physics body will be created on the objects, so long as one does not already exist.
@@ -1318,7 +1611,7 @@ func (self *PhysicsP2BodyDebug) CreateMultiple1O(quantity int, key interface{}, 
 // It will then create 20 'balls' of frame 0, 20 with frame 1 and 20 with frame 2.
 // In total it will have created 120 sprites.
 // 
-// By default the Sprites will have their `exists` property set to `false`, and they will be 
+// By default the Sprites will have their `exists` property set to `false`, and they will be
 // positioned at 0x0, relative to the `Group.x / y` values.
 // 
 // If `Group.enableBody` is set, then a physics body will be created on the objects, so long as one does not already exist.
@@ -1366,7 +1659,7 @@ func (self *PhysicsP2BodyDebug) CreateMultiple2O(quantity int, key interface{}, 
 // It will then create 20 'balls' of frame 0, 20 with frame 1 and 20 with frame 2.
 // In total it will have created 120 sprites.
 // 
-// By default the Sprites will have their `exists` property set to `false`, and they will be 
+// By default the Sprites will have their `exists` property set to `false`, and they will be
 // positioned at 0x0, relative to the `Group.x / y` values.
 // 
 // If `Group.enableBody` is set, then a physics body will be created on the objects, so long as one does not already exist.
@@ -1401,7 +1694,7 @@ func (self *PhysicsP2BodyDebug) UpdateZI(args ...interface{}) {
 // the `alignTo` method in order to be positioned by this call. All default Phaser Game Objects have
 // this.
 // 
-// The grid dimensions are determined by the first four arguments. The `rows` and `columns` arguments
+// The grid dimensions are determined by the first four arguments. The `width` and `height` arguments
 // relate to the width and height of the grid respectively.
 // 
 // For example if the Group had 100 children in it:
@@ -1415,13 +1708,13 @@ func (self *PhysicsP2BodyDebug) UpdateZI(args ...interface{}) {
 // 
 // This will align the children into a grid of 25x4, again using 32 pixels per grid cell.
 // 
-// You can choose to set _either_ the `rows` or `columns` value to -1. Doing so tells the method
+// You can choose to set _either_ the `width` or `height` value to -1. Doing so tells the method
 // to keep on aligning children until there are no children left. For example if this Group had
 // 48 children in it, the following:
 // 
 // `Group.align(-1, 8, 32, 32)`
 // 
-// ... will align the children so that there are 8 columns vertically (the second argument), 
+// ... will align the children so that there are 8 children vertically (the second argument),
 // and each row will contain 6 sprites, except the last one, which will contain 5 (totaling 48)
 // 
 // You can also do:
@@ -1432,13 +1725,13 @@ func (self *PhysicsP2BodyDebug) UpdateZI(args ...interface{}) {
 // all of the children in.
 // 
 // The `position` property allows you to control where in each grid cell the child is positioned.
-// This is a constant and can be one of `Phaser.TOP_LEFT` (default), `Phaser.TOP_CENTER`, 
-// `Phaser.TOP_RIGHT`, `Phaser.LEFT_CENTER`, `Phaser.CENTER`, `Phaser.RIGHT_CENTER`, 
+// This is a constant and can be one of `Phaser.TOP_LEFT` (default), `Phaser.TOP_CENTER`,
+// `Phaser.TOP_RIGHT`, `Phaser.LEFT_CENTER`, `Phaser.CENTER`, `Phaser.RIGHT_CENTER`,
 // `Phaser.BOTTOM_LEFT`, `Phaser.BOTTOM_CENTER` or `Phaser.BOTTOM_RIGHT`.
 // 
 // The final argument; `offset` lets you start the alignment from a specific child index.
-func (self *PhysicsP2BodyDebug) Align(rows int, columns int, cellWidth int, cellHeight int) {
-    self.Object.Call("align", rows, columns, cellWidth, cellHeight)
+func (self *PhysicsP2BodyDebug) Align(width int, height int, cellWidth int, cellHeight int) bool{
+    return self.Object.Call("align", width, height, cellWidth, cellHeight).Bool()
 }
 
 // Align1O This method iterates through all children in the Group (regardless if they are visible or exist)
@@ -1446,7 +1739,7 @@ func (self *PhysicsP2BodyDebug) Align(rows int, columns int, cellWidth int, cell
 // the `alignTo` method in order to be positioned by this call. All default Phaser Game Objects have
 // this.
 // 
-// The grid dimensions are determined by the first four arguments. The `rows` and `columns` arguments
+// The grid dimensions are determined by the first four arguments. The `width` and `height` arguments
 // relate to the width and height of the grid respectively.
 // 
 // For example if the Group had 100 children in it:
@@ -1460,13 +1753,13 @@ func (self *PhysicsP2BodyDebug) Align(rows int, columns int, cellWidth int, cell
 // 
 // This will align the children into a grid of 25x4, again using 32 pixels per grid cell.
 // 
-// You can choose to set _either_ the `rows` or `columns` value to -1. Doing so tells the method
+// You can choose to set _either_ the `width` or `height` value to -1. Doing so tells the method
 // to keep on aligning children until there are no children left. For example if this Group had
 // 48 children in it, the following:
 // 
 // `Group.align(-1, 8, 32, 32)`
 // 
-// ... will align the children so that there are 8 columns vertically (the second argument), 
+// ... will align the children so that there are 8 children vertically (the second argument),
 // and each row will contain 6 sprites, except the last one, which will contain 5 (totaling 48)
 // 
 // You can also do:
@@ -1477,13 +1770,13 @@ func (self *PhysicsP2BodyDebug) Align(rows int, columns int, cellWidth int, cell
 // all of the children in.
 // 
 // The `position` property allows you to control where in each grid cell the child is positioned.
-// This is a constant and can be one of `Phaser.TOP_LEFT` (default), `Phaser.TOP_CENTER`, 
-// `Phaser.TOP_RIGHT`, `Phaser.LEFT_CENTER`, `Phaser.CENTER`, `Phaser.RIGHT_CENTER`, 
+// This is a constant and can be one of `Phaser.TOP_LEFT` (default), `Phaser.TOP_CENTER`,
+// `Phaser.TOP_RIGHT`, `Phaser.LEFT_CENTER`, `Phaser.CENTER`, `Phaser.RIGHT_CENTER`,
 // `Phaser.BOTTOM_LEFT`, `Phaser.BOTTOM_CENTER` or `Phaser.BOTTOM_RIGHT`.
 // 
 // The final argument; `offset` lets you start the alignment from a specific child index.
-func (self *PhysicsP2BodyDebug) Align1O(rows int, columns int, cellWidth int, cellHeight int, position int) {
-    self.Object.Call("align", rows, columns, cellWidth, cellHeight, position)
+func (self *PhysicsP2BodyDebug) Align1O(width int, height int, cellWidth int, cellHeight int, position int) bool{
+    return self.Object.Call("align", width, height, cellWidth, cellHeight, position).Bool()
 }
 
 // Align2O This method iterates through all children in the Group (regardless if they are visible or exist)
@@ -1491,7 +1784,7 @@ func (self *PhysicsP2BodyDebug) Align1O(rows int, columns int, cellWidth int, ce
 // the `alignTo` method in order to be positioned by this call. All default Phaser Game Objects have
 // this.
 // 
-// The grid dimensions are determined by the first four arguments. The `rows` and `columns` arguments
+// The grid dimensions are determined by the first four arguments. The `width` and `height` arguments
 // relate to the width and height of the grid respectively.
 // 
 // For example if the Group had 100 children in it:
@@ -1505,13 +1798,13 @@ func (self *PhysicsP2BodyDebug) Align1O(rows int, columns int, cellWidth int, ce
 // 
 // This will align the children into a grid of 25x4, again using 32 pixels per grid cell.
 // 
-// You can choose to set _either_ the `rows` or `columns` value to -1. Doing so tells the method
+// You can choose to set _either_ the `width` or `height` value to -1. Doing so tells the method
 // to keep on aligning children until there are no children left. For example if this Group had
 // 48 children in it, the following:
 // 
 // `Group.align(-1, 8, 32, 32)`
 // 
-// ... will align the children so that there are 8 columns vertically (the second argument), 
+// ... will align the children so that there are 8 children vertically (the second argument),
 // and each row will contain 6 sprites, except the last one, which will contain 5 (totaling 48)
 // 
 // You can also do:
@@ -1522,13 +1815,13 @@ func (self *PhysicsP2BodyDebug) Align1O(rows int, columns int, cellWidth int, ce
 // all of the children in.
 // 
 // The `position` property allows you to control where in each grid cell the child is positioned.
-// This is a constant and can be one of `Phaser.TOP_LEFT` (default), `Phaser.TOP_CENTER`, 
-// `Phaser.TOP_RIGHT`, `Phaser.LEFT_CENTER`, `Phaser.CENTER`, `Phaser.RIGHT_CENTER`, 
+// This is a constant and can be one of `Phaser.TOP_LEFT` (default), `Phaser.TOP_CENTER`,
+// `Phaser.TOP_RIGHT`, `Phaser.LEFT_CENTER`, `Phaser.CENTER`, `Phaser.RIGHT_CENTER`,
 // `Phaser.BOTTOM_LEFT`, `Phaser.BOTTOM_CENTER` or `Phaser.BOTTOM_RIGHT`.
 // 
 // The final argument; `offset` lets you start the alignment from a specific child index.
-func (self *PhysicsP2BodyDebug) Align2O(rows int, columns int, cellWidth int, cellHeight int, position int, offset int) {
-    self.Object.Call("align", rows, columns, cellWidth, cellHeight, position, offset)
+func (self *PhysicsP2BodyDebug) Align2O(width int, height int, cellWidth int, cellHeight int, position int, offset int) bool{
+    return self.Object.Call("align", width, height, cellWidth, cellHeight, position, offset).Bool()
 }
 
 // AlignI This method iterates through all children in the Group (regardless if they are visible or exist)
@@ -1536,7 +1829,7 @@ func (self *PhysicsP2BodyDebug) Align2O(rows int, columns int, cellWidth int, ce
 // the `alignTo` method in order to be positioned by this call. All default Phaser Game Objects have
 // this.
 // 
-// The grid dimensions are determined by the first four arguments. The `rows` and `columns` arguments
+// The grid dimensions are determined by the first four arguments. The `width` and `height` arguments
 // relate to the width and height of the grid respectively.
 // 
 // For example if the Group had 100 children in it:
@@ -1550,13 +1843,13 @@ func (self *PhysicsP2BodyDebug) Align2O(rows int, columns int, cellWidth int, ce
 // 
 // This will align the children into a grid of 25x4, again using 32 pixels per grid cell.
 // 
-// You can choose to set _either_ the `rows` or `columns` value to -1. Doing so tells the method
+// You can choose to set _either_ the `width` or `height` value to -1. Doing so tells the method
 // to keep on aligning children until there are no children left. For example if this Group had
 // 48 children in it, the following:
 // 
 // `Group.align(-1, 8, 32, 32)`
 // 
-// ... will align the children so that there are 8 columns vertically (the second argument), 
+// ... will align the children so that there are 8 children vertically (the second argument),
 // and each row will contain 6 sprites, except the last one, which will contain 5 (totaling 48)
 // 
 // You can also do:
@@ -1567,13 +1860,13 @@ func (self *PhysicsP2BodyDebug) Align2O(rows int, columns int, cellWidth int, ce
 // all of the children in.
 // 
 // The `position` property allows you to control where in each grid cell the child is positioned.
-// This is a constant and can be one of `Phaser.TOP_LEFT` (default), `Phaser.TOP_CENTER`, 
-// `Phaser.TOP_RIGHT`, `Phaser.LEFT_CENTER`, `Phaser.CENTER`, `Phaser.RIGHT_CENTER`, 
+// This is a constant and can be one of `Phaser.TOP_LEFT` (default), `Phaser.TOP_CENTER`,
+// `Phaser.TOP_RIGHT`, `Phaser.LEFT_CENTER`, `Phaser.CENTER`, `Phaser.RIGHT_CENTER`,
 // `Phaser.BOTTOM_LEFT`, `Phaser.BOTTOM_CENTER` or `Phaser.BOTTOM_RIGHT`.
 // 
 // The final argument; `offset` lets you start the alignment from a specific child index.
-func (self *PhysicsP2BodyDebug) AlignI(args ...interface{}) {
-    self.Object.Call("align", args)
+func (self *PhysicsP2BodyDebug) AlignI(args ...interface{}) bool{
+    return self.Object.Call("align", args).Bool()
 }
 
 // ResetCursor Sets the group cursor to the first child in the group.
@@ -2881,7 +3174,7 @@ func (self *PhysicsP2BodyDebug) GetBottomI(args ...interface{}) interface{}{
 // 
 // You can use the optional `callback` argument to apply your own filter to the distance checks.
 // If the child is closer then the previous child, it will be sent to `callback` as the first argument,
-// with the distance as the second. The callback should return `true` if it passes your 
+// with the distance as the second. The callback should return `true` if it passes your
 // filtering criteria, otherwise it should return `false`.
 func (self *PhysicsP2BodyDebug) GetClosestTo(object interface{}) interface{}{
     return self.Object.Call("getClosestTo", object)
@@ -2895,7 +3188,7 @@ func (self *PhysicsP2BodyDebug) GetClosestTo(object interface{}) interface{}{
 // 
 // You can use the optional `callback` argument to apply your own filter to the distance checks.
 // If the child is closer then the previous child, it will be sent to `callback` as the first argument,
-// with the distance as the second. The callback should return `true` if it passes your 
+// with the distance as the second. The callback should return `true` if it passes your
 // filtering criteria, otherwise it should return `false`.
 func (self *PhysicsP2BodyDebug) GetClosestTo1O(object interface{}, callback interface{}) interface{}{
     return self.Object.Call("getClosestTo", object, callback)
@@ -2909,7 +3202,7 @@ func (self *PhysicsP2BodyDebug) GetClosestTo1O(object interface{}, callback inte
 // 
 // You can use the optional `callback` argument to apply your own filter to the distance checks.
 // If the child is closer then the previous child, it will be sent to `callback` as the first argument,
-// with the distance as the second. The callback should return `true` if it passes your 
+// with the distance as the second. The callback should return `true` if it passes your
 // filtering criteria, otherwise it should return `false`.
 func (self *PhysicsP2BodyDebug) GetClosestTo2O(object interface{}, callback interface{}, callbackContext interface{}) interface{}{
     return self.Object.Call("getClosestTo", object, callback, callbackContext)
@@ -2923,7 +3216,7 @@ func (self *PhysicsP2BodyDebug) GetClosestTo2O(object interface{}, callback inte
 // 
 // You can use the optional `callback` argument to apply your own filter to the distance checks.
 // If the child is closer then the previous child, it will be sent to `callback` as the first argument,
-// with the distance as the second. The callback should return `true` if it passes your 
+// with the distance as the second. The callback should return `true` if it passes your
 // filtering criteria, otherwise it should return `false`.
 func (self *PhysicsP2BodyDebug) GetClosestToI(args ...interface{}) interface{}{
     return self.Object.Call("getClosestTo", args)
@@ -2937,7 +3230,7 @@ func (self *PhysicsP2BodyDebug) GetClosestToI(args ...interface{}) interface{}{
 // 
 // You can use the optional `callback` argument to apply your own filter to the distance checks.
 // If the child is closer then the previous child, it will be sent to `callback` as the first argument,
-// with the distance as the second. The callback should return `true` if it passes your 
+// with the distance as the second. The callback should return `true` if it passes your
 // filtering criteria, otherwise it should return `false`.
 func (self *PhysicsP2BodyDebug) GetFurthestFrom(object interface{}) interface{}{
     return self.Object.Call("getFurthestFrom", object)
@@ -2951,7 +3244,7 @@ func (self *PhysicsP2BodyDebug) GetFurthestFrom(object interface{}) interface{}{
 // 
 // You can use the optional `callback` argument to apply your own filter to the distance checks.
 // If the child is closer then the previous child, it will be sent to `callback` as the first argument,
-// with the distance as the second. The callback should return `true` if it passes your 
+// with the distance as the second. The callback should return `true` if it passes your
 // filtering criteria, otherwise it should return `false`.
 func (self *PhysicsP2BodyDebug) GetFurthestFrom1O(object interface{}, callback interface{}) interface{}{
     return self.Object.Call("getFurthestFrom", object, callback)
@@ -2965,7 +3258,7 @@ func (self *PhysicsP2BodyDebug) GetFurthestFrom1O(object interface{}, callback i
 // 
 // You can use the optional `callback` argument to apply your own filter to the distance checks.
 // If the child is closer then the previous child, it will be sent to `callback` as the first argument,
-// with the distance as the second. The callback should return `true` if it passes your 
+// with the distance as the second. The callback should return `true` if it passes your
 // filtering criteria, otherwise it should return `false`.
 func (self *PhysicsP2BodyDebug) GetFurthestFrom2O(object interface{}, callback interface{}, callbackContext interface{}) interface{}{
     return self.Object.Call("getFurthestFrom", object, callback, callbackContext)
@@ -2979,7 +3272,7 @@ func (self *PhysicsP2BodyDebug) GetFurthestFrom2O(object interface{}, callback i
 // 
 // You can use the optional `callback` argument to apply your own filter to the distance checks.
 // If the child is closer then the previous child, it will be sent to `callback` as the first argument,
-// with the distance as the second. The callback should return `true` if it passes your 
+// with the distance as the second. The callback should return `true` if it passes your
 // filtering criteria, otherwise it should return `false`.
 func (self *PhysicsP2BodyDebug) GetFurthestFromI(args ...interface{}) interface{}{
     return self.Object.Call("getFurthestFrom", args)
@@ -3023,6 +3316,120 @@ func (self *PhysicsP2BodyDebug) GetRandom2O(startIndex int, length int) interfac
 // GetRandomI Returns a random child from the group.
 func (self *PhysicsP2BodyDebug) GetRandomI(args ...interface{}) interface{}{
     return self.Object.Call("getRandom", args)
+}
+
+// GetRandomExists Returns a random child from the Group that has `exists` set to `true`.
+// 
+// Optionally you can specify a start and end index. For example if this Group had 100 children,
+// and you set `startIndex` to 0 and `endIndex` to 50, it would return a random child from only
+// the first 50 children in the Group.
+func (self *PhysicsP2BodyDebug) GetRandomExists() interface{}{
+    return self.Object.Call("getRandomExists")
+}
+
+// GetRandomExists1O Returns a random child from the Group that has `exists` set to `true`.
+// 
+// Optionally you can specify a start and end index. For example if this Group had 100 children,
+// and you set `startIndex` to 0 and `endIndex` to 50, it would return a random child from only
+// the first 50 children in the Group.
+func (self *PhysicsP2BodyDebug) GetRandomExists1O(startIndex int) interface{}{
+    return self.Object.Call("getRandomExists", startIndex)
+}
+
+// GetRandomExists2O Returns a random child from the Group that has `exists` set to `true`.
+// 
+// Optionally you can specify a start and end index. For example if this Group had 100 children,
+// and you set `startIndex` to 0 and `endIndex` to 50, it would return a random child from only
+// the first 50 children in the Group.
+func (self *PhysicsP2BodyDebug) GetRandomExists2O(startIndex int, endIndex int) interface{}{
+    return self.Object.Call("getRandomExists", startIndex, endIndex)
+}
+
+// GetRandomExistsI Returns a random child from the Group that has `exists` set to `true`.
+// 
+// Optionally you can specify a start and end index. For example if this Group had 100 children,
+// and you set `startIndex` to 0 and `endIndex` to 50, it would return a random child from only
+// the first 50 children in the Group.
+func (self *PhysicsP2BodyDebug) GetRandomExistsI(args ...interface{}) interface{}{
+    return self.Object.Call("getRandomExists", args)
+}
+
+// GetAll Returns all children in this Group.
+// 
+// You can optionally specify a matching criteria using the `property` and `value` arguments.
+// 
+// For example: `getAll('exists', true)` would return only children that have their exists property set.
+// 
+// Optionally you can specify a start and end index. For example if this Group had 100 children,
+// and you set `startIndex` to 0 and `endIndex` to 50, it would return a random child from only
+// the first 50 children in the Group.
+func (self *PhysicsP2BodyDebug) GetAll() interface{}{
+    return self.Object.Call("getAll")
+}
+
+// GetAll1O Returns all children in this Group.
+// 
+// You can optionally specify a matching criteria using the `property` and `value` arguments.
+// 
+// For example: `getAll('exists', true)` would return only children that have their exists property set.
+// 
+// Optionally you can specify a start and end index. For example if this Group had 100 children,
+// and you set `startIndex` to 0 and `endIndex` to 50, it would return a random child from only
+// the first 50 children in the Group.
+func (self *PhysicsP2BodyDebug) GetAll1O(property string) interface{}{
+    return self.Object.Call("getAll", property)
+}
+
+// GetAll2O Returns all children in this Group.
+// 
+// You can optionally specify a matching criteria using the `property` and `value` arguments.
+// 
+// For example: `getAll('exists', true)` would return only children that have their exists property set.
+// 
+// Optionally you can specify a start and end index. For example if this Group had 100 children,
+// and you set `startIndex` to 0 and `endIndex` to 50, it would return a random child from only
+// the first 50 children in the Group.
+func (self *PhysicsP2BodyDebug) GetAll2O(property string, value interface{}) interface{}{
+    return self.Object.Call("getAll", property, value)
+}
+
+// GetAll3O Returns all children in this Group.
+// 
+// You can optionally specify a matching criteria using the `property` and `value` arguments.
+// 
+// For example: `getAll('exists', true)` would return only children that have their exists property set.
+// 
+// Optionally you can specify a start and end index. For example if this Group had 100 children,
+// and you set `startIndex` to 0 and `endIndex` to 50, it would return a random child from only
+// the first 50 children in the Group.
+func (self *PhysicsP2BodyDebug) GetAll3O(property string, value interface{}, startIndex int) interface{}{
+    return self.Object.Call("getAll", property, value, startIndex)
+}
+
+// GetAll4O Returns all children in this Group.
+// 
+// You can optionally specify a matching criteria using the `property` and `value` arguments.
+// 
+// For example: `getAll('exists', true)` would return only children that have their exists property set.
+// 
+// Optionally you can specify a start and end index. For example if this Group had 100 children,
+// and you set `startIndex` to 0 and `endIndex` to 50, it would return a random child from only
+// the first 50 children in the Group.
+func (self *PhysicsP2BodyDebug) GetAll4O(property string, value interface{}, startIndex int, endIndex int) interface{}{
+    return self.Object.Call("getAll", property, value, startIndex, endIndex)
+}
+
+// GetAllI Returns all children in this Group.
+// 
+// You can optionally specify a matching criteria using the `property` and `value` arguments.
+// 
+// For example: `getAll('exists', true)` would return only children that have their exists property set.
+// 
+// Optionally you can specify a start and end index. For example if this Group had 100 children,
+// and you set `startIndex` to 0 and `endIndex` to 50, it would return a random child from only
+// the first 50 children in the Group.
+func (self *PhysicsP2BodyDebug) GetAllI(args ...interface{}) interface{}{
+    return self.Object.Call("getAll", args)
 }
 
 // Remove Removes the given child from this group.
@@ -3179,351 +3586,6 @@ func (self *PhysicsP2BodyDebug) DestroyI(args ...interface{}) {
     self.Object.Call("destroy", args)
 }
 
-// AlignIn Aligns this Group within another Game Object, or Rectangle, known as the
-// 'container', to one of 9 possible positions.
-// 
-// The container must be a Game Object, or Phaser.Rectangle object. This can include properties
-// such as `World.bounds` or `Camera.view`, for aligning Groups within the world 
-// and camera bounds. Or it can include other Sprites, Images, Text objects, BitmapText,
-// TileSprites or Buttons.
-// 
-// Please note that aligning a Group to another Game Object does **not** make it a child of
-// the container. It simply modifies its position coordinates so it aligns with it.
-// 
-// The position constants you can use are:
-// 
-// `Phaser.TOP_LEFT`, `Phaser.TOP_CENTER`, `Phaser.TOP_RIGHT`, `Phaser.LEFT_CENTER`, 
-// `Phaser.CENTER`, `Phaser.RIGHT_CENTER`, `Phaser.BOTTOM_LEFT`, 
-// `Phaser.BOTTOM_CENTER` and `Phaser.BOTTOM_RIGHT`.
-// 
-// Groups are placed in such a way that their _bounds_ align with the
-// container, taking into consideration rotation and scale of its children.
-// This allows you to neatly align Groups, irrespective of their position value.
-// 
-// The optional `offsetX` and `offsetY` arguments allow you to apply extra spacing to the final
-// aligned position of the Group. For example:
-// 
-// `group.alignIn(background, Phaser.BOTTOM_RIGHT, -20, -20)`
-// 
-// Would align the `group` to the bottom-right, but moved 20 pixels in from the corner.
-// Think of the offsets as applying an adjustment to the containers bounds before the alignment takes place.
-// So providing a negative offset will 'shrink' the container bounds by that amount, and providing a positive
-// one expands it.
-func (self *PhysicsP2BodyDebug) AlignIn(container interface{}) *Group{
-    return &Group{self.Object.Call("alignIn", container)}
-}
-
-// AlignIn1O Aligns this Group within another Game Object, or Rectangle, known as the
-// 'container', to one of 9 possible positions.
-// 
-// The container must be a Game Object, or Phaser.Rectangle object. This can include properties
-// such as `World.bounds` or `Camera.view`, for aligning Groups within the world 
-// and camera bounds. Or it can include other Sprites, Images, Text objects, BitmapText,
-// TileSprites or Buttons.
-// 
-// Please note that aligning a Group to another Game Object does **not** make it a child of
-// the container. It simply modifies its position coordinates so it aligns with it.
-// 
-// The position constants you can use are:
-// 
-// `Phaser.TOP_LEFT`, `Phaser.TOP_CENTER`, `Phaser.TOP_RIGHT`, `Phaser.LEFT_CENTER`, 
-// `Phaser.CENTER`, `Phaser.RIGHT_CENTER`, `Phaser.BOTTOM_LEFT`, 
-// `Phaser.BOTTOM_CENTER` and `Phaser.BOTTOM_RIGHT`.
-// 
-// Groups are placed in such a way that their _bounds_ align with the
-// container, taking into consideration rotation and scale of its children.
-// This allows you to neatly align Groups, irrespective of their position value.
-// 
-// The optional `offsetX` and `offsetY` arguments allow you to apply extra spacing to the final
-// aligned position of the Group. For example:
-// 
-// `group.alignIn(background, Phaser.BOTTOM_RIGHT, -20, -20)`
-// 
-// Would align the `group` to the bottom-right, but moved 20 pixels in from the corner.
-// Think of the offsets as applying an adjustment to the containers bounds before the alignment takes place.
-// So providing a negative offset will 'shrink' the container bounds by that amount, and providing a positive
-// one expands it.
-func (self *PhysicsP2BodyDebug) AlignIn1O(container interface{}, position int) *Group{
-    return &Group{self.Object.Call("alignIn", container, position)}
-}
-
-// AlignIn2O Aligns this Group within another Game Object, or Rectangle, known as the
-// 'container', to one of 9 possible positions.
-// 
-// The container must be a Game Object, or Phaser.Rectangle object. This can include properties
-// such as `World.bounds` or `Camera.view`, for aligning Groups within the world 
-// and camera bounds. Or it can include other Sprites, Images, Text objects, BitmapText,
-// TileSprites or Buttons.
-// 
-// Please note that aligning a Group to another Game Object does **not** make it a child of
-// the container. It simply modifies its position coordinates so it aligns with it.
-// 
-// The position constants you can use are:
-// 
-// `Phaser.TOP_LEFT`, `Phaser.TOP_CENTER`, `Phaser.TOP_RIGHT`, `Phaser.LEFT_CENTER`, 
-// `Phaser.CENTER`, `Phaser.RIGHT_CENTER`, `Phaser.BOTTOM_LEFT`, 
-// `Phaser.BOTTOM_CENTER` and `Phaser.BOTTOM_RIGHT`.
-// 
-// Groups are placed in such a way that their _bounds_ align with the
-// container, taking into consideration rotation and scale of its children.
-// This allows you to neatly align Groups, irrespective of their position value.
-// 
-// The optional `offsetX` and `offsetY` arguments allow you to apply extra spacing to the final
-// aligned position of the Group. For example:
-// 
-// `group.alignIn(background, Phaser.BOTTOM_RIGHT, -20, -20)`
-// 
-// Would align the `group` to the bottom-right, but moved 20 pixels in from the corner.
-// Think of the offsets as applying an adjustment to the containers bounds before the alignment takes place.
-// So providing a negative offset will 'shrink' the container bounds by that amount, and providing a positive
-// one expands it.
-func (self *PhysicsP2BodyDebug) AlignIn2O(container interface{}, position int, offsetX int) *Group{
-    return &Group{self.Object.Call("alignIn", container, position, offsetX)}
-}
-
-// AlignIn3O Aligns this Group within another Game Object, or Rectangle, known as the
-// 'container', to one of 9 possible positions.
-// 
-// The container must be a Game Object, or Phaser.Rectangle object. This can include properties
-// such as `World.bounds` or `Camera.view`, for aligning Groups within the world 
-// and camera bounds. Or it can include other Sprites, Images, Text objects, BitmapText,
-// TileSprites or Buttons.
-// 
-// Please note that aligning a Group to another Game Object does **not** make it a child of
-// the container. It simply modifies its position coordinates so it aligns with it.
-// 
-// The position constants you can use are:
-// 
-// `Phaser.TOP_LEFT`, `Phaser.TOP_CENTER`, `Phaser.TOP_RIGHT`, `Phaser.LEFT_CENTER`, 
-// `Phaser.CENTER`, `Phaser.RIGHT_CENTER`, `Phaser.BOTTOM_LEFT`, 
-// `Phaser.BOTTOM_CENTER` and `Phaser.BOTTOM_RIGHT`.
-// 
-// Groups are placed in such a way that their _bounds_ align with the
-// container, taking into consideration rotation and scale of its children.
-// This allows you to neatly align Groups, irrespective of their position value.
-// 
-// The optional `offsetX` and `offsetY` arguments allow you to apply extra spacing to the final
-// aligned position of the Group. For example:
-// 
-// `group.alignIn(background, Phaser.BOTTOM_RIGHT, -20, -20)`
-// 
-// Would align the `group` to the bottom-right, but moved 20 pixels in from the corner.
-// Think of the offsets as applying an adjustment to the containers bounds before the alignment takes place.
-// So providing a negative offset will 'shrink' the container bounds by that amount, and providing a positive
-// one expands it.
-func (self *PhysicsP2BodyDebug) AlignIn3O(container interface{}, position int, offsetX int, offsetY int) *Group{
-    return &Group{self.Object.Call("alignIn", container, position, offsetX, offsetY)}
-}
-
-// AlignInI Aligns this Group within another Game Object, or Rectangle, known as the
-// 'container', to one of 9 possible positions.
-// 
-// The container must be a Game Object, or Phaser.Rectangle object. This can include properties
-// such as `World.bounds` or `Camera.view`, for aligning Groups within the world 
-// and camera bounds. Or it can include other Sprites, Images, Text objects, BitmapText,
-// TileSprites or Buttons.
-// 
-// Please note that aligning a Group to another Game Object does **not** make it a child of
-// the container. It simply modifies its position coordinates so it aligns with it.
-// 
-// The position constants you can use are:
-// 
-// `Phaser.TOP_LEFT`, `Phaser.TOP_CENTER`, `Phaser.TOP_RIGHT`, `Phaser.LEFT_CENTER`, 
-// `Phaser.CENTER`, `Phaser.RIGHT_CENTER`, `Phaser.BOTTOM_LEFT`, 
-// `Phaser.BOTTOM_CENTER` and `Phaser.BOTTOM_RIGHT`.
-// 
-// Groups are placed in such a way that their _bounds_ align with the
-// container, taking into consideration rotation and scale of its children.
-// This allows you to neatly align Groups, irrespective of their position value.
-// 
-// The optional `offsetX` and `offsetY` arguments allow you to apply extra spacing to the final
-// aligned position of the Group. For example:
-// 
-// `group.alignIn(background, Phaser.BOTTOM_RIGHT, -20, -20)`
-// 
-// Would align the `group` to the bottom-right, but moved 20 pixels in from the corner.
-// Think of the offsets as applying an adjustment to the containers bounds before the alignment takes place.
-// So providing a negative offset will 'shrink' the container bounds by that amount, and providing a positive
-// one expands it.
-func (self *PhysicsP2BodyDebug) AlignInI(args ...interface{}) *Group{
-    return &Group{self.Object.Call("alignIn", args)}
-}
-
-// AlignTo Aligns this Group to the side of another Game Object, or Rectangle, known as the
-// 'parent', in one of 11 possible positions.
-// 
-// The parent must be a Game Object, or Phaser.Rectangle object. This can include properties
-// such as `World.bounds` or `Camera.view`, for aligning Groups within the world 
-// and camera bounds. Or it can include other Sprites, Images, Text objects, BitmapText,
-// TileSprites or Buttons.
-// 
-// Please note that aligning a Group to another Game Object does **not** make it a child of
-// the parent. It simply modifies its position coordinates so it aligns with it.
-// 
-// The position constants you can use are:
-// 
-// `Phaser.TOP_LEFT` (default), `Phaser.TOP_CENTER`, `Phaser.TOP_RIGHT`, `Phaser.LEFT_TOP`, 
-// `Phaser.LEFT_CENTER`, `Phaser.LEFT_BOTTOM`, `Phaser.RIGHT_TOP`, `Phaser.RIGHT_CENTER`, 
-// `Phaser.RIGHT_BOTTOM`, `Phaser.BOTTOM_LEFT`, `Phaser.BOTTOM_CENTER` 
-// and `Phaser.BOTTOM_RIGHT`.
-// 
-// Groups are placed in such a way that their _bounds_ align with the
-// parent, taking into consideration rotation and scale of the children.
-// This allows you to neatly align Groups, irrespective of their position value.
-// 
-// The optional `offsetX` and `offsetY` arguments allow you to apply extra spacing to the final
-// aligned position of the Group. For example:
-// 
-// `group.alignTo(background, Phaser.BOTTOM_RIGHT, -20, -20)`
-// 
-// Would align the `group` to the bottom-right, but moved 20 pixels in from the corner.
-// Think of the offsets as applying an adjustment to the parents bounds before the alignment takes place.
-// So providing a negative offset will 'shrink' the parent bounds by that amount, and providing a positive
-// one expands it.
-func (self *PhysicsP2BodyDebug) AlignTo(parent interface{}) *Group{
-    return &Group{self.Object.Call("alignTo", parent)}
-}
-
-// AlignTo1O Aligns this Group to the side of another Game Object, or Rectangle, known as the
-// 'parent', in one of 11 possible positions.
-// 
-// The parent must be a Game Object, or Phaser.Rectangle object. This can include properties
-// such as `World.bounds` or `Camera.view`, for aligning Groups within the world 
-// and camera bounds. Or it can include other Sprites, Images, Text objects, BitmapText,
-// TileSprites or Buttons.
-// 
-// Please note that aligning a Group to another Game Object does **not** make it a child of
-// the parent. It simply modifies its position coordinates so it aligns with it.
-// 
-// The position constants you can use are:
-// 
-// `Phaser.TOP_LEFT` (default), `Phaser.TOP_CENTER`, `Phaser.TOP_RIGHT`, `Phaser.LEFT_TOP`, 
-// `Phaser.LEFT_CENTER`, `Phaser.LEFT_BOTTOM`, `Phaser.RIGHT_TOP`, `Phaser.RIGHT_CENTER`, 
-// `Phaser.RIGHT_BOTTOM`, `Phaser.BOTTOM_LEFT`, `Phaser.BOTTOM_CENTER` 
-// and `Phaser.BOTTOM_RIGHT`.
-// 
-// Groups are placed in such a way that their _bounds_ align with the
-// parent, taking into consideration rotation and scale of the children.
-// This allows you to neatly align Groups, irrespective of their position value.
-// 
-// The optional `offsetX` and `offsetY` arguments allow you to apply extra spacing to the final
-// aligned position of the Group. For example:
-// 
-// `group.alignTo(background, Phaser.BOTTOM_RIGHT, -20, -20)`
-// 
-// Would align the `group` to the bottom-right, but moved 20 pixels in from the corner.
-// Think of the offsets as applying an adjustment to the parents bounds before the alignment takes place.
-// So providing a negative offset will 'shrink' the parent bounds by that amount, and providing a positive
-// one expands it.
-func (self *PhysicsP2BodyDebug) AlignTo1O(parent interface{}, position int) *Group{
-    return &Group{self.Object.Call("alignTo", parent, position)}
-}
-
-// AlignTo2O Aligns this Group to the side of another Game Object, or Rectangle, known as the
-// 'parent', in one of 11 possible positions.
-// 
-// The parent must be a Game Object, or Phaser.Rectangle object. This can include properties
-// such as `World.bounds` or `Camera.view`, for aligning Groups within the world 
-// and camera bounds. Or it can include other Sprites, Images, Text objects, BitmapText,
-// TileSprites or Buttons.
-// 
-// Please note that aligning a Group to another Game Object does **not** make it a child of
-// the parent. It simply modifies its position coordinates so it aligns with it.
-// 
-// The position constants you can use are:
-// 
-// `Phaser.TOP_LEFT` (default), `Phaser.TOP_CENTER`, `Phaser.TOP_RIGHT`, `Phaser.LEFT_TOP`, 
-// `Phaser.LEFT_CENTER`, `Phaser.LEFT_BOTTOM`, `Phaser.RIGHT_TOP`, `Phaser.RIGHT_CENTER`, 
-// `Phaser.RIGHT_BOTTOM`, `Phaser.BOTTOM_LEFT`, `Phaser.BOTTOM_CENTER` 
-// and `Phaser.BOTTOM_RIGHT`.
-// 
-// Groups are placed in such a way that their _bounds_ align with the
-// parent, taking into consideration rotation and scale of the children.
-// This allows you to neatly align Groups, irrespective of their position value.
-// 
-// The optional `offsetX` and `offsetY` arguments allow you to apply extra spacing to the final
-// aligned position of the Group. For example:
-// 
-// `group.alignTo(background, Phaser.BOTTOM_RIGHT, -20, -20)`
-// 
-// Would align the `group` to the bottom-right, but moved 20 pixels in from the corner.
-// Think of the offsets as applying an adjustment to the parents bounds before the alignment takes place.
-// So providing a negative offset will 'shrink' the parent bounds by that amount, and providing a positive
-// one expands it.
-func (self *PhysicsP2BodyDebug) AlignTo2O(parent interface{}, position int, offsetX int) *Group{
-    return &Group{self.Object.Call("alignTo", parent, position, offsetX)}
-}
-
-// AlignTo3O Aligns this Group to the side of another Game Object, or Rectangle, known as the
-// 'parent', in one of 11 possible positions.
-// 
-// The parent must be a Game Object, or Phaser.Rectangle object. This can include properties
-// such as `World.bounds` or `Camera.view`, for aligning Groups within the world 
-// and camera bounds. Or it can include other Sprites, Images, Text objects, BitmapText,
-// TileSprites or Buttons.
-// 
-// Please note that aligning a Group to another Game Object does **not** make it a child of
-// the parent. It simply modifies its position coordinates so it aligns with it.
-// 
-// The position constants you can use are:
-// 
-// `Phaser.TOP_LEFT` (default), `Phaser.TOP_CENTER`, `Phaser.TOP_RIGHT`, `Phaser.LEFT_TOP`, 
-// `Phaser.LEFT_CENTER`, `Phaser.LEFT_BOTTOM`, `Phaser.RIGHT_TOP`, `Phaser.RIGHT_CENTER`, 
-// `Phaser.RIGHT_BOTTOM`, `Phaser.BOTTOM_LEFT`, `Phaser.BOTTOM_CENTER` 
-// and `Phaser.BOTTOM_RIGHT`.
-// 
-// Groups are placed in such a way that their _bounds_ align with the
-// parent, taking into consideration rotation and scale of the children.
-// This allows you to neatly align Groups, irrespective of their position value.
-// 
-// The optional `offsetX` and `offsetY` arguments allow you to apply extra spacing to the final
-// aligned position of the Group. For example:
-// 
-// `group.alignTo(background, Phaser.BOTTOM_RIGHT, -20, -20)`
-// 
-// Would align the `group` to the bottom-right, but moved 20 pixels in from the corner.
-// Think of the offsets as applying an adjustment to the parents bounds before the alignment takes place.
-// So providing a negative offset will 'shrink' the parent bounds by that amount, and providing a positive
-// one expands it.
-func (self *PhysicsP2BodyDebug) AlignTo3O(parent interface{}, position int, offsetX int, offsetY int) *Group{
-    return &Group{self.Object.Call("alignTo", parent, position, offsetX, offsetY)}
-}
-
-// AlignToI Aligns this Group to the side of another Game Object, or Rectangle, known as the
-// 'parent', in one of 11 possible positions.
-// 
-// The parent must be a Game Object, or Phaser.Rectangle object. This can include properties
-// such as `World.bounds` or `Camera.view`, for aligning Groups within the world 
-// and camera bounds. Or it can include other Sprites, Images, Text objects, BitmapText,
-// TileSprites or Buttons.
-// 
-// Please note that aligning a Group to another Game Object does **not** make it a child of
-// the parent. It simply modifies its position coordinates so it aligns with it.
-// 
-// The position constants you can use are:
-// 
-// `Phaser.TOP_LEFT` (default), `Phaser.TOP_CENTER`, `Phaser.TOP_RIGHT`, `Phaser.LEFT_TOP`, 
-// `Phaser.LEFT_CENTER`, `Phaser.LEFT_BOTTOM`, `Phaser.RIGHT_TOP`, `Phaser.RIGHT_CENTER`, 
-// `Phaser.RIGHT_BOTTOM`, `Phaser.BOTTOM_LEFT`, `Phaser.BOTTOM_CENTER` 
-// and `Phaser.BOTTOM_RIGHT`.
-// 
-// Groups are placed in such a way that their _bounds_ align with the
-// parent, taking into consideration rotation and scale of the children.
-// This allows you to neatly align Groups, irrespective of their position value.
-// 
-// The optional `offsetX` and `offsetY` arguments allow you to apply extra spacing to the final
-// aligned position of the Group. For example:
-// 
-// `group.alignTo(background, Phaser.BOTTOM_RIGHT, -20, -20)`
-// 
-// Would align the `group` to the bottom-right, but moved 20 pixels in from the corner.
-// Think of the offsets as applying an adjustment to the parents bounds before the alignment takes place.
-// So providing a negative offset will 'shrink' the parent bounds by that amount, and providing a positive
-// one expands it.
-func (self *PhysicsP2BodyDebug) AlignToI(args ...interface{}) *Group{
-    return &Group{self.Object.Call("alignTo", args)}
-}
-
 // AddChild Adds a child to the container.
 func (self *PhysicsP2BodyDebug) AddChild(child *DisplayObject) *DisplayObject{
     return &DisplayObject{self.Object.Call("addChild", child)}
@@ -3614,44 +3676,39 @@ func (self *PhysicsP2BodyDebug) RemoveChildrenI(args ...interface{}) {
     self.Object.Call("removeChildren", args)
 }
 
-// GetBounds Retrieves the bounds of the displayObjectContainer as a rectangle. The bounds calculation takes all visible children into consideration.
+// GetBounds Retrieves the global bounds of the displayObjectContainer as a rectangle. The bounds calculation takes all visible children into consideration.
 func (self *PhysicsP2BodyDebug) GetBounds() *Rectangle{
     return &Rectangle{self.Object.Call("getBounds")}
 }
 
-// GetBoundsI Retrieves the bounds of the displayObjectContainer as a rectangle. The bounds calculation takes all visible children into consideration.
+// GetBounds1O Retrieves the global bounds of the displayObjectContainer as a rectangle. The bounds calculation takes all visible children into consideration.
+func (self *PhysicsP2BodyDebug) GetBounds1O(targetCoordinateSpace interface{}) *Rectangle{
+    return &Rectangle{self.Object.Call("getBounds", targetCoordinateSpace)}
+}
+
+// GetBoundsI Retrieves the global bounds of the displayObjectContainer as a rectangle. The bounds calculation takes all visible children into consideration.
 func (self *PhysicsP2BodyDebug) GetBoundsI(args ...interface{}) *Rectangle{
     return &Rectangle{self.Object.Call("getBounds", args)}
 }
 
-// GetLocalBounds Retrieves the non-global local bounds of the displayObjectContainer as a rectangle. The calculation takes all visible children into consideration.
+// GetLocalBounds Retrieves the non-global local bounds of the displayObjectContainer as a rectangle without any transformations. The calculation takes all visible children into consideration.
 func (self *PhysicsP2BodyDebug) GetLocalBounds() *Rectangle{
     return &Rectangle{self.Object.Call("getLocalBounds")}
 }
 
-// GetLocalBoundsI Retrieves the non-global local bounds of the displayObjectContainer as a rectangle. The calculation takes all visible children into consideration.
+// GetLocalBoundsI Retrieves the non-global local bounds of the displayObjectContainer as a rectangle without any transformations. The calculation takes all visible children into consideration.
 func (self *PhysicsP2BodyDebug) GetLocalBoundsI(args ...interface{}) *Rectangle{
     return &Rectangle{self.Object.Call("getLocalBounds", args)}
 }
 
-// SetStageReference Sets the containers Stage reference. This is the Stage that this object, and all of its children, is connected to.
-func (self *PhysicsP2BodyDebug) SetStageReference(stage *Stage) {
-    self.Object.Call("setStageReference", stage)
+// Contains Determines whether the specified display object is a child of the DisplayObjectContainer instance or the instance itself.
+func (self *PhysicsP2BodyDebug) Contains(child *DisplayObject) bool{
+    return self.Object.Call("contains", child).Bool()
 }
 
-// SetStageReferenceI Sets the containers Stage reference. This is the Stage that this object, and all of its children, is connected to.
-func (self *PhysicsP2BodyDebug) SetStageReferenceI(args ...interface{}) {
-    self.Object.Call("setStageReference", args)
-}
-
-// RemoveStageReference Removes the current stage reference from the container and all of its children.
-func (self *PhysicsP2BodyDebug) RemoveStageReference() {
-    self.Object.Call("removeStageReference")
-}
-
-// RemoveStageReferenceI Removes the current stage reference from the container and all of its children.
-func (self *PhysicsP2BodyDebug) RemoveStageReferenceI(args ...interface{}) {
-    self.Object.Call("removeStageReference", args)
+// ContainsI Determines whether the specified display object is a child of the DisplayObjectContainer instance or the instance itself.
+func (self *PhysicsP2BodyDebug) ContainsI(args ...interface{}) bool{
+    return self.Object.Call("contains", args).Bool()
 }
 
 // _renderWebGL Renders the object using the WebGL renderer

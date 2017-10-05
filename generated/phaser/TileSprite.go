@@ -21,7 +21,7 @@ import (
 // An important note about texture dimensions:
 // 
 // When running under Canvas a TileSprite can use any texture size without issue. When running under WebGL the texture should ideally be
-// a power of two in size (i.e. 4, 8, 16, 32, 64, 128, 256, 512, etch pixels width by height). If the texture isn't a power of two
+// a power of two in size (i.e. 4, 8, 16, 32, 64, 128, 256, 512, etc pixels width by height). If the texture isn't a power of two
 // it will be rendered to a blank canvas that is the correct size, which means you may have 'blank' areas appearing to the right and
 // bottom of your frame. To avoid this ensure your textures are perfect powers of two.
 // 
@@ -46,7 +46,7 @@ type TileSprite struct {
 // An important note about texture dimensions:
 // 
 // When running under Canvas a TileSprite can use any texture size without issue. When running under WebGL the texture should ideally be
-// a power of two in size (i.e. 4, 8, 16, 32, 64, 128, 256, 512, etch pixels width by height). If the texture isn't a power of two
+// a power of two in size (i.e. 4, 8, 16, 32, 64, 128, 256, 512, etc pixels width by height). If the texture isn't a power of two
 // it will be rendered to a blank canvas that is the correct size, which means you may have 'blank' areas appearing to the right and
 // bottom of your frame. To avoid this ensure your textures are perfect powers of two.
 // 
@@ -70,7 +70,7 @@ func NewTileSprite(game *Game, x int, y int, width int, height int, key interfac
 // An important note about texture dimensions:
 // 
 // When running under Canvas a TileSprite can use any texture size without issue. When running under WebGL the texture should ideally be
-// a power of two in size (i.e. 4, 8, 16, 32, 64, 128, 256, 512, etch pixels width by height). If the texture isn't a power of two
+// a power of two in size (i.e. 4, 8, 16, 32, 64, 128, 256, 512, etc pixels width by height). If the texture isn't a power of two
 // it will be rendered to a blank canvas that is the correct size, which means you may have 'blank' areas appearing to the right and
 // bottom of your frame. To avoid this ensure your textures are perfect powers of two.
 // 
@@ -184,12 +184,14 @@ func (self *TileSprite) SetTintA(member int) {
 }
 
 // TextureDebug If enabled a green rectangle will be drawn behind the generated tiling texture, allowing you to visually
+// 
 // debug the texture being used.
 func (self *TileSprite) TextureDebug() bool{
     return self.Object.Get("textureDebug").Bool()
 }
 
 // SetTextureDebugA If enabled a green rectangle will be drawn behind the generated tiling texture, allowing you to visually
+// 
 // debug the texture being used.
 func (self *TileSprite) SetTextureDebugA(member bool) {
     self.Object.Set("textureDebug", member)
@@ -236,28 +238,36 @@ func (self *TileSprite) SetTilePatternA(member *PIXITexture) {
 }
 
 // RefreshTexture If true the TilingSprite will run generateTexture on its **next** render pass.
+// 
 // This is set by the likes of Phaser.LoadTexture.setFrame.
 func (self *TileSprite) RefreshTexture() bool{
     return self.Object.Get("refreshTexture").Bool()
 }
 
 // SetRefreshTextureA If true the TilingSprite will run generateTexture on its **next** render pass.
+// 
 // This is set by the likes of Phaser.LoadTexture.setFrame.
 func (self *TileSprite) SetRefreshTextureA(member bool) {
     self.Object.Set("refreshTexture", member)
 }
 
 // Anchor The anchor sets the origin point of the texture.
+// 
 // The default is 0,0 this means the texture's origin is the top left
+// 
 // Setting than anchor to 0.5,0.5 means the textures origin is centered
+// 
 // Setting the anchor to 1,1 would mean the textures origin points will be the bottom right corner
 func (self *TileSprite) Anchor() *Point{
     return &Point{self.Object.Get("anchor")}
 }
 
 // SetAnchorA The anchor sets the origin point of the texture.
+// 
 // The default is 0,0 this means the texture's origin is the top left
+// 
 // Setting than anchor to 0.5,0.5 means the textures origin is centered
+// 
 // Setting the anchor to 1,1 would mean the textures origin points will be the bottom right corner
 func (self *TileSprite) SetAnchorA(member *Point) {
     self.Object.Set("anchor", member)
@@ -283,12 +293,16 @@ func (self *TileSprite) SetTintedTextureA(member *Canvas) {
     self.Object.Set("tintedTexture", member)
 }
 
-// Shader The shader that will be used to render the texture to the stage. Set to null to remove a current shader.
+// Shader The shader that will be used to render this Sprite.
+// 
+// Set to null to remove a current shader.
 func (self *TileSprite) Shader() *AbstractFilter{
     return &AbstractFilter{self.Object.Get("shader")}
 }
 
-// SetShaderA The shader that will be used to render the texture to the stage. Set to null to remove a current shader.
+// SetShaderA The shader that will be used to render this Sprite.
+// 
+// Set to null to remove a current shader.
 func (self *TileSprite) SetShaderA(member *AbstractFilter) {
     self.Object.Set("shader", member)
 }
@@ -321,7 +335,11 @@ func (self *TileSprite) SetChildrenA(member []DisplayObject) {
 
 // IgnoreChildInput If `ignoreChildInput`  is `false` it will allow this objects _children_ to be considered as valid for Input events.
 // 
+// 
+// 
 // If this property is `true` then the children will _not_ be considered as valid for Input events.
+// 
+// 
 // 
 // Note that this property isn't recursive: only immediate children are influenced, it doesn't scan further down.
 func (self *TileSprite) IgnoreChildInput() bool{
@@ -330,7 +348,11 @@ func (self *TileSprite) IgnoreChildInput() bool{
 
 // SetIgnoreChildInputA If `ignoreChildInput`  is `false` it will allow this objects _children_ to be considered as valid for Input events.
 // 
+// 
+// 
 // If this property is `true` then the children will _not_ be considered as valid for Input events.
+// 
+// 
 // 
 // Note that this property isn't recursive: only immediate children are influenced, it doesn't scan further down.
 func (self *TileSprite) SetIgnoreChildInputA(member bool) {
@@ -1219,21 +1241,34 @@ func (self *TileSprite) GetBoundsI(args ...interface{}) *Rectangle{
 }
 
 // SetTexture Sets the texture of the sprite. Be warned that this doesn't remove or destroy the previous
+// 
 // texture this Sprite was using.
 func (self *TileSprite) SetTexture(texture *Texture) {
     self.Object.Call("setTexture", texture)
 }
 
 // SetTexture1O Sets the texture of the sprite. Be warned that this doesn't remove or destroy the previous
+// 
 // texture this Sprite was using.
 func (self *TileSprite) SetTexture1O(texture *Texture, destroy bool) {
     self.Object.Call("setTexture", texture, destroy)
 }
 
 // SetTextureI Sets the texture of the sprite. Be warned that this doesn't remove or destroy the previous
+// 
 // texture this Sprite was using.
 func (self *TileSprite) SetTextureI(args ...interface{}) {
     self.Object.Call("setTexture", args)
+}
+
+// GetLocalBounds Retrieves the non-global local bounds of the Sprite as a rectangle. The calculation takes all visible children into consideration.
+func (self *TileSprite) GetLocalBounds() *Rectangle{
+    return &Rectangle{self.Object.Call("getLocalBounds")}
+}
+
+// GetLocalBoundsI Retrieves the non-global local bounds of the Sprite as a rectangle. The calculation takes all visible children into consideration.
+func (self *TileSprite) GetLocalBoundsI(args ...interface{}) *Rectangle{
+    return &Rectangle{self.Object.Call("getLocalBounds", args)}
 }
 
 // AddChild Adds a child to the container.
@@ -1326,34 +1361,14 @@ func (self *TileSprite) RemoveChildrenI(args ...interface{}) {
     self.Object.Call("removeChildren", args)
 }
 
-// GetLocalBounds Retrieves the non-global local bounds of the displayObjectContainer as a rectangle. The calculation takes all visible children into consideration.
-func (self *TileSprite) GetLocalBounds() *Rectangle{
-    return &Rectangle{self.Object.Call("getLocalBounds")}
+// Contains Determines whether the specified display object is a child of the DisplayObjectContainer instance or the instance itself.
+func (self *TileSprite) Contains(child *DisplayObject) bool{
+    return self.Object.Call("contains", child).Bool()
 }
 
-// GetLocalBoundsI Retrieves the non-global local bounds of the displayObjectContainer as a rectangle. The calculation takes all visible children into consideration.
-func (self *TileSprite) GetLocalBoundsI(args ...interface{}) *Rectangle{
-    return &Rectangle{self.Object.Call("getLocalBounds", args)}
-}
-
-// SetStageReference Sets the containers Stage reference. This is the Stage that this object, and all of its children, is connected to.
-func (self *TileSprite) SetStageReference(stage *Stage) {
-    self.Object.Call("setStageReference", stage)
-}
-
-// SetStageReferenceI Sets the containers Stage reference. This is the Stage that this object, and all of its children, is connected to.
-func (self *TileSprite) SetStageReferenceI(args ...interface{}) {
-    self.Object.Call("setStageReference", args)
-}
-
-// RemoveStageReference Removes the current stage reference from the container and all of its children.
-func (self *TileSprite) RemoveStageReference() {
-    self.Object.Call("removeStageReference")
-}
-
-// RemoveStageReferenceI Removes the current stage reference from the container and all of its children.
-func (self *TileSprite) RemoveStageReferenceI(args ...interface{}) {
-    self.Object.Call("removeStageReference", args)
+// ContainsI Determines whether the specified display object is a child of the DisplayObjectContainer instance or the instance itself.
+func (self *TileSprite) ContainsI(args ...interface{}) bool{
+    return self.Object.Call("contains", args).Bool()
 }
 
 // Update Override this method in your own custom objects to handle any update requirements.

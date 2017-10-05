@@ -259,7 +259,11 @@ func (self *Graphics) SetChildrenA(member []DisplayObject) {
 
 // IgnoreChildInput If `ignoreChildInput`  is `false` it will allow this objects _children_ to be considered as valid for Input events.
 // 
+// 
+// 
 // If this property is `true` then the children will _not_ be considered as valid for Input events.
+// 
+// 
 // 
 // Note that this property isn't recursive: only immediate children are influenced, it doesn't scan further down.
 func (self *Graphics) IgnoreChildInput() bool{
@@ -268,7 +272,11 @@ func (self *Graphics) IgnoreChildInput() bool{
 
 // SetIgnoreChildInputA If `ignoreChildInput`  is `false` it will allow this objects _children_ to be considered as valid for Input events.
 // 
+// 
+// 
 // If this property is `true` then the children will _not_ be considered as valid for Input events.
+// 
+// 
 // 
 // Note that this property isn't recursive: only immediate children are influenced, it doesn't scan further down.
 func (self *Graphics) SetIgnoreChildInputA(member bool) {
@@ -954,6 +962,16 @@ func (self *Graphics) PreUpdateI(args ...interface{}) {
     self.Object.Call("preUpdate", args)
 }
 
+// PostUpdate Automatically called by World
+func (self *Graphics) PostUpdate() {
+    self.Object.Call("postUpdate")
+}
+
+// PostUpdateI Automatically called by World
+func (self *Graphics) PostUpdateI(args ...interface{}) {
+    self.Object.Call("postUpdate", args)
+}
+
 // Destroy Destroy this Graphics instance.
 func (self *Graphics) Destroy() {
     self.Object.Call("destroy")
@@ -990,24 +1008,28 @@ func (self *Graphics) MoveToI(args ...interface{}) *Graphics{
 }
 
 // LineTo Draws a line using the current line style from the current drawing position to (x, y);
+// 
 // The current drawing position is then set to (x, y).
 func (self *Graphics) LineTo(x int, y int) *Graphics{
     return &Graphics{self.Object.Call("lineTo", x, y)}
 }
 
 // LineToI Draws a line using the current line style from the current drawing position to (x, y);
+// 
 // The current drawing position is then set to (x, y).
 func (self *Graphics) LineToI(args ...interface{}) *Graphics{
     return &Graphics{self.Object.Call("lineTo", args)}
 }
 
 // QuadraticCurveTo Calculate the points for a quadratic bezier curve and then draws it.
+// 
 // Based on: https://stackoverflow.com/questions/785097/how-do-i-implement-a-bezier-curve-in-c
 func (self *Graphics) QuadraticCurveTo(cpX int, cpY int, toX int, toY int) *Graphics{
     return &Graphics{self.Object.Call("quadraticCurveTo", cpX, cpY, toX, toY)}
 }
 
 // QuadraticCurveToI Calculate the points for a quadratic bezier curve and then draws it.
+// 
 // Based on: https://stackoverflow.com/questions/785097/how-do-i-implement-a-bezier-curve-in-c
 func (self *Graphics) QuadraticCurveToI(args ...interface{}) *Graphics{
     return &Graphics{self.Object.Call("quadraticCurveTo", args)}
@@ -1034,12 +1056,14 @@ func (self *Graphics) ArcI(args ...interface{}) *Graphics{
 }
 
 // BeginFill Specifies a simple one-color fill that subsequent calls to other Graphics methods
+// 
 // (such as lineTo() or drawCircle()) use when drawing.
 func (self *Graphics) BeginFill(color int, alpha int) *Graphics{
     return &Graphics{self.Object.Call("beginFill", color, alpha)}
 }
 
 // BeginFillI Specifies a simple one-color fill that subsequent calls to other Graphics methods
+// 
 // (such as lineTo() or drawCircle()) use when drawing.
 func (self *Graphics) BeginFillI(args ...interface{}) *Graphics{
     return &Graphics{self.Object.Call("beginFill", args)}
@@ -1116,30 +1140,35 @@ func (self *Graphics) ClearI(args ...interface{}) *Graphics{
 }
 
 // GenerateTexture Useful function that returns a texture of the graphics object that can then be used to create sprites
+// 
 // This can be quite useful if your geometry is complicated and needs to be reused multiple times.
 func (self *Graphics) GenerateTexture() *Texture{
     return &Texture{self.Object.Call("generateTexture")}
 }
 
 // GenerateTexture1O Useful function that returns a texture of the graphics object that can then be used to create sprites
+// 
 // This can be quite useful if your geometry is complicated and needs to be reused multiple times.
 func (self *Graphics) GenerateTexture1O(resolution int) *Texture{
     return &Texture{self.Object.Call("generateTexture", resolution)}
 }
 
 // GenerateTexture2O Useful function that returns a texture of the graphics object that can then be used to create sprites
+// 
 // This can be quite useful if your geometry is complicated and needs to be reused multiple times.
 func (self *Graphics) GenerateTexture2O(resolution int, scaleMode int) *Texture{
     return &Texture{self.Object.Call("generateTexture", resolution, scaleMode)}
 }
 
 // GenerateTexture3O Useful function that returns a texture of the graphics object that can then be used to create sprites
+// 
 // This can be quite useful if your geometry is complicated and needs to be reused multiple times.
 func (self *Graphics) GenerateTexture3O(resolution int, scaleMode int, padding int) *Texture{
     return &Texture{self.Object.Call("generateTexture", resolution, scaleMode, padding)}
 }
 
 // GenerateTextureI Useful function that returns a texture of the graphics object that can then be used to create sprites
+// 
 // This can be quite useful if your geometry is complicated and needs to be reused multiple times.
 func (self *Graphics) GenerateTextureI(args ...interface{}) *Texture{
     return &Texture{self.Object.Call("generateTexture", args)}
@@ -1173,6 +1202,16 @@ func (self *Graphics) GetBounds() *Rectangle{
 // GetBoundsI Retrieves the bounds of the graphic shape as a rectangle object
 func (self *Graphics) GetBoundsI(args ...interface{}) *Rectangle{
     return &Rectangle{self.Object.Call("getBounds", args)}
+}
+
+// GetLocalBounds Retrieves the non-global local bounds of the graphic shape as a rectangle. The calculation takes all visible children into consideration.
+func (self *Graphics) GetLocalBounds() *Rectangle{
+    return &Rectangle{self.Object.Call("getLocalBounds")}
+}
+
+// GetLocalBoundsI Retrieves the non-global local bounds of the graphic shape as a rectangle. The calculation takes all visible children into consideration.
+func (self *Graphics) GetLocalBoundsI(args ...interface{}) *Rectangle{
+    return &Rectangle{self.Object.Call("getLocalBounds", args)}
 }
 
 // UpdateLocalBounds Update the bounds of the object
@@ -1315,34 +1354,14 @@ func (self *Graphics) RemoveChildrenI(args ...interface{}) {
     self.Object.Call("removeChildren", args)
 }
 
-// GetLocalBounds Retrieves the non-global local bounds of the displayObjectContainer as a rectangle. The calculation takes all visible children into consideration.
-func (self *Graphics) GetLocalBounds() *Rectangle{
-    return &Rectangle{self.Object.Call("getLocalBounds")}
+// Contains Determines whether the specified display object is a child of the DisplayObjectContainer instance or the instance itself.
+func (self *Graphics) Contains(child *DisplayObject) bool{
+    return self.Object.Call("contains", child).Bool()
 }
 
-// GetLocalBoundsI Retrieves the non-global local bounds of the displayObjectContainer as a rectangle. The calculation takes all visible children into consideration.
-func (self *Graphics) GetLocalBoundsI(args ...interface{}) *Rectangle{
-    return &Rectangle{self.Object.Call("getLocalBounds", args)}
-}
-
-// SetStageReference Sets the containers Stage reference. This is the Stage that this object, and all of its children, is connected to.
-func (self *Graphics) SetStageReference(stage *Stage) {
-    self.Object.Call("setStageReference", stage)
-}
-
-// SetStageReferenceI Sets the containers Stage reference. This is the Stage that this object, and all of its children, is connected to.
-func (self *Graphics) SetStageReferenceI(args ...interface{}) {
-    self.Object.Call("setStageReference", args)
-}
-
-// RemoveStageReference Removes the current stage reference from the container and all of its children.
-func (self *Graphics) RemoveStageReference() {
-    self.Object.Call("removeStageReference")
-}
-
-// RemoveStageReferenceI Removes the current stage reference from the container and all of its children.
-func (self *Graphics) RemoveStageReferenceI(args ...interface{}) {
-    self.Object.Call("removeStageReference", args)
+// ContainsI Determines whether the specified display object is a child of the DisplayObjectContainer instance or the instance itself.
+func (self *Graphics) ContainsI(args ...interface{}) bool{
+    return self.Object.Call("contains", args).Bool()
 }
 
 // Update Override this method in your own custom objects to handle any update requirements.
@@ -1357,16 +1376,6 @@ func (self *Graphics) Update() {
 // Remember if this Game Object has any children you should call update on those too.
 func (self *Graphics) UpdateI(args ...interface{}) {
     self.Object.Call("update", args)
-}
-
-// PostUpdate Internal method called by the World postUpdate cycle.
-func (self *Graphics) PostUpdate() {
-    self.Object.Call("postUpdate")
-}
-
-// PostUpdateI Internal method called by the World postUpdate cycle.
-func (self *Graphics) PostUpdateI(args ...interface{}) {
-    self.Object.Call("postUpdate", args)
 }
 
 // AlignIn Aligns this Game Object within another Game Object, or Rectangle, known as the

@@ -9,6 +9,8 @@ import (
 
 // PIXI Namespace-class for [pixi.js](http://www.pixijs.com/).
 // 
+// 
+// 
 // Contains assorted static properties and enumerations.
 type PIXI struct {
     *js.Object
@@ -16,11 +18,15 @@ type PIXI struct {
 
 // NewPIXI Namespace-class for [pixi.js](http://www.pixijs.com/).
 // 
+// 
+// 
 // Contains assorted static properties and enumerations.
 func NewPIXI() *PIXI {
     return &PIXI{js.Global.Get("PIXI").Get("PIXI").New()}
 }
 // NewPIXII Namespace-class for [pixi.js](http://www.pixijs.com/).
+// 
+// 
 // 
 // Contains assorted static properties and enumerations.
 func NewPIXII(args ...interface{}) *PIXI {
@@ -120,12 +126,14 @@ func (self *PIXI) SetRETINA_PREFIXA(member string) {
 }
 
 // DefaultRenderOptions The default render options if none are supplied to
+// 
 // {{#crossLink "WebGLRenderer"}}{{/crossLink}} or {{#crossLink "CanvasRenderer"}}{{/crossLink}}.
 func (self *PIXI) DefaultRenderOptions() interface{}{
     return self.Object.Get("defaultRenderOptions")
 }
 
 // SetDefaultRenderOptionsA The default render options if none are supplied to
+// 
 // {{#crossLink "WebGLRenderer"}}{{/crossLink}} or {{#crossLink "CanvasRenderer"}}{{/crossLink}}.
 func (self *PIXI) SetDefaultRenderOptionsA(member interface{}) {
     self.Object.Set("defaultRenderOptions", member)
@@ -163,12 +171,14 @@ func (self *PIXI) CanUseNewCanvasBlendModesI(args ...interface{}) bool{
 }
 
 // GetNextPowerOfTwo Given a number, this function returns the closest number that is a power of two
+// 
 // this function is taken from Starling Framework as its pretty neat ;)
 func (self *PIXI) GetNextPowerOfTwo(number int) int{
     return self.Object.Call("getNextPowerOfTwo", number).Int()
 }
 
 // GetNextPowerOfTwoI Given a number, this function returns the closest number that is a power of two
+// 
 // this function is taken from Starling Framework as its pretty neat ;)
 func (self *PIXI) GetNextPowerOfTwoI(args ...interface{}) int{
     return self.Object.Call("getNextPowerOfTwo", args).Int()
